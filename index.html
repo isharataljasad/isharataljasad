@@ -1,746 +1,894 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>إشارات الجسد · نظام تشغيلي بيولوجي</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* ---------- CSS variables ---------- */
-    :root {
-      --bg-offwhite: #f7f9fc;
-      --surface-white: #ffffff;
-      --navy-deep: #0a1a2f;
-      --clinical-blue: #1e6f9f;
-      --mint-soft: #9ec8b9;
-      --amber-warm: #e6b17e;
-      --slate-gray: #3f4a5a;
-      --border-light: #e2e8f0;
-      --spacing-xs: 0.5rem;
-      --spacing-sm: 1rem;
-      --spacing-md: 2rem;
-      --spacing-lg: 4rem;
-      --spacing-xl: 6rem;
-      --font-base: 1rem;
-      --font-scale: 1.25;
-      --radius-subtle: 4px;
-      --transition: all 0.2s ease;
-    }
-
-    /* ---------- reset & base ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: var(--bg-offwhite);
-      color: var(--slate-gray);
-      line-height: 1.6;
-      font-size: 16px;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ---------- typography ---------- */
-    h1, h2, h3 {
-      font-weight: 600;
-      color: var(--navy-deep);
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 10vw, 4.8rem);
-      letter-spacing: -0.02em;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 6vw, 3rem);
-      margin-bottom: var(--spacing-md);
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background-color: var(--clinical-blue);
-      margin-top: 0.5rem;
-    }
-
-    h3 {
-      font-size: clamp(1.35rem, 4vw, 1.8rem);
-      margin-bottom: var(--spacing-xs);
-    }
-
-    p {
-      margin-bottom: 1rem;
-      max-width: 70ch;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ---------- layout utilities ---------- */
-    .container {
-      width: 100%;
-      padding-left: var(--spacing-sm);
-      padding-right: var(--spacing-sm);
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1440px;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding-left: var(--spacing-md);
-        padding-right: var(--spacing-md);
-      }
-    }
-
-    @media (min-width: 1280px) {
-      .container {
-        padding-left: var(--spacing-lg);
-        padding-right: var(--spacing-lg);
-      }
-    }
-
-    /* ---------- top signal strip ---------- */
-    .signal-strip {
-      background-color: var(--navy-deep);
-      color: rgba(255, 255, 255, 0.8);
-      text-align: center;
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
-      font-weight: 400;
-      letter-spacing: 0.3px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    /* ---------- navigation ---------- */
-    .nav-bar {
-      background-color: var(--surface-white);
-      border-bottom: 1px solid var(--border-light);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--navy-deep);
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: var(--spacing-md);
-      font-weight: 500;
-    }
-
-    .nav-links a {
-      color: var(--slate-gray);
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--clinical-blue);
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none; /* keep minimal, but for demo we keep simplicity */
-      }
-      .nav-container {
-        justify-content: center;
-      }
-    }
-
-    /* ---------- sections ---------- */
-    section {
-      padding: var(--spacing-lg) 0;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ---------- hero ---------- */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
-      align-items: center;
-    }
-
-    @media (min-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .hero-tagline {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--clinical-blue);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-sub {
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-      font-weight: 500;
-      color: var(--navy-deep);
-      margin-bottom: 1rem;
-    }
-
-    .hero-p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    .tag-cluster {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: var(--spacing-sm);
-    }
-
-    .tag {
-      background-color: transparent;
-      border: 1px solid var(--border-light);
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--navy-deep);
-      transition: var(--transition);
-    }
-
-    .tag:hover {
-      border-color: var(--clinical-blue);
-      background-color: rgba(30, 111, 159, 0.02);
-    }
-
-    /* diagram */
-    .hero-diagram {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .bio-svg {
-      width: 100%;
-      height: auto;
-      display: block;
-      fill: none;
-      stroke: var(--navy-deep);
-      stroke-width: 1.2;
-    }
-
-    .bio-svg text {
-      fill: var(--navy-deep);
-      stroke: none;
-      font-family: 'Cairo', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      text-anchor: middle;
-      dominant-baseline: middle;
-    }
-
-    .bio-svg .node-bg {
-      fill: var(--surface-white);
-      stroke: var(--clinical-blue);
-      stroke-width: 1;
-    }
-
-    /* ---------- cards (3 pillars) ---------- */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md);
-      margin-top: var(--spacing-md);
-    }
-
-    @media (min-width: 768px) {
-      .cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .pillar-card {
-      background-color: var(--surface-white);
-      padding: var(--spacing-md);
-      border-radius: var(--radius-subtle);
-      border: 1px solid var(--border-light);
-      transition: var(--transition);
-    }
-
-    .pillar-card:hover {
-      border-color: var(--clinical-blue);
-      box-shadow: 0 8px 20px -10px rgba(0,20,40,0.1);
-    }
-
-    .pillar-card h3 {
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .pillar-card ul {
-      list-style: none;
-    }
-
-    .pillar-card li {
-      margin-bottom: 0.5rem;
-      padding-right: 1.2rem;
-      position: relative;
-    }
-
-    .pillar-card li::before {
-      content: "—";
-      position: absolute;
-      right: 0;
-      color: var(--clinical-blue);
-    }
-
-    /* ---------- layers (bio-os) ---------- */
-    .layers-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      background-color: var(--surface-white);
-      border: 1px solid var(--border-light);
-      padding: var(--spacing-md);
-      border-radius: var(--radius-subtle);
-    }
-
-    @media (min-width: 640px) {
-      .layers-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .layer-item {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px dashed var(--border-light);
-    }
-
-    .layer-item:last-child {
-      border-bottom: none;
-    }
-
-    .layer-name {
-      font-weight: 700;
-      color: var(--navy-deep);
-      min-width: 110px;
-    }
-
-    .layer-desc {
-      color: var(--slate-gray);
-      font-size: 0.95rem;
-    }
-
-    /* ---------- split layout (missing map) ---------- */
-    .split-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
-    }
-
-    @media (min-width: 768px) {
-      .split-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .split-col {
-      background-color: var(--surface-white);
-      padding: var(--spacing-md);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-subtle);
-    }
-
-    .split-col h3 {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .split-col ul {
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    .split-col li {
-      margin-bottom: 0.75rem;
-      padding-right: 1.5rem;
-      position: relative;
-    }
-
-    .split-col li::before {
-      content: "●";
-      position: absolute;
-      right: 0;
-      color: var(--clinical-blue);
-      font-size: 0.8rem;
-    }
-
-    .traditional {
-      border-right: 4px solid var(--amber-warm);
-    }
-
-    .systems {
-      border-right: 4px solid var(--mint-soft);
-    }
-
-    /* ---------- topic structure grid (8 modules) ---------- */
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-md);
-    }
-
-    .module-card {
-      background-color: var(--surface-white);
-      padding: 1.2rem;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-subtle);
-      transition: var(--transition);
-    }
-
-    .module-card:hover {
-      border-color: var(--clinical-blue);
-    }
-
-    .module-card h4 {
-      font-weight: 700;
-      color: var(--navy-deep);
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .module-card p {
-      font-size: 0.9rem;
-      color: var(--slate-gray);
-      margin-bottom: 0;
-    }
-
-    /* ---------- footer ---------- */
-    .footer {
-      background-color: var(--surface-white);
-      border-top: 1px solid var(--border-light);
-      padding: var(--spacing-md) 0;
-      margin-top: var(--spacing-lg);
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: var(--spacing-sm);
-    }
-
-    .footer small {
-      color: var(--slate-gray);
-    }
-
-    /* ---------- reveal animation ---------- */
-    .revealed {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-
-    /* ---------- responsive tweaks ---------- */
-    @media (max-width: 480px) {
-      h2::after {
-        width: 40px;
-      }
-      .layer-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.2rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إشارات الجسد | نظام التشغيل البيولوجي</title>
+    <meta name="description" content="إشارات الجسد: مشروع معرفي طبي يهدف إلى بناء نموذج منظومي للصحة، يتجاوز إدارة الأعراض نحو فهم السبب الجذري والهندسة البيولوجية للجسد.">
+    
+    <!-- Google Fonts: Tajawal for modern, geometric, readable Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+         * DESIGN SYSTEM & VARIABLES 
+         * Bio-Systematic Clinical Palette
+         */
+        :root {
+            /* Colors */
+            --bg-body: #F7F9FA;       /* Soft clinical off-white */
+            --bg-surface: #FFFFFF;    /* Pure white */
+            --bg-accent-mint: #E8F5E9;
+            --bg-accent-amber: #FFF8E1;
+            
+            --text-primary: #0F172A;  /* Deep Navy - almost black */
+            --text-secondary: #475569;/* Slate Gray */
+            --text-tertiary: #94A3B8; /* Light Slate */
+            
+            --border-subtle: #E2E8F0;
+            --border-focus: #334155;
+            
+            --accent-blue: #0284C7;   /* Clinical Blue */
+            --accent-dark: #1E293B;   /* Deep structure */
+            
+            /* Spacing & Layout */
+            --container-max: 1440px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            
+            /* Typography */
+            --font-main: 'Tajawal', sans-serif;
+            
+            /* Animation */
+            --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        /* RESET & BASE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* UTILITIES */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-padding {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--border-subtle);
+            margin: var(--spacing-lg) 0;
+            width: 100%;
+        }
+
+        /* 
+         * COMPONENTS 
+         */
+
+        /* Top Signal Strip */
+        .signal-strip {
+            background-color: var(--accent-dark);
+            color: #FFFFFF;
+            font-size: 0.875rem;
+            padding: var(--spacing-xs) 0;
+            text-align: center;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-subtle);
+            background-color: var(--bg-surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .hero-content {
+            padding-left: var(--spacing-md);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--bg-accent-mint);
+            color: #065F46;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            border: 1px solid #A7F3D0;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: var(--spacing-lg);
+            border-right: 3px solid var(--accent-blue);
+            padding-right: var(--spacing-sm);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #FFFFFF 0%, var(--bg-body) 70%);
+        }
+
+        /* SVG Diagram Styling */
+        .bio-diagram {
+            width: 100%;
+            height: 100%;
+            max-width: 650px;
+        }
+
+        .bio-node {
+            fill: var(--bg-surface);
+            stroke: var(--text-primary);
+            stroke-width: 1.5px;
+        }
+
+        .bio-line {
+            fill: none;
+            stroke: var(--border-focus);
+            stroke-width: 1px;
+            stroke-dasharray: 4;
+            opacity: 0.4;
+        }
+
+        .bio-label {
+            font-size: 12px;
+            font-weight: 700;
+            fill: var(--text-primary);
+            font-family: var(--font-main);
+        }
+
+        .bio-label-sub {
+            font-size: 10px;
+            fill: var(--text-secondary);
+            font-family: var(--font-main);
+        }
+
+        .bio-connector {
+            stroke: var(--accent-blue);
+            stroke-width: 2px;
+            fill: none;
+        }
+
+        /* Why This Project */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .why-card {
+            background: var(--bg-surface);
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0; /* Sharp corners for architectural feel */
+        }
+
+        .why-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .why-card .icon {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-blue);
+        }
+
+        /* Knowledge Paths */
+        .paths-section {
+            background-color: var(--bg-surface);
+        }
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px; /* For border effect */
+            background-color: var(--border-subtle);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .path-card {
+            background-color: var(--bg-surface);
+            padding: var(--spacing-lg);
+            transition: background-color 0.3s ease;
+        }
+
+        .path-card:hover {
+            background-color: #FAFAFA;
+        }
+
+        .path-card h3 {
+            font-size: 1.75rem;
+            color: var(--accent-dark);
+        }
+
+        .path-list li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .path-list li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        /* Bio-OS Logic Layers */
+        .layers-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .layer-row {
+            display: flex;
+            align-items: center;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            padding: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .layer-label {
+            width: 200px;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .layer-content {
+            flex-grow: 1;
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            background: var(--bg-body);
+        }
+
+        .tag.active {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            background: #F0F9FF;
+        }
+
+        /* The Missing Map (Comparison) */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .comp-col {
+            padding: var(--spacing-lg);
+        }
+
+        .comp-col.old {
+            background-color: #F8FAFC;
+            border-left: 1px solid var(--border-subtle);
+        }
+
+        .comp-col.new {
+            background-color: var(--bg-surface);
+        }
+
+        .comp-header {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .comp-col.old .comp-header { color: var(--text-tertiary); }
+        .comp-col.new .comp-header { color: var(--accent-blue); }
+
+        .comp-item {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .comp-item:last-child { border-bottom: none; }
+
+        .comp-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Topic Structure */
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .module-card {
+            border: 1px solid var(--border-subtle);
+            padding: var(--spacing-md);
+            text-align: center;
+            background: var(--bg-surface);
+        }
+
+        .module-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+            color: var(--accent-dark);
+        }
+
+        .module-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Promise Section */
+        .promise-section {
+            background-color: var(--accent-dark);
+            color: var(--bg-body);
+            text-align: center;
+        }
+
+        .promise-section h2 {
+            color: #FFFFFF;
+        }
+
+        .promise-section p {
+            color: #94A3B8;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-surface);
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 
+         * ANIMATIONS 
+         */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 
+         * RESPONSIVE 
+         */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+
+            .hero-content {
+                padding-left: 0;
+                order: 2;
+            }
+            
+            .hero-visual {
+                order: 1;
+                min-height: 400px;
+            }
+
+            .hero-desc {
+                margin: 0 auto var(--spacing-lg);
+                border-right: none;
+                border-bottom: 3px solid var(--accent-blue);
+                padding-bottom: var(--spacing-sm);
+                padding-right: 0;
+            }
+
+            .paths-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified mobile nav for this demo */
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comp-col.old {
+                border-left: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .layer-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .layer-label {
+                margin-bottom: var(--spacing-xs);
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- top signal strip -->
-  <div class="signal-strip">
-    <span>نحو معماريَّة طبِّية جديدة · نظام تشغيلي بيولوجي للأسباب الجذريَّة</span>
-  </div>
 
-  <!-- navigation -->
-  <nav class="nav-bar">
-    <div class="container nav-container">
-      <div class="logo">إشارات الجسد</div>
-      <div class="nav-links">
-        <a href="#">الرئيسية</a>
-        <a href="#">النظام</a>
-        <a href="#">المعرفة</a>
-        <a href="#">التواصل</a>
-      </div>
+    <!-- 1. Top Signal Strip -->
+    <div class="signal-strip">
+        بداية عصر جديد في الطب: من إدارة الأعراض إلى هندسة الحياة
     </div>
-  </nav>
 
-  <main>
-    <!-- hero section -->
-    <section class="container" id="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-tagline">منظومة تكاملية · Bio-OS</div>
-          <h1>إشارات الجسد</h1>
-          <div class="hero-sub">نظام تشغيلي بيولوجي للأسباب الجذريَّة</div>
-          <p class="hero-p">ليست منصَّة أعراض، بل محاولة لبناء هندسة حيوية تعيد تعريف الصحَّة والمرض كشبكة مترابطة، والتدخل كإعادة توازن سببي.</p>
-          <div class="tag-cluster">
-            <span class="tag">تشخيص سببي</span>
-            <span class="tag">محاكاة حيويَّة</span>
-            <span class="tag">توازن النظم</span>
-            <span class="tag">طب وقائي</span>
-            <span class="tag">تغذية راجعة</span>
-            <span class="tag">جذر خلوي</span>
-          </div>
+    <!-- 2. Minimal Navigation -->
+    <nav class="main-nav">
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
+            <a href="#" class="logo">إشارات الجسد</a>
+            <div class="nav-links">
+                <a href="#why">الرؤية</a>
+                <a href="#paths">المسارات</a>
+                <a href="#system">النظام</a>
+                <a href="#map">الخريطة</a>
+            </div>
         </div>
-        <div class="hero-diagram">
-          <!-- orthogonal bio‑system diagram SVG -->
-          <svg class="bio-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
-            <!-- central nucleus -->
-            <circle cx="300" cy="200" r="32" class="node-bg" stroke="var(--clinical-blue)" fill="var(--surface-white)" stroke-width="1.5"/>
-            <text x="300" y="200" font-size="10" font-weight="700">نواة النظام</text>
+    </nav>
 
-            <!-- nodes -->
-            <!-- مقاومة الإنسولين -->
-            <circle cx="480" cy="70" r="20" class="node-bg" fill="var(--surface-white)"/>
-            <text x="480" y="70" font-size="8">مقاومة الإنسولين</text>
-            <!-- نقص الحديد -->
-            <circle cx="120" cy="70" r="20" class="node-bg"/>
-            <text x="120" y="70" font-size="8">نقص الحديد</text>
-            <!-- الالتهاب المزمن -->
-            <circle cx="120" cy="200" r="20" class="node-bg"/>
-            <text x="120" y="200" font-size="8">الالتهاب المزمن</text>
-            <!-- اضطرابات النوم -->
-            <circle cx="480" cy="200" r="20" class="node-bg"/>
-            <text x="480" y="200" font-size="8">اضطرابات النوم</text>
-            <!-- الخلل الهرموني -->
-            <circle cx="120" cy="330" r="20" class="node-bg"/>
-            <text x="120" y="330" font-size="8">الخلل الهرموني</text>
-            <!-- الميتوكوندريا -->
-            <circle cx="220" cy="120" r="20" class="node-bg"/>
-            <text x="220" y="120" font-size="8">الميتوكوندريا</text>
-            <!-- الميكروبيوم -->
-            <circle cx="480" cy="330" r="20" class="node-bg"/>
-            <text x="480" y="330" font-size="8">الميكروبيوم</text>
-            <!-- التغذية الراجعة -->
-            <circle cx="380" cy="280" r="20" class="node-bg"/>
-            <text x="380" y="280" font-size="8">التغذية الراجعة</text>
-            <!-- المحاكاة -->
-            <circle cx="300" cy="50" r="20" class="node-bg"/>
-            <text x="300" y="50" font-size="8">المحاكاة</text>
-            <!-- التدخل الطبي -->
-            <circle cx="300" cy="350" r="20" class="node-bg"/>
-            <text x="300" y="350" font-size="8">التدخل الطبي</text>
-
-            <!-- orthogonal connectors (simplified right‑angle lines) -->
-            <g stroke="var(--navy-deep)" stroke-width="0.8" opacity="0.6">
-              <!-- to مقاومة الإنسولين (480,70) -->
-              <path d="M300 200 L 480 200 L 480 70" fill="none"/>
-              <!-- to نقص الحديد (120,70) -->
-              <path d="M300 200 L 120 200 L 120 70" fill="none"/>
-              <!-- to الالتهاب المزمن (120,200) horizontal -->
-              <path d="M300 200 L 120 200" fill="none"/>
-              <!-- to اضطرابات النوم (480,200) -->
-              <path d="M300 200 L 480 200" fill="none"/>
-              <!-- to الخلل الهرموني (120,330) -->
-              <path d="M300 200 L 120 200 L 120 330" fill="none"/>
-              <!-- to الميتوكوندريا (220,120) -->
-              <path d="M300 200 L 220 200 L 220 120" fill="none"/>
-              <!-- to الميكروبيوم (480,330) -->
-              <path d="M300 200 L 480 200 L 480 330" fill="none"/>
-              <!-- to التغذية الراجعة (380,280) -->
-              <path d="M300 200 L 380 200 L 380 280" fill="none"/>
-              <!-- to المحاكاة (300,50) vertical -->
-              <path d="M300 200 L 300 50" fill="none"/>
-              <!-- to التدخل الطبي (300,350) -->
-              <path d="M300 200 L 300 350" fill="none"/>
-            </g>
-          </svg>
+    <!-- 3. Hero Section -->
+    <header class="hero container">
+        <div class="hero-content reveal">
+            <span class="hero-tag">نظام التشغيل البيولوجي</span>
+            <h1>إشارات الجسد</h1>
+            <h2 class="hero-subtitle">ليس مجرد موقع طبي، بل محاولة لإعادة هندسة الفهم البشري للصحة والمرض.</h2>
+            <p class="hero-desc">
+                نحن لا نعالج الأعراض، نحن نقرأ الشيفرة. نموذج طبي منظومي يتجاوز الطب التقليدي المجزأ ليصل إلى الجذر السببي، عبر محاكاة دقيقة لبيولوجيا الإنسان كمنظومة واحدة متكاملة.
+            </p>
+            
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;">
+                <span style="font-size: 0.875rem; color: var(--text-tertiary); border: 1px solid var(--border-subtle); padding: 4px 8px; border-radius: 4px;">Root Cause</span>
+                <span style="font-size: 0.875rem; color: var(--text-tertiary); border: 1px solid var(--border-subtle); padding: 4px 8px; border-radius: 4px;">Systems Biology</span>
+                <span style="font-size: 0.875rem; color: var(--text-tertiary); border: 1px solid var(--border-subtle); padding: 4px 8px; border-radius: 4px;">Bio-OS</span>
+            </div>
         </div>
-      </div>
+
+        <div class="hero-visual reveal">
+            <!-- Orthogonal Biological Operating System Diagram SVG -->
+            <svg class="bio-diagram" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#0284C7" />
+                    </marker>
+                </defs>
+
+                <!-- Grid Background (Subtle) -->
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E2E8F0" stroke-width="0.5"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+
+                <!-- Central Core -->
+                <rect x="250" y="250" width="100" height="100" class="bio-node" rx="4" />
+                <text x="300" y="295" text-anchor="middle" class="bio-label">Bio-OS Core</text>
+                <text x="300" y="315" text-anchor="middle" class="bio-label-sub">المحرك البيولوجي</text>
+
+                <!-- Input Layer (Left) -->
+                <rect x="50" y="100" width="120" height="60" class="bio-node" rx="2" />
+                <text x="110" y="135" text-anchor="middle" class="bio-label">الإشارات الحيوية</text>
+                
+                <rect x="50" y="200" width="120" height="60" class="bio-node" rx="2" />
+                <text x="110" y="235" text-anchor="middle" class="bio-label">البيانات المخبرية</text>
+
+                <rect x="50" y="300" width="120" height="60" class="bio-node" rx="2" />
+                <text x="110" y="335" text-anchor="middle" class="bio-label">نمط الحياة</text>
+
+                <!-- Output Layer (Right) -->
+                <rect x="430" y="150" width="120" height="60" class="bio-node" rx="2" />
+                <text x="490" y="185" text-anchor="middle" class="bio-label">التدخل الطبي</text>
+
+                <rect x="430" y="250" width="120" height="60" class="bio-node" rx="2" />
+                <text x="490" y="285" text-anchor="middle" class="bio-label">المحاكاة</text>
+
+                <rect x="430" y="350" width="120" height="60" class="bio-node" rx="2" />
+                <text x="490" y="385" text-anchor="middle" class="bio-label">الوقاية</text>
+
+                <!-- Orthogonal Connectors -->
+                <!-- Inputs to Core -->
+                <path d="M170 130 L 220 130 L 220 280 L 250 280" class="bio-line" marker-end="url(#arrow)" />
+                <path d="M170 230 L 200 230 L 200 300 L 250 300" class="bio-line" marker-end="url(#arrow)" />
+                <path d="M170 330 L 220 330 L 220 320 L 250 320" class="bio-line" marker-end="url(#arrow)" />
+
+                <!-- Core to Outputs -->
+                <path d="M350 280 L 400 280 L 400 180 L 430 180" class="bio-connector" marker-end="url(#arrow)" />
+                <path d="M350 300 L 430 300" class="bio-connector" marker-end="url(#arrow)" />
+                <path d="M350 320 L 400 320 L 400 380 L 430 380" class="bio-connector" marker-end="url(#arrow)" />
+
+                <!-- Floating Concepts (Nodes) -->
+                <circle cx="150" y="450" r="30" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1" />
+                <text x="150" y="455" text-anchor="middle" font-size="8" fill="#2E7D32" font-weight="bold">الالتهاب</text>
+
+                <circle cx="450" y="450" r="30" fill="#FFF3E0" stroke="#F57C00" stroke-width="1" />
+                <text x="450" y="455" text-anchor="middle" font-size="8" fill="#F57C00" font-weight="bold">المقاومة</text>
+
+                <!-- Feedback Loop -->
+                <path d="M490 410 L 490 500 L 110 500 L 110 460" fill="none" stroke="#94A3B8" stroke-width="1" stroke-dasharray="5,5" />
+                <text x="300" y="520" text-anchor="middle" font-size="10" fill="#94A3B8">حلقة التغذية الراجعة (Feedback Loop)</text>
+            </svg>
+        </div>
+    </header>
+
+    <!-- 4. Why This Project -->
+    <section id="why" class="section-padding container reveal">
+        <div style="max-width: 800px; margin-bottom: var(--spacing-lg);">
+            <h2>لماذا هذا المشروع؟</h2>
+            <p>الطب الحالي يعاني من "قصر النظر المنظومي". نحن نعالج العضو ونهمل الشبكة.</p>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    التجزؤ الخطير
+                </h3>
+                <p>يتم تقسيم الجسد إلى تخصصات منعزلة (قلب، هضم، أعصاب). لكن المرض لا يحترم هذه الحدود. الخلل في الأمعاء قد يكون جذر الصداع النصفي.</p>
+            </div>
+            <div class="why-card">
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    إدارة الأعراض
+                </h3>
+                <p>الوصفة الدوائية التقليدية غالباً ما تهدف لكتم صوت الإنذار (الألم) بدلاً من إطفاء الحريق (السبب الجذري). هذا يؤجل الكارثة ولا يمنعها.</p>
+            </div>
+            <div class="why-card">
+                <h3>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    غياب الخريطة
+                </h3>
+                <p>نفتقر إلى "دليل تشغيل" للجسد البشري يربط بين البيانات المخبرية المجردة والواقع الفسيولوجي المعاش للمريض.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- لماذا هذا المشروع؟ -->
-    <section class="container" id="why">
-      <h2>لماذا هذا المشروع؟</h2>
-      <div class="cards-grid">
-        <div class="pillar-card">
-          <h3>الطب التقليدي مجزَّأ</h3>
-          <p>يُعالج الأعراض بمعزل عن الشبكة الكليَّة، ويفتقر إلى رؤية ترابطية للأعضاء والمسارات.</p>
+    <!-- 5. Knowledge Paths -->
+    <section id="paths" class="paths-section section-padding reveal">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">المسارات المعرفية الرئيسية</h2>
+            <div class="paths-grid">
+                <div class="path-card">
+                    <h3>فهم الإنسان</h3>
+                    <p>دراسة الجسد كمنظومة طاقة وكيمياء.</p>
+                    <ul class="path-list">
+                        <li>الميتوكوندريا ومحطات الطاقة</li>
+                        <li>الميكروبيوم والدماغ الثاني</li>
+                        <li>الساعة البيولوجية والإيقاع اليومي</li>
+                        <li>الهرمونات كلغة تواصل</li>
+                    </ul>
+                </div>
+                <div class="path-card">
+                    <h3>فهم المرض</h3>
+                    <p>المرض ليس عدواً، بل رسالة خلل.</p>
+                    <ul class="path-list">
+                        <li>الالتهاب المزمن منخفض الدرجة</li>
+                        <li>مقاومة الإنسولين كجذر مشترك</li>
+                        <li>الإجهاد التأكسدي وتلف الخلايا</li>
+                        <li>نفاذية الأمعاء والمناعة</li>
+                    </ul>
+                </div>
+                <div class="path-card">
+                    <h3>التدخل الطبي</h3>
+                    <p>إعادة التوازن بدلاً من القمع.</p>
+                    <ul class="path-list">
+                        <li>التغذية العلاجية الدقيقة</li>
+                        <li>إدارة الإجهاد والنوم</li>
+                        <li>المكملات المستهدفة</li>
+                        <li>الصيام المتقطع وإعادة الضبط</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="pillar-card">
-          <h3>إدارة الأعراض لا تكفي</h3>
-          <p>إسكات الألم أو خفض الالتهاب دون إزالة السبب الجذري يؤدي إلى انتكاس أو أمراض جديدة.</p>
-        </div>
-        <div class="pillar-card">
-          <h3>النموذج المنظومي</h3>
-          <p>إطار يفسر المرض كفشل في شبكة بيولوجية، والتدخل كإعادة ضبط للتوازن الديناميكي.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- المسارات المعرفية الرئيسية -->
-    <section class="container" id="paths">
-      <h2>المسارات المعرفية الرئيسية</h2>
-      <div class="cards-grid">
-        <div class="pillar-card">
-          <h3>فهم الإنسان</h3>
-          <ul>
-            <li>الشبكات الحيوية والميتوكوندريا</li>
-            <li>الميكروبيوم والهرمونات</li>
-            <li>جهاز المناعة والالتهاب</li>
-            <li>الإشارات الخلوية</li>
-          </ul>
+    <!-- 6. Bio-OS Logic -->
+    <section id="system" class="section-padding container reveal">
+        <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">منطق النظام التشغيلي البيولوجي</h2>
+        <div class="layers-container">
+            <div class="layer-row">
+                <div class="layer-label">1. المدخلات (Sensors)</div>
+                <div class="layer-content">
+                    <span class="tag">تحاليل الدم</span>
+                    <span class="tag">أعراض المريض</span>
+                    <span class="tag">بيانات النوم</span>
+                    <span class="tag">التغذية</span>
+                </div>
+            </div>
+            <div class="layer-row">
+                <div class="layer-label">2. المعالجة (Engine)</div>
+                <div class="layer-content">
+                    <span class="tag active">تحليل السببية</span>
+                    <span class="tag active">ربط الشبكات</span>
+                    <span class="tag">اكتشاف الأنماط</span>
+                    <span class="tag">محاكاة السيناريوهات</span>
+                </div>
+            </div>
+            <div class="layer-row">
+                <div class="layer-label">3. المخرجات (Output)</div>
+                <div class="layer-content">
+                    <span class="tag">بروتوكول علاجي</span>
+                    <span class="tag">تعديل نمط الحياة</span>
+                    <span class="tag">مؤشرات متابعة</span>
+                </div>
+            </div>
+            <div class="layer-row" style="border-color: var(--accent-blue); background: #F0F9FF;">
+                <div class="layer-label" style="color: var(--accent-blue);">4. الهدف (Goal)</div>
+                <div class="layer-content">
+                    <span class="tag active" style="background: white; border-color: var(--accent-blue);">الاستقرار البيولوجي (Homeostasis)</span>
+                </div>
+            </div>
         </div>
-        <div class="pillar-card">
-          <h3>فهم المرض</h3>
-          <ul>
-            <li>الخلل الوظيفي مقابل التصنيف</li>
-            <li>الحلقات المفرغة (feedbacks)</li>
-            <li>تراكم العبء السببي</li>
-            <li>أنماط الفشل الشبكية</li>
-          </ul>
-        </div>
-        <div class="pillar-card">
-          <h3>التدخل الطبي</h3>
-          <ul>
-            <li>إعادة التوازن بدل الكبت</li>
-            <li>محاكاة رقمية (digital twin)</li>
-            <li>التدخل الدقيق القائم على الجذر</li>
-            <li>منع التكرار بطبقات وقائية</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
-    <!-- منطق النظام التشغيلي البيولوجي -->
-    <section class="container" id="bio-os">
-      <h2>منطق النظام التشغيلي البيولوجي</h2>
-      <div class="layers-grid">
-        <div class="layer-item"><span class="layer-name">المستخدم / الإشارات</span><span class="layer-desc">مدخلات حيوية، أعراض، قياسات</span></div>
-        <div class="layer-item"><span class="layer-name">المتحسسات</span><span class="layer-desc">أجهزة استشعار، تحاليل، أجهزة قابلة للارتداء</span></div>
-        <div class="layer-item"><span class="layer-name">تكامل البيانات</span><span class="layer-desc">دمج المؤشرات الحيوية في ملف موحد</span></div>
-        <div class="layer-item"><span class="layer-name">المحرك البيولوجي</span><span class="layer-desc">نماذج شبكية ديناميكية</span></div>
-        <div class="layer-item"><span class="layer-name">تحليل السبب الجذري</span><span class="layer-desc">استخراج العقد المسببة للخلل</span></div>
-        <div class="layer-item"><span class="layer-name">المحاكاة / التوأم الرقمي</span><span class="layer-desc">اختبار السيناريوهات افتراضياً</span></div>
-        <div class="layer-item"><span class="layer-name">التدخل</span><span class="layer-desc">توصيات علاجية أو نمط حياة</span></div>
-        <div class="layer-item"><span class="layer-name">حلقة التغذية الراجعة</span><span class="layer-desc">مراقبة الاستجابة وإعادة الضبط</span></div>
-        <div class="layer-item"><span class="layer-name">الوقاية</span><span class="layer-desc">طبقة حماية مسبقة</span></div>
-        <div class="layer-item"><span class="layer-name">نمط حياة مستدام</span><span class="layer-desc">تكييف بيئي وسلوكي</span></div>
-      </div>
-    </section>
-
-    <!-- الخريطة المفقودة في الطب -->
-    <section class="container" id="missing-map">
-      <h2>الخريطة المفقودة في الطب</h2>
-      <div class="split-grid">
-        <div class="split-col traditional">
-          <h3>🔻 الطب التقليدي</h3>
-          <ul>
-            <li>نظرة معزولة للأعضاء</li>
-            <li>علاج الأعراض بمثبطات</li>
-            <li>تفسير خطي: جرثومة ← مضاد</li>
-            <li>إهمال الشبكات السببيَّة</li>
-            <li>تقسيم المرضى حسب التصنيفات الجامدة</li>
-          </ul>
+    <!-- 7. The Missing Map -->
+    <section id="map" class="section-padding container reveal">
+        <h2 class="text-center" style="margin-bottom: var(--spacing-lg);">الخريطة المفقودة في الطب</h2>
+        <div class="comparison-grid">
+            <div class="comp-col old">
+                <span class="comp-header">الطب التقليدي (التفاعلي)</span>
+                <div class="comp-item">
+                    <h4>التركيز على العضو</h4>
+                    <p>عندما تشتكي من صداع، يفحص الطبيب الرأس فقط، متجاهلاً الكبد أو الأمعاء.</p>
+                </div>
+                <div class="comp-item">
+                    <h4>الاعتماد على "الطبيعي"</h4>
+                    <p>إذا كانت التحاليل ضمن المعدل الطبيعي الواسع، يُقال للمريض "أنت سليم" رغم معاناته.</p>
+                </div>
+                <div class="comp-item">
+                    <h4>الحل الدوائي الأحادي</h4>
+                    <p>دواء لكل عرض. ارتفاع ضغط؟ حبة. ارتفاع سكر؟ حبة. ارتفاع كوليسترول؟ حبة.</p>
+                </div>
+            </div>
+            <div class="comp-col new">
+                <span class="comp-header">الطب المنظومي (إشارات الجسد)</span>
+                <div class="comp-item">
+                    <h4>التركيز على الشبكة</h4>
+                    <p>الصداع قد يكون نتيجة خلل في الميكروبيوم أو نقص مغذيات دقيقة تؤثر على الناقلات العصبية.</p>
+                </div>
+                <div class="comp-item">
+                    <h4>البحث عن "المثالي"</h4>
+                    <p>نحن نبحث عن النطاق المثالي الوظيفي (Optimal Range) وليس مجرد البقاء ضمن حدود النجاة.</p>
+                </div>
+                <div class="comp-item">
+                    <h4>التدخل المتعدد الأبعاد</h4>
+                    <p>حل جذري واحد (مثل إصلاح مقاومة الإنسولين) قد يحل 10 أعراض مختلفة في وقت واحد.</p>
+                </div>
+            </div>
         </div>
-        <div class="split-col systems">
-          <h3>🌀 الطب المنظومي السببي</h3>
-          <ul>
-            <li>رسم خريطة الترابطات الحيوية</li>
-            <li>معالجة العُقد الجذريَّة</li>
-            <li>نمذجة الديناميكيات التكيفية</li>
-            <li>تخصيص التدخل وفق الشبكة الفردية</li>
-            <li>منع التكرار عبر تصحيح الحلقات</li>
-          </ul>
+    </section>
+
+    <!-- 8. Topic Structure -->
+    <section class="section-padding container reveal" style="background-color: var(--bg-surface); padding: var(--spacing-lg); border: 1px solid var(--border-subtle);">
+        <h3 style="margin-bottom: var(--spacing-md);">هيكل الموضوع الواحد (Atlas Template)</h3>
+        <p style="margin-bottom: var(--spacing-md);">كيف نقوم بتفكيك أي حالة مرضية في موسوعتنا:</p>
+        <div class="structure-grid">
+            <div class="module-card">
+                <span class="module-icon">🔍</span>
+                <div class="module-title">المدخل التشخيصي</div>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">📊</span>
+                <div class="module-title">العلامات والتحاليل</div>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">⚙️</span>
+                <div class="module-title">التفسير الميكانيكي</div>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">🌳</span>
+                <div class="module-title">الجذر السببي</div>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">💊</span>
+                <div class="module-title">التدخلات العلاجية</div>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">🛡️</span>
+                <div class="module-title">الوقاية والمناعة</div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- هيكل الموضوع الواحد (الأطلس التشغيلي) -->
-    <section class="container" id="topic-structure">
-      <h2>هيكل الموضوع الواحد</h2>
-      <p style="margin-bottom: 1.5rem;">كل مدخل في الموسوعة يُعرض عبر هذه الطبقات التشخيصية والتفسيرية</p>
-      <div class="modules-grid">
-        <div class="module-card"><h4>المدخل التشخيصي</h4><p>العلامات السريرية، الأعراض الظاهرة</p></div>
-        <div class="module-card"><h4>العلامات والتحاليل</h4><p>المخبري، التصوير، المقاييس الحيوية</p></div>
-        <div class="module-card"><h4>التفسير الميكانيكي</h4><p>كيف يحدث الخلل على مستوى الشبكة</p></div>
-        <div class="module-card"><h4>التشخيص التفريقي</h4><p>تمييز المسارات المتشابهة</p></div>
-        <div class="module-card"><h4>الجذر السببي</h4><p>أصل الاضطراب (خلية، عضو، نظام)</p></div>
-        <div class="module-card"><h4>التدخلات</h4><p>دوائية، تغذية، بيئية، سلوكية</p></div>
-        <div class="module-card"><h4>الوقاية ومنع التكرار</h4><p>استراتيجيات استقرار النظام</p></div>
-        <div class="module-card"><h4>الطبقات المرتبطة</h4><p>تأثيرات متبادلة مع أنظمة أخرى</p></div>
-      </div>
+    <!-- 9. Project Promise -->
+    <section class="promise-section section-padding reveal">
+        <div class="container">
+            <h2>وعد المشروع</h2>
+            <div class="divider" style="background-color: rgba(255,255,255,0.2); width: 100px; margin: 2rem auto;"></div>
+            <p>
+                "إشارات الجسد" لا يسعى ليكون مدونة صحية عابرة، ولا منصة لبيع المكملات.<br>
+                نحن نبني البنية التحتية المعرفية لصحة المستقبل.<br>
+                صحة لا تعتمد على الحظ، بل على الفهم العميق لقوانين الجسد.
+            </p>
+        </div>
     </section>
 
-    <!-- وعد المشروع -->
-    <section class="container" id="promise">
-      <h2>وعد المشروع</h2>
-      <div style="max-width: 800px; background-color: var(--surface-white); padding: var(--spacing-md); border: 1px solid var(--border-light); border-radius: var(--radius-subtle);">
-        <p style="font-size: 1.2rem; font-weight: 500;">لا يبحث هذا المشروع عن متابعين أو اتجاهات رائجة، ولا يقدِّم محتوى صحياً سطحياً. إنه يسعى إلى نتيجة طبِّية مختلفة: خريطة تكاملية تعيد بناء المنطق التشخيصي والعلاجي من جذوره. ليس نظاماً آخر، بل نظاماً تشغيلياً حقيقياً للجسد.</p>
-      </div>
-    </section>
-  </main>
+    <!-- 10. Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <strong>إشارات الجسد © 2023</strong>
+                <p style="margin-top: 5px; font-size: 0.75rem;">جميع الحقوق محفوظة. مشروع معرفي غير ربحي.</p>
+            </div>
+            <div style="text-align: left;">
+                <a href="#" style="margin-right: 15px; font-size: 0.875rem;">سياسة الخصوصية</a>
+                <a href="#" style="font-size: 0.875rem;">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
 
-  <!-- footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <small>© 2026 إشارات الجسد · مشروع معرفي غير تجاري</small>
-      <small>النظام التشغيلي البيولوجي · جميع المفاهيم مطروحة للنقاش العلمي</small>
-    </div>
-  </footer>
+    <!-- Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth reveal animation on scroll
+            const reveals = document.querySelectorAll('.reveal');
 
-  <!-- simple reveal on scroll -->
-  <script>
-    (function() {
-      const sections = document.querySelectorAll('section');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-          }
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 150;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            // Trigger once on load
+            revealOnScroll();
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-      sections.forEach(section => observer.observe(section));
-      // manually reveal first section (hero) immediately if visible
-      if (sections.length) sections[0].classList.add('revealed');
-    })();
-  </script>
+    </script>
 </body>
 </html>
