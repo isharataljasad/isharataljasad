@@ -32,6 +32,7 @@
 
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Tajawal', sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -61,8 +62,10 @@
       100% { background-position: 100% 0; }
     }
 
+    /* تعديل العرض ليكون مريحاً وعريضاً بدون مساحات مهدرة */
     .container {
-      width: min(1200px, calc(100% - 32px));
+      width: 96%;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 32px 0 48px;
     }
@@ -83,10 +86,11 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 40px;
+      padding: 48px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
       background:
         radial-gradient(circle at top, rgba(15, 76, 129, 0.08), transparent 42%),
         radial-gradient(circle at left, rgba(217, 119, 6, 0.08), transparent 32%),
@@ -111,7 +115,7 @@
       color: var(--blue);
       font-size: 14px;
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
     }
 
     .pulse-dot {
@@ -131,18 +135,17 @@
     h1, h2, h3, p { margin: 0; }
 
     .hero h1 {
-      font-size: clamp(38px, 6vw, 64px);
+      font-size: clamp(42px, 5vw, 68px);
       font-weight: 800;
       line-height: 1.2;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       color: #0b1324;
     }
 
     .hero p {
-      font-size: 20px;
+      font-size: 22px;
       color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       line-height: 1.6;
     }
 
@@ -150,7 +153,6 @@
       color: var(--amber);
       font-weight: 700;
       font-size: 18px;
-      margin-bottom: 20px;
       display: block;
     }
 
@@ -158,13 +160,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 32px;
     }
 
     .tag {
-      padding: 8px 16px;
+      padding: 10px 18px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
     }
 
@@ -175,7 +177,7 @@
 
     .map-box {
       position: relative;
-      min-height: 400px;
+      min-height: 450px;
       border-radius: 28px;
       background: rgba(255,255,255,0.92);
       border: 1px solid var(--border);
@@ -186,8 +188,8 @@
     .orbit {
       position: absolute;
       inset: 50% auto auto 50%;
-      width: 250px;
-      height: 250px;
+      width: 280px;
+      height: 280px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       border: 1px dashed #cbd5e1;
@@ -202,42 +204,36 @@
     .center-node {
       position: absolute;
       inset: 50% auto auto 50%;
-      width: 220px;
+      width: 240px;
       transform: translate(-50%, -50%);
       text-align: center;
       background: var(--dark);
       color: #fff;
       border-radius: 999px;
-      padding: 28px 22px;
+      padding: 32px 24px;
       z-index: 2;
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.22);
       animation: centerPulse 2.5s infinite;
     }
 
-    @keyframes centerPulse {
-      0% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.4); }
-      70% { box-shadow: 0 0 0 15px rgba(15, 23, 42, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0); }
-    }
-
     .center-node small {
       display: block;
-      font-size: 13px;
+      font-size: 14px;
       color: #cbd5e1;
       margin-bottom: 8px;
     }
 
     .center-node strong {
       display: block;
-      font-size: 26px;
-      line-height: 1.5;
+      font-size: 28px;
+      line-height: 1.4;
     }
 
     .mini-node {
       position: absolute;
-      padding: 12px 18px;
+      padding: 14px 22px;
       border-radius: 18px;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       background: #fff;
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
@@ -249,9 +245,9 @@
       50% { transform: translateY(-10px); }
     }
 
-    .mini-node.blue { top: 26px; left: 26px; background: #f0f9ff; border: 1px solid #dbeafe; color: #0c4a6e; animation-delay: 0s;}
-    .mini-node.amber { left: 34px; bottom: 26px; background: #fffbeb; border: 1px solid #fde68a; color: #92400e; animation-delay: 1s;}
-    .mini-node.green { top: 42px; right: 26px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; animation-delay: 2s;}
+    .mini-node.blue { top: 30px; left: 30px; background: #f0f9ff; border: 1px solid #dbeafe; color: #0c4a6e; animation-delay: 0s;}
+    .mini-node.amber { left: 40px; bottom: 30px; background: #fffbeb; border: 1px solid #fde68a; color: #92400e; animation-delay: 1s;}
+    .mini-node.green { top: 50px; right: 30px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; animation-delay: 2s;}
 
     .line {
       position: absolute;
@@ -260,27 +256,26 @@
       transform-origin: center;
       opacity: 0.6;
     }
-
-    .line.blue { top: 116px; left: 126px; width: 110px; background: #7dd3fc; }
-    .line.amber { bottom: 94px; left: 138px; width: 100px; background: #fbbf24; transform: rotate(-20deg); }
-    .line.green { top: 134px; right: 126px; width: 110px; background: #6ee7b7; }
+    .line.blue { top: 130px; left: 140px; width: 120px; background: #7dd3fc; }
+    .line.amber { bottom: 100px; left: 150px; width: 110px; background: #fbbf24; transform: rotate(-20deg); }
+    .line.green { top: 150px; right: 140px; width: 120px; background: #6ee7b7; }
 
     .section-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 24px;
+      margin-top: 32px;
     }
 
-    .channel { padding: 24px; }
+    .channel { padding: 28px; }
 
     .channel-header {
       border-radius: 20px;
-      padding: 16px 18px;
+      padding: 18px 20px;
       color: #fff;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .header-blue { background: linear-gradient(135deg, #0f4c81, #0ea5e9); }
@@ -291,232 +286,201 @@
       background: #f8fafc;
       border: 1px solid #eef2f7;
       border-radius: 20px;
-      padding: 18px;
-      margin-top: 14px;
+      padding: 20px;
+      margin-top: 16px;
       transition: background 0.3s;
     }
     
     .subcard:hover { background: #fff; }
-    .subcard h3 { font-size: 22px; margin-bottom: 10px; color: #0f172a; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .subcard h3 { font-size: 22px; margin-bottom: 12px; color: #0f172a; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip {
       background: #fff;
       border: 1px solid #f1f5f9;
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 14px;
+      padding: 10px 14px;
+      font-size: 15px;
       color: #475569;
       font-weight: 500;
     }
 
-    /* أنماط قسم منظومة المنصات الجديد */
-    .ecosystem-section {
-      padding: 32px 40px;
-      margin-top: 24px;
+    /* قسم الهيكل يمتد بكامل العرض بدلاً من عمودين */
+    .full-width-panel {
+      margin-top: 32px;
+      padding: 40px;
     }
-    .ecosystem-header {
-      margin-bottom: 28px;
-      border-bottom: 1px solid #f1f5f9;
-      padding-bottom: 16px;
-    }
-    .ecosystem-header h2 {
-      font-size: 30px;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-    .ecosystem-header p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-    .platforms-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .platform-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .platform-card:hover {
-      background: var(--surface);
-      border-color: var(--blue-soft);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
-    }
-    .platform-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      color: #fff;
-    }
-    .tiktok-icon { background: #000; box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
-    .telegram-icon { background: #0088cc; box-shadow: 0 8px 16px rgba(0,136,204,0.25); }
-    .linkedin-icon { background: #0a66c2; box-shadow: 0 8px 16px rgba(10,102,194,0.25); }
-    
-    .platform-card h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-    .platform-card p {
-      font-size: 14.5px;
-      color: #475569;
-      flex-grow: 1;
-      margin-bottom: 24px;
-      line-height: 1.7;
-    }
-    .platform-btn {
-      text-decoration: none;
-      text-align: center;
-      padding: 12px 0;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 15px;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: 1px solid transparent;
-    }
-    .tiktok-btn { background: #f1f5f9; color: #000; }
-    .tiktok-btn:hover { background: #000; color: #fff; }
-    .telegram-btn { background: #f0f9ff; color: #0088cc; }
-    .telegram-btn:hover { background: #0088cc; color: #fff; }
-    .linkedin-btn { background: #eff6ff; color: #0a66c2; }
-    .linkedin-btn:hover { background: #0a66c2; color: #fff; }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .panel { padding: 28px; }
     .panel-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding-bottom: 16px;
+      padding-bottom: 20px;
       border-bottom: 1px solid #f1f5f9;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
     }
-
-    .panel-header h2 { font-size: 30px; color: #0f172a; margin-bottom: 8px; }
-    .panel-header p { color: var(--muted); font-size: 16px; }
-
+    .panel-header h2 { font-size: 32px; color: #0f172a; margin-bottom: 8px; }
+    .panel-header p { color: var(--muted); font-size: 18px; }
     .badge {
       background: var(--dark);
       color: #fff;
-      padding: 12px 16px;
+      padding: 12px 18px;
       border-radius: 16px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       white-space: nowrap;
     }
 
     .template-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
     }
 
-    .template-item, .pillar-item {
+    .template-item {
       background: #f8fafc;
       border: 1px solid #eef2f7;
       border-radius: 18px;
-      padding: 16px;
+      padding: 20px;
       transition: transform 0.2s;
+      font-size: 17px;
+      font-weight: 700;
+      color: #475569;
     }
-
-    .template-item:hover, .pillar-item:hover {
+    .template-item:hover {
       transform: scale(1.02);
       border-color: var(--blue-soft);
+      background: #fff;
+      box-shadow: 0 10px 20px rgba(15,23,42,0.04);
     }
-
-    .template-item small, .pillar-item small {
+    .template-item small {
       display: block;
       color: #94a3b8;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
     }
 
-    .template-item { font-size: 15px; font-weight: 700; color: #475569; }
-    .pillars { display: grid; gap: 12px; }
-    .pillar-item p { font-size: 14px; color: #475569; line-height: 1.9; }
-
-    .dark-section {
-      margin-top: 24px;
+    /* قسم المنصات الجديد: المستطيل الأسود والفخم */
+    .ecosystem-dark {
       background: var(--dark);
       color: #fff;
       border-radius: 28px;
+      padding: 48px;
+      margin-top: 32px;
       box-shadow: var(--shadow);
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
     }
-
-    .dark-section h2 { font-size: 34px; margin-bottom: 14px; }
-    .dark-section p { color: #cbd5e1; font-size: 16px; }
-
-    .steps {
+    .ecosystem-header {
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 24px;
+      text-align: center;
+    }
+    .ecosystem-header h2 {
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .ecosystem-header p {
+      color: #cbd5e1;
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .platforms-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 24px;
     }
-
-    .step {
-      border-radius: 20px;
-      padding: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: background 0.3s;
+    .platform-card-dark {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s ease;
     }
-
-    .step:hover { background: rgba(255,255,255,0.1); }
-    .step small { display: block; font-size: 13px; margin-bottom: 8px; font-weight: 700; color: rgba(255,255,255,0.7);}
-    .step h3 { font-size: 22px; margin-bottom: 8px; }
-    .step p { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.8);}
-
-    .step.blue { border-top: 3px solid #0ea5e9; }
-    .step.amber { border-top: 3px solid #f59e0b; }
-    .step.green { border-top: 3px solid #10b981; }
+    .platform-card-dark:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px);
+    }
+    .platform-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .tiktok-icon { background: #000; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .telegram-icon { background: #0088cc; box-shadow: 0 8px 20px rgba(0,136,204,0.3); }
+    .linkedin-icon { background: #0a66c2; box-shadow: 0 8px 20px rgba(10,102,194,0.3); }
+    
+    .platform-card-dark h3 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .platform-card-dark p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      flex-grow: 1;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .platform-btn {
+      text-decoration: none;
+      width: 100%;
+      padding: 14px 0;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .tiktok-btn { background: #fff; color: #000; }
+    .tiktok-btn:hover { background: #e2e8f0; }
+    .telegram-btn { background: #0088cc; color: #fff; }
+    .telegram-btn:hover { background: #0077b5; }
+    .linkedin-btn { background: #0a66c2; color: #fff; }
+    .linkedin-btn:hover { background: #08529e; }
 
     @media (max-width: 1024px) {
-      .hero, .content-grid, .dark-section, .section-grid { grid-template-columns: 1fr; }
-      .template-grid, .steps, .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin: 0 auto 12px auto; }
+      .tags { justify-content: center; }
+      .orbit, .center-node, .mini-node { margin: 0 auto; }
+      .section-grid { grid-template-columns: 1fr; }
+      .platforms-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
     }
 
     @media (max-width: 680px) {
-      .container { width: min(100% - 20px, 1200px); }
-      .hero, .panel, .dark-section, .ecosystem-section { padding: 22px; }
-      .hero p { font-size: 17px; }
-      .map-box { min-height: 340px; }
-      .orbit { width: 190px; height: 190px; }
-      .center-node { width: 180px; padding: 22px 16px; }
-      .center-node strong { font-size: 20px; }
-      .template-grid, .steps, .platforms-grid { grid-template-columns: 1fr; }
-      .mini-node { font-size: 13px; padding: 10px 12px; }
-      .mini-node.blue { top: 18px; left: 14px; }
-      .mini-node.green { top: 20px; right: 14px; }
+      .container { width: 100%; padding: 20px 10px; }
+      .hero, .full-width-panel, .ecosystem-dark { padding: 24px; }
+      .hero h1 { font-size: 34px; }
+      .hero p { font-size: 18px; }
+      .map-box { min-height: 380px; }
+      .orbit { width: 220px; height: 220px; }
+      .center-node { width: 200px; padding: 24px 16px; }
+      .center-node strong { font-size: 22px; }
+      .mini-node { font-size: 14px; padding: 12px 16px; }
+      .mini-node.blue { top: 16px; left: 16px; }
+      .mini-node.green { top: 16px; right: 16px; }
       .mini-node.amber { left: 16px; bottom: 16px; }
       .line { display: none; }
+      .panel-header { flex-direction: column; align-items: flex-start; }
+      .badge { align-self: flex-start; }
     }
   </style>
 </head>
@@ -540,7 +504,7 @@
         </p>
         <span class="hero-keywords">مقاومة الإنسولين • اضطرابات النوم • الالتهاب</span>
 
-        <div class="tags" style="margin-top: 16px;">
+        <div class="tags">
           <span class="tag dark">السبب الجذري</span>
           <span class="tag blue">الآلية</span>
           <span class="tag amber">البروتوكول</span>
@@ -562,48 +526,6 @@
         <div class="line blue"></div>
         <div class="line amber"></div>
         <div class="line green"></div>
-      </div>
-    </section>
-
-    <section class="ecosystem-section card">
-      <div class="ecosystem-header">
-        <h2>منظومة المنصات المعرفية</h2>
-        <p>واجهات المشروع المتعددة: كل منصة تمثل "عقدة" (Node) تشغيلية داخل نظامنا المعرفي لتؤدي دوراً محدداً في رحلتك الصحية.</p>
-      </div>
-
-      <div class="platforms-grid">
-        <div class="platform-card">
-          <div class="platform-icon tiktok-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-          </div>
-          <h3>TikTok</h3>
-          <p>منصة التعليم السريع ونشر الوعي الصحي عبر فيديوهات قصيرة ومكثفة.</p>
-          <a href="https://www.tiktok.com/@think.resilient" target="_blank" class="platform-btn tiktok-btn">
-            Follow | تابعنا
-          </a>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-icon telegram-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          </div>
-          <h3>Telegram</h3>
-          <p>المكتبة المعرفية وأرشيف المقالات والتحليلات الطبية والنقاشات المعمقة.</p>
-          <a href="https://t.me/body_signals" target="_blank" class="platform-btn telegram-btn">
-            Join | انضم للمكتبة
-          </a>
-        </div>
-
-        <div class="platform-card">
-          <div class="platform-icon linkedin-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <h3>LinkedIn</h3>
-          <p>الواجهة المهنية والفكرية للمشروع، للتواصل مع المختصين والنقاشات العلمية.</p>
-          <a href="https://www.linkedin.com/company/body-signals-lab" target="_blank" class="platform-btn linkedin-btn">
-            Explore | تواصل مهنياً
-          </a>
-        </div>
       </div>
     </section>
 
@@ -661,70 +583,70 @@
       </article>
     </section>
 
-    <section class="content-grid">
-      <article class="panel card">
-        <div class="panel-header">
-          <div>
-            <h2>هيكل الموضوع الواحد</h2>
-            <p>قالب موحد يحوّل كل مرض أو خلل إلى وحدة معرفية قابلة للنشر والتثبيت والتوسعة.</p>
+    <article class="full-width-panel card">
+      <div class="panel-header">
+        <div>
+          <h2>هيكل الموضوع الواحد</h2>
+          <p>قالب موحد يحوّل كل مرض أو خلل إلى وحدة معرفية قابلة للنشر والتثبيت والتوسعة.</p>
+        </div>
+        <div class="badge">نواة المنصة</div>
+      </div>
+
+      <div class="template-grid">
+        <div class="template-item"><small>01</small>المدخل التشخيصي</div>
+        <div class="template-item"><small>02</small>العلامات والتحاليل</div>
+        <div class="template-item"><small>03</small>التفسير الميكانيكي</div>
+        <div class="template-item"><small>04</small>التشخيص التفريقي</div>
+        <div class="template-item"><small>05</small>الإدارة المؤقتة</div>
+        <div class="template-item"><small>06</small>العلاج</div>
+        <div class="template-item"><small>07</small>الوقاية ومنع التكرار</div>
+        <div class="template-item"><small>08</small>المقارنة العالمية</div>
+        <div class="template-item"><small>09</small>الخلاصة التشغيلية</div>
+      </div>
+    </article>
+
+    <section class="ecosystem-dark">
+      <div class="ecosystem-header">
+        <h2>منظومة المنصات المعرفية</h2>
+        <p>واجهات المشروع المتعددة: كل منصة تمثل "عقدة" (Node) تشغيلية داخل نظامنا المعرفي لتؤدي دوراً محدداً في رحلتك الصحية.</p>
+      </div>
+
+      <div class="platforms-grid">
+        <div class="platform-card-dark">
+          <div class="platform-icon tiktok-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
           </div>
-          <div class="badge">نواة المنصة</div>
+          <h3>TikTok</h3>
+          <p>منصة التعليم السريع ونشر الوعي الصحي عبر فيديوهات قصيرة ومكثفة.</p>
+          <a href="https://www.tiktok.com/@think.resilient" target="_blank" class="platform-btn tiktok-btn">
+            Follow | تابعنا
+          </a>
         </div>
 
-        <div class="template-grid">
-          <div class="template-item"><small>01</small>المدخل التشخيصي</div>
-          <div class="template-item"><small>02</small>العلامات والتحاليل</div>
-          <div class="template-item"><small>03</small>التفسير الميكانيكي</div>
-          <div class="template-item"><small>04</small>التشخيص التفريقي</div>
-          <div class="template-item"><small>05</small>الإدارة المؤقتة</div>
-          <div class="template-item"><small>06</small>العلاج</div>
-          <div class="template-item"><small>07</small>الوقاية ومنع التكرار</div>
-          <div class="template-item"><small>08</small>المقارنة العالمية</div>
-          <div class="template-item"><small>09</small>الخلاصة التشغيلية</div>
+        <div class="platform-card-dark">
+          <div class="platform-icon telegram-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </div>
+          <h3>Telegram</h3>
+          <p>المكتبة المعرفية وأرشيف المقالات والتحليلات الطبية والنقاشات المعمقة.</p>
+          <a href="https://t.me/body_signals" target="_blank" class="platform-btn telegram-btn">
+            Join | انضم للمكتبة
+          </a>
         </div>
-      </article>
 
-      <aside class="panel card">
-        <div class="panel-header" style="display:block; border-bottom:none; margin-bottom:0; padding-bottom:0;">
-          <h2>المبادئ الحاكمة</h2>
-        </div>
-        <div class="pillars" style="margin-top:18px;">
-          <div class="pillar-item"><small>مبدأ 1</small><p>التشخيص ليس اسم مرض فقط، بل ربط بين الأعراض والتحاليل والآلية والمسار العلاجي والوقائي.</p></div>
-          <div class="pillar-item"><small>مبدأ 2</small><p>خلل واحد قد يكشف شبكة أوسع في الجسد والنفس معاً.</p></div>
-          <div class="pillar-item"><small>مبدأ 3</small><p>الأصل هو العلاج والوقاية، لا الارتهان لدواء دائم إلا عند الضرورة القصوى.</p></div>
-          <div class="pillar-item"><small>مبدأ 4</small><p>الجمع بين الطب الحديث والخبرة السريرية وأفضل الممارسات الواعدة والطب التكاملي المنضبط.</p></div>
-          <div class="pillar-item"><small>مبدأ 5</small><p>التفسير الميكانيكي شرط أساسي قبل أي بروتوكول أو قرار.</p></div>
-          <div class="pillar-item"><small>مبدأ 6</small><p>لينكدإن للعرض، تيليغرام للتثبيت، تيك توك للتعليم والتوعية.</p></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="dark-section">
-      <div>
-        <h2>منطق التنقل المخطط له</h2>
-        <p>
-          ستبدأ الصفحة من الخريطة المركزية، ثم يختار الزائر أحد المسارات الثلاثة. كل مسار يفتح طبقة معرفية أعمق: من الإنسان إلى المرض إلى التدخل، مع قابلية تحويل كل فرع إلى مكتبة موضوعات وبروتوكولات قريباً.
-        </p>
-      </div>
-
-      <div class="steps">
-        <div class="step blue">
-          <small>المرحلة الأولى</small>
-          <h3>الخريطة</h3>
-          <p>واجهة تعريفية تربط المشروع وتشرح لماذا هذه هي الخريطة المفقودة في الطب.</p>
-        </div>
-        <div class="step amber">
-          <small>المرحلة الثانية</small>
-          <h3>المسارات</h3>
-          <p>ثلاث قنوات رئيسية تُفهم فورًا: الإنسان، المرض، التدخل.</p>
-        </div>
-        <div class="step green">
-          <small>المرحلة الثالثة</small>
-          <h3>المكتبة</h3>
-          <p>كل عقدة قابلة للتحول لاحقًا إلى مقال أو بروتوكول مدعوم بالذكاء الاصطناعي.</p>
+        <div class="platform-card-dark">
+          <div class="platform-icon linkedin-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <h3>LinkedIn</h3>
+          <p>الواجهة المهنية والفكرية للمشروع، للتواصل مع المختصين والنقاشات العلمية.</p>
+          <a href="https://www.linkedin.com/company/body-signals-lab" target="_blank" class="platform-btn linkedin-btn">
+            Explore | تواصل مهنياً
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 </body>
 </html>
