@@ -1,1401 +1,631 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="إشارات الجسد — مشروع طبي معرفي يبني نظاماً تشغيلياً بيولوجياً متكاملاً يُعيد فهم الصحة والمرض من الجذور السببية." />
-  <title>إشارات الجسد — النظام التشغيلي البيولوجي</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark only">
+  <title>Bio-OS | إشارات الجسد</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* ============================================================
-       CSS VARIABLES
-    ============================================================ */
-    :root {
-      --bg:          #EFF2F8;
-      --bg-alt:      #F6F8FC;
-      --surface:     #FFFFFF;
-      --navy:        #0A1628;
-      --navy-mid:    #152238;
-      --navy-soft:   #1E3050;
-      --blue:        #1A5F9E;
-      --blue-light:  #2E7DC0;
-      --blue-faint:  rgba(26, 95, 158, 0.07);
-      --mint:        #2E9E92;
-      --mint-light:  #4BBFB3;
-      --mint-faint:  rgba(46, 158, 146, 0.08);
-      --amber:       #B87E14;
-      --amber-light: #D49828;
-      --amber-faint: rgba(184, 126, 20, 0.08);
-      --slate:       #44556E;
-      --slate-light: #63708A;
-      --line:        #D8DEE9;
-      --line-soft:   #EAEEf5;
-      --font:        'Cairo', sans-serif;
-      --max-w:       1440px;
-      --r:           2px;
-      --sp-xs:       0.5rem;
-      --sp-sm:       1rem;
-      --sp-md:       1.75rem;
-      --sp-lg:       3rem;
-      --sp-xl:       5rem;
-      --sp-2xl:      8rem;
+    :root{
+      --bg:#07111b;
+      --bg-2:#0a1624;
+      --panel:#0d1b2a;
+      --panel-2:#101f31;
+      --line:#19314a;
+      --line-2:#244463;
+      --text:#d8e6f4;
+      --muted:#84a0bb;
+      --blue:#61a8ff;
+      --blue-2:#2c77d3;
+      --mint:#63c7ae;
+      --amber:#d8a155;
+      --red:#d06b6b;
+      --good:#7ad08e;
+      --radius:16px;
+      --radius-sm:12px;
+      --shadow:none;
+      --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans:"IBM Plex Sans Arabic", system-ui, sans-serif;
+      --gap:12px;
     }
 
-    /* ============================================================
-       RESET & BASE
-    ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--navy);
-      direction: rtl;
-      text-align: right;
-      line-height: 1.7;
-      font-size: 16px;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    svg, img { max-width: 100%; display: block; }
-    button { font-family: var(--font); cursor: pointer; border: none; }
-
-    /* ============================================================
-       UTILITY
-    ============================================================ */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--sp-lg);
-    }
-    @media (max-width: 768px) {
-      .container { padding: 0 var(--sp-sm); }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--sans);
+      background:
+        linear-gradient(180deg, rgba(97,168,255,.05), transparent 18%),
+        linear-gradient(90deg, rgba(97,168,255,.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(97,168,255,.04) 1px, transparent 1px),
+        var(--bg);
+      background-size:auto, 28px 28px, 28px 28px, auto;
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--blue);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1.5px;
-      background: var(--blue);
-      flex-shrink: 0;
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    table{border-collapse:collapse;width:100%}
+    th,td{padding:.65rem .7rem;text-align:right;border-bottom:1px solid rgba(255,255,255,.05)}
+    th{color:var(--muted);font-size:.76rem;font-weight:500;background:rgba(255,255,255,.02)}
+    td{font-size:.92rem;color:var(--text)}
+
+    .shell{
+      width:min(100%, 1920px);
+      margin-inline:auto;
+      padding:10px;
+      display:grid;
+      gap:10px;
     }
 
-    .section-title {
-      font-size: clamp(1.9rem, 3.2vw, 3rem);
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
+    .topbar{
+      display:grid;
+      grid-template-columns: 320px minmax(0,1fr) 380px;
+      gap:10px;
+      align-items:stretch;
     }
 
-    .section-body {
-      font-size: 1.05rem;
-      color: var(--slate);
-      max-width: 620px;
-      line-height: 1.85;
+    .brand,
+    .mode-strip,
+    .status-strip,
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      min-width:0;
     }
 
-    .divider {
-      height: 1px;
-      background: var(--line);
+    .brand{
+      padding:12px 14px;
+      display:grid;
+      gap:8px;
+      align-content:center;
+    }
+    .brand-top{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:center;
+    }
+    .brand-name{
+      font-size:1.28rem;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .brand-id{
+      font-family:var(--mono);
+      font-size:.76rem;
+      color:var(--blue);
+      white-space:nowrap;
+    }
+    .brand-meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+    }
+    .mini-stat{
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:12px;
+      background:rgba(255,255,255,.015);
+    }
+    .mini-stat-label{
+      color:var(--muted);
+      font-size:.7rem;
+      margin-bottom:4px;
+    }
+    .mini-stat-value{
+      font-family:var(--mono);
+      font-size:.88rem;
+      color:var(--text);
     }
 
-    /* Tags */
-    .tag {
-      display: inline-block;
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: var(--r);
-      letter-spacing: 0.02em;
-      line-height: 1;
+    .mode-strip{
+      padding:10px;
+      display:grid;
+      gap:10px;
+      align-content:center;
     }
-    .tag-navy  { background: rgba(10,22,40,0.06); color: var(--navy-soft); border: 1px solid rgba(10,22,40,0.1); }
-    .tag-blue  { background: var(--blue-faint);  color: var(--blue);  border: 1px solid rgba(26,95,158,0.18); }
-    .tag-mint  { background: var(--mint-faint);  color: var(--mint);  border: 1px solid rgba(46,158,146,0.18); }
-    .tag-amber { background: var(--amber-faint); color: var(--amber); border: 1px solid rgba(184,126,20,0.2); }
-
-    /* Reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s cubic-bezier(.22,.68,0,1.1), transform 0.65s cubic-bezier(.22,.68,0,1.1);
+    .mode-head{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
     }
-    .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
-
-    /* ============================================================
-       TOP STRIP
-    ============================================================ */
-    .top-strip {
-      background: var(--navy);
-      padding: 9px var(--sp-lg);
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.04em;
+    .mode-title{font-size:.82rem;color:var(--muted)}
+    .mode-live{font-family:var(--mono);font-size:.78rem;color:var(--blue)}
+    .mode-buttons{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:8px;
     }
-    .top-strip strong { color: var(--mint-light); font-weight: 700; }
-
-    /* ============================================================
-       NAVIGATION
-    ============================================================ */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
+    .mode-btn{
+      border:1px solid var(--line-2);
+      background:#0c1827;
+      color:var(--muted);
+      padding:.72rem .4rem;
+      border-radius:12px;
+      cursor:pointer;
+      transition:.18s ease;
     }
-    .nav-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--sp-lg);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 62px;
-      gap: var(--sp-lg);
-    }
-    .nav-logo {
-      font-size: 1.15rem;
-      font-weight: 900;
-      color: var(--navy);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .nav-logo em { font-style: normal; color: var(--blue); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-md);
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--slate);
-      transition: color .2s;
-      white-space: nowrap;
-    }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-cta {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--blue);
-      border: 1px solid var(--blue);
-      padding: 7px 20px;
-      border-radius: var(--r);
-      transition: background .2s, color .2s;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--blue); color: #fff; }
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-inner { padding: 0 var(--sp-sm); }
+    .mode-btn:hover{border-color:var(--blue-2);color:var(--text)}
+    .mode-btn.active{
+      background:rgba(97,168,255,.12);
+      color:#dff0ff;
+      border-color:rgba(97,168,255,.4);
     }
 
-    /* ============================================================
-       HERO
-    ============================================================ */
-    .hero {
-      padding: var(--sp-xl) 0 var(--sp-2xl);
-      background: var(--surface);
-      position: relative;
-      overflow: hidden;
+    .status-strip{
+      padding:10px;
+      display:grid;
+      gap:8px;
     }
-    /* Dot grid background */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, var(--line) 1.2px, transparent 1.2px);
-      background-size: 30px 30px;
-      opacity: 0.55;
-      pointer-events: none;
+    .status-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:8px;
     }
-    .hero-grid {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--sp-lg);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-2xl);
-      align-items: center;
-      position: relative;
-      z-index: 1;
+    .signal-box{
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:12px;
+      padding:8px 10px;
+      background:rgba(255,255,255,.015);
+      min-height:64px;
     }
-    .hero-text {}
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--blue);
-      text-transform: uppercase;
-      margin-bottom: var(--sp-md);
-    }
-    .hero-eyebrow::before {
-      content: '';
-      width: 24px;
-      height: 1.5px;
-      background: var(--blue);
-      display: block;
-    }
-    .hero-h1 {
-      font-size: clamp(3rem, 5.5vw, 6rem);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
-    .hero-h1-en {
-      display: block;
-      font-size: clamp(0.7rem, 1vw, 0.9rem);
-      font-weight: 400;
-      color: var(--slate-light);
-      letter-spacing: 0.16em;
-      margin-top: 10px;
-    }
-    .hero-subtitle {
-      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-      font-weight: 700;
-      color: var(--navy-mid);
-      line-height: 1.55;
-      border-right: 3px solid var(--blue);
-      padding-right: 16px;
-      margin-bottom: var(--sp-sm);
-    }
-    .hero-body {
-      font-size: 1rem;
-      color: var(--slate);
-      line-height: 1.9;
-      margin-bottom: var(--sp-md);
-      max-width: 500px;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: var(--sp-md);
-    }
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--navy);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 13px 30px;
-      border-radius: var(--r);
-      transition: background .2s, transform .15s;
-    }
-    .btn-primary:hover { background: var(--blue); transform: translateY(-1px); }
-    .btn-secondary {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--slate);
-      padding: 13px 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      background: transparent;
-      transition: border-color .2s, color .2s;
-    }
-    .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
-    .hero-diagram {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    @media (max-width: 1024px) {
-      .hero-grid { gap: var(--sp-lg); }
-    }
-    @media (max-width: 768px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        padding: 0 var(--sp-sm);
-        gap: var(--sp-lg);
-      }
-      .hero-diagram { order: -1; }
-      .hero { padding: var(--sp-lg) 0; }
+    .signal-box small{display:block;color:var(--muted);font-size:.68rem;margin-bottom:5px}
+    .signal-box strong{display:block;font-family:var(--mono);font-size:.9rem;color:var(--text)}
+    .signal-box.good strong{color:var(--good)}
+    .signal-box.warn strong{color:var(--amber)}
+    .signal-box.blue strong{color:var(--blue)}
+    .signal-box.red strong{color:var(--red)}
+
+    .workspace{
+      display:grid;
+      grid-template-columns:320px minmax(0,1fr) 360px;
+      gap:10px;
+      align-items:start;
     }
 
-    /* ============================================================
-       SVG BIO-OS DIAGRAM
-    ============================================================ */
-    .bio-svg { width: 100%; height: auto; }
-
-    /* ============================================================
-       SECTION: لماذا (dark navy)
-    ============================================================ */
-    .why-section {
-      background: var(--navy);
-      padding: var(--sp-xl) 0;
-    }
-    .why-section .section-title { color: #fff; }
-    .why-section .section-label { color: var(--mint-light); }
-    .why-section .section-label::before { background: var(--mint-light); }
-    .why-section .section-body { color: rgba(255,255,255,0.55); }
-    .why-header { margin-bottom: var(--sp-xl); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.07);
-    }
-    .why-block {
-      background: var(--navy);
-      padding: var(--sp-lg) var(--sp-md);
-      border-top: 2px solid rgba(255,255,255,0.1);
-      transition: background .2s;
-    }
-    .why-block:hover { background: var(--navy-mid); }
-    .why-num {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--mint-light);
-      margin-bottom: 20px;
-    }
-    .why-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.4;
-      margin-bottom: 14px;
-    }
-    .why-body {
-      font-size: 0.93rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.85;
-    }
-    @media (max-width: 768px) {
-      .why-grid { grid-template-columns: 1fr; }
+    .left-col,.mid-col,.right-col{
+      display:grid;
+      gap:10px;
+      min-width:0;
     }
 
-    /* ============================================================
-       SECTION: المسارات
-    ============================================================ */
-    .paths-section { padding: var(--sp-xl) 0; background: var(--bg); }
-    .paths-header { margin-bottom: var(--sp-xl); }
-    .paths-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-sm);
-    }
-    .path-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      padding: var(--sp-md) var(--sp-md);
-      position: relative;
-      overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .path-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-    }
-    .path-card:nth-child(1)::before { background: var(--blue); }
-    .path-card:nth-child(2)::before { background: var(--mint); }
-    .path-card:nth-child(3)::before { background: var(--amber); }
-    .path-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(10,22,40,0.08);
-    }
-    .path-card-num {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--slate-light);
-      margin-bottom: 12px;
-    }
-    .path-card-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
-    .path-card-body {
-      font-size: 0.93rem;
-      color: var(--slate);
-      line-height: 1.8;
-      margin-bottom: var(--sp-md);
-      padding-bottom: var(--sp-md);
-      border-bottom: 1px solid var(--line-soft);
-    }
-    .path-card-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .path-card-list li {
-      font-size: 13px;
-      color: var(--slate);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.5;
-    }
-    .path-card-list li::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--line);
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-    @media (max-width: 900px) {
-      .paths-grid { grid-template-columns: 1fr; }
+    .panel{
+      padding:12px;
+      overflow:hidden;
     }
 
-    /* ============================================================
-       SECTION: منطق النظام
-    ============================================================ */
-    .system-section { padding: var(--sp-xl) 0; background: var(--surface); }
-    .system-header { margin-bottom: var(--sp-xl); }
-    .system-layers { display: flex; flex-direction: column; gap: 2px; max-width: 1000px; }
-    .system-layer {
-      display: grid;
-      grid-template-columns: 140px 1fr auto;
-      align-items: center;
-      gap: var(--sp-md);
-      padding: 20px 24px;
-      background: var(--bg-alt);
-      border-right: 3px solid transparent;
-      transition: border-color .2s, background .2s;
-      cursor: default;
+    .panel-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:10px;
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .system-layer:hover {
-      background: #F0F5FF;
-      border-right-color: var(--blue);
+    .panel-title{
+      font-size:.95rem;
+      font-weight:600;
+      letter-spacing:-.01em;
     }
-    .layer-idx {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      color: var(--slate-light);
-    }
-    .layer-info {}
-    .layer-name { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .layer-desc { font-size: 13px; color: var(--slate); line-height: 1.6; }
-    @media (max-width: 768px) {
-      .system-layer { grid-template-columns: 1fr; gap: 6px; }
-      .system-layer .tag { align-self: flex-start; }
+    .panel-code{
+      font-family:var(--mono);
+      font-size:.72rem;
+      color:var(--muted);
+      white-space:nowrap;
     }
 
-    /* ============================================================
-       SECTION: الخريطة المفقودة
-    ============================================================ */
-    .map-section { padding: var(--sp-xl) 0; background: var(--bg); }
-    .map-header { margin-bottom: var(--sp-xl); }
-    .map-compare {
-      display: grid;
-      grid-template-columns: 1fr 48px 1fr;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      overflow: hidden;
+    .input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .field-block{
+      border:1px solid rgba(255,255,255,.05);
+      background:rgba(255,255,255,.015);
+      border-radius:12px;
+      padding:10px;
+      min-width:0;
     }
-    .map-col { padding: var(--sp-md); }
-    .map-col-head {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: var(--sp-md);
-      padding-bottom: 14px;
-      border-bottom: 2px solid var(--line);
+    .field-block h4{margin:0 0 8px;font-size:.84rem;color:var(--text)}
+    .field-list{display:flex;flex-wrap:wrap;gap:6px}
+    .field{
+      font-size:.77rem;color:#c1d4e7;border:1px solid rgba(255,255,255,.06);
+      background:#0b1724;border-radius:999px;padding:5px 9px;white-space:nowrap;
     }
-    .map-col:first-child .map-col-head { color: var(--amber); }
-    .map-col:last-child  .map-col-head { color: var(--blue); }
-    .map-sep {
-      border-right: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .map-sep span {
-      writing-mode: vertical-rl;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--slate-light);
-      text-transform: uppercase;
-    }
-    .map-row { display: flex; flex-direction: column; gap: 16px; }
-    .map-item { display: flex; align-items: flex-start; gap: 12px; }
-    .map-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-    .map-item-text { font-size: 0.93rem; color: var(--slate); line-height: 1.65; }
-    @media (max-width: 768px) {
-      .map-compare { grid-template-columns: 1fr; }
-      .map-sep { display: none; }
-      .map-col { border-bottom: 1px solid var(--line); }
-      .map-col:last-child { border-bottom: none; }
-    }
+    .field.blue{border-color:rgba(97,168,255,.35);color:#dbeeff}
+    .field.mint{border-color:rgba(99,199,174,.35);color:#d8fff4}
+    .field.amber{border-color:rgba(216,161,85,.35);color:#ffe9c9}
+    .field.red{border-color:rgba(208,107,107,.3);color:#ffd8d8}
 
-    /* ============================================================
-       SECTION: هيكل الموضوع
-    ============================================================ */
-    .structure-section { padding: var(--sp-xl) 0; background: var(--surface); }
-    .structure-header { margin-bottom: var(--sp-xl); }
-    .structure-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .str-module {
-      background: var(--surface);
-      padding: var(--sp-md);
-      transition: background .2s;
-      position: relative;
-    }
-    .str-module:hover { background: var(--bg-alt); }
-    .str-module::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 2px;
-      height: 100%;
-      background: transparent;
-      transition: background .2s;
-    }
-    .str-module:hover::after { background: var(--blue); }
-    .str-num {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--slate-light);
-      margin-bottom: 10px;
-    }
-    .str-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .str-desc { font-size: 13px; color: var(--slate); line-height: 1.7; }
-    @media (max-width: 1024px) {
-      .structure-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .structure-grid { grid-template-columns: 1fr; }
-    }
+    .engine-wrap{display:grid;grid-template-rows:auto auto 1fr;gap:10px}
+    .engine-status{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:8px}
+    .engine-stat{border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:10px;background:rgba(255,255,255,.015)}
+    .engine-stat span{display:block;color:var(--muted);font-size:.68rem;margin-bottom:4px}
+    .engine-stat strong{display:block;font-family:var(--mono);font-size:.9rem}
 
-    /* ============================================================
-       SECTION: وعد المشروع
-    ============================================================ */
-    .promise-section {
-      padding: var(--sp-xl) 0;
-      background: var(--navy);
-      color: #fff;
-    }
-    .promise-inner {
-      max-width: 820px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .promise-inner .section-label {
-      justify-content: center;
-      color: var(--mint-light);
-    }
-    .promise-inner .section-label::before { background: var(--mint-light); }
-    .promise-bar { width: 48px; height: 2px; background: var(--blue-light); margin: 0 auto var(--sp-md); }
-    .promise-quote {
-      font-size: clamp(1.2rem, 2.2vw, 1.75rem);
-      font-weight: 700;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: var(--sp-md);
-      quotes: none;
-    }
-    .promise-quote::before, .promise-quote::after { content: ''; }
-    .promise-detail {
-      font-size: 0.98rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.9;
-      margin-bottom: var(--sp-sm);
-    }
-    .promise-detail strong { color: rgba(255,255,255,0.8); font-weight: 700; }
-    .promise-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-top: var(--sp-md);
-    }
-    .promise-tags .tag-navy {
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.65);
-      border-color: rgba(255,255,255,0.12);
-    }
-    .promise-tags .tag-blue {
-      background: rgba(26,95,158,0.25);
-      color: var(--blue-light);
-      border-color: rgba(26,95,158,0.4);
-    }
-    .promise-tags .tag-mint {
-      background: rgba(46,158,146,0.2);
-      color: var(--mint-light);
-      border-color: rgba(46,158,146,0.35);
-    }
-    .promise-tags .tag-amber {
-      background: rgba(184,126,20,0.2);
-      color: var(--amber-light);
-      border-color: rgba(184,126,20,0.35);
-    }
+    .diagram-box{border:1px solid rgba(255,255,255,.05);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.008));border-radius:14px;padding:10px;overflow:hidden}
+    .diagram-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;font-size:.74rem;color:var(--muted)}
+    .legend-item{display:flex;align-items:center;gap:6px}
+    .legend-dot{width:10px;height:10px;border-radius:50%}
 
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .footer {
-      background: var(--navy-mid);
-      padding: var(--sp-lg) 0 0;
-      color: rgba(255,255,255,0.4);
+    .matrix-table td:first-child,.matrix-table th:first-child,.protocol-table td:first-child,.protocol-table th:first-child{white-space:nowrap}
+
+    .module-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+    .module-card{border:1px solid rgba(255,255,255,.06);background:#0b1724;border-radius:12px;padding:10px;cursor:pointer;transition:.16s ease;min-height:98px;display:grid;align-content:start;gap:8px}
+    .module-card:hover{border-color:rgba(97,168,255,.35)}
+    .module-card.active{border-color:rgba(97,168,255,.55);background:rgba(97,168,255,.12)}
+    .module-card h4{margin:0;font-size:.88rem}
+    .module-card p{margin:0;color:var(--muted);font-size:.76rem;line-height:1.45}
+    .module-meta{display:flex;justify-content:space-between;gap:6px;font-size:.7rem;color:var(--muted);font-family:var(--mono)}
+
+    .summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .summary-box{padding:10px;border:1px solid rgba(255,255,255,.05);border-radius:12px;background:rgba(255,255,255,.015);min-height:86px}
+    .summary-box span{display:block;color:var(--muted);font-size:.7rem;margin-bottom:5px}
+    .summary-box strong{display:block;color:var(--text);font-size:.92rem;line-height:1.55}
+
+    .rule-list,.prevent-list,.log-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+    .rule,.prevent-item,.log-item{border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.015);border-radius:12px;padding:10px}
+    .rule strong,.prevent-item strong,.log-item strong{display:block;font-size:.85rem;margin-bottom:4px}
+    .rule small,.prevent-item small,.log-item small{color:var(--muted);font-size:.76rem;line-height:1.5}
+
+    .policy-grid{display:grid;gap:8px}
+    .policy-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:start;padding:10px;border:1px solid rgba(255,255,255,.05);border-radius:12px;background:rgba(255,255,255,.015)}
+    .policy-row .k{color:var(--muted);font-size:.78rem}
+    .policy-row .v{color:var(--text);font-size:.88rem;line-height:1.55}
+
+    .timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+    .timeline-step{border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:10px;background:rgba(255,255,255,.015);min-height:110px;position:relative}
+    .timeline-step::before{content:"";position:absolute;top:50%;inset-inline-start:-8px;width:8px;height:1px;background:var(--line-2)}
+    .timeline-step:first-child::before{display:none}
+    .timeline-step b{display:block;font-family:var(--mono);font-size:.78rem;color:var(--blue);margin-bottom:6px}
+    .timeline-step strong{display:block;font-size:.84rem;margin-bottom:4px}
+    .timeline-step small{color:var(--muted);font-size:.74rem;line-height:1.5}
+
+    .footer-log{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}
+
+    .badge{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:26px;padding:4px 10px;border-radius:999px;font-size:.72rem;border:1px solid rgba(255,255,255,.08);background:#0b1724;color:var(--text);white-space:nowrap}
+    .badge.good{color:var(--good);border-color:rgba(122,208,142,.3)}
+    .badge.warn{color:var(--amber);border-color:rgba(216,161,85,.32)}
+    .badge.blue{color:var(--blue);border-color:rgba(97,168,255,.3)}
+    .badge.red{color:var(--red);border-color:rgba(208,107,107,.3)}
+
+    .scroll-x{overflow:auto}
+    .node{transition:.18s ease}
+    .node rect{transition:.18s ease}
+    .node.active rect{fill:rgba(97,168,255,.18) !important;stroke:rgba(97,168,255,.85) !important;stroke-width:1.8}
+    .node.active text{fill:#eff8ff !important}
+
+    [data-mode="intake"] .mode-target-intake,
+    [data-mode="analysis"] .mode-target-analysis,
+    [data-mode="simulate"] .mode-target-simulate,
+    [data-mode="intervention"] .mode-target-intervention,
+    [data-mode="prevention"] .mode-target-prevention{border-color:rgba(97,168,255,.45) !important;background:rgba(97,168,255,.1) !important}
+
+    @media (max-width: 1440px){
+      .topbar{grid-template-columns:1fr}
+      .workspace{grid-template-columns:300px minmax(0,1fr)}
+      .right-col{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr))}
+      .module-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .footer-log{grid-template-columns:1fr}
     }
-    .footer-top {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--sp-lg);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: var(--sp-lg);
-      padding-bottom: var(--sp-lg);
+    @media (max-width: 1080px){
+      .workspace{grid-template-columns:1fr}
+      .module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .engine-status,.summary-grid,.status-grid,.timeline,.input-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .policy-row{grid-template-columns:120px 1fr}
+      .right-col{display:grid;grid-template-columns:1fr}
     }
-    .footer-brand { font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 10px; }
-    .footer-sub { font-size: 12.5px; line-height: 1.7; }
-    .footer-nav { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
-    .footer-nav a { font-size: 13px; color: rgba(255,255,255,0.4); transition: color .2s; }
-    .footer-nav a:hover { color: #fff; }
-    .footer-bottom {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: var(--sp-sm) var(--sp-lg);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11.5px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    @media (max-width: 768px) {
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-nav { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
-      .footer-top, .footer-bottom { padding: var(--sp-sm); }
+    @media (max-width: 720px){
+      .shell{padding:8px}
+      .brand-meta,.mode-buttons,.status-grid,.engine-status,.summary-grid,.timeline,.input-grid,.module-grid{grid-template-columns:1fr}
+      .policy-row{grid-template-columns:1fr}
+      .timeline-step::before{display:none}
+      th,td{font-size:.82rem;padding:.55rem}
+      .panel{padding:10px}
+      .brand-name{font-size:1.1rem}
     }
   </style>
 </head>
-<body>
+<body data-mode="analysis">
+  <div class="shell">
+    <header class="topbar">
+      <section class="brand" aria-label="هوية النظام">
+        <div class="brand-top">
+          <div class="brand-name">إشارات الجسد</div>
+          <div class="brand-id">BIO-OS.RUN / DIRECT</div>
+        </div>
+        <div class="brand-meta">
+          <div class="mini-stat"><div class="mini-stat-label">وضع التشغيل</div><div class="mini-stat-value" id="modeReadout">ANALYSIS</div></div>
+          <div class="mini-stat"><div class="mini-stat-label">السياسة الدوائية</div><div class="mini-stat-value">TEMP ONLY</div></div>
+          <div class="mini-stat"><div class="mini-stat-label">الاستثناء</div><div class="mini-stat-value">ORGAN LOSS</div></div>
+        </div>
+      </section>
 
-  <!-- TOP STRIP -->
-  <div class="top-strip" role="banner">
-    <strong>إشارات الجسد</strong> — بداية نموذج طبي مختلف: الصحة كمنظومة، والمرض كإخفاق شبكي، والتدخل كإعادة توازن سببي
+      <section class="mode-strip" aria-label="أنماط العمل">
+        <div class="mode-head">
+          <div class="mode-title">سير العمل</div>
+          <div class="mode-live">INTAKE → ANALYSIS → SIMULATION → TEMP SUPPORT → PREVENTION</div>
+        </div>
+        <div class="mode-buttons">
+          <button class="mode-btn" data-mode-btn="intake">استقبال المدخلات</button>
+          <button class="mode-btn active" data-mode-btn="analysis">تحليل سببي</button>
+          <button class="mode-btn" data-mode-btn="simulate">محاكاة</button>
+          <button class="mode-btn" data-mode-btn="intervention">تدخل مؤقت</button>
+          <button class="mode-btn" data-mode-btn="prevention">وقاية</button>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="مؤشرات النظام">
+        <div class="status-grid">
+          <div class="signal-box blue"><small>اكتفاء المدخلات</small><strong>36 / 42</strong></div>
+          <div class="signal-box warn"><small>عقد نشطة</small><strong>07</strong></div>
+          <div class="signal-box good"><small>خطة خروج دوائي</small><strong>مطلوبة</strong></div>
+          <div class="signal-box red"><small>اعتماد مزمن</small><strong>مرفوض</strong></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge blue">SIGNALS READY</span>
+          <span class="badge warn">ROOT CAUSE PENDING</span>
+          <span class="badge good">PREVENTION LAYER REQUIRED</span>
+          <span class="badge red">LIFELONG DRUG LOOP BLOCKED</span>
+        </div>
+      </section>
+    </header>
+
+    <main class="workspace">
+      <div class="left-col">
+        <section class="panel mode-target-intake">
+          <div class="panel-header"><div class="panel-title">مصفوفة الإدخال</div><div class="panel-code">INPUT / REQUIRED</div></div>
+          <div class="input-grid">
+            <div class="field-block"><h4>أعراض</h4><div class="field-list"><span class="field amber">إرهاق</span><span class="field amber">جوع سريع</span><span class="field amber">ضباب ذهني</span><span class="field amber">خفقان</span><span class="field amber">ألم عضلي</span><span class="field amber">تساقط شعر</span></div></div>
+            <div class="field-block"><h4>تحاليل</h4><div class="field-list"><span class="field blue">CBC</span><span class="field blue">Ferritin</span><span class="field blue">HbA1c</span><span class="field blue">Insulin</span><span class="field blue">TSH / FT4</span><span class="field blue">CRP</span></div></div>
+            <div class="field-block"><h4>إيقاع</h4><div class="field-list"><span class="field mint">نوم</span><span class="field mint">استيقاظ</span><span class="field mint">تعرض ضوء</span><span class="field mint">نشاط</span><span class="field mint">توقيت وجبات</span></div></div>
+            <div class="field-block"><h4>سياق</h4><div class="field-list"><span class="field red">أدوية حالية</span><span class="field red">استئصال</span><span class="field red">نقص عضو</span><span class="field red">نزف مزمن</span><span class="field red">التهاب مزمن</span></div></div>
+          </div>
+        </section>
+
+        <section class="panel mode-target-analysis">
+          <div class="panel-header"><div class="panel-title">طبقات الفحص</div><div class="panel-code">SCAN / LAYERS</div></div>
+          <ul class="rule-list">
+            <li class="rule"><strong>استقلاب</strong><small>سكر صائم، إنسولين، HbA1c، جوع، محيط خصر، استجابة بعد الوجبة.</small></li>
+            <li class="rule"><strong>مخازن</strong><small>حديد، B12، فولات، فيتامين D، مغنيسيوم، بروتين.</small></li>
+            <li class="rule"><strong>التهاب</strong><small>CRP، ألم، جلد، لثة، أمعاء، عدوى، مناعة.</small></li>
+            <li class="rule"><strong>هرمونات</strong><small>غدة، كورتيزول، برولاكتين، أندروجينات، دورة، خصوبة.</small></li>
+            <li class="rule"><strong>طاقة</strong><small>نوم، خفقان، تحمل مجهود، حرارة، صداع، ضباب ذهني.</small></li>
+          </ul>
+        </section>
+
+        <section class="panel mode-target-prevention">
+          <div class="panel-header"><div class="panel-title">طبقة الوقاية</div><div class="panel-code">PREVENT / LOCK</div></div>
+          <div class="prevent-grid">
+            <div class="prevent-item"><strong>إيقاع ثابت</strong><small>وقت نوم، وقت استيقاظ، ضوء صباح، تقليل سهر.</small></div>
+            <div class="prevent-item"><strong>غذاء موجه</strong><small>خفض حمل سكري، بروتين كاف، ألياف، توقيت مدروس.</small></div>
+            <div class="prevent-item"><strong>حركة وظيفية</strong><small>مشي يومي، مقاومة، رفع حساسية الإنسولين، دعم الميتوكوندريا.</small></div>
+            <div class="prevent-item"><strong>مراقبة رجوع</strong><small>إعادة فحص بعد الاستقرار وليس بعد الأزمة فقط.</small></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="mid-col">
+        <section class="panel mode-target-analysis">
+          <div class="panel-header"><div class="panel-title">محرك التحليل السببي</div><div class="panel-code">ENGINE / CAUSAL MAP</div></div>
+          <div class="engine-wrap">
+            <div class="engine-status">
+              <div class="engine-stat"><span>العقدة المحددة</span><strong id="engineNode">مقاومة الإنسولين</strong></div>
+              <div class="engine-stat"><span>الطبقة المسيطرة</span><strong id="engineLayer">استقلاب</strong></div>
+              <div class="engine-stat"><span>نوع القرار</span><strong id="engineAction">فك الحلقة</strong></div>
+              <div class="engine-stat"><span>خطر التكرار</span><strong id="engineRisk">مرتفع</strong></div>
+            </div>
+
+            <div class="diagram-box scroll-x">
+              <svg viewBox="0 0 1120 420" width="100%" height="100%" role="img" aria-label="خريطة تشغيل بيولوجية">
+                <defs><marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#61a8ff"></path></marker></defs>
+                <rect x="10" y="10" width="1100" height="400" rx="18" fill="rgba(255,255,255,.01)" stroke="rgba(255,255,255,.06)"></rect>
+                <g opacity=".22" stroke="#244463" stroke-width="1">
+                  <path d="M60 70H1060"></path><path d="M60 140H1060"></path><path d="M60 210H1060"></path><path d="M60 280H1060"></path><path d="M60 350H1060"></path>
+                  <path d="M180 30V390"></path><path d="M360 30V390"></path><path d="M560 30V390"></path><path d="M760 30V390"></path><path d="M940 30V390"></path>
+                </g>
+                <g font-family="IBM Plex Sans Arabic" text-anchor="middle">
+                  <text x="970" y="42" fill="#84a0bb" font-size="13">مدخلات</text>
+                  <text x="560" y="42" fill="#84a0bb" font-size="13">طبقات سببية</text>
+                  <text x="180" y="42" fill="#84a0bb" font-size="13">قرارات</text>
+                </g>
+                <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <path d="M880 98H760V118H676" stroke="#61a8ff" stroke-width="2.5"></path>
+                  <path d="M880 168H760V168H676" stroke="#d8a155" stroke-width="2.5"></path>
+                  <path d="M880 238H760V218H676" stroke="#63c7ae" stroke-width="2.5"></path>
+                  <path d="M880 308H760V268H676" stroke="#61a8ff" stroke-width="2.5"></path>
+                  <path d="M444 118H344V98H238" stroke="#61a8ff" stroke-width="2.5"></path>
+                  <path d="M444 168H344V168H238" stroke="#d8a155" stroke-width="2.5"></path>
+                  <path d="M444 218H344V238H238" stroke="#63c7ae" stroke-width="2.5"></path>
+                  <path d="M444 268H344V308H238" stroke="#61a8ff" stroke-width="2.5"></path>
+                  <path d="M560 328V372H940V320" stroke="#63c7ae" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#a1)"></path>
+                  <path d="M560 328V388H180V320" stroke="#61a8ff" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#a1)"></path>
+                </g>
+                <g class="node" data-node="signals"><rect x="880" y="78" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="103" fill="#d8e6f4" font-size="14">أعراض</text></g>
+                <g class="node" data-node="labs"><rect x="880" y="148" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="173" fill="#d8e6f4" font-size="14">تحاليل</text></g>
+                <g class="node" data-node="rhythm"><rect x="880" y="218" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="243" fill="#d8e6f4" font-size="14">نوم / إيقاع</text></g>
+                <g class="node" data-node="context"><rect x="880" y="288" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="313" fill="#d8e6f4" font-size="14">سياق / أدوية / عضو</text></g>
+                <g class="node active" data-node="insulin"><rect x="444" y="98" width="232" height="40" rx="12" fill="rgba(97,168,255,.08)" stroke="#3d79c4"></rect><text x="560" y="123" fill="#eff8ff" font-size="14">مقاومة الإنسولين</text></g>
+                <g class="node" data-node="iron"><rect x="444" y="148" width="232" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="560" y="173" fill="#d8e6f4" font-size="14">نقص الحديد / المخازن</text></g>
+                <g class="node" data-node="inflammation"><rect x="444" y="198" width="232" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="560" y="223" fill="#d8e6f4" font-size="14">التهاب مزمن / عدوى / حمل مناعي</text></g>
+                <g class="node" data-node="sleep"><rect x="444" y="248" width="232" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="560" y="273" fill="#d8e6f4" font-size="14">خلل النوم / الإيقاع / التوتر</text></g>
+                <g class="node" data-node="decision-temp"><rect x="88" y="78" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="103" fill="#d8e6f4" font-size="14">دعم مؤقت</text></g>
+                <g class="node" data-node="decision-restore"><rect x="88" y="148" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="173" fill="#d8e6f4" font-size="14">تمكين الجسد</text></g>
+                <g class="node" data-node="decision-stop"><rect x="88" y="218" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="243" fill="#d8e6f4" font-size="14">خطة إيقاف</text></g>
+                <g class="node" data-node="decision-prevent"><rect x="88" y="288" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="313" fill="#d8e6f4" font-size="14">منع التكرار</text></g>
+              </svg>
+              <div class="diagram-legend"><div class="legend-item"><span class="legend-dot" style="background:var(--blue)"></span>استقلاب / قرار</div><div class="legend-item"><span class="legend-dot" style="background:var(--amber)"></span>مخازن / نزف / نقص</div><div class="legend-item"><span class="legend-dot" style="background:var(--mint)"></span>التهاب / ميكروبيوم / استعادة</div><div class="legend-item"><span class="legend-dot" style="background:var(--red)"></span>حلقة اعتماد مرفوضة</div></div>
+            </div>
+
+            <div class="scroll-x">
+              <table class="matrix-table">
+                <thead><tr><th>إشارة</th><th>فرضية سببية</th><th>أثر تشغيلي</th><th>أولوية</th></tr></thead>
+                <tbody>
+                  <tr><td>جوع + تذبذب طاقة</td><td>فرط إنسولين / مقاومة</td><td>كسر حلقة الوجبة - الجوع - الخمول</td><td><span class="badge warn">A1</span></td></tr>
+                  <tr><td>Ferritin منخفض</td><td>نقص مخازن / نزف / سوء امتصاص</td><td>رفع الأكسجة وتحمل الجهد</td><td><span class="badge warn">A1</span></td></tr>
+                  <tr><td>CRP + ألم</td><td>حمل التهابي مستمر</td><td>خفض التشويش على بقية الطبقات</td><td><span class="badge blue">A2</span></td></tr>
+                  <tr><td>سهر + تقطع نوم</td><td>كورتيزول / إيقاع</td><td>إعادة ضبط الاستجابة العصبية</td><td><span class="badge blue">A2</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel mode-target-analysis">
+          <div class="panel-header"><div class="panel-title">وحدات التحليل</div><div class="panel-code">SELECT / MODULE</div></div>
+          <div class="module-grid" id="moduleGrid">
+            <article class="module-card active" data-module="insulin"><div class="module-meta"><span>01</span><span>METAB</span></div><h4>مقاومة الإنسولين</h4><p>جوع، محيط خصر، سكر، إنسولين، نعاس بعد الوجبة.</p></article>
+            <article class="module-card" data-module="iron"><div class="module-meta"><span>02</span><span>STORE</span></div><h4>نقص الحديد</h4><p>Ferritin، MCV، تساقط شعر، خفقان، تعب.</p></article>
+            <article class="module-card" data-module="inflammation"><div class="module-meta"><span>03</span><span>IMMUNE</span></div><h4>التهاب مزمن</h4><p>CRP، ألم، جلد، لثة، أمعاء، عدوى، مناعة.</p></article>
+            <article class="module-card" data-module="sleep"><div class="module-meta"><span>04</span><span>RHYTHM</span></div><h4>اضطراب النوم</h4><p>تقطع، سهر، شخير، ضوء، كورتيزول، نعاس نهاري.</p></article>
+            <article class="module-card" data-module="hormone"><div class="module-meta"><span>05</span><span>ENDO</span></div><h4>خلل هرموني</h4><p>دورة، غدة، برولاكتين، أندروجينات، حرارة، برودة.</p></article>
+            <article class="module-card" data-module="mitochondria"><div class="module-meta"><span>06</span><span>ENERGY</span></div><h4>الميتوكوندريا</h4><p>تحمل جهد، تعب سريع، ضعف استرداد، ألم عضلي.</p></article>
+            <article class="module-card" data-module="microbiome"><div class="module-meta"><span>07</span><span>GI</span></div><h4>الميكروبيوم</h4><p>نفخة، إمساك، إسهال، سوء امتصاص، التهاب، جلد.</p></article>
+            <article class="module-card" data-module="organ"><div class="module-meta"><span>08</span><span>EXCEPTION</span></div><h4>فقد عضو / وظيفة</h4><p>الاستثناء الوحيد الذي يبرر اعتمادًا دائمًا مدروسًا.</p></article>
+          </div>
+        </section>
+
+        <section class="panel mode-target-simulate">
+          <div class="panel-header"><div class="panel-title">جدول التدخل المؤقت</div><div class="panel-code">SIM / TEMP SUPPORT</div></div>
+          <div class="scroll-x">
+            <table class="protocol-table">
+              <thead><tr><th>الهدف</th><th>دعم مؤقت</th><th>ما الذي يجب أن يتعلمه الجسد</th><th>شرط الإيقاف</th></tr></thead>
+              <tbody>
+                <tr><td>استقرار سكر</td><td>مؤقت فقط عند الحاجة</td><td>استعادة الحساسية والمرونة الاستقلابية</td><td>ثبات الجوع والطاقة والتحاليل</td></tr>
+                <tr><td>رفع مخازن الحديد</td><td>تعويض موجّه + بحث عن السبب</td><td>إيقاف النزف أو سوء الامتصاص أو الحمل الالتهابي</td><td>تحسن Ferritin والأعراض مع ثبات السبب</td></tr>
+                <tr><td>خفض الالتهاب</td><td>تهدئة قصيرة لا تصبح مسكنًا دائمًا</td><td>كشف المحرّك المستمر وإزالته</td><td>هبوط المؤشرات مع زوال المحرك</td></tr>
+                <tr><td>تصحيح النوم</td><td>تدخل تنظيمي محدود</td><td>استعادة الإيقاع بلا اعتماد خارجي</td><td>نوم مستقر دون دعم متكرر</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <div class="right-col">
+        <section class="panel mode-target-intervention">
+          <div class="panel-header"><div class="panel-title">قرار التشغيل</div><div class="panel-code">ACTIVE / OUTPUT</div></div>
+          <div class="summary-grid">
+            <div class="summary-box"><span>المحور النشط</span><strong id="currentAxis">مقاومة الإنسولين</strong></div>
+            <div class="summary-box"><span>الفرضية المسيطرة</span><strong id="currentHypothesis">فرط إنسولين يجرّ جوعًا وتذبذب طاقة والتهابًا ثانويًا.</strong></div>
+            <div class="summary-box"><span>الدعم المؤقت</span><strong id="currentTemp">خفض حمل سكري + توقيت وجبات + دعم دوائي محدود عند الضرورة.</strong></div>
+            <div class="summary-box"><span>آلية التمكين</span><strong id="currentEnable">استعادة الحساسية وكسر الحلقة لا تثبيت الدواء.</strong></div>
+            <div class="summary-box"><span>شرط الإيقاف</span><strong id="currentStop">ثبات الجوع والطاقة والسكر والإنسولين دون دعم متكرر.</strong></div>
+            <div class="summary-box"><span>طبقة الوقاية</span><strong id="currentPrevention">نوم ثابت + مقاومة عضلية + ألياف + متابعة محيط خصر.</strong></div>
+          </div>
+        </section>
+
+        <section class="panel mode-target-intervention">
+          <div class="panel-header"><div class="panel-title">سياسة النظام</div><div class="panel-code">RULES / HARD</div></div>
+          <div class="policy-grid">
+            <div class="policy-row"><div class="k">الاعتماد المزمن</div><div class="v">مرفوض إذا كان العضو حاضرًا وقابلًا للاستعادة.</div></div>
+            <div class="policy-row"><div class="k">شكل التدخل</div><div class="v">مؤقت. موجّه. مرتبط بشرط خروج واضح منذ البداية.</div></div>
+            <div class="policy-row"><div class="k">هدف العلاج</div><div class="v">تمكين الجسد من اكتشاف الخلل، إصلاحه، ثم تثبيت الوقاية.</div></div>
+            <div class="policy-row"><div class="k">الاستثناء</div><div class="v">فقد جزئي أو كامل لوظيفة عضو يجعل التعويض المستمر مبررًا.</div></div>
+          </div>
+        </section>
+
+        <section class="panel mode-target-prevention">
+          <div class="panel-header"><div class="panel-title">حلقة إعادة القياس</div><div class="panel-code">FEEDBACK / LOOP</div></div>
+          <div class="timeline">
+            <div class="timeline-step"><b>T0</b><strong>خط أساس</strong><small>أعراض + تحاليل + إيقاع + أدوية + سياق عضو.</small></div>
+            <div class="timeline-step"><b>T1</b><strong>بعد التدخل</strong><small>هل تحسن العرض؟ هل تغيرت البيانات؟ هل تغيّر السبب؟</small></div>
+            <div class="timeline-step"><b>T2</b><strong>سحب الدعم</strong><small>اختبار قدرة الجسد بعد خفض الدعم أو إيقافه.</small></div>
+            <div class="timeline-step"><b>T3</b><strong>قفل الوقاية</strong><small>تثبيت العادات والفحوص الدورية لمنع الحلقة نفسها.</small></div>
+          </div>
+        </section>
+
+        <section class="panel mode-target-prevention">
+          <div class="panel-header"><div class="panel-title">سجل التنفيذ</div><div class="panel-code">LOG / REQUIRED</div></div>
+          <ul class="log-list">
+            <li class="log-item"><strong>مدخل ناقص</strong><small>أي تحليل ناقص يمنع تثبيت القرار السببي النهائي.</small></li>
+            <li class="log-item"><strong>قرار بلا خروج</strong><small>أي تدخل بلا شرط إيقاف يتحول تلقائيًا إلى قرار مرفوض.</small></li>
+            <li class="log-item"><strong>تحسن عرضي فقط</strong><small>إذا تحسن العرض وبقيت الحلقة نفسها فالحالة غير مغلقة.</small></li>
+            <li class="log-item"><strong>إعادة اختبار</strong><small>لا اعتماد على شعور مؤقت. العودة إلى القياس إلزامية.</small></li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <section class="footer-log">
+      <div class="panel mode-target-intake">
+        <div class="panel-header"><div class="panel-title">خانات إلزامية قبل اعتماد أي خطة</div><div class="panel-code">GATE / MANDATORY</div></div>
+        <div class="field-list"><span class="field blue">مدة الأعراض</span><span class="field blue">تسلسل ظهورها</span><span class="field blue">تحليل خط الأساس</span><span class="field blue">نمط النوم</span><span class="field blue">نمط الغذاء</span><span class="field blue">أدوية حالية</span><span class="field blue">تعرض لنزف</span><span class="field blue">وظيفة الغدة</span><span class="field blue">التهاب / عدوى</span><span class="field blue">استئصال / فقد عضو</span><span class="field blue">وزن / خصر</span><span class="field blue">قدرة جهد</span></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header"><div class="panel-title">حكم نهائي</div><div class="panel-code">FINAL / SYSTEM</div></div>
+        <div class="policy-grid">
+          <div class="policy-row"><div class="k">النظام</div><div class="v">يجمع الإشارة بوصفها مدخلًا، لا نهاية.</div></div>
+          <div class="policy-row"><div class="k">العلاج</div><div class="v">يفك الخلل ثم ينسحب، لا يبقى بدل الجسد.</div></div>
+          <div class="policy-row"><div class="k">الوقاية</div><div class="v">طبقة تشغيل ثابتة، لا نصيحة إضافية.</div></div>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- NAVIGATION -->
-  <nav class="nav" aria-label="التنقل الرئيسي">
-    <div class="nav-inner">
-      <div class="nav-logo">إشارات <em>الجسد</em></div>
-      <ul class="nav-links" role="list">
-        <li><a href="#why">لماذا المشروع</a></li>
-        <li><a href="#paths">المسارات</a></li>
-        <li><a href="#system">النظام التشغيلي</a></li>
-        <li><a href="#map">الخريطة المفقودة</a></li>
-        <li><a href="#structure">هيكل الموضوع</a></li>
-        <li><a href="#promise" class="nav-cta">وعد المشروع</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
-  <section class="hero" id="hero" aria-labelledby="hero-title">
-    <div class="hero-grid">
-
-      <!-- Text -->
-      <div class="hero-text reveal" id="hero-text">
-        <div class="hero-eyebrow">Bio-OS · النظام التشغيلي البيولوجي</div>
-        <h1 class="hero-h1" id="hero-title">
-          إشارات الجسد
-          <span class="hero-h1-en">Isharat Al-Jasad · Biological Operating System</span>
-        </h1>
-        <p class="hero-subtitle">
-          ليس هذا محتوى صحياً اعتيادياً.
-          هذا محاولة لبناء نظام تشغيلي بيولوجي متكامل.
-        </p>
-        <p class="hero-body">
-          الطب التقليدي يُدير الأعراض. هذا المشروع يُفكك الأسباب.
-          البيولوجيا ليست قائمة أعضاء معزولة — إنها شبكة تشغيلية ديناميكية.
-          كل إشارة تحمل معنى، وكل اختلال يمتد عبر طبقات متعددة.
-          المهمة هنا: رسم تلك الطبقات بدقة ووضوح.
-        </p>
-        <div class="hero-tags">
-          <span class="tag tag-navy">نظام تشغيلي بيولوجي</span>
-          <span class="tag tag-blue">التحليل السببي الجذري</span>
-          <span class="tag tag-mint">المحرك البيولوجي</span>
-          <span class="tag tag-amber">حلقة التغذية الراجعة</span>
-          <span class="tag tag-blue">المحاكاة البيولوجية</span>
-          <span class="tag tag-mint">طبقة الوقاية</span>
-          <span class="tag tag-amber">نمط حياة مستدام</span>
-        </div>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('paths').scrollIntoView({behavior:'smooth'})">
-            استكشف المشروع
-          </button>
-          <button class="btn-secondary" onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'})">
-            لماذا هذا المشروع؟
-          </button>
-        </div>
-      </div>
-
-      <!-- Bio-OS SVG Diagram -->
-      <div class="hero-diagram reveal d2" aria-hidden="true">
-        <svg class="bio-svg" viewBox="0 0 580 490" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-              <circle cx="0.8" cy="0.8" r="0.8" fill="#CED6E8"/>
-            </pattern>
-            <!-- Glow for nucleus -->
-            <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-
-          <!-- Dot-grid background -->
-          <rect width="580" height="490" fill="url(#grid)" opacity="0.7"/>
-
-          <!-- ─── CONNECTION LINES (drawn below nodes) ─── -->
-
-          <!-- TOP: Microbiome → nucleus (straight vertical) -->
-          <line x1="290" y1="91" x2="290" y2="192" stroke="#1A5F9E" stroke-width="1.5" opacity="0.45"/>
-          <!-- animated flow dot -->
-          <circle r="3.5" fill="#1A5F9E" opacity="0.85">
-            <animateMotion dur="2.4s" repeatCount="indefinite" path="M 290 91 V 192"/>
-          </circle>
-
-          <!-- RIGHT-TOP: Simulation → nucleus (L-shape) -->
-          <path d="M 462 172 H 392 V 222" stroke="#1A5F9E" stroke-width="1.5" fill="none" opacity="0.45"/>
-          <circle r="3.5" fill="#1A5F9E" opacity="0.85">
-            <animateMotion dur="3.1s" repeatCount="indefinite" begin="0.6s" path="M 462 172 H 392 V 222"/>
-          </circle>
-
-          <!-- RIGHT-BOTTOM: Medical Intervention → nucleus (L-shape) -->
-          <path d="M 454 296 H 392 V 262" stroke="#2E9E92" stroke-width="1.5" fill="none" opacity="0.45"/>
-          <circle r="3.5" fill="#2E9E92" opacity="0.85">
-            <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.2s" path="M 454 296 H 392 V 262"/>
-          </circle>
-
-          <!-- BOTTOM: Prevention → nucleus (straight vertical) -->
-          <line x1="290" y1="378" x2="290" y2="268" stroke="#2E9E92" stroke-width="1.5" opacity="0.45"/>
-          <circle r="3.5" fill="#2E9E92" opacity="0.85">
-            <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.4s" path="M 290 378 V 268"/>
-          </circle>
-
-          <!-- LEFT-BOTTOM: Feedback → nucleus (L-shape) -->
-          <path d="M 138 296 H 188 V 262" stroke="#B87E14" stroke-width="1.5" fill="none" opacity="0.45"/>
-          <circle r="3.5" fill="#B87E14" opacity="0.85">
-            <animateMotion dur="3.3s" repeatCount="indefinite" begin="1.8s" path="M 138 296 H 188 V 262"/>
-          </circle>
-
-          <!-- LEFT-TOP: Root Cause → nucleus (L-shape) -->
-          <path d="M 126 172 H 188 V 222" stroke="#B87E14" stroke-width="1.5" fill="none" opacity="0.45"/>
-          <circle r="3.5" fill="#B87E14" opacity="0.85">
-            <animateMotion dur="2.7s" repeatCount="indefinite" begin="0.9s" path="M 126 172 H 188 V 222"/>
-          </circle>
-
-          <!-- Junction dots at nucleus boundary -->
-          <circle cx="290" cy="192" r="4" fill="#1A5F9E" opacity="0.7"/>
-          <circle cx="392" cy="222" r="4" fill="#1A5F9E" opacity="0.7"/>
-          <circle cx="392" cy="262" r="4" fill="#2E9E92" opacity="0.7"/>
-          <circle cx="290" cy="268" r="4" fill="#2E9E92" opacity="0.7"/>
-          <circle cx="188" cy="262" r="4" fill="#B87E14" opacity="0.7"/>
-          <circle cx="188" cy="222" r="4" fill="#B87E14" opacity="0.7"/>
-
-          <!-- ─── CENTRAL NUCLEUS ─── -->
-          <!-- Outer pulse ring -->
-          <rect x="178" y="182" width="224" height="96" rx="2" fill="none"
-            stroke="#1A5F9E" stroke-width="1" opacity="0.3">
-            <animate attributeName="opacity" values="0.3;0.08;0.3" dur="3.2s" repeatCount="indefinite"/>
-            <animate attributeName="rx" values="2;8;2" dur="3.2s" repeatCount="indefinite"/>
-          </rect>
-
-          <!-- Main nucleus box -->
-          <rect x="188" y="192" width="204" height="76" fill="#0A1628" rx="1"/>
-          <!-- Top accent stripe -->
-          <rect x="188" y="192" width="204" height="3" fill="#1A5F9E"/>
-          <!-- Bottom accent stripe -->
-          <rect x="188" y="265" width="204" height="3" fill="#2E9E92" opacity="0.5"/>
-
-          <!-- Nucleus labels -->
-          <text x="290" y="226" text-anchor="middle" fill="white"
-            font-size="12.5" font-family="Cairo, sans-serif" font-weight="700">
-            النظام التشغيلي البيولوجي
-          </text>
-          <text x="290" y="248" text-anchor="middle"
-            fill="rgba(255,255,255,0.38)" font-size="9"
-            font-family="monospace" letter-spacing="1.8">
-            Bio-OS Engine
-          </text>
-          <text x="290" y="262" text-anchor="middle"
-            fill="rgba(255,255,255,0.22)" font-size="8"
-            font-family="Cairo, sans-serif">
-            محرك التكامل البيولوجي
-          </text>
-
-          <!-- ─── SATELLITE NODES ─── -->
-
-          <!-- TOP: الميكروبيوم -->
-          <rect x="200" y="55" width="180" height="36" fill="white" stroke="#1A5F9E" stroke-width="1" rx="1"/>
-          <rect x="200" y="55" width="3" height="36" fill="#1A5F9E"/>
-          <text x="299" y="78" text-anchor="middle" fill="#0A1628"
-            font-size="12.5" font-family="Cairo, sans-serif" font-weight="700">الميكروبيوم</text>
-
-          <!-- RIGHT-TOP: المحاكاة -->
-          <rect x="462" y="154" width="110" height="36" fill="white" stroke="#1A5F9E" stroke-width="1" rx="1"/>
-          <rect x="462" y="154" width="3" height="36" fill="#1A5F9E"/>
-          <text x="516" y="177" text-anchor="middle" fill="#0A1628"
-            font-size="12" font-family="Cairo, sans-serif" font-weight="700">المحاكاة</text>
-
-          <!-- RIGHT-BOTTOM: التدخل الطبي -->
-          <rect x="454" y="278" width="122" height="36" fill="white" stroke="#2E9E92" stroke-width="1" rx="1"/>
-          <rect x="454" y="278" width="3" height="36" fill="#2E9E92"/>
-          <text x="514" y="301" text-anchor="middle" fill="#0A1628"
-            font-size="11.5" font-family="Cairo, sans-serif" font-weight="700">التدخل الطبي</text>
-
-          <!-- BOTTOM: الوقاية -->
-          <rect x="200" y="378" width="180" height="36" fill="white" stroke="#2E9E92" stroke-width="1" rx="1"/>
-          <rect x="200" y="378" width="3" height="36" fill="#2E9E92"/>
-          <text x="299" y="401" text-anchor="middle" fill="#0A1628"
-            font-size="12" font-family="Cairo, sans-serif" font-weight="700">الوقاية ونمط الحياة</text>
-
-          <!-- LEFT-BOTTOM: التغذية الراجعة -->
-          <rect x="8" y="278" width="130" height="36" fill="white" stroke="#B87E14" stroke-width="1" rx="1"/>
-          <rect x="8" y="278" width="3" height="36" fill="#B87E14"/>
-          <text x="72" y="301" text-anchor="middle" fill="#0A1628"
-            font-size="11.5" font-family="Cairo, sans-serif" font-weight="700">التغذية الراجعة</text>
-
-          <!-- LEFT-TOP: الجذر السببي -->
-          <rect x="8" y="154" width="118" height="36" fill="white" stroke="#B87E14" stroke-width="1" rx="1"/>
-          <rect x="8" y="154" width="3" height="36" fill="#B87E14"/>
-          <text x="66" y="177" text-anchor="middle" fill="#0A1628"
-            font-size="11.5" font-family="Cairo, sans-serif" font-weight="700">الجذر السببي</text>
-
-          <!-- ─── FLOATING SIGNAL BADGES ─── -->
-
-          <!-- مقاومة الإنسولين (top-left, dashed amber) -->
-          <rect x="14" y="16" width="142" height="26" fill="rgba(184,126,20,0.07)"
-            stroke="#B87E14" stroke-width="0.8" stroke-dasharray="4,2.5" rx="1"/>
-          <text x="85" y="34" text-anchor="middle" fill="#B87E14"
-            font-size="10.5" font-family="Cairo, sans-serif" font-weight="600">مقاومة الإنسولين</text>
-          <line x1="70" y1="42" x2="56" y2="154" stroke="#B87E14" stroke-width="0.7"
-            stroke-dasharray="3,2" opacity="0.4"/>
-
-          <!-- نقص الحديد (top-right, dashed amber) -->
-          <rect x="424" y="16" width="112" height="26" fill="rgba(184,126,20,0.07)"
-            stroke="#B87E14" stroke-width="0.8" stroke-dasharray="4,2.5" rx="1"/>
-          <text x="480" y="34" text-anchor="middle" fill="#B87E14"
-            font-size="10.5" font-family="Cairo, sans-serif" font-weight="600">نقص الحديد</text>
-          <line x1="488" y1="42" x2="500" y2="154" stroke="#B87E14" stroke-width="0.7"
-            stroke-dasharray="3,2" opacity="0.4"/>
-
-          <!-- الالتهاب المزمن (left side) -->
-          <rect x="4" y="220" width="132" height="26" fill="rgba(184,126,20,0.07)"
-            stroke="#B87E14" stroke-width="0.8" stroke-dasharray="4,2.5" rx="1"/>
-          <text x="70" y="238" text-anchor="middle" fill="#B87E14"
-            font-size="10.5" font-family="Cairo, sans-serif" font-weight="600">الالتهاب المزمن</text>
-
-          <!-- اضطرابات النوم (right side, blue) -->
-          <rect x="444" y="220" width="132" height="26" fill="rgba(26,95,158,0.07)"
-            stroke="#1A5F9E" stroke-width="0.8" stroke-dasharray="4,2.5" rx="1"/>
-          <text x="510" y="238" text-anchor="middle" fill="#1A5F9E"
-            font-size="10.5" font-family="Cairo, sans-serif" font-weight="600">اضطرابات النوم</text>
-
-          <!-- الخلل الهرموني (bottom-left, blue) -->
-          <rect x="16" y="398" width="130" height="26" fill="rgba(26,95,158,0.07)"
-            stroke="#1A5F9E" stroke-width="0.8" stroke-dasharray="4,2.5" rx="1"/>
-          <text x="81" y="416" text-anchor="middle" fill="#1A5F9E"
-            font-size="10.5" font-family="Cairo, sans-serif" font-weight="600">الخلل الهرموني</text>
-
-          <!-- الميتوكوندريا (bottom-right, mint) -->
-          <rect x="414" y="398" width="138" height="26" fill="rgba(46,158,146,0.07)"
-            stroke="#2E9E92" stroke-width="0.8" stroke-dasharray="4,2.5" rx="1"/>
-          <text x="483" y="416" text-anchor="middle" fill="#2E9E92"
-            font-size="10.5" font-family="Cairo, sans-serif" font-weight="600">الميتوكوندريا</text>
-
-          <!-- Top-center label above nucleus (Microbiome sub-label) -->
-          <text x="290" y="47" text-anchor="middle" fill="rgba(26,95,158,0.5)"
-            font-size="8" font-family="monospace" letter-spacing="1.2">INPUT LAYER</text>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ============================================================
-       SECTION: لماذا هذا المشروع
-  ============================================================ -->
-  <section class="why-section" id="why" aria-labelledby="why-title">
-    <div class="container">
-      <div class="why-header reveal">
-        <div class="section-label">الدافع المعرفي</div>
-        <h2 class="section-title" id="why-title">لماذا هذا المشروع؟</h2>
-        <p class="section-body">
-          الطب الحديث أنقذ أرواحاً لا تُحصى — لكنه في معالجته للأمراض المزمنة، أقام نموذجاً يقف عند سطح الأعراض ولا يصل إلى هيكلها السببي.
-        </p>
-      </div>
-      <div class="why-grid">
-        <div class="why-block reveal">
-          <div class="why-num">01 — المشكلة الجوهرية</div>
-          <h3 class="why-title">الطب التجزيئي لا يُعالج المنظومة</h3>
-          <p class="why-body">
-            كل تخصص طبي ينظر إلى عضو واحد: القلب عند أمراض القلب، الغدد عند الغدد الصماء، الأمعاء عند الجهاز الهضمي. لكن الجسم لا يعرف هذه الحدود الإدارية. الاختلالات تتشابك عبر أنظمة متعددة في آنٍ واحد، وطبيب التخصص الواحد لا يرى إلا جزءاً من الصورة.
-          </p>
-        </div>
-        <div class="why-block reveal d1">
-          <div class="why-num">02 — الفجوة المنهجية</div>
-          <h3 class="why-title">إدارة الأعراض ليست علاجاً سببياً</h3>
-          <p class="why-body">
-            الدواء الذي يخفض ضغط الدم لا يُزيل السبب الذي رفعه. السكر الذي يُكبح بالأنسولين لا يُصلح مقاومة الخلايا له. الاقتصار على إدارة الأعراض يُهدّئ القياسات، لكنه يترك الاختلال الجذري يتعمّق تحت السطح دون أن يُعالَج.
-          </p>
-        </div>
-        <div class="why-block reveal d2">
-          <div class="why-num">03 — الحل المُقترح</div>
-          <h3 class="why-title">المنظومة السببية بديلاً للتجزيء</h3>
-          <p class="why-body">
-            هذا المشروع لا يُقدّم بروتوكولات وصفات. يُقدّم خريطة معرفية تُظهر كيف تترابط الأنظمة، وكيف ينتشر الخلل، وأين تقع الجذور السببية الحقيقية التي يجب أن يبدأ التدخل منها — لا من الأعراض التي تظهر على السطح.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION: المسارات المعرفية
-  ============================================================ -->
-  <section class="paths-section" id="paths" aria-labelledby="paths-title">
-    <div class="container">
-      <div class="paths-header">
-        <div class="section-label reveal">بنية المعرفة</div>
-        <h2 class="section-title reveal d1" id="paths-title">المسارات المعرفية الرئيسية</h2>
-        <p class="section-body reveal d2">
-          كل موضوع في هذا المشروع يُعالَج من ثلاث زوايا متكاملة — لا يمكن فهم أيٍّ منها بمعزل عن الأخريين.
-        </p>
-      </div>
-      <div class="paths-grid">
-        <article class="path-card reveal">
-          <div class="path-card-num">المسار الأول</div>
-          <h3 class="path-card-title">فهم الإنسان</h3>
-          <p class="path-card-body">
-            البيولوجيا البشرية ليست مجموعة أعضاء — إنها نظام تشغيلي ديناميكي. هذا المسار يبني فهماً أساسياً لكيفية عمل الجسم كمنظومة متكاملة ذات طبقات متشابكة.
-          </p>
-          <ul class="path-card-list">
-            <li>البيولوجيا الخلوية وطاقة الميتوكوندريا</li>
-            <li>محاور الهرمونات والتواصل الكيميائي الجهازي</li>
-            <li>الميكروبيوم ومحور الأمعاء والدماغ</li>
-            <li>الالتهاب كمستجيب دفاعي جهازي</li>
-            <li>الساعة البيولوجية والتنظيم الزمني للجسم</li>
-          </ul>
-        </article>
-        <article class="path-card reveal d1">
-          <div class="path-card-num">المسار الثاني</div>
-          <h3 class="path-card-title">فهم المرض</h3>
-          <p class="path-card-body">
-            المرض ليس حدثاً عشوائياً — إنه نتيجة منطقية لسلسلة من الاختلالات التراكمية. هذا المسار يرسم المسارات السببية الفعلية للأمراض المزمنة بدقة.
-          </p>
-          <ul class="path-card-list">
-            <li>خرائط الاختلال الأيضي والخلوي</li>
-            <li>مسارات الالتهاب المزمن منخفض الدرجة</li>
-            <li>اضطرابات محور الهرمونات والتغذية الراجعة</li>
-            <li>مقاومة الإنسولين كنموذج تشغيلي شامل</li>
-            <li>تراكب الاختلالات وظهور المرض الظاهري</li>
-          </ul>
-        </article>
-        <article class="path-card reveal d2">
-          <div class="path-card-num">المسار الثالث</div>
-          <h3 class="path-card-title">التدخل الطبي</h3>
-          <p class="path-card-body">
-            التدخل الصحيح لا يبدأ من الدواء — يبدأ من تشخيص الطبقة السببية الأعمق. هذا المسار يستكشف منطق التدخل المنظومي وأدواته وتسلسل أولوياته.
-          </p>
-          <ul class="path-card-list">
-            <li>التشخيص التفريقي والسببي المعمّق</li>
-            <li>تسلسل التدخلات وفق الطبقة السببية</li>
-            <li>دور التغذية كتدخل جذري لا ملحق</li>
-            <li>تصميم بروتوكول الوقاية والتعافي الكامل</li>
-            <li>المحاكاة والتتبع الزمني لاستجابة المنظومة</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION: منطق النظام التشغيلي البيولوجي
-  ============================================================ -->
-  <section class="system-section" id="system" aria-labelledby="system-title">
-    <div class="container">
-      <div class="system-header">
-        <div class="section-label reveal">هندسة النظام</div>
-        <h2 class="section-title reveal d1" id="system-title">منطق النظام التشغيلي البيولوجي</h2>
-        <p class="section-body reveal d2">
-          النموذج المعرفي لهذا المشروع مُبنيٌّ على طبقات متسلسلة ومترابطة، لا على أجزاء منفصلة. كل طبقة تُغذّي ما بعدها وتستجيب لما قبلها في حلقة مستمرة.
-        </p>
-      </div>
-      <div class="system-layers reveal">
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 01</div>
-          <div class="layer-info">
-            <div class="layer-name">الإشارات والمستخدم</div>
-            <div class="layer-desc">الأعراض والقياسات والمعطيات الخام — المدخل الأولي للنظام</div>
-          </div>
-          <span class="tag tag-navy">Input Layer</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 02</div>
-          <div class="layer-info">
-            <div class="layer-name">المستشعرات والتحاليل</div>
-            <div class="layer-desc">تحاليل الدم، البيوماركرات، قياسات الجسم — ترجمة الإشارات إلى بيانات قابلة للتفسير</div>
-          </div>
-          <span class="tag tag-blue">Sensor Layer</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 03</div>
-          <div class="layer-info">
-            <div class="layer-name">تكامل البيانات</div>
-            <div class="layer-desc">ربط البيانات المتفرقة ضمن سياقها الزمني والبيولوجي المتكامل لكل مريض</div>
-          </div>
-          <span class="tag tag-blue">Integration</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 04</div>
-          <div class="layer-info">
-            <div class="layer-name">المحرك البيولوجي</div>
-            <div class="layer-desc">نموذج تفسيري يُعالج البيانات بناءً على الفيزيولوجيا الجهازية والعلاقات البينية</div>
-          </div>
-          <span class="tag tag-amber">Bio Engine</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 05</div>
-          <div class="layer-info">
-            <div class="layer-name">تحليل الجذر السببي</div>
-            <div class="layer-desc">التشخيص العمودي من الأعراض إلى الاختلال الجوهري الأصيل — Root Cause Analysis</div>
-          </div>
-          <span class="tag tag-amber">Root Cause</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 06</div>
-          <div class="layer-info">
-            <div class="layer-name">طبقة المحاكاة</div>
-            <div class="layer-desc">نمذجة سيناريوهات التدخل المتوقعة وتأثيرها المتسلسل على طبقات المنظومة</div>
-          </div>
-          <span class="tag tag-blue">Simulation</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 07</div>
-          <div class="layer-info">
-            <div class="layer-name">التدخل المُصمَّم</div>
-            <div class="layer-desc">بروتوكول تدخل محدد المستوى، متسلسل الأولويات، قابل للتعديل وفق استجابة المنظومة</div>
-          </div>
-          <span class="tag tag-mint">Intervention</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 08</div>
-          <div class="layer-info">
-            <div class="layer-name">حلقة التغذية الراجعة</div>
-            <div class="layer-desc">رصد الاستجابة الفعلية وإعادة معايرة النموذج بناءً على النتائج المُقاسة</div>
-          </div>
-          <span class="tag tag-amber">Feedback Loop</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 09</div>
-          <div class="layer-info">
-            <div class="layer-name">طبقة الوقاية</div>
-            <div class="layer-desc">تحويل نتائج التدخل إلى بنية وقائية مدمجة منيعة ضد التكرار والانتكاس</div>
-          </div>
-          <span class="tag tag-mint">Prevention</span>
-        </div>
-        <div class="system-layer">
-          <div class="layer-idx">طبقة 10</div>
-          <div class="layer-info">
-            <div class="layer-name">نمط الحياة المستدام</div>
-            <div class="layer-desc">الخروج من منطق العلاج إلى منطق الاستدامة البيولوجية طويلة الأمد — Lifestyle OS</div>
-          </div>
-          <span class="tag tag-mint">Lifestyle OS</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION: الخريطة المفقودة في الطب
-  ============================================================ -->
-  <section class="map-section" id="map" aria-labelledby="map-title">
-    <div class="container">
-      <div class="map-header">
-        <div class="section-label reveal">الثغرة المعرفية</div>
-        <h2 class="section-title reveal d1" id="map-title">الخريطة المفقودة في الطب</h2>
-        <p class="section-body reveal d2">
-          قيمة التحليل المعزولة لا تُفسّر الحالة. الفارق بين طبٍّ يُدير الأعراض وطبٍّ يُعالج الجذور ليس في الأدوات — بل في النموذج التفسيري الكامن وراء القراءة.
-        </p>
-      </div>
-      <div class="map-compare reveal d1">
-        <div class="map-col">
-          <h3 class="map-col-head">الطب التقليدي التجزيئي</h3>
-          <div class="map-row">
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--amber);"></div>
-              <div class="map-item-text">يُعالج كل عضو منفصلاً بمعزل عن بقية المنظومة البيولوجية</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--amber);"></div>
-              <div class="map-item-text">يتخذ القيم المرجعية المعملية حدوداً ثابتة، لا مؤشرات ديناميكية متغيرة بالسياق</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--amber);"></div>
-              <div class="map-item-text">يبدأ التدخل عند ظهور المرض الكامل، لا عند الاختلال المبكر القابل للتصحيح</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--amber);"></div>
-              <div class="map-item-text">يهدف إلى إسكات الأعراض وتطبيع القياسات بأسرع وقت ممكن</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--amber);"></div>
-              <div class="map-item-text">يفتقر إلى نموذج للسببية الجهازية بين الأنظمة البيولوجية المختلفة</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--amber);"></div>
-              <div class="map-item-text">التعافي يعني عودة القياسات للمعدل — لا استعادة التوازن البيولوجي الجهازي</div>
-            </div>
-          </div>
-        </div>
-        <div class="map-sep" aria-hidden="true">
-          <span>مقارنة</span>
-        </div>
-        <div class="map-col">
-          <h3 class="map-col-head">الطب المنظومي السببي</h3>
-          <div class="map-row">
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--mint);"></div>
-              <div class="map-item-text">يرى الجسم شبكة من الأنظمة المترابطة، يؤثر كل منها في الآخرين</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--mint);"></div>
-              <div class="map-item-text">يُفسّر القيم المعملية في سياقها الديناميكي والزمني والبيولوجي الفردي</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--mint);"></div>
-              <div class="map-item-text">يتدخل عند الاختلال المبكر قبل أن يتبلور في شكل مرض ظاهري</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--mint);"></div>
-              <div class="map-item-text">يستهدف إصلاح الجذر السببي بدلاً من قمع التعبير الأعرضي فحسب</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--mint);"></div>
-              <div class="map-item-text">يبني خريطة سببية متكاملة تُظهر تشابك الأنظمة وعلاقاتها الفعلية</div>
-            </div>
-            <div class="map-item">
-              <div class="map-dot" style="background:var(--mint);"></div>
-              <div class="map-item-text">التعافي يعني استعادة التوازن البيولوجي الجهازي الفعلي — لا مجرد تطبيع رقم</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION: هيكل الموضوع الواحد
-  ============================================================ -->
-  <section class="structure-section" id="structure" aria-labelledby="structure-title">
-    <div class="container">
-      <div class="structure-header">
-        <div class="section-label reveal">المعيار المعرفي</div>
-        <h2 class="section-title reveal d1" id="structure-title">هيكل الموضوع الواحد</h2>
-        <p class="section-body reveal d2">
-          كل موضوع في هذه الموسوعة يُبنى وفق قالب معياري صارم. ثمانية مستويات تكفل الاكتمال السببي والمعرفي لكل مدخلة — لا حذف ولا تجاوز لأي طبقة.
-        </p>
-      </div>
-      <div class="structure-grid reveal d1">
-        <div class="str-module">
-          <div class="str-num">MODULE 01</div>
-          <h4 class="str-title">المدخل التشخيصي</h4>
-          <p class="str-desc">تعريف الحالة ضمن سياقها الجهازي، وتحديد موقعها الدقيق في خريطة المنظومة البيولوجية الكاملة</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 02</div>
-          <h4 class="str-title">العلامات والتحاليل</h4>
-          <p class="str-desc">قائمة مُنظّمة بالمؤشرات المعملية والسريرية، مع معايير تفسيرها السياقي لا المرجعي المعزول</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 03</div>
-          <h4 class="str-title">التفسير الميكانيكي</h4>
-          <p class="str-desc">شرح الآلية البيولوجية الدقيقة: كيف يحدث الاختلال على المستوى الخلوي والجزيئي والجهازي</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 04</div>
-          <h4 class="str-title">التشخيص التفريقي</h4>
-          <p class="str-desc">تمييز الحالة عن الحالات المتشابهة أعراضياً، مع تحديد معايير الفصل الدقيقة والقابلة للتطبيق</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 05</div>
-          <h4 class="str-title">الجذر السببي</h4>
-          <p class="str-desc">التشخيص العمودي للطبقات السببية: من السطح الأعرضي إلى الاختلال الجوهري الأساسي الأصيل</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 06</div>
-          <h4 class="str-title">التدخلات</h4>
-          <p class="str-desc">بروتوكول تدخل متدرج الأولوية يبدأ من الجذر، مُصنَّف بحسب الطبقة السببية ومرتّب زمنياً</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 07</div>
-          <h4 class="str-title">الوقاية ومنع التكرار</h4>
-          <p class="str-desc">تحويل نتائج العلاج إلى بنية وقائية مدمجة في نمط الحياة اليومي لمنع الانتكاس وتعميق الصحة</p>
-        </div>
-        <div class="str-module">
-          <div class="str-num">MODULE 08</div>
-          <h4 class="str-title">الطبقات المرتبطة</h4>
-          <p class="str-desc">خريطة الترابط مع الحالات والأنظمة الأخرى — إظهار شبكة التأثيرات المتبادلة في المنظومة الكاملة</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION: وعد المشروع
-  ============================================================ -->
-  <section class="promise-section" id="promise" aria-labelledby="promise-title">
-    <div class="container">
-      <div class="promise-inner reveal">
-        <div class="section-label" style="justify-content:center;margin-bottom:var(--sp-md);">الرسالة الجوهرية</div>
-        <div class="promise-bar"></div>
-        <blockquote class="promise-quote" id="promise-title">
-          هذا المشروع لا يسعى خلف المتابعين،
-          ولا يُبنى على صيحات المحتوى الصحي،
-          ولا يُضاف إلى قائمة المعلومات الرقمية المُعاد تدويرها.
-        </blockquote>
-        <p class="promise-detail">
-          يسعى هذا المشروع إلى <strong>نتيجة طبية مختلفة</strong>. إلى إنسان يعرف ما يجري في جسده،
-          ويملك الخريطة التي تُفسّر الإشارات قبل أن تتحول إلى أمراض راسخة.
-          إلى ممارس صحي يمتلك نموذجاً تفسيرياً أعمق يُغيّر من طريقة طرحه للأسئلة
-          قبل أن يُغيّر طريقة تدخّله.
-        </p>
-        <p class="promise-detail">
-          <strong>الطب الجيد لا يبدأ من الدواء. يبدأ من الفهم.</strong><br/>
-          والفهم الجيد لا يبدأ من القائمة. يبدأ من الخريطة.<br/>
-          هذا المشروع هو الخريطة.
-        </p>
-        <div class="promise-tags">
-          <span class="tag tag-navy">معرفة طبية جادة</span>
-          <span class="tag tag-blue">تفكير جذري سببي</span>
-          <span class="tag tag-mint">منظومة متكاملة</span>
-          <span class="tag tag-amber">نتيجة حقيقية</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">إشارات الجسد</div>
-        <p class="footer-sub">
-          النظام التشغيلي البيولوجي · Biological Operating System<br/>
-          مشروع معرفي طبي يُعيد بناء الفهم من الجذور السببية
-        </p>
-      </div>
-      <nav class="footer-nav" aria-label="روابط التذييل">
-        <a href="#why">لماذا المشروع</a>
-        <a href="#paths">المسارات المعرفية</a>
-        <a href="#system">النظام التشغيلي</a>
-        <a href="#map">الخريطة المفقودة</a>
-        <a href="#structure">هيكل الموضوع</a>
-        <a href="#promise">وعد المشروع</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>© ١٤٤٦ هـ — إشارات الجسد. جميع الحقوق محفوظة.</span>
-      <span style="letter-spacing:0.06em;font-size:10.5px;">Isharat Al-Jasad · Bio-OS · v1.0</span>
-    </div>
-  </footer>
-
-  <!-- ============================================================
-       JAVASCRIPT
-  ============================================================ -->
   <script>
-    // Intersection Observer for section reveals
-    (function () {
-      const items = document.querySelectorAll('.reveal');
-      if (!items.length) return;
+    const moduleData = {
+      insulin: { axis: 'مقاومة الإنسولين', hypothesis: 'فرط إنسولين يجرّ جوعًا وتذبذب طاقة والتهابًا ثانويًا.', temp: 'خفض حمل سكري + توقيت وجبات + دعم دوائي محدود عند الضرورة.', enable: 'استعادة الحساسية وكسر الحلقة لا تثبيت الدواء.', stop: 'ثبات الجوع والطاقة والسكر والإنسولين دون دعم متكرر.', prevention: 'نوم ثابت + مقاومة عضلية + ألياف + متابعة محيط خصر.', node: 'insulin', layer: 'استقلاب', action: 'فك الحلقة', risk: 'مرتفع' },
+      iron: { axis: 'نقص الحديد', hypothesis: 'انخفاض المخازن يمنع الأكسجة والاسترداد وقد يخفي نزفًا أو سوء امتصاص.', temp: 'تعويض موجّه قصير المدى مع فتح ملف النزف والامتصاص والالتهاب.', enable: 'إعادة تعبئة المخازن بعد كشف سبب الاستنزاف لا الاستمرار بالتعويض فقط.', stop: 'تحسن Ferritin والأعراض مع توقف الاستنزاف وثبات النتائج.', prevention: 'مراقبة نزف + تقييم امتصاص + غذاء داعم + متابعة دورية.', node: 'iron', layer: 'مخازن', action: 'تعويض + كشف السبب', risk: 'متوسط' },
+      inflammation: { axis: 'التهاب مزمن', hypothesis: 'حمل التهابي مستمر يربك النوم والهرمونات والإنسولين والطاقة.', temp: 'تهدئة محدودة مع البحث عن عدوى أو مناعة أو لثة أو أمعاء أو جلد.', enable: 'إزالة المحرّك الالتهابي لخفض الضجيج على كامل الشبكة.', stop: 'انخفاض CRP وتحسن الأعراض بعد زوال المحرك وليس بعد المسكن فقط.', prevention: 'فم وأسنان + أمعاء + مضاد التكرار + تتبع المصدر.', node: 'inflammation', layer: 'التهاب', action: 'خفض الحمل', risk: 'مرتفع' },
+      sleep: { axis: 'اضطراب النوم', hypothesis: 'خلل الإيقاع يرفع الحمل العصبي ويضعف الاستقلاب والإصلاح.', temp: 'تنظيم وقت النوم والضوء والمثيرات مع دعم محدود عند الحاجة.', enable: 'استعادة إيقاع يومي مستقر بلا اعتماد خارجي مستمر.', stop: 'نوم متصل واستيقاظ ثابت وتحسن طاقة النهار دون دعم.', prevention: 'ضوء صباح + تقليل سهر + توقيت ثابت + تقييم شخير.', node: 'sleep', layer: 'إيقاع', action: 'إعادة ضبط', risk: 'متوسط' },
+      hormone: { axis: 'خلل هرموني', hypothesis: 'الغدة أو المحاور الهرمونية قد تكون أصلًا أو نتيجة لعقدة أخرى.', temp: 'تصحيح دقيق بعد الفرز بين السبب الأولي والثانوي.', enable: 'منع تثبيت العلاج على نتيجة ثانوية إذا كان الجذر في طبقة أخرى.', stop: 'استقرار المؤشرات الهرمونية بعد تثبيت الجذر المسيطر.', prevention: 'إيقاع + تغذية + وزن + متابعة دورية للمحور المعني.', node: 'sleep', layer: 'هرمونات', action: 'فرز أولي / ثانوي', risk: 'متوسط' },
+      mitochondria: { axis: 'ضعف الميتوكوندريا', hypothesis: 'انخفاض إنتاج الطاقة يعظّم التعب ويقلل الاسترداد وقد يتبع نقصًا أو التهابًا.', temp: 'تخفيف الحمل وتحسين النوم والغذاء والحركة مع دعم موجّه.', enable: 'رفع الكفاءة الطاقية بعد إزالة الضغط الاستقلابي والالتهابي.', stop: 'تحسن الجهد والاسترداد دون انهيار لاحق.', prevention: 'حركة مدروسة + نوم + غذاء + إصلاح الطبقات الضاغطة.', node: 'inflammation', layer: 'طاقة', action: 'رفع الكفاءة', risk: 'متوسط' },
+      microbiome: { axis: 'خلل الميكروبيوم', hypothesis: 'سوء التوازن المعوي قد يفسر التهابًا وسوء امتصاص واضطرابًا مناعيًا.', temp: 'تدخل قصير لإزالة المخرشات ومعالجة السبب المعوي المباشر.', enable: 'استعادة بيئة معوية مستقرة تدعم الامتصاص والمناعة.', stop: 'تحسن الهضم والامتصاص والجلد والمؤشرات الالتهابية.', prevention: 'ألياف مناسبة + علاج المصدر + إيقاف التكرار الغذائي والممرض.', node: 'inflammation', layer: 'أمعاء', action: 'إصلاح الامتصاص', risk: 'مرتفع' },
+      organ: { axis: 'فقد عضو / وظيفة', hypothesis: 'عند فقد البنية أو الوظيفة يصبح التعويض المستمر مبررًا ومحددًا.', temp: 'لا يوجد. هنا يدخل التعويض الضروري المستمر وفق الاستثناء.', enable: 'الحفاظ على ما بقي من الوظيفة ومنع مضاعفات الغياب العضوي.', stop: 'لا ينطبق إذا كان الفقد ثابتًا وغير قابل للاستعادة.', prevention: 'حماية العضو المتبقي + تقليل الحمل + متابعة دقيقة.', node: 'context', layer: 'استثناء', action: 'تعويض مشروع', risk: 'مرتفع' }
+    };
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in');
-              // Once revealed, stop observing
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
-      );
+    const fields = {
+      axis: document.getElementById('currentAxis'),
+      hypothesis: document.getElementById('currentHypothesis'),
+      temp: document.getElementById('currentTemp'),
+      enable: document.getElementById('currentEnable'),
+      stop: document.getElementById('currentStop'),
+      prevention: document.getElementById('currentPrevention'),
+      engineNode: document.getElementById('engineNode'),
+      engineLayer: document.getElementById('engineLayer'),
+      engineAction: document.getElementById('engineAction'),
+      engineRisk: document.getElementById('engineRisk')
+    };
 
-      items.forEach((el) => observer.observe(el));
-
-      // Immediately reveal hero items (already in viewport)
-      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-        setTimeout(() => el.classList.add('in'), 80 + i * 120);
+    document.querySelectorAll('.module-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.module-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        const data = moduleData[card.dataset.module];
+        fields.axis.textContent = data.axis;
+        fields.hypothesis.textContent = data.hypothesis;
+        fields.temp.textContent = data.temp;
+        fields.enable.textContent = data.enable;
+        fields.stop.textContent = data.stop;
+        fields.prevention.textContent = data.prevention;
+        fields.engineNode.textContent = data.axis;
+        fields.engineLayer.textContent = data.layer;
+        fields.engineAction.textContent = data.action;
+        fields.engineRisk.textContent = data.risk;
+        document.querySelectorAll('.node').forEach(node => node.classList.remove('active'));
+        document.querySelectorAll('[data-node="' + data.node + '"]').forEach(node => node.classList.add('active'));
       });
-    })();
+    });
 
-    // Subtle nav shrink on scroll
-    (function () {
-      const nav = document.querySelector('.nav');
-      if (!nav) return;
-      window.addEventListener('scroll', () => {
-        nav.style.boxShadow = window.scrollY > 8
-          ? '0 2px 20px rgba(10,22,40,0.07)'
-          : 'none';
-      }, { passive: true });
-    })();
+    const modeLabels = { intake: 'INTAKE', analysis: 'ANALYSIS', simulate: 'SIMULATION', intervention: 'TEMP SUPPORT', prevention: 'PREVENTION' };
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mode = btn.dataset.modeBtn;
+        document.body.setAttribute('data-mode', mode);
+        document.getElementById('modeReadout').textContent = modeLabels[mode];
+      });
+    });
   </script>
 </body>
 </html>
