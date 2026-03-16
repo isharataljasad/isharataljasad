@@ -1,932 +1,1118 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="إشارات الجسد — نظام التشغيل البيولوجي. إطار منظومي جذري للطب يعامل الصحة كشبكة بيولوجية متكاملة.">
-    <title>إشارات الجسد | Bio-OS</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;family=Tajawal:wght@400;500;700&amp;display=swap">
-    <style>
-        :root {
-            --bg: #f8fafd;
-            --surface: #ffffff;
-            --navy: #0f172a;
-            --blue: #0284c8;
-            --mint: #10b981;
-            --amber: #f59e0b;
-            --slate: #64748b;
-            --font-heading: 'Cairo', system-ui, sans-serif;
-            --font-body: 'Tajawal', system-ui, sans-serif;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: var(--bg);
-            color: var(--navy);
-            font-family: var(--font-body);
-            line-height: 1.7;
-            font-size: 1.05rem;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .signal-strip {
-            background: var(--navy);
-            color: #e2e8f0;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            padding: 10px 0;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            font-weight: 500;
-        }
-        
-        header {
-            padding-top: 52px;
-            background: var(--surface);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
-        }
-        
-        nav {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 76px;
-        }
-        
-        .logo {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: var(--navy);
-            letter-spacing: -0.5px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2.25rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--slate);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--blue);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.75rem;
-            cursor: pointer;
-            color: var(--navy);
-        }
-        
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            padding: 0 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-            gap: 4rem;
-        }
-        
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(2, 132, 200, 0.1);
-            color: var(--blue);
-            padding: 6px 16px;
-            border-radius: 9999px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        .hero h1 {
-            font-size: clamp(3.2rem, 8vw, 5.2rem);
-            line-height: 1.05;
-            color: var(--navy);
-        }
-        
-        .hero .subtitle {
-            font-size: 1.85rem;
-            color: var(--blue);
-            font-weight: 600;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 38ch;
-            color: var(--slate);
-        }
-        
-        .signal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        
-        .signal-tag {
-            background: var(--surface);
-            border: 1px solid #e2e8f0;
-            padding: 10px 18px;
-            border-radius: 9999px;
-            font-size: 0.95rem;
-            color: var(--slate);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .signal-tag:hover {
-            background: #f1f5f9;
-            transform: translateY(-2px);
-            border-color: var(--blue);
-            color: var(--navy);
-        }
-        
-        .hero-visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero svg {
-            width: 100%;
-            max-width: 520px;
-            height: auto;
-            filter: drop-shadow(0 25px 30px rgba(2, 132, 200, 0.12));
-        }
-        
-        section {
-            padding: 7rem 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            font-size: 2.35rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 48px;
-            height: 3px;
-            background: var(--blue);
-            border-radius: 9999px;
-        }
-        
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .why-card {
-            background: var(--surface);
-            padding: 2.75rem 2.25rem;
-            border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #f1f5f9;
-        }
-        
-        .why-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 25px -5px rgb(15 23 42 / 0.08);
-        }
-        
-        .why-card h3 {
-            font-size: 1.45rem;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-        
-        .paths-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.25rem;
-        }
-        
-        .path-card {
-            background: var(--surface);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #f1f5f9;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .path-card:hover {
-            border-color: var(--blue);
-            transform: scale(1.03);
-        }
-        
-        .path-header {
-            height: 6px;
-            background: linear-gradient(90deg, var(--blue), var(--mint));
-        }
-        
-        .path-content {
-            padding: 2.25rem;
-        }
-        
-        .path-content h3 {
-            font-size: 1.65rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .path-content ul {
-            list-style: none;
-        }
-        
-        .path-content li {
-            padding: 12px 0;
-            border-top: 1px solid #f1f5f9;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        
-        .path-content li:before {
-            content: "→";
-            color: var(--mint);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        
-        .layers {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-        
-        .layer {
-            display: grid;
-            grid-template-columns: 48px 1fr;
-            gap: 2rem;
-            align-items: center;
-            position: relative;
-        }
-        
-        .layer:before {
-            content: '';
-            position: absolute;
-            left: 23px;
-            top: 68px;
-            bottom: -28px;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--blue), #e2e8f0);
-        }
-        
-        .layer:last-child:before {
-            display: none;
-        }
-        
-        .layer-num {
-            width: 48px;
-            height: 48px;
-            background: var(--surface);
-            border: 3px solid var(--blue);
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--blue);
-            z-index: 2;
-        }
-        
-        .layer-content h4 {
-            font-size: 1.35rem;
-            margin-bottom: 8px;
-        }
-        
-        .compare {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            background: var(--surface);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.05);
-        }
-        
-        .compare-left, .compare-right {
-            padding: 1.5rem;
-        }
-        
-        .compare-left h3 {
-            color: var(--amber);
-            margin-bottom: 1.75rem;
-            font-size: 1.55rem;
-        }
-        
-        .compare-right h3 {
-            color: var(--mint);
-            margin-bottom: 1.75rem;
-            font-size: 1.55rem;
-        }
-        
-        .compare ul {
-            list-style: none;
-        }
-        
-        .compare li {
-            padding: 14px 0;
-            border-bottom: 1px solid #f1f5f9;
-            position: relative;
-            padding-right: 28px;
-        }
-        
-        .compare li:before {
-            content: "•";
-            position: absolute;
-            right: 0;
-            color: inherit;
-        }
-        
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.75rem;
-        }
-        
-        .module {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
-        }
-        
-        .module:hover {
-            border-color: var(--blue);
-            box-shadow: 0 15px 20px -10px rgb(2 132 200 / 0.15);
-        }
-        
-        .module h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--navy);
-        }
-        
-        .promise {
-            background: var(--navy);
-            color: #f8fafd;
-            text-align: center;
-            padding: 7rem 2rem;
-            border-radius: 32px;
-            margin: 4rem 2rem;
-        }
-        
-        .promise h2 {
-            font-size: 2.75rem;
-            margin-bottom: 2rem;
-            color: #e2e8f0;
-        }
-        
-        .promise p {
-            max-width: 52ch;
-            margin: 0 auto 1.5rem;
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-        
-        footer {
-            background: var(--surface);
-            padding: 3.5rem 2rem 2rem;
-            text-align: center;
-            color: var(--slate);
-            font-size: 0.95rem;
-        }
-        
-        .footer-content {
-            max-width: 760px;
-            margin: 0 auto;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 2rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                padding-top: 4rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            section {
-                padding: 4.5rem 1.5rem;
-            }
-            
-            .compare {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .hero {
-                gap: 2rem;
-            }
-        }
-        
-        @media (min-width: 1280px) {
-            section {
-                padding: 8rem 2rem;
-            }
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .nav-links a {
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blue);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <!-- Top Signal Strip -->
-    <div class="signal-strip">
-        بدء عصر الطب المنظومي البيولوجي — إعادة بناء الفهم من الجذور
-    </div>
+<!DOCTYPE html> <html lang="ar" dir="rtl"> <head> <meta charset="UTF-8"> <title>إشارات الجسد | النظام التشغيلي البيولوجي</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="description" content="إشارات الجسد: محاولة لبناء نظام تشغيلي بيولوجي يعيد تعريف المرض والصحة عبر نموذج منظومي سببي متكامل."> <style> :root { --bg-clinical: #f4f7fb; --bg-surface: #ffffff; --text-main: #0b2340; --text-body: #4b5563; --accent-blue: #2f7dd3; --accent-mint: #59b89a; --accent-amber: #d8892a; --grid-line: #d0d8e5; --muted: #9ca3af; --radius-soft: 10px; --radius-pill: 999px; --border-subtle: 1px solid #dde3ef; --shadow-soft: 0 10px 30px rgba(9, 30, 66, 0.04); --font-arabic: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --transition-fast: 180ms ease-out; --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-7: 32px; --space-8: 40px; --space-9: 56px; --space-10: 72px; --max-width: 1220px; }
 
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <div class="logo">إشارات الجسد</div>
-            <ul class="nav-links">
-                <li><a href="#why">لماذا</a></li>
-                <li><a href="#paths">المسارات</a></li>
-                <li><a href="#logic">المنطق</a></li>
-                <li><a href="#map">الخريطة</a></li>
-                <li><a href="#structure">الهيكل</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileBtn" aria-label="القائمة">☰</button>
-        </nav>
-    </header>
+* {
+  box-sizing: border-box;
+}
 
-    <!-- HERO -->
-    <section class="hero" style="padding-top: 80px;">
-        <div class="hero-content fade-in">
-            <div class="hero-badge">
-                <span style="color:#10b981;">●</span>
-                Bio-OS
-            </div>
-            
-            <h1>إشارات الجسد</h1>
-            <div class="subtitle">نظام التشغيل البيولوجي</div>
-            
-            <p>
-                إطار معرفي متكامل يعيد صياغة الطب كعلم منظومي. 
-                يعامل الجسم كشبكة بيولوجية ديناميكية، والمرض كفشل شبكي، 
-                والتدخل كإعادة توازن سببي دقيق.
-            </p>
-            
-            <div class="signal-tags">
-                <span class="signal-tag">مقاومة الإنسولين</span>
-                <span class="signal-tag">الالتهاب المزمن</span>
-                <span class="signal-tag">الميتوكوندريا</span>
-                <span class="signal-tag">الميكروبيوم</span>
-                <span class="signal-tag">التغذية الراجعة</span>
-                <span class="signal-tag">المحاكاة الرقمية</span>
-            </div>
-        </div>
-        
-        <!-- SVG Biological Operating System Diagram -->
-        <div class="hero-visual fade-in">
-            <svg width="100%" height="520" viewBox="0 0 720 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="diagram-title">
-                <title id="diagram-title">خريطة نظام التشغيل البيولوجي</title>
-                
-                <!-- Subtle background grid -->
-                <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="1" opacity="0.4"/>
-                    </pattern>
-                </defs>
-                <rect width="720" height="520" fill="url(#grid)"/>
-                
-                <!-- Central Nucleus -->
-                <rect x="280" y="205" width="160" height="110" rx="16" fill="#ffffff" stroke="#0284c8" stroke-width="7"/>
-                <text x="360" y="255" text-anchor="middle" fill="#0f172a" font-family="Cairo" font-size="27" font-weight="700">Bio-OS</text>
-                <text x="360" y="285" text-anchor="middle" fill="#64748b" font-family="Tajawal" font-size="13.5">النواة البيولوجية</text>
-                
-                <!-- Orthogonal Connectors & Nodes -->
-                
-                <!-- Node 1: Top-Left - الالتهاب المزمن -->
-                <rect x="40" y="55" width="138" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="109" y="79" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">الالتهاب المزمن</text>
-                <path d="M 280 245 L 178 245 L 178 81" stroke="#0284c8" stroke-width="3.5" stroke-linejoin="round"/>
-                
-                <!-- Node 2: Left - مقاومة الإنسولين -->
-                <rect x="35" y="195" width="138" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="104" y="219" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">مقاومة الإنسولين</text>
-                <path d="M 280 245 H 173" stroke="#0284c8" stroke-width="3.5"/>
-                
-                <!-- Node 3: Bottom-Left - نقص الحديد -->
-                <rect x="38" y="355" width="138" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="107" y="380" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">نقص الحديد</text>
-                <path d="M 280 245 L 178 245 L 178 381" stroke="#0284c8" stroke-width="3.5" stroke-linejoin="round"/>
-                
-                <!-- Node 4: Bottom - اضطرابات النوم -->
-                <rect x="295" y="425" width="130" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="360" y="450" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">اضطرابات النوم</text>
-                <path d="M 360 315 V 425" stroke="#0284c8" stroke-width="3.5"/>
-                
-                <!-- Node 5: Bottom-Right - الخلل الهرموني -->
-                <rect x="547" y="365" width="138" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="616" y="390" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">الخلل الهرموني</text>
-                <path d="M 440 245 L 547 245 L 547 381" stroke="#0284c8" stroke-width="3.5" stroke-linejoin="round"/>
-                
-                <!-- Node 6: Right - الميتوكوندريا -->
-                <rect x="547" y="195" width="138" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="616" y="219" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">الميتوكوندريا</text>
-                <path d="M 440 245 H 547" stroke="#0284c8" stroke-width="3.5"/>
-                
-                <!-- Node 7: Top-Right - التدخل الطبي -->
-                <rect x="532" y="55" width="138" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="601" y="79" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">التدخل الطبي</text>
-                <path d="M 440 245 L 532 245 L 532 81" stroke="#0284c8" stroke-width="3.5" stroke-linejoin="round"/>
-                
-                <!-- Node 8: Top-Center - التغذية الراجعة -->
-                <rect x="295" y="38" width="130" height="52" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-                <text x="360" y="63" text-anchor="middle" fill="#0f172a" font-size="13.5" font-family="Tajawal">التغذية الراجعة</text>
-                <path d="M 360 315 V 90" stroke="#0284c8" stroke-width="3.5"/>
-                
-                <!-- Node 9: Far Right small accent - المحاكاة -->
-                <rect x="615" y="260" width="92" height="38" rx="6" fill="#f8fafd" stroke="#10b981" stroke-width="3"/>
-                <text x="661" y="282" text-anchor="middle" fill="#10b981" font-size="12" font-family="Tajawal" font-weight="600">المحاكاة</text>
-                <path d="M 440 245 L 615 279" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4 3"/>
-            </svg>
-        </div>
-    </section>
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-arabic);
+  background: radial-gradient(circle at top left, #f7fbff, var(--bg-clinical));
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-    <!-- WHY SECTION -->
-    <section id="why">
-        <h2 class="section-title fade-in">لماذا هذا المشروع؟</h2>
-        <div class="why-grid">
-            <!-- Card 1 -->
-            <div class="why-card fade-in">
-                <h3>الطب المتجزئ</h3>
-                <p style="color: var(--slate);">يعامل الأعضاء والأعراض كوحدات مستقلة تمامًا، في حين أن الجسم شبكة مترابطة لا تُفصل.</p>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="why-card fade-in">
-                <h3>إدارة الأعراض فقط</h3>
-                <p style="color: var(--slate);">يكبت العلامات الظاهرة دون الوصول إلى السبب الجذري أو إعادة بناء التوازن البيولوجي.</p>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="why-card fade-in">
-                <h3>الحاجة إلى النموذج المنظومي</h3>
-                <p style="color: var(--slate);">يحتاج الطب إلى إطار يرى الصحة كمحرك بيولوجي متكامل يعمل من خلال حلقات راجعة ومحاكاة دقيقة.</p>
-            </div>
-        </div>
-    </section>
+body {
+  direction: rtl;
+  line-height: 1.7;
+}
 
-    <!-- PATHS SECTION -->
-    <section id="paths" style="background: #ffffff;">
-        <h2 class="section-title fade-in">المسارات المعرفية الرئيسية</h2>
-        <div class="paths-grid">
-            <!-- Card 1 -->
-            <div class="path-card fade-in">
-                <div class="path-header"></div>
-                <div class="path-content">
-                    <h3>فهم الإنسان</h3>
-                    <ul>
-                        <li>الجسم كحاسوب بيولوجي متكامل</li>
-                        <li>الشبكات الهرمونية والخلوية</li>
-                        <li>التوازن الذاتي والإشارات</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="path-card fade-in">
-                <div class="path-header"></div>
-                <div class="path-content">
-                    <h3>فهم المرض</h3>
-                    <ul>
-                        <li>الفشل في الحلقات الراجعة</li>
-                        <li>الاضطرابات المتشابكة عبر الأنظمة</li>
-                        <li>الجذور السببية المتعددة</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="path-card fade-in">
-                <div class="path-header"></div>
-                <div class="path-content">
-                    <h3>التدخل الطبي</h3>
-                    <ul>
-                        <li>إعادة التوازن السببي</li>
-                        <li>المحاكاة والتنبؤ بالنتائج</li>
-                        <li>الوقاية المستدامة كطبقة أولى</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    <!-- LOGIC SECTION -->
-    <section id="logic">
-        <h2 class="section-title fade-in">منطق النظام التشغيلي البيولوجي</h2>
-        <div class="layers">
-            <div class="layer fade-in">
-                <div class="layer-num">01</div>
-                <div class="layer-content">
-                    <h4>الإشارات والحساسات</h4>
-                    <p style="color: var(--slate);">استقبال المدخلات البيولوجية من البيئة والجسم الداخلي.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">02</div>
-                <div class="layer-content">
-                    <h4>دمج البيانات</h4>
-                    <p style="color: var(--slate);">ربط التحاليل والعلامات في صورة شبكية واحدة.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">03</div>
-                <div class="layer-content">
-                    <h4>المحرك البيولوجي</h4>
-                    <p style="color: var(--slate);">النواة التي تدير التوازن الديناميكي.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">04</div>
-                <div class="layer-content">
-                    <h4>التحليل الجذري</h4>
-                    <p style="color: var(--slate);">كشف السبب الحقيقي وراء الخلل.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">05</div>
-                <div class="layer-content">
-                    <h4>المحاكاة / التوأم الرقمي</h4>
-                    <p style="color: var(--slate);">نمذجة النتائج المستقبلية قبل التدخل.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">06</div>
-                <div class="layer-content">
-                    <h4>التدخل السببي</h4>
-                    <p style="color: var(--slate);">إعادة برمجة الشبكة بدقة.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">07</div>
-                <div class="layer-content">
-                    <h4>الحلقة الراجعة</h4>
-                    <p style="color: var(--slate);">مراقبة مستمرة وتعديل فوري.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">08</div>
-                <div class="layer-content">
-                    <h4>طبقة الوقاية</h4>
-                    <p style="color: var(--slate);">بناء مناعة منظومية مستدامة.</p>
-                </div>
-            </div>
-            <div class="layer fade-in">
-                <div class="layer-num">09</div>
-                <div class="layer-content">
-                    <h4>النمط الحياتي المستدام</h4>
-                    <p style="color: var(--slate);">الطبقة النهائية التي تحافظ على التوازن مدى الحياة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-    <!-- MISSING MAP SECTION -->
-    <section id="map" style="background: #f8fafd;">
-        <h2 class="section-title fade-in">الخريطة المفقودة في الطب</h2>
-        <div class="compare fade-in">
-            <div class="compare-left">
-                <h3>الطب التقليدي</h3>
-                <ul>
-                    <li>قيم معملية معزولة</li>
-                    <li>علاج عرضي لكل مرض على حدة</li>
-                    <li>لا رؤية للترابطات الشبكية</li>
-                    <li>تدخل رد الفعل فقط</li>
-                    <li>غياب المحاكاة والتنبؤ</li>
-                </ul>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:center;opacity:0.4;font-size:2.5rem;color:#94a3b8;">↔</div>
-            <div class="compare-right">
-                <h3>الطب المنظومي السببي</h3>
-                <ul>
-                    <li>شبكة بيولوجية متكاملة</li>
-                    <li>تحليل الجذر السببي متعدد الأنظمة</li>
-                    <li>محاكاة رقمية للتأثيرات</li>
-                    <li>إعادة توازن دائم</li>
-                    <li>وقاية كطبقة أساسية</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    <!-- STRUCTURE SECTION -->
-    <section id="structure">
-        <h2 class="section-title fade-in">هيكل الموضوع الواحد</h2>
-        <div class="modules-grid">
-            <div class="module fade-in">
-                <h4>المدخل التشخيصي</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">سياق الشبكة البيولوجية الكاملة</p>
-            </div>
-            <div class="module fade-in">
-                <h4>العلامات والتحاليل</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">الإشارات والمقاييس المتكاملة</p>
-            </div>
-            <div class="module fade-in">
-                <h4>التفسير الميكانيكي</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">كيفية عمل الخلل داخل الشبكة</p>
-            </div>
-            <div class="module fade-in">
-                <h4>التشخيص التفريقي</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">التمييز بين الأسباب المتداخلة</p>
-            </div>
-            <div class="module fade-in">
-                <h4>الجذر السببي</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">التحديد الدقيق لنقطة الفشل</p>
-            </div>
-            <div class="module fade-in">
-                <h4>التدخلات</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">الإجراءات السببية المدعومة بالمحاكاة</p>
-            </div>
-            <div class="module fade-in">
-                <h4>الوقاية ومنع التكرار</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">بناء المناعة المنظومية طويلة الأمد</p>
-            </div>
-            <div class="module fade-in">
-                <h4>الطبقات المرتبطة</h4>
-                <p style="color: var(--slate);font-size:0.95rem;">الروابط مع الأنظمة الأخرى</p>
-            </div>
-        </div>
-    </section>
+.shell {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: var(--space-4);
+}
 
-    <!-- PROMISE SECTION -->
-    <div class="promise fade-in">
-        <h2>وعد المشروع</h2>
-        <p>
-            إشارات الجسد ليست محتوى صحيًا عابرًا ولا دليلًا للأعراض. 
-            إنه بناء أساسي لنموذج طبي جديد يقوم على الدقة المنظومية، 
-            التحليل الجذري، والنتائج المستدامة.
-        </p>
-        <p style="opacity:0.85;">
-            لا نبيع حلولاً جاهزة. نحن نرسم الخريطة المفقودة.
-        </p>
-    </div>
+@media (min-width: 1280px) {
+  .shell {
+    padding-inline: var(--space-6);
+  }
+}
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div style="font-size:1.35rem; font-weight:700; color:var(--navy); margin-bottom:1rem;">إشارات الجسد</div>
-            <p style="max-width:420px; margin:0 auto 2rem;">
-                مشروع معرفي مستقل • ٢٠٢٦<br>
-                بناء علمي للطب المنظومي البيولوجي
-            </p>
-            <div style="font-size:0.85rem; opacity:0.6;">
-                © ٢٠٢٦ — جميع الحقوق محفوظة
-            </div>
-        </div>
-    </footer>
+@media (min-width: 1600px) {
+  .shell {
+    max-width: 1400px;
+  }
+}
 
-    <script>
-        // Mobile menu (simple toggle for future expansion)
-        const mobileBtn = document.getElementById('mobileBtn');
-        let menuOpen = false;
-        
-        mobileBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            if (menuOpen) {
-                mobileBtn.textContent = '✕';
-                mobileBtn.style.color = '#0284c8';
-            } else {
-                mobileBtn.textContent = '☰';
-                mobileBtn.style.color = '#0f172a';
-            }
-            // In production this would open a full mobile nav overlay
-            console.log('%cMobile navigation would expand here', 'color:#64748b; font-size:0.8rem');
-        });
-        
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Intersection Observer for fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: "0px 0px -80px 0px"
-        });
-        
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Keyboard accessibility
-        document.addEventListener('keydown', (e) => {
-            if (e.key === '/' && document.activeElement.tagName !== "INPUT") {
-                e.preventDefault();
-                const firstSection = document.getElementById('why');
-                if (firstSection) firstSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-        
-        // Production-ready console message
-        console.log('%cإشارات الجسد — Bio-OS\nتم بناؤه كموقع واحد جاهز للنشر\nمصمم بأقصى دقة منظومية', 'color:#0284c8; font-family:monospace; font-size:13px');
-    </script>
-</body>
-</html>
+@media (min-width: 1920px) {
+  .shell {
+    max-width: 1500px;
+  }
+}
+
+/* Top signal strip */
+.top-strip {
+  width: 100%;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  background: linear-gradient(to left, rgba(47, 125, 211, 0.04), rgba(89, 184, 154, 0.03));
+}
+
+.top-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  font-size: 12px;
+  color: #64748b;
+  letter-spacing: 0.03em;
+}
+
+.signal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-mint);
+  box-shadow: 0 0 0 4px rgba(89, 184, 154, 0.28);
+}
+
+.signal-text {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.signal-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, rgba(148, 163, 184, 0.5), transparent);
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(244, 247, 251, 0.78);
+  border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-3);
+  gap: var(--space-4);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: conic-gradient(from 180deg, rgba(47, 125, 211, 0.14), rgba(89, 184, 154, 0.18), rgba(248, 180, 75, 0.16), rgba(47, 125, 211, 0.14));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 7px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.brand-mark-line {
+  position: absolute;
+  inset: 10px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.32);
+  border-style: solid none;
+}
+
+.brand-text-main {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-main);
+}
+
+.brand-text-sub {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.nav-link {
+  position: relative;
+  padding-block: 2px;
+}
+
+.nav-link span {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to left, var(--accent-blue), var(--accent-mint));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-fast);
+  opacity: 0.9;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-link:focus-visible {
+  outline: none;
+}
+
+.nav-toggle {
+  display: none;
+  border: none;
+  background: none;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #334155;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: #334155;
+  margin-block: 3px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .nav-open nav {
+    display: flex;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    background: rgba(244, 247, 251, 0.98);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+    flex-wrap: wrap;
+  }
+}
+
+main {
+  flex: 1;
+  padding-block: var(--space-7) var(--space-9);
+}
+
+section {
+  margin-block: var(--space-9);
+}
+
+section:first-of-type {
+  margin-top: var(--space-6);
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+  }
+}
+
+.hero-header-kicker {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--space-3);
+}
+
+.hero-header-kicker::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(to left, var(--accent-blue), transparent);
+}
+
+.hero-title {
+  font-size: clamp(32px, 4.2vw, 46px);
+  line-height: 1.15;
+  color: var(--text-main);
+  margin: 0 0 var(--space-3) 0;
+  letter-spacing: 0.02em;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: #111827;
+  margin-bottom: var(--space-4);
+  max-width: 34em;
+}
+
+.hero-body {
+  font-size: 14px;
+  color: var(--text-body);
+  max-width: 38em;
+  margin-bottom: var(--space-5);
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #111827;
+  background: rgba(255, 255, 255, 0.8);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+}
+
+.tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+}
+
+.tag-dot-mint {
+  background: var(--accent-mint);
+}
+
+.tag-dot-amber {
+  background: var(--accent-amber);
+}
+
+.hero-core-label {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: var(--space-3);
+}
+
+.hero-diagram-wrapper {
+  position: relative;
+  border-radius: 22px;
+  background: radial-gradient(circle at top left, #f9fbff, #eef3fb);
+  padding: var(--space-6);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-diagram-wrapper {
+    padding: var(--space-5);
+  }
+}
+
+.hero-diagram-grid {
+  position: absolute;
+  inset: 14px;
+  background-image: linear-gradient(to left, rgba(209, 213, 219, 0.4) 1px, transparent 1px),
+                    linear-gradient(to top, rgba(209, 213, 219, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+}
+
+.hero-diagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.diagram-title {
+  font-size: 13px;
+  color: #111827;
+}
+
+.diagram-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.diagram-legend {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #6b7280;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.legend-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--accent-blue);
+}
+
+.legend-swatch-mint {
+  background: var(--accent-mint);
+}
+
+.legend-swatch-amber {
+  background: var(--accent-amber);
+}
+
+.hero-diagram-svg {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-2);
+}
+
+.hero-diagram-tags {
+  position: absolute;
+  inset-inline: var(--space-5);
+  bottom: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .hero-diagram-tags {
+    position: static;
+    margin-top: var(--space-4);
+  }
+}
+
+.hero-diagram-tag {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  background: rgba(15, 23, 42, 0.78);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-diagram-tag span {
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+/* Section headings */
+.section-header {
+  margin-bottom: var(--space-5);
+  max-width: 40em;
+}
+
+.section-kicker {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: var(--space-2);
+}
+
+.section-title {
+  font-size: 22px;
+  color: var(--text-main);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.section-body {
+  font-size: 14px;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* لماذا هذا المشروع؟ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+@media (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .why-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.why-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-soft);
+  border: var(--border-subtle);
+  padding: var(--space-4);
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.why-label {
+  font-size: 13px;
+  color: #111827;
+  margin-bottom: var(--space-2);
+}
+
+.why-line {
+  width: 30px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to left, var(--accent-amber), transparent);
+  margin-bottom: var(--space-3);
+}
+
+.why-text {
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.why-card:hover {
+  border-color: rgba(37, 99, 235, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+  background: linear-gradient(to top, #ffffff, #f9fbff);
+}
+
+/* المسارات المعرفية الرئيسية */
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+@media (max-width: 1024px) {
+  .paths-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.path-card {
+  position: relative;
+  background: var(--bg-surface);
+  border-radius: 20px;
+  border: var(--border-subtle);
+  padding: var(--space-5);
+  overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.path-card::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: -40%;
+  height: 75%;
+  background-image: linear-gradient(to left, rgba(59, 130, 246, 0.06), rgba(56, 189, 248, 0.02));
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.path-head {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-4);
+}
+
+.path-title {
+  font-size: 17px;
+  color: var(--text-main);
+  margin-bottom: var(--space-2);
+}
+
+.path-sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.path-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.path-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: var(--space-2);
+}
+
+.path-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--accent-blue);
+  margin-top: 5px;
+}
+
+.path-card:nth-child(2) .path-bullet {
+  background: var(--accent-amber);
+}
+
+.path-card:nth-child(3) .path-bullet {
+  background: var(--accent-mint);
+}
+
+.path-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  border-color: rgba(37, 99, 235, 0.6);
+  background: linear-gradient(to bottom, #ffffff, #f3f6fb);
+}
+
+/* منطق النظام التشغيلي البيولوجي */
+.architecture {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: var(--space-6);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .architecture {
+    padding: var(--space-5);
+  }
+}
+
+.architecture-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.architecture-layers {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .architecture-layers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.layer-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.layer-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-body);
+  padding: 7px 11px;
+  border-radius: 10px;
+}
+
+.layer-chip {
+  min-width: 110px;
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.85);
+  background: linear-gradient(to left, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.86));
+  color: #e5e7eb;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.layer-desc {
+  color: #4b5563;
+}
+
+.layer-item.soft {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+.layer-item.engine {
+  background: rgba(219, 234, 254, 0.9);
+}
+
+.layer-item.feedback {
+  background: rgba(240, 249, 255, 0.9);
+}
+
+.layer-item.lifestyle {
+  background: rgba(240, 253, 250, 0.9);
+}
+
+.layer-chip.blue {
+  background: linear-gradient(to left, #1d4ed8, #2563eb);
+  border-color: rgba(37, 99, 235, 0.9);
+}
+
+.layer-chip.mint {
+  background: linear-gradient(to left, #059669, #10b981);
+  border-color: rgba(16, 185, 129, 0.9);
+}
+
+.layer-chip.amber {
+  background: linear-gradient(to left, #c05621, #d97706);
+  border-color: rgba(217, 119, 6, 0.9);
+}
+
+.architecture-note {
+  font-size: 12px;
+  color: #6b7280;
+  padding: var(--space-3);
+  border-radius: 12px;
+  border: 1px dashed rgba(148, 163, 184, 0.8);
+  background: linear-gradient(to left, #f9fafb, #eff6ff);
+}
+
+/* الخريطة المفقودة في الطب */
+.map-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .map-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.map-card {
+  background: var(--bg-surface);
+  border-radius: 18px;
+  border: var(--border-subtle);
+  padding: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.map-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+}
+
+.map-pill span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent-amber);
+}
+
+.map-pill.system span {
+  background: var(--accent-mint);
+}
+
+.map-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.map-body {
+  font-size: 13px;
+  color: var(--text-body);
+  margin-bottom: var(--space-3);
+}
+
+.map-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.map-list li {
+  display: flex;
+  gap: 8px;
+  margin-bottom: var(--space-2);
+  align-items: flex-start;
+}
+
+.map-list-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  margin-top: 6px;
+  background: #cbd5e1;
+}
+
+.map-timeline {
+  margin-top: var(--space-3);
+  border-radius: 10px;
+  border: 1px dashed rgba(148, 163, 184, 0.85);
+  padding: var(--space-3);
+  position: relative;
+  background: linear-gradient(to left, rgba(248, 250, 252, 0.96), rgba(239, 246, 255, 0.96));
+}
+
+.map-timeline-row {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: var(--space-2);
+}
+
+.map-timeline-row-label {
+  color: #6b7280;
+}
+
+.map-timeline-row-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.map-timeline-row-bar span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(to left, #eab308, #f97316);
+}
+
+.map-timeline-row.system span {
+  background: linear-gradient(to left, #22c55e, #0ea5e9);
+}
+
+/* هيكل الموضوع الواحد */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+@media (max-width: 1280px) {
+  .topic-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .topic-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.topic-module {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  border: var(--border-subtle);
+  padding: var(--space-3);
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.topic-module::after {
+  content: "";
+  position: absolute;
+  inset-inline: 10px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to left, rgba(148, 163, 184, 0.5), transparent);
+  opacity: 0.7;
+}
+
+.topic-label {
+  font-size: 13px;
+  color: #111827;
+  margin-bottom: var(--space-1);
+}
+
+.topic-caption {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.topic-index {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.topic-module:nth-child(5),
+.topic-module:nth-child(6),
+.topic-module:nth-child(7),
+.topic-module:nth-child(8) {
+  background: linear-gradient(to bottom, #f8fafc, #eef2ff);
+}
+
+.topic-module:hover {
+  border-color: rgba(37, 99, 235, 0.7);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  background: linear-gradient(to bottom, #ffffff, #eff6ff);
+}
+
+/* وعد المشروع */
+.promise {
+  background: linear-gradient(to left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+  border-radius: 24px;
+  padding: var(--space-6);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .promise {
+    padding: var(--space-5);
+  }
+}
+
+.promise::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.16), transparent 60%),
+                    radial-gradient(circle at 90% 100%, rgba(34, 197, 94, 0.16), transparent 60%);
+  opacity: 0.85;
+}
+
+.promise-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 48em;
+}
+
+.promise-kicker {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: var(--space-2);
+}
+
+.promise-title {
+  font-size: 22px;
+  color: #f9fafb;
+  margin-bottom: var(--space-3);
+}
+
+.promise-body {
+  font-size: 14px;
+  color: #e5e7eb;
+  margin-bottom: var(--space-3);
+}
+
+.promise-foot {
+  font-size: 12px;
+  color: #9ca3af;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.promise-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, rgba(148, 163, 184, 0.6), transparent);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid rgba(209, 213, 219, 0.7);
+  padding-block: var(--space-5);
+  background: rgba(248, 250, 252, 0.96);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.footer-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.8);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-fast);
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 420ms ease-out, transform 420ms ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility helpers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
