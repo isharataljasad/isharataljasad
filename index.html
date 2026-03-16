@@ -3,328 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-OS | إشارات الجسد</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>إعلان تيك توك - إشارات الجسد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Clinical Light Theme Variables */
-            --bg-main: #f3f4f6;
-            --surface: #ffffff;
-            --surface-alt: #f8fafc;
-            --border: #e5e7eb;
-            --border-dark: #d1d5db;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --primary: #0284c7; /* Clinical Blue */
-            --primary-bg: #e0f2fe;
-            --success: #059669; /* Healing Green */
-            --success-bg: #d1fae5;
-            --warning: #d97706; /* Amber */
-            --danger: #dc2626; /* Red Alert */
-            --danger-bg: #fee2e2;
-            --font-ui: 'IBM Plex Sans Arabic', sans-serif;
-            --font-head: 'Cairo', sans-serif;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --radius: 6px;
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: var(--font-ui);
-            background-color: var(--bg-main);
-            color: var(--text-main);
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+            overflow: hidden; /* يمنع التمرير نهائياً لتكون صورة ثابتة */
+            font-family: 'Cairo', sans-serif;
         }
 
-        /* Top Bar - Clean & Professional */
-        .system-header {
-            background-color: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 0.75rem 1.5rem;
+        /* حاوية الصورة بأبعاد تيك توك 9:16 */
+        .poster-image {
+            width: 1080px;
+            height: 1920px;
+            background-color: #f8fafc;
+            position: relative;
+            transform-origin: top center;
+            /* كود لجعل الصورة تصغر لتناسب شاشتك أثناء المعاينة */
+            transform: scale(min(calc(100vh / 1920), calc(100vw / 1080)));
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(#cbd5e1 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: -19px -19px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* الشعار (Logo) */
+        .header {
+            padding: 60px 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow-sm);
-            z-index: 10;
+            background: #ffffff;
+            border-bottom: 4px solid #e2e8f0;
         }
-        .sys-brand { display: flex; align-items: center; gap: 0.75rem; }
-        .sys-title { font-family: var(--font-head); font-weight: 700; color: var(--text-main); font-size: 1.1rem; }
-        .sys-badge { background: var(--primary-bg); color: var(--primary); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px;}
-        
-        .sys-rule { 
-            font-size: 0.85rem; 
-            color: var(--danger); 
-            font-weight: 600; 
-            background: var(--danger-bg); 
-            padding: 4px 12px; 
-            border-radius: var(--radius); 
-            border: 1px solid rgba(220, 38, 38, 0.2); 
-        }
-
-        /* Main Dashboard Layout */
-        .dashboard {
-            display: grid;
-            grid-template-columns: 320px 1fr 350px;
-            gap: 1rem;
-            padding: 1rem;
-            flex-grow: 1;
-            height: calc(100vh - 60px);
-        }
-
-        .panel {
-            background-color: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
+        .logo-container {
             display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-            box-shadow: var(--shadow-sm);
+            align-items: center;
+            gap: 20px;
         }
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: #0284c7;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: 900;
+        }
+        .brand-name { font-size: 55px; font-weight: 900; color: #0f172a; line-height: 1; }
+        .brand-sub { font-size: 30px; font-weight: 700; color: #0284c7; letter-spacing: 2px;}
 
-        .panel-header {
-            background-color: var(--surface-alt);
-            padding: 1rem;
-            font-family: var(--font-head);
+        /* العنوان الرئيسي والصدمة */
+        .hook-area {
+            padding: 120px 80px 80px 80px;
+            text-align: center;
+        }
+        .main-headline {
+            font-size: 90px;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.3;
+            margin-bottom: 40px;
+        }
+        .highlight-red { color: #dc2626; }
+        .sub-headline {
+            font-size: 45px;
             font-weight: 700;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-main);
-            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            padding: 0 40px;
+        }
+
+        /* المحرك التحليلي (التدفق من اليمين لليسار) */
+        .engine-area {
+            margin: 60px 80px;
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 70px 50px;
+            border: 4px solid #cbd5e1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .engine-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 900;
+            color: #0284c7;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+        .flow-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .panel-header span:last-child { font-size: 0.75rem; color: var(--text-muted); font-family: monospace; }
-
-        .panel-content { padding: 1.5rem 1rem; }
-
-        /* Forms & Inputs */
-        .input-group { margin-bottom: 1.5rem; }
-        .input-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
-        .input-field { 
-            width: 100%; background: var(--surface); border: 1px solid var(--border-dark); 
-            color: var(--text-main); padding: 0.6rem; font-family: var(--font-ui); font-size: 0.85rem;
-            border-radius: 4px; transition: border 0.2s;
+        .flow-node {
+            width: 28%;
+            background: #f1f5f9;
+            border: 3px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
         }
-        .input-field:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-bg); }
+        .node-symptom { border-bottom: 15px solid #dc2626; background: #fff; }
+        .node-dysfunction { border-bottom: 15px solid #f59e0b; background: #fff; }
+        .node-root { border-bottom: 15px solid #059669; background: #fff; }
         
-        /* Data Tags */
-        .tags-container { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
-        .tag { 
-            font-size: 0.75rem; font-weight: 500; padding: 4px 10px; background: var(--surface-alt); 
-            border: 1px solid var(--border); border-radius: 50px; color: var(--text-muted);
-        }
-        .tag.active { background: #fffbeb; border-color: #fde68a; color: var(--warning); }
-
-        .btn-submit {
-            width: 100%; padding: 0.75rem; background: var(--primary); color: white; 
-            border: none; border-radius: 4px; font-weight: 600; font-family: var(--font-head);
-            cursor: pointer; font-size: 0.95rem; transition: background 0.2s;
-        }
-        .btn-submit:hover { background: #0369a1; }
-
-        /* Center Analytics Area */
-        .engine-area { background: var(--surface-alt); gap: 1.5rem; padding: 1.5rem; border: none; box-shadow: none; }
+        .node-lbl { font-size: 28px; font-weight: 700; color: #64748b; margin-bottom: 15px; }
+        .node-val { font-size: 38px; font-weight: 900; color: #0f172a; }
         
-        .logic-block {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.25rem;
-            box-shadow: var(--shadow-sm);
+        .arrow { font-size: 80px; font-weight: 900; color: #94a3b8; }
+
+        /* القاعدة الصارمة */
+        .strict-rule {
+            margin: auto 80px 80px 80px;
+            background: #0f172a;
+            border-right: 20px solid #dc2626;
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
-        .logic-title { font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+        .rule-lbl {
+            font-size: 35px;
+            font-weight: 900;
+            color: #ef4444;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .rule-txt {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+        .rule-txt span { color: #38bdf8; font-weight: 900; }
         
-        /* Strict Right-to-Left Data Flow */
-        .flow-diagram { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
-        .flow-node { 
-            flex: 1; text-align: center; padding: 1rem 0.5rem; border: 1px solid var(--border); 
-            background: var(--surface-alt); font-size: 0.85rem; font-weight: 600; border-radius: 4px;
-        }
-        .flow-node.critical { border-bottom: 3px solid var(--danger); background: var(--surface); }
-        .flow-node.target { border-bottom: 3px solid var(--success); background: var(--surface); }
-        
-        .arrow-rtl { color: var(--text-muted); font-size: 1.2rem; }
-
-        /* System Status Grid */
-        .status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-        .status-card { 
-            border: 1px solid var(--border); padding: 1rem; text-align: center; 
-            border-radius: 4px; background: var(--surface);
-        }
-        .status-card .label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; }
-        .status-card .value { font-size: 1.25rem; font-weight: 700; font-family: monospace; }
-        .val-danger { color: var(--danger); }
-        .val-warning { color: var(--warning); }
-
-        /* Intervention Protocol */
-        .protocol-list { list-style: none; margin-bottom: 1.5rem; }
-        .protocol-item { 
-            display: flex; align-items: flex-start; gap: 0.75rem; 
-            padding: 1rem; border: 1px solid var(--border); border-radius: 4px; margin-bottom: 0.5rem;
-            background: var(--surface-alt);
-        }
-        .protocol-item:last-child { margin-bottom: 0; }
-        
-        .status-icon { 
-            width: 24px; height: 24px; border-radius: 4px; display: flex; 
-            align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem; color: white; flex-shrink: 0;
-        }
-        .bg-warning { background-color: var(--warning); }
-        .bg-success { background-color: var(--success); }
-
-        .protocol-text strong { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.25rem; }
-        .protocol-text span { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; display: block; }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--surface-alt); }
-        ::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <header class="system-header">
-        <div class="sys-brand">
-            <div class="sys-title">إشارات الجسد</div>
-            <div class="sys-badge">BIO-OS v2.0</div>
-        </div>
-        <div class="sys-rule">تنبيه النظام: التدخل الدوائي المستدام مرفوض. الاستثناء الوحيد: الفقد العضوي الكامل.</div>
-    </header>
-
-    <main class="dashboard">
+    <div class="poster-image">
         
-        <aside class="panel">
-            <div class="panel-header">
-                <div>01 | المدخلات السريرية</div>
-                <span>INPUT_LAYER</span>
-            </div>
-            <div class="panel-content">
-                <div class="input-group">
-                    <label class="input-label">الأعراض الظاهرية</label>
-                    <input type="text" class="input-field" placeholder="إدراج عرض جديد...">
-                    <div class="tags-container">
-                        <span class="tag active">تساقط شعر</span>
-                        <span class="tag active">برودة أطراف</span>
-                        <span class="tag">إرهاق مزمن</span>
-                    </div>
-                </div>
-
-                <div class="input-group" style="margin-top: 2rem;">
-                    <label class="input-label">المؤشرات البيولوجية (التحاليل)</label>
-                    <input type="text" class="input-field" placeholder="رمز التحليل (مثال: Ferritin)..." style="margin-bottom: 0.5rem;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                        <input type="text" class="input-field" placeholder="القيمة">
-                        <input type="text" class="input-field" placeholder="الوحدة">
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label class="input-label">بيانات إضافية (اختياري)</label>
-                    <textarea class="input-field" rows="2" placeholder="ملاحظات المريض..."></textarea>
-                </div>
-
-                <button class="btn-submit">تحليل الإشارات</button>
-            </div>
-        </aside>
-
-        <section class="panel engine-area">
-            
-            <div class="logic-block">
-                <div class="logic-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                    تتبع الجذر السببي (تدفق عكسي)
-                </div>
-                <div class="flow-diagram">
-                    <div class="flow-node critical">
-                        <span style="color: var(--danger); font-size: 0.75rem;">العرض</span>
-                        <div style="margin-top: 4px;">تساقط الشعر</div>
-                    </div>
-                    <div class="arrow-rtl">&#8592;</div>
-                    <div class="flow-node">
-                        <span style="color: var(--text-muted); font-size: 0.75rem;">الخلل الوظيفي</span>
-                        <div style="margin-top: 4px;">نقص التروية</div>
-                    </div>
-                    <div class="arrow-rtl">&#8592;</div>
-                    <div class="flow-node target">
-                        <span style="color: var(--success); font-size: 0.75rem;">الجذر الخلوي</span>
-                        <div style="margin-top: 4px;">استنزاف الحديد</div>
-                    </div>
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-icon">إ</div>
+                <div>
+                    <div class="brand-name">إشارات الجسد</div>
+                    <div class="brand-sub">نظام تشغيل بيولوجي</div>
                 </div>
             </div>
+            <div style="font-size: 28px; font-weight: 900; color: #cbd5e1;">BIO-OS</div>
+        </div>
 
-            <div class="logic-block">
-                <div class="logic-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    كفاءة الأنظمة الحيوية
-                </div>
-                <div class="status-grid">
-                    <div class="status-card">
-                        <div class="label">الميتوكوندريا</div>
-                        <div class="value val-danger">42%</div>
-                    </div>
-                    <div class="status-card">
-                        <div class="label">الالتهاب</div>
-                        <div class="value val-warning">نشط</div>
-                    </div>
-                    <div class="status-card">
-                        <div class="label">الامتصاص</div>
-                        <div class="value val-danger">معطل</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="hook-area">
+            <h1 class="main-headline">
+                تساقط الشعر، الخمول، وبرودة الأطراف <span class="highlight-red">ليست أمراضاً!</span>
+            </h1>
+            <p class="sub-headline">
+                إنها لغة جسدك المفقودة.. الإشارات التحذيرية التي تسبق الانهيار الخلوي التام.
+            </p>
+        </div>
 
-        <aside class="panel">
-            <div class="panel-header">
-                <div>03 | بروتوكول التشغيل</div>
-                <span>OUTPUT_LAYER</span>
-            </div>
-            <div class="panel-content">
+        <div class="engine-area">
+            <div class="engine-title">محرك التتبع السببي · Bio-OS Engine</div>
+            <div class="flow-container">
                 
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--warning); margin-bottom: 0.75rem;">المرحلة 1: التدخل الدوائي (مؤقت)</div>
-                <ul class="protocol-list">
-                    <li class="protocol-item">
-                        <div class="status-icon bg-warning">!</div>
-                        <div class="protocol-text">
-                            <strong>تعويض العجز החاد</strong>
-                            <span>إمداد فوري للمركب المفقود لإيقاف التدهور الخلوي.</span>
-                        </div>
-                    </li>
-                    <li class="protocol-item">
-                        <div class="status-icon bg-warning">T</div>
-                        <div class="protocol-text">
-                            <strong>القيد الزمني</strong>
-                            <span>محدد بدورة حياة الخلية لتمكين الجسد من الاستكشاف.</span>
-                        </div>
-                    </li>
-                </ul>
+                <div class="flow-node node-symptom">
+                    <div class="node-lbl">المستوى السطحي</div>
+                    <div class="node-val">العرض الظاهري</div>
+                </div>
 
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--success); margin-bottom: 0.75rem;">المرحلة 2: آلية الاستدامة والوقاية</div>
-                <ul class="protocol-list">
-                    <li class="protocol-item">
-                        <div class="status-icon bg-success">&#10003;</div>
-                        <div class="protocol-text">
-                            <strong>إعادة برمجة المنظومة</strong>
-                            <span>تصحيح حمضية المعدة وترميم جدار الأمعاء.</span>
-                        </div>
-                    </li>
-                    <li class="protocol-item">
-                        <div class="status-icon bg-success">&#8635;</div>
-                        <div class="protocol-text">
-                            <strong>سحب التدخل الخارجي</strong>
-                            <span>إيقاف الدعم تدريجياً لضمان الاعتماد الذاتي للنظام.</span>
-                        </div>
-                    </li>
-                </ul>
+                <div class="arrow">&#8592;</div>
+
+                <div class="flow-node node-dysfunction">
+                    <div class="node-lbl">المستوى الوظيفي</div>
+                    <div class="node-val">الخلل الشبكي</div>
+                </div>
+
+                <div class="arrow">&#8592;</div>
+
+                <div class="flow-node node-root">
+                    <div class="node-lbl">المستوى العميق</div>
+                    <div class="node-val">الجذر الخلوي</div>
+                </div>
 
             </div>
-        </aside>
+        </div>
 
-    </main>
+        <div class="strict-rule">
+            <div class="rule-lbl">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                القاعدة الذهبية للنظام التشغيلي
+            </div>
+            <div class="rule-txt">
+                التدخل الدوائي مؤقت لاكتشاف وعلاج الخلل. <span>الاستدامة الدوائية والتعايش مرفوضة كلياً</span> إلا في حالات الفقد العضوي.
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
