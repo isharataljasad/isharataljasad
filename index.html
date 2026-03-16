@@ -1,849 +1,167 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>إشارات الجسد | الخريطة المفقودة في الطب</title>
-  <meta name="description" content="إشارات الجسد: مشروع معرفي طبي يبني نظاماً تشخيصياً يربط الإنسان والمرض والتدخل داخل إطار واحد لفهم السبب الجذري." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f3f6fb;
-      --surface: #ffffff;
-      --surface-2: #f8fbff;
-      --text: #0f172a;
-      --muted: #5b6b84;
-      --line: #dbe5f0;
-      --blue: #0f4c81;
-      --blue-2: #1d6fb8;
-      --amber: #d97706;
-      --amber-2: #f59e0b;
-      --green: #0f9d74;
-      --green-2: #38c79a;
-      --dark: #081a34;
-      --shadow: 0 18px 40px rgba(10, 28, 56, 0.08);
-      --radius: 24px;
-      --max: 1440px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #f6f8fc 0%, #eef3f8 100%);
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .top-strip {
-      background: linear-gradient(90deg, #ca7700, #f59e0b, #ca7700);
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 10px 16px;
-    }
-
-    .site-shell {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 24px 0 8px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 800;
-      font-size: 24px;
-      color: var(--dark);
-    }
-
-    .brand-mark {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--dark), var(--blue));
-      position: relative;
-      box-shadow: var(--shadow);
-    }
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-    }
-
-    .brand-mark::before {
-      width: 22px;
-      height: 4px;
-      top: 12px;
-      right: 12px;
-      transform: rotate(-35deg);
-    }
-
-    .brand-mark::after {
-      width: 14px;
-      height: 4px;
-      bottom: 13px;
-      left: 10px;
-      transform: rotate(35deg);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .nav-links a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-weight: 700;
-      background: rgba(255,255,255,0.6);
-      border: 1px solid rgba(15,76,129,0.08);
-    }
-
-    .hero {
-      padding: 26px 0 36px;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top right, rgba(15,76,129,0.08), transparent 28%),
-                  radial-gradient(circle at bottom left, rgba(217,119,6,0.08), transparent 28%),
-                  var(--surface);
-      border: 1px solid rgba(15,76,129,0.08);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      min-height: 680px;
-    }
-
-    .hero-copy {
-      padding: 72px 72px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      align-self: flex-start;
-      margin-bottom: 20px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: #eff6ff;
-      border: 1px solid #d6e8fb;
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .eyebrow .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--amber);
-      box-shadow: 0 0 0 6px rgba(245,158,11,0.16);
-    }
-
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(42px, 5vw, 82px);
-      line-height: 1.06;
-      letter-spacing: -0.5px;
-      color: var(--dark);
-    }
-
-    .lead {
-      font-size: clamp(19px, 1.8vw, 27px);
-      line-height: 1.9;
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 0 24px;
-    }
-
-    .lead strong { color: var(--dark); }
-
-    .hero-signal {
-      display: block;
-      margin-bottom: 28px;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--amber);
-    }
-
-    .pill-row,
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
-      border: 1px solid transparent;
-    }
-
-    .pill.blue { background: #e8f4ff; color: #0d5e9e; }
-    .pill.amber { background: #fff1d8; color: #b86a02; }
-    .pill.green { background: #ddfbef; color: #0d8d67; }
-    .pill.dark { background: var(--dark); color: #fff; }
-
-    .cta-row { margin-top: 26px; }
-
-    .btn {
-      padding: 14px 22px;
-      border-radius: 16px;
-      font-weight: 800;
-      font-size: 15px;
-      border: 1px solid transparent;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-    .btn.primary {
-      background: linear-gradient(135deg, var(--dark), var(--blue));
-      color: #fff;
-      box-shadow: 0 12px 24px rgba(8,26,52,0.18);
-    }
-    .btn.secondary {
-      background: #fff;
-      color: var(--dark);
-      border-color: var(--line);
-    }
-
-    .hero-visual {
-      padding: 40px;
-      background: linear-gradient(180deg, rgba(8,26,52,0.02), rgba(8,26,52,0.06));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .visual-frame {
-      width: 100%;
-      max-width: 600px;
-      aspect-ratio: 1 / 1;
-      border-radius: 30px;
-      background: var(--surface-2);
-      border: 1px solid rgba(15,76,129,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .visual-frame::before {
-      content: "";
-      position: absolute;
-      inset: 10%;
-      border-radius: 50%;
-      border: 1px dashed rgba(15,76,129,0.2);
-    }
-
-    .hub {
-      position: absolute;
-      inset: 50% auto auto 50%;
-      transform: translate(-50%, -50%);
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #0c1f3d, #081a34);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
-      font-size: 29px;
-      font-weight: 800;
-      line-height: 1.35;
-      box-shadow: 0 22px 40px rgba(8,26,52,0.25);
-      z-index: 2;
-    }
-
-    .track {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--line);
-      font-weight: 800;
-      color: var(--dark);
-      box-shadow: 0 10px 20px rgba(8,26,52,0.08);
-      z-index: 3;
-    }
-
-    .track::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .track.human::before { background: var(--blue-2); }
-    .track.disease::before { background: var(--amber-2); }
-    .track.intervention::before { background: var(--green-2); }
-
-    .track.human { top: 8%; right: 8%; }
-    .track.disease { bottom: 10%; right: 10%; }
-    .track.intervention { left: 8%; top: 44%; }
-
-    .node-group {
-      position: absolute;
-      display: grid;
-      gap: 10px;
-      z-index: 3;
-    }
-
-    .node-group.human { top: 20%; right: 6%; }
-    .node-group.disease { bottom: 13%; right: 18%; }
-    .node-group.intervention { left: 6%; top: 54%; }
-
-    .node {
-      padding: 10px 14px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 700;
-      background: rgba(255,255,255,0.95);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      min-width: 132px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(8,26,52,0.06);
-    }
-
-    .section {
-      padding: 24px 0 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(28px, 3vw, 42px);
-      color: var(--dark);
-    }
-
-    .section-head p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8;
-      max-width: 760px;
-    }
-
-    .section-tag {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--dark);
-      color: #fff;
-      font-weight: 800;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .path-card {
-      background: var(--surface);
-      border-radius: 24px;
-      border: 1px solid rgba(15,76,129,0.08);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .path-title {
-      color: #fff;
-      border-radius: 16px;
-      padding: 14px 18px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .path-title.blue { background: linear-gradient(135deg, #0f4c81, #1f8ed8); }
-    .path-title.amber { background: linear-gradient(135deg, #ca7700, #f59e0b); }
-    .path-title.green { background: linear-gradient(135deg, #0f9d74, #37c89a); }
-
-    .sub-box {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-      background: #fbfdff;
-      margin-bottom: 14px;
-    }
-
-    .sub-box:last-child { margin-bottom: 0; }
-
-    .sub-box h3 {
-      margin: 0 0 10px;
-      font-size: 17px;
-      color: var(--dark);
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .architecture {
-      padding: 26px 0 0;
-    }
-
-    .architecture-card {
-      background: var(--surface);
-      border-radius: 28px;
-      border: 1px solid rgba(15,76,129,0.08);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .topic-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .topic {
-      background: #fbfdff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      min-height: 104px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .topic small {
-      color: #91a1b8;
-      font-weight: 700;
-      font-size: 12px;
-    }
-
-    .topic strong {
-      color: var(--dark);
-      font-size: 19px;
-      line-height: 1.6;
-    }
-
-    .manifesto {
-      padding: 26px 0 0;
-    }
-
-    .manifesto-card {
-      background: linear-gradient(135deg, #081a34, #0f2d59 55%, #103d77);
-      color: #fff;
-      border-radius: 32px;
-      padding: 36px;
-      box-shadow: 0 26px 50px rgba(8,26,52,0.2);
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-    }
-
-    .manifesto-card h2 {
-      margin: 0 0 14px;
-      font-size: clamp(30px, 3vw, 44px);
-      line-height: 1.25;
-    }
-
-    .manifesto-card p {
-      margin: 0;
-      line-height: 2;
-      font-size: 17px;
-      color: rgba(255,255,255,0.84);
-    }
-
-    .manifesto-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .manifesto-item {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 16px 18px;
-    }
-
-    .manifesto-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 18px;
-    }
-
-    .footer {
-      margin-top: 34px;
-      padding: 32px 0 42px;
-      background: #07172d;
-      border-top: 4px solid var(--amber);
-    }
-
-    .footer .site-shell {
-      display: grid;
-      gap: 18px;
-    }
-
-    .footer-head {
-      text-align: center;
-      color: #fff;
-    }
-
-    .footer-head h3 {
-      margin: 0 0 6px;
-      font-size: 26px;
-    }
-
-    .footer-head p {
-      margin: 0;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .platforms {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .platform {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      color: #fff;
-      padding: 16px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .platform strong { display: block; font-size: 17px; margin-bottom: 4px; }
-    .platform span { color: rgba(255,255,255,0.68); font-size: 13px; }
-    .platform em {
-      font-style: normal;
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.12);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    @media (max-width: 1180px) {
-      .hero-card,
-      .manifesto-card {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy { padding: 52px 32px 24px; }
-      .hero-visual { padding: 24px 24px 40px; }
-      .path-grid,
-      .topic-grid,
-      .platforms { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .site-shell { width: min(calc(100% - 20px), var(--max)); }
-      .nav { padding-top: 16px; }
-      .nav-links { display: none; }
-      .hero-card { min-height: auto; }
-      .hero-copy { padding: 28px 20px 12px; }
-      .hero-visual { padding: 14px 14px 24px; }
-      .visual-frame { aspect-ratio: 1 / 1.08; }
-      .hub { width: 150px; height: 150px; font-size: 22px; }
-      .track, .node { font-size: 12px; min-width: unset; }
-      .track.human { top: 6%; right: 6%; }
-      .track.disease { bottom: 8%; right: 8%; }
-      .track.intervention { left: 6%; top: 44%; }
-      .node-group.human { top: 20%; right: 4%; }
-      .node-group.disease { bottom: 14%; right: 14%; }
-      .node-group.intervention { left: 4%; top: 56%; }
-      .section-head { align-items: start; flex-direction: column; }
-      .architecture-card,
-      .manifesto-card,
-      .path-card { padding: 18px; }
-      .topic strong { font-size: 16px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isharat Al-Jasad | Bio-OS Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        offwhite: '#F8FAFC',
+                        deepnavy: '#0A192F',
+                        clinicalblue: '#1E6091',
+                        softmint: '#D8F3DC',
+                        warmamber: '#FFB703'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0A192F; }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(10, 25, 47, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(10, 25, 47, 0.03) 1px, transparent 1px);
+        }
+        .os-border { border: 1px solid rgba(10, 25, 47, 0.15); }
+        .svg-line { stroke: #1E6091; stroke-width: 1px; fill: none; }
+        .svg-box { fill: #F8FAFC; stroke: rgba(10, 25, 47, 0.2); stroke-width: 1px; }
+        .svg-text { fill: #0A192F; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; }
+        .svg-text-ar { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400;}
+        .data-dot { fill: #1E6091; }
+    </style>
 </head>
-<body>
-  <div class="top-strip">المنصة قيد البناء المعرفي والتطوير — هذه صفحة تأسيسية تمثل روح المشروع واتجاهه</div>
+<body class="min-h-screen flex flex-col items-center justify-start p-4 md:p-12 font-sans selection:bg-softmint selection:text-deepnavy">
 
-  <div class="site-shell">
-    <header class="nav">
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <div>
-          <div>إشارات الجسد</div>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#vision">الرؤية</a>
-        <a href="#paths">المسارات</a>
-        <a href="#architecture">البنية</a>
-        <a href="#manifesto">البيان</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero" id="vision">
-        <div class="hero-card">
-          <div class="hero-copy">
-            <span class="eyebrow"><span class="dot"></span> نسخة تأسيسية لمسار مختلف في الطب</span>
-            <h1>إشارات الجسد</h1>
-            <p class="lead">
-              ليست منصة محتوى طبي عادي، بل <strong>محاولة لبناء نظام تشخيصي معرفي</strong> يربط
-              <strong>الإنسان</strong> و<strong>المرض</strong> و<strong>التدخل الطبي</strong> داخل خريطة واحدة.
-            </p>
-            <span class="hero-signal">الخريطة المفقودة في الطب تبدأ من فهم النظام قبل مطاردة الأعراض.</span>
-            <div class="pill-row">
-              <span class="pill dark">السبب الجذري</span>
-              <span class="pill blue">فهم الإنسان</span>
-              <span class="pill amber">فهم المرض</span>
-              <span class="pill green">التدخل الطبي</span>
-            </div>
-            <div class="cta-row">
-              <a class="btn primary" href="#paths">استكشف البنية الأساسية</a>
-              <a class="btn secondary" href="#manifesto">اقرأ بيان المشروع</a>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <div class="visual-frame">
-              <div class="hub">النظام التشخيصي المتكامل</div>
-
-              <div class="track human">الإنسان</div>
-              <div class="node-group human">
-                <div class="node">الجسد</div>
-                <div class="node">النفس</div>
-                <div class="node">الأنظمة الحيوية</div>
-              </div>
-
-              <div class="track disease">المرض</div>
-              <div class="node-group disease">
-                <div class="node">الأعراض</div>
-                <div class="node">التشخيص</div>
-                <div class="node">الآليات المرضية</div>
-              </div>
-
-              <div class="track intervention">التدخل</div>
-              <div class="node-group intervention">
-                <div class="node">البروتوكولات</div>
-                <div class="node">العلاج</div>
-                <div class="node">الوقاية</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="paths">
-        <div class="section-head">
-          <div>
-            <h2>المسارات المعرفية الرئيسية</h2>
-            <p>هذه ليست أبواب موقع، بل الطبقات الأساسية التي سيقوم عليها أي موضوع داخل المشروع: كيف نفهم الإنسان، كيف نفهم المرض، وكيف نبني تدخلًا طبيًا لا يكتفي بالتعايش مع الخلل.</p>
-          </div>
-          <div class="section-tag">نواة المشروع</div>
-        </div>
-
-        <div class="path-grid">
-          <article class="path-card">
-            <div class="path-title blue">فهم الإنسان</div>
-            <div class="sub-box">
-              <h3>الجسد</h3>
-              <div class="chip-row">
-                <span class="chip">الأعضاء</span>
-                <span class="chip">الوظائف</span>
-                <span class="chip">التوازن</span>
-              </div>
-            </div>
-            <div class="sub-box">
-              <h3>النفس</h3>
-              <div class="chip-row">
-                <span class="chip">الإدراك</span>
-                <span class="chip">الضغط</span>
-                <span class="chip">الأثر الجسدي</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="path-card">
-            <div class="path-title amber">فهم المرض</div>
-            <div class="sub-box">
-              <h3>المظهر الخارجي</h3>
-              <div class="chip-row">
-                <span class="chip">الأعراض</span>
-                <span class="chip">العلامات</span>
-                <span class="chip">التحاليل</span>
-              </div>
-            </div>
-            <div class="sub-box">
-              <h3>البنية العميقة</h3>
-              <div class="chip-row">
-                <span class="chip">الآليات</span>
-                <span class="chip">السبب الجذري</span>
-                <span class="chip">التشخيص التفريقي</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="path-card">
-            <div class="path-title green">التدخل الطبي</div>
-            <div class="sub-box">
-              <h3>المسار العملي</h3>
-              <div class="chip-row">
-                <span class="chip">البروتوكولات</span>
-                <span class="chip">العلاج</span>
-                <span class="chip">المتابعة</span>
-              </div>
-            </div>
-            <div class="sub-box">
-              <h3>المسار الوقائي</h3>
-              <div class="chip-row">
-                <span class="chip">الوقاية</span>
-                <span class="chip">منع التكرار</span>
-                <span class="chip">تصحيح البيئة</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="architecture" id="architecture">
-        <div class="architecture-card">
-          <div class="section-head">
-            <div>
-              <h2>هيكل الموضوع الواحد</h2>
-              <p>أي مرض أو حالة داخل المشروع لن يُعرض كصفحة مشتتة، بل كوحدة تشغيلية واحدة قابلة للتوسع والتعليم والمراجعة.</p>
-            </div>
-            <div class="section-tag">قابل للتدريس</div>
-          </div>
-
-          <div class="topic-grid">
-            <div class="topic"><small>01</small><strong>المدخل التشخيصي</strong></div>
-            <div class="topic"><small>02</small><strong>العلامات والتحاليل</strong></div>
-            <div class="topic"><small>03</small><strong>التفسير الميكانيكي</strong></div>
-            <div class="topic"><small>04</small><strong>التشخيص التفريقي</strong></div>
-            <div class="topic"><small>05</small><strong>الإدارة المؤقتة</strong></div>
-            <div class="topic"><small>06</small><strong>العلاج</strong></div>
-            <div class="topic"><small>07</small><strong>الوقاية ومنع التكرار</strong></div>
-            <div class="topic"><small>08</small><strong>المقارنة العالمية</strong></div>
-            <div class="topic"><small>09</small><strong>الخلاصة التشغيلية</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="manifesto" id="manifesto">
-        <div class="manifesto-card">
-          <div>
-            <h2>هذا المشروع لا يريد متابعين بقدر ما يريد نتائج</h2>
-            <p>
-              الهدف ليس صناعة محتوى ولا بناء حضور اجتماعي تقليدي. الهدف هو اختبار: هل يمكن بناء إطار طبي يرفض الاكتفاء بالتعايش مع المرض، ويعيد ترتيب العلاقة بين الإنسان والمرض والتدخل على أساس آلي سببي؟ إذا لم ينتج هذا المسار وضوحًا ونتائج، فلا قيمة للشكل وحده.
-            </p>
-          </div>
-          <div class="manifesto-list">
-            <div class="manifesto-item">
-              <strong>الطب الحالي يصف كثيرًا ويفسر قليلًا</strong>
-              <span>والمشروع يحاول سد الفجوة بين العرض الظاهر والبنية الحقيقية خلفه.</span>
-            </div>
-            <div class="manifesto-item">
-              <strong>المركز ليس المرض وحده</strong>
-              <span>بل الإنسان الذي نشأ فيه المرض، والسياق الذي غذّاه، والتدخل الذي يجب أن يوقفه.</span>
-            </div>
-            <div class="manifesto-item">
-              <strong>الموقع ليس النهاية</strong>
-              <span>بل واجهة أولى لنظام معرفي تشخيصي أكبر يمكن أن يتحول لاحقًا إلى مكتبة ومنهج ومدرسة فكرية.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <footer class="footer">
-    <div class="site-shell">
-      <div class="footer-head">
-        <h3>منظومة إشارات الجسد</h3>
-        <p>قنوات المشروع ليست غاية في حد ذاتها، بل واجهات تشغيلية لنقل المعرفة وبناء الأرشيف وربط الفكرة بالمختصين.</p>
-      </div>
-
-      <div class="platforms">
-        <a class="platform" href="https://www.linkedin.com/company/body-signals-lab" target="_blank" rel="noopener noreferrer">
-          <div>
-            <strong>LinkedIn</strong>
-            <span>الواجهة المهنية وبناء الصياغة المرجعية</span>
-          </div>
-          <em>Explore</em>
-        </a>
-        <a class="platform" href="https://t.me/body_signals" target="_blank" rel="noopener noreferrer">
-          <div>
-            <strong>Telegram</strong>
-            <span>المكتبة والأرشيف والتحليلات الممتدة</span>
-          </div>
-          <em>Join</em>
-        </a>
-        <a class="platform" href="https://www.tiktok.com/@think.resilient" target="_blank" rel="noopener noreferrer">
-          <div>
-            <strong>TikTok</strong>
-            <span>الوعي السريع ومدخل الجمهور للفكرة</span>
-          </div>
-          <em>Follow</em>
-        </a>
-      </div>
+    <div class="w-full max-w-7xl flex justify-between items-center border-b border-deepnavy/20 pb-2 mb-12 font-mono text-[10px] text-deepnavy/60 uppercase tracking-widest">
+        <span>Sys.Status: <span class="text-clinicalblue">Online</span></span>
+        <span>Node: Middle East // KSA</span>
+        <span>Version: 1.0.0.Core</span>
     </div>
-  </footer>
+
+    <main class="w-full max-w-7xl relative">
+        
+        <div class="w-full flex flex-col items-center text-center mb-16 relative">
+            <h1 class="text-4xl md:text-5xl font-light tracking-tight text-deepnavy mb-2">
+                إشارات الجسد
+            </h1>
+            <h2 class="text-xl md:text-2xl font-mono text-clinicalblue mb-6 tracking-wide">
+                Isharat Al-Jasad
+            </h2>
+            <p class="font-sans text-sm md:text-base text-deepnavy/70 max-w-xl mx-auto border-t border-b border-deepnavy/10 py-3 px-6 bg-white os-border">
+                Understanding the signals your body sends about metabolic health.
+            </p>
+        </div>
+
+        <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-0 os-border bg-white mb-16 relative">
+            <div class="absolute inset-0 grid-bg pointer-events-none opacity-50"></div>
+
+            <div class="lg:col-span-2 p-8 border-b lg:border-b-0 lg:border-r border-deepnavy/20 flex items-center justify-center min-h-[400px] relative">
+                <span class="absolute top-4 left-4 font-mono text-[10px] text-deepnavy/40">DIAGRAM.01 // METABOLIC.VECTORS</span>
+                
+                <svg viewBox="0 0 600 500" class="w-full max-w-lg overflow-visible">
+                    <path d="M 300 225 L 300 120 L 160 120" class="svg-line" />
+                    <path d="M 300 225 L 300 120 L 440 120" class="svg-line" />
+                    <path d="M 220 250 L 160 250" class="svg-line" />
+                    <path d="M 380 250 L 440 250" class="svg-line" />
+                    <path d="M 300 275 L 300 380 L 160 380" class="svg-line" />
+                    <path d="M 300 275 L 300 380 L 440 380" class="svg-line" />
+
+                    <circle cx="300" cy="120" r="3" class="data-dot" />
+                    <circle cx="300" cy="380" r="3" class="data-dot" />
+
+                    <rect x="220" y="225" width="160" height="50" class="svg-box stroke-clinicalblue" fill="#F8FAFC" />
+                    <text x="300" y="255" text-anchor="middle" class="svg-text svg-text-ar">إشارات الجسد</text>
+
+                    <rect x="20" y="100" width="140" height="40" class="svg-box hover:fill-softmint transition-colors" />
+                    <text x="90" y="124" text-anchor="middle" class="svg-text">Insulin Resistance</text>
+
+                    <rect x="440" y="100" width="140" height="40" class="svg-box hover:fill-softmint transition-colors" />
+                    <text x="510" y="124" text-anchor="middle" class="svg-text">PCOS</text>
+
+                    <rect x="20" y="230" width="140" height="40" class="svg-box hover:fill-softmint transition-colors" />
+                    <text x="90" y="254" text-anchor="middle" class="svg-text">Sleep Disorders</text>
+
+                    <rect x="440" y="230" width="160" height="40" class="svg-box hover:fill-softmint transition-colors" />
+                    <text x="520" y="254" text-anchor="middle" class="svg-text">Chronic Inflammation</text>
+
+                    <rect x="20" y="360" width="140" height="40" class="svg-box hover:fill-softmint transition-colors" />
+                    <text x="90" y="384" text-anchor="middle" class="svg-text">Iron Deficiency</text>
+
+                    <rect x="440" y="360" width="150" height="40" class="svg-box hover:fill-softmint transition-colors" />
+                    <text x="515" y="384" text-anchor="middle" class="svg-text">Energy Instability</text>
+                </svg>
+            </div>
+
+            <div class="p-8 flex flex-col justify-between relative bg-offwhite/50 backdrop-blur-sm">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-2 h-2 bg-warmamber animate-pulse"></div>
+                        <span class="font-mono text-xs text-deepnavy uppercase">Live Telemetry</span>
+                    </div>
+                    <ul class="font-mono text-xs space-y-4 text-deepnavy/80">
+                        <li class="flex justify-between border-b border-deepnavy/10 pb-2">
+                            <span>System Baseline</span>
+                            <span class="text-clinicalblue">Calibrated</span>
+                        </li>
+                        <li class="flex justify-between border-b border-deepnavy/10 pb-2">
+                            <span>Network</span>
+                            <span>Secure</span>
+                        </li>
+                        <li class="flex justify-between border-b border-deepnavy/10 pb-2">
+                            <span>Diagnostic Index</span>
+                            <span>v4.2.8</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-12">
+                    <button class="w-full border border-clinicalblue text-clinicalblue font-mono text-sm py-3 px-4 hover:bg-clinicalblue hover:text-white transition-all duration-300">
+                        INITIALIZE DIAGNOSTIC
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white os-border p-8 flex flex-col relative group hover:border-clinicalblue transition-colors">
+                <span class="absolute top-0 right-0 bg-deepnavy text-white font-mono text-[10px] px-2 py-1">PNL.01</span>
+                <h3 class="font-mono text-sm text-clinicalblue mb-4 uppercase tracking-wide">What Are Body Signals</h3>
+                <p class="font-sans text-sm text-deepnavy/70 leading-relaxed mb-8 flex-grow">
+                    Physiological outputs are not random. They are precise communications from your metabolic framework indicating system stress, deficiencies, or optimal calibration.
+                </p>
+                <div class="w-full h-1 bg-deepnavy/5 group-hover:bg-softmint transition-colors"></div>
+            </div>
+
+            <div class="bg-white os-border p-8 flex flex-col relative group hover:border-clinicalblue transition-colors">
+                <span class="absolute top-0 right-0 bg-deepnavy text-white font-mono text-[10px] px-2 py-1">PNL.02</span>
+                <h3 class="font-mono text-sm text-clinicalblue mb-4 uppercase tracking-wide">Major Signal Clusters</h3>
+                <p class="font-sans text-sm text-deepnavy/70 leading-relaxed mb-8 flex-grow">
+                    Identifying patterns in exhaustion, hormonal imbalances, and cellular inflammation. Clustering these symptoms allows for targeted, systemic intervention rather than isolated symptom masking.
+                </p>
+                <div class="w-full h-1 bg-deepnavy/5 group-hover:bg-warmamber transition-colors"></div>
+            </div>
+
+            <div class="bg-white os-border p-8 flex flex-col relative group hover:border-clinicalblue transition-colors">
+                <span class="absolute top-0 right-0 bg-deepnavy text-white font-mono text-[10px] px-2 py-1">PNL.03</span>
+                <h3 class="font-mono text-sm text-clinicalblue mb-4 uppercase tracking-wide">Bio-OS Methodology</h3>
+                <p class="font-sans text-sm text-deepnavy/70 leading-relaxed mb-8 flex-grow">
+                    An architectural approach to human biology. We treat metabolic health as an interconnected operating system requiring data-driven inputs, logical analysis, and sustained optimization.
+                </p>
+                <div class="w-full h-1 bg-deepnavy/5 group-hover:bg-clinicalblue transition-colors"></div>
+            </div>
+
+        </div>
+
+    </main>
 </body>
 </html>
