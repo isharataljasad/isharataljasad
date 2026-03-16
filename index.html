@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>إشارات الجسد | المنصة التشخيصية</title>
+  <title>إشارات الجسد | قريباً</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,270 +11,437 @@
 
   <style>
     :root {
-      --bg-white: #ffffff;
-      --bg-light: #f8fafc;
-      --text-dark: #0f172a;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
       --blue: #0f4c81;
+      --blue-soft: #e0f2fe;
       --amber: #d97706;
+      --amber-soft: #fef3c7;
       --green: #059669;
+      --green-soft: #d1fae5;
       --dark: #0f172a;
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 20px 40px -5px rgba(0, 0, 0, 0.12);
+      --radius: 28px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.12);
     }
 
-    * { 
-      box-sizing: border-box; 
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Tajawal', sans-serif;
-      color: var(--text-dark);
-      background: var(--bg-white);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
       overflow-x: hidden;
-      /* Removed height/width 100% to prevent Google Sites iframe collapse */
     }
 
-    /* Full Width Sections */
-    .full-width-section {
-      width: 100%;
-      padding: 60px 5%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1300px;
-    }
-
-    /* Top Banner */
-    .top-banner {
+    /* شريط تحت الإنشاء */
+    .construction-banner {
       background: linear-gradient(90deg, #d97706, #f59e0b, #d97706);
       background-size: 200% 100%;
       color: #fff;
       text-align: center;
       padding: 12px 20px;
       font-weight: 700;
-      font-size: 15px;
-      width: 100%;
+      font-size: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
       animation: gradientMove 3s ease infinite;
     }
+
     @keyframes gradientMove {
       0% { background-position: 100% 0; }
       50% { background-position: 0 0; }
       100% { background-position: 100% 0; }
     }
 
-    /* Hero Section */
-    .hero-bg {
-      background: 
-        radial-gradient(circle at top right, rgba(15, 76, 129, 0.05), transparent 40%),
-        radial-gradient(circle at bottom left, rgba(217, 119, 6, 0.05), transparent 40%),
-        var(--bg-light);
-      border-bottom: 1px solid var(--border-color);
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
     }
 
-    .hero-grid {
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 40px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      background:
+        radial-gradient(circle at top, rgba(15, 76, 129, 0.08), transparent 42%),
+        radial-gradient(circle at left, rgba(217, 119, 6, 0.08), transparent 32%),
+        radial-gradient(circle at right, rgba(5, 150, 105, 0.08), transparent 32%),
+        #fff;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 16px;
+      padding: 6px 16px;
       border-radius: 999px;
       background: #eff6ff;
       border: 1px solid #dbeafe;
       color: var(--blue);
       font-size: 14px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
+    /* نقطة النبض في العنوان الفرعي */
     .pulse-dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       background-color: var(--amber);
       border-radius: 50%;
       animation: pulse 1.5s infinite;
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: #0b1324;
     }
 
-    h1 { font-size: clamp(32px, 4vw, 56px); font-weight: 800; line-height: 1.2; margin: 0 0 20px 0; }
-    .hero-text { font-size: clamp(16px, 2vw, 20px); color: var(--text-muted); margin: 0 0 16px 0; line-height: 1.7; }
-    .hero-keywords { color: var(--amber); font-weight: 800; font-size: 18px; display: block; margin-bottom: 24px;}
+    .hero p {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 760px;
+    }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
-    .tag { padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 700; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
     .tag.dark { background: var(--dark); color: #fff; }
-    .tag.blue { background: #e0f2fe; color: #0c4a6e; }
-    .tag.amber { background: #fef3c7; color: #92400e; }
-    .tag.green { background: #d1fae5; color: #065f46; }
+    .tag.blue { background: var(--blue-soft); color: #0c4a6e; }
+    .tag.amber { background: var(--amber-soft); color: #92400e; }
+    .tag.green { background: var(--green-soft); color: #065f46; }
 
-    /* Map Box */
     .map-box {
       position: relative;
-      width: 100%;
-      min-height: 450px;
-      border-radius: 24px;
-      background: #fff;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      min-height: 400px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     }
-    .orbit {
-      position: absolute; width: 280px; height: 280px; border-radius: 50%;
-      border: 1px dashed #cbd5e1; animation: rotate 30s linear infinite;
-    }
-    @keyframes rotate { 100% { transform: rotate(360deg); } }
-    .center-node {
-      position: absolute; width: 220px; height: 220px;
-      background: var(--dark); color: #fff; border-radius: 50%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 2; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
-    }
-    .center-node small { font-size: 14px; color: #cbd5e1; margin-bottom: 4px; }
-    .center-node strong { font-size: 24px; line-height: 1.2; text-align: center; }
-    .mini-node {
-      position: absolute; padding: 12px 20px; border-radius: 999px;
-      font-size: 14px; font-weight: 800; background: #fff;
-      box-shadow: var(--shadow-md); z-index: 3; animation: float 4s ease-in-out infinite;
-    }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .mini-node.blue { top: 10%; left: 5%; border: 1.5px solid #bae6fd; color: #0369a1; animation-delay: 0s;}
-    .mini-node.amber { left: 10%; bottom: 10%; border: 1.5px solid #fde68a; color: #b45309; animation-delay: 1s;}
-    .mini-node.green { top: 15%; right: 5%; border: 1.5px solid #a7f3d0; color: #047857; animation-delay: 2s;}
 
-    /* Pathways Grid */
-    .pathways-bg { background: var(--bg-white); }
-    .pathways-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 24px; 
+    .orbit {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 250px;
+      height: 250px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px dashed #cbd5e1;
+      background: transparent;
+      animation: rotate 20s linear infinite;
     }
-    .channel-card {
-      background: var(--bg-white); border: 1px solid var(--border-color);
-      border-radius: 24px; padding: 24px; box-shadow: var(--shadow-sm);
-      transition: 0.3s;
+
+    @keyframes rotate {
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
-    .channel-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+    .center-node {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 220px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 999px;
+      padding: 28px 22px;
+      z-index: 2;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.22);
+      animation: centerPulse 2.5s infinite;
+    }
+
+    @keyframes centerPulse {
+      0% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(15, 23, 42, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(15, 23, 42, 0); }
+    }
+
+    .center-node small {
+      display: block;
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+    }
+
+    .center-node strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.5;
+    }
+
+    .mini-node {
+      position: absolute;
+      padding: 12px 18px;
+      border-radius: 18px;
+      font-size: 15px;
+      font-weight: 700;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .mini-node.blue { top: 26px; left: 26px; background: #f0f9ff; border: 1px solid #dbeafe; color: #0c4a6e; animation-delay: 0s;}
+    .mini-node.amber { left: 34px; bottom: 26px; background: #fffbeb; border: 1px solid #fde68a; color: #92400e; animation-delay: 1s;}
+    .mini-node.green { top: 42px; right: 26px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; animation-delay: 2s;}
+
+    .line {
+      position: absolute;
+      height: 2px;
+      background: #cbd5e1;
+      transform-origin: center;
+      opacity: 0.6;
+    }
+
+    .line.blue { top: 116px; left: 126px; width: 110px; background: #7dd3fc; }
+    .line.amber { bottom: 94px; left: 138px; width: 100px; background: #fbbf24; transform: rotate(-20deg); }
+    .line.green { top: 134px; right: 126px; width: 110px; background: #6ee7b7; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .channel { padding: 24px; }
+
     .channel-header {
-      border-radius: 16px; padding: 16px; color: #fff; font-size: 22px;
-      font-weight: 800; margin-bottom: 24px; text-align: center;
+      border-radius: 20px;
+      padding: 16px 18px;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
+
     .header-blue { background: linear-gradient(135deg, #0f4c81, #0ea5e9); }
     .header-amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
     .header-green { background: linear-gradient(135deg, #059669, #34d399); }
+
     .subcard {
-      background: var(--bg-light); border: 1px solid var(--border-color);
-      border-radius: 16px; padding: 16px; margin-top: 16px;
+      background: #f8fafc;
+      border: 1px solid #eef2f7;
+      border-radius: 20px;
+      padding: 18px;
+      margin-top: 14px;
+      transition: background 0.3s;
     }
-    .subcard h3 { font-size: 18px; margin: 0 0 12px 0; color: var(--text-dark); text-align: center; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    
+    .subcard:hover { background: #fff; }
+
+    .subcard h3 { font-size: 22px; margin-bottom: 10px; color: #0f172a; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
     .chip {
-      background: #fff; border: 1px solid var(--border-color);
-      border-radius: 999px; padding: 6px 14px; font-size: 13px; color: #475569; font-weight: 700;
+      background: #fff;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #475569;
+      font-weight: 500;
     }
 
-    /* Structure Grid */
-    .structure-bg { background: var(--bg-light); border-top: 1px solid var(--border-color); }
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .panel { padding: 28px; }
+
     .panel-header {
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-      margin-bottom: 40px; border-bottom: 2px solid var(--border-color); padding-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 18px;
     }
-    .panel-header h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 8px 0; }
-    .panel-header p { font-size: 16px; color: var(--text-muted); margin: 0; }
-    .badge { background: var(--dark); color: #fff; padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 800; }
-    .template-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 16px; 
-    }
-    .template-item {
-      background: #fff; border: 1px solid var(--border-color);
-      border-radius: 16px; padding: 20px; font-size: 16px; font-weight: 800;
-      color: var(--text-dark); transition: 0.3s; box-shadow: var(--shadow-sm);
-    }
-    .template-item:hover { transform: translateY(-4px); border-color: var(--blue); box-shadow: var(--shadow-md); }
-    .template-item small { display: block; color: #94a3b8; font-size: 12px; margin-bottom: 8px; }
 
-    /* Slim Footer */
-    .footer-bg { background: var(--dark); border-top: 4px solid var(--amber); }
-    .footer-header { text-align: center; margin-bottom: 24px; }
-    .footer-header h2 { font-size: 20px; color: #fff; margin: 0 0 4px 0; }
-    .footer-header p { font-size: 13px; color: #cbd5e1; margin: 0; }
-    
-    .platforms-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 16px; 
-    }
-    .platform-card-dark {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;
-      transition: 0.3s; text-decoration: none; color: inherit;
-    }
-    .platform-card-dark:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
-    .platform-icon {
-      width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0;
-    }
-    .tiktok-icon { background: #000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); } 
-    .telegram-icon { background: #0088cc; box-shadow: 0 4px 10px rgba(0,136,204,0.3); } 
-    .linkedin-icon { background: #0a66c2; box-shadow: 0 4px 10px rgba(10,102,194,0.3); }
-    
-    .platform-info { flex-grow: 1; text-align: right; }
-    .platform-info h3 { font-size: 15px; color: #fff; margin: 0 0 2px 0; font-weight: 800; }
-    .platform-info p { font-size: 11px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.4; }
-    
-    .platform-btn-text { 
-      background: #fff; color: #000; padding: 8px 16px; border-radius: 8px; 
-      font-size: 12px; font-weight: 700; white-space: nowrap; transition: 0.3s;
-    }
-    .telegram-card .platform-btn-text { background: #0088cc; color: #fff; }
-    .linkedin-card .platform-btn-text { background: #0a66c2; color: #fff; }
-    .platform-card-dark:hover .platform-btn-text { filter: brightness(0.9); }
+    .panel-header h2 { font-size: 30px; color: #0f172a; margin-bottom: 8px; }
+    .panel-header p { color: var(--muted); font-size: 16px; }
 
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .tags { justify-content: center; }
-      .map-box { max-width: 500px; margin: 0 auto; }
+    .badge {
+      background: var(--dark);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .template-item, .pillar-item {
+      background: #f8fafc;
+      border: 1px solid #eef2f7;
+      border-radius: 18px;
+      padding: 16px;
+      transition: transform 0.2s;
+    }
+
+    .template-item:hover, .pillar-item:hover {
+      transform: scale(1.02);
+      border-color: var(--blue-soft);
+    }
+
+    .template-item small, .pillar-item small {
+      display: block;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .template-item { font-size: 15px; font-weight: 700; color: #475569; }
+
+    .pillars { display: grid; gap: 12px; }
+
+    .pillar-item p { font-size: 14px; color: #475569; line-height: 1.9; }
+
+    .dark-section {
+      margin-top: 24px;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+    }
+
+    .dark-section h2 { font-size: 34px; margin-bottom: 14px; }
+    .dark-section p { color: #cbd5e1; font-size: 16px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: background 0.3s;
+    }
+
+    .step:hover { background: rgba(255,255,255,0.1); }
+    .step small { display: block; font-size: 13px; margin-bottom: 8px; font-weight: 700; color: rgba(255,255,255,0.7);}
+    .step h3 { font-size: 22px; margin-bottom: 8px; }
+    .step p { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.8);}
+
+    .step.blue { border-top: 3px solid #0ea5e9; }
+    .step.amber { border-top: 3px solid #f59e0b; }
+    .step.green { border-top: 3px solid #10b981; }
+
+    @media (max-width: 1024px) {
+      .hero, .content-grid, .dark-section, .section-grid { grid-template-columns: 1fr; }
+      .template-grid, .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 20px, 1200px); }
+      .hero, .panel, .dark-section { padding: 22px; }
+      .hero p { font-size: 17px; }
+      .map-box { min-height: 340px; }
+      .orbit { width: 190px; height: 190px; }
+      .center-node { width: 180px; padding: 22px 16px; }
+      .center-node strong { font-size: 20px; }
+      .template-grid, .steps { grid-template-columns: 1fr; }
+      .mini-node { font-size: 13px; padding: 10px 12px; }
+      .mini-node.blue { top: 18px; left: 14px; }
+      .mini-node.green { top: 20px; right: 14px; }
+      .mini-node.amber { left: 16px; bottom: 16px; }
+      .line { display: none; /* إخفاء الخطوط في الجوال لتجنب التداخل */ }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-banner">
-    🚧 المنصة قيد الإنشاء المعرفي والتطوير — استكشف المعرفة قريباً: isharataljasad.com 🚧
+  <div class="construction-banner">
+    🚧 المنصة قيد الإنشاء المعرفي والتطوير — ترقبوا الإطلاق قريباً 🚧
   </div>
 
-  <div class="full-width-section hero-bg">
-    <div class="container hero-grid">
+  <main class="container">
+    <section class="hero card">
       <div>
-        <span class="eyebrow"><div class="pulse-dot"></div> مرحلة التأسيس — نسخة أولية</span>
+        <span class="eyebrow">
+          <div class="pulse-dot"></div>
+          مرحلة التأسيس — نسخة أولية
+        </span>
         <h1>إشارات الجسد</h1>
-        <p class="hero-text">
-          جسدك يتحدث… هل تفهم إشاراته؟ <br>
-          التحاليل السليمة لا تعني أن كل شيء بخير. الخريطة المفقودة في الطب التي تقودنا للسبب الجذري.
+        <p>
+          الخريطة المفقودة في الطب: واجهة معرفية تربط الإنسان والمرض والتدخل داخل نظام تشخيصي متكامل، بصياغة بصرية مستلهمة من الخرائط المعرفية، وإطار الطب القائم على الآلية، والهوية المؤسسية للمشروع.
         </p>
-        <span class="hero-keywords">مقاومة الإنسولين • اضطرابات النوم • الالتهاب</span>
         <div class="tags">
-          <span class="tag dark">السبب الجذري</span>
+          <span class="tag dark">التشخيص</span>
           <span class="tag blue">الآلية</span>
           <span class="tag amber">البروتوكول</span>
           <span class="tag green">الوقاية</span>
@@ -287,114 +454,135 @@
           <small>المركز قيد التطوير</small>
           <strong>النظام التشخيصي المتكامل</strong>
         </div>
+
         <div class="mini-node blue">فهم الإنسان</div>
         <div class="mini-node amber">فهم المرض</div>
         <div class="mini-node green">التدخل الطبي</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="full-width-section pathways-bg">
-    <div class="container pathways-grid">
-      <div class="channel-card">
+        <div class="line blue"></div>
+        <div class="line amber"></div>
+        <div class="line green"></div>
+      </div>
+    </section>
+
+    <section class="section-grid">
+      <article class="channel card">
         <div class="channel-header header-blue">فهم الإنسان</div>
         <div class="subcard">
           <h3>الجسد</h3>
-          <div class="chips"><span class="chip">الأعضاء</span><span class="chip">الأنظمة الحيوية</span><span class="chip">التوازن</span></div>
+          <div class="chips">
+            <span class="chip">الأعضاء</span>
+            <span class="chip">الأنظمة الحيوية</span>
+            <span class="chip">التوازن الفيزيولوجي</span>
+          </div>
         </div>
         <div class="subcard">
           <h3>النفس</h3>
-          <div class="chips"><span class="chip">الإدراك</span><span class="chip">الضغط النفسي</span><span class="chip">التأثير الجسدي</span></div>
+          <div class="chips">
+            <span class="chip">الإدراك</span>
+            <span class="chip">الضغط النفسي</span>
+            <span class="chip">التأثير الجسدي</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="channel-card">
+      <article class="channel card">
         <div class="channel-header header-amber">فهم المرض</div>
         <div class="subcard">
           <h3>الأمراض</h3>
-          <div class="chips"><span class="chip">الأعراض</span><span class="chip">التشخيص</span><span class="chip">التشخيص التفريقي</span></div>
+          <div class="chips">
+            <span class="chip">الأعراض</span>
+            <span class="chip">التشخيص</span>
+            <span class="chip">التشخيص التفريقي</span>
+          </div>
         </div>
         <div class="subcard">
           <h3>الآليات</h3>
-          <div class="chips"><span class="chip">الآلية المرضية</span><span class="chip">التفاعل الحيوي</span></div>
+          <div class="chips">
+            <span class="chip">الآلية المرضية</span>
+            <span class="chip">التفاعل الحيوي</span>
+            <span class="chip">سبب ظهور العرض</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="channel-card">
+      <article class="channel card">
         <div class="channel-header header-green">التدخل الطبي</div>
         <div class="subcard">
           <h3>البروتوكولات</h3>
-          <div class="chips"><span class="chip">الإدارة المؤقتة</span><span class="chip">العلاج</span><span class="chip">الوقاية</span></div>
+          <div class="chips">
+            <span class="chip">الإدارة المؤقتة</span>
+            <span class="chip">العلاج</span>
+            <span class="chip">الوقاية</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel card">
+        <div class="panel-header">
+          <div>
+            <h2>هيكل الموضوع الواحد</h2>
+            <p>قالب موحد يحوّل كل مرض أو خلل إلى وحدة معرفية قابلة للنشر والتثبيت والتوسعة.</p>
+          </div>
+          <div class="badge">نواة المنصة</div>
+        </div>
+
+        <div class="template-grid">
+          <div class="template-item"><small>01</small>المدخل التشخيصي</div>
+          <div class="template-item"><small>02</small>العلامات والتحاليل</div>
+          <div class="template-item"><small>03</small>التفسير الميكانيكي</div>
+          <div class="template-item"><small>04</small>التشخيص التفريقي</div>
+          <div class="template-item"><small>05</small>الإدارة المؤقتة</div>
+          <div class="template-item"><small>06</small>العلاج</div>
+          <div class="template-item"><small>07</small>الوقاية ومنع التكرار</div>
+          <div class="template-item"><small>08</small>المقارنة العالمية</div>
+          <div class="template-item"><small>09</small>الخلاصة التشغيلية</div>
+        </div>
+      </article>
+
+      <aside class="panel card">
+        <div class="panel-header" style="display:block; border-bottom:none; margin-bottom:0; padding-bottom:0;">
+          <h2>المبادئ الحاكمة</h2>
+        </div>
+        <div class="pillars" style="margin-top:18px;">
+          <div class="pillar-item"><small>مبدأ 1</small><p>التشخيص ليس اسم مرض فقط، بل ربط بين الأعراض والتحاليل والآلية والمسار العلاجي والوقائي.</p></div>
+          <div class="pillar-item"><small>مبدأ 2</small><p>خلل واحد قد يكشف شبكة أوسع في الجسد والنفس معاً.</p></div>
+          <div class="pillar-item"><small>مبدأ 3</small><p>الأصل هو العلاج والوقاية، لا الارتهان لدواء دائم إلا عند الضرورة القصوى.</p></div>
+          <div class="pillar-item"><small>مبدأ 4</small><p>الجمع بين الطب الحديث والخبرة السريرية وأفضل الممارسات الواعدة والطب التكاملي المنضبط.</p></div>
+          <div class="pillar-item"><small>مبدأ 5</small><p>التفسير الميكانيكي شرط أساسي قبل أي بروتوكول أو قرار.</p></div>
+          <div class="pillar-item"><small>مبدأ 6</small><p>لينكدإن للعرض، تيليغرام للتثبيت، تيك توك للتعليم والتوعية.</p></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="dark-section">
+      <div>
+        <h2>منطق التنقل المخطط له</h2>
+        <p>
+          ستبدأ الصفحة من الخريطة المركزية، ثم يختار الزائر أحد المسارات الثلاثة. كل مسار يفتح طبقة معرفية أعمق: من الإنسان إلى المرض إلى التدخل، مع قابلية تحويل كل فرع إلى مكتبة موضوعات وبروتوكولات قريباً.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step blue">
+          <small>المرحلة الأولى</small>
+          <h3>الخريطة</h3>
+          <p>واجهة تعريفية تربط المشروع وتشرح لماذا هذه هي الخريطة المفقودة في الطب.</p>
+        </div>
+        <div class="step amber">
+          <small>المرحلة الثانية</small>
+          <h3>المسارات</h3>
+          <p>ثلاث قنوات رئيسية تُفهم فورًا: الإنسان، المرض، التدخل.</p>
+        </div>
+        <div class="step green">
+          <small>المرحلة الثالثة</small>
+          <h3>المكتبة</h3>
+          <p>كل عقدة قابلة للتحول لاحقًا إلى مقال أو بروتوكول مدعوم بالذكاء الاصطناعي.</p>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="full-width-section structure-bg">
-    <div class="container">
-      <div class="panel-header">
-        <div>
-          <h2>هيكل الموضوع الواحد</h2>
-          <p>قالب موحد يحوّل كل مرض إلى وحدة معرفية قابلة للتوسعة.</p>
-        </div>
-        <div class="badge">نواة المنصة</div>
-      </div>
-      <div class="template-grid">
-        <div class="template-item"><small>01</small>المدخل التشخيصي</div>
-        <div class="template-item"><small>02</small>العلامات والتحاليل</div>
-        <div class="template-item"><small>03</small>التفسير الميكانيكي</div>
-        <div class="template-item"><small>04</small>التشخيص التفريقي</div>
-        <div class="template-item"><small>05</small>الإدارة المؤقتة</div>
-        <div class="template-item"><small>06</small>العلاج</div>
-        <div class="template-item"><small>07</small>الوقاية ومنع التكرار</div>
-        <div class="template-item"><small>08</small>المقارنة العالمية</div>
-        <div class="template-item"><small>09</small>الخلاصة التشغيلية</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="full-width-section footer-bg">
-    <div class="container">
-      <div class="footer-header">
-        <h2>منظومة المنصات المعرفية</h2>
-        <p>واجهات المشروع المتعددة تعمل كـ (عُقد) تشغيلية داخل نظامنا المعرفي.</p>
-      </div>
-      <div class="platforms-grid">
-        <a href="https://www.tiktok.com/@think.resilient" target="_blank" class="platform-card-dark">
-          <div class="platform-icon tiktok-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-          </div>
-          <div class="platform-info">
-            <h3>TikTok</h3>
-            <p>التعليم السريع ونشر الوعي الصحي.</p>
-          </div>
-          <span class="platform-btn-text">Follow</span>
-        </a>
-        
-        <a href="https://t.me/body_signals" target="_blank" class="platform-card-dark telegram-card">
-          <div class="platform-icon telegram-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          </div>
-          <div class="platform-info">
-            <h3>Telegram</h3>
-            <p>المكتبة وأرشيف المقالات والتحليلات.</p>
-          </div>
-          <span class="platform-btn-text">Join</span>
-        </a>
-
-        <a href="https://www.linkedin.com/company/body-signals-lab" target="_blank" class="platform-card-dark linkedin-card">
-          <div class="platform-icon linkedin-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div class="platform-info">
-            <h3>LinkedIn</h3>
-            <p>الواجهة المهنية للمشروع والمختصين.</p>
-          </div>
-          <span class="platform-btn-text">Explore</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
+    </section>
+  </main>
 </body>
 </html>
