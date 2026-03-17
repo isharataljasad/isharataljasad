@@ -1,631 +1,154 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark only">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bio-OS | إشارات الجسد</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#07111b;
-      --bg-2:#0a1624;
-      --panel:#0d1b2a;
-      --panel-2:#101f31;
-      --line:#19314a;
-      --line-2:#244463;
-      --text:#d8e6f4;
-      --muted:#84a0bb;
-      --blue:#61a8ff;
-      --blue-2:#2c77d3;
-      --mint:#63c7ae;
-      --amber:#d8a155;
-      --red:#d06b6b;
-      --good:#7ad08e;
-      --radius:16px;
-      --radius-sm:12px;
-      --shadow:none;
-      --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      --sans:"IBM Plex Sans Arabic", system-ui, sans-serif;
-      --gap:12px;
+      --bg:#08111a;--panel:#0d1b29;--line:#1e3752;--text:#e3edf7;--muted:#8ca7c0;
+      --blue:#61a8ff;--mint:#63c7ae;--amber:#d8a155;--red:#e06d6d;--good:#79d58f;--radius:18px;
     }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:var(--sans);
-      background:
-        linear-gradient(180deg, rgba(97,168,255,.05), transparent 18%),
-        linear-gradient(90deg, rgba(97,168,255,.04) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(97,168,255,.04) 1px, transparent 1px),
-        var(--bg);
-      background-size:auto, 28px 28px, 28px 28px, auto;
-      color:var(--text);
-      min-height:100vh;
-      overflow-x:hidden;
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    a{color:inherit;text-decoration:none}
-    button,input,select,textarea{font:inherit}
-    table{border-collapse:collapse;width:100%}
-    th,td{padding:.65rem .7rem;text-align:right;border-bottom:1px solid rgba(255,255,255,.05)}
-    th{color:var(--muted);font-size:.76rem;font-weight:500;background:rgba(255,255,255,.02)}
-    td{font-size:.92rem;color:var(--text)}
-
-    .shell{
-      width:min(100%, 1920px);
-      margin-inline:auto;
-      padding:10px;
-      display:grid;
-      gap:10px;
-    }
-
-    .topbar{
-      display:grid;
-      grid-template-columns: 320px minmax(0,1fr) 380px;
-      gap:10px;
-      align-items:stretch;
-    }
-
-    .brand,
-    .mode-strip,
-    .status-strip,
-    .panel{
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      min-width:0;
-    }
-
-    .brand{
-      padding:12px 14px;
-      display:grid;
-      gap:8px;
-      align-content:center;
-    }
-    .brand-top{
-      display:flex;
-      justify-content:space-between;
-      gap:8px;
-      align-items:center;
-    }
-    .brand-name{
-      font-size:1.28rem;
-      font-weight:700;
-      letter-spacing:-.02em;
-    }
-    .brand-id{
-      font-family:var(--mono);
-      font-size:.76rem;
-      color:var(--blue);
-      white-space:nowrap;
-    }
-    .brand-meta{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:8px;
-    }
-    .mini-stat{
-      padding:8px 10px;
-      border:1px solid rgba(255,255,255,.05);
-      border-radius:12px;
-      background:rgba(255,255,255,.015);
-    }
-    .mini-stat-label{
-      color:var(--muted);
-      font-size:.7rem;
-      margin-bottom:4px;
-    }
-    .mini-stat-value{
-      font-family:var(--mono);
-      font-size:.88rem;
-      color:var(--text);
-    }
-
-    .mode-strip{
-      padding:10px;
-      display:grid;
-      gap:10px;
-      align-content:center;
-    }
-    .mode-head{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:center;
-    }
-    .mode-title{font-size:.82rem;color:var(--muted)}
-    .mode-live{font-family:var(--mono);font-size:.78rem;color:var(--blue)}
-    .mode-buttons{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:8px;
-    }
-    .mode-btn{
-      border:1px solid var(--line-2);
-      background:#0c1827;
-      color:var(--muted);
-      padding:.72rem .4rem;
-      border-radius:12px;
-      cursor:pointer;
-      transition:.18s ease;
-    }
-    .mode-btn:hover{border-color:var(--blue-2);color:var(--text)}
-    .mode-btn.active{
-      background:rgba(97,168,255,.12);
-      color:#dff0ff;
-      border-color:rgba(97,168,255,.4);
-    }
-
-    .status-strip{
-      padding:10px;
-      display:grid;
-      gap:8px;
-    }
-    .status-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:8px;
-    }
-    .signal-box{
-      border:1px solid rgba(255,255,255,.05);
-      border-radius:12px;
-      padding:8px 10px;
-      background:rgba(255,255,255,.015);
-      min-height:64px;
-    }
-    .signal-box small{display:block;color:var(--muted);font-size:.68rem;margin-bottom:5px}
-    .signal-box strong{display:block;font-family:var(--mono);font-size:.9rem;color:var(--text)}
-    .signal-box.good strong{color:var(--good)}
-    .signal-box.warn strong{color:var(--amber)}
-    .signal-box.blue strong{color:var(--blue)}
-    .signal-box.red strong{color:var(--red)}
-
-    .workspace{
-      display:grid;
-      grid-template-columns:320px minmax(0,1fr) 360px;
-      gap:10px;
-      align-items:start;
-    }
-
-    .left-col,.mid-col,.right-col{
-      display:grid;
-      gap:10px;
-      min-width:0;
-    }
-
-    .panel{
-      padding:12px;
-      overflow:hidden;
-    }
-
-    .panel-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom:10px;
-      padding-bottom:10px;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .panel-title{
-      font-size:.95rem;
-      font-weight:600;
-      letter-spacing:-.01em;
-    }
-    .panel-code{
-      font-family:var(--mono);
-      font-size:.72rem;
-      color:var(--muted);
-      white-space:nowrap;
-    }
-
-    .input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-    .field-block{
-      border:1px solid rgba(255,255,255,.05);
-      background:rgba(255,255,255,.015);
-      border-radius:12px;
-      padding:10px;
-      min-width:0;
-    }
-    .field-block h4{margin:0 0 8px;font-size:.84rem;color:var(--text)}
-    .field-list{display:flex;flex-wrap:wrap;gap:6px}
-    .field{
-      font-size:.77rem;color:#c1d4e7;border:1px solid rgba(255,255,255,.06);
-      background:#0b1724;border-radius:999px;padding:5px 9px;white-space:nowrap;
-    }
-    .field.blue{border-color:rgba(97,168,255,.35);color:#dbeeff}
-    .field.mint{border-color:rgba(99,199,174,.35);color:#d8fff4}
-    .field.amber{border-color:rgba(216,161,85,.35);color:#ffe9c9}
-    .field.red{border-color:rgba(208,107,107,.3);color:#ffd8d8}
-
-    .engine-wrap{display:grid;grid-template-rows:auto auto 1fr;gap:10px}
-    .engine-status{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:8px}
-    .engine-stat{border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:10px;background:rgba(255,255,255,.015)}
-    .engine-stat span{display:block;color:var(--muted);font-size:.68rem;margin-bottom:4px}
-    .engine-stat strong{display:block;font-family:var(--mono);font-size:.9rem}
-
-    .diagram-box{border:1px solid rgba(255,255,255,.05);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.008));border-radius:14px;padding:10px;overflow:hidden}
-    .diagram-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;font-size:.74rem;color:var(--muted)}
-    .legend-item{display:flex;align-items:center;gap:6px}
-    .legend-dot{width:10px;height:10px;border-radius:50%}
-
-    .matrix-table td:first-child,.matrix-table th:first-child,.protocol-table td:first-child,.protocol-table th:first-child{white-space:nowrap}
-
-    .module-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-    .module-card{border:1px solid rgba(255,255,255,.06);background:#0b1724;border-radius:12px;padding:10px;cursor:pointer;transition:.16s ease;min-height:98px;display:grid;align-content:start;gap:8px}
-    .module-card:hover{border-color:rgba(97,168,255,.35)}
-    .module-card.active{border-color:rgba(97,168,255,.55);background:rgba(97,168,255,.12)}
-    .module-card h4{margin:0;font-size:.88rem}
-    .module-card p{margin:0;color:var(--muted);font-size:.76rem;line-height:1.45}
-    .module-meta{display:flex;justify-content:space-between;gap:6px;font-size:.7rem;color:var(--muted);font-family:var(--mono)}
-
-    .summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-    .summary-box{padding:10px;border:1px solid rgba(255,255,255,.05);border-radius:12px;background:rgba(255,255,255,.015);min-height:86px}
-    .summary-box span{display:block;color:var(--muted);font-size:.7rem;margin-bottom:5px}
-    .summary-box strong{display:block;color:var(--text);font-size:.92rem;line-height:1.55}
-
-    .rule-list,.prevent-list,.log-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
-    .rule,.prevent-item,.log-item{border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.015);border-radius:12px;padding:10px}
-    .rule strong,.prevent-item strong,.log-item strong{display:block;font-size:.85rem;margin-bottom:4px}
-    .rule small,.prevent-item small,.log-item small{color:var(--muted);font-size:.76rem;line-height:1.5}
-
-    .policy-grid{display:grid;gap:8px}
-    .policy-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:start;padding:10px;border:1px solid rgba(255,255,255,.05);border-radius:12px;background:rgba(255,255,255,.015)}
-    .policy-row .k{color:var(--muted);font-size:.78rem}
-    .policy-row .v{color:var(--text);font-size:.88rem;line-height:1.55}
-
-    .timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-    .timeline-step{border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:10px;background:rgba(255,255,255,.015);min-height:110px;position:relative}
-    .timeline-step::before{content:"";position:absolute;top:50%;inset-inline-start:-8px;width:8px;height:1px;background:var(--line-2)}
-    .timeline-step:first-child::before{display:none}
-    .timeline-step b{display:block;font-family:var(--mono);font-size:.78rem;color:var(--blue);margin-bottom:6px}
-    .timeline-step strong{display:block;font-size:.84rem;margin-bottom:4px}
-    .timeline-step small{color:var(--muted);font-size:.74rem;line-height:1.5}
-
-    .footer-log{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}
-
-    .badge{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:26px;padding:4px 10px;border-radius:999px;font-size:.72rem;border:1px solid rgba(255,255,255,.08);background:#0b1724;color:var(--text);white-space:nowrap}
-    .badge.good{color:var(--good);border-color:rgba(122,208,142,.3)}
-    .badge.warn{color:var(--amber);border-color:rgba(216,161,85,.32)}
-    .badge.blue{color:var(--blue);border-color:rgba(97,168,255,.3)}
-    .badge.red{color:var(--red);border-color:rgba(208,107,107,.3)}
-
-    .scroll-x{overflow:auto}
-    .node{transition:.18s ease}
-    .node rect{transition:.18s ease}
-    .node.active rect{fill:rgba(97,168,255,.18) !important;stroke:rgba(97,168,255,.85) !important;stroke-width:1.8}
-    .node.active text{fill:#eff8ff !important}
-
-    [data-mode="intake"] .mode-target-intake,
-    [data-mode="analysis"] .mode-target-analysis,
-    [data-mode="simulate"] .mode-target-simulate,
-    [data-mode="intervention"] .mode-target-intervention,
-    [data-mode="prevention"] .mode-target-prevention{border-color:rgba(97,168,255,.45) !important;background:rgba(97,168,255,.1) !important}
-
-    @media (max-width: 1440px){
-      .topbar{grid-template-columns:1fr}
-      .workspace{grid-template-columns:300px minmax(0,1fr)}
-      .right-col{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr))}
-      .module-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-      .footer-log{grid-template-columns:1fr}
-    }
-    @media (max-width: 1080px){
-      .workspace{grid-template-columns:1fr}
-      .module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .engine-status,.summary-grid,.status-grid,.timeline,.input-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .policy-row{grid-template-columns:120px 1fr}
-      .right-col{display:grid;grid-template-columns:1fr}
-    }
-    @media (max-width: 720px){
-      .shell{padding:8px}
-      .brand-meta,.mode-buttons,.status-grid,.engine-status,.summary-grid,.timeline,.input-grid,.module-grid{grid-template-columns:1fr}
-      .policy-row{grid-template-columns:1fr}
-      .timeline-step::before{display:none}
-      th,td{font-size:.82rem;padding:.55rem}
-      .panel{padding:10px}
-      .brand-name{font-size:1.1rem}
-    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Tahoma,sans-serif}
+    body{background:linear-gradient(90deg,rgba(97,168,255,.05) 1px,transparent 1px),linear-gradient(180deg,rgba(97,168,255,.05) 1px,transparent 1px),#08111a;background-size:28px 28px,28px 28px,auto}
+    button,input,select,textarea{font:inherit} input,select,textarea{width:100%;background:#0a1522;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+    textarea{min-height:84px;resize:vertical} button{border:1px solid var(--line);background:#0c1724;color:var(--text);padding:12px 16px;border-radius:12px;cursor:pointer} button.primary{border-color:#4a89d4;background:rgba(97,168,255,.12)}
+    .app{max-width:1680px;margin:auto;padding:12px;display:grid;gap:12px}.topbar,.panel{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:var(--radius)}
+    .topbar{padding:14px;display:grid;grid-template-columns:280px minmax(0,1fr) 430px;gap:12px;align-items:center}.brand h1{margin:0;font-size:1.4rem}.brand small{color:var(--muted)}
+    .nav{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}.nav button.active{background:rgba(97,168,255,.12);border-color:#4a89d4}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{padding:10px;border:1px solid rgba(255,255,255,.06);border-radius:12px}.stat span{display:block;font-size:.72rem;color:var(--muted);margin-bottom:4px}
+    .layout{display:grid;grid-template-columns:320px minmax(0,1fr) 360px;gap:12px;align-items:start}.col{display:grid;gap:12px;min-width:0}.panel{padding:14px}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)}.head h2{margin:0;font-size:1rem}.code{font-size:.72rem;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .grid2,.grid3,.grid4{display:grid;gap:10px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}.field{display:grid;gap:6px}.field label{font-size:.82rem;color:var(--muted)}.row{display:flex;gap:10px;align-items:center}.kpi,.entry,.alert,.mode{padding:12px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:rgba(255,255,255,.015)}.entry{display:grid;gap:6px}.entry-list{display:grid;gap:8px}.mini{font-size:.76rem;color:var(--muted)}.empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed rgba(255,255,255,.12);border-radius:12px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;font-size:.78rem;background:#0a1624;border:1px solid rgba(255,255,255,.08)} .blue{border-color:rgba(97,168,255,.35)} .mint{border-color:rgba(99,199,174,.35)} .amber{border-color:rgba(216,161,85,.35)} .red{border-color:rgba(224,109,109,.35)}
+    .page{display:none}.page.active{display:block}.wizard-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.step{padding:10px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:#0a1624;text-align:center;font-size:.8rem}.step.active{background:rgba(97,168,255,.12);border-color:#4a89d4}.hidden{display:none !important}
+    .score{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;margin:auto;background:conic-gradient(var(--blue) 0deg,var(--blue) calc(var(--v) * 3.6deg),rgba(255,255,255,.06) calc(var(--v) * 3.6deg),rgba(255,255,255,.06) 360deg)}.score>div{width:78px;height:78px;border-radius:50%;background:var(--panel);display:grid;place-items:center;text-align:center}
+    table{width:100%;border-collapse:collapse} th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.06);text-align:right} th{font-size:.76rem;color:var(--muted)}
+    @media (max-width:1400px){.topbar{grid-template-columns:1fr}.layout{grid-template-columns:300px minmax(0,1fr)}.stack{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+    @media (max-width:1100px){.layout,.stack{grid-template-columns:1fr}.nav{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:1fr}.wizard-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:720px){.grid2,.grid4{grid-template-columns:1fr}.nav{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.wizard-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
 </head>
-<body data-mode="analysis">
-  <div class="shell">
-    <header class="topbar">
-      <section class="brand" aria-label="هوية النظام">
-        <div class="brand-top">
-          <div class="brand-name">إشارات الجسد</div>
-          <div class="brand-id">BIO-OS.RUN / DIRECT</div>
-        </div>
-        <div class="brand-meta">
-          <div class="mini-stat"><div class="mini-stat-label">وضع التشغيل</div><div class="mini-stat-value" id="modeReadout">ANALYSIS</div></div>
-          <div class="mini-stat"><div class="mini-stat-label">السياسة الدوائية</div><div class="mini-stat-value">TEMP ONLY</div></div>
-          <div class="mini-stat"><div class="mini-stat-label">الاستثناء</div><div class="mini-stat-value">ORGAN LOSS</div></div>
-        </div>
-      </section>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><h1>Bio-OS | إشارات الجسد</h1><small>منصة عربية أولًا لدعم intake السريري، تقييم كفاية البيانات، اقتراح الفحوص الضرورية، وبناء خطة وقاية ومتابعة.</small></div>
+    <nav class="nav" id="nav">
+      <button class="active" data-page="auth">الدخول</button>
+      <button data-page="dashboard">لوحة المريض</button>
+      <button data-page="intake">Intake Wizard</button>
+      <button data-page="results">النتائج</button>
+      <button data-page="followup">المتابعة</button>
+      <button data-page="clinician">Clinician/Admin</button>
+      <button data-page="knowledge">المعرفة</button>
+    </nav>
+    <div class="stats">
+      <div class="stat"><span>الوضع</span><strong>STATIC MVP</strong></div>
+      <div class="stat"><span>المنهج</span><strong>Minimum Necessary Testing</strong></div>
+      <div class="stat"><span>الهدف</span><strong style="color:var(--good)">تمكين + وقاية</strong></div>
+      <div class="stat"><span>الحد</span><strong style="color:var(--red)">ليس تشخيصًا نهائيًا</strong></div>
+    </div>
+  </header>
 
-      <section class="mode-strip" aria-label="أنماط العمل">
-        <div class="mode-head">
-          <div class="mode-title">سير العمل</div>
-          <div class="mode-live">INTAKE → ANALYSIS → SIMULATION → TEMP SUPPORT → PREVENTION</div>
-        </div>
-        <div class="mode-buttons">
-          <button class="mode-btn" data-mode-btn="intake">استقبال المدخلات</button>
-          <button class="mode-btn active" data-mode-btn="analysis">تحليل سببي</button>
-          <button class="mode-btn" data-mode-btn="simulate">محاكاة</button>
-          <button class="mode-btn" data-mode-btn="intervention">تدخل مؤقت</button>
-          <button class="mode-btn" data-mode-btn="prevention">وقاية</button>
-        </div>
-      </section>
-
-      <section class="status-strip" aria-label="مؤشرات النظام">
-        <div class="status-grid">
-          <div class="signal-box blue"><small>اكتفاء المدخلات</small><strong>36 / 42</strong></div>
-          <div class="signal-box warn"><small>عقد نشطة</small><strong>07</strong></div>
-          <div class="signal-box good"><small>خطة خروج دوائي</small><strong>مطلوبة</strong></div>
-          <div class="signal-box red"><small>اعتماد مزمن</small><strong>مرفوض</strong></div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span class="badge blue">SIGNALS READY</span>
-          <span class="badge warn">ROOT CAUSE PENDING</span>
-          <span class="badge good">PREVENTION LAYER REQUIRED</span>
-          <span class="badge red">LIFELONG DRUG LOOP BLOCKED</span>
-        </div>
-      </section>
-    </header>
-
-    <main class="workspace">
-      <div class="left-col">
-        <section class="panel mode-target-intake">
-          <div class="panel-header"><div class="panel-title">مصفوفة الإدخال</div><div class="panel-code">INPUT / REQUIRED</div></div>
-          <div class="input-grid">
-            <div class="field-block"><h4>أعراض</h4><div class="field-list"><span class="field amber">إرهاق</span><span class="field amber">جوع سريع</span><span class="field amber">ضباب ذهني</span><span class="field amber">خفقان</span><span class="field amber">ألم عضلي</span><span class="field amber">تساقط شعر</span></div></div>
-            <div class="field-block"><h4>تحاليل</h4><div class="field-list"><span class="field blue">CBC</span><span class="field blue">Ferritin</span><span class="field blue">HbA1c</span><span class="field blue">Insulin</span><span class="field blue">TSH / FT4</span><span class="field blue">CRP</span></div></div>
-            <div class="field-block"><h4>إيقاع</h4><div class="field-list"><span class="field mint">نوم</span><span class="field mint">استيقاظ</span><span class="field mint">تعرض ضوء</span><span class="field mint">نشاط</span><span class="field mint">توقيت وجبات</span></div></div>
-            <div class="field-block"><h4>سياق</h4><div class="field-list"><span class="field red">أدوية حالية</span><span class="field red">استئصال</span><span class="field red">نقص عضو</span><span class="field red">نزف مزمن</span><span class="field red">التهاب مزمن</span></div></div>
-          </div>
-        </section>
-
-        <section class="panel mode-target-analysis">
-          <div class="panel-header"><div class="panel-title">طبقات الفحص</div><div class="panel-code">SCAN / LAYERS</div></div>
-          <ul class="rule-list">
-            <li class="rule"><strong>استقلاب</strong><small>سكر صائم، إنسولين، HbA1c، جوع، محيط خصر، استجابة بعد الوجبة.</small></li>
-            <li class="rule"><strong>مخازن</strong><small>حديد، B12، فولات، فيتامين D، مغنيسيوم، بروتين.</small></li>
-            <li class="rule"><strong>التهاب</strong><small>CRP، ألم، جلد، لثة، أمعاء، عدوى، مناعة.</small></li>
-            <li class="rule"><strong>هرمونات</strong><small>غدة، كورتيزول، برولاكتين، أندروجينات، دورة، خصوبة.</small></li>
-            <li class="rule"><strong>طاقة</strong><small>نوم، خفقان، تحمل مجهود، حرارة، صداع، ضباب ذهني.</small></li>
-          </ul>
-        </section>
-
-        <section class="panel mode-target-prevention">
-          <div class="panel-header"><div class="panel-title">طبقة الوقاية</div><div class="panel-code">PREVENT / LOCK</div></div>
-          <div class="prevent-grid">
-            <div class="prevent-item"><strong>إيقاع ثابت</strong><small>وقت نوم، وقت استيقاظ، ضوء صباح، تقليل سهر.</small></div>
-            <div class="prevent-item"><strong>غذاء موجه</strong><small>خفض حمل سكري، بروتين كاف، ألياف، توقيت مدروس.</small></div>
-            <div class="prevent-item"><strong>حركة وظيفية</strong><small>مشي يومي، مقاومة، رفع حساسية الإنسولين، دعم الميتوكوندريا.</small></div>
-            <div class="prevent-item"><strong>مراقبة رجوع</strong><small>إعادة فحص بعد الاستقرار وليس بعد الأزمة فقط.</small></div>
-          </div>
-        </section>
-      </div>
-
-      <div class="mid-col">
-        <section class="panel mode-target-analysis">
-          <div class="panel-header"><div class="panel-title">محرك التحليل السببي</div><div class="panel-code">ENGINE / CAUSAL MAP</div></div>
-          <div class="engine-wrap">
-            <div class="engine-status">
-              <div class="engine-stat"><span>العقدة المحددة</span><strong id="engineNode">مقاومة الإنسولين</strong></div>
-              <div class="engine-stat"><span>الطبقة المسيطرة</span><strong id="engineLayer">استقلاب</strong></div>
-              <div class="engine-stat"><span>نوع القرار</span><strong id="engineAction">فك الحلقة</strong></div>
-              <div class="engine-stat"><span>خطر التكرار</span><strong id="engineRisk">مرتفع</strong></div>
-            </div>
-
-            <div class="diagram-box scroll-x">
-              <svg viewBox="0 0 1120 420" width="100%" height="100%" role="img" aria-label="خريطة تشغيل بيولوجية">
-                <defs><marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#61a8ff"></path></marker></defs>
-                <rect x="10" y="10" width="1100" height="400" rx="18" fill="rgba(255,255,255,.01)" stroke="rgba(255,255,255,.06)"></rect>
-                <g opacity=".22" stroke="#244463" stroke-width="1">
-                  <path d="M60 70H1060"></path><path d="M60 140H1060"></path><path d="M60 210H1060"></path><path d="M60 280H1060"></path><path d="M60 350H1060"></path>
-                  <path d="M180 30V390"></path><path d="M360 30V390"></path><path d="M560 30V390"></path><path d="M760 30V390"></path><path d="M940 30V390"></path>
-                </g>
-                <g font-family="IBM Plex Sans Arabic" text-anchor="middle">
-                  <text x="970" y="42" fill="#84a0bb" font-size="13">مدخلات</text>
-                  <text x="560" y="42" fill="#84a0bb" font-size="13">طبقات سببية</text>
-                  <text x="180" y="42" fill="#84a0bb" font-size="13">قرارات</text>
-                </g>
-                <g stroke-linecap="round" stroke-linejoin="round" fill="none">
-                  <path d="M880 98H760V118H676" stroke="#61a8ff" stroke-width="2.5"></path>
-                  <path d="M880 168H760V168H676" stroke="#d8a155" stroke-width="2.5"></path>
-                  <path d="M880 238H760V218H676" stroke="#63c7ae" stroke-width="2.5"></path>
-                  <path d="M880 308H760V268H676" stroke="#61a8ff" stroke-width="2.5"></path>
-                  <path d="M444 118H344V98H238" stroke="#61a8ff" stroke-width="2.5"></path>
-                  <path d="M444 168H344V168H238" stroke="#d8a155" stroke-width="2.5"></path>
-                  <path d="M444 218H344V238H238" stroke="#63c7ae" stroke-width="2.5"></path>
-                  <path d="M444 268H344V308H238" stroke="#61a8ff" stroke-width="2.5"></path>
-                  <path d="M560 328V372H940V320" stroke="#63c7ae" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#a1)"></path>
-                  <path d="M560 328V388H180V320" stroke="#61a8ff" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#a1)"></path>
-                </g>
-                <g class="node" data-node="signals"><rect x="880" y="78" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="103" fill="#d8e6f4" font-size="14">أعراض</text></g>
-                <g class="node" data-node="labs"><rect x="880" y="148" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="173" fill="#d8e6f4" font-size="14">تحاليل</text></g>
-                <g class="node" data-node="rhythm"><rect x="880" y="218" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="243" fill="#d8e6f4" font-size="14">نوم / إيقاع</text></g>
-                <g class="node" data-node="context"><rect x="880" y="288" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="955" y="313" fill="#d8e6f4" font-size="14">سياق / أدوية / عضو</text></g>
-                <g class="node active" data-node="insulin"><rect x="444" y="98" width="232" height="40" rx="12" fill="rgba(97,168,255,.08)" stroke="#3d79c4"></rect><text x="560" y="123" fill="#eff8ff" font-size="14">مقاومة الإنسولين</text></g>
-                <g class="node" data-node="iron"><rect x="444" y="148" width="232" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="560" y="173" fill="#d8e6f4" font-size="14">نقص الحديد / المخازن</text></g>
-                <g class="node" data-node="inflammation"><rect x="444" y="198" width="232" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="560" y="223" fill="#d8e6f4" font-size="14">التهاب مزمن / عدوى / حمل مناعي</text></g>
-                <g class="node" data-node="sleep"><rect x="444" y="248" width="232" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="560" y="273" fill="#d8e6f4" font-size="14">خلل النوم / الإيقاع / التوتر</text></g>
-                <g class="node" data-node="decision-temp"><rect x="88" y="78" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="103" fill="#d8e6f4" font-size="14">دعم مؤقت</text></g>
-                <g class="node" data-node="decision-restore"><rect x="88" y="148" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="173" fill="#d8e6f4" font-size="14">تمكين الجسد</text></g>
-                <g class="node" data-node="decision-stop"><rect x="88" y="218" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="243" fill="#d8e6f4" font-size="14">خطة إيقاف</text></g>
-                <g class="node" data-node="decision-prevent"><rect x="88" y="288" width="150" height="40" rx="12" fill="#0b1724" stroke="#244463"></rect><text x="163" y="313" fill="#d8e6f4" font-size="14">منع التكرار</text></g>
-              </svg>
-              <div class="diagram-legend"><div class="legend-item"><span class="legend-dot" style="background:var(--blue)"></span>استقلاب / قرار</div><div class="legend-item"><span class="legend-dot" style="background:var(--amber)"></span>مخازن / نزف / نقص</div><div class="legend-item"><span class="legend-dot" style="background:var(--mint)"></span>التهاب / ميكروبيوم / استعادة</div><div class="legend-item"><span class="legend-dot" style="background:var(--red)"></span>حلقة اعتماد مرفوضة</div></div>
-            </div>
-
-            <div class="scroll-x">
-              <table class="matrix-table">
-                <thead><tr><th>إشارة</th><th>فرضية سببية</th><th>أثر تشغيلي</th><th>أولوية</th></tr></thead>
-                <tbody>
-                  <tr><td>جوع + تذبذب طاقة</td><td>فرط إنسولين / مقاومة</td><td>كسر حلقة الوجبة - الجوع - الخمول</td><td><span class="badge warn">A1</span></td></tr>
-                  <tr><td>Ferritin منخفض</td><td>نقص مخازن / نزف / سوء امتصاص</td><td>رفع الأكسجة وتحمل الجهد</td><td><span class="badge warn">A1</span></td></tr>
-                  <tr><td>CRP + ألم</td><td>حمل التهابي مستمر</td><td>خفض التشويش على بقية الطبقات</td><td><span class="badge blue">A2</span></td></tr>
-                  <tr><td>سهر + تقطع نوم</td><td>كورتيزول / إيقاع</td><td>إعادة ضبط الاستجابة العصبية</td><td><span class="badge blue">A2</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <section class="panel mode-target-analysis">
-          <div class="panel-header"><div class="panel-title">وحدات التحليل</div><div class="panel-code">SELECT / MODULE</div></div>
-          <div class="module-grid" id="moduleGrid">
-            <article class="module-card active" data-module="insulin"><div class="module-meta"><span>01</span><span>METAB</span></div><h4>مقاومة الإنسولين</h4><p>جوع، محيط خصر، سكر، إنسولين، نعاس بعد الوجبة.</p></article>
-            <article class="module-card" data-module="iron"><div class="module-meta"><span>02</span><span>STORE</span></div><h4>نقص الحديد</h4><p>Ferritin، MCV، تساقط شعر، خفقان، تعب.</p></article>
-            <article class="module-card" data-module="inflammation"><div class="module-meta"><span>03</span><span>IMMUNE</span></div><h4>التهاب مزمن</h4><p>CRP، ألم، جلد، لثة، أمعاء، عدوى، مناعة.</p></article>
-            <article class="module-card" data-module="sleep"><div class="module-meta"><span>04</span><span>RHYTHM</span></div><h4>اضطراب النوم</h4><p>تقطع، سهر، شخير، ضوء، كورتيزول، نعاس نهاري.</p></article>
-            <article class="module-card" data-module="hormone"><div class="module-meta"><span>05</span><span>ENDO</span></div><h4>خلل هرموني</h4><p>دورة، غدة، برولاكتين، أندروجينات، حرارة، برودة.</p></article>
-            <article class="module-card" data-module="mitochondria"><div class="module-meta"><span>06</span><span>ENERGY</span></div><h4>الميتوكوندريا</h4><p>تحمل جهد، تعب سريع، ضعف استرداد، ألم عضلي.</p></article>
-            <article class="module-card" data-module="microbiome"><div class="module-meta"><span>07</span><span>GI</span></div><h4>الميكروبيوم</h4><p>نفخة، إمساك، إسهال، سوء امتصاص، التهاب، جلد.</p></article>
-            <article class="module-card" data-module="organ"><div class="module-meta"><span>08</span><span>EXCEPTION</span></div><h4>فقد عضو / وظيفة</h4><p>الاستثناء الوحيد الذي يبرر اعتمادًا دائمًا مدروسًا.</p></article>
-          </div>
-        </section>
-
-        <section class="panel mode-target-simulate">
-          <div class="panel-header"><div class="panel-title">جدول التدخل المؤقت</div><div class="panel-code">SIM / TEMP SUPPORT</div></div>
-          <div class="scroll-x">
-            <table class="protocol-table">
-              <thead><tr><th>الهدف</th><th>دعم مؤقت</th><th>ما الذي يجب أن يتعلمه الجسد</th><th>شرط الإيقاف</th></tr></thead>
-              <tbody>
-                <tr><td>استقرار سكر</td><td>مؤقت فقط عند الحاجة</td><td>استعادة الحساسية والمرونة الاستقلابية</td><td>ثبات الجوع والطاقة والتحاليل</td></tr>
-                <tr><td>رفع مخازن الحديد</td><td>تعويض موجّه + بحث عن السبب</td><td>إيقاف النزف أو سوء الامتصاص أو الحمل الالتهابي</td><td>تحسن Ferritin والأعراض مع ثبات السبب</td></tr>
-                <tr><td>خفض الالتهاب</td><td>تهدئة قصيرة لا تصبح مسكنًا دائمًا</td><td>كشف المحرّك المستمر وإزالته</td><td>هبوط المؤشرات مع زوال المحرك</td></tr>
-                <tr><td>تصحيح النوم</td><td>تدخل تنظيمي محدود</td><td>استعادة الإيقاع بلا اعتماد خارجي</td><td>نوم مستقر دون دعم متكرر</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </div>
-
-      <div class="right-col">
-        <section class="panel mode-target-intervention">
-          <div class="panel-header"><div class="panel-title">قرار التشغيل</div><div class="panel-code">ACTIVE / OUTPUT</div></div>
-          <div class="summary-grid">
-            <div class="summary-box"><span>المحور النشط</span><strong id="currentAxis">مقاومة الإنسولين</strong></div>
-            <div class="summary-box"><span>الفرضية المسيطرة</span><strong id="currentHypothesis">فرط إنسولين يجرّ جوعًا وتذبذب طاقة والتهابًا ثانويًا.</strong></div>
-            <div class="summary-box"><span>الدعم المؤقت</span><strong id="currentTemp">خفض حمل سكري + توقيت وجبات + دعم دوائي محدود عند الضرورة.</strong></div>
-            <div class="summary-box"><span>آلية التمكين</span><strong id="currentEnable">استعادة الحساسية وكسر الحلقة لا تثبيت الدواء.</strong></div>
-            <div class="summary-box"><span>شرط الإيقاف</span><strong id="currentStop">ثبات الجوع والطاقة والسكر والإنسولين دون دعم متكرر.</strong></div>
-            <div class="summary-box"><span>طبقة الوقاية</span><strong id="currentPrevention">نوم ثابت + مقاومة عضلية + ألياف + متابعة محيط خصر.</strong></div>
-          </div>
-        </section>
-
-        <section class="panel mode-target-intervention">
-          <div class="panel-header"><div class="panel-title">سياسة النظام</div><div class="panel-code">RULES / HARD</div></div>
-          <div class="policy-grid">
-            <div class="policy-row"><div class="k">الاعتماد المزمن</div><div class="v">مرفوض إذا كان العضو حاضرًا وقابلًا للاستعادة.</div></div>
-            <div class="policy-row"><div class="k">شكل التدخل</div><div class="v">مؤقت. موجّه. مرتبط بشرط خروج واضح منذ البداية.</div></div>
-            <div class="policy-row"><div class="k">هدف العلاج</div><div class="v">تمكين الجسد من اكتشاف الخلل، إصلاحه، ثم تثبيت الوقاية.</div></div>
-            <div class="policy-row"><div class="k">الاستثناء</div><div class="v">فقد جزئي أو كامل لوظيفة عضو يجعل التعويض المستمر مبررًا.</div></div>
-          </div>
-        </section>
-
-        <section class="panel mode-target-prevention">
-          <div class="panel-header"><div class="panel-title">حلقة إعادة القياس</div><div class="panel-code">FEEDBACK / LOOP</div></div>
-          <div class="timeline">
-            <div class="timeline-step"><b>T0</b><strong>خط أساس</strong><small>أعراض + تحاليل + إيقاع + أدوية + سياق عضو.</small></div>
-            <div class="timeline-step"><b>T1</b><strong>بعد التدخل</strong><small>هل تحسن العرض؟ هل تغيرت البيانات؟ هل تغيّر السبب؟</small></div>
-            <div class="timeline-step"><b>T2</b><strong>سحب الدعم</strong><small>اختبار قدرة الجسد بعد خفض الدعم أو إيقافه.</small></div>
-            <div class="timeline-step"><b>T3</b><strong>قفل الوقاية</strong><small>تثبيت العادات والفحوص الدورية لمنع الحلقة نفسها.</small></div>
-          </div>
-        </section>
-
-        <section class="panel mode-target-prevention">
-          <div class="panel-header"><div class="panel-title">سجل التنفيذ</div><div class="panel-code">LOG / REQUIRED</div></div>
-          <ul class="log-list">
-            <li class="log-item"><strong>مدخل ناقص</strong><small>أي تحليل ناقص يمنع تثبيت القرار السببي النهائي.</small></li>
-            <li class="log-item"><strong>قرار بلا خروج</strong><small>أي تدخل بلا شرط إيقاف يتحول تلقائيًا إلى قرار مرفوض.</small></li>
-            <li class="log-item"><strong>تحسن عرضي فقط</strong><small>إذا تحسن العرض وبقيت الحلقة نفسها فالحالة غير مغلقة.</small></li>
-            <li class="log-item"><strong>إعادة اختبار</strong><small>لا اعتماد على شعور مؤقت. العودة إلى القياس إلزامية.</small></li>
-          </ul>
-        </section>
-      </div>
-    </main>
-
-    <section class="footer-log">
-      <div class="panel mode-target-intake">
-        <div class="panel-header"><div class="panel-title">خانات إلزامية قبل اعتماد أي خطة</div><div class="panel-code">GATE / MANDATORY</div></div>
-        <div class="field-list"><span class="field blue">مدة الأعراض</span><span class="field blue">تسلسل ظهورها</span><span class="field blue">تحليل خط الأساس</span><span class="field blue">نمط النوم</span><span class="field blue">نمط الغذاء</span><span class="field blue">أدوية حالية</span><span class="field blue">تعرض لنزف</span><span class="field blue">وظيفة الغدة</span><span class="field blue">التهاب / عدوى</span><span class="field blue">استئصال / فقد عضو</span><span class="field blue">وزن / خصر</span><span class="field blue">قدرة جهد</span></div>
-      </div>
-      <div class="panel">
-        <div class="panel-header"><div class="panel-title">حكم نهائي</div><div class="panel-code">FINAL / SYSTEM</div></div>
-        <div class="policy-grid">
-          <div class="policy-row"><div class="k">النظام</div><div class="v">يجمع الإشارة بوصفها مدخلًا، لا نهاية.</div></div>
-          <div class="policy-row"><div class="k">العلاج</div><div class="v">يفك الخلل ثم ينسحب، لا يبقى بدل الجسد.</div></div>
-          <div class="policy-row"><div class="k">الوقاية</div><div class="v">طبقة تشغيل ثابتة، لا نصيحة إضافية.</div></div>
+  <section id="auth" class="page active">
+    <div class="layout">
+      <div class="col">
+        <div class="panel"><div class="head"><h2>تسجيل الدخول / إنشاء حساب</h2><div class="code">AUTH / LOCAL</div></div>
+          <div class="grid2"><div class="field"><label>الاسم</label><input id="authName"></div><div class="field"><label>البريد</label><input id="authEmail" type="email"></div></div>
+          <div class="grid2" style="margin-top:10px"><div class="field"><label>كلمة المرور</label><input id="authPassword" type="password"></div><div class="field"><label>الدور</label><select id="authRole"><option value="patient">مريض</option><option value="clinician">Clinician</option><option value="admin">Admin</option></select></div></div>
+          <div class="row" style="margin-top:12px"><button id="registerBtn" class="primary">إنشاء حساب</button><button id="loginBtn">دخول</button></div>
+          <div class="entry" style="margin-top:12px"><b>ملاحظة</b><div class="mini">هذه نسخة HTML قابلة للنشر فورًا كنموذج واجهة أمامية. التخزين محلي LocalStorage لمحاكاة قاعدة البيانات.</div></div>
         </div>
       </div>
-    </section>
-  </div>
+      <div class="col"><div class="panel"><div class="head"><h2>الضوابط الطبية</h2><div class="code">GUARDRAILS</div></div><div class="entry-list"><div class="entry"><b>لا حكم نهائي بلا بيانات كافية</b><div class="mini">كل output هنا فرضية أولية أو توصية فحص أو خطة وقاية.</div></div><div class="entry"><b>الأعراض والتحاليل مدخلات</b><div class="mini">المنصة تبني sufficiency score ثم differential ranking ثم next best tests فقط.</div></div><div class="entry"><b>Red Flags أولًا</b><div class="mini">أي إنذار يوقف reasoning العادي ويوجه للمراجعة أو التقييم العاجل.</div></div></div></div></div>
+      <div class="col stack"><div class="panel"><div class="head"><h2>مؤشرات البدء</h2><div class="code">BOOT</div></div><div class="grid2"><div class="kpi"><small>المستخدمون</small><strong id="usersCount">0</strong></div><div class="kpi"><small>Encounters</small><strong id="encountersCount">0</strong></div><div class="kpi"><small>آخر دخول</small><strong id="lastLogin">—</strong></div><div class="kpi"><small>المستخدم الحالي</small><strong id="currentUserLabel">غير مسجل</strong></div></div></div></div>
+    </div>
+  </section>
 
-  <script>
-    const moduleData = {
-      insulin: { axis: 'مقاومة الإنسولين', hypothesis: 'فرط إنسولين يجرّ جوعًا وتذبذب طاقة والتهابًا ثانويًا.', temp: 'خفض حمل سكري + توقيت وجبات + دعم دوائي محدود عند الضرورة.', enable: 'استعادة الحساسية وكسر الحلقة لا تثبيت الدواء.', stop: 'ثبات الجوع والطاقة والسكر والإنسولين دون دعم متكرر.', prevention: 'نوم ثابت + مقاومة عضلية + ألياف + متابعة محيط خصر.', node: 'insulin', layer: 'استقلاب', action: 'فك الحلقة', risk: 'مرتفع' },
-      iron: { axis: 'نقص الحديد', hypothesis: 'انخفاض المخازن يمنع الأكسجة والاسترداد وقد يخفي نزفًا أو سوء امتصاص.', temp: 'تعويض موجّه قصير المدى مع فتح ملف النزف والامتصاص والالتهاب.', enable: 'إعادة تعبئة المخازن بعد كشف سبب الاستنزاف لا الاستمرار بالتعويض فقط.', stop: 'تحسن Ferritin والأعراض مع توقف الاستنزاف وثبات النتائج.', prevention: 'مراقبة نزف + تقييم امتصاص + غذاء داعم + متابعة دورية.', node: 'iron', layer: 'مخازن', action: 'تعويض + كشف السبب', risk: 'متوسط' },
-      inflammation: { axis: 'التهاب مزمن', hypothesis: 'حمل التهابي مستمر يربك النوم والهرمونات والإنسولين والطاقة.', temp: 'تهدئة محدودة مع البحث عن عدوى أو مناعة أو لثة أو أمعاء أو جلد.', enable: 'إزالة المحرّك الالتهابي لخفض الضجيج على كامل الشبكة.', stop: 'انخفاض CRP وتحسن الأعراض بعد زوال المحرك وليس بعد المسكن فقط.', prevention: 'فم وأسنان + أمعاء + مضاد التكرار + تتبع المصدر.', node: 'inflammation', layer: 'التهاب', action: 'خفض الحمل', risk: 'مرتفع' },
-      sleep: { axis: 'اضطراب النوم', hypothesis: 'خلل الإيقاع يرفع الحمل العصبي ويضعف الاستقلاب والإصلاح.', temp: 'تنظيم وقت النوم والضوء والمثيرات مع دعم محدود عند الحاجة.', enable: 'استعادة إيقاع يومي مستقر بلا اعتماد خارجي مستمر.', stop: 'نوم متصل واستيقاظ ثابت وتحسن طاقة النهار دون دعم.', prevention: 'ضوء صباح + تقليل سهر + توقيت ثابت + تقييم شخير.', node: 'sleep', layer: 'إيقاع', action: 'إعادة ضبط', risk: 'متوسط' },
-      hormone: { axis: 'خلل هرموني', hypothesis: 'الغدة أو المحاور الهرمونية قد تكون أصلًا أو نتيجة لعقدة أخرى.', temp: 'تصحيح دقيق بعد الفرز بين السبب الأولي والثانوي.', enable: 'منع تثبيت العلاج على نتيجة ثانوية إذا كان الجذر في طبقة أخرى.', stop: 'استقرار المؤشرات الهرمونية بعد تثبيت الجذر المسيطر.', prevention: 'إيقاع + تغذية + وزن + متابعة دورية للمحور المعني.', node: 'sleep', layer: 'هرمونات', action: 'فرز أولي / ثانوي', risk: 'متوسط' },
-      mitochondria: { axis: 'ضعف الميتوكوندريا', hypothesis: 'انخفاض إنتاج الطاقة يعظّم التعب ويقلل الاسترداد وقد يتبع نقصًا أو التهابًا.', temp: 'تخفيف الحمل وتحسين النوم والغذاء والحركة مع دعم موجّه.', enable: 'رفع الكفاءة الطاقية بعد إزالة الضغط الاستقلابي والالتهابي.', stop: 'تحسن الجهد والاسترداد دون انهيار لاحق.', prevention: 'حركة مدروسة + نوم + غذاء + إصلاح الطبقات الضاغطة.', node: 'inflammation', layer: 'طاقة', action: 'رفع الكفاءة', risk: 'متوسط' },
-      microbiome: { axis: 'خلل الميكروبيوم', hypothesis: 'سوء التوازن المعوي قد يفسر التهابًا وسوء امتصاص واضطرابًا مناعيًا.', temp: 'تدخل قصير لإزالة المخرشات ومعالجة السبب المعوي المباشر.', enable: 'استعادة بيئة معوية مستقرة تدعم الامتصاص والمناعة.', stop: 'تحسن الهضم والامتصاص والجلد والمؤشرات الالتهابية.', prevention: 'ألياف مناسبة + علاج المصدر + إيقاف التكرار الغذائي والممرض.', node: 'inflammation', layer: 'أمعاء', action: 'إصلاح الامتصاص', risk: 'مرتفع' },
-      organ: { axis: 'فقد عضو / وظيفة', hypothesis: 'عند فقد البنية أو الوظيفة يصبح التعويض المستمر مبررًا ومحددًا.', temp: 'لا يوجد. هنا يدخل التعويض الضروري المستمر وفق الاستثناء.', enable: 'الحفاظ على ما بقي من الوظيفة ومنع مضاعفات الغياب العضوي.', stop: 'لا ينطبق إذا كان الفقد ثابتًا وغير قابل للاستعادة.', prevention: 'حماية العضو المتبقي + تقليل الحمل + متابعة دقيقة.', node: 'context', layer: 'استثناء', action: 'تعويض مشروع', risk: 'مرتفع' }
-    };
+  <section id="dashboard" class="page">
+    <div class="layout">
+      <div class="col"><div class="panel"><div class="head"><h2>ملف المريض</h2><div class="code">PROFILE</div></div>
+        <div class="grid2"><div class="field"><label>العمر</label><input id="age" type="number"></div><div class="field"><label>الجنس</label><select id="sex"><option value="">اختر</option><option>أنثى</option><option>ذكر</option></select></div><div class="field"><label>الطول cm</label><input id="height" type="number"></div><div class="field"><label>الوزن kg</label><input id="weight" type="number"></div><div class="field"><label>الخصر cm</label><input id="waist" type="number"></div><div class="field"><label>البلد</label><input id="country"></div></div>
+        <div class="field" style="margin-top:10px"><label>التاريخ المرضي</label><textarea id="history"></textarea></div>
+        <div class="field" style="margin-top:10px"><label>التاريخ العائلي</label><textarea id="family"></textarea></div>
+        <div class="row" style="margin-top:12px"><button id="saveProfile" class="primary">حفظ الملف</button></div>
+      </div></div>
+      <div class="col"><div class="panel"><div class="head"><h2>قراءة baseline</h2><div class="code">MAP</div></div><div class="grid4"><div class="kpi"><small>BMI</small><strong id="bmi">—</strong></div><div class="kpi"><small>استقلاب</small><strong id="metabolic">—</strong></div><div class="kpi"><small>الدواء</small><strong id="medState">—</strong></div><div class="kpi"><small>الوقاية</small><strong id="preventState">غير مبني</strong></div></div><div class="entry" style="margin-top:12px"><b>القراءة الحالية</b><div class="mini" id="profileSummary">لم يتم بناء baseline بعد.</div></div></div><div class="panel"><div class="head"><h2>نوع الفحص</h2><div class="code">MODE</div></div><div class="grid2"><div class="mode active" data-mode="general"><b>فحص عام</b><div class="mini">مخاطر baseline وما يستحق فحصًا.</div></div><div class="mode" data-mode="symptom"><b>فحص خاص بأعراض</b><div class="mini">Reasoning موجّه بالأعراض.</div></div></div><div class="row" style="margin-top:12px"><button id="createEncounter" class="primary">بدء Encounter</button></div></div></div>
+      <div class="col stack"><div class="panel"><div class="head"><h2>آخر encounters</h2><div class="code">RECENT</div></div><div id="recentEncounters" class="entry-list"><div class="empty">لا توجد encounters بعد</div></div></div></div>
+    </div>
+  </section>
 
-    const fields = {
-      axis: document.getElementById('currentAxis'),
-      hypothesis: document.getElementById('currentHypothesis'),
-      temp: document.getElementById('currentTemp'),
-      enable: document.getElementById('currentEnable'),
-      stop: document.getElementById('currentStop'),
-      prevention: document.getElementById('currentPrevention'),
-      engineNode: document.getElementById('engineNode'),
-      engineLayer: document.getElementById('engineLayer'),
-      engineAction: document.getElementById('engineAction'),
-      engineRisk: document.getElementById('engineRisk')
-    };
+  <section id="intake" class="page"><div class="panel"><div class="head"><h2>Bio-OS Intake Wizard</h2><div class="code">INTAKE</div></div><div class="wizard-steps" id="steps"><div class="step active">1. السلامة</div><div class="step">2. الأعراض</div><div class="step">3. التحاليل</div><div class="step">4. الغذاء/الأدوية</div><div class="step">5. النوم/الإخراج</div><div class="step">6. تشغيل</div></div><div id="wizard"></div><div class="row" style="margin-top:12px;justify-content:space-between"><button id="prevStep">السابق</button><button id="nextStep" class="primary">التالي</button></div></div></section>
 
-    document.querySelectorAll('.module-card').forEach(card => {
-      card.addEventListener('click', () => {
-        document.querySelectorAll('.module-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        const data = moduleData[card.dataset.module];
-        fields.axis.textContent = data.axis;
-        fields.hypothesis.textContent = data.hypothesis;
-        fields.temp.textContent = data.temp;
-        fields.enable.textContent = data.enable;
-        fields.stop.textContent = data.stop;
-        fields.prevention.textContent = data.prevention;
-        fields.engineNode.textContent = data.axis;
-        fields.engineLayer.textContent = data.layer;
-        fields.engineAction.textContent = data.action;
-        fields.engineRisk.textContent = data.risk;
-        document.querySelectorAll('.node').forEach(node => node.classList.remove('active'));
-        document.querySelectorAll('[data-node="' + data.node + '"]').forEach(node => node.classList.add('active'));
-      });
-    });
+  <section id="results" class="page"><div class="layout"><div class="col"><div class="panel"><div class="head"><h2>Diagnostic Sufficiency</h2><div class="code">SCORE</div></div><div class="score" id="scoreRing" style="--v:0"><div><b id="scoreValue">0%</b><div class="mini" id="scoreLabel">لا توجد نتيجة</div></div></div><div id="scoreReasons" class="entry-list" style="margin-top:12px"></div></div><div class="panel"><div class="head"><h2>Red Flags</h2><div class="code">SAFETY</div></div><div id="redFlags" class="entry-list"><div class="empty">لا توجد نتيجة بعد</div></div></div></div><div class="col"><div class="panel"><div class="head"><h2>Differential Ranking</h2><div class="code">RANKED</div></div><div id="differentials" class="entry-list"><div class="empty">شغّل المحرك أولًا</div></div></div><div class="panel"><div class="head"><h2>الفحوص المطلوبة فقط</h2><div class="code">TESTS</div></div><div id="tests" class="entry-list"><div class="empty">لا توجد توصيات بعد</div></div></div></div><div class="col stack"><div class="panel"><div class="head"><h2>خطة التدخل والوقاية</h2><div class="code">PLAN</div></div><div id="plans" class="entry-list"><div class="empty">لا توجد خطة بعد</div></div></div><div class="panel"><div class="head"><h2>Explainability</h2><div class="code">WHY</div></div><div id="explain" class="entry-list"><div class="empty">التفسير سيظهر بعد التشغيل</div></div></div></div></div></section>
 
-    const modeLabels = { intake: 'INTAKE', analysis: 'ANALYSIS', simulate: 'SIMULATION', intervention: 'TEMP SUPPORT', prevention: 'PREVENTION' };
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const mode = btn.dataset.modeBtn;
-        document.body.setAttribute('data-mode', mode);
-        document.getElementById('modeReadout').textContent = modeLabels[mode];
-      });
-    });
-  </script>
+  <section id="followup" class="page"><div class="layout"><div class="col"><div class="panel"><div class="head"><h2>المتابعة الزمنية</h2><div class="code">LONGITUDINAL</div></div><div id="timeline" class="entry-list"><div class="empty">لا توجد متابعة بعد</div></div></div></div><div class="col"><div class="panel"><div class="head"><h2>منع التكرار</h2><div class="code">RELAPSE</div></div><div id="relapse" class="entry-list"><div class="empty">يظهر بعد أول تشغيل</div></div></div></div><div class="col stack"><div class="panel"><div class="head"><h2>إضافة متابعة</h2><div class="code">EVENT</div></div><div class="grid2"><div class="field"><label>النوع</label><select id="followType"><option>إعادة فحص</option><option>بعد اختبار</option><option>بعد تدخل</option><option>خفض دواء</option><option>صيانة</option></select></div><div class="field"><label>التاريخ</label><input id="followDate" type="date"></div></div><div class="field" style="margin-top:10px"><label>الهدف</label><textarea id="followGoal"></textarea></div><div class="row" style="margin-top:12px"><button id="addFollow" class="primary">إضافة</button></div></div></div></div></section>
+
+  <section id="clinician" class="page"><div class="layout"><div class="col"><div class="panel"><div class="head"><h2>Clinician Queue</h2><div class="code">QUEUE</div></div><div id="queue" class="entry-list"><div class="empty">لا توجد حالات بانتظار المراجعة</div></div></div></div><div class="col"><div class="panel"><div class="head"><h2>Audit Console</h2><div class="code">AUDIT</div></div><table><thead><tr><th>الوقت</th><th>الحدث</th><th>المستخدم</th><th>الوصف</th></tr></thead><tbody id="auditRows"><tr><td colspan="4" class="mini">لا توجد سجلات</td></tr></tbody></table></div></div><div class="col stack"><div class="panel"><div class="head"><h2>سياسات السريرية</h2><div class="code">GUARDS</div></div><div class="entry-list"><div class="entry"><b>لا output نهائي بلا evidence كافٍ</b><div class="mini">كل hypothesis تبقى أولية حتى تتوفر الأدلة أو المراجعة.</div></div><div class="entry"><b>High-risk review required</b><div class="mini">الحمل، الأطفال، كبار السن، والـ red flags تنتقل للمراجعة.</div></div></div></div></div></div></section>
+
+  <section id="knowledge" class="page"><div class="layout"><div class="col"><div class="panel"><div class="head"><h2>لماذا لم تُحل بعض الأمراض المزمنة حتى الآن؟</h2><div class="code">WHY</div></div><div class="entry-list"><div class="entry"><b>تغاير المرض</b><div class="mini">السرطان ليس مرضًا واحدًا، ومقاومة الإنسولين ليست مسارًا واحدًا.</div></div><div class="entry"><b>الاكتشاف المتأخر</b><div class="mini">كثير من المسارات تُكتشف بعد سنوات من الاضطراب.</div></div><div class="entry"><b>إدارة العرض بدل علاج السبب</b><div class="mini">إذا هُدئ العرض وبقي السبب عاد المرض أو تغير شكله.</div></div><div class="entry"><b>غياب biomarker حاسم واحد</b><div class="mini">كثير من الحالات تحتاج قراءة متعددة الطبقات.</div></div></div></div></div><div class="col"><div class="panel"><div class="head"><h2>MVP Domains</h2><div class="code">DOMAINS</div></div><div class="entry-list"><div class="entry"><b>insulin resistance / prediabetes risk</b></div><div class="entry"><b>iron deficiency / nutrient stores</b></div><div class="entry"><b>sleep/circadian dysfunction</b></div><div class="entry"><b>bowel dysfunction / GI patterns</b></div><div class="entry"><b>thyroid / inflammation suspicion</b></div></div></div></div><div class="col stack"><div class="panel"><div class="head"><h2>FHIR-ready intent</h2><div class="code">INTEROP</div></div><div class="entry-list"><div class="entry"><b>Questionnaire / QuestionnaireResponse</b></div><div class="entry"><b>Observation</b></div><div class="entry"><b>Condition / Hypothesis</b></div><div class="entry"><b>MedicationStatement</b></div></div></div></div></div></section>
+</div>
+
+<script>
+const DB={users:'bioos_users',current:'bioos_current',profile:'bioos_profile',encounters:'bioos_encounters',audit:'bioos_audit',follow:'bioos_follow'};
+const symptomCatalog={
+  'الاستقلاب':['جوع سريع','نعاس بعد الوجبة','زيادة محيط الخصر','رغبة بالسكريات','عطش متكرر'],
+  'الهضم':['انتفاخ','إمساك','إسهال','ألم بطني','ارتجاع'],
+  'الأعصاب':['صداع','دوخة','خدر','ضعف تركيز','خفقان مع دوخة'],
+  'النوم':['أرق','تقطع نوم','نعاس نهاري','شخير','استيقاظ مبكر'],
+  'الطاقة':['إرهاق','عدم تحمل الجهد','خمول صباحي','هبوط طاقة'],
+  'الجلد':['طفح','حكة','اسوداد الرقبة'],
+  'الشعر':['تساقط شعر','ترقق الشعر'],
+  'الدورة/الخصوبة':['عدم انتظام الدورة','غزارة الدورة','تأخر حمل'],
+  'المناعة':['التهابات متكررة','تورم مفاصل','حمى متقطعة'],
+  'القلب والدوران':['خفقان','ضيق نفس مع الجهد','ألم صدري'],
+  'الإخراج':['دم بالبراز','مخاط بالبراز','كثرة التبول','Nocturia']
+};
+const labCatalog=['CBC','Ferritin','HbA1c','Fasting Glucose','Fasting Insulin','TSH','CRP','Vitamin D','Vitamin B12','Lipid Panel','ALT','Calprotectin','Stool Occult Blood'];
+const labUnits={'Ferritin':'ng/mL','HbA1c':'%','Fasting Glucose':'mg/dL','Fasting Insulin':'uIU/mL','TSH':'mIU/L','CRP':'mg/L','Vitamin D':'ng/mL','Vitamin B12':'pg/mL'};
+let state={users:load(DB.users,[]),current:load(DB.current,null),profile:load(DB.profile,{}),encounters:load(DB.encounters,[]),audit:load(DB.audit,[]),follow:load(DB.follow,[]),mode:'general',step:0,currentEncounter:null};
+let wizard={};
+function load(k,f){try{const r=localStorage.getItem(k);return r?JSON.parse(r):f}catch{return f}} function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function id(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)} function now(){return new Date().toLocaleString('ar-SA')} function safe(v){return (v??'').toString().trim()}
+function audit(action,description){state.audit.unshift({time:now(),action,description,user:state.current?.email||'guest'});save(DB.audit,state.audit);renderAudit()}
+function page(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(name).classList.add('active');document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name))}
+function bind(){document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>page(b.dataset.page));registerBtn.onclick=register;loginBtn.onclick=login;saveProfile.onclick=saveProfileFn;document.querySelectorAll('.mode').forEach(m=>m.onclick=()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));m.classList.add('active');state.mode=m.dataset.mode});createEncounter.onclick=startEncounter;prevStep.onclick=()=>{state.step=Math.max(0,state.step-1);renderWizard()};nextStep.onclick=()=>{state.step=Math.min(5,state.step+1);renderWizard()};addFollow.onclick=addFollowFn}
+function register(){const name=safe(authName.value),email=safe(authEmail.value).toLowerCase(),password=safe(authPassword.value),role=authRole.value;if(!name||!email||!password)return alert('أدخل الاسم والبريد وكلمة المرور');if(state.users.some(u=>u.email===email))return alert('البريد موجود');state.current={id:id(),name,email,password,role};state.users.push(state.current);save(DB.users,state.users);save(DB.current,state.current);audit('register','إنشاء حساب');renderAll();page('dashboard')}
+function login(){const email=safe(authEmail.value).toLowerCase(),password=safe(authPassword.value);const user=state.users.find(u=>u.email===email&&u.password===password);if(!user)return alert('بيانات غير صحيحة');state.current=user;save(DB.current,user);audit('login','تسجيل دخول');renderAll();page('dashboard')}
+function saveProfileFn(){if(!state.current)return alert('سجل الدخول أولًا');state.profile={age:safe(age.value),sex:sex.value,height:safe(height.value),weight:safe(weight.value),waist:safe(waist.value),country:safe(country.value),history:safe(history.value),family:safe(family.value)};save(DB.profile,state.profile);audit('save_profile','حفظ الملف');renderProfile()}
+function renderProfile(){const p=state.profile;age.value=p.age||'';sex.value=p.sex||'';height.value=p.height||'';weight.value=p.weight||'';waist.value=p.waist||'';country.value=p.country||'';history.value=p.history||'';family.value=p.family||'';let bmiVal='—';const h=parseFloat(p.height||0),w=parseFloat(p.weight||0),wa=parseFloat(p.waist||0);if(h&&w)bmiVal=(w/Math.pow(h/100,2)).toFixed(1);bmi.textContent=bmiVal;let pts=0;if(wa>=94)pts+=2;if(parseFloat(bmiVal)>=25)pts+=2;if(/سكري|إنسولين|بدانة/.test(p.family||''))pts+=2;metabolic.textContent=pts>=5?'مرتفع':pts>=2?'متوسط':'منخفض/غير كافٍ';profileSummary.textContent=pts>=5?'خطورة استقلابية أولية مرتفعة وتحتاج baseline assessment.' : pts>=2?'يوجد ما يستحق المراقبة الاستقلابية دون كفاية للحكم وحده.' : 'لا توجد إشارات baseline كافية من الملف وحده.';medState.textContent=state.currentEncounter?.medications?.length?'يوجد':'غير محدد'}
+function startEncounter(){if(!state.current)return alert('سجل الدخول أولًا');state.step=0;state.currentEncounter={id:id(),createdAt:now(),type:state.mode,status:'draft',symptoms:[],labs:[],medications:[],supplements:[],files:[],results:null};wizard={safety:{chest:'no',breath:'no',bleed:'no',weight:'no',neuro:'no',preg:'no',note:''},diet:{},sleep:{},bowel:{},lifestyle:{}};renderWizard();page('intake')}
+function renderWizard(){steps.querySelectorAll('.step').forEach((s,i)=>s.classList.toggle('active',i===state.step));wizard.innerHTML=wizardHTML(state.step);hydrateWizard();prevStep.disabled=state.step===0;nextStep.disabled=state.step===5}
+function wizardHTML(step){
+  if(step===0)return `<div class='grid4'><div class='field'><label>نوع الفحص</label><select id='encType'><option value='general' ${state.mode==='general'?'selected':''}>عام بدون أعراض</option><option value='symptom' ${state.mode==='symptom'?'selected':''}>خاص بأعراض</option></select></div><div class='field'><label>ألم صدر؟</label><select id='redChest'><option value='no'>لا</option><option value='yes'>نعم</option></select></div><div class='field'><label>ضيق نفس شديد؟</label><select id='redBreath'><option value='no'>لا</option><option value='yes'>نعم</option></select></div><div class='field'><label>نزف هضمي/دم بالبراز؟</label><select id='redBleed'><option value='no'>لا</option><option value='yes'>نعم</option></select></div><div class='field'><label>فقد وزن غير مفسر؟</label><select id='redWeight'><option value='no'>لا</option><option value='yes'>نعم</option></select></div><div class='field'><label>إغماء/ضعف عصبي حاد؟</label><select id='redNeuro'><option value='no'>لا</option><option value='yes'>نعم</option></select></div><div class='field'><label>حمل حالي؟</label><select id='redPreg'><option value='no'>لا</option><option value='yes'>نعم</option></select></div><div class='field'><label>ملاحظات سلامة</label><input id='safetyNote'></div></div>`;
+  if(step===1)return `<div class='grid4'><div class='field'><label>مجال الأعراض</label><select id='symDomain'>${Object.keys(symptomCatalog).map(d=>`<option>${d}</option>`).join('')}</select></div><div class='field'><label>العرض</label><select id='symCode'></select></div><div class='field'><label>الشدة</label><select id='symSeverity'><option>خفيف</option><option>متوسط</option><option>شديد</option></select></div><div class='field'><label>المدة</label><input id='symDuration' type='number'></div><div class='field'><label>وحدة المدة</label><select id='symUnit'><option>يوم</option><option>أسبوع</option><option>شهر</option><option>سنة</option></select></div><div class='field'><label>التواتر</label><select id='symFreq'><option>متقطع</option><option>يومي</option><option>أسبوعي</option><option>مستمر</option></select></div><div class='field'><label>البداية</label><select id='symOnset'><option>مفاجئة</option><option>تدريجية</option></select></div><div class='field'><label>التدرج</label><select id='symProg'><option>ثابت</option><option>يتفاقم</option><option>يتحسن</option><option>متذبذب</option></select></div></div><div class='grid4' style='margin-top:10px'><div class='field'><label>يرتبط بالوجبات؟</label><select id='symMeals'><option>لا</option><option>نعم</option><option>غير واضح</option></select></div><div class='field'><label>يرتبط بالنوم؟</label><select id='symSleep'><option>لا</option><option>نعم</option><option>غير واضح</option></select></div><div class='field'><label>يرتبط بالتبرز؟</label><select id='symBowel'><option>لا</option><option>نعم</option><option>غير واضح</option></select></div><div class='field'><label>يرتبط بالتوتر؟</label><select id='symStress'><option>لا</option><option>نعم</option><option>غير واضح</option></select></div></div><div class='row' style='margin-top:12px'><button class='primary' id='addSymptom'>إضافة العرض</button></div><div id='symList' class='entry-list' style='margin-top:12px'></div>`;
+  if(step===2)return `<div class='grid4'><div class='field'><label>التحليل</label><select id='labCode'>${labCatalog.map(l=>`<option>${l}</option>`).join('')}</select></div><div class='field'><label>القيمة</label><input id='labValue'></div><div class='field'><label>الوحدة</label><input id='labUnit'></div><div class='field'><label>التاريخ</label><input id='labDate' type='date'></div></div><div class='row' style='margin-top:12px'><button class='primary' id='addLab'>إضافة التحليل</button></div><div id='labList' class='entry-list' style='margin-top:12px'></div><div class='field' style='margin-top:12px'><label>رفع ملفات</label><input id='fileInput' type='file' multiple></div><div id='fileList' class='entry-list' style='margin-top:10px'></div>`;
+  if(step===3)return `<div class='grid4'><div class='field'><label>النمط الغذائي</label><select id='dietPattern'><option>مختلط</option><option>منخفض الكربوهيدرات</option><option>كيتو</option><option>نباتي</option><option>غير منظم</option></select></div><div class='field'><label>عدد الوجبات</label><input id='dietMeals' type='number'></div><div class='field'><label>أول ساعتين بعد الاستيقاظ</label><input id='dietFirst2h'></div><div class='field'><label>السكريات</label><select id='dietSugar'><option>منخفض</option><option>متوسط</option><option>مرتفع</option></select></div><div class='field'><label>البروتين</label><select id='dietProtein'><option>كافٍ</option><option>غير كافٍ</option><option>غير معروف</option></select></div><div class='field'><label>الألياف</label><select id='dietFiber'><option>كافية</option><option>غير كافية</option><option>غير معروف</option></select></div></div><div class='grid4' style='margin-top:12px'><div class='field'><label>الدواء</label><input id='medName'></div><div class='field'><label>الجرعة</label><input id='medDose'></div><div class='field'><label>التكرار</label><input id='medFreq'></div><div class='field'><label>السبب</label><input id='medReason'></div></div><div class='row' style='margin-top:12px'><button class='primary' id='addMed'>إضافة دواء</button></div><div id='medList' class='entry-list' style='margin-top:12px'></div>`;
+  if(step===4)return `<div class='grid4'><div class='field'><label>وقت النوم</label><input id='sleepTime' type='time'></div><div class='field'><label>وقت الاستيقاظ</label><input id='wakeTime' type='time'></div><div class='field'><label>شمس صباحية بالدقائق</label><input id='sunMinutes' type='number'></div><div class='field'><label>عدد مرات التبرز</label><input id='bowelCount' type='number'></div><div class='field'><label>شكل البراز</label><select id='stoolForm'><option>طبيعي</option><option>صلب</option><option>لين</option><option>مائي</option></select></div><div class='field'><label>إمساك/إسهال</label><select id='bowelIssue'><option>لا يوجد</option><option>إمساك</option><option>إسهال</option><option>متناوب</option></select></div><div class='field'><label>نشاط يومي</label><input id='movement'></div><div class='field'><label>Stress</label><select id='stress'><option>منخفض</option><option>متوسط</option><option>مرتفع</option></select></div></div>`;
+  return `<div class='grid4'><div class='kpi'><small>أعراض</small><strong>${state.currentEncounter?.symptoms.length||0}</strong></div><div class='kpi'><small>تحاليل</small><strong>${state.currentEncounter?.labs.length||0}</strong></div><div class='kpi'><small>أدوية</small><strong>${state.currentEncounter?.medications.length||0}</strong></div><div class='kpi'><small>ملفات</small><strong>${state.currentEncounter?.files.length||0}</strong></div></div><div class='entry' style='margin-top:12px'><b>قبل التشغيل</b><div class='mini'>المحرك سيحسب red flags ثم sufficiency score ثم الفرضيات الأولية ثم الفحوص الضرورية فقط.</div></div><div class='row' style='margin-top:12px'><button class='primary' id='runEngine'>تشغيل Bio-OS</button></div>`;
+}
+function hydrateWizard(){if(state.step===1){fillSymptomCodes();symDomain.onchange=fillSymptomCodes;addSymptom.onclick=addSymptomFn;renderSymptoms()} if(state.step===2){labUnit.value=labUnits[labCode.value]||'';labCode.onchange=()=>labUnit.value=labUnits[labCode.value]||'';addLab.onclick=addLabFn;fileInput.onchange=e=>{[...e.target.files].forEach(f=>state.currentEncounter.files.push({name:f.name,size:f.size})) ; renderLabs()};renderLabs()} if(state.step===3){addMed.onclick=addMedFn;renderMeds()} if(state.step===5){runEngine.onclick=runEngineFn}}
+function fillSymptomCodes(){symCode.innerHTML=(symptomCatalog[symDomain.value]||[]).map(s=>`<option>${s}</option>`).join('')}
+function addSymptomFn(){const item={domain:safe(symDomain.value),code:safe(symCode.value),severity:safe(symSeverity.value),duration:safe(symDuration.value),unit:safe(symUnit.value),freq:safe(symFreq.value),onset:safe(symOnset.value),prog:safe(symProg.value),meals:safe(symMeals.value),sleep:safe(symSleep.value),bowel:safe(symBowel.value),stress:safe(symStress.value)};if(!item.code||!item.duration)return alert('اختر العرض وأدخل المدة');state.currentEncounter.symptoms.push(item);renderSymptoms();audit('add_symptom',item.code)}
+function renderSymptoms(){if(!symList)return; symList.innerHTML=state.currentEncounter.symptoms.length?state.currentEncounter.symptoms.map(s=>`<div class='entry'><b>${s.code}</b><div class='mini'>${s.domain} | ${s.severity} | ${s.duration} ${s.unit} | ${s.freq}</div><div class='mini'>وجبات:${s.meals} | نوم:${s.sleep} | إخراج:${s.bowel} | توتر:${s.stress}</div></div>`).join(''):`<div class='empty'>لا توجد أعراض مدخلة</div>`}
+function addLabFn(){const item={test:safe(labCode.value),value:safe(labValue.value),unit:safe(labUnit.value),date:safe(labDate.value)};if(!item.test||!item.value||!item.date)return alert('أدخل التحليل والقيمة والتاريخ');state.currentEncounter.labs.push(item);renderLabs();audit('add_lab',item.test)}
+function renderLabs(){if(!labList)return; labList.innerHTML=state.currentEncounter.labs.length?state.currentEncounter.labs.map(l=>`<div class='entry'><b>${l.test}</b><div class='mini'>${l.value} ${l.unit} | ${l.date}</div></div>`).join(''):`<div class='empty'>لا توجد تحاليل</div>`; if(fileList) fileList.innerHTML=state.currentEncounter.files.length?state.currentEncounter.files.map(f=>`<div class='entry'><b>${f.name}</b><div class='mini'>${(f.size/1024).toFixed(1)} KB</div></div>`).join(''):`<div class='empty'>لا توجد ملفات</div>`}
+function addMedFn(){const item={name:safe(medName.value),dose:safe(medDose.value),freq:safe(medFreq.value),reason:safe(medReason.value)};if(!item.name)return alert('أدخل اسم الدواء');state.currentEncounter.medications.push(item);renderMeds();audit('add_med',item.name)}
+function renderMeds(){if(!medList)return; medList.innerHTML=state.currentEncounter.medications.length?state.currentEncounter.medications.map(m=>`<div class='entry'><b>${m.name}</b><div class='mini'>${m.dose||'—'} | ${m.freq||'—'} | ${m.reason||'—'}</div></div>`).join(''):`<div class='empty'>لا توجد أدوية</div>`}
+function redFlags(enc){const f=[];if(safe(redChest?.value)==='yes')f.push({title:'ألم صدري',level:'urgent',why:'يوقف reasoning العادي.'});if(safe(redBreath?.value)==='yes')f.push({title:'ضيق نفس شديد',level:'urgent',why:'يتطلب تقييمًا عاجلًا.'});if(safe(redBleed?.value)==='yes')f.push({title:'نزف هضمي',level:'urgent',why:'مسار إنذاري.'});if(safe(redWeight?.value)==='yes')f.push({title:'فقد وزن غير مفسر',level:'high',why:'يتطلب استبعادًا موجّهًا.'});if(safe(redNeuro?.value)==='yes')f.push({title:'ضعف عصبي/إغماء',level:'urgent',why:'خطر عصبي/دوراني محتمل.'});if(safe(redPreg?.value)==='yes')f.push({title:'حمل',level:'review',why:'يتطلب clinician review.'});if(enc.symptoms.some(s=>s.code==='دم بالبراز'))f.push({title:'دم بالبراز',level:'urgent',why:'علامة إنذارية مباشرة.'});return f}
+function sufficiency(enc,flags){const symptoms=enc.symptoms.length,labs=enc.labs.length;const temporal=symptoms?Math.round(enc.symptoms.filter(s=>s.duration&&s.freq&&s.onset&&s.prog).length/symptoms*100):(enc.type==='general'?60:0);const completeness=Math.min(100,(symptoms?25:0)+(labs?Math.min(25,labs*8):0)+(safe(dietFirst2h?.value)?10:0)+((safe(sleepTime?.value)&&safe(wakeTime?.value))?10:0)+(safe(bowelCount?.value)?10:0)+(enc.medications.length?10:5)+(enc.files.length?10:0));const objective=Math.min(100,labs*22);const discriminative=Math.min(100,symptoms*18);const redClear=flags.some(f=>f.level==='urgent')?0:flags.length?50:100;const score=Math.round(completeness*.25+temporal*.2+objective*.2+discriminative*.15+(flags.length?20:90)*.1+redClear*.1);let level='Insufficient';if(score>=75&&!flags.some(f=>f.level==='urgent'))level='Sufficient for preliminary reasoning';else if(score>=45)level='Conditionally sufficient';return {score,level,reasons:[{title:'اكتمال المدخلات',value:completeness+'%',detail:'وجود الطبقات الأساسية.'},{title:'جودة الزمن والنمط',value:temporal+'%',detail:'مدة/بداية/تواتر/تدرج.'},{title:'الأدلة الموضوعية',value:objective+'%',detail:'تحاليل وملفات.'},{title:'التمييز بين الفرضيات',value:discriminative+'%',detail:'قدرة inputs على التفريق.'},{title:'استبعاد الخطر',value:redClear+'%',detail:'كلما زادت red flags انخفضت الكفاية.'}]}}
+function differentials(enc,flags){const names=enc.symptoms.map(s=>s.code),labs=Object.fromEntries(enc.labs.map(l=>[l.test,parseFloat(String(l.value).replace(/[^\d.-]/g,''))]));const out=[];const add=(title,domain,p,why)=>out.push({title,domain,probability:p,why});const has=n=>names.includes(n);if(has('جوع سريع')||has('نعاس بعد الوجبة')||has('زيادة محيط الخصر')||labs['HbA1c']>=5.7||labs['Fasting Insulin']>12)add('اشتباه مقاومة إنسولين / خطورة استقلابية','Metabolic',0.82,'نمط جوع/وجبات/خصر و/أو مؤشرات استقلابية يدعم هذا المسار.');if(has('إرهاق')||has('تساقط شعر')||has('خفقان')||labs['Ferritin']<30)add('اشتباه نقص مخازن الحديد / فقر دم محتمل','Deficiency/Stores',0.78,'تعب وتساقط شعر وخفقان مع ferritin منخفض أو نمط نزف.');if(has('انتفاخ')||has('إمساك')||has('إسهال')||labs['CRP']>5)add('اشتباه اضطراب هضمي/التهابي أو سوء امتصاص','Gut/Bowel + Inflammation',0.69,'تلازم هضمي/التهابي يبرر مسارًا معويًا-التهابيًا.');if(has('أرق')||has('تقطع نوم')||safe(sleepTime?.value)&&safe(wakeTime?.value)&&safe(stress?.value)==='مرتفع')add('اضطراب نوم/إيقاع يومي','Sleep/Circadian',0.73,'التاريخ الزمني للنوم والإيقاع يفسر جزءًا من التعب والخلل الاستقلابي.');if(labs['TSH']>4||has('تساقط شعر')||has('خمول صباحي'))add('اشتباه خلل درقي أولي أو ثانوي','Hormonal',0.52,'نمط التعب/الشعر/TSH يجعل مسار الغدة ضمن differential.');if(flags.some(f=>f.title.includes('فقد وزن')))add('Alarm pathway requires urgent exclusion','Red Flag',0.91,'وجود فقد وزن غير مفسر يرفع أولوية الاستبعاد العاجل.');if(!out.length)add('البيانات الحالية لا تكفي لبناء differential قوي','Insufficient',0.25,'المدخلات الحالية محدودة أو غير مميزة بما يكفي.');return out.sort((a,b)=>b.probability-a.probability).slice(0,5)}
+function tests(enc,diffs,flags,score){const out=[],existing=new Set(enc.labs.map(l=>l.test));const push=(n,p,w,u=false)=>{if(!existing.has(n)&&!out.some(x=>x.name===n))out.push({name:n,priority:p,why:w,urgent:u})};if(flags.some(f=>f.level==='urgent'))return [{name:'Urgent clinical evaluation',priority:'فوري',why:'وجود red flag يمنع مسار الفحوص العادي.',urgent:true}];if(diffs.some(d=>d.title.includes('مقاومة إنسولين'))){push('HbA1c','A1','لتمييز خطورة الاستقلاب وسكر الأشهر الماضية.');push('Fasting Glucose','A1','لتقييم baseline glucose.');push('Fasting Insulin','A1','لدعم قراءة فرط الإنسولين.');push('Lipid Panel','A2','لتقدير الحمل الاستقلابي المرافق.');push('ALT','A2','لربط الكبد الدهني/الاستقلاب عند السياق المناسب.')}if(diffs.some(d=>d.title.includes('الحديد'))){push('CBC','A1','للتفريق بين فقر دم ونقص مخازن معزول.');push('Ferritin','A1','أعلى yield في تقييم المخازن.');push('TSH','A2','لأن التعب والشعر قد يتداخلان مع الغدة.');push('Vitamin B12','A2','إذا وجدت أعراض عصبية أو نمط غذائي ناقص.')}if(diffs.some(d=>d.title.includes('هضمي'))){push('CRP','A1','لرصد العبء الالتهابي.');push('CBC','A1','لرصد النزف/الالتهاب.');push('Calprotectin','A2','عند نمط إسهال/ألم بطني مستمر.');push('Stool Occult Blood','A1','عند وجود ما يستدعي استبعاد نزف خفي.')}if(score.level==='Insufficient')push('Structured completion questions','A0','سد نقص البيانات أولًا.');return out.slice(0,8)}
+function prevention(enc){const lines=[];if(safe(sleepTime?.value)&&safe(wakeTime?.value))lines.push('تثبيت وقت النوم والاستيقاظ');if(safe(sunMinutes?.value)&&+safe(sunMinutes.value)<10)lines.push('زيادة التعرض الشمسي الصباحي');if(safe(dietProtein?.value)==='غير كافٍ')lines.push('رفع كفاية البروتين');if(safe(dietFiber?.value)==='غير كافية')lines.push('رفع الألياف تدريجيًا');if(safe(bowelIssue?.value)!=='لا يوجد'&&safe(bowelIssue?.value)!=='')lines.push('تطبيع التبرز ومراقبة أي إنذار هضمي');if(safe(movement?.value))lines.push('تثبيت نشاط يومي + مقاومة');return lines.length?lines:['متابعة baseline markers وإعادة التقييم']}
+function runEngineFn(){const enc=state.currentEncounter;if(!enc)return;enc.type=safe(encType.value)||state.mode;const flags=redFlags(enc);const score=sufficiency(enc,flags);const diffs=differentials(enc,flags);const nextTests=tests(enc,diffs,flags,score);const plans=[];if(flags.some(f=>f.level==='urgent'))plans.push({title:'إيقاف المسار الذاتي',type:'urgent',detail:'يجب التقييم العاجل قبل أي reasoning إضافي.'});else{if(diffs.some(d=>d.title.includes('مقاومة إنسولين'))){plans.push({title:'دعم مؤقت استقلابي',type:'temp',detail:'تنظيم توقيت الوجبات وخفض الحمل السكري. لا دواء مباشر في هذه النسخة.'});plans.push({title:'معالجة السبب المرجح',type:'cause',detail:'استعادة الحساسية الاستقلابية عبر النوم والبروتين والألياف والحركة.'})}if(diffs.some(d=>d.title.includes('الحديد')))plans.push({title:'فتح ملف نقص المخازن',type:'cause',detail:'ربط ferritin وCBC مع النزف/الامتصاص قبل تثبيت أي دعم طويل المدى.'});if(diffs.some(d=>d.title.includes('هضمي')))plans.push({title:'طبقة أمعاء/إخراج',type:'cause',detail:'تطبيع الإخراج وتتبع الدم/المخاط/الألم وتحديد طبيعة المسار.'});plans.push({title:'الوقاية ومنع التكرار',type:'prevent',detail:prevention(enc).join(' + ')})}
+enc.results={score:score.score,level:score.level,reasons:score.reasons,flags,diffs,nextTests,plans,explain:[{title:'لماذا هذه النتيجة؟',detail:`تم حساب الكفاية من اكتمال الأعراض والزمن والنمط ووجود التحاليل واستبعاد المسارات الخطرة. النتيجة الحالية: ${score.level}.`},{title:'لماذا هذه الفرضية الأولى؟',detail:diffs[0]?.why||'لا توجد فرضية قوية بعد.'},{title:'لماذا هذه الفحوص فقط؟',detail:'لأن المحرك يعتمد Minimum Necessary Testing بدل panels عشوائية.'}]};enc.status='analyzed';state.encounters.unshift(enc);save(DB.encounters,state.encounters);audit('run_engine',`تحليل encounter ${enc.id}`);renderResults(enc.results);renderRecentEncounters();renderQueue();renderRelapse(enc.results.plans);page('results')}
+function renderResults(r){scoreRing.style.setProperty('--v',r.score);scoreValue.textContent=r.score+'%';scoreLabel.textContent=r.level;scoreReasons.innerHTML=r.reasons.map(x=>`<div class='entry'><b>${x.title}</b><div class='mini'>${x.value} — ${x.detail}</div></div>`).join('');redFlags.innerHTML=r.flags.length?r.flags.map(f=>`<div class='alert ${f.level==='urgent'?'red':f.level==='high'?'amber':'blue'}'><b>${f.title}</b><div class='mini'>${f.why}</div></div>`).join(''):`<div class='alert'><b>لا توجد red flags واضحة</b><div class='mini'>يمكن متابعة reasoning الأولي وفق البيانات الحالية.</div></div>`;differentials.innerHTML=r.diffs.map((d,i)=>`<div class='entry'><b>${i+1}. ${d.title}</b><div class='mini'>${Math.round(d.probability*100)}% | ${d.domain}</div><div class='mini'>${d.why}</div></div>`).join('');tests.innerHTML=r.nextTests.map(t=>`<div class='entry'><b>${t.name}</b><div class='mini'>${t.priority} — ${t.why}</div></div>`).join('')||`<div class='empty'>لا توجد توصيات</div>`;plans.innerHTML=r.plans.map(p=>`<div class='entry'><b>${p.title}</b><div class='mini'>${p.detail}</div></div>`).join('');explain.innerHTML=r.explain.map(x=>`<div class='entry'><b>${x.title}</b><div class='mini'>${x.detail}</div></div>`).join('')}
+function addFollowFn(){const item={id:id(),type:safe(followType.value),date:safe(followDate.value),goal:safe(followGoal.value)};if(!item.date||!item.goal)return alert('أدخل التاريخ والهدف');state.follow.unshift(item);save(DB.follow,state.follow);audit('add_followup',item.type);renderFollowup()}
+function renderFollowup(){timeline.innerHTML=state.follow.length?state.follow.map(f=>`<div class='entry'><b>${f.type}</b><div class='mini'>${f.date}</div><div class='mini'>${f.goal}</div></div>`).join(''):`<div class='empty'>لا توجد متابعة بعد</div>`}
+function renderRelapse(plansList){const items=[];plansList.filter(p=>p.type==='prevent').forEach(p=>p.detail.split('+').map(x=>x.trim()).filter(Boolean).forEach(x=>items.push(x)));relapse.innerHTML=items.length?items.map(i=>`<div class='entry'><b>${i}</b><div class='mini'>علامة وقائية يجب تثبيتها ومراقبتها.</div></div>`).join(''):`<div class='empty'>يظهر بعد أول تشغيل</div>`}
+function renderQueue(){const q=state.encounters.filter(e=>e.results&&(e.results.flags.length||e.results.level!=='Sufficient for preliminary reasoning'));queue.innerHTML=q.length?q.map(e=>`<div class='entry'><b>${e.type==='general'?'فحص عام':'فحص خاص'}</b><div class='mini'>${e.createdAt}</div><div class='mini'>${e.results.flags.length?'يحتاج مراجعة بسبب red flags':'يحتاج مراجعة بسبب نقص الكفاية أو الثقة'}</div></div>`).join(''):`<div class='empty'>لا توجد حالات بانتظار المراجعة</div>`}
+function renderAudit(){auditRows.innerHTML=state.audit.length?state.audit.slice(0,20).map(a=>`<tr><td>${a.time}</td><td>${a.action}</td><td>${a.user}</td><td>${a.description}</td></tr>`).join(''):`<tr><td colspan='4' class='mini'>لا توجد سجلات</td></tr>`}
+function renderAll(){usersCount.textContent=state.users.length;encountersCount.textContent=state.encounters.length;lastLogin.textContent=state.audit.find(a=>a.action==='login')?.time||'—';currentUserLabel.textContent=state.current?`${state.current.name} / ${state.current.role}`:'غير مسجل';renderProfile();renderRecentEncounters();renderAudit();renderFollowup();renderQueue()}
+bind();renderAll();
+</script>
 </body>
 </html>
