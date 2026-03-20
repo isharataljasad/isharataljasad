@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Labs | Anemia Bio-OS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Private Home</a>
+    <a href="case.html">Case</a>
+    <a href="intake.html">Intake</a>
+    <a href="labs.html">Labs</a>
+    <a href="results.html">Results</a>
+    <a href="followup.html">Follow-up</a>
+  </nav>
+
+  <main>
+    <h1>Labs</h1>
+    <p>Enter the current lab set. This prototype uses simple rule logic for anemia readiness.</p>
+
+    <div class="card">
+      <form data-form="case">
+        <div class="grid grid-2">
+          <div><label>Ferritin</label><input name="ferritin" placeholder="7" /></div>
+          <div><label>Hemoglobin</label><input name="hemoglobin" placeholder="12.6" /></div>
+          <div><label>MCHC</label><input name="mchc" placeholder="31" /></div>
+          <div><label>RDW</label><input name="rdw" placeholder="16.5" /></div>
+          <div><label>HbA1c</label><input name="hba1c" placeholder="6.3" /></div>
+          <div><label>TSH</label><input name="tsh" placeholder="4.04" /></div>
+          <div><label>CRP</label><input name="crp" placeholder="optional" /></div>
+          <div><label>B12</label><input name="b12" placeholder="optional" /></div>
+          <div><label>Folate</label><input name="folate" placeholder="optional" /></div>
+          <div><label>Iron Saturation</label><input name="ironSat" placeholder="optional" /></div>
+        </div>
+        <div class="button-row">
+          <button type="submit">Save Labs</button>
+          <a class="button-link button-secondary" href="results.html">Next: Results</a>
+        </div>
+      </form>
+    </div>
+
+    <div style="margin-top:20px;" data-labs></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

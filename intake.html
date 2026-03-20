@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intake | Anemia Bio-OS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Private Home</a>
+    <a href="case.html">Case</a>
+    <a href="intake.html">Intake</a>
+    <a href="labs.html">Labs</a>
+    <a href="results.html">Results</a>
+    <a href="followup.html">Follow-up</a>
+  </nav>
+
+  <main>
+    <h1>Intake</h1>
+    <p>Enter the current case context. This prototype saves in the browser only.</p>
+    <div class="card">
+      <form data-form="case">
+        <div class="grid grid-2">
+          <div>
+            <label>Patient Name</label>
+            <input name="patientName" />
+          </div>
+          <div>
+            <label>Age</label>
+            <input name="age" />
+          </div>
+          <div>
+            <label>Sex</label>
+            <select name="sex">
+              <option>Female</option>
+              <option>Male</option>
+            </select>
+          </div>
+          <div>
+            <label>Focus</label>
+            <input name="focus" />
+          </div>
+        </div>
+        <div>
+          <label>Symptoms</label>
+          <textarea name="symptoms"></textarea>
+        </div>
+        <div>
+          <label>Current Question</label>
+          <textarea name="currentQuestion"></textarea>
+        </div>
+        <div>
+          <label>Clinician Review</label>
+          <select name="clinicianReview">
+            <option>Required</option>
+            <option>Pending</option>
+            <option>Not Yet Assigned</option>
+          </select>
+        </div>
+        <div>
+          <label>Notes</label>
+          <textarea name="notes"></textarea>
+        </div>
+        <div class="button-row">
+          <button type="submit">Save Intake</button>
+          <a class="button-link button-secondary" href="labs.html">Next: Labs</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

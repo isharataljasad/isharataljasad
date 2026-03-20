@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Follow-up | Anemia Bio-OS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">Private Home</a>
+    <a href="case.html">Case</a>
+    <a href="intake.html">Intake</a>
+    <a href="labs.html">Labs</a>
+    <a href="results.html">Results</a>
+    <a href="followup.html">Follow-up</a>
+  </nav>
+
+  <main>
+    <h1>Follow-up</h1>
+    <p>Use this page to guide next actions after the prototype result.</p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Next Actions</h3>
+        <ul>
+          <li>Complete missing labs: B12, folate, iron saturation, CRP.</li>
+          <li>Review iron biology before making a final judgment.</li>
+          <li>Keep clinician review required before any treatment decision.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Reset Prototype</h3>
+        <p>If you want to start again from the initial demo values, reset the browser data.</p>
+        <div class="button-row">
+          <button onclick="resetPrototype()">Reset Local Demo Data</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>Prototype Notes</h3>
+      <p>This prototype is designed to help you judge the concept quickly:</p>
+      <ul>
+        <li>one patient</li>
+        <li>one anemia workflow</li>
+        <li>one readiness model</li>
+        <li>no backend yet</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
