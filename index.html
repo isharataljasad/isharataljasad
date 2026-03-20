@@ -3,24 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isharat Aljasad</title>
+  <title>Anemia Bio-OS | Private Prototype</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="method.html">Method</a>
-    <a href="contact.html">Contact</a>
-    <a href="request-access.html">Request Access</a>
+    <a href="index.html">Private Home</a>
+    <a href="case.html">Case</a>
+    <a href="intake.html">Intake</a>
+    <a href="labs.html">Labs</a>
+    <a href="results.html">Results</a>
+    <a href="followup.html">Follow-up</a>
   </nav>
 
   <main>
-    <h1>Isharat Aljasad | Bio-OS</h1>
-    <p>A structured health operating system.</p>
+    <h1>Anemia Bio-OS</h1>
+    <p>Private prototype for one patient only. Use this to test the full flow quickly before deciding whether to invest in a real system.</p>
 
-    <a class="button-link" href="method.html">Method</a>
-    <a class="button-link" href="request-access.html">Request Access</a>
-    <a class="button-link" href="contact.html">Contact</a>
+    <div class="button-row">
+      <a class="button-link" href="case.html">Open Case</a>
+      <a class="button-link" href="intake.html">Open Intake</a>
+      <a class="button-link" href="labs.html">Open Labs</a>
+      <a class="button-link" href="results.html">Open Results</a>
+      <a class="button-link" href="followup.html">Open Follow-up</a>
+    </div>
+
+    <div style="margin-top: 24px;" data-dashboard></div>
+
+    <footer>
+      Prototype only. Data is saved in the browser with localStorage. No real backend yet.
+    </footer>
   </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
