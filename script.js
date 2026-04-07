@@ -1,1 +1,0 @@
-document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const ans=btn.nextElementSibling;const open=ans.style.display==='block';document.querySelectorAll('.faq-a').forEach(a=>a.style.display='none');ans.style.display=open?'none':'block';});});
