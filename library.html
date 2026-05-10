@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المكتبة | إشارات الجسد</title>
+<meta name="description" content="مكتبة إشارات الجسد: مواضيع صحية عربية منظمة بوضوح، قابلة للتصفح والفرز، وتغطي موضوعات الجلد المنشورة حاليًا.">
+<link rel="canonical" href="https://www.isharataljasad.com/library.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:site_name" content="إشارات الجسد | Bio-OS">
+<meta property="og:title" content="المكتبة | إشارات الجسد">
+<meta property="og:description" content="مكتبة المحتوى الصحي العربي المنظم: مواضيع مصنفة بوضوح وقابلة للفرز والتصفح.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0F1B2D; --parchment:#FAF8F4; --parchment-deep:#F3EEE4; --gold:#B89B5E; --teal:#3D7A6E;
+  --teal-light:#E6F0EE; --white:#fff; --text:#1A1A1A; --text-secondary:#4A4A4A; --text-muted:#7A7A7A;
+  --border:#DDD7CB; --border-light:#EAE5DA; --warning-bg:#FFF9E6; --warning-border:#E8D89A;
+  --font-heading:'Noto Naskh Arabic', serif; --font-body:'Noto Sans Arabic', sans-serif;
+  --max-w:1120px; --radius:8px; --radius-lg:12px; --shadow-sm:0 1px 4px rgba(15,27,45,.06); --shadow-md:0 4px 16px rgba(15,27,45,.08); --transition:.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--parchment);color:var(--text);direction:rtl;text-align:right;line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none;transition:color var(--transition)} a:hover{color:#2D5C53}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.top-strip{background:var(--navy);color:rgba(255,255,255,.85);font-size:.78rem;padding:8px 0;text-align:center;letter-spacing:.1px}
+.site-header{background:rgba(250,248,244,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-light);position:sticky;top:0;z-index:100}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0}
+.brand-lockup{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.brand-name{font-family:var(--font-heading);font-weight:700;font-size:1.35rem;color:var(--navy)}
+.brand-sub{font-size:.78rem;color:var(--text-muted)}
+.main-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.main-nav a{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;font-size:.9rem;color:var(--text-secondary)}
+.main-nav a.active,.main-nav a:hover{background:var(--parchment-deep);color:var(--navy)}
+.section{padding:54px 0}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--text-muted);padding:16px 0;flex-wrap:wrap}
+.breadcrumb a{color:var(--teal)} .breadcrumb .sep{color:var(--border)}
+.section-header{max-width:820px;margin-bottom:28px}
+.section-header h1{font-family:var(--font-heading);font-size:2.1rem;color:var(--navy);margin-bottom:8px}
+.section-header p{font-size:.95rem;color:var(--text-secondary)}
+.library-toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.filters-bar{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{font-family:var(--font-body);font-size:.8rem;font-weight:500;padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--text-secondary);cursor:pointer;transition:all var(--transition)}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.search-wrap input{font-family:var(--font-body);width:280px;max-width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--border);background:var(--white);outline:none}
+.search-wrap input:focus{border-color:var(--gold)}
+.library-meta{font-size:.86rem;color:var(--text-muted)}
+.cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.topic-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;transition:all var(--transition);display:block}
+.topic-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.topic-card h3{font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--navy);margin:8px 0 4px}
+.topic-en{font-size:.78rem;color:var(--text-muted);font-style:italic;direction:ltr;display:inline-block;margin-bottom:8px}
+.topic-card p{font-size:.84rem;color:var(--text-secondary);line-height:1.8;margin-bottom:12px}
+.topic-tags{display:flex;gap:6px;flex-wrap:wrap}
+.topic-tag{font-size:.7rem;padding:3px 8px;border-radius:10px;background:var(--parchment-deep);color:var(--text-muted)}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:999px;font-size:.68rem;font-weight:700}
+.badge-active{background:var(--teal-light);color:var(--teal)}
+.disclaimer-bar{background:var(--warning-bg);border:1px solid var(--warning-border);border-radius:var(--radius);padding:14px 20px;font-size:.78rem;color:var(--text-secondary);line-height:1.7;margin-top:32px}
+.empty-state{display:none;background:var(--white);border:1px dashed var(--border);border-radius:14px;padding:28px;color:var(--text-muted);text-align:center}
+.site-footer{background:var(--navy);color:rgba(255,255,255,.85);padding:44px 0 26px;margin-top:54px}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+.footer-col h4{color:#fff;font-family:var(--font-heading);font-size:1rem;margin-bottom:10px}
+.footer-col a{display:block;color:rgba(255,255,255,.78);margin-bottom:8px}
+.footer-brand p{font-size:.86rem;color:rgba(255,255,255,.7);max-width:420px}
+@media (max-width:1000px){.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:780px){.header-inner,.library-toolbar,.footer-grid{grid-template-columns:1fr;display:grid}.cards-grid{grid-template-columns:1fr}.search-wrap input{width:100%}.main-nav{gap:0}}
+</style>
+</head>
+<body>
+<div class="top-strip">محتوى صحي عربي منظم يوضح المفاهيم وحدودها — دون وعود علاجية أو أحكام فردية</div>
+<header class="site-header"><div class="container header-inner">
+  <div class="brand-lockup"><div class="brand-name">إشارات الجسد <span style="color:rgba(184,155,94,.9)">| Bio-OS</span></div><div class="brand-sub">مشروع عربي للتثقيف الصحي المنهجي</div></div>
+  <nav class="main-nav"><a href="/">الرئيسية</a><a href="/body/">خريطة الجسم</a><a href="/library/" class="active">المكتبة</a><a href="/method/">المنهج</a><a href="/about/">من نحن</a><a href="/contact/">تواصل</a></nav>
+</div></header>
+<section class="section"><div class="container">
+<div class="breadcrumb"><a href="/">الرئيسية</a><span class="sep">←</span><span>المكتبة</span></div>
+<div class="section-header"><h1>المكتبة</h1><p>مواضيع صحية عربية مصنفة بوضوح. كل مادة تحمل علامات محتوى، ويمكن تصفيتها أو البحث فيها بدل بقاء المكتبة ثابتة على موضوع واحد.</p></div>
+<div class="library-toolbar">
+  <div class="filters-bar" aria-label="عوامل تصفية المكتبة">
+    <button class="filter-btn active" data-filter="all">الكل</button>
+    <button class="filter-btn" data-filter="skin">الجلد</button>
+    <button class="filter-btn" data-filter="questionnaire">يتضمن استبيان</button>
+    <button class="filter-btn" data-filter="glossary">يتضمن قاموس</button>
+    <button class="filter-btn" data-filter="redflags">يتضمن علامات حمراء</button>
+  </div>
+  <div class="search-wrap"><input id="topicSearch" type="search" placeholder="ابحثي باسم الموضوع أو الوسوم"></div>
+</div>
+<div class="library-meta"><span id="resultsCount">9</span> موضوعات منشورة حاليًا</div>
+<div class="cards-grid" id="topicsGrid"><a href="body-skin-epidermoid-cyst.html" class="topic-card" data-system="skin" data-questionnaire="1" data-redflags="1" data-glossary="1" data-tags="جلد كتلة كيس طوارئ جلدية">
+<span class="badge badge-active">منشور</span>
+<h3>الكيس الدهني</h3>
+<span class="topic-en">Epidermoid cyst</span>
+<p>كتلة تحت الجلد ذات كبسولة: متى تُراقَب ومتى تُستأصل؟</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">كتلة</span><span class="topic-tag">كيس</span><span class="topic-tag">طوارئ</span><span class="topic-tag">جلدية</span></div>
+</a>
+<a href="body-skin-eczema.html" class="topic-card" data-system="skin" data-questionnaire="1" data-redflags="1" data-glossary="1" data-tags="جلد حكة التهاب حاجز">
+<span class="badge badge-active">منشور</span>
+<h3>الأكزيما</h3>
+<span class="topic-en">Atopic dermatitis</span>
+<p>خريطة فهم الأكزيما: النوبة، الصيانة، المحفزات، ومتى لا يكفي الترطيب وحده.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">حكة</span><span class="topic-tag">التهاب</span><span class="topic-tag">حاجز</span></div>
+</a>
+<a href="body-skin-shingles.html" class="topic-card" data-system="skin" data-questionnaire="1" data-redflags="1" data-glossary="1" data-tags="جلد عصبي فيروس لقاح">
+<span class="badge badge-active">منشور</span>
+<h3>الحزام الناري</h3>
+<span class="topic-en">Herpes zoster / Shingles</span>
+<p>إعادة تنشيط فيروس VZV: الألم العصبي، الطفح، العلاج المبكر، ومتى لا ننتظر.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">عصبي</span><span class="topic-tag">فيروس</span><span class="topic-tag">لقاح</span></div>
+</a>
+<a href="body-skin-acne.html" class="topic-card" data-system="skin" data-questionnaire="1" data-redflags="1" data-glossary="1" data-tags="جلد حب الشباب ذقن PIH">
+<span class="badge badge-active">منشور</span>
+<h3>حبوب الذقن</h3>
+<span class="topic-en">Chin acne / Mild recurrent acne</span>
+<p>متى نحلل؟ وماذا يعني Differin؟ وكيف نقرأ حبوب الذقن قبل مطاردة المنتج.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">حب الشباب</span><span class="topic-tag">ذقن</span><span class="topic-tag">PIH</span></div>
+</a>
+<a href="body-skin-clear-rhythm.html" class="topic-card" data-system="skin" data-questionnaire="0" data-redflags="1" data-glossary="1" data-tags="جلد حب الشباب إيقاع يومي PIH">
+<span class="badge badge-active">منشور</span>
+<h3>البشرة الصافية إيقاع يومي</h3>
+<span class="topic-en">Daily skin rhythm / Clear skin</span>
+<p>القهوة، الإفطار، الاحتكاك، وPIH: كيف يُبنى صفاء البشرة من الإيقاع لا من مطاردة الحبة فقط.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">حب الشباب</span><span class="topic-tag">إيقاع يومي</span><span class="topic-tag">PIH</span></div>
+</a>
+<a href="body-skin-acne-antibiotic.html" class="topic-card" data-system="skin" data-questionnaire="1" data-redflags="1" data-glossary="1" data-tags="جلد حب الشباب مضاد حيوي التهاب">
+<span class="badge badge-active">منشور</span>
+<h3>متى يصف الطبيب مضادًا حيويًا لحب الشباب؟</h3>
+<span class="topic-en">Antibiotics for Acne</span>
+<p>متى يصبح المضاد الحيوي منطقيًا؟ وما الذي لا يعالجه وحده؟ وكيف يبدأ القرار من النمط لا الاسم.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">حب الشباب</span><span class="topic-tag">مضاد حيوي</span><span class="topic-tag">التهاب</span></div>
+</a>
+<a href="body-skin-systemic-steroid.html" class="topic-card" data-system="skin" data-questionnaire="0" data-redflags="1" data-glossary="1" data-tags="جلد كورتيزون قلب HFpEF">
+<span class="badge badge-active">منشور</span>
+<h3>الكورتيزون الجهازي</h3>
+<span class="topic-en">Systemic Cortisone / Systemic Steroid</span>
+<p>الفرق بين الموضعي والجهازي، ومتى يصبح الحمل الجهازي عامل كشف أو تفجر سريري.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">كورتيزون</span><span class="topic-tag">قلب</span><span class="topic-tag">HFpEF</span></div>
+</a>
+<a href="body-skin-pressure-ulcer.html" class="topic-card" data-system="skin" data-questionnaire="0" data-redflags="1" data-glossary="0" data-tags="جلد قرحة الفراش وقاية رعاية طويلة">
+<span class="badge badge-active">منشور</span>
+<h3>قرحة الفراش</h3>
+<span class="topic-en">Pressure Ulcer / Bed Sore</span>
+<p>الجرح الصامت: كيف يبدأ، كيف يتدرج، ولماذا تبقى الوقاية اليومية جزءًا من العلاج.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">قرحة الفراش</span><span class="topic-tag">وقاية</span><span class="topic-tag">رعاية طويلة</span></div>
+</a>
+<a href="body-skin-psoriasis.html" class="topic-card" data-system="skin" data-questionnaire="1" data-redflags="1" data-glossary="1" data-tags="جلد صدفية مناعة بيولوجيات مفاصل">
+<span class="badge badge-active">منشور</span>
+<h3>الصدفية</h3>
+<span class="topic-en">Psoriasis</span>
+<p>خريطة علاج ووقاية للصدفية: متى تكفي الكريمات ومتى يصبح التصعيد أو البيولوجي منطقيًا.</p>
+<div class="topic-tags"><span class="topic-tag">جلد</span><span class="topic-tag">صدفية</span><span class="topic-tag">مناعة</span><span class="topic-tag">بيولوجيات</span><span class="topic-tag">مفاصل</span></div>
+</a></div>
+<div class="empty-state" id="emptyState">لا توجد نتائج مطابقة للتصفية الحالية أو لعبارة البحث.</div>
+<div class="disclaimer-bar">جميع المواد التثقيفية لا تُستخدم لاتخاذ قرار طبي فردي. راجع الطبيب عند الحاجة.</div>
+</div></section>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+<div class="footer-brand"><div class="brand-name" style="color:#fff;font-family:var(--font-heading);font-size:1.1rem">إشارات الجسد <span style="color:rgba(255,255,255,0.4)">| Bio-OS</span></div><p>مشروع عربي للتثقيف الصحي المنهجي يشرح المعلومة الصحية بوضوح ويفصل بين التثقيف العام والتقييم الطبي.</p></div>
+<div class="footer-col"><h4>الصفحات</h4><a href="/">الرئيسية</a><a href="/body/">خريطة الجسم</a><a href="/library/">المكتبة</a><a href="/method/">المنهج</a><a href="/about/">من نحن</a></div>
+<div class="footer-col"><h4>السياسات</h4><a href="/medical-disclaimer/">التنبيه الطبي</a><a href="/privacy/">الخصوصية</a><a href="/what-we-do-not-do/">ما الذي لا نقدمه</a></div>
+</div></div></footer>
+<script>
+document.documentElement.setAttribute('lang','ar');
+document.documentElement.setAttribute('dir','rtl');
+(function(){
+  const buttons=[...document.querySelectorAll('.filter-btn')];
+  const cards=[...document.querySelectorAll('.topic-card')];
+  const search=document.getElementById('topicSearch');
+  const count=document.getElementById('resultsCount');
+  const empty=document.getElementById('emptyState');
+  let active='all';
+  function matchFilter(card){
+    if(active==='all') return true;
+    if(active==='skin') return card.dataset.system==='skin';
+    if(active==='questionnaire') return card.dataset.questionnaire==='1';
+    if(active==='glossary') return card.dataset.glossary==='1';
+    if(active==='redflags') return card.dataset.redflags==='1';
+    return true;
+  }
+  function matchSearch(card){
+    const q=(search.value||'').trim().toLowerCase();
+    if(!q) return true;
+    return card.textContent.toLowerCase().includes(q) || (card.dataset.tags||'').toLowerCase().includes(q);
+  }
+  function render(){
+    let visible=0;
+    cards.forEach(card=>{
+      const show=matchFilter(card)&&matchSearch(card);
+      card.style.display=show?'block':'none';
+      if(show) visible++;
+    });
+    count.textContent=visible;
+    empty.style.display=visible? 'none':'block';
+  }
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');active=btn.dataset.filter;render();}));
+  search.addEventListener('input',render);
+  render();
+})();
+</script>
+</body>
+</html>
