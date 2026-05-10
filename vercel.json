@@ -1,0 +1,121 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/body",
+      "destination": "/body.html"
+    },
+    {
+      "source": "/body/",
+      "destination": "/body.html"
+    },
+    {
+      "source": "/library",
+      "destination": "/library.html"
+    },
+    {
+      "source": "/library/",
+      "destination": "/library.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/about/",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/method",
+      "destination": "/method.html"
+    },
+    {
+      "source": "/method/",
+      "destination": "/method.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/faq/",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/for-professionals",
+      "destination": "/for-professionals.html"
+    },
+    {
+      "source": "/for-professionals/",
+      "destination": "/for-professionals.html"
+    },
+    {
+      "source": "/for-whom",
+      "destination": "/for-whom.html"
+    },
+    {
+      "source": "/for-whom/",
+      "destination": "/for-whom.html"
+    },
+    {
+      "source": "/medical-disclaimer",
+      "destination": "/medical-disclaimer.html"
+    },
+    {
+      "source": "/medical-disclaimer/",
+      "destination": "/medical-disclaimer.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/updates",
+      "destination": "/updates.html"
+    },
+    {
+      "source": "/updates/",
+      "destination": "/updates.html"
+    },
+    {
+      "source": "/what-we-do",
+      "destination": "/what-we-do.html"
+    },
+    {
+      "source": "/what-we-do/",
+      "destination": "/what-we-do.html"
+    },
+    {
+      "source": "/what-we-do-not-do",
+      "destination": "/what-we-do-not-do.html"
+    },
+    {
+      "source": "/what-we-do-not-do/",
+      "destination": "/what-we-do-not-do.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    }
+  ]
+}
