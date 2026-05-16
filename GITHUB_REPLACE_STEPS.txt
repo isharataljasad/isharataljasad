@@ -1,0 +1,12 @@
+طريقة الرفع الصحيحة:
+1. افتح مستودع GitHub.
+2. لا تحذف إذا كنت تريد الاحتفاظ بالتاريخ، لكن عند الاستبدال ارفع محتويات هذه النسخة في الجذر.
+3. تأكد أن index.html في root وليس داخل folder.
+4. ارفع كل الملفات الموجودة هنا.
+5. بعد النشر جرّب:
+   /index.html
+   /library.html
+   /body.html
+   /body-metabolic-inflammation.html
+   /body-metabolic-visceral-fat.html
+   /body-blood-b12-anemia-pcos-protocol.html
