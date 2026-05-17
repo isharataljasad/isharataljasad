@@ -1,0 +1,177 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/body-immune-anti-inflammatory-system",
+      "destination": "/body-immune-anti-inflammatory-system.html"
+    },
+    {
+      "source": "/body-immune-autoimmune-general",
+      "destination": "/body-immune-autoimmune-general.html"
+    },
+    {
+      "source": "/body-immune-inflammation-causes",
+      "destination": "/body-immune-inflammation-causes.html"
+    },
+    {
+      "source": "/body-immune-triggers",
+      "destination": "/body-immune-triggers.html"
+    },
+    {
+      "source": "/body-immune",
+      "destination": "/body-immune.html"
+    },
+    {
+      "source": "/body-skin-eczema",
+      "destination": "/body-skin-eczema.html"
+    },
+    {
+      "source": "/body-skin-epidermoid-cyst",
+      "destination": "/body-skin-epidermoid-cyst.html"
+    },
+    {
+      "source": "/body-skin",
+      "destination": "/body-skin.html"
+    },
+    {
+      "source": "/body",
+      "destination": "/body.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/for-professionals",
+      "destination": "/for-professionals.html"
+    },
+    {
+      "source": "/for-whom",
+      "destination": "/for-whom.html"
+    },
+    {
+      "source": "/library",
+      "destination": "/library.html"
+    },
+    {
+      "source": "/medical-disclaimer",
+      "destination": "/medical-disclaimer.html"
+    },
+    {
+      "source": "/method",
+      "destination": "/method.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/updates",
+      "destination": "/updates.html"
+    },
+    {
+      "source": "/what-we-do-not-do",
+      "destination": "/what-we-do-not-do.html"
+    },
+    {
+      "source": "/what-we-do",
+      "destination": "/what-we-do.html"
+    },
+    {
+      "source": "/body-immune-hashimoto",
+      "destination": "/body-immune-hashimoto.html"
+    },
+    {
+      "source": "/body-immune-thyroid-after-surgery",
+      "destination": "/body-immune-thyroid-after-surgery.html"
+    },
+    {
+      "source": "/body-immune-joint-nerve-pain",
+      "destination": "/body-immune-joint-nerve-pain.html"
+    },
+    {
+      "source": "/body-immune-neuroinflammation-brain",
+      "destination": "/body-immune-neuroinflammation-brain.html"
+    },
+    {
+      "source": "/body-immune-relapse-prevention",
+      "destination": "/body-immune-relapse-prevention.html"
+    },
+    {
+      "source": "/body-joints-rheumatoid-arthritis-control-map",
+      "destination": "/body-joints-rheumatoid-arthritis-control-map.html"
+    },
+    {
+      "source": "/body-joints",
+      "destination": "/body-joints.html"
+    },
+    {
+      "source": "/index",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/body-blood",
+      "destination": "/body-blood.html"
+    },
+    {
+      "source": "/body-blood-anemia-loop",
+      "destination": "/body-blood-anemia-loop.html"
+    },
+    {
+      "source": "/body-blood-anemia-b12-nonresponse",
+      "destination": "/body-blood-anemia-b12-nonresponse.html"
+    },
+    {
+      "source": "/body-endocrine",
+      "destination": "/body-endocrine.html"
+    },
+    {
+      "source": "/body-endocrine-thyroid-nodules",
+      "destination": "/body-endocrine-thyroid-nodules.html"
+    },
+    {
+      "source": "/body-blood-b12-anemia-pcos-protocol",
+      "destination": "/body-blood-b12-anemia-pcos-protocol.html"
+    },
+    {
+      "source": "/body-metabolic-inflammation",
+      "destination": "/body-metabolic-inflammation.html"
+    },
+    {
+      "source": "/body-metabolic-visceral-fat",
+      "destination": "/body-metabolic-visceral-fat.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300"
+        }
+      ]
+    }
+  ]
+}
