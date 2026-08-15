@@ -118,6 +118,9 @@ textarea.sm{min-block-size:88px}
 .btn{border:1px solid transparent;border-radius:12px;padding:12px 20px;min-block-size:44px;font:inherit;
   font-weight:700;cursor:pointer;background:var(--accent);color:#fff}
 .btn:hover{background:#17402f}
+/* the logout control is a link, not a button: give it the same box, hit area
+   and centring so the sidebar stack stays visually uniform */
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
 .btn.secondary{background:var(--surface);color:var(--accent);border-color:var(--accent)}
 .btn.secondary:hover{background:var(--accent-soft)}
 .btn.ghost{background:transparent;color:#4a544e;border-color:var(--line);font-weight:400}
