@@ -1,0 +1,13 @@
+{
+  "name": "foaad-tadabbur",
+  "private": true,
+  "version": "2.2.0",
+  "type": "module",
+  "description": "بلّغوا عني ولو آية — مسار التدبر من مشروع الفؤاد. Static app + edge access gate. No build step.",
+  "scripts": {
+    "test": "node test/locked-content.mjs && node test/run.mjs && node test/gate.mjs"
+  },
+  "dependencies": {
+    "@vercel/functions": "3.1.3"
+  }
+}
