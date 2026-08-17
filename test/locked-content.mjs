@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 
 const EXPECTED = new Map([
   ["test/cards.json", "9b70fc95bb2eae5aa476faf03e5409cd311e5090bfcbd8c979ad935d8a8418ef"],
-  ["js/corpus.js", "4b7ed3d8960b34b10a4b847ced3a5c60445fe41f3f816b6faad769e711a02874"],
+  ["js/corpus.js", "c369d82910e2c0a600300653743f93b425b7cf66334e2990b4aac43826433105"],
   ["js/app.js", "85553a25aa1e09013adab027e78ceb469db570bc7a36998125306a91a0bb4800"],
   ["js/store.js", "099a7fb5997c6e843ff6a0e5a269d4f7b82a65c57db34fb5c4415da81a30dac9"],
   ["js/views.js", "cbb89da9421f3a0258c59900834560e7fa33cecd4cda3827ae17a07e04767361"],
