@@ -1,4 +1,4 @@
-/* ==========================================================================
+/* ========================================================================== 
    corpus.js — CORPUS LOADER (Block 2, P4)
 
    Generalised over hizbs. Adding a hizb is a data operation: append one row
@@ -13,7 +13,8 @@ const SELECT = "card_id,hizb_id,index,surah,ayah,verse_text,tadabbur_text";
 export const HIZBS = [
   { id: "H01", title: "الحزب الأول",  range: "من الفاتحة إلى البقرة 74" },
   { id: "H02", title: "الحزب الثاني", range: "من البقرة 75 إلى البقرة 141" },
-  { id: "H03", title: "الحزب الثالث", range: "من البقرة 142 إلى البقرة 202" }
+  { id: "H03", title: "الحزب الثالث", range: "من البقرة 142 إلى البقرة 202" },
+  { id: "H04", title: "الحزب الرابع", range: "من البقرة 203 إلى البقرة 252" }
 ];
 export const hizbMeta = id => HIZBS.find(h => h.id === id) || { id, title: id, range: "" };
 
