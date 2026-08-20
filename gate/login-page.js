@@ -56,7 +56,7 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 <main class="card">
   <div class="mark" aria-hidden="true">ف</div>
   <h1>بلّغوا عني ولو آية</h1>
-  <p class="sub">مسار التدبر من مشروع الفؤاد</p>
+  <p class="sub">مسار الفؤاد للتدبر · من بيت الفؤاد</p>
   ${msg}
   <form method="POST" action="/login" autocomplete="off" accept-charset="UTF-8">
     <label for="pw">كلمة المرور</label>
