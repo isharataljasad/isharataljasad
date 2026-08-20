@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e1a15">
+<meta name="color-scheme" content="light dark">
 <title>بلّغوا عني ولو آية · مسار الفؤاد للتدبر · بيت الفؤاد</title>
 <meta name="description" content="مسار الفؤاد للتدبر من بيت الفؤاد — أربعة أحزاب متاحة حتى البقرة 252">
+<!-- the application itself is behind the access gate; keep it out of every index -->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="preload" as="font" type="font/woff2" href="fonts/amiri-quran-ar.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/noto-sans-arabic-regular.woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
@@ -15,45 +21,60 @@
 
 <header class="topbar">
   <div class="brand">
-    <div class="mark" aria-hidden="true">ف</div>
-    <div><b>بلّغوا عني ولو آية</b><span>مسار الفؤاد للتدبر · من بيت الفؤاد</span></div>
+    <span class="mark" aria-hidden="true">ف</span>
+    <span class="brand-text">
+      <b>بلّغوا عني ولو آية</b>
+      <span>مسار الفؤاد للتدبر · من بيت الفؤاد</span>
+    </span>
   </div>
-  <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="sideNav">
-    <span aria-hidden="true">☰</span><span class="visually-hidden">القائمة</span>
+  <button id="menuBtn" class="menu-btn" type="button" aria-expanded="false" aria-controls="sideNav">
+    <span class="menu-glyph" aria-hidden="true">☰</span><span class="visually-hidden">القائمة</span>
   </button>
 </header>
 
 <div class="shell">
+  <div class="scrim" id="scrim" hidden></div>
+
   <nav id="sideNav" class="side-nav" aria-label="الأقسام">
-    <ul>
-      <li><button class="nav" data-view="encounter" aria-current="page">اللقاء</button></li>
-      <li><button class="nav" data-view="written">ما كتبتُه</button></li>
-      <li><button class="nav" data-view="chosen">ما اخترتُه</button></li>
-      <li><button class="nav" data-view="return">العودة</button></li>
+    <ul class="nav-list">
+      <li><button class="nav" type="button" data-view="encounter" aria-current="page">اللقاء</button></li>
+      <li><button class="nav" type="button" data-view="hizbs">الأحزاب</button></li>
     </ul>
-    <hr class="nav-sep">
-    <ul><li><button class="nav" data-view="hizbs">الأحزاب</button></li></ul>
-    <hr class="nav-sep">
-    <label for="scaleSel">حجم النص</label>
-    <select id="scaleSel">
-      <option value="md">عادي</option><option value="lg">أكبر</option><option value="xl">الأكبر</option>
-    </select>
-    <div class="actions stack">
-      <button class="btn ghost" id="exportBtn">تصدير نسخة من سجلي</button>
-      <button class="btn quiet-danger" id="eraseBtn">مسح بياناتي من هذا الجهاز</button>
-      <a class="btn ghost logout" href="/logout">تسجيل الخروج</a>
+
+    <p class="nav-group-label" id="nav-mine">سجلي</p>
+    <ul class="nav-list" aria-labelledby="nav-mine">
+      <li><button class="nav" type="button" data-view="written">ما كتبتُه</button></li>
+      <li><button class="nav" type="button" data-view="chosen">ما اخترتُه</button></li>
+      <li><button class="nav" type="button" data-view="return">العودة</button></li>
+    </ul>
+
+    <p class="nav-group-label" id="nav-settings">الإعدادات</p>
+    <div class="nav-settings" aria-labelledby="nav-settings">
+      <label for="scaleSel">حجم النص</label>
+      <select id="scaleSel">
+        <option value="md">عادي</option><option value="lg">أكبر</option><option value="xl">الأكبر</option>
+      </select>
+      <div class="actions stack">
+        <button class="btn ghost" type="button" id="exportBtn">تصدير نسخة من سجلي</button>
+        <button class="btn quiet-danger" type="button" id="eraseBtn">مسح بياناتي من هذا الجهاز</button>
+        <a class="btn ghost logout" href="/logout">تسجيل الخروج</a>
+      </div>
+      <p class="nav-note">ما تكتبه يبقى في هذا الجهاز. التصدير نسخة لك وحدك.</p>
     </div>
   </nav>
 
-  <main id="app" class="content" tabindex="-1"></main>
+  <main id="app" class="content" tabindex="-1" aria-label="المحتوى"></main>
 </div>
 
 <footer class="site">
   <span>بيت الفؤاد · مسار الفؤاد للتدبر — الدقة قبل البلاغة</span>
-  <button class="help-link" id="helpBtn">تحتاج مساعدة الآن؟</button>
+  <button class="help-link" type="button" id="helpBtn">تحتاج مساعدة الآن؟</button>
 </footer>
 
+<p id="live" class="visually-hidden" role="status" aria-live="polite"></p>
+
 <dialog id="safetyDlg" aria-labelledby="safety-h"></dialog>
+<dialog id="confirmDlg" aria-labelledby="erase-h"></dialog>
 <script type="module" src="js/app.js"></script>
 <noscript><p class="noscript-note">هذه النسخة تحتاج إلى تفعيل الجافاسكربت لعرض البطاقات.</p></noscript>
 </body>
