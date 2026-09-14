@@ -22,7 +22,7 @@ export function loginPage({ nonce, error = "", status = 200 }) {
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e1a15">
 <meta name="robots" content="noindex,nofollow">
-<title>بلّغوا عني ولو آية · الدخول</title>
+<title>مختبر العلوم · الدخول</title>
 <style nonce="${nonce}">
 :root{--ink:#0e1a15;--paper:#fbf8f1;--surface:#fff;--line:#ded8c9;--text:#16211c;
 --muted:#5a6b62;--gold:#8a6d3b;--danger:#8c2f2f}
@@ -55,8 +55,8 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 <body>
 <main class="card">
   <div class="mark" aria-hidden="true">ف</div>
-  <h1>بلّغوا عني ولو آية</h1>
-  <p class="sub">مسار التدبر من مشروع الفؤاد</p>
+  <h1>مختبر العلوم</h1>
+  <p class="sub">منصة المشروع · من الفهم إلى الاكتشاف</p>
   ${msg}
   <form method="POST" action="/login" autocomplete="off" accept-charset="UTF-8">
     <label for="pw">كلمة المرور</label>
@@ -64,7 +64,7 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
            autocomplete="current-password" spellcheck="false" dir="ltr">
     <button type="submit">الدخول</button>
   </form>
-  <p class="foot">الدقة قبل البلاغة</p>
+  <p class="foot">ثلاثة مصادر · مسار واضح · تعلم قابل للتجربة</p>
 </main>
 </body>
 </html>`;

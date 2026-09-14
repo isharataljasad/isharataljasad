@@ -1,311 +1,38 @@
-/* ==========================================================================
-   app.js — RUNTIME. Wiring only. All markup lives in views.js, all writes in
-   store.js. This file must contain no Quranic claim and no interpretation.
-   ========================================================================== */
-
-import * as S from "./store.js";
-import * as V from "./views.js";
-import { loadHizb, HIZBS, hizbMeta } from "./corpus.js";
-
-let CARDS = [];              // current hizb, ordered
-let hizbId = S.getState().hizb || "H01";
-let view = "encounter";
-let returnMode = null;
-let saveTimer = null;
-
-const $  = s => document.querySelector(s);
-const app = () => $("#app");
-const cardAt = i => CARDS[Math.max(0, Math.min(i, CARDS.length - 1))];
-const cursor = () => S.getCursor(hizbId);
-const setCursor = i => S.setCursor(hizbId, i);
-
-/* ---- DIRTY GUARD: nothing the user typed is ever lost on navigation ------ */
-function commit() { S.commitAllDrafts(); S.flush(); }
-window.addEventListener("beforeunload", commit);
-window.addEventListener("pagehide", commit);                 /* iOS bfcache */
-document.addEventListener("visibilitychange", () => {        /* iOS app-switch */
-  if (document.visibilityState === "hidden") commit();
-});
-
-/* ---- ROUTING ------------------------------------------------------------- */
-const NAV = [
-  ["encounter", "اللقاء"], ["written", "ما كتبتُه"], ["chosen", "ما اخترتُه"],
-  ["return", "العودة"], ["hizbs", "الأحزاب"]
-];
-
-function go(v) {
-  commit();
-  view = v; returnMode = null;
-  document.querySelectorAll(".nav").forEach(b =>
-    b.setAttribute("aria-current", b.dataset.view === v ? "page" : "false"));
-  if ($("#sideNav").classList.contains("open")) setDrawer(false);
-  render();
-  app().focus({ preventScroll: true });
-}
-
-function render() {
-  const el = app();
-  if (view === "encounter") {
-    const i = cursor(), c = cardAt(i);
-    if (!c) { el.innerHTML = `<div class="empty"><b>لا توجد بطاقات.</b></div>`; return; }
-    const d = S.derive(c.cardId);
-    el.innerHTML = V.encounter(c, d, {
-      position: i + 1, total: CARDS.length,
-      hizbTitle: hizbMeta(hizbId).title,
-      draft: S.getDraft(c.cardId, "observation")
-    });
-    wireEncounter(c, d, i);
-  } else if (view === "written") {
-    el.innerHTML = V.written(collect(d => d.observation));
-    wireCardRows();
-  } else if (view === "chosen") {
-    el.innerHTML = V.chosen(collect(d => d.direction));
-    wireCardRows();
-  } else if (view === "return") {
-    if (returnMode === "recovery")      { el.innerHTML = V.returnRecovery(); wireRecovery(); }
-    else if (returnMode === "periodic") { el.innerHTML = V.returnPeriodic(collect(d => d.observation)); wirePeriodic(); }
-    else {
-      el.innerHTML = V.returnHome();
-      el.querySelectorAll("[data-return]").forEach(b =>
-        b.onclick = () => { returnMode = b.dataset.return; render(); });
-    }
-  } else if (view === "hizbs") {
-    const derived = Object.fromEntries(CARDS.map(c => [c.cardId, S.derive(c.cardId)]));
-    el.innerHTML = V.hizbList(HIZBS, hizbId, CARDS, derived);
-    el.querySelectorAll("[data-hizb]").forEach(b => b.onclick = () => switchHizb(b.dataset.hizb));
-    wireCardRows();
-  }
-  if (view !== "encounter") window.scrollTo({ top: 0 });
-  restoreFocus();
-}
-
-/* Only cards in the CURRENT hizb are resolvable to titles; others are skipped
-   in the list rather than rendered with missing text. */
-function collect(pred) {
-  const byId = Object.fromEntries(CARDS.map(c => [c.cardId, c]));
-  return S.cardsWith(pred).filter(x => byId[x.cardId])
-    .map(x => ({ ...x, card: byId[x.cardId] }))
-    .sort((a, b) => byId[a.cardId].index - byId[b.cardId].index);
-}
-
-function openCard(cardId) {
-  const i = CARDS.findIndex(c => c.cardId === cardId);
-  if (i < 0) return;
-  commit(); setCursor(i); view = "encounter";
-  document.querySelectorAll(".nav").forEach(b => b.setAttribute("aria-current", b.dataset.view === "encounter" ? "page" : "false"));
-  render(); window.scrollTo({ top: 0 });
-}
-const wireCardRows = () => document.querySelectorAll("[data-card]").forEach(b => b.onclick = () => openCard(b.dataset.card));
-
-/* ---- ENCOUNTER ----------------------------------------------------------- */
-function wireEncounter(c, d, i) {
-  const obs = $("#obs"), status = $("#obs-save"), after = $("#afterObs");
-
-  obs.oninput = () => {
-    S.setDraft(c.cardId, "observation", obs.value);          // scratch, not an event
-    after.hidden = !obs.value.trim();
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => {                 /* announce settled state only */
-      status.textContent = S.persistDidFail()
-        ? "تعذّر الحفظ على هذا الجهاز — انسخ نصك قبل الإغلاق"
-        : "محفوظ في هذا الجهاز";
-    }, 700);
-  };
-  obs.onblur = () => { if (S.commitObservation(c.cardId, hizbId)) refresh(); };
-
-  $("#saveObs").onclick = () => {
-    const r = S.commitObservation(c.cardId, hizbId);
-    toast(r === "revised" ? "حُفظ التنقيح — ونصك الأول محفوظ أيضًا" : "حُفظ في جهازك");
-    refresh();
-  };
-
-  /* multi-select; the two exclusive answers clear the rest and vice versa */
-  document.querySelectorAll("[data-cat]").forEach(btn => btn.onclick = () => {
-    const val = btn.dataset.cat;
-    const excl = V.CATEGORIES_EXCLUSIVE.includes(val);
-    const on = btn.getAttribute("aria-pressed") === "true";
-    document.querySelectorAll("[data-cat]").forEach(b => {
-      const bx = V.CATEGORIES_EXCLUSIVE.includes(b.dataset.cat);
-      if (excl ? !bx || b !== btn : bx) b.setAttribute("aria-pressed", "false");
-    });
-    btn.setAttribute("aria-pressed", on ? "false" : "true");
-    const picked = [...document.querySelectorAll('[data-cat][aria-pressed="true"]')].map(b => b.dataset.cat);
-    S.append("CATEGORY_SET", { categories: picked }, { cardId: c.cardId, hizbId });
-  });
-
-  $("#prevCard").onclick = () => { commit(); setCursor(i - 1); render(); window.scrollTo({ top: 0 }); };
-  $("#nextCard").onclick = () => { commit(); setCursor(i + 1); render(); window.scrollTo({ top: 0 }); };
-
-  wireBridge(c);
-}
-
-/* ---- BRIDGE (downstream only) -------------------------------------------- */
-function wireBridge(c) {
-  document.querySelectorAll("[data-life]").forEach(b => b.onclick = () => {
-    S.append("LIFE_LINK_ANSWERED", { answer: b.dataset.life }, { cardId: c.cardId, hizbId });
-    refresh();
-  });
-  const save = $("#saveBridge");
-  if (save) save.onclick = () => {
-    const life = $("#lifeText").value.trim(), dir = $("#direction").value.trim();
-    const d = S.derive(c.cardId);
-    if (life && life !== d.lifeText) S.append("LIFE_CONNECTION", { text: life }, { cardId: c.cardId, hizbId });
-    if (dir && dir !== d.direction)  S.append("DIRECTION_CHOSEN", { text: dir }, { cardId: c.cardId, hizbId });
-    toast("حُفظ"); refresh();
-  };
-  wireSupport(c);
-}
-
-/* ---- THE SINGLE SUPPORT MODULE ------------------------------------------- */
-function wireSupport(c) {
-  document.querySelectorAll("[data-bn]").forEach(b => b.onclick = () => {
-    S.append("BOTTLENECK_NOTED", { key: b.dataset.bn }, { cardId: c.cardId, hizbId });
-    refresh();
-  });
-  const sp = $("#savePlan");
-  if (!sp) return;
-  sp.onclick = () => {
-    const d = S.derive(c.cardId);
-    const p = $("#pAction") ? {
-      action: $("#pAction").value.trim(), when: $("#pWhen").value.trim(),
-      where: $("#pWhere").value.trim(), obstacle: $("#pObstacle").value.trim(),
-      then: $("#pThen").value.trim()
-    } : { observeNote: $("#observeNote").value.trim() };
-    S.append(d.plan ? "PLAN_REVISED" : "PLAN_CREATED", p, { cardId: c.cardId, hizbId });
-    toast("حُفظت الخطة في جهازك"); refresh();
-  };
-}
-
-/* Re-render replaces innerHTML, which drops focus to <body>. Keyboard users
-   would lose their place on every chip press. Remember a stable key for the
-   focused control and restore it after the new markup lands. */
-let focusKey = null;
-function rememberFocus() {
-  const el = document.activeElement;
-  if (!el || el === document.body) { focusKey = null; return; }
-  for (const a of ["id", "data-cat", "data-bn", "data-life", "data-kind", "data-need"]) {
-    const v = el.getAttribute && el.getAttribute(a);
-    if (v) { focusKey = `[${a}="${CSS.escape(v)}"]`; return; }
-  }
-  focusKey = null;
-}
-function restoreFocus() {
-  if (!focusKey) return;
-  const el = document.querySelector(focusKey);
-  focusKey = null;
-  if (el) el.focus({ preventScroll: true });
-}
-function refresh() { rememberFocus(); const y = window.scrollY; render(); window.scrollTo({ top: y }); }
-
-/* ---- RETURN -------------------------------------------------------------- */
-function wireRecovery() {
-  const pick = sel => [...document.querySelectorAll(`${sel} [aria-pressed="true"]`)]
-    .map(b => b.dataset.kind || b.dataset.need);
-  document.querySelectorAll("#lapseKinds .chip, #lapseNeeds .chip").forEach(b =>
-    b.onclick = () => b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true"));
-  $("#saveRecovery").onclick = () => {
-    S.append("RETURN_RECOVERY", {
-      what: $("#whatHappened").value.trim(),
-      kinds: pick("#lapseKinds"), needs: pick("#lapseNeeds")
-    }, {});
-    toast("سُجّل"); returnMode = null; render();
-  };
-  document.querySelectorAll("[data-go]").forEach(b => b.onclick = () => { returnMode = null; render(); });
-}
-function wirePeriodic() {
-  document.querySelectorAll("[data-periodic]").forEach(b => b.onclick = () => {
-    const id = b.dataset.periodic;
-    S.append("RETURN_PERIODIC", { target: "card" }, { cardId: id, hizbId: id.split("-")[0] });
-    openCard(id);
-  });
-}
-
-/* ---- HIZB SWITCH --------------------------------------------------------- */
-async function switchHizb(id) {
-  if (id === hizbId) return;
-  commit();
-  hizbId = id; S.setHizb(id);
-  await boot({ keepView: "hizbs" });
-}
-
-/* ---- CHROME -------------------------------------------------------------- */
-function toast(text) {
-  document.querySelector(".toast")?.remove();
-  const d = document.createElement("div");
-  d.className = "toast"; d.setAttribute("role", "status"); d.textContent = text;
-  document.body.appendChild(d); setTimeout(() => d.remove(), 2200);
-}
-const isMobile = () => window.matchMedia("(max-width:860px)").matches;
-
-/* The drawer used to be hidden with transform alone, which leaves it in the
-   tab order and readable by screen readers while off-screen. */
-function setDrawer(open) {
-  const n = $("#sideNav");
-  n.classList.toggle("open", open);
-  $("#menuBtn").setAttribute("aria-expanded", String(open));
-  if (open) n.querySelector(".nav").focus({ preventScroll: true });
-  else if (isMobile()) $("#menuBtn").focus({ preventScroll: true });
-}
-
-function wireChrome() {
-  $("#menuBtn").onclick = () => setDrawer(!$("#sideNav").classList.contains("open"));
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && $("#sideNav").classList.contains("open")) setDrawer(false);
-  });
-  window.addEventListener("resize", () => { if (!isMobile()) $("#sideNav").classList.remove("open"); });
-  document.querySelectorAll(".nav").forEach(b => b.onclick = () => go(b.dataset.view));
-  /* The safety surface is the one thing that must never be unreachable.
-     <dialog>.showModal() is unsupported on iOS < 15.4 and older Android
-     WebViews, so fall back to a plain open panel with manual focus + Esc. */
-  $("#helpBtn").onclick = () => {
-    const dlg = $("#safetyDlg"), opener = document.activeElement;
-    dlg.innerHTML = V.safetyDialog();
-    const close = () => {
-      if (typeof dlg.close === "function" && dlg.open) dlg.close(); else dlg.removeAttribute("open");
-      document.removeEventListener("keydown", onKey);
-      if (opener && opener.focus) opener.focus({ preventScroll: true });   // Safari does not always restore
-    };
-    const onKey = e => { if (e.key === "Escape") close(); };
-    dlg.querySelector("[data-close]").onclick = close;
-    if (typeof dlg.showModal === "function") { dlg.showModal(); }
-    else { dlg.setAttribute("open", ""); dlg.classList.add("dialog-fallback"); }
-    document.addEventListener("keydown", onKey);
-    dlg.querySelector("[data-close]").focus({ preventScroll: true });
-  };
-  $("#exportBtn").onclick = () => {
-    commit();
-    const blob = new Blob([JSON.stringify(S.exportBundle(), null, 2)], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob); a.download = "foaad-my-record.json"; a.click();
-    URL.revokeObjectURL(a.href);
-  };
-  $("#eraseBtn").onclick = () => {
-    if (confirm("سيُحذف كل ما كتبته من هذا الجهاز نهائيًا. لا يمكن التراجع. هل تريد المتابعة؟")) {
-      S.eraseEverything(); location.reload();
-    }
-  };
-  const scale = $("#scaleSel");
-  scale.value = S.getState().prefs.scale || "md";
-  document.body.dataset.scale = scale.value;
-  scale.onchange = () => { document.body.dataset.scale = scale.value; S.setPref("scale", scale.value); };
-}
-
-/* ---- BOOT ---------------------------------------------------------------- */
-async function boot({ keepView } = {}) {
-  app().innerHTML = `<div class="empty" role="status">جارٍ تحميل البطاقات…</div>`;
-  try {
-    const r = await loadHizb(hizbId);
-    CARDS = r.cards;
-    view = keepView || "encounter";
-    render();
-    if (r.source === "cache") toast("نسخة محفوظة على جهازك — تعذّر الاتصال");
-  } catch (e) {
-    app().innerHTML = `<div class="empty"><b>تعذّر تحميل البطاقات.</b>
-      لا يوجد اتصال، ولا توجد نسخة محفوظة على هذا الجهاز بعد.
-      <div class="actions center"><button class="btn" id="retry">إعادة المحاولة</button></div></div>`;
-    $("#retry").onclick = () => boot({ keepView });
-  }
-}
-
-wireChrome();
-boot();
+import {TRACKS,STATUSES,assessmentStatus,canMerge,validateState,handoff} from './model.js';
+const $=s=>document.querySelector(s), KEY='science-project-v1';
+const names={books:'الكتابان · Cengage وPearson',educator:'Educator · دروس الفيزياء',pearson:'Pearson+ · الفيديوهات',all:'المشروع كاملًا'};
+const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state,pearson,view='home',reqFilter='',loadError=false;
+function notice(s){$('#notice').textContent=s}
+function save(){state.updatedAt=new Date().toISOString();if(loadError){notice('النسخة السابقة تعذر قراءتها. صدّر الحالة الحالية أولًا؛ لم تُستبدل البيانات القديمة.');return false}try{localStorage.setItem(KEY,JSON.stringify(state));notice('حُفظ في هذا المتصفح. صدّر الذاكرة لنقل آخر تحديث إلى المساعد أو جهاز آخر.');return true}catch{notice('تعذر الحفظ في المتصفح. صدّر ذاكرة المشروع الآن للاحتفاظ بالتغييرات.');return false}}
+function dl(name,blob){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000)}
+function exportState(){dl('Science_Project_Memory.json',new Blob([JSON.stringify(state,null,2)],{type:'application/json'}))}
+function addLog(track,author,text){state.journal.unshift({id:crypto.randomUUID(),date:new Date().toISOString(),track,author,text});save()}
+const date=s=>new Date(s).toLocaleString('ar-SA',{dateStyle:'medium',timeStyle:'short'});
+const select=(name,value,options)=>`<select name="${name}">${Object.entries(options).map(([k,v])=>`<option value="${e(k)}" ${value===k?'selected':''}>${e(v)}</option>`).join('')}</select>`;
+function trackCard(k,i){const t=state.tracks[k];return `<article class="card"><span class="num">المسار 0${i+1}</span><h2>${names[k]}</h2><span class="pill amber">${STATUSES[t.status]}</span><p class="tagline">${k==='books'?'دليل الكتابين + خريطة المراجع':k==='educator'?'92 درسًا محولًا إلى مادة دراسة':'372 فيديو · 26 متطلبًا مقترحًا'}</p><div class="next"><b>الخطوة التالية · ${e(t.owner)}</b><br>${e(t.next)}</div><p class="tagline">اعتماد الأب: ${t.parent?'مسجل':'بانتظار المراجعة'}<br>تجربة الطالب: ${t.student?'معتمدة':'بانتظار التجربة'}</p><a class="action" href="#${k}">فتح المسار ←</a></article>`}
+function home(){return `<section class="hero"><div><span class="kicker">ذاكرة المشروع · المرحلة الأولى</span><h1>نعرف أين وصلنا.<br>ونعرف ماذا يأتي بعدها.</h1><p class="muted">ثلاثة مصادر لبناء تجربة علوم يحبها الطالب. هنا تجد آخر تدقيق، والخطوة التالية، وما يحتاج قرارك؛ حتى نكمل من حيث توقفنا.</p></div><div class="orbit" aria-hidden="true"><b>شغف العلم</b><span>الكتابان</span><span>Educator</span><span>Pearson+</span></div></section><section class="strip"><b>${canMerge(state)?'اكتملت بوابات الاعتماد المسجلة':'الدمج مؤجل · نراجع كل مصدر مستقلًا'}</b><p>${canMerge(state)?'يمكن التخطيط لمرحلة الدمج؛ لم يحدث دمج تلقائي للمحتوى.':'إغلاق التدقيق، ثم اعتمادك وتجربة ابنك لكل مسار. توصيف الكلية الرسمي ما زال مطلوبًا لتثبيت نطاق الفصل الأول.'}</p></section><div class="grid">${TRACKS.map(trackCard).join('')}</div><div class="two"><section class="card"><span class="kicker">المطلوب منك الآن</span><h2>خطوة واحدة واضحة</h2><p>تثبيت توصيف PHY101 للفصل الأول عند توفره. وفي الأثناء، جرّب مع ابنك درسًا قصيرًا من Pearson وسجّل الفهم والتطبيق.</p><a class="button" href="#pearson">ابدأ تجربة درس</a></section><section class="card"><span class="kicker">العودة بعد التوقف</span><h2>سلّم آخر حالة للمساعد</h2><p>حمّل ملخص التسليم مع ذاكرة المشروع وأرفقهما للمساعد الذي سيكمل. السجل لا يتصل بمحادثات Claude أو Codex تلقائيًا.</p><button class="secondary" data-handoff>تحميل ملخص التسليم ↓</button></section></div><section class="card"><h2>آخر ما حدث</h2>${logs(state.journal.slice(0,3))}<a href="#journal">عرض سجل العمل كاملًا ←</a></section>`}
+function logs(rows){return rows.length?rows.map(x=>`<article class="log"><small>${e(date(x.date))} · ${e(x.author)} · ${e(names[x.track])}</small><p>${e(x.text)}</p></article>`).join(''):'<p class="empty">لا توجد تحديثات مسجلة.</p>'}
+function trackForm(k){const t=state.tracks[k];return `<section class="card"><h2>الحالة والخطوة التالية</h2><form id="track-form"><div class="fields"><label>حالة التدقيق${select('status',t.status,STATUSES)}</label><label>المسؤول عن الخطوة التالية${select('owner',t.owner,{'Claude':'Claude','Codex':'Codex','الأب':'الأب','الطالب':'الطالب'})}</label><label class="wide">الخطوة التالية<textarea name="next" required maxlength="20000">${e(t.next)}</textarea></label><label class="wide">ملاحظات وأدلة الاعتماد<textarea name="note" maxlength="20000">${e(t.note)}</textarea></label></div><label class="check"><input type="checkbox" name="parent" ${t.parent?'checked':''}>اعتمد الأب فعالية هذا المصدر وملاءمته</label><label class="check"><input type="checkbox" name="student" ${t.student?'checked':''}>جرّب الطالب هذا المصدر وأقر بأنه عملي ومفيد</label><button>حفظ الحالة</button></form></section>`}
+function track(k){const desc=k==='books'?'المراجع الأصلية ودليل الدراسة الناتج عنها. هذا المسار مستقل عن الفيديوهات.':k==='educator'?'تحويل محاضرات Educator إلى دروس قابلة للفهم والممارسة، مع تدقيق أخطاء التفريغ.':'جرد فيديوهات Pearson وربطها بمتطلبات الفيزياء المقترحة، مع تقييم الطالب لكل متطلب.';return `<span class="kicker">${k==='books'?'01':k==='educator'?'02':'03'} / مسار مستقل</span><h1>${names[k]}</h1><p class="muted">${desc}</p>${k==='pearson'?pearsonIntro():sourceIntro(k)}${trackForm(k)}${k==='pearson'?`<section class="section-head"><div><h2>متطلبات PHY101 والفيديوهات</h2><p class="muted">اختر متطلبًا، شاهد الشرح، ثم جرّب حلًا وسجّل تقييمك.</p></div></section><label class="search">البحث في المتطلبات وكل عناوين الفيديوهات<input id="search" placeholder="مثال: الحركة، Newton، vectors" value="${e(reqFilter)}"></label><div id="requirements">${requirements()}</div>`:''}`}
+function sourceIntro(k){return k==='books'?`<div class="two"><section class="card"><span class="pill">Cengage</span><h2 dir="ltr">Physics for Scientists and Engineers, 11e</h2><p>مرجع الكتاب الأول في الحزمة المقدمة. تثبيت بيانات النسخة والإحالات من صفحات الكتاب جزء من التدقيق.</p></section><section class="card"><span class="pill">Pearson</span><h2 dir="ltr">Physics for Scientists and Engineers: A Strategic Approach with Modern Physics</h2><p>Randall D. Knight · الطبعة الخامسة العالمية، وفق الحزمة المقدمة.</p></section></div><section class="card"><h2>نتيجة التدقيق الحالية</h2><p>وصلت الجولة الثانية: ثلاث إحالات خُفّضت إلى غير متحقق منها. يذكر Claude العثور على القيم الـ442 داخل Word، لكن مطابقة الجواب بمثاله لم تُنجز. بقي تصحيح عمود طريقة التحقق، ونسخة Knight، وصياغة الفحص البصري.</p><div class="links"><a href="resources/books-audit-v2.md" download>تدقيق الجولة الثانية</a><a href="resources/audit-round-1.md" download>تحميل تدقيق الكتابين والمصادر</a><a href="#files">إرفاق ملفات الدليل محليًا</a></div></section>`:`<section class="card"><div class="stats"><div><strong>92</strong><small>درسًا في الحزمة</small></div><div><strong>Word</strong><small>دليل دراسة مُعدّ</small></div><div><strong>انتقائي</strong><small>مستوى التدقيق السابق</small></div></div><p>المطلوب الآن مراجعة المصطلحات والمعادلات والأجزاء المعتمدة على رسوم الفيديو، وتحديد ما يدخل في الفصل الأول. وجود الدليل لا يعني انتهاء التدقيق العلمي.</p><div class="links"><a href="https://www.educator.com/" target="_blank" rel="noopener noreferrer">فتح Educator ↗</a><a href="resources/audit-round-1.md" download>تقرير التدقيق</a><a href="#files">إرفاق الدليل أو ملفات SRT</a></div></section>`}
+function pearsonIntro(){return `<section class="card"><div class="stats"><div><strong>372</strong><small>فيديو فريدًا</small></div><div><strong>26</strong><small>متطلبًا مع التمهيد الرياضي</small></div><div><strong>31:48:08</strong><small>مجموع مدد الفيديوهات</small></div></div><p>العدد وعلاقات الربط مدققان محليًا. وفق سجل الحزمة: تشغيل الفيديوهات 0، والمراجعة العلمية 0. عدد 120 حلًا يفتح صفحة الموضوع؛ ابحث فيها عن عنوان الحل المعروض.</p><div class="links"><a href="https://plus.pearson.com/home" target="_blank" rel="noopener noreferrer">فتح Pearson+ ↗</a><a href="resources/audit-pearson-v2.md" download>تقرير التدقيق الثاني</a><a href="resources/claude-next.txt" download>مهمة Claude التالية</a></div><p class="tagline">الروابط تفتح Pearson وقد تحتاج اشتراكك. الفيديوهات تُشاهد لدى الناشر.</p></section>`}
+function videoRows(vs){return `<div class="videos"><table><thead><tr><th>الفيديو</th><th>النوع والمدة</th><th>المشاهدة</th><th>التدريب</th></tr></thead><tbody>${vs.map(v=>`<tr><td><b dir="auto">${e(v.t)}</b><br><small dir="auto">${e(v.tp)}</small><br><small>${e(v.id)}</small></td><td>${e(v.cta)}<br><span dir="ltr">${e(v.d)}</span></td><td><a href="${e(v.u)}" target="_blank" rel="noopener noreferrer">${v.indiv?'فتح الفيديو':'فتح الموضوع والبحث عن العنوان'} ↗</a></td><td>${v.ws?`<a href="${e(v.ws)}" target="_blank" rel="noopener noreferrer">ورقة العمل ↗</a>`:''}${v.pr?`<br><a href="${e(v.pr)}" target="_blank" rel="noopener noreferrer">تدريب ↗</a>`:''}</td></tr>`).join('')}</tbody></table></div>`}
+function requirements(){const rs=pearson.reqs.filter(r=>(r.id+' '+r.ar+' '+r.en+' '+r.obj+' '+[...r.primary,...r.supporting].map(v=>v.t+' '+v.tp).join(' ')).toLowerCase().includes(reqFilter.toLowerCase()));return rs.length?rs.map(r=>{const a=state.assessments[r.id]||{};return `<details><summary>${e(r.id)} · ${e(r.ar)}<small>${r.primary.length} فيديو أساسي · ${e(r.dur)} · التقييم: <span data-assessment="${r.id}">${assessmentStatus(a)}</span></small></summary><p>${e(r.obj)}</p><p class="muted">المتطلبات السابقة: ${e(r.prereq)}</p>${r.note?`<p class="strip">${e(r.note)}</p>`:''}${videoRows(r.primary)}${r.supporting.length?`<details><summary>فيديوهات داعمة (${r.supporting.length})</summary>${videoRows(r.supporting)}</details>`:''}<form class="feedback" data-req="${r.id}"><h3>تجربة الطالب</h3><p class="tagline">اكتمال الإجابات يعني اكتمال التقييم؛ الإتقان يحتاج الفهم والتطبيق.</p><div class="fields"><label>هل فهمت الفكرة؟${select('understood',a.understood||'',{'':'لم أقيّم','yes':'نعم','partial':'جزئيًا','no':'لا'})}</label><label>هل حللت مسألة بنفسك؟${select('applied',a.applied||'',{'':'لم أقيّم','yes':'نعم','partial':'بمساعدة','no':'لا'})}</label><label>هل تحتاج شرحًا آخر؟${select('needMore',a.needMore||'',{'':'لم أقيّم','yes':'نعم','partial':'ربما','no':'لا'})}</label></div><label>ما الذي ساعدك؟ وما الذي أعاقك؟<textarea name="note" maxlength="20000">${e(a.note)}</textarea></label><button>حفظ تقييم المتطلب</button></form></details>`}).join(''):'<p class="empty">لا توجد نتائج مطابقة. جرّب اسم الموضوع بالعربية أو الإنجليزية.</p>'}
+function journal(){return `<span class="kicker">نقطة الاستئناف</span><h1>سجل العمل والتسليم</h1><p class="muted">بعد كل جلسة: سجّل ما أُنجز، وحدّث الخطوة التالية في المسار، ثم صدّر الذاكرة. هذا هو مرجع العودة.</p><section class="card"><h2>تحديث جديد</h2><form id="log-form"><div class="fields"><label>المسار${select('track','all',names)}</label><label>صاحب التحديث${select('author','الأب',{'الأب':'الأب','الطالب':'الطالب','Claude':'Claude','Codex':'Codex'})}</label></div><label>المنجز / الدليل / المتبقي<textarea name="text" required maxlength="30000"></textarea></label><button>إضافة إلى السجل</button> <button type="button" class="secondary" data-handoff>تحميل ملخص التسليم ↓</button></form></section><section class="card">${logs(state.journal)}</section>`}
+function filesPage(){return `<span class="kicker">مرفقات المشروع</span><h1>ملفاتي</h1><p class="muted">أرفق الدليل أو التقرير تحت مصدره. المرفقات تُحفظ على هذا الجهاز في المتصفح، ولا تُرفع إلى خادم أو تُنشر. تصدير ذاكرة المشروع لا يشمل المرفقات؛ احتفظ بأصولها.</p><section class="card"><form id="file-form"><label>المسار${select('track','books',names)}</label><label>اختيار ملفات<input type="file" name="files" multiple required></label><button>حفظ المرفقات على هذا الجهاز</button></form></section><section class="card"><h2>المرفقات المحفوظة</h2><div id="file-list">جارٍ قراءة المرفقات…</div></section><section class="card"><h2>ملفات المشروع المعروفة</h2><p>الكتابان: Physics101_Integrated_Study_Guide_AR.docx، وSource_Map.xlsx.</p><p>Educator: Physics_92_Study_Guide_AR.docx، وملفات التفريغ SRT.</p><p>Pearson: PHY101_Pearson_Requirements_Videos.xlsx. جرد فيديوهاته متاح داخل مسار Pearson.</p><small>هذه قائمة مرجعية بالأسماء، وليست ادعاءً برفع الملفات إلى الموقع.</small></section>`}
+function openDB(){return new Promise((res,rej)=>{const q=indexedDB.open('science-files-v1',1);q.onupgradeneeded=()=>q.result.createObjectStore('files',{keyPath:'id'});q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+async function dbOp(mode,op){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('files',mode);const q=op(tx.objectStore('files'));tx.oncomplete=()=>{db.close();res(q.result)};tx.onerror=()=>{db.close();rej(tx.error)};tx.onabort=()=>{db.close();rej(tx.error)}})}
+async function listFiles(){try{const rows=await dbOp('readonly',s=>s.getAll());if(!$('#file-list'))return;$('#file-list').innerHTML=rows.length?rows.map(f=>`<div class="file"><span>${e(f.name)}<small>${e(names[f.track])} · ${(f.size/1048576).toFixed(2)} MB</small></span><button data-download="${e(f.id)}" class="secondary">تنزيل</button></div>`).join(''):'<p class="empty">لم تُرفق ملفات على هذا المتصفح بعد.</p>';$('#file-list').querySelectorAll('[data-download]').forEach(b=>b.onclick=async()=>{try{const f=await dbOp('readonly',s=>s.get(b.dataset.download));dl(f.name,f.blob)}catch{notice('تعذر تنزيل المرفق.')}})}catch{notice('تعذر فتح تخزين المرفقات في المتصفح. احتفظ بملفاتك الأصلية.')}}
+function render(){view=location.hash.slice(1)||'home';if(!['home','journal','files',...TRACKS].includes(view))view='home';$('#crumb').textContent=names[view]||({home:'أين وصلنا؟',journal:'سجل العمل',files:'ملفاتي'}[view]);document.querySelectorAll('nav a').forEach(a=>{a.removeAttribute('aria-current');if(a.hash==='#'+view)a.setAttribute('aria-current','page')});$('#main').innerHTML=view==='home'?home():view==='journal'?journal():view==='files'?filesPage():track(view);bind();}
+function bind(){document.querySelectorAll('[data-handoff]').forEach(b=>b.onclick=()=>dl('Science_Handoff_AR.md',new Blob([handoff(state,names)],{type:'text/markdown;charset=utf-8'})));
+ const tf=$('#track-form');if(tf)tf.onsubmit=ev=>{ev.preventDefault();const f=new FormData(tf);state.tracks[view]={status:f.get('status'),owner:f.get('owner'),next:f.get('next'),note:f.get('note'),parent:f.has('parent'),student:f.has('student')};addLog(view,'صاحب المشروع',`تحديث حالة المسار: ${STATUSES[f.get('status')]}؛ التالي: ${f.get('next')}`);render()};
+ const search=$('#search');if(search)search.oninput=()=>{reqFilter=search.value;$('#requirements').innerHTML=requirements();bindFeedback()};bindFeedback();
+ const lf=$('#log-form');if(lf)lf.onsubmit=ev=>{ev.preventDefault();const f=new FormData(lf);if(!f.get('text').trim())return;addLog(f.get('track'),f.get('author'),f.get('text'));render()};
+ const ff=$('#file-form');if(ff){listFiles();ff.onsubmit=async ev=>{ev.preventDefault();const f=new FormData(ff),button=ff.querySelector('button');button.disabled=true;let n=0;try{for(const blob of f.getAll('files')){if(!blob.name)continue;await dbOp('readwrite',s=>s.put({id:crypto.randomUUID(),track:f.get('track'),name:blob.name,size:blob.size,blob}));n++}notice(`حُفظ ${n} مرفقًا على هذا المتصفح. المرفقات غير مشمولة في تصدير الذاكرة.`);ff.reset();await listFiles()}catch{notice(`حُفظ ${n} مرفقًا فقط؛ تعذر حفظ البقية. قد تكون مساحة المتصفح غير كافية.`);await listFiles()}finally{button.disabled=false}}}}
+function bindFeedback(){document.querySelectorAll('[data-req]').forEach(form=>form.onsubmit=ev=>{ev.preventDefault();const a=Object.fromEntries(new FormData(form));state.assessments[form.dataset.req]=a;save();document.querySelector(`[data-assessment="${form.dataset.req}"]`).textContent=assessmentStatus(a)})}
+$('#export').onclick=()=>state&&exportState();
+$('#import-trigger').onclick=()=>$('#import').click();
+$('#import').onchange=async ev=>{const file=ev.target.files[0];if(!file)return;try{if(file.size>10*1024*1024)throw Error('ملف الذاكرة أكبر من الحد المسموح.');const next=validateState(JSON.parse(await file.text()));if(!confirm(`سيستبدل الاستيراد حالة المسارات والسجل والتقييمات الحالية بحالة الملف المؤرخة ${next.updatedAt||'غير محددة'}. صدّرنا نسخة من الحالة الحالية تلقائيًا قبل الاستبدال عند الموافقة. هل تريد الاستيراد؟`))return;exportState();state=next;loadError=false;save();render()}catch(err){notice('لم يُستورد الملف: '+err.message)}finally{ev.target.value=''}};
+window.addEventListener('hashchange',()=>{if(state){render();window.scrollTo(0,0)}});
+try{const responses=await Promise.all([fetch('data/project.json'),fetch('data/pearson.json')]);if(responses.some(r=>!r.ok))throw Error('تعذر تحميل البيانات');[state,pearson]=await Promise.all(responses.map(r=>r.json()));validateState(state);try{const saved=localStorage.getItem(KEY);if(saved)state=validateState(JSON.parse(saved))}catch{loadError=true;notice('تعذر قراءة النسخة المحفوظة. عُرضت الحالة المرجعية دون استبدال بياناتك القديمة. يمكنك استيراد نسخة صحيحة.')}render()}catch(err){$('#main').innerHTML='<h1>تعذر تحميل المشروع</h1><p>أعد تحميل الصفحة أو تحقق من الاتصال.</p>';notice(err.message)}

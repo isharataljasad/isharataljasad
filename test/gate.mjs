@@ -191,7 +191,7 @@ await ok("the login page contains no hint, no recovery, no registration, no app 
 
 await ok("the login page carries the identity lines required by the brief", () => {
   const html = loginPage({ nonce: "n" });
-  for (const s of ["بلّغوا عني ولو آية", "مسار التدبر من مشروع الفؤاد",
+  for (const s of ["مختبر العلوم", "منصة المشروع · من الفهم إلى الاكتشاف",
                    "هذه التجربة متاحة بدعوة", "كلمة المرور", "الدخول"]) {
     truthy(html.includes(s), `login page missing: ${s}`);
   }
