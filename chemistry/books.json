@@ -1,0 +1,75 @@
+{
+  "course": "CHEM 101 — General Chemistry I",
+  "status": "SELECTED_BOOK_RESERVOIRS",
+  "rule": "Books are independent resource reservoirs behind each Topic Arena. The student is never asked to read all three; the supervisor selects the smallest useful section for the current concept and mastery target.",
+  "books": [
+    {
+      "id": "B1",
+      "title": "Chemistry 2e",
+      "authors": "Paul Flowers, Klaus Theopold, Richard Langley, William R. Robinson",
+      "publisher": "OpenStax, Rice University",
+      "edition": "2e",
+      "year": 2019,
+      "role": "PUBLIC_MODULAR_BACKBONE",
+      "why": "Free, section-addressable and legally reusable for noncommercial adaptation with attribution. Best source for direct student links, concise reading slices and site-visible references.",
+      "license": "CC BY-NC-SA 4.0",
+      "url": "https://openstax.org/details/books/chemistry-2e",
+      "ai_note": "Do not bulk-ingest the book into an LLM; use section links and human-curated mappings.",
+      "arena_map": {
+        "CHEM-A1": "2.1–2.3",
+        "CHEM-A2": "6.1–6.4",
+        "CHEM-A3": "6.5",
+        "CHEM-A4": "7.1–7.6 and 8.1–8.4 as needed",
+        "CHEM-A5": "4.1–4.5",
+        "CHEM-A6": "11.1–11.4",
+        "CHEM-A7": "9.1–9.4",
+        "CHEM-A8": "5.1–5.3",
+        "CHEM-A9": "17.1–17.7"
+      }
+    },
+    {
+      "id": "B2",
+      "title": "Chemistry: A Molecular Approach",
+      "author": "Nivaldo J. Tro",
+      "publisher": "Pearson",
+      "edition": "6th",
+      "year": 2023,
+      "role": "FASTEST_CONCEPTUAL_VISUALIZATION",
+      "why": "Strongest visual bridge between macroscopic, molecular and symbolic chemistry, with a consistent Sort → Strategize → Solve → Check problem-solving routine. Use when a concept is hard to picture or a worked-example strategy is needed.",
+      "url": "https://www.pearson.com/en-us/subject-catalog/p/chemistry-a-molecular-approach/P200000006770/9780137831999",
+      "arena_map": {
+        "CHEM-A1": "Ch. 2",
+        "CHEM-A2": "Ch. 8",
+        "CHEM-A3": "Ch. 9",
+        "CHEM-A4": "Ch. 10–11",
+        "CHEM-A5": "Ch. 5",
+        "CHEM-A6": "Ch. 14",
+        "CHEM-A7": "Ch. 6",
+        "CHEM-A8": "Ch. 7",
+        "CHEM-A9": "Ch. 20"
+      }
+    },
+    {
+      "id": "B3",
+      "title": "Chemistry: The Central Science",
+      "authors": "Theodore E. Brown, H. Eugene LeMay, Bruce E. Bursten, Catherine Murphy, Patrick Woodward, Matthew E. Stoltzfus",
+      "publisher": "Pearson",
+      "edition": "15th",
+      "year": 2023,
+      "role": "EXAM_PATTERN_AND_PROBLEM_DEPTH",
+      "why": "Use primarily to mine representative problem families, self-assessment prompts and alternative worked strategies after the concept is understood. This book is the depth/reference reservoir rather than the student's first reading.",
+      "url": "https://www.pearson.com/en-us/subject-catalog/p/chemistry-the-central-science/P200000006933/9780137542970",
+      "arena_map": {
+        "CHEM-A1": "Ch. 2",
+        "CHEM-A2": "Ch. 6",
+        "CHEM-A3": "Ch. 7",
+        "CHEM-A4": "Ch. 8–9",
+        "CHEM-A5": "Ch. 4",
+        "CHEM-A6": "Ch. 13",
+        "CHEM-A7": "Ch. 10",
+        "CHEM-A8": "Ch. 5",
+        "CHEM-A9": "Ch. 20"
+      }
+    }
+  ]
+}
