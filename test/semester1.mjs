@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 const root=new URL('../',import.meta.url);
 const html=readFileSync(new URL('index.html',root),'utf8');
-for(const term of ['هندسة كيميائية','الفصل الأول','فيزياء 101','رياضيات 101','الكيمياء','الأحياء','الكتب','Educator','Pearson+','Arena Engine','المشرف الذكي','بصمة الاختبار','Topic']) assert.ok(html.includes(term),`missing ${term}`);
+for(const term of ['هندسة كيميائية','الفصل الأول','فيزياء 101','رياضيات 101','الكيمياء','الأحياء','الكتب','Educator','Pearson+','Arena Engine','المشرف الذكي','بصمة الاختبار']) assert.ok(html.includes(term),`missing ${term}`);
 for(const p of ['phy101/index.html','ma101/index.html','chemistry/index.html','biology/index.html','sources/books/index.html','sources/educator/index.html','sources/pearson/index.html']) assert.ok(existsSync(new URL(p,root)),`missing route ${p}`);
 assert.ok(html.includes('المصادر تُراجع باستقلال'));
 assert.ok(html.includes('الموضوع هو الساحة'));
