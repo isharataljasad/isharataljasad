@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const root=new URL('../',import.meta.url);
+const html=readFileSync(new URL('chemistry/index.html',root),'utf8');
+const inv=JSON.parse(readFileSync(new URL('chemistry/educator-inventory.json',root),'utf8'));
+for(const term of ['الكيمياء','الفصل الأول','Topic Arena','Exam DNA','General Chemistry with Franklin Ow','مسار الكتب','Educator','Pearson+']) assert.ok(html.includes(term),`missing ${term}`);
+assert.equal(inv.lesson_count,24);
+assert.equal(inv.clusters.length,14);
+assert.equal(inv.lessons.length,24);
+assert.equal(inv.status,'SOURCE_INVENTORY_ONLY');
+assert.ok(inv.rule.includes('not the semester syllabus'));
+assert.equal(new Set(inv.lessons.map(x=>x.n)).size,24);
+assert.deepEqual(inv.lessons.map(x=>x.n),Array.from({length:24},(_,i)=>i+1));
+assert.ok(!html.includes('best source'));
+console.log('Chemistry inventory checks passed: 24 Educator lessons, 14 clusters, syllabus not yet activated.');
