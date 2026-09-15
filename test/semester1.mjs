@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+const root=new URL('../',import.meta.url);
+const html=readFileSync(new URL('index.html',root),'utf8');
+for(const term of ['هندسة كيميائية','الفصل الأول فقط','فيزياء 101','رياضيات 101','الكيمياء','الأحياء','مسار الكتب','Educator','Pearson+','مرحلة حصر المصادر']) assert.ok(html.includes(term),`missing ${term}`);
+for(const p of ['phy101/index.html','ma101/index.html','chemistry/index.html','biology/index.html','sources/books/index.html','sources/educator/index.html','sources/pearson/index.html']) assert.ok(existsSync(new URL(p,root)),`missing route ${p}`);
+assert.ok(html.includes('كل كتاب = مصدر مستقل'));
+assert.ok(html.includes('لا ندمجها الآن'));
+assert.ok(html.includes('هل يجذب الطالب ويُحسّن أداءه'));
+console.log('Semester-1 pilot checks passed: 4 subjects, 3 fixed tools, independent-source stage.');
