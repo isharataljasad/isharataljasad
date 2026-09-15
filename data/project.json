@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "revision": "2026-09-14.1",
-  "updatedAt": "2026-09-14T11:00:00Z",
+  "revision": "2026-09-15.2",
+  "updatedAt": "2026-09-15T20:45:00Z",
   "tracks": {
     "books": {
       "status": "audit",
@@ -30,6 +30,13 @@
   },
   "assessments": {},
   "journal": [
+    {
+      "id": "ma101-live-20260915",
+      "date": "2026-09-15T23:45:00+03:00",
+      "track": "all",
+      "author": "ChatGPT",
+      "text": "أضيف مسار MA 101 — Calculus I إلى isharataljasad.com: 14 أسبوعًا و33 مفهومًا. المسار الموجّه يستخدم اختيار المصدر الأساسي (Educator/Pearson+/OpenStax/Student OS)، ومسار الكتب يربط المفاهيم بقراءات OpenStax الدقيقة مع الهدف ونقطة التوقف والتدريب. إجمالي القراءة الموجهة 1985 دقيقة، ولا يظهر محتوى MA 102 في المسار النشط."
+    },
     {
       "id": "books-v2",
       "date": "2026-09-14T12:35:00+03:00",
