@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node test/science.mjs && node test/gate.mjs"
+    "test": "node test/science.mjs && node test/ma101.mjs && node test/gate.mjs"
   },
   "dependencies": {
     "@vercel/functions": "3.1.3"
