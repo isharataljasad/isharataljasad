@@ -1,0 +1,22 @@
+{
+  "source": "Pearson+ Study Prep — General Chemistry",
+  "instructor": "Jules Bruno",
+  "channel": "https://www.pearson.com/channels/general-chemistry",
+  "checked_on": "2026-09-16",
+  "status": "19_INDIVIDUALLY_CHECKED_TOPIC_PAGES_NOT_COMPLETE_VIDEO_INVENTORY",
+  "video_count": null,
+  "playback_verified": false,
+  "scope": "Topic relevance candidates to official CHEM 101 Arenas A1–A9. No instructor syllabus or student mastery verified.",
+  "copyright": "Publisher topic titles and links only; no videos, transcripts or paid problems copied.",
+  "arenas": [
+    {"id":"A1","topics":[{"title":"The Atom","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-2-atoms-elements/the-atom"},{"title":"Isotopes","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-2-atoms-elements/isotopes"}]},
+    {"id":"A2","topics":[{"title":"Wavelength and Frequency","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-7-quantum-mechanics/wavelength-and-frequency"},{"title":"Bohr Model","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-7-quantum-mechanics/bohr-model"}]},
+    {"id":"A3","topics":[{"title":"Periodic Trend: Atomic Radius","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-8-periodic-properties-of-the-elements/periodic-trend-atomic-radius"},{"title":"Periodic Trend: Ionization Energy","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-8-periodic-properties-of-the-elements/periodic-trend-ionization-energy"}]},
+    {"id":"A4","topics":[{"title":"Chemical Bonds","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-9-bonding-molecular-structure/chemical-bonds"},{"title":"Lewis Dot Structures: Neutral Compounds","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-9-bonding-molecular-structure/lewis-dot-structures-neutral-compounds"}]},
+    {"id":"A5","topics":[{"title":"Complete Ionic Equations","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-4-chemical-quantities-aqueous-reactions/complete-ionic-equations"},{"title":"Solubility Rules","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-4-chemical-quantities-aqueous-reactions/solubility-rules"}]},
+    {"id":"A6","topics":[{"title":"Solutions: Solubility and Intermolecular Forces","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-12-solutions/solutions-molarity-and-intermolecular-forces"},{"title":"Molality","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-12-solutions/molality"},{"title":"Boiling Point Elevation","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-12-solutions/boiling-point-elevation"}]},
+    {"id":"A7","topics":[{"title":"Chemistry Gas Laws","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-5-gases/chemistry-gas-laws"},{"title":"The Ideal Gas Law","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-5-gases/the-ideal-gas-law"}]},
+    {"id":"A8","topics":[{"title":"Thermochemical Equations","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-6-thermochemistry/thermochemical-equations"},{"title":"Hess's Law","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/ch-6-thermochemistry/hess-s-law"}]},
+    {"id":"A9","topics":[{"title":"Cell Potential: Standard","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/20-electrochemistry/cell-potential-standard"},{"title":"Cell Potential: The Nernst Equation","url":"https://www.pearson.com/channels/general-chemistry/learn/jules/20-electrochemistry/cell-potential-the-nernst-equation"}]}
+  ]
+}
