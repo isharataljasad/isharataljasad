@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "source": {
+    "course": "AP Biology",
+    "instructor": "Dr. Carleen Eaton",
+    "url": "https://www.educator.com/biology/ap-biology/eaton/",
+    "catalog_advertised_lessons": 60,
+    "catalog_advertised_duration": "55:40",
+    "checked_date": "2026-09-16"
+  },
+  "status": "PUBLIC_EDUCATOR_CATALOG_VERIFIED_NO_VIDEO_REVIEW",
+  "biology_101_syllabus_match": "UNVERIFIED_NO_OFFICIAL_SYLLABUS",
+  "selection_note": "The first-pass shortlist is an editorial proposal for introductory biology, not the university course syllabus. AP exam preparation is separate.",
+  "lesson_page_access": "Lesson links are listed in the official public course catalog; individual video playback and learning outcomes were not reviewed.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Chemistry of Life",
+      "lessons": [
+        {
+          "id": "BIO-E01",
+          "title": "Elements, Compounds, and Chemical Bonds",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/elements-compounds-and-chemical-bonds.php",
+          "duration": "56:18",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تمييز العناصر والمركبات والروابط الأساسية."
+        },
+        {
+          "id": "BIO-E02",
+          "title": "Properties of Water",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/properties-of-water.php",
+          "duration": "50:23",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "ربط قطبية الماء بخصائصه الحيوية."
+        },
+        {
+          "id": "BIO-E03",
+          "title": "Organic Compounds",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/organic-compounds.php",
+          "duration": "53:54",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تصنيف المركبات العضوية الكبرى."
+        },
+        {
+          "id": "BIO-E04",
+          "title": "Nucleic Acids and Proteins",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/nucleic-acids-and-proteins.php",
+          "duration": "37:23",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "مقارنة وظيفة البروتينات والأحماض النووية."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Cell Structure and Function",
+      "lessons": [
+        {
+          "id": "BIO-E05",
+          "title": "Cell Types (Prokaryotic and Eukaryotic)",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/cell-types-(prokaryotic-and-eukaryotic).php",
+          "duration": "45:50",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "التمييز بين الخلايا بدائية النواة وحقيقية النواة."
+        },
+        {
+          "id": "BIO-E06",
+          "title": "Subcellular Structure",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/subcellular-structure.php",
+          "duration": "59:38",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "ربط العضيات الخلوية بوظائفها."
+        },
+        {
+          "id": "BIO-E07",
+          "title": "Cell Membranes and Transport",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/cell-membranes-and-transport.php",
+          "duration": "53:10",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تفسير النفاذية والنقل عبر الغشاء."
+        },
+        {
+          "id": "BIO-E08",
+          "title": "Cellular Communication",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/cellular-communication.php",
+          "duration": "57:09",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cell Division",
+      "lessons": [
+        {
+          "id": "BIO-E09",
+          "title": "The Cell Cycle",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-cell-cycle.php",
+          "duration": "37:49",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "ترتيب مراحل دورة الخلية."
+        },
+        {
+          "id": "BIO-E10",
+          "title": "Mitosis",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/mitosis.php",
+          "duration": "35:01",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تتبع أحداث الانقسام المتساوي."
+        },
+        {
+          "id": "BIO-E11",
+          "title": "Meiosis",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/meiosis.php",
+          "duration": "1:00:58",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Cellular Energetics",
+      "lessons": [
+        {
+          "id": "BIO-E12",
+          "title": "Enzymes",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/enzymes.php",
+          "duration": "51:03",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "شرح أثر الإنزيمات في سرعة التفاعل."
+        },
+        {
+          "id": "BIO-E13",
+          "title": "Glycolysis and Anaerobic Respiration",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/glycolysis-and-anaerobic-respiration.php",
+          "duration": "38:01",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تحديد مدخلات التحلل السكري ومخرجاته."
+        },
+        {
+          "id": "BIO-E14",
+          "title": "Aerobic Respiration",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/aerobic-respiration.php",
+          "duration": "51:06",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تتبع إنتاج الطاقة في التنفس الهوائي."
+        },
+        {
+          "id": "BIO-E15",
+          "title": "Photosynthesis",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/photosynthesis.php",
+          "duration": "1:02:52",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تتبع تحويل الضوء إلى طاقة كيميائية."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Molecular Genetics",
+      "lessons": [
+        {
+          "id": "BIO-E16",
+          "title": "DNA Synthesis",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/dna-synthesis.php",
+          "duration": "38:45",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "وصف تضاعف DNA بصورة عامة."
+        },
+        {
+          "id": "BIO-E17",
+          "title": "Transcription and Translation",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/transcription-and-translation.php",
+          "duration": "1:17:01",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "تتبع المعلومات من DNA إلى RNA ثم البروتين."
+        },
+        {
+          "id": "BIO-E18",
+          "title": "Viral Structure and Genetics",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/viral-structure-and-genetics.php",
+          "duration": "43:12",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E19",
+          "title": "Bacterial Genetics and Gene Regulation",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/bacterial-genetics-and-gene-regulation.php",
+          "duration": "49:45",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E20",
+          "title": "Eukaryotic Gene Regulation and Mobile Genetic Elements",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/eukaryotic-gene-regulation-and-mobile-genetic-elements.php",
+          "duration": "54:26",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E21",
+          "title": "Biotechnology",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/biotechnology.php",
+          "duration": "49:26",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Heredity",
+      "lessons": [
+        {
+          "id": "BIO-E22",
+          "title": "Mendelian Genetics",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/mendelian-genetics.php",
+          "duration": "1:32:08",
+          "review_stage": "FIRST_PASS_CANDIDATE",
+          "candidate_goal_ar": "حل احتمالات وراثية مندلية بسيطة."
+        },
+        {
+          "id": "BIO-E23",
+          "title": "Linked Genes and Non-Mendelian Modes of Inheritance",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/linked-genes-and-non-mendelian-modes-of-inheritance.php",
+          "duration": "39:38",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E24",
+          "title": "Sex-Linked Traits and Pedigree Analysis",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/sex-linked-traits-and-pedigree-analysis.php",
+          "duration": "43:39",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Evolution",
+      "lessons": [
+        {
+          "id": "BIO-E25",
+          "title": "Natural Selection",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/natural-selection.php",
+          "duration": "1:03:28",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E26",
+          "title": "Population Genetic and Evolution",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/population-genetic-and-evolution.php",
+          "duration": "53:22",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E27",
+          "title": "Speciation and Patterns of Evolution",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/speciation-and-patterns-of-evolution.php",
+          "duration": "51:02",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Diversity of Life",
+      "lessons": [
+        {
+          "id": "BIO-E28",
+          "title": "Classification",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/classification.php",
+          "duration": "1:00:51",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E29",
+          "title": "Bacteria",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/bacteria.php",
+          "duration": "36:46",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E30",
+          "title": "Protists",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/protists.php",
+          "duration": "1:18:48",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E31",
+          "title": "Fungi",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/fungi.php",
+          "duration": "35:24",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E32",
+          "title": "Invertebrates",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/invertebrates.php",
+          "duration": "1:03:03",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E33",
+          "title": "Vertebrates",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/vertebrates.php",
+          "duration": "1:00:07",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Plants",
+      "lessons": [
+        {
+          "id": "BIO-E34",
+          "title": "Seedless Plants",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/seedless-plants.php",
+          "duration": "34:31",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E35",
+          "title": "Plant Structure",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/plant-structure.php",
+          "duration": "1:01:21",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E36",
+          "title": "Gymnosperms and Angiosperms",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/gymnosperms-and-angiosperms.php",
+          "duration": "1:01:51",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E37",
+          "title": "Transport of Nutrients and Water in Plants",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/transport-of-nutrients-and-water-in-plants.php",
+          "duration": "40:30",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E38",
+          "title": "Plant Hormones and Tropisms",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/plant-hormones-and-tropisms.php",
+          "duration": "48:10",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Animal Structure and Physiology",
+      "lessons": [
+        {
+          "id": "BIO-E39",
+          "title": "The Respiratory System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-respiratory-system.php",
+          "duration": "48:14",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E40",
+          "title": "The Circulatory System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-circulatory-system.php",
+          "duration": "1:20:21",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E41",
+          "title": "The Digestive System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-digestive-system.php",
+          "duration": "56:11",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E42",
+          "title": "The Excretory System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-excretory-system.php",
+          "duration": "1:12:14",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E43",
+          "title": "The Endocrine System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-endocrine-system.php",
+          "duration": "51:12",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E44",
+          "title": "The Nervous System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-nervous-system.php",
+          "duration": "1:10:38",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E45",
+          "title": "Musculoskeletal System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/musculoskeletal-system.php",
+          "duration": "39:29",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E46",
+          "title": "The Immune System",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/the-immune-system.php",
+          "duration": "1:24:28",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Animal Reproduction and Development",
+      "lessons": [
+        {
+          "id": "BIO-E47",
+          "title": "Reproduction",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/reproduction.php",
+          "duration": "1:01:41",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E48",
+          "title": "Development",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/development.php",
+          "duration": "50:05",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Animal Behavior",
+      "lessons": [
+        {
+          "id": "BIO-E49",
+          "title": "Animal Behavior",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/animal-behavior.php",
+          "duration": "47:48",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Ecology",
+      "lessons": [
+        {
+          "id": "BIO-E50",
+          "title": "Biomes",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/biomes.php",
+          "duration": "58:49",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E51",
+          "title": "Population",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/population.php",
+          "duration": "41:16",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E52",
+          "title": "Communities",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/communities.php",
+          "duration": "1:06:26",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        },
+        {
+          "id": "BIO-E53",
+          "title": "Energy and Ecosystems",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/energy-and-ecosystems.php",
+          "duration": "57:42",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Laboratory Review",
+      "lessons": [
+        {
+          "id": "BIO-E54",
+          "title": "Laboratory Review",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/laboratory-review.php",
+          "duration": "2:04:30",
+          "review_stage": "REVIEW_IF_ASSIGNED"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "The AP Biology Test",
+      "lessons": [
+        {
+          "id": "BIO-E55",
+          "title": "Understanding the Basics",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/understanding-the-basics.php",
+          "duration": "13:02",
+          "review_stage": "AP_EXAM_SPECIFIC"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Practice Test (Barron's 4th Edition)",
+      "lessons": [
+        {
+          "id": "BIO-E56",
+          "title": "AP Biology Practice Exam: Section I, Part A, Multiple Choice Questions 1-31",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/ap-biology-practice-exam_-section-i-part-a-multiple-choice-questions-1-31.php",
+          "duration": "1:04:29",
+          "review_stage": "AP_EXAM_SPECIFIC"
+        },
+        {
+          "id": "BIO-E57",
+          "title": "AP Biology Practice Exam: Section I, Part A, Multiple Choice Questions 32-63",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/ap-biology-practice-exam_-section-i-part-a-multiple-choice-questions-32-63.php",
+          "duration": "50:44",
+          "review_stage": "AP_EXAM_SPECIFIC"
+        },
+        {
+          "id": "BIO-E58",
+          "title": "AP Biology Practice Exam: Section I, Part B, Grid In",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/ap-biology-practice-exam_-section-i-part-b-grid-in.php",
+          "duration": "21:52",
+          "review_stage": "AP_EXAM_SPECIFIC"
+        },
+        {
+          "id": "BIO-E59",
+          "title": "AP Biology Practice Exam: Section II, Long Free Response Questions",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/ap-biology-practice-exam_-section-ii-long-free-response-questions.php",
+          "duration": "31:22",
+          "review_stage": "AP_EXAM_SPECIFIC"
+        },
+        {
+          "id": "BIO-E60",
+          "title": "AP Biology Practice Exam: Section II, Short Free Response Questions",
+          "url": "https://www.educator.com/biology/ap-biology/eaton/ap-biology-practice-exam_-section-ii-short-free-response-questions.php",
+          "duration": "24:41",
+          "review_stage": "AP_EXAM_SPECIFIC"
+        }
+      ]
+    }
+  ]
+}
