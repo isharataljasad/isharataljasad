@@ -8,8 +8,8 @@ for(const tag of ['script','style']){
  const match=html.match(new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`));
  assert.ok(match,`missing ${tag} block`);
  const hash=`sha256-${createHash('sha256').update(match[1],'utf8').digest('base64')}`;
- console.log(`CHEMISTRY_${tag.toUpperCase()}_HASH=${hash}`);
  const policies=config.headers.flatMap(h=>h.headers||[]).filter(h=>h.key==='Content-Security-Policy');
- const authorized=policies.every(h=>h.value.includes(`'${hash}'`));
- console.log(`CHEMISTRY_${tag.toUpperCase()}_AUTHORIZED=${authorized}`);
+ assert.ok(policies.length,'missing Content-Security-Policy');
+ assert.ok(policies.every(h=>h.value.includes(`'${hash}'`)),`Chemistry inline ${tag} blocked by CSP: ${hash}`);
+ console.log(`PASS Chemistry ${tag} CSP hash authorized: ${hash}`);
 }
