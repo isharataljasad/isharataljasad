@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "source": {
+    "title": "Campbell Essential Biology",
+    "edition": "8th",
+    "authors": ["Eric J. Simon", "Kelly A. Hogan"],
+    "type": "user-provided private PDF",
+    "publisher_page": "https://www.pearson.com/en-us/subject-catalog/p/campbell-essential-biology/P200000012387",
+    "pdf_published": false
+  },
+  "status": "PROVISIONAL_READING_MAP_NO_BIOLOGY_101_SYLLABUS",
+  "evidence": "Book title page, table of contents, outline bookmarks, and selected topic pages of the supplied PDF.",
+  "page_note": "Printed book pages are used below. In the supplied PDF, add 20 to locate the corresponding PDF page.",
+  "selection_note": "This is an introductory reading shortlist from this book, not an official Biology 101 syllabus or proof that every chapter will be assigned.",
+  "core_candidates": [
+    {"chapter": 1, "book_page": 1, "focus_ar": "طبيعة علم الأحياء، خصائص الحياة، والمنهج العلمي", "read_ar": "الدراسة العلمية للحياة، الفرضيات والتجارب المضبوطة، والموضوعات الكبرى في الأحياء", "skill_ar": "صياغة فرضية قابلة للاختبار وتمييز الادعاء من الدليل"},
+    {"chapter": 2, "book_page": 24, "focus_ar": "الكيمياء اللازمة لفهم الأحياء", "read_ar": "الذرات والروابط والتفاعلات والماء ودرجة الحموضة", "skill_ar": "ربط خواص الماء والجزيئات بوظائف الخلية"},
+    {"chapter": 3, "book_page": 42, "focus_ar": "الجزيئات الحيوية", "read_ar": "الكربوهيدرات والدهون والبروتينات والأحماض النووية", "skill_ar": "المقارنة بين الفئات الأربع بحسب البنية والوظيفة"},
+    {"chapter": 4, "book_page": 65, "focus_ar": "بنية الخلية", "read_ar": "أنواع الخلايا والغشاء البلازمي والعضيات", "skill_ar": "تحديد مكوّنات الخلية وربط بنية كل مكوّن بوظيفته"},
+    {"chapter": 5, "book_page": 87, "focus_ar": "وظائف الخلية والنقل عبر الغشاء", "read_ar": "الطاقة وATP والإنزيمات والانتشار والأسموزية والنقل النشط", "skill_ar": "توقع اتجاه حركة الماء والمواد عبر الغشاء"},
+    {"chapter": 6, "book_page": 106, "focus_ar": "التنفس الخلوي", "read_ar": "نظرة عامة على التنفس ومراحله الثلاث، ومنها التحلل السكري", "skill_ar": "تتبع مسار الطاقة وتحديد مدخلات ومخرجات التحلل السكري"},
+    {"chapter": 7, "book_page": 124, "focus_ar": "البناء الضوئي", "read_ar": "النظرة العامة والتفاعلات الضوئية ودورة كالفن", "skill_ar": "شرح تحول الطاقة الضوئية إلى طاقة كيميائية"},
+    {"chapter": 8, "book_page": 142, "focus_ar": "دورة الخلية والانقسام", "read_ar": "مراحل دورة الخلية والانقسام المتساوي وضبط الدورة", "skill_ar": "ترتيب المراحل وشرح وظيفة نقطة ضبط الدورة"},
+    {"chapter": 9, "book_page": 168, "focus_ar": "أنماط الوراثة", "read_ar": "قانونا مندل ومربعات بانت والتهجين الثنائي والاحتمالات", "skill_ar": "حساب احتمالات النمط الجيني والظاهري في تهجين بسيط"},
+    {"chapter": 10, "book_page": 196, "focus_ar": "DNA والتعبير الجيني", "read_ar": "بنية DNA وتضاعفه والنسخ والترجمة", "skill_ar": "تتبع انتقال المعلومات من DNA إلى RNA ثم البروتين"}
+  ],
+  "later_candidate": {
+    "chapter": 13,
+    "book_page": 278,
+    "focus_ar": "تطور الجماعات والانتخاب الطبيعي",
+    "read_ar": "الانتخاب الطبيعي وآليات تغير الجماعات",
+    "skill_ar": "تمييز أثر الانتخاب الطبيعي عن بقية آليات تغير الجماعات"
+  },
+  "rights_note": "No PDF, textbook prose, diagrams, exercises, or answer keys are published here."
+}
