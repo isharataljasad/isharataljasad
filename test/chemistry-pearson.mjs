@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const root=new URL('../',import.meta.url);
+const read=path=>readFileSync(new URL(path,root),'utf8');
+const html=read('chemistry/index.html');
+const catalog=JSON.parse(read('chemistry/pearson-inventory.json'));
+const scope=JSON.parse(read('chemistry/scope.json'));
+const books=JSON.parse(read('chemistry/books.json'));
+const franklin=JSON.parse(read('chemistry/educator-inventory.json'));
+const goldwhite=JSON.parse(read('chemistry/goldwhite-inventory.json'));
+assert.equal(catalog.arenas.length,9);
+assert.deepEqual(catalog.arenas.map(a=>a.id),scope.arena_targets.map(a=>a.id));
+assert.equal(catalog.arenas.reduce((n,a)=>n+a.topics.length,0),19);
+assert.equal(catalog.video_count,null);
+assert.equal(catalog.playback_verified,false);
+const urls=catalog.arenas.flatMap(a=>a.topics.map(t=>t.url));
+assert.equal(new Set(urls).size,19);
+for(const url of urls){assert.ok(url.startsWith('https://www.pearson.com/channels/general-chemistry/learn/'));assert.ok(html.includes(`href="${url}"`),`missing static direct link ${url}`)}
+for(const id of scope.arena_targets.map(a=>a.id))assert.ok(html.includes(`id="pearson-${id}"`));
+assert.equal(books.books.length,7);
+assert.equal(franklin.lessons.length,24);
+assert.equal(goldwhite.lessons.length,35);
+for(const term of ['id="bookList"','id="franklin-list"','id="goldwhite-list"','id="pearson-status"','لا تزال ظاهرة','D.b.books.forEach','books.json','educator-inventory.json','goldwhite-inventory.json','pearson-inventory.json'])assert.ok(html.includes(term),`missing UI or independent loading ${term}`);
+assert.ok(!html.includes('جارٍ تحميل جرد Goldwhite')&&!html.includes('تحميل قائمة الكتب')&&!html.includes('بانتظار الجرد'));
+const code=html.match(/<script>([\s\S]*?)<\/script>/)?.[1];assert.ok(code,'missing Chemistry controller');new Function(code);
+assert.equal((html.match(/id="pearson-A\d"/g)||[]).length,9);
+console.log('PASS Chemistry Pearson: 19 visible official links across 9 Arenas; 7 books and both Educator lists have static fallbacks, independent fetches and valid JS.');
