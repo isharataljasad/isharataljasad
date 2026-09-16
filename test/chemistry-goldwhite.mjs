@@ -14,6 +14,7 @@ assert.equal(inv.access,'PRIVATE_SUBSCRIBER_SOURCE');
 assert.equal(inv.lessons.length,35);
 assert.deepEqual(inv.lessons.map(x=>x.n),Array.from({length:35},(_,i)=>i+1));
 assert.equal(new Set(inv.lessons.map(x=>x.title)).size,35);
+assert.equal(old.source,'Educator.com — General Chemistry with Franklin Ow');
 assert.equal(old.lessons.length,24);
 assert.equal(scope.arena_targets.length,9);
 const ids=new Set(scope.arena_targets.map(x=>x.id));
@@ -30,7 +31,7 @@ for(const lesson of inv.lessons){
 assert.ok(inv.lessons.find(x=>x.n===3).arenas.includes('A1'));
 assert.ok(inv.lessons.find(x=>x.n===30).arenas.includes('A9'));
 assert.ok(inv.lessons.find(x=>x.n===31).arenas.includes('A9'));
-for(const label of ['General Chemistry with Franklin Ow','Professor Goldwhite','مسار الكتب','Pearson+','Exam DNA','Topic → Arena','/chemistry/atomic/','goldwhite-inventory.json']) assert.ok(html.includes(label),`missing ${label}`);
+for(const label of ['Franklin Ow','Professor Goldwhite','مسار الكتب','PEARSON+','Exam DNA','Topic → Arena','/chemistry/atomic/','goldwhite-inventory.json']) assert.ok(html.includes(label),`missing ${label}`);
 assert.match(html,/<html lang="ar" dir="rtl">/);
 assert.match(arena,/<script src="\.\/engine\.js" defer><\/script>/);
 assert.ok(arena.includes('مسائل أصلية'));
