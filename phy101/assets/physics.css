@@ -1,0 +1,45 @@
+/* Physics study routes extend the site's existing science page layout. */
+body{background:#f5f7fa}
+.site-header{border-bottom:3px solid #1b3b54}
+.brand span,.eyebrow,.micro-label,.unit-marker{color:#125e78}
+.hub-card{min-height:275px}
+.hub-card:first-child{border-top-color:#1b3b54}
+.hub-card:nth-child(2){border-top-color:#125e78}
+.hub-card:nth-child(3){border-top-color:#aa7a3f}
+.hub-note{line-height:1.65}
+.rail{background:#f8fafb}
+.rail-inner{padding-bottom:50px}
+#lesson-search{width:100%;min-width:0;border:1px solid #a7bac3;border-radius:7px;background:#fff;padding:9px 11px;margin:5px 0 3px;color:#152d3c}
+.search-status{font-size:12px;color:#566977;min-height:18px;margin:0 0 10px}
+.progress-line{font-size:13px!important;font-weight:700;color:#125e78!important;margin:18px 0 0!important}
+.start-link{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0!important;font-size:13px!important}
+.start-link a{display:inline-block;border:1px solid #9bbfc5;border-radius:6px;padding:7px 11px;text-decoration:none;font-weight:700}
+.start-link a:first-child{background:#125e78;color:white;border-color:#125e78}
+.lesson-top{display:flex;align-items:baseline;gap:12px}
+.lesson-number{font-size:12px;letter-spacing:.1em;font-weight:800;color:#125e78}
+.math-formula{margin:14px 0 18px;overflow-x:auto;background:#fff;border:1px solid #e1e8eb;border-radius:8px;padding:11px 13px}
+.math-formula img{display:block;max-width:100%;width:auto;height:auto;max-height:86px;object-fit:contain;object-position:left center}
+.study-block{margin:14px 0}
+.study-block p{margin:4px 0 0;line-height:1.68}
+.study-block:nth-of-type(3){background:#f1f7f8;border-left:3px solid #6a94a3;padding:12px 15px}
+.practice{margin-top:23px}
+.error-note{background:#fff8ec;border-left:3px solid #b3894e;padding:11px 14px;margin-top:16px!important;font-size:14px}
+.science-figure{max-width:700px;margin:20px 0 8px;text-align:left}
+.science-figure img{max-height:380px}
+.science-figure figcaption{font-size:13px;color:#566977;text-align:left;margin-top:8px}
+.optional-video{margin-top:20px}
+.index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.index-grid a{display:block;border:1px solid #d4dee2;border-radius:7px;padding:12px;text-decoration:none;background:#fff}
+.index-grid a:hover{background:#e6f3f3}
+.index-grid span{display:block;font-weight:750;color:#102c42}
+.index-grid small{display:block;margin-top:5px;color:#566977;font-size:12px;line-height:1.45}
+.equation-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.equation-list li{border:1px solid #d4dee2;border-radius:8px;padding:10px 12px;min-width:0}
+.equation-list a{font-weight:700;text-decoration:none}
+.equation-list .math-formula{margin:8px 0 0;padding:7px}
+.equation-list .math-formula img{max-height:56px}
+.math-lesson[hidden],.unit[hidden]{display:none}
+@media(max-width:760px){.index-grid,.equation-list{grid-template-columns:1fr}.rail-inner{padding-bottom:12px}.toc{max-height:94px;flex-wrap:wrap;overflow-y:auto;white-space:normal}.toc a{white-space:normal!important}.math-formula img{max-width:none}.unit{padding:19px}.lesson-top{align-items:flex-start}}
+@media print{#lesson-search,.search-status,.progress-line{display:none!important}.index-grid{grid-template-columns:repeat(2,1fr)}.equation-list{grid-template-columns:repeat(2,1fr)}.math-lesson[hidden],.unit[hidden]{display:block}}
+
+.mixed-list{list-style:none;padding:0;margin:18px 0}.mixed-item{border-top:1px solid #d8e2e7;padding:14px 0}.mixed-item p{margin:6px 0 10px}.audit-list{margin:18px 0}.audit-list div{border-top:1px solid #d8e2e7;padding:11px 0}.audit-list dt{font-weight:750}.audit-list dd{margin:4px 0 0;line-height:1.6}.optional-video{display:flex;gap:12px;flex-wrap:wrap;align-items:baseline}.optional-video span{font-size:13px;color:#566977;text-transform:uppercase;letter-spacing:.08em}.optional-video a{font-weight:700}
