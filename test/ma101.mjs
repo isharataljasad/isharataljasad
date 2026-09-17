@@ -1,26 +1,31 @@
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-import vm from 'node:vm';
-const root=new URL('../ma101/',import.meta.url);
-const html=readFileSync(new URL('index.html',root),'utf8');
-assert.match(html,/https:\/\/isharataljasad\.com\/ma101\//);
-for(const term of ['Adaptive Learning Arena','المشرف الذكي','Topic = Arena','Exam DNA','Challenge','Mastery','Resource Reservoirs','اسأل المشرف في ChatGPT']) assert.ok(html.includes(term),`missing ${term}`);
-assert.ok(html.includes('لا يصدر «درجة ذكاء»'));
-assert.ok(html.includes('science-ma101-arena-v2'));
-assert.ok(html.includes('failures'));
-assert.ok(html.includes('mastered'));
-assert.ok(html.includes('chatgpt.com/?q='));
-const ctx={window:{}};vm.createContext(ctx);
-for(const f of ['nodes-1.js','nodes-2.js','nodes-3.js','nodes-4.js']) vm.runInContext(readFileSync(new URL(f,root),'utf8'),ctx);
-const nodes=Array.from(ctx.window.MA101_NODES);
-assert.equal(nodes.length,33);
-assert.equal(new Set(nodes.map(x=>x.id)).size,33);
-assert.equal(JSON.stringify(nodes.map(x=>x.id)),JSON.stringify(Array.from({length:33},(_,i)=>`C${i+1}`)));
-assert.equal(nodes.every(x=>x.url?.startsWith('https://openstax.org/books/calculus-volume-1/pages/')),true);
-assert.equal(nodes.every(x=>x.goal&&x.stop&&x.practice&&x.pass),true);
-assert.equal(nodes.reduce((a,x)=>a+x.mins,0),1985);
-const counts=nodes.reduce((a,x)=>(a[x.source]=(a[x.source]||0)+1,a),{});
-assert.equal(JSON.stringify(counts),JSON.stringify({E:26,P:4,O:2,S:1}));
-const banned=['Definite Integral','Fundamental Theorem of Calculus','Integration by Parts','Sequences and Series','Separable Differential Equations'];
-for(const term of banned) assert.equal(JSON.stringify(nodes).includes(term),false,`MA102 leakage: ${term}`);
-console.log('MA 101 Arena checks passed: adaptive supervisor shell, 33 concepts, 14 weeks, 1985 reading minutes.');
+import {existsSync, readFileSync} from 'node:fs';
+
+const root = new URL('../ma101/', import.meta.url);
+const hub = readFileSync(new URL('index.html', root), 'utf8');
+for (const route of ['book', 'educator', 'pearson']) {
+  assert.ok(hub.includes(`/ma101/${route}/`), `hub link to ${route}`);
+}
+assert.ok(!hub.includes('Adaptive Learning Arena'), 'obsolete mixed arena removed');
+
+const expected = {book: 39, educator: 39, pearson: 29};
+for (const [route, count] of Object.entries(expected)) {
+  const html = readFileSync(new URL(`${route}/index.html`, root), 'utf8');
+  assert.match(html, /<html lang="en" dir="ltr">/);
+  assert.equal((html.match(/class="lesson math-lesson"/g) || []).length, count, `${route} count`);
+  assert.equal((html.match(/<details class="answer">/g) || []).length, count, `${route} answer count`);
+  assert.equal((html.match(/<div class="practice">/g) || []).length, count, `${route} check count`);
+  assert.equal((html.match(/<div class="math-formula">/g) || []).length, count * 2, `${route} equations`);
+  assert.ok(html.includes('Decision index') && html.includes('Equation review'));
+  assert.ok(!html.includes('.docx') && !html.includes('pages '), `${route} is a native study route`);
+  for (const match of html.matchAll(/(?:src|href)="(\/ma101\/assets\/[^"#]+)"/g)) {
+    assert.ok(existsSync(new URL(`..${match[1]}`, root)), `missing ${match[1]}`);
+  }
+  for (const other of Object.keys(expected).filter(x => x !== route)) {
+    assert.ok(!html.includes(`/ma101/assets/${other}/`), `${route} uses ${other} assets`);
+  }
+  if (route !== 'pearson') assert.ok(!html.includes('pearson.com/channels/calculus/learn/'));
+}
+assert.ok(existsSync(new URL('assets/math.css', root)));
+assert.ok(existsSync(new URL('assets/math.js', root)));
+console.log('MA 101 checks passed: three independent native routes, 107 lessons, equations, answers, and complete assets.');

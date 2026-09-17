@@ -1,9 +1,9 @@
-# MA 101 — Calculus I
+# Math 101 learning routes
 
-Student-facing 14-week YIC Calculus I pathway for isharataljasad.com.
+Three independent English study routes are published as native static pages:
 
-- 33 active concepts (C1–C33) plus final review.
-- Guided path: Educator / Pearson+ / OpenStax / Student OS.
-- Book path: targeted OpenStax readings mapped to the same C IDs.
-- Same mastery, remediation, prerequisite and progress state across both views.
-- Integral calculus and later material are excluded from the active MA 101 path.
+- `book/`: 39 self-contained lessons drawn from the authored book guide.
+- `educator/`: 39 self-contained lessons reconstructed from the available subtitle set.
+- `pearson/`: 29 self-contained decision and practice cards, with optional links to 12 public Pearson videos.
+
+The hub at `index.html` keeps the routes separate for benchmarking. Equation images and selected instructional diagrams live in `assets/`. Review marks are local to the browser and to each route. The Word reference files are not served.
