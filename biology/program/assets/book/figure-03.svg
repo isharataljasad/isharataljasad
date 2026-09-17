@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="435" viewBox="0 0 900 435" role="img" aria-labelledby="title desc">
+<title id="title">Electron transport and ATP synthase</title><desc id="desc">Electrons pass along the respiratory chain. Complexes move protons outward; protons flow back through ATP synthase, which makes ATP. Oxygen accepts electrons at the end.</desc>
+<rect x="0" y="0" width="900" height="435" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Respiration: electron flow builds a proton gradient</text>
+<text class="small" x="36" y="89">Intermembrane space · high H⁺</text><rect x="30" y="190" width="840" height="76" rx="12" fill="#dceeee" stroke="#aacbd1" stroke-width="2"/>
+<text class="small" x="36" y="320">Matrix · lower H⁺</text>
+<rect x="130" y="170" width="90" height="116" rx="10" fill="#0f6878"/><rect x="335" y="170" width="90" height="116" rx="10" fill="#0f6878"/><rect x="535" y="170" width="90" height="116" rx="10" fill="#0f6878"/>
+<text x="150" y="233" style="font:700 18px Arial;fill:#fff">I</text><text x="350" y="233" style="font:700 18px Arial;fill:#fff">III</text><text x="548" y="233" style="font:700 18px Arial;fill:#fff">IV</text>
+<path class="line" d="M219 227 L328 227"/><path class="line" d="M425 227 L528 227"/><path class="line" d="M626 227 L707 227"/>
+<text class="body" x="30" y="161">NADH → e⁻</text><text class="body" x="692" y="227">O₂ → H₂O</text>
+<path class="warmline" d="M174 170 L174 118"/><path class="warmline" d="M380 170 L380 118"/><path class="warmline" d="M580 170 L580 118"/>
+<text class="warm label" x="153" y="110">H⁺</text><text class="warm label" x="359" y="110">H⁺</text><text class="warm label" x="559" y="110">H⁺</text>
+<rect x="725" y="175" width="84" height="110" rx="30" fill="#f8eadc" stroke="#bf8950" stroke-width="4"/><text class="small" x="720" y="165">ATP synthase</text>
+<path class="warmline" d="M767 112 L767 174"/><text class="warm label" x="790" y="137">H⁺</text><text class="body" x="665" y="348">ADP + Pi → ATP</text>
+<text class="small" x="34" y="405">Key decision: blocking oxygen stops electron flow; blocking ATP synthase stops proton return.</text>
+</svg>

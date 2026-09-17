@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+<title id="title">Semiconservative DNA replication</title><desc id="desc">Each daughter DNA double helix contains one original strand and one newly synthesized complementary strand.</desc>
+<rect x="0" y="0" width="900" height="460" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Semiconservative replication</text><text class="small" x="34" y="80">Each daughter double helix keeps one parental strand.</text>
+<rect class="panel" x="44" y="120" width="220" height="260" rx="12"/><text class="label" x="80" y="154">PARENT</text>
+<path d="M115 186 C165 217 115 252 165 286 C115 320 165 349 115 360" fill="none" stroke="#176a7a" stroke-width="11"/><path d="M180 186 C130 217 180 252 130 286 C180 320 130 349 180 360" fill="none" stroke="#bf8950" stroke-width="11"/>
+<path class="line" d="M270 250 L358 250"/>
+<rect class="panel" x="385" y="120" width="210" height="260" rx="12"/><rect class="panel" x="625" y="120" width="210" height="260" rx="12"/>
+<text class="label" x="414" y="154">DAUGHTER 1</text><text class="label" x="652" y="154">DAUGHTER 2</text>
+<path d="M440 186 C490 217 440 252 490 286 C440 320 490 349 440 360" fill="none" stroke="#176a7a" stroke-width="11"/><path d="M525 186 C475 217 525 252 475 286 C525 320 475 349 525 360" fill="none" stroke="#4f9d87" stroke-width="11"/>
+<path d="M680 186 C730 217 680 252 730 286 C680 320 730 349 680 360" fill="none" stroke="#bf8950" stroke-width="11"/><path d="M765 186 C715 217 765 252 715 286 C765 320 715 349 765 360" fill="none" stroke="#4f9d87" stroke-width="11"/>
+<text class="small" x="53" y="426">Blue / ochre = parental DNA</text><text class="small" x="413" y="426">Green = newly synthesized DNA</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" role="img" aria-labelledby="title desc">
+<title id="title">Mitosis and meiosis</title><desc id="desc">Mitosis keeps chromosome number in two similar cells. Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids, yielding four varied haploid cells.</desc>
+<rect x="0" y="0" width="900" height="450" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">One diploid cell, two very different outcomes</text>
+<rect class="panel" x="322" y="76" width="256" height="70" rx="10"/><text class="label" x="356" y="105">Parent cell: 2n</text><text class="small" x="355" y="130">DNA replicates first</text>
+<path class="line" d="M400 149 L220 202"/><path class="warmline" d="M500 149 L680 202"/>
+<rect class="panel" x="55" y="210" width="330" height="210" rx="12"/><rect class="panel" x="515" y="210" width="330" height="210" rx="12"/>
+<text class="label teal" x="176" y="244">MITOSIS</text><text class="body" x="105" y="282">Sister chromatids separate</text><text class="body" x="122" y="320">2 similar cells · 2n each</text>
+<circle cx="160" cy="369" r="23" fill="#dceeee" stroke="#176a7a" stroke-width="3"/><circle cx="279" cy="369" r="23" fill="#dceeee" stroke="#176a7a" stroke-width="3"/><text class="small" x="148" y="376">2n</text><text class="small" x="267" y="376">2n</text>
+<text class="label warm" x="638" y="244">MEIOSIS</text><text class="body" x="551" y="282">I: homologs separate</text><text class="body" x="551" y="310">II: chromatids separate</text><text class="body" x="551" y="339">4 varied cells · n each</text>
+<circle cx="563" cy="378" r="19" fill="#f8eadc" stroke="#bf8950" stroke-width="3"/><circle cx="639" cy="378" r="19" fill="#f8eadc" stroke="#bf8950" stroke-width="3"/><circle cx="715" cy="378" r="19" fill="#f8eadc" stroke="#bf8950" stroke-width="3"/><circle cx="791" cy="378" r="19" fill="#f8eadc" stroke="#bf8950" stroke-width="3"/>
+<text class="small" x="557" y="384">n</text><text class="small" x="633" y="384">n</text><text class="small" x="709" y="384">n</text><text class="small" x="785" y="384">n</text>
+</svg>

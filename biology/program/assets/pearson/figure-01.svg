@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="490" viewBox="0 0 900 490" role="img" aria-labelledby="title desc">
+<title id="title">Two carbon dioxide series rising over time</title><desc id="desc">An original schematic showing fluctuating atmospheric and oceanic carbon dioxide series with upward long-term trends. The parallel rise is an association, not proof of cause.</desc>
+<rect x="0" y="0" width="900" height="490" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Two CO₂ series: trend versus fluctuation</text><text class="small" x="34" y="76">Illustrative schematic, not measured values</text>
+<path d="M95 110 L95 390 L850 390" fill="none" stroke="#536a75" stroke-width="3"/>
+<text class="small" x="24" y="260" transform="rotate(-90 24 260)">Relative CO₂</text><text class="small" x="461" y="425">Time →</text>
+<polyline points="100,332 160,318 220,323 280,297 340,303 400,274 460,277 520,247 580,254 640,215 700,219 760,191 835,170" fill="none" stroke="#176a7a" stroke-width="5"/>
+<polyline points="100,360 160,346 220,368 280,323 340,346 400,304 460,332 520,281 580,309 640,264 700,287 760,233 835,248" fill="none" stroke="#bf8950" stroke-width="5"/>
+<text class="label teal" x="608" y="126">Atmospheric CO₂</text><text class="label warm" x="635" y="330">Oceanic CO₂</text>
+<text class="small" x="166" y="460">Both rise overall. Their joint trend alone does not establish causation.</text>
+</svg>

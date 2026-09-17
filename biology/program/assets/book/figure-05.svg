@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="485" viewBox="0 0 900 485" role="img" aria-labelledby="title desc">
+<title id="title">A branching phylogenetic tree</title><desc id="desc">Iguana is the outgroup. Platypus branches before the shared ancestor of kangaroo and beaver. A branch is a shared ancestry statement, not a ladder of progress.</desc>
+<rect x="0" y="0" width="900" height="485" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Read each fork as a shared ancestor</text>
+<path d="M90 405 L235 405 L235 110 L770 110" fill="none" stroke="#176a7a" stroke-width="5"/>
+<path d="M235 310 L435 310 L435 225 L770 225" fill="none" stroke="#176a7a" stroke-width="5"/>
+<path d="M435 225 L595 225 L595 335 L770 335" fill="none" stroke="#176a7a" stroke-width="5"/>
+<path d="M595 335 L595 405 L770 405" fill="none" stroke="#176a7a" stroke-width="5"/>
+<circle cx="235" cy="310" r="7" fill="#bf8950"/><circle cx="435" cy="225" r="7" fill="#bf8950"/><circle cx="595" cy="335" r="7" fill="#bf8950"/>
+<text class="body" x="783" y="117">Iguana (outgroup)</text><text class="body" x="783" y="232">Platypus</text><text class="body" x="783" y="342">Kangaroo</text><text class="body" x="783" y="412">Beaver</text>
+<text class="small" x="44" y="455">The kangaroo and beaver share a more recent ancestor with each other than with the platypus.</text>
+</svg>

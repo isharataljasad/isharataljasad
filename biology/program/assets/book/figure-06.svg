@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="435" viewBox="0 0 900 435" role="img" aria-labelledby="title desc">
+<title id="title">Pulmonary and systemic circulation</title><desc id="desc">Blood moves from the right heart to the lungs to the left heart to the body and back to the right heart. The pulmonary and systemic circuits have different destinations.</desc>
+<rect x="0" y="0" width="900" height="435" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Two circuits in one continuous loop</text>
+<rect class="panel" x="63" y="176" width="170" height="100" rx="15"/><text class="label" x="91" y="218">RIGHT</text><text class="label" x="91" y="245">HEART</text>
+<rect class="panel" x="292" y="176" width="165" height="100" rx="15"/><text class="label" x="334" y="232">LUNGS</text>
+<rect class="panel" x="513" y="176" width="170" height="100" rx="15"/><text class="label" x="544" y="218">LEFT</text><text class="label" x="544" y="245">HEART</text>
+<rect class="panel" x="730" y="176" width="130" height="100" rx="15"/><text class="label" x="762" y="232">BODY</text>
+<path class="line" d="M233 226 L282 226"/><path class="warmline" d="M457 226 L503 226"/><path class="warmline" d="M683 226 L720 226"/>
+<path class="line" d="M795 285 L795 360 L148 360 L148 285"/>
+<text class="small" x="271" y="156">Pulmonary circuit</text><text class="small" x="624" y="156">Systemic circuit</text>
+<text class="small" x="155" y="402">Blue = oxygen-poor blood</text><text class="small" x="520" y="402">Ochre = oxygen-rich blood</text>
+</svg>

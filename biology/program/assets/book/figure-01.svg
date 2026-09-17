@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-labelledby="title desc">
+<title id="title">Osmosis and cell responses</title><desc id="desc">Water shifts toward the side with more nonpenetrating solute. Animal cells swell in hypotonic solution and shrink in hypertonic solution; plant cell walls support turgor.</desc>
+<rect x="0" y="0" width="900" height="470" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Osmosis: compare the environment first</text>
+<text class="small" x="34" y="76">Water moves toward the higher nonpenetrating-solute concentration.</text>
+<text class="label" x="70" y="124">ISOTONIC</text><text class="label" x="365" y="124">HYPOTONIC</text><text class="label" x="665" y="124">HYPERTONIC</text>
+<rect class="panel" x="30" y="145" width="260" height="300" rx="12"/><rect class="panel" x="320" y="145" width="260" height="300" rx="12"/><rect class="panel" x="610" y="145" width="260" height="300" rx="12"/>
+<text class="small" x="42" y="180">Animal cell</text><circle cx="160" cy="240" r="46" fill="#dceeee" stroke="#176a7a" stroke-width="5"/>
+<text class="small" x="330" y="180">Animal cell</text><circle cx="450" cy="240" r="59" fill="#dceeee" stroke="#176a7a" stroke-width="5"/>
+<text class="small" x="620" y="180">Animal cell</text><circle cx="740" cy="240" r="32" fill="#dceeee" stroke="#176a7a" stroke-width="5"/>
+<text class="small" x="42" y="306">Plant cell</text><rect x="100" y="320" width="120" height="72" rx="5" fill="#fff" stroke="#688d58" stroke-width="6"/><rect x="111" y="329" width="98" height="54" rx="4" fill="#dceeee" stroke="#176a7a" stroke-width="3"/>
+<text class="small" x="330" y="306">Plant cell</text><rect x="390" y="320" width="120" height="72" rx="5" fill="#fff" stroke="#688d58" stroke-width="6"/><rect x="396" y="326" width="108" height="60" rx="4" fill="#dceeee" stroke="#176a7a" stroke-width="3"/>
+<text class="small" x="620" y="306">Plant cell</text><rect x="680" y="320" width="120" height="72" rx="5" fill="#fff" stroke="#688d58" stroke-width="6"/><rect x="708" y="338" width="64" height="37" rx="4" fill="#dceeee" stroke="#176a7a" stroke-width="3"/>
+<text class="body" x="61" y="420">No net water shift</text><text class="body" x="362" y="420">Water in: turgor</text><text class="body" x="648" y="420">Water out: shrink</text>
+</svg>

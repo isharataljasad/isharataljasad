@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="515" viewBox="0 0 900 515" role="img" aria-labelledby="title desc">
+<title id="title">Ocean pH declines while remaining above seven</title><desc id="desc">An original schematic with illustrative pH values above seven that trend downward over time. A declining pH means greater acidity relative to before.</desc>
+<rect x="0" y="0" width="900" height="515" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">A downward pH trend means greater acidity</text><text class="small" x="34" y="76">Illustrative values; compare direction, not an exact measurement</text>
+<path d="M110 125 L110 393 L845 393" fill="none" stroke="#536a75" stroke-width="3"/>
+<path d="M110 173 L845 173 M110 254 L845 254 M110 335 L845 335" fill="none" stroke="#dce5e8" stroke-width="2" stroke-dasharray="5 7"/>
+<text class="small" x="53" y="178">8.2</text><text class="small" x="53" y="259">8.1</text><text class="small" x="53" y="340">8.0</text><text class="small" x="453" y="427">Time →</text>
+<polyline points="115,185 175,192 235,182 295,207 355,202 415,231 475,224 535,259 595,257 655,286 715,280 780,313 837,320" fill="none" stroke="#176a7a" stroke-width="5"/>
+<text class="label teal" x="603" y="175">Ocean pH</text>
+<rect x="307" y="448" width="456" height="40" rx="8" fill="#e8f3f3"/><text class="body" x="326" y="474">pH falls → [H⁺] rises</text>
+</svg>

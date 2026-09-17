@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="465" viewBox="0 0 900 465" role="img" aria-labelledby="title desc">
+<title id="title">Energy flow through a food web</title><desc id="desc">Arrows point from food to consumer. Plants feed several herbivores; predators may eat more than one prey species. Energy moves through several linked paths.</desc>
+<rect x="0" y="0" width="900" height="465" fill="#ffffff"/><defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#176a7a"/></marker>
+  <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#bf8950"/></marker>
+  <style>text{font-family:Arial,Helvetica,sans-serif;fill:#173245}.title{font-size:26px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:18px}.small{font-size:15px;fill:#526a75}.teal{fill:#0f6878}.warm{fill:#b47a3f}.panel{fill:#f7fbfc;stroke:#c7d9df;stroke-width:2}.line{fill:none;stroke:#176a7a;stroke-width:4;marker-end:url(#arrow)}.warmline{fill:none;stroke:#bf8950;stroke-width:4;marker-end:url(#warm-arrow)}</style>
+</defs>
+
+<text class="title" x="34" y="48">Food web: arrows point from food to consumer</text>
+<rect class="panel" x="42" y="188" width="155" height="75" rx="10"/><text class="label" x="82" y="234">PLANTS</text>
+<rect class="panel" x="290" y="70" width="160" height="72" rx="10"/><text class="label" x="326" y="114">RABBIT</text>
+<rect class="panel" x="290" y="190" width="160" height="72" rx="10"/><text class="label" x="334" y="234">MOUSE</text>
+<rect class="panel" x="290" y="310" width="160" height="72" rx="10"/><text class="label" x="303" y="354">GRASSHOPPER</text>
+<rect class="panel" x="560" y="310" width="135" height="72" rx="10"/><text class="label" x="605" y="354">BIRD</text>
+<rect class="panel" x="735" y="90" width="130" height="72" rx="10"/><text class="label" x="776" y="134">FOX</text>
+<rect class="panel" x="735" y="215" width="130" height="72" rx="10"/><text class="label" x="765" y="259">HAWK</text>
+<path class="line" d="M197 210 L280 111"/><path class="line" d="M197 226 L280 226"/><path class="line" d="M197 245 L280 347"/>
+<path class="line" d="M450 347 L550 347"/><path class="line" d="M450 110 L725 126"/><path class="line" d="M450 226 L725 250"/><path class="line" d="M695 347 L770 287"/>
+<text class="small" x="43" y="438">A consumer can have several food sources; a food web has more than one energy path.</text>
+</svg>
