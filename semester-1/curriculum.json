@@ -1,0 +1,1228 @@
+{
+  "schemaVersion": 1,
+  "programId": "yic-bsce",
+  "planVersion": "published-2023",
+  "activeSemester": 1,
+  "scopeStatus": "provisional-until-student-outline",
+  "sources": [
+    "https://www.rcjy.edu.sa/umb/rcjy-media/vhvh5a22/bachelor-of-science-in-chemical-engineering-21-6-2023.pdf",
+    "https://www.rcjy.edu.sa/umb/rcjy-media/jq1nholw/bscecourse-descriptions.pdf"
+  ],
+  "courses": [
+    {
+      "id": "ma101",
+      "path": "math",
+      "code": "MA 101",
+      "title": "Calculus I",
+      "credits": 4,
+      "tag": "Change and mathematical models",
+      "scope": "Limits, continuity, derivatives, rates of change, approximations, optimization, curve sketching, Rolle’s theorem and the Mean Value Theorem.",
+      "status": "Published topics; proposed study order",
+      "topics": [
+        {
+          "id": "limits",
+          "title": "Limits",
+          "outcome": "Find a limit before substituting into a broken expression.",
+          "idea": "A limit describes nearby behaviour. A missing value at the point does not by itself prevent a limit. Factor or rationalise an indeterminate expression, cancel only for nearby allowed inputs, and then evaluate.",
+          "example": "For (x² − 9)/(x − 3), factor the numerator. For x ≠ 3 the expression is x + 3, so its limit as x approaches 3 is 6. The original expression is still undefined at 3.",
+          "context": "A limiting model describes what a process approaches, even when an ideal endpoint is not directly measured.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-04",
+              "lesson-05"
+            ],
+            "pearson": [
+              "lesson-07",
+              "lesson-08"
+            ],
+            "book": [
+              "lesson-07",
+              "lesson-08"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Find the limit of (x² − 4)/(x − 2) as x approaches 2.",
+            "answer": 4,
+            "explanation": "For x ≠ 2, the expression simplifies to x + 2.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "Find the limit of (x² − 25)/(x − 5) as x approaches 5.",
+            "answer": 10,
+            "explanation": "Factor as (x − 5)(x + 5), cancel away from 5, then evaluate x + 5.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.limits",
+          "href": "/semester-1/math/limits/",
+          "checkpointVersion": 1,
+          "sequence": 1,
+          "suggestedPrevious": [],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "continuity",
+          "title": "Continuity",
+          "outcome": "Distinguish a function value from its limit.",
+          "idea": "Continuity at a point requires a defined value, an existing two-sided limit, and equality between them. The Intermediate Value Theorem needs continuity on the whole closed interval.",
+          "example": "If f(x) = (x² − 9)/(x − 3) away from 3, defining f(3) = 6 fills the removable gap. Giving it any other value leaves a discontinuity.",
+          "context": "Before treating a measured trend as smooth, identify whether a model has a genuine jump or just a missing observation.",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-07"
+            ],
+            "pearson": [
+              "lesson-08"
+            ],
+            "book": [
+              "lesson-09"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "For f(x)=2x+1 when x≠2, what value of f(2) makes f continuous?",
+            "answer": 5,
+            "explanation": "The limit at 2 is 2(2)+1=5.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "For f(x)=x²+2 when x≠3, what value of f(3) makes f continuous?",
+            "answer": 11,
+            "explanation": "The nearby polynomial tends to 3²+2=11.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.continuity",
+          "href": "/semester-1/math/continuity/",
+          "checkpointVersion": 1,
+          "sequence": 2,
+          "suggestedPrevious": [
+            "MA101.limits"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "derivative",
+          "title": "Derivative as a rate",
+          "outcome": "Connect a tangent slope to an instantaneous rate.",
+          "idea": "The derivative is the limit of a difference quotient: [f(x+h) − f(x)]/h as h tends to zero. Average change uses two distinct points; instantaneous change uses their limiting slope. Keep the output unit divided by the input unit.",
+          "example": "For f(x)=x², the difference quotient becomes 2x+h. Its limit is 2x. At x=3 the slope is 6.",
+          "context": "If concentration is measured in mol/L and time in minutes, its derivative has units mol/(L·min).",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-08",
+              "lesson-12"
+            ],
+            "pearson": [
+              "lesson-09",
+              "lesson-10"
+            ],
+            "book": [
+              "lesson-11",
+              "lesson-12"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "For f(x)=x², calculate f′(4).",
+            "answer": 8,
+            "explanation": "f′(x)=2x, so f′(4)=8.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A model C(t)=t²+3t gives concentration in mmol/L and time in min. Find C′(2).",
+            "answer": 7,
+            "explanation": "C′(t)=2t+3; at t=2 the rate is 7.",
+            "unit": "mmol/(L·min)",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.derivative",
+          "href": "/semester-1/math/derivative/",
+          "checkpointVersion": 1,
+          "sequence": 3,
+          "suggestedPrevious": [
+            "MA101.continuity"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "rules",
+          "title": "Differentiation rules",
+          "outcome": "Choose a rule from the structure of the function.",
+          "idea": "Use the sum rule for sums, the product rule for products, the quotient rule for ratios, and the chain rule for composition. Differentiate the outer function, retain its input, then multiply by the derivative of that input. Trigonometric derivative rules assume radians.",
+          "example": "For y=(3x+1)², the chain rule gives y′=2(3x+1)·3. At x=1, y′=24.",
+          "context": "Rate models often combine an exponential trend with another changing quantity; identify structure before manipulating symbols.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-09",
+              "lesson-10",
+              "lesson-11",
+              "lesson-13",
+              "lesson-14",
+              "lesson-19"
+            ],
+            "pearson": [
+              "lesson-11",
+              "lesson-12",
+              "lesson-13",
+              "lesson-20"
+            ],
+            "book": [
+              "lesson-13",
+              "lesson-15",
+              "lesson-16",
+              "lesson-19"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "For y=(2x+1)², find y′ at x=1.",
+            "answer": 12,
+            "explanation": "y′=4(2x+1); at x=1 this is 12.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "For y=x(x²+1), find y′ at x=2.",
+            "answer": 13,
+            "explanation": "Using the product rule, y′=(x²+1)+2x²=3x²+1.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.rules",
+          "href": "/semester-1/math/rules/",
+          "checkpointVersion": 1,
+          "sequence": 4,
+          "suggestedPrevious": [
+            "MA101.derivative"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "related-rates",
+          "title": "Related rates",
+          "outcome": "Differentiate a relation before inserting the current values.",
+          "idea": "First write a relation among the changing quantities. Differentiate with respect to time, including every chain-rule factor. Only then insert the quantities and rates at the specified instant.",
+          "example": "For a square with side s, A=s² gives dA/dt=2s·ds/dt. At s=3 m and ds/dt=0.2 m/min, dA/dt=1.2 m²/min.",
+          "context": "Tank level and stored volume are related by geometry. A level rate is not the same quantity as a volumetric flow rate.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-17",
+              "lesson-21"
+            ],
+            "pearson": [
+              "lesson-15"
+            ],
+            "book": [
+              "lesson-18",
+              "lesson-20"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A square has side 4 m growing at 0.5 m/min. Find its area growth rate.",
+            "answer": 4,
+            "explanation": "dA/dt=2s·ds/dt=2·4·0.5.",
+            "unit": "m²/min",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A cylindrical tank has fixed cross-sectional area 3 m². The level rises at 0.2 m/min. Find dV/dt.",
+            "answer": 0.6,
+            "explanation": "V=3h, hence dV/dt=3·0.2.",
+            "unit": "m³/min",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.related-rates",
+          "href": "/semester-1/math/related-rates/",
+          "checkpointVersion": 1,
+          "sequence": 5,
+          "suggestedPrevious": [
+            "MA101.rules"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "approximation",
+          "title": "Linear approximation",
+          "outcome": "Use a nearby tangent model and recognise its limits.",
+          "idea": "Near x=a, approximate f(x) by f(a)+f′(a)(x−a). This local model is useful when a small change is easier to handle than a full recalculation. A large change may produce a poor approximation.",
+          "example": "Near x=4, √x≈2+(x−4)/4. At 4.04, the linear estimate is 2.01.",
+          "context": "A sensitivity estimate describes the effect of a small input change; it is not a complete uncertainty analysis.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-22"
+            ],
+            "pearson": [
+              "lesson-16"
+            ],
+            "book": [
+              "lesson-21"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Use the linearisation of √x at 4 to estimate √4.08.",
+            "answer": 2.02,
+            "explanation": "L(x)=2+(x−4)/4, so L(4.08)=2.02.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "Use the linearisation of x² at x=3 to estimate (3.02)².",
+            "answer": 9.12,
+            "explanation": "L(x)=9+6(x−3); L(3.02)=9.12.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.approximation",
+          "href": "/semester-1/math/approximation/",
+          "checkpointVersion": 1,
+          "sequence": 6,
+          "suggestedPrevious": [
+            "MA101.related-rates"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "mean-value",
+          "title": "Rolle and Mean Value Theorems",
+          "outcome": "Check conditions before claiming an interior derivative value.",
+          "idea": "The Mean Value Theorem needs continuity on [a,b] and differentiability on (a,b). It guarantees some interior c with f′(c)=[f(b)−f(a)]/(b−a). Rolle’s theorem adds equal endpoint values and guarantees f′(c)=0.",
+          "example": "For f(x)=x² on [1,3], average slope is (9−1)/2=4. Since f′(x)=2x, c=2 satisfies the conclusion.",
+          "context": "An average rate can guarantee an instantaneous matching rate only when the mathematical conditions hold.",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-24"
+            ],
+            "book": [
+              "lesson-23"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "For f(x)=x² on [0,4], find the c guaranteed by the Mean Value Theorem.",
+            "answer": 2,
+            "explanation": "Average slope is 4, so 2c=4.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "For f(x)=(x−2)² on [0,4], find the c satisfying Rolle’s conclusion.",
+            "answer": 2,
+            "explanation": "Endpoint values are both 4. f′(c)=2(c−2)=0 gives c=2.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.mean-value",
+          "href": "/semester-1/math/mean-value/",
+          "checkpointVersion": 1,
+          "sequence": 7,
+          "suggestedPrevious": [
+            "MA101.approximation"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "curve-shape",
+          "title": "Extrema and curve shape",
+          "outcome": "Use derivative signs and endpoints to justify a conclusion.",
+          "idea": "A critical point is a candidate, not automatically an extremum. Use the sign of f′ to identify increasing and decreasing intervals, f″ for concavity, and include interval endpoints when comparing absolute extrema.",
+          "example": "For f(x)=x²−4x on [0,3], the critical point is x=2. Compare f(0)=0, f(2)=−4 and f(3)=−3. The minimum is −4.",
+          "context": "A turning point in a cost model must lie inside the allowed operating range before it can be considered.",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-23",
+              "lesson-25",
+              "lesson-27"
+            ],
+            "pearson": [
+              "lesson-17",
+              "lesson-18"
+            ],
+            "book": [
+              "lesson-22",
+              "lesson-24",
+              "lesson-25"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Find the x-coordinate of the minimum of f(x)=x²−6x.",
+            "answer": 3,
+            "explanation": "f′=2x−6=0 gives x=3; f″=2>0.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "Find the absolute maximum value of f(x)=x² on [−1,2].",
+            "answer": 4,
+            "explanation": "Compare the critical point x=0 and both endpoints: 0, 1 and 4.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.curve-shape",
+          "href": "/semester-1/math/curve-shape/",
+          "checkpointVersion": 1,
+          "sequence": 8,
+          "suggestedPrevious": [
+            "MA101.mean-value"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "optimization",
+          "title": "Optimization",
+          "outcome": "Build a feasible one-variable model before differentiating.",
+          "idea": "Name the quantity to optimise and the constraint. Use the constraint to reduce the objective to one variable. Identify the allowed domain, find candidates, and justify the winning value by endpoints or derivative signs.",
+          "example": "A rectangle with perimeter 20 m has area A=x(10−x). The derivative 10−2x vanishes at x=5, giving the maximum area 25 m².",
+          "context": "A design optimum is meaningful only for the model and constraints used. Real equipment requires further engineering checks.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-28"
+            ],
+            "pearson": [
+              "lesson-19"
+            ],
+            "book": [
+              "lesson-26"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A rectangle has perimeter 24 m. What side length gives the largest area?",
+            "answer": 6,
+            "explanation": "The maximum occurs for a square; 4s=24.",
+            "unit": "m",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "For a rectangle with perimeter 40 m, find the maximum area.",
+            "answer": 100,
+            "explanation": "A=x(20−x) is maximised at x=10; the area is 100.",
+            "unit": "m²",
+            "tolerance": 0.0001
+          },
+          "key": "MA101.optimization",
+          "href": "/semester-1/math/optimization/",
+          "checkpointVersion": 1,
+          "sequence": 9,
+          "suggestedPrevious": [
+            "MA101.curve-shape"
+          ],
+          "evidence": "Published topics; proposed study order"
+        }
+      ],
+      "semester": 1
+    },
+    {
+      "id": "phy101",
+      "path": "physics",
+      "code": "PHY 101",
+      "title": "General Physics I",
+      "credits": 4,
+      "tag": "Motion forces and physical evidence",
+      "scope": "Fundamentals of physics, laws of motion, applications, laboratory experiments and graphing skills. The detailed mechanics sequence below is provisional until the lecturer’s outline is available.",
+      "status": "Broad published scope; provisional topic breakdown",
+      "topics": [
+        {
+          "id": "measurement",
+          "title": "Units and measurement",
+          "outcome": "Check units, scale and meaningful precision.",
+          "idea": "A physical equation must have compatible dimensions on both sides. Convert by multiplying ratios equal to one. A measurement has finite precision; retain guard digits during calculation and round the final result appropriately.",
+          "example": "A speed of 72 km/h equals 72×1000/3600=20 m/s. Distance divided by time has dimensions of speed.",
+          "context": "A unit mismatch in a process calculation can overwhelm an otherwise correct model.",
+          "foundation": "units",
+          "resources": {
+            "educator": [
+              "lesson-01"
+            ],
+            "pearson": [
+              "lesson-01",
+              "lesson-02"
+            ],
+            "book": [
+              "lesson-01"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Convert 36 km/h to m/s.",
+            "answer": 10,
+            "explanation": "Multiply by 1000/3600.",
+            "unit": "m/s",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A sample mass is 250 g and its volume is 100 cm³. Find its density.",
+            "answer": 2.5,
+            "explanation": "Density = mass/volume = 250/100.",
+            "unit": "g/cm³",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.measurement",
+          "href": "/semester-1/physics/measurement/",
+          "checkpointVersion": 1,
+          "sequence": 1,
+          "suggestedPrevious": [],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "motion",
+          "title": "Vectors and motion",
+          "outcome": "Read direction and motion graphs before choosing an equation.",
+          "idea": "Velocity has direction; speed does not. Position-time slope is velocity, and velocity-time slope is acceleration. Constant-acceleration equations apply only over intervals where that assumption is justified.",
+          "example": "Starting from rest with constant acceleration 2 m/s² for 3 s gives v=6 m/s and displacement 9 m.",
+          "context": "A conveyor or moving sample can be described by position, velocity and acceleration without confusing the quantities.",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-02",
+              "lesson-03",
+              "lesson-04",
+              "lesson-05"
+            ],
+            "pearson": [
+              "lesson-03",
+              "lesson-05",
+              "lesson-06",
+              "lesson-08"
+            ],
+            "book": [
+              "lesson-02",
+              "lesson-03",
+              "lesson-04",
+              "lesson-05"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "An object starts from rest and accelerates at 3 m/s² for 4 s. Find its final speed.",
+            "answer": 12,
+            "explanation": "v=u+at=0+3·4.",
+            "unit": "m/s",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "An object starts at 2 m/s and accelerates constantly at 2 m/s² for 3 s. Find displacement.",
+            "answer": 15,
+            "explanation": "s=ut+at²/2=6+9.",
+            "unit": "m",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.motion",
+          "href": "/semester-1/physics/motion/",
+          "checkpointVersion": 1,
+          "sequence": 2,
+          "suggestedPrevious": [
+            "PHY101.measurement"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "forces",
+          "title": "Newton laws and force diagrams",
+          "outcome": "Define the object and sum external forces on it.",
+          "idea": "Draw all actual external forces on the chosen object. Choose axes and write a signed force balance. The net force equals mass times acceleration; motion alone does not imply a net force.",
+          "example": "A 5 kg object with a net horizontal force of 15 N accelerates at 3 m/s². Weight and normal force may cancel vertically without cancelling horizontal force.",
+          "context": "A diagram keeps drive, support and resistance forces distinct when modelling moving equipment.",
+          "foundation": "trigonometry",
+          "resources": {
+            "educator": [
+              "lesson-06",
+              "lesson-08"
+            ],
+            "pearson": [
+              "lesson-10",
+              "lesson-11",
+              "lesson-12",
+              "lesson-14"
+            ],
+            "book": [
+              "lesson-07"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A net force of 12 N acts on a 3 kg object. Find its acceleration.",
+            "answer": 4,
+            "explanation": "a=Fnet/m=12/3.",
+            "unit": "m/s²",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A 4 kg object has horizontal forces of 20 N right and 8 N left. Find acceleration, with right positive.",
+            "answer": 3,
+            "explanation": "Fnet=20−8=12 N; a=12/4.",
+            "unit": "m/s²",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.forces",
+          "href": "/semester-1/physics/forces/",
+          "checkpointVersion": 1,
+          "sequence": 3,
+          "suggestedPrevious": [
+            "PHY101.motion"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "friction",
+          "title": "Friction and inclined surfaces",
+          "outcome": "Choose the friction model and resolve forces.",
+          "idea": "Static friction adjusts up to a maximum; kinetic friction is modelled as μkN while sliding. The normal force is not automatically mg. On a simple incline with no other normal force component, it is mg cos θ.",
+          "example": "A sliding object with N=50 N and μk=0.2 has a friction magnitude of 10 N opposite relative sliding.",
+          "context": "Friction changes both the force balance and energy bookkeeping in motion models.",
+          "foundation": "trigonometry",
+          "resources": {
+            "educator": [
+              "lesson-07"
+            ],
+            "pearson": [
+              "lesson-13"
+            ],
+            "book": [
+              "lesson-08"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Find kinetic friction when μk=0.3 and N=40 N.",
+            "answer": 12,
+            "explanation": "fk=μkN=0.3·40.",
+            "unit": "N",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "An object slides on a horizontal surface. N=60 N, μk=0.2, applied force=30 N forward. Find the net forward force.",
+            "answer": 18,
+            "explanation": "Friction is 12 N, so net force is 30−12.",
+            "unit": "N",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.friction",
+          "href": "/semester-1/physics/friction/",
+          "checkpointVersion": 1,
+          "sequence": 4,
+          "suggestedPrevious": [
+            "PHY101.forces"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "energy",
+          "title": "Work energy and power",
+          "outcome": "Use an energy balance with a defined system.",
+          "idea": "Work transfers energy through force and displacement. For a constant force, W=Fd cos θ. Net work changes kinetic energy. Power is the rate of energy transfer, not an amount of energy.",
+          "example": "A force of 10 N acting along 3 m does 30 J of work. Delivering 120 J over 4 s corresponds to an average power of 30 W.",
+          "context": "Power and efficiency language is useful for understanding pumps and motors, while the actual model still needs correct system boundaries.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-15",
+              "lesson-16"
+            ],
+            "pearson": [
+              "lesson-18",
+              "lesson-19",
+              "lesson-20",
+              "lesson-22"
+            ],
+            "book": [
+              "lesson-11",
+              "lesson-12",
+              "lesson-13"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A constant force of 15 N acts along a displacement of 2 m. Find its work.",
+            "answer": 30,
+            "explanation": "W=Fd=15·2.",
+            "unit": "J",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A motor transfers 600 J in 5 s. Find its average power.",
+            "answer": 120,
+            "explanation": "P=W/Δt=600/5.",
+            "unit": "W",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.energy",
+          "href": "/semester-1/physics/energy/",
+          "checkpointVersion": 1,
+          "sequence": 5,
+          "suggestedPrevious": [
+            "PHY101.friction"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "momentum",
+          "title": "Impulse and momentum",
+          "outcome": "Choose a system and keep velocity signs.",
+          "idea": "Momentum is mv and impulse is the change in momentum. Momentum conservation applies to a system with negligible external impulse over the interval. Kinetic energy need not be conserved in a collision.",
+          "example": "A 2 kg body changes velocity from +3 to −1 m/s. Its momentum change is 2(−1−3)=−8 kg·m/s.",
+          "context": "A force-time graph gives impulse by its signed area; the peak force alone does not describe the full effect.",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-09",
+              "lesson-10"
+            ],
+            "pearson": [
+              "lesson-23",
+              "lesson-24",
+              "lesson-25",
+              "lesson-26"
+            ],
+            "book": [
+              "lesson-14",
+              "lesson-15"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A 3 kg object travels at +4 m/s. Find its momentum.",
+            "answer": 12,
+            "explanation": "p=mv=3·4.",
+            "unit": "kg·m/s",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A 2 kg body changes velocity from +5 to +2 m/s. Find its impulse, with right positive.",
+            "answer": -6,
+            "explanation": "J=Δp=2(2−5)=−6.",
+            "unit": "N·s",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.momentum",
+          "href": "/semester-1/physics/momentum/",
+          "checkpointVersion": 1,
+          "sequence": 6,
+          "suggestedPrevious": [
+            "PHY101.energy"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "circular-motion",
+          "title": "Circular motion",
+          "outcome": "Recognise that changing direction requires acceleration.",
+          "idea": "In uniform circular motion, speed is constant but velocity changes direction. Inward acceleration is v²/r. The required net inward force is supplied by actual forces such as tension, friction or gravity; it is not an additional force.",
+          "example": "For speed 4 m/s and radius 2 m, inward acceleration is 16/2=8 m/s².",
+          "context": "Rotating equipment provides context for distinguishing speed, angular motion and inward acceleration.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-11",
+              "lesson-13"
+            ],
+            "pearson": [
+              "lesson-16",
+              "lesson-17"
+            ],
+            "book": [
+              "lesson-09",
+              "lesson-17"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Find inward acceleration at v=6 m/s and r=3 m.",
+            "answer": 12,
+            "explanation": "ac=v²/r=36/3.",
+            "unit": "m/s²",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A 2 kg object travels in a circle of radius 4 m at 4 m/s. Find net inward force.",
+            "answer": 8,
+            "explanation": "F=mv²/r=2·16/4.",
+            "unit": "N",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.circular-motion",
+          "href": "/semester-1/physics/circular-motion/",
+          "checkpointVersion": 1,
+          "sequence": 7,
+          "suggestedPrevious": [
+            "PHY101.momentum"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        },
+        {
+          "id": "lab-graphs",
+          "title": "Laboratory graphs and evidence",
+          "outcome": "Describe a measured relationship without overstating it.",
+          "idea": "Label axes with quantities and units. A straight-line slope is a ratio of changes, with units from the axes. Repeated measurements reveal scatter; they do not by themselves remove calibration error. Record observations separately from explanations.",
+          "example": "On a position-time graph, points (1 s, 2 m) and (3 s, 8 m) give average slope (8−2)/(3−1)=3 m/s.",
+          "context": "A reproducible laboratory record states what was measured, how it was measured and the model used to interpret it.",
+          "foundation": "graphs",
+          "resources": {
+            "educator": [
+              "lesson-01",
+              "lesson-03"
+            ],
+            "pearson": [
+              "lesson-02",
+              "lesson-05"
+            ],
+            "book": [
+              "lesson-01",
+              "lesson-03"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A position-time graph passes through (0 s, 1 m) and (2 s, 7 m). Find the average slope.",
+            "answer": 3,
+            "explanation": "Slope=(7−1)/(2−0).",
+            "unit": "m/s",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A force-versus-extension graph passes through (0.02 m, 4 N) and (0.06 m, 12 N). Find its slope.",
+            "answer": 200,
+            "explanation": "Slope=(12−4)/(0.06−0.02)=200.",
+            "unit": "N/m",
+            "tolerance": 0.0001
+          },
+          "key": "PHY101.lab-graphs",
+          "href": "/semester-1/physics/lab-graphs/",
+          "checkpointVersion": 1,
+          "sequence": 8,
+          "suggestedPrevious": [
+            "PHY101.circular-motion"
+          ],
+          "evidence": "Broad published scope; provisional topic breakdown"
+        }
+      ],
+      "semester": 1
+    },
+    {
+      "id": "chemistry",
+      "path": "chemistry",
+      "code": "CHEM 101",
+      "title": "General Chemistry I",
+      "credits": 4,
+      "tag": "Matter reactions and energy",
+      "scope": "Atomic structure, quantum theory, periodic table, chemical bonds, reactions in solution, properties of solutions and gases, thermochemistry and electrochemistry.",
+      "status": "Published topics; proposed study order",
+      "topics": [
+        {
+          "id": "atomic-structure",
+          "title": "Atomic structure",
+          "outcome": "Count protons neutrons and electrons consistently.",
+          "idea": "Atomic number counts protons. Mass number counts protons plus neutrons. Ion formation changes the electron count, while changing neutrons produces a different isotope. Read superscripts and charge separately.",
+          "example": "An ion with atomic number 11, mass number 23 and charge +1 contains 11 protons, 12 neutrons and 10 electrons.",
+          "context": "Composition and charge are the starting information for every later chemical balance.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-03",
+              "lesson-04"
+            ],
+            "pearson": [
+              "lesson-03"
+            ],
+            "book": [
+              "lesson-04"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "An atom has mass number 23 and atomic number 11. How many neutrons?",
+            "answer": 12,
+            "explanation": "Neutrons=23−11.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "An ion has atomic number 12 and charge +2. How many electrons?",
+            "answer": 10,
+            "explanation": "A 2+ ion has lost two electrons: 12−2.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.atomic-structure",
+          "href": "/semester-1/chemistry/atomic-structure/",
+          "checkpointVersion": 1,
+          "sequence": 1,
+          "suggestedPrevious": [],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "quantum-theory",
+          "title": "Quantum theory",
+          "outcome": "Connect light energy and the electronic model.",
+          "idea": "Photons have energy E=hf=hc/λ. Shorter wavelength means higher photon energy. Atomic electrons occupy allowed energy states; orbitals describe probability rather than miniature planetary paths.",
+          "example": "If wavelength is halved, photon energy doubles because E is inversely proportional to λ.",
+          "context": "Spectroscopy uses the relation between absorbed or emitted light and changes in electronic energy.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-13",
+              "lesson-14",
+              "lesson-15"
+            ],
+            "pearson": [
+              "lesson-20",
+              "lesson-21"
+            ],
+            "book": [
+              "lesson-13",
+              "lesson-14"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "A photon wavelength is halved. What is the ratio Enew/Eold?",
+            "answer": 2,
+            "explanation": "E=hc/λ, so half the wavelength gives twice the energy.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "Photon frequency triples. What is the ratio Enew/Eold?",
+            "answer": 3,
+            "explanation": "E=hf, so energy scales directly with frequency.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.quantum-theory",
+          "href": "/semester-1/chemistry/quantum-theory/",
+          "checkpointVersion": 1,
+          "sequence": 2,
+          "suggestedPrevious": [
+            "CHEM101.atomic-structure"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "periodic-table",
+          "title": "Periodic table",
+          "outcome": "Use electron arrangement to explain trends.",
+          "idea": "Across a period, increasing effective nuclear attraction generally reduces atomic radius and raises first ionisation energy. Down a group, additional occupied shells usually increase size. Exceptions need electron-configuration reasoning.",
+          "example": "An electron arrangement 2,8,1 has one outer-shell electron. Losing that electron gives a common +1 ion.",
+          "context": "Valence behaviour helps predict bonding and reactivity before a reaction is tested.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-15",
+              "lesson-16"
+            ],
+            "pearson": [
+              "lesson-21",
+              "lesson-22"
+            ],
+            "book": [
+              "lesson-14",
+              "lesson-15"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "For an atom with shell arrangement 2,8,1, how many electrons are in the outer shell?",
+            "answer": 1,
+            "explanation": "The final occupied shell contains one electron.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "For a main-group atom with shell arrangement 2,8,7, how many electrons are needed to complete an octet?",
+            "answer": 1,
+            "explanation": "An octet contains eight electrons, so 8−7=1.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.periodic-table",
+          "href": "/semester-1/chemistry/periodic-table/",
+          "checkpointVersion": 1,
+          "sequence": 3,
+          "suggestedPrevious": [
+            "CHEM101.quantum-theory"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "bonding",
+          "title": "Chemical bonding",
+          "outcome": "Account for electrons before assigning shape and polarity.",
+          "idea": "Count valence electrons, connect atoms, distribute electrons and check formal charges. Electron-domain geometry and molecular shape are different when lone pairs are present. Molecular polarity depends on both bond polarity and shape.",
+          "example": "CO₂ has 4+2(6)=16 valence electrons. Two double bonds give a linear arrangement; equal opposite bond dipoles cancel.",
+          "context": "Bonding and molecular shape help explain properties used in separation and material selection.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-17",
+              "lesson-18",
+              "lesson-19",
+              "lesson-20"
+            ],
+            "pearson": [
+              "lesson-23",
+              "lesson-24"
+            ],
+            "book": [
+              "lesson-16",
+              "lesson-17"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "How many valence electrons are present in neutral CO₂? Carbon has 4 and oxygen 6.",
+            "answer": 16,
+            "explanation": "4+2·6=16.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "How many valence electrons are present in neutral H₂O? Hydrogen has 1 and oxygen 6.",
+            "answer": 8,
+            "explanation": "2·1+6=8.",
+            "unit": "",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.bonding",
+          "href": "/semester-1/chemistry/bonding/",
+          "checkpointVersion": 1,
+          "sequence": 4,
+          "suggestedPrevious": [
+            "CHEM101.periodic-table"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "aqueous-reactions",
+          "title": "Reactions in solution",
+          "outcome": "Use balanced amounts and identify reacting species.",
+          "idea": "Balance atoms and charge before applying mole ratios. Strong soluble electrolytes can be represented as ions; spectator ions cancel in a net ionic equation. Available amounts determine the limiting reactant.",
+          "example": "For Ag⁺+Cl⁻→AgCl(s), 0.10 mol Ag⁺ needs 0.10 mol Cl⁻. With only 0.06 mol Cl⁻, at most 0.06 mol precipitate can form.",
+          "context": "Reactant amounts set the maximum material conversion, even when the equation is correctly balanced.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-08",
+              "lesson-09",
+              "lesson-10",
+              "lesson-11",
+              "lesson-12"
+            ],
+            "pearson": [
+              "lesson-07",
+              "lesson-08",
+              "lesson-09",
+              "lesson-11",
+              "lesson-13"
+            ],
+            "book": [
+              "lesson-08",
+              "lesson-09",
+              "lesson-11",
+              "lesson-12"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "For 2H₂+O₂→2H₂O, how many moles of water can 3 mol H₂ form with excess O₂?",
+            "answer": 3,
+            "explanation": "The H₂:H₂O mole ratio is 2:2.",
+            "unit": "mol",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "For Ag⁺+Cl⁻→AgCl, mix 0.20 mol Ag⁺ and 0.12 mol Cl⁻. Find the maximum amount of AgCl.",
+            "answer": 0.12,
+            "explanation": "The ratio is 1:1 and chloride is limiting.",
+            "unit": "mol",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.aqueous-reactions",
+          "href": "/semester-1/chemistry/aqueous-reactions/",
+          "checkpointVersion": 1,
+          "sequence": 5,
+          "suggestedPrevious": [
+            "CHEM101.bonding"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "solutions",
+          "title": "Properties of solutions",
+          "outcome": "Choose a concentration measure and preserve solute amount.",
+          "idea": "Molarity is amount of solute divided by solution volume in litres. For dilution of the same solute without reaction or loss, the amount stays constant: M₁V₁=M₂V₂. Intermolecular interactions and dissolved particle count influence solution properties.",
+          "example": "Dissolving 0.20 mol to make 0.50 L of solution gives 0.40 mol/L. Adding solvent lowers molarity without changing the solute amount.",
+          "context": "Concentration links the volume of a process stream to the amount of material it carries.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-30",
+              "lesson-31"
+            ],
+            "pearson": [
+              "lesson-10",
+              "lesson-27",
+              "lesson-28"
+            ],
+            "book": [
+              "lesson-10",
+              "lesson-22"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Find molarity for 0.30 mol solute in 0.50 L of solution.",
+            "answer": 0.6,
+            "explanation": "M=n/V=0.30/0.50.",
+            "unit": "mol/L",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A 0.20 L sample of 1.5 mol/L solution is diluted to 0.60 L. Find final molarity.",
+            "answer": 0.5,
+            "explanation": "M₂=M₁V₁/V₂=1.5·0.20/0.60.",
+            "unit": "mol/L",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.solutions",
+          "href": "/semester-1/chemistry/solutions/",
+          "checkpointVersion": 1,
+          "sequence": 6,
+          "suggestedPrevious": [
+            "CHEM101.aqueous-reactions"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "gases",
+          "title": "Properties of gases",
+          "outcome": "Use absolute temperature and state model assumptions.",
+          "idea": "The ideal gas equation PV=nRT relates state variables. Use compatible units and temperature in kelvin. At constant amount and temperature, pressure varies inversely with volume. Real gases depart from ideal behaviour, especially when interactions or molecular volume matter.",
+          "example": "For a fixed ideal-gas amount at fixed temperature, reducing volume from 4 L to 2 L doubles pressure.",
+          "context": "Gas calculations require a stated pressure basis and temperature; a number without conditions is incomplete.",
+          "foundation": "units",
+          "resources": {
+            "educator": [
+              "lesson-22",
+              "lesson-23"
+            ],
+            "pearson": [
+              "lesson-15",
+              "lesson-16",
+              "lesson-17"
+            ],
+            "book": [
+              "lesson-20"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "An ideal gas at 2 bar occupies 3 L. At constant temperature it is compressed to 1.5 L. Find pressure.",
+            "answer": 4,
+            "explanation": "P₁V₁=P₂V₂ gives 2·3/1.5.",
+            "unit": "bar",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "At constant volume and amount, an ideal gas changes from 300 K and 100 kPa to 450 K. Find pressure.",
+            "answer": 150,
+            "explanation": "P₂/P₁=T₂/T₁=450/300.",
+            "unit": "kPa",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.gases",
+          "href": "/semester-1/chemistry/gases/",
+          "checkpointVersion": 1,
+          "sequence": 7,
+          "suggestedPrevious": [
+            "CHEM101.solutions"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "thermochemistry",
+          "title": "Thermochemistry",
+          "outcome": "Keep system heat and reaction signs consistent.",
+          "idea": "For a temperature change with no phase transition, q=mcΔT. A system receiving heat has positive q. In an ideal insulated calorimetry balance, heat lost by one part equals heat gained by the other. Reversing a reaction reverses its enthalpy sign.",
+          "example": "Heating 100 g of a substance with c=4 J/(g·°C) by 5°C requires q=100·4·5=2000 J.",
+          "context": "Energy balances begin by specifying which system a sign describes; heat and temperature are different quantities.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-27",
+              "lesson-28"
+            ],
+            "pearson": [
+              "lesson-18",
+              "lesson-19"
+            ],
+            "book": [
+              "lesson-18",
+              "lesson-19"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Find q for 50 g, c=2 J/(g·°C), and a temperature rise of 3°C.",
+            "answer": 300,
+            "explanation": "q=mcΔT=50·2·3.",
+            "unit": "J",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "A reaction has ΔH=−120 kJ as written. Find ΔH for the reverse reaction.",
+            "answer": 120,
+            "explanation": "Reversing the reaction reverses the sign.",
+            "unit": "kJ",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.thermochemistry",
+          "href": "/semester-1/chemistry/thermochemistry/",
+          "checkpointVersion": 1,
+          "sequence": 8,
+          "suggestedPrevious": [
+            "CHEM101.gases"
+          ],
+          "evidence": "Published topics; proposed study order"
+        },
+        {
+          "id": "electrochemistry",
+          "title": "Electrochemistry",
+          "outcome": "Track oxidation reduction and the cell-potential convention.",
+          "idea": "Oxidation loses electrons at the anode; reduction gains electrons at the cathode. With tabulated reduction potentials, E°cell=E°cathode−E°anode. Do not multiply an electrode potential by a balancing coefficient. Electrolysis relates charge to electron amount.",
+          "example": "Using cathode reduction potential +0.34 V and anode reduction potential −0.76 V gives E°cell=1.10 V.",
+          "context": "Electrochemical reasoning supports later study of corrosion, electrolysis and energy conversion.",
+          "foundation": "algebra",
+          "resources": {
+            "educator": [
+              "lesson-41",
+              "lesson-42"
+            ],
+            "pearson": [
+              "lesson-41",
+              "lesson-42",
+              "lesson-43"
+            ],
+            "book": [
+              "lesson-33",
+              "lesson-34"
+            ]
+          },
+          "diagnostic": {
+            "prompt": "Cathode and anode reduction potentials are +0.50 V and −0.20 V. Find E°cell.",
+            "answer": 0.7,
+            "explanation": "E°cell=0.50−(−0.20).",
+            "unit": "V",
+            "tolerance": 0.0001
+          },
+          "transfer": {
+            "prompt": "Cathode and anode reduction potentials are +0.80 V and −0.40 V. Find E°cell.",
+            "answer": 1.2,
+            "explanation": "E°cell=0.80−(−0.40).",
+            "unit": "V",
+            "tolerance": 0.0001
+          },
+          "key": "CHEM101.electrochemistry",
+          "href": "/semester-1/chemistry/electrochemistry/",
+          "checkpointVersion": 1,
+          "sequence": 9,
+          "suggestedPrevious": [
+            "CHEM101.thermochemistry"
+          ],
+          "evidence": "Published topics; proposed study order"
+        }
+      ],
+      "semester": 1
+    }
+  ]
+}
