@@ -22,6 +22,8 @@ Book, Educator and Pearson collections supply selected explanations and practice
 
 ## Growth each semester
 
+Math Foundations is a shared optional library across semesters. See [the skill map and learning mechanism](math-foundations.md). Topic routes link to the specific missing skill and return to the topic; the library is not duplicated per semester.
+
 1. Obtain and record the semester's official course outlines.
 2. Map required outcomes before selecting resources.
 3. Add a semester manifest and course/topic routes with stable keys.

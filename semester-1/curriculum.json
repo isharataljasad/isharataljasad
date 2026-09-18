@@ -26,7 +26,6 @@
           "idea": "A limit describes nearby behaviour. A missing value at the point does not by itself prevent a limit. Factor or rationalise an indeterminate expression, cancel only for nearby allowed inputs, and then evaluate.",
           "example": "For (x² − 9)/(x − 3), factor the numerator. For x ≠ 3 the expression is x + 3, so its limit as x approaches 3 is 6. The original expression is still undefined at 3.",
           "context": "A limiting model describes what a process approaches, even when an ideal endpoint is not directly measured.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-04",
@@ -60,7 +59,17 @@
           "checkpointVersion": 1,
           "sequence": 1,
           "suggestedPrevious": [],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "formulas",
+              "why": "Algebraic: factor and cancel only for allowed inputs"
+            },
+            {
+              "id": "change",
+              "why": "Conceptual: nearby values and the value at a point"
+            }
+          ]
         },
         {
           "id": "continuity",
@@ -69,7 +78,6 @@
           "idea": "Continuity at a point requires a defined value, an existing two-sided limit, and equality between them. The Intermediate Value Theorem needs continuity on the whole closed interval.",
           "example": "If f(x) = (x² − 9)/(x − 3) away from 3, defining f(3) = 6 fills the removable gap. Giving it any other value leaves a discontinuity.",
           "context": "Before treating a measured trend as smooth, identify whether a model has a genuine jump or just a missing observation.",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-07"
@@ -102,7 +110,13 @@
           "suggestedPrevious": [
             "MA101.limits"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "graphs",
+              "why": "Graphical: compare both sides and the point value"
+            }
+          ]
         },
         {
           "id": "derivative",
@@ -111,7 +125,6 @@
           "idea": "The derivative is the limit of a difference quotient: [f(x+h) − f(x)]/h as h tends to zero. Average change uses two distinct points; instantaneous change uses their limiting slope. Keep the output unit divided by the input unit.",
           "example": "For f(x)=x², the difference quotient becomes 2x+h. Its limit is 2x. At x=3 the slope is 6.",
           "context": "If concentration is measured in mol/L and time in minutes, its derivative has units mol/(L·min).",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-08",
@@ -147,7 +160,17 @@
           "suggestedPrevious": [
             "MA101.continuity"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "change",
+              "why": "Conceptual: average rate toward a local rate"
+            },
+            {
+              "id": "graphs",
+              "why": "Graphical: read slope and its units"
+            }
+          ]
         },
         {
           "id": "rules",
@@ -156,7 +179,6 @@
           "idea": "Use the sum rule for sums, the product rule for products, the quotient rule for ratios, and the chain rule for composition. Differentiate the outer function, retain its input, then multiply by the derivative of that input. Trigonometric derivative rules assume radians.",
           "example": "For y=(3x+1)², the chain rule gives y′=2(3x+1)·3. At x=1, y′=24.",
           "context": "Rate models often combine an exponential trend with another changing quantity; identify structure before manipulating symbols.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-09",
@@ -200,7 +222,17 @@
           "suggestedPrevious": [
             "MA101.derivative"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "formulas",
+              "why": "Algebraic: read the structure before manipulating it"
+            },
+            {
+              "id": "trigonometry",
+              "why": "Conceptual: use radians in trig derivatives"
+            }
+          ]
         },
         {
           "id": "related-rates",
@@ -209,7 +241,6 @@
           "idea": "First write a relation among the changing quantities. Differentiate with respect to time, including every chain-rule factor. Only then insert the quantities and rates at the specified instant.",
           "example": "For a square with side s, A=s² gives dA/dt=2s·ds/dt. At s=3 m and ds/dt=0.2 m/min, dA/dt=1.2 m²/min.",
           "context": "Tank level and stored volume are related by geometry. A level rate is not the same quantity as a volumetric flow rate.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-17",
@@ -244,7 +275,17 @@
           "suggestedPrevious": [
             "MA101.rules"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "formulas",
+              "why": "Algebraic: isolate the changing quantity"
+            },
+            {
+              "id": "graphs",
+              "why": "Graphical: a rate is a slope with units"
+            }
+          ]
         },
         {
           "id": "approximation",
@@ -253,7 +294,6 @@
           "idea": "Near x=a, approximate f(x) by f(a)+f′(a)(x−a). This local model is useful when a small change is easier to handle than a full recalculation. A large change may produce a poor approximation.",
           "example": "Near x=4, √x≈2+(x−4)/4. At 4.04, the linear estimate is 2.01.",
           "context": "A sensitivity estimate describes the effect of a small input change; it is not a complete uncertainty analysis.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-22"
@@ -286,7 +326,17 @@
           "suggestedPrevious": [
             "MA101.related-rates"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "graphs",
+              "why": "Graphical: use a nearby slope"
+            },
+            {
+              "id": "formulas",
+              "why": "Algebraic: substitute into a local model"
+            }
+          ]
         },
         {
           "id": "mean-value",
@@ -295,7 +345,6 @@
           "idea": "The Mean Value Theorem needs continuity on [a,b] and differentiability on (a,b). It guarantees some interior c with f′(c)=[f(b)−f(a)]/(b−a). Rolle’s theorem adds equal endpoint values and guarantees f′(c)=0.",
           "example": "For f(x)=x² on [1,3], average slope is (9−1)/2=4. Since f′(x)=2x, c=2 satisfies the conclusion.",
           "context": "An average rate can guarantee an instantaneous matching rate only when the mathematical conditions hold.",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-24"
@@ -325,7 +374,17 @@
           "suggestedPrevious": [
             "MA101.approximation"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "graphs",
+              "why": "Graphical: connect interval and local slopes"
+            },
+            {
+              "id": "change",
+              "why": "Conceptual: distinguish average and instantaneous rates"
+            }
+          ]
         },
         {
           "id": "curve-shape",
@@ -334,7 +393,6 @@
           "idea": "A critical point is a candidate, not automatically an extremum. Use the sign of f′ to identify increasing and decreasing intervals, f″ for concavity, and include interval endpoints when comparing absolute extrema.",
           "example": "For f(x)=x²−4x on [0,3], the critical point is x=2. Compare f(0)=0, f(2)=−4 and f(3)=−3. The minimum is −4.",
           "context": "A turning point in a cost model must lie inside the allowed operating range before it can be considered.",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-23",
@@ -372,7 +430,13 @@
           "suggestedPrevious": [
             "MA101.mean-value"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "graphs",
+              "why": "Graphical: use slope signs to read shape"
+            }
+          ]
         },
         {
           "id": "optimization",
@@ -381,7 +445,6 @@
           "idea": "Name the quantity to optimise and the constraint. Use the constraint to reduce the objective to one variable. Identify the allowed domain, find candidates, and justify the winning value by endpoints or derivative signs.",
           "example": "A rectangle with perimeter 20 m has area A=x(10−x). The derivative 10−2x vanishes at x=5, giving the maximum area 25 m².",
           "context": "A design optimum is meaningful only for the model and constraints used. Real equipment requires further engineering checks.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-28"
@@ -414,7 +477,17 @@
           "suggestedPrevious": [
             "MA101.curve-shape"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "formulas",
+              "why": "Algebraic: build a one-variable model"
+            },
+            {
+              "id": "graphs",
+              "why": "Graphical: compare candidates and endpoints"
+            }
+          ]
         }
       ],
       "semester": 1
@@ -436,7 +509,6 @@
           "idea": "A physical equation must have compatible dimensions on both sides. Convert by multiplying ratios equal to one. A measurement has finite precision; retain guard digits during calculation and round the final result appropriately.",
           "example": "A speed of 72 km/h equals 72×1000/3600=20 m/s. Distance divided by time has dimensions of speed.",
           "context": "A unit mismatch in a process calculation can overwhelm an otherwise correct model.",
-          "foundation": "units",
           "resources": {
             "educator": [
               "lesson-01"
@@ -468,7 +540,17 @@
           "checkpointVersion": 1,
           "sequence": 1,
           "suggestedPrevious": [],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "units",
+              "why": "Units: convert and check dimensions"
+            },
+            {
+              "id": "notation",
+              "why": "Numerical: keep powers of ten and precision"
+            }
+          ]
         },
         {
           "id": "motion",
@@ -477,7 +559,6 @@
           "idea": "Velocity has direction; speed does not. Position-time slope is velocity, and velocity-time slope is acceleration. Constant-acceleration equations apply only over intervals where that assumption is justified.",
           "example": "Starting from rest with constant acceleration 2 m/s² for 3 s gives v=6 m/s and displacement 9 m.",
           "context": "A conveyor or moving sample can be described by position, velocity and acceleration without confusing the quantities.",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-02",
@@ -519,7 +600,17 @@
           "suggestedPrevious": [
             "PHY101.measurement"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "vectors",
+              "why": "Conceptual: keep velocity direction"
+            },
+            {
+              "id": "graphs",
+              "why": "Graphical: position and velocity slopes"
+            }
+          ]
         },
         {
           "id": "forces",
@@ -528,7 +619,6 @@
           "idea": "Draw all actual external forces on the chosen object. Choose axes and write a signed force balance. The net force equals mass times acceleration; motion alone does not imply a net force.",
           "example": "A 5 kg object with a net horizontal force of 15 N accelerates at 3 m/s². Weight and normal force may cancel vertically without cancelling horizontal force.",
           "context": "A diagram keeps drive, support and resistance forces distinct when modelling moving equipment.",
-          "foundation": "trigonometry",
           "resources": {
             "educator": [
               "lesson-06",
@@ -565,7 +655,17 @@
           "suggestedPrevious": [
             "PHY101.motion"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "vectors",
+              "why": "Conceptual: choose axes and add signed components"
+            },
+            {
+              "id": "trigonometry",
+              "why": "Numerical: resolve a force from its stated angle"
+            }
+          ]
         },
         {
           "id": "friction",
@@ -574,7 +674,6 @@
           "idea": "Static friction adjusts up to a maximum; kinetic friction is modelled as μkN while sliding. The normal force is not automatically mg. On a simple incline with no other normal force component, it is mg cos θ.",
           "example": "A sliding object with N=50 N and μk=0.2 has a friction magnitude of 10 N opposite relative sliding.",
           "context": "Friction changes both the force balance and energy bookkeeping in motion models.",
-          "foundation": "trigonometry",
           "resources": {
             "educator": [
               "lesson-07"
@@ -607,7 +706,17 @@
           "suggestedPrevious": [
             "PHY101.forces"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "trigonometry",
+              "why": "Numerical: resolve an inclined force"
+            },
+            {
+              "id": "vectors",
+              "why": "Conceptual: choose the direction of friction"
+            }
+          ]
         },
         {
           "id": "energy",
@@ -616,7 +725,6 @@
           "idea": "Work transfers energy through force and displacement. For a constant force, W=Fd cos θ. Net work changes kinetic energy. Power is the rate of energy transfer, not an amount of energy.",
           "example": "A force of 10 N acting along 3 m does 30 J of work. Delivering 120 J over 4 s corresponds to an average power of 30 W.",
           "context": "Power and efficiency language is useful for understanding pumps and motors, while the actual model still needs correct system boundaries.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-15",
@@ -655,7 +763,17 @@
           "suggestedPrevious": [
             "PHY101.friction"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "trigonometry",
+              "why": "Conceptual: choose the force component along motion"
+            },
+            {
+              "id": "formulas",
+              "why": "Algebraic: isolate energy or power"
+            }
+          ]
         },
         {
           "id": "momentum",
@@ -664,7 +782,6 @@
           "idea": "Momentum is mv and impulse is the change in momentum. Momentum conservation applies to a system with negligible external impulse over the interval. Kinetic energy need not be conserved in a collision.",
           "example": "A 2 kg body changes velocity from +3 to −1 m/s. Its momentum change is 2(−1−3)=−8 kg·m/s.",
           "context": "A force-time graph gives impulse by its signed area; the peak force alone does not describe the full effect.",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-09",
@@ -702,7 +819,17 @@
           "suggestedPrevious": [
             "PHY101.energy"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "vectors",
+              "why": "Conceptual: track direction in a momentum balance"
+            },
+            {
+              "id": "formulas",
+              "why": "Algebraic: solve for an unknown mass or speed"
+            }
+          ]
         },
         {
           "id": "circular-motion",
@@ -711,7 +838,6 @@
           "idea": "In uniform circular motion, speed is constant but velocity changes direction. Inward acceleration is v²/r. The required net inward force is supplied by actual forces such as tension, friction or gravity; it is not an additional force.",
           "example": "For speed 4 m/s and radius 2 m, inward acceleration is 16/2=8 m/s².",
           "context": "Rotating equipment provides context for distinguishing speed, angular motion and inward acceleration.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-11",
@@ -747,7 +873,17 @@
           "suggestedPrevious": [
             "PHY101.momentum"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "formulas",
+              "why": "Algebraic: rearrange v²/r"
+            },
+            {
+              "id": "trigonometry",
+              "why": "Conceptual: connect angles and direction"
+            }
+          ]
         },
         {
           "id": "lab-graphs",
@@ -756,7 +892,6 @@
           "idea": "Label axes with quantities and units. A straight-line slope is a ratio of changes, with units from the axes. Repeated measurements reveal scatter; they do not by themselves remove calibration error. Record observations separately from explanations.",
           "example": "On a position-time graph, points (1 s, 2 m) and (3 s, 8 m) give average slope (8−2)/(3−1)=3 m/s.",
           "context": "A reproducible laboratory record states what was measured, how it was measured and the model used to interpret it.",
-          "foundation": "graphs",
           "resources": {
             "educator": [
               "lesson-01",
@@ -792,7 +927,17 @@
           "suggestedPrevious": [
             "PHY101.circular-motion"
           ],
-          "evidence": "Broad published scope; provisional topic breakdown"
+          "evidence": "Broad published scope; provisional topic breakdown",
+          "foundationSkills": [
+            {
+              "id": "graphs",
+              "why": "Graphical: slope, axes and scatter"
+            },
+            {
+              "id": "units",
+              "why": "Units: report a slope with the right dimensions"
+            }
+          ]
         }
       ],
       "semester": 1
@@ -814,7 +959,6 @@
           "idea": "Atomic number counts protons. Mass number counts protons plus neutrons. Ion formation changes the electron count, while changing neutrons produces a different isotope. Read superscripts and charge separately.",
           "example": "An ion with atomic number 11, mass number 23 and charge +1 contains 11 protons, 12 neutrons and 10 electrons.",
           "context": "Composition and charge are the starting information for every later chemical balance.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-03",
@@ -846,7 +990,13 @@
           "checkpointVersion": 1,
           "sequence": 1,
           "suggestedPrevious": [],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "notation",
+              "why": "Numerical: read powers and signed charges"
+            }
+          ]
         },
         {
           "id": "quantum-theory",
@@ -855,7 +1005,6 @@
           "idea": "Photons have energy E=hf=hc/λ. Shorter wavelength means higher photon energy. Atomic electrons occupy allowed energy states; orbitals describe probability rather than miniature planetary paths.",
           "example": "If wavelength is halved, photon energy doubles because E is inversely proportional to λ.",
           "context": "Spectroscopy uses the relation between absorbed or emitted light and changes in electronic energy.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-13",
@@ -892,7 +1041,17 @@
           "suggestedPrevious": [
             "CHEM101.atomic-structure"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "notation",
+              "why": "Numerical: calculate at very small scales"
+            },
+            {
+              "id": "formulas",
+              "why": "Algebraic: rearrange energy relations"
+            }
+          ]
         },
         {
           "id": "periodic-table",
@@ -901,7 +1060,6 @@
           "idea": "Across a period, increasing effective nuclear attraction generally reduces atomic radius and raises first ionisation energy. Down a group, additional occupied shells usually increase size. Exceptions need electron-configuration reasoning.",
           "example": "An electron arrangement 2,8,1 has one outer-shell electron. Losing that electron gives a common +1 ion.",
           "context": "Valence behaviour helps predict bonding and reactivity before a reaction is tested.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-15",
@@ -937,7 +1095,8 @@
           "suggestedPrevious": [
             "CHEM101.quantum-theory"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": []
         },
         {
           "id": "bonding",
@@ -946,7 +1105,6 @@
           "idea": "Count valence electrons, connect atoms, distribute electrons and check formal charges. Electron-domain geometry and molecular shape are different when lone pairs are present. Molecular polarity depends on both bond polarity and shape.",
           "example": "CO₂ has 4+2(6)=16 valence electrons. Two double bonds give a linear arrangement; equal opposite bond dipoles cancel.",
           "context": "Bonding and molecular shape help explain properties used in separation and material selection.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-17",
@@ -984,7 +1142,13 @@
           "suggestedPrevious": [
             "CHEM101.periodic-table"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "trigonometry",
+              "why": "Conceptual: interpret molecular angles"
+            }
+          ]
         },
         {
           "id": "aqueous-reactions",
@@ -993,7 +1157,6 @@
           "idea": "Balance atoms and charge before applying mole ratios. Strong soluble electrolytes can be represented as ions; spectator ions cancel in a net ionic equation. Available amounts determine the limiting reactant.",
           "example": "For Ag⁺+Cl⁻→AgCl(s), 0.10 mol Ag⁺ needs 0.10 mol Cl⁻. With only 0.06 mol Cl⁻, at most 0.06 mol precipitate can form.",
           "context": "Reactant amounts set the maximum material conversion, even when the equation is correctly balanced.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-08",
@@ -1037,7 +1200,17 @@
           "suggestedPrevious": [
             "CHEM101.bonding"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "ratios",
+              "why": "Numerical: read a balanced amount ratio"
+            },
+            {
+              "id": "units",
+              "why": "Units: move between amount and concentration"
+            }
+          ]
         },
         {
           "id": "solutions",
@@ -1046,7 +1219,6 @@
           "idea": "Molarity is amount of solute divided by solution volume in litres. For dilution of the same solute without reaction or loss, the amount stays constant: M₁V₁=M₂V₂. Intermolecular interactions and dissolved particle count influence solution properties.",
           "example": "Dissolving 0.20 mol to make 0.50 L of solution gives 0.40 mol/L. Adding solvent lowers molarity without changing the solute amount.",
           "context": "Concentration links the volume of a process stream to the amount of material it carries.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-30",
@@ -1083,7 +1255,17 @@
           "suggestedPrevious": [
             "CHEM101.aqueous-reactions"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "ratios",
+              "why": "Conceptual: amount divided by total volume"
+            },
+            {
+              "id": "units",
+              "why": "Units: convert volume before calculating"
+            }
+          ]
         },
         {
           "id": "gases",
@@ -1092,7 +1274,6 @@
           "idea": "The ideal gas equation PV=nRT relates state variables. Use compatible units and temperature in kelvin. At constant amount and temperature, pressure varies inversely with volume. Real gases depart from ideal behaviour, especially when interactions or molecular volume matter.",
           "example": "For a fixed ideal-gas amount at fixed temperature, reducing volume from 4 L to 2 L doubles pressure.",
           "context": "Gas calculations require a stated pressure basis and temperature; a number without conditions is incomplete.",
-          "foundation": "units",
           "resources": {
             "educator": [
               "lesson-22",
@@ -1128,7 +1309,17 @@
           "suggestedPrevious": [
             "CHEM101.solutions"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "units",
+              "why": "Units: use kelvin and compatible pressure units"
+            },
+            {
+              "id": "formulas",
+              "why": "Algebraic: isolate a gas-state variable"
+            }
+          ]
         },
         {
           "id": "thermochemistry",
@@ -1137,7 +1328,6 @@
           "idea": "For a temperature change with no phase transition, q=mcΔT. A system receiving heat has positive q. In an ideal insulated calorimetry balance, heat lost by one part equals heat gained by the other. Reversing a reaction reverses its enthalpy sign.",
           "example": "Heating 100 g of a substance with c=4 J/(g·°C) by 5°C requires q=100·4·5=2000 J.",
           "context": "Energy balances begin by specifying which system a sign describes; heat and temperature are different quantities.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-27",
@@ -1173,7 +1363,21 @@
           "suggestedPrevious": [
             "CHEM101.gases"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "formulas",
+              "why": "Algebraic: rearrange q = mcΔT"
+            },
+            {
+              "id": "signs",
+              "why": "Numerical: interpret the sign of heat"
+            },
+            {
+              "id": "units",
+              "why": "Units: follow energy and temperature differences"
+            }
+          ]
         },
         {
           "id": "electrochemistry",
@@ -1182,7 +1386,6 @@
           "idea": "Oxidation loses electrons at the anode; reduction gains electrons at the cathode. With tabulated reduction potentials, E°cell=E°cathode−E°anode. Do not multiply an electrode potential by a balancing coefficient. Electrolysis relates charge to electron amount.",
           "example": "Using cathode reduction potential +0.34 V and anode reduction potential −0.76 V gives E°cell=1.10 V.",
           "context": "Electrochemical reasoning supports later study of corrosion, electrolysis and energy conversion.",
-          "foundation": "algebra",
           "resources": {
             "educator": [
               "lesson-41",
@@ -1219,7 +1422,17 @@
           "suggestedPrevious": [
             "CHEM101.thermochemistry"
           ],
-          "evidence": "Published topics; proposed study order"
+          "evidence": "Published topics; proposed study order",
+          "foundationSkills": [
+            {
+              "id": "signs",
+              "why": "Numerical: subtract a negative potential"
+            },
+            {
+              "id": "formulas",
+              "why": "Algebraic: keep cathode minus anode order"
+            }
+          ]
         }
       ],
       "semester": 1
