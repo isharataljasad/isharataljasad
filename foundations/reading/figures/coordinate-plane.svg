@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="380" viewBox="0 0 620 380" role="img" aria-labelledby="title desc">
+  <title id="title">A coordinate plane with point P at negative three, positive two</title>
+  <desc id="desc">The x-axis runs horizontally and the y-axis vertically through the origin. Point P is three units left and two units up, inside quadrant two. Points on either axis are outside the quadrants.</desc>
+  <rect x="1" y="1" width="618" height="378" rx="10" fill="#f8fbfc" stroke="#d4e1e7"/>
+  <g stroke="#e3ecef" stroke-width="1">
+    <path d="M100 38V340 M150 38V340 M200 38V340 M250 38V340 M350 38V340 M400 38V340 M450 38V340 M500 38V340"/>
+    <path d="M100 40H500 M100 90H500 M100 140H500 M100 240H500 M100 290H500 M100 340H500"/>
+  </g>
+  <g stroke="#153748" stroke-width="2.5" fill="none">
+    <path d="M75 190H525"/><path d="M300 355V25"/>
+    <path d="m525 190-10-6m10 6-10 6M300 25l-6 10m6-10 6 10"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#284955" font-size="16">
+    <text x="533" y="195">x</text><text x="307" y="24">y</text><text x="307" y="209">O (0,0)</text>
+    <text x="412" y="78">I (+,+)</text><text x="136" y="78">II (-,+)</text>
+    <text x="130" y="313">III (-,-)</text><text x="412" y="313">IV (+,-)</text>
+    <text x="137" y="209">-3</text><text x="309" y="95">2</text>
+  </g>
+  <path d="M150 90V190M150 90H300" stroke="#10766f" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <circle cx="150" cy="90" r="6" fill="#10766f"/>
+  <text x="162" y="101" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#075e57">P (-3,2)</text>
+</svg>

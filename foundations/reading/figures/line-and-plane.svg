@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="310" viewBox="0 0 660 310" role="img" aria-labelledby="title desc">
+  <title id="title">A line inside a plane compared with a line piercing a plane</title>
+  <desc id="desc">On the left, line g and points A and B lie in plane M, so every point of line g belongs to the plane. On the right, line h passes through plane N at one point T.</desc>
+  <rect x="1" y="1" width="658" height="308" rx="10" fill="#f8fbfc" stroke="#d4e1e7"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#153748" font-size="17" font-weight="700">
+    <text x="54" y="42">Line in a plane</text><text x="376" y="42">Line through a plane</text>
+  </g>
+  <g fill="#e1f1ef" stroke="#10766f" stroke-width="2">
+    <path d="M39 126H259L314 232H94Z"/><path d="M352 126H572L627 232H407Z"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#075e57" font-size="17" font-weight="700">
+    <text x="265" y="215">M</text><text x="581" y="215">N</text>
+  </g>
+  <path d="M78 179H284" stroke="#105c78" stroke-width="3"/>
+  <path d="m78 179 11-6m-11 6 11 6m195-6-11-6m11 6-11 6" stroke="#105c78" stroke-width="2" fill="none"/>
+  <circle cx="129" cy="179" r="5" fill="#153748"/><circle cx="222" cy="179" r="5" fill="#153748"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#153748" font-size="16">
+    <text x="117" y="170">A</text><text x="216" y="170">B</text><text x="289" y="174">g</text>
+  </g>
+  <path d="M489 64V179" stroke="#105c78" stroke-width="3"/>
+  <path d="M489 179V276" stroke="#105c78" stroke-width="3" stroke-dasharray="6 5"/>
+  <path d="m489 64-6 11m6-11 6 11m-6 201-6-11m6 11 6-11" stroke="#105c78" stroke-width="2" fill="none"/>
+  <circle cx="489" cy="179" r="6" fill="#153748"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#153748" font-size="16">
+    <text x="500" y="175">T</text><text x="499" y="83">h</text>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#566f7a" font-size="15">
+    <text x="56" y="270">Shared set: the whole line g</text>
+    <text x="382" y="270">Shared set: one point T</text>
+  </g>
+</svg>

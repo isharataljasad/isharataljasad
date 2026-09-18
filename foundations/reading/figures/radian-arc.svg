@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="360" viewBox="0 0 620 360" role="img" aria-labelledby="title desc">
+  <title id="title">A radian angle defined by arc length over radius</title>
+  <desc id="desc">Two rays meet at the circle center O. The arc between them has length s, the circle radius is r, and the angle in radians equals s divided by r. Here the angle is pi over three radians.</desc>
+  <rect x="1" y="1" width="618" height="358" rx="10" fill="#f8fbfc" stroke="#d4e1e7"/>
+  <circle cx="210" cy="220" r="120" fill="none" stroke="#c7dbe0" stroke-width="2"/>
+  <path d="M210 220H346M210 220L270 116" stroke="#153748" stroke-width="3" fill="none"/>
+  <path d="M330 220A120 120 0 0 0 270 116" stroke="#10766f" stroke-width="6" fill="none"/>
+  <path d="M315 170A105 105 0 0 0 270 131" stroke="#c69748" stroke-width="2" fill="none"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#153748" font-size="17">
+    <text x="193" y="245">O</text><text x="264" y="240">r</text><text x="273" y="118">s</text>
+    <text x="243" y="194">θ</text><text x="398" y="149" font-size="24">θ = s / r</text>
+    <text x="398" y="188">Here θ = π / 3</text><text x="398" y="219">and s = rπ / 3</text>
+  </g>
+</svg>

@@ -1,0 +1,2074 @@
+[
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.1",
+    "title": "Expressions and Variables",
+    "url": "/foundations/reading/basic-math/expressions-and-variables/"
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.2",
+    "title": "Exponents",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.3",
+    "title": "Order of Operations",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.4",
+    "title": "Comparing and Ordering Decimals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.5",
+    "title": "Rounding Decimals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.6",
+    "title": "Adding and Subtracting Decimals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.7",
+    "title": "Multiplying Decimals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "01.8",
+    "title": "Dividing Decimals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.1",
+    "title": "Prime Factorization",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.2",
+    "title": "Greatest Common Factor",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.3",
+    "title": "Fraction Concepts and Simplest Form",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.4",
+    "title": "Least Common Multiple",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.5",
+    "title": "Comparing and Ordering Fractions",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.6",
+    "title": "Mixed Numbers and Improper Fractions",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "02.7",
+    "title": "Connecting Decimals and Fractions",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.1",
+    "title": "Adding and Subtracting Fractions with Same Denominators",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.2",
+    "title": "Adding and Subtracting Fractions with Different Denominators",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.3",
+    "title": "Adding and Subtracting Mixed Numbers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.4",
+    "title": "Multiplying Fractions and Mixed Numbers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.5",
+    "title": "Dividing Fractions and Mixed Numbers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.6",
+    "title": "Distributive Property",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "03.7",
+    "title": "Units of Measure",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "04.1",
+    "title": "Integers and the Number Line",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "04.2",
+    "title": "Adding Integers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "04.3",
+    "title": "Subtracting Integers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "04.4",
+    "title": "Multiplying Integers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "04.5",
+    "title": "Dividing Integers",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "04.6",
+    "title": "Integers and Order of Operations",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "05.1",
+    "title": "Writing Expressions",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "05.2",
+    "title": "Writing Equations",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "05.3",
+    "title": "Solving Addition and Subtraction Equations",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "05.4",
+    "title": "Solving Multiplication Equation",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "05.5",
+    "title": "Solving Division Equation",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "06.1",
+    "title": "Ratio",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "06.2",
+    "title": "Solving Proportions",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "06.3",
+    "title": "Writing Proportions",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "06.4",
+    "title": "Similar Polygons",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "06.5",
+    "title": "Scale Drawings",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "06.6",
+    "title": "Probability",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "07.1",
+    "title": "Percents, Fractions, and Decimals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "07.2",
+    "title": "Finding a Percent of a Number",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "07.3",
+    "title": "Solving Percent Problems",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "07.4",
+    "title": "Simple Interest",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "07.5",
+    "title": "Discount and Sales Tax",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.1",
+    "title": "Intersecting Lines and Angle Measures",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.2",
+    "title": "Angles of a Triangle",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.3",
+    "title": "Classifying Triangles",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.4",
+    "title": "Quadrilaterals",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.5",
+    "title": "Area of a Parallelogram",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.6",
+    "title": "Area of a Triangle",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.7",
+    "title": "Circumference of a Circle",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "08.8",
+    "title": "Area of a Circle",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "09.1",
+    "title": "Prisms and Cylinders",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "09.2",
+    "title": "Volume of a Rectangular Prism",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "09.3",
+    "title": "Volume of a Triangular Prism",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "09.4",
+    "title": "Volume of a Cylinder",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "09.5",
+    "title": "Surface Area of a Prism",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "09.6",
+    "title": "Surface Area of a Cylinder",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "10.1",
+    "title": "Measures of Central Tendency",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "10.2",
+    "title": "Histograms",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "10.3",
+    "title": "Box-and-Whisker Plot",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "10.4",
+    "title": "Stem-and-Leaf Plots",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "10.5",
+    "title": "The Coordinate Plane",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "11.1",
+    "title": "Organizing Possible Outcomes",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "11.2",
+    "title": "Independent and Dependent Events",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "11.3",
+    "title": "Disjoint Events",
+    "url": null
+  },
+  {
+    "group": "Basic Math",
+    "track": "BM",
+    "episode": "11.4",
+    "title": "Probability of an Event Not Occurring",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "01",
+    "title": "Basic Concepts - Variables and Expressions",
+    "url": "/foundations/reading/algebra/variables-and-expressions/"
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "02",
+    "title": "Basic Concepts - Order of Operations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "03",
+    "title": "Basic Concepts - Distributive Property",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "04",
+    "title": "Basic Concepts - Real Number System",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "05",
+    "title": "Basic Concepts - Functions and Graphs",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "06",
+    "title": "Solving Linear Equations - From Sentences to Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "07",
+    "title": "Solving Linear Equations - Addition and Subtraction Techniques",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "08",
+    "title": "Solving Linear Equations - Multiplication and Division Techniques",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "09",
+    "title": "Solving Linear Equations - Techniques for Multistep Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "10",
+    "title": "Solving Linear Equations - When the Variable is on Both Sides of the Equation",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "11",
+    "title": "Solving Linear Equations - Ratios and Proportion",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "12",
+    "title": "Solving Linear Equations - Applications of Percents",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "13",
+    "title": "Solving Linear Equations - More Than One Variable",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "14",
+    "title": "Functions - Relations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "15",
+    "title": "Functions - Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "16",
+    "title": "Functions - Linear Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "17",
+    "title": "Linear Functions and Their Graphs - Slope and Rate of Change",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "18",
+    "title": "Linear Functions and Their Graphs - Direct Variation",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "19",
+    "title": "Linear Functions and Their Graphs - Slope Intercept Form of an Equation",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "20",
+    "title": "Linear Functions and Their Graphs - Point Slope Form of an Equation",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "21",
+    "title": "Linear Functions and Their Graphs - Parallel Lines and Perpendicular Lines",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "22",
+    "title": "Systems of Equations - Graphing Systems of Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "23",
+    "title": "Systems of Equations - Solving by Substituting",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "24",
+    "title": "Systems of Equations - Solving by Addition and Subtraction",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "25",
+    "title": "Inequalities - Addition and Subtraction Techniques",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "26",
+    "title": "Inequalities - Multiplication and Division Techniques",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "27",
+    "title": "Inequalities - Techniques for Multistep Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "28",
+    "title": "Inequalities - Compound Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "29",
+    "title": "Inequalities - Equations with Absolute Value",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "30",
+    "title": "Inequalities - Inequalities with Absolute Values",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "31",
+    "title": "Inequalities - Graphing Inequalities with Two Variables",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "32",
+    "title": "Inequalities - Graphing Systems of Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "33",
+    "title": "Polynomials - Multiplying Monomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "34",
+    "title": "Polynomials - Dividing Monomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "35",
+    "title": "Polynomials - Polynomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "36",
+    "title": "Polynomials - Adding and Subtracting Polynomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "37",
+    "title": "Polynomials - Multiplying Polynomials by Monomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "38",
+    "title": "Polynomials - Multiplying Polynomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "39",
+    "title": "Polynomials - Special Products",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "40",
+    "title": "Factoring - Factoring Monomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "41",
+    "title": "Factoring - Factoring Using Greatest Common Factor",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "42",
+    "title": "Factoring - Factoring Trinomials with Leading Coefficient of 1",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "43",
+    "title": "Factoring - Factoring General Trinomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "44",
+    "title": "Factoring - Factoring the Difference of Two Squares",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "45",
+    "title": "Factoring - Factoring Perfect Squares",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "46",
+    "title": "Quadratic Functions - Graphing Quadratic Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "47",
+    "title": "Quadratic Functions - Solving Equations by Graphing",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "48",
+    "title": "Quadratic Functions - Solving Equations by Completing the Square",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "49",
+    "title": "Quadratic Functions - Solving Equations Using the Quadratic Formula",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "50",
+    "title": "Radical Expressions and Equations - Simplifying Radical Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "51",
+    "title": "Radical Expressions and Equations - Operations with Radical Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "52",
+    "title": "Radical Expressions and Equations - Solving Radical Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "53",
+    "title": "Radical Expressions and Equations - Pythagorean Theorem",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "54",
+    "title": "Radical Expressions and Equations - Distance Formula",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "55",
+    "title": "Rational Expressions and Equations - Inverse Variation",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "56",
+    "title": "Rational Expressions and Equations - Rational Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "57",
+    "title": "Rational Expressions and Equations - Multiplying Rational Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "58",
+    "title": "Rational Expressions and Equations - Dividing Rational Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "59",
+    "title": "Rational Expressions and Equations - Dividing Polynomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "60",
+    "title": "Rational Expressions and Equations - Adding and Subtracting Rational Expressions with Like Denominators",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "61",
+    "title": "Rational Expressions and Equations - Adding and Subtracting Rational Expressions with Unlike Denominators",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "62",
+    "title": "Rational Expressions and Equations - Complex Fractions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A1",
+    "episode": "63",
+    "title": "Rational Expressions and Equations - Rational Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "01",
+    "title": "Equations and Inequalities - Expressions and Formulas",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "02",
+    "title": "Equations and Inequalities - Properties of Real Numbers",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "03",
+    "title": "Equations and Inequalities - Solving Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "04",
+    "title": "Equations and Inequalities - Solving Absolute Value Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "05",
+    "title": "Equations and Inequalities - Solving Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "06",
+    "title": "Equations and Inequalities - Solving Compound and Absolute Value Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "07",
+    "title": "Linear Relations and Functions - Relations and Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "08",
+    "title": "Linear Relations and Functions - Linear Equations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "09",
+    "title": "Linear Relations and Functions - Slope",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "10",
+    "title": "Linear Relations and Functions - Writing Linear Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "11",
+    "title": "Linear Relations and Functions - Special Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "12",
+    "title": "Linear Relations and Functions - Graphing Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "13",
+    "title": "Systems of Equations and Inequalities - Solving Systems of Equations by Graphing",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "14",
+    "title": "Systems of Equations and Inequalities - Solving Systems of Equations Algebraically",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "15",
+    "title": "Systems of Equations and Inequalities - Solving Systems of Inequalities By Graphing",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "16",
+    "title": "Systems of Equations and Inequalities - Solving Systems of Equations in Three Variables",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "17",
+    "title": "Matrices - Basic Matrix Concepts",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "18",
+    "title": "Matrices - Matrix Operations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "19",
+    "title": "Matrices - Matrix Multiplication",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "20",
+    "title": "Matrices - Determinants",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "21",
+    "title": "Matrices - Cramer's Rule",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "22",
+    "title": "Matrices - Identity and Inverse Matrices",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "23",
+    "title": "Matrices - Solving Systems of Equations Using Matrices",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "24",
+    "title": "Quadratic Functions and Inequalities - Graphing Quadratic Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "25",
+    "title": "Quadratic Functions and Inequalities - Solving Quadratic Equations by Graphing",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "26",
+    "title": "Quadratic Functions and Inequalities - Solving Quadratic Equations by Factoring",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "27",
+    "title": "Quadratic Functions and Inequalities - Imaginary and Complex Numbers",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "28",
+    "title": "Quadratic Functions and Inequalities - Completing the Square",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "29",
+    "title": "Quadratic Functions and Inequalities - Quadratic Formula and the Discriminant",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "30",
+    "title": "Quadratic Functions and Inequalities - Analyzing the Graphs of Quadratic Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "31",
+    "title": "Quadratic Functions and Inequalities - Graphing and Solving Quadratic Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "32",
+    "title": "Polynomial Functions - Properties of Exponents",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "33",
+    "title": "Polynomial Functions - Operations on Polynomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "34",
+    "title": "Polynomial Functions - Dividing Polynomials",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "35",
+    "title": "Polynomial Functions - Polynomial Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "36",
+    "title": "Polynomial Functions - Analyzing Graphs of Polynomial Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "37",
+    "title": "Polynomial Functions - Solving Polynomial Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "38",
+    "title": "Polynomial Functions - Remainder and Factor Theorems",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "39",
+    "title": "Polynomial Functions - Roots and Zeros",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "40",
+    "title": "Polynomial Functions - Rational Zero Theorem",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "41",
+    "title": "Radical Expressions and Inequalities - Operations on Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "42",
+    "title": "Radical Expressions and Inequalities - Inverse Functions and Relations",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "43",
+    "title": "Radical Expressions and Inequalities - Square Root Functions and Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "44",
+    "title": "Radical Expressions and Inequalities - nth Roots",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "45",
+    "title": "Radical Expressions and Inequalities - Operations with Radical Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "46",
+    "title": "Radical Expressions and Inequalities - Rational Exponents",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "47",
+    "title": "Radical Expressions and Inequalities - Solving Radical Equations and Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "48",
+    "title": "Rational Equations and Inequalities - Multiplying and Dividing Rational Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "49",
+    "title": "Rational Equations and Inequalities - Adding and Subtracting Rational Expressions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "50",
+    "title": "Rational Equations and Inequalities - Graphing Rational Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "51",
+    "title": "Rational Equations and Inequalities - Direct, Joint, and Inverse Variation",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "52",
+    "title": "Rational Equations and Inequalities - Solving Rational Equations and Inequalities",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "53",
+    "title": "Exponential and Logarithmic Relations - Exponential Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "54",
+    "title": "Exponential and Logarithmic Relations - Logarithms and Logarithmic Functions",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "55",
+    "title": "Exponential and Logarithmic Relations - Properties of Logarithms",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "56",
+    "title": "Exponential and Logarithmic Relations - Common Logarithms",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "57",
+    "title": "Exponential and Logarithmic Relations - Base e and Natural Logarithms",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "58",
+    "title": "Exponential and Logarithmic Relations - Exponential Growth and Decay",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "59",
+    "title": "Conic Sections - Midpoint and Distance Formulas",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "60",
+    "title": "Conic Sections - Parabolas",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "61",
+    "title": "Conic Sections - Circles",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "62",
+    "title": "Conic Sections - Ellipses",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "63",
+    "title": "Conic Sections - Hyperbolas",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "64",
+    "title": "Conic Sections - Conic Sections",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "65",
+    "title": "Conic Sections - Solving Quadratic Systems",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "66",
+    "title": "Sequences and Series - Arithmetic Sequences",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "67",
+    "title": "Sequences and Series - Arithmetic Series",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "68",
+    "title": "Sequences and Series - Geometric Sequences",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "69",
+    "title": "Sequences and Series - Geometric Series",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "70",
+    "title": "Sequences and Series - Infinite Geometric Series",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "71",
+    "title": "Sequences and Series - Recursion and Special Sequences",
+    "url": null
+  },
+  {
+    "group": "Algebra",
+    "track": "A2",
+    "episode": "72",
+    "title": "Sequences and Series - Binomial Theorem",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "01",
+    "title": "Tools of Geometry - Coordinate Plane",
+    "url": "/foundations/reading/geometry/coordinate-plane/"
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "02",
+    "title": "Tools of Geometry - Points, Lines and Planes",
+    "url": "/foundations/reading/geometry/points-lines-and-planes/"
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "03",
+    "title": "Tools of Geometry - Measuring Segments",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "04",
+    "title": "Tools of Geometry - Midpoints and Segment Congruence",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "05",
+    "title": "Tools of Geometry - Angles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "06",
+    "title": "Reasoning and Proof - Inductive Reasoning",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "07",
+    "title": "Reasoning and Proof - Conditional Statements",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "08",
+    "title": "Reasoning and Proof - Point, Line, and Plane Postulates",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "09",
+    "title": "Reasoning and Proof - Deductive Reasoning",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "10",
+    "title": "Reasoning and Proof - Proofs in Algebra Properties of Equality",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "11",
+    "title": "Reasoning and Proof - Proving Segment Relationship",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "12",
+    "title": "Reasoning and Proof - Proving Angle Relationships",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "13",
+    "title": "Perpendicular and Parallel Lines - Parallel Lines and Transversals",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "14",
+    "title": "Perpendicular and Parallel Lines - Angles and Parallel Lines",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "15",
+    "title": "Perpendicular and Parallel Lines - Slope of Lines",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "16",
+    "title": "Perpendicular and Parallel Lines - Proving Lines Parallel",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "17",
+    "title": "Perpendicular and Parallel Lines - Parallels and Distance",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "18",
+    "title": "Congruent Triangles - Classifying Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "19",
+    "title": "Congruent Triangles - Measuring Angles in Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "20",
+    "title": "Congruent Triangles - Exploring Congruent Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "21",
+    "title": "Congruent Triangles - Proving Triangles Congruent",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "22",
+    "title": "Congruent Triangles - Isosceles and Equilateral Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "23",
+    "title": "Triangle Inequalities - Special Segments in Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "24",
+    "title": "Triangle Inequalities - Right Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "25",
+    "title": "Triangle Inequalities - Indirect Proofs and Inequalities",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "26",
+    "title": "Triangle Inequalities - Inequalities for Sides and Angles of a Triangle",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "27",
+    "title": "Triangle Inequalities - Triangle Inequality",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "28",
+    "title": "Triangle Inequalities - Inequalities Involving Two Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "29",
+    "title": "Quadrilaterals - Parallelograms",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "30",
+    "title": "Quadrilaterals - Proving Parallelograms",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "31",
+    "title": "Quadrilaterals - Rectangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "32",
+    "title": "Quadrilaterals - Squares and Rhombi",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "33",
+    "title": "Quadrilaterals - Trapezoids and Kites",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "34",
+    "title": "Proportions and Similarity - Using Proportions and Ratios",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "35",
+    "title": "Proportions and Similarity - Similar Polygons",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "36",
+    "title": "Proportions and Similarity - Similar Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "37",
+    "title": "Proportions and Similarity - Parallel Lines and Proportional Parts",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "38",
+    "title": "Proportions and Similarity - Parts of Similar Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "39",
+    "title": "Applying Right Triangles and Trigonometry - Pythagorean Theorem",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "40",
+    "title": "Applying Right Triangles and Trigonometry - Geometric Mean",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "41",
+    "title": "Applying Right Triangles and Trigonometry - Special Right Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "42",
+    "title": "Applying Right Triangles and Trigonometry - Ratios in Right Triangles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "43",
+    "title": "Applying Right Triangles and Trigonometry - Angles of Elevation and Depression",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "44",
+    "title": "Applying Right Triangles and Trigonometry - Law of Sines",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "45",
+    "title": "Applying Right Triangles and Trigonometry - Law of Cosines",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "46",
+    "title": "Circles - Segments in a Circle",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "47",
+    "title": "Circles - Angles and Arc",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "48",
+    "title": "Circles - Arcs and Chords",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "49",
+    "title": "Circles - Inscribed Angles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "50",
+    "title": "Circles - Tangents",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "51",
+    "title": "Circles - Secants, Tangents, and Angle Measures",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "52",
+    "title": "Circles - Special Segments in a Circle",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "53",
+    "title": "Circles - Equations of Circles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "54",
+    "title": "Polygons and Area - Polygons",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "55",
+    "title": "Polygons and Area - Area of Parallelograms",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "56",
+    "title": "Polygons and Area - Area of Triangles Rhombi, and Trapezoids",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "57",
+    "title": "Polygons and Area - Area of Regular Polygons and Circles",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "58",
+    "title": "Polygons and Area - Perimeter and Area of Similar Figures",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "59",
+    "title": "Polygons and Area - Geometric Probability",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "60",
+    "title": "Solids - Three-Dimensional Figures",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "61",
+    "title": "Solids - Surface Area of Prisms and Cylinders",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "62",
+    "title": "Solids - Surface Area of Pyramids and Cones",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "63",
+    "title": "Solids - Volume of Prisms and Cylinders",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "64",
+    "title": "Solids - Volume of Pyramids and Cones",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "65",
+    "title": "Solids - Surface Area and Volume of Spheres",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "66",
+    "title": "Solids - Congruent and Similar Solids",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "67",
+    "title": "Transformational Geometry - Mapping",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "68",
+    "title": "Transformational Geometry - Reflections",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "69",
+    "title": "Transformational Geometry - Translations",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "70",
+    "title": "Transformational Geometry - Rotations",
+    "url": null
+  },
+  {
+    "group": "Geometry",
+    "track": "GE",
+    "episode": "71",
+    "title": "Transformational Geometry - Dilation",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.1",
+    "title": "Angles",
+    "url": "/foundations/reading/trigonometry/angles/"
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.2",
+    "title": "Sine and Cosine Functions",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.3",
+    "title": "Sine and Cosine Values of Special Angles",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.4",
+    "title": "Modified Sine Waves Asin(Bx+C)+D and Acos(Bx+C)+D",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.5",
+    "title": "Tangent and Cotangent Functions",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.6",
+    "title": "Secant and Cosecant Functions",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.7",
+    "title": "Inverse Trigonometric Functions",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "1.8",
+    "title": "Computations of Inverse Trigonometric Functions",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "2.1",
+    "title": "Pythagorean Identity",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "2.2",
+    "title": "Identity Tan(squared)x+1=Sec(squared)x",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "2.3",
+    "title": "Addition and Subtraction Formulas",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "2.4",
+    "title": "Double Angle Formulas",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "2.5",
+    "title": "Half-Angle Formulas",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "3.1",
+    "title": "Trigonometry in Right Angles",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "3.2",
+    "title": "Law of Sines",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "3.3",
+    "title": "Law of Cosines",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "3.4",
+    "title": "Finding the Area of a Triangle",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "3.5",
+    "title": "Word Problems and Applications of Trigonometry",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "3.6",
+    "title": "Vectors",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "4.1",
+    "title": "Polar Coordinates",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "4.2",
+    "title": "Complex Numbers",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "4.3",
+    "title": "Polar Form of Complex Numbers",
+    "url": null
+  },
+  {
+    "group": "Trigonometry",
+    "track": "TR",
+    "episode": "4.4",
+    "title": "DeMoivre's Theorem",
+    "url": null
+  }
+]
