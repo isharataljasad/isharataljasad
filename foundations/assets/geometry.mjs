@@ -1,0 +1,46 @@
+// Original, targeted geometry lessons. Source topics informed the concept map;
+// no transcript wording, example, figure, or question is reproduced here.
+export const geometrySkills = [
+  {
+    id:'area-volume', title:'Area, volume and dimensions', group:'Geometry', questionVersion:1, prerequisites:['units'],
+    goal:'Choose area or volume from what a problem measures, then keep squared or cubed units.',
+    need:'A surface measurement is confused with the amount a vessel can hold.',
+    idea:'Area measures a flat region and uses square units. Volume measures space inside a solid and uses cubic units. For a rectangular tank, first find the base area, then multiply by its height. Converting cubic metres to litres is a separate unit step.',
+    formula:'<math display="block" aria-label="base area equals length times width; tank volume equals base area times height"><mi>A</mi><mo>=</mo><mi>l</mi><mo>×</mo><mi>w</mi><mspace width="1em"/><mi>V</mi><mo>=</mo><mi>A</mi><mo>×</mo><mi>h</mi><mo>=</mo><mi>l</mi><mo>×</mo><mi>w</mi><mo>×</mo><mi>h</mi></math>',
+    worked:['A tank is 0.5 m long, 0.4 m wide and 0.3 m high. Its base area is 0.5 × 0.4 = 0.20 m².','Its capacity is 0.20 m² × 0.3 m = 0.060 m³ = 60 L. The height changes area into volume.'],
+    guided:{prompt:'Find the area of a 3 m by 2 m rectangular floor.',step:'A floor is a surface: multiply the two lengths.',answer:'A = 3 m × 2 m = 6 m².'},
+    diagnostic:{type:'choice',prompt:'A rectangular tank is to be filled. Which expression gives its capacity?',options:['length × width × height, in m³','length × width, in m²','2(length + width), in m','length + width + height, in m'],answer:0,hint:'Capacity fills a three-dimensional space.',reason:'Three perpendicular lengths multiply to give m³.',wrong:{1:['conceptual','This is the base area, not the filled volume.'],2:['conceptual','This is a perimeter, not capacity.'],3:['units','Adding lengths still gives a length, not cubic units.']}},
+    independent:{type:'number',prompt:'A box has inside dimensions 0.4 m × 0.3 m × 0.5 m. Find its volume in m³.',answer:0.06,tolerance:0.0001,unit:'m³',hint:'Multiply all three inside lengths.',reason:'0.4 × 0.3 × 0.5 = 0.060 m³.',wrong:[{value:0.12,kind:'conceptual',text:'That is only a face area; include the third dimension.'}]},
+    retry:{type:'number',prompt:'A tank has inside dimensions 0.2 m × 0.5 m × 0.3 m. Find its volume in m³.',answer:0.03,tolerance:0.0001,unit:'m³',hint:'Base area times height, with all lengths in metres.',reason:'0.2 × 0.5 × 0.3 = 0.030 m³.'},
+    transfer:{type:'number',prompt:'Chemistry: a rectangular mixing vessel is 0.5 m × 0.4 m × 0.3 m inside. How many litres can it hold when full?',answer:60,tolerance:0.0001,unit:'L',hint:'Find 0.060 m³, then use 1 m³ = 1000 L.',reason:'0.5 × 0.4 × 0.3 = 0.060 m³ = 60 L.',wrong:[{value:0.06,kind:'units',text:'That number is in m³. Convert to litres.'},{value:60000,kind:'units',text:'1 m³ is 1000 L, not one million litres.'}]},
+    quick:'A rectangle has area l × w (m²). A rectangular vessel has volume l × w × h (m³). 1 m³ = 1000 L.',
+  },
+  {
+    id:'right-triangles', title:'Right triangles and distance', group:'Geometry', questionVersion:1, prerequisites:['ratios'],
+    goal:'Recognize perpendicular sides and find the straight-line distance between their endpoints.',
+    need:'A two-direction movement or pair of components is added as ordinary lengths.',
+    idea:'The Pythagorean relation applies only when the two known sides are perpendicular. Their straight-line result is the hypotenuse, opposite the right angle. Square the two legs, add, and take the positive square root; the distance cannot be negative.',
+    formula:'<math display="block" aria-label="for a right triangle with perpendicular legs a and b, hypotenuse c squared equals a squared plus b squared"><msup><mi>c</mi><mn>2</mn></msup><mo>=</mo><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mspace width="1em"/><mtext>only for a right angle</mtext></math>',
+    worked:['Move 3 m east and then 4 m north. East and north are perpendicular, so the route and straight-line displacement form a right triangle.','The direct distance is √(3² + 4²) m = 5 m. The travelled route is 7 m; it answers a different question.'],
+    guided:{prompt:'Find the diagonal of a right triangle with legs 6 cm and 8 cm.',step:'Compute c² = 6² + 8² = 100 cm².',answer:'The positive root is c = 10 cm.'},
+    diagnostic:{type:'choice',prompt:'When is a² + b² = c² justified for two measured sides a and b?',options:['When a and b meet at a right angle','For every triangle','When a and b are parallel','Only when a and b have equal length'],answer:0,hint:'Look for perpendicular legs and a hypotenuse.',reason:'The relation describes the sides of a right triangle.',wrong:{1:['conceptual','A non-right triangle needs a different relationship.'],2:['conceptual','Parallel segments do not enclose a right angle.'],3:['conceptual','The legs need not be equal; they must be perpendicular.']}},
+    independent:{type:'number',prompt:'A right triangle has legs 5 m and 12 m. Find its hypotenuse in metres.',answer:13,tolerance:0.0001,unit:'m',hint:'Compute √(5² + 12²).',reason:'√(25 + 144) = √169 = 13 m.',wrong:[{value:17,kind:'conceptual',text:'Adding the legs gives the two-segment route, not the diagonal.'}]},
+    retry:{type:'number',prompt:'A right triangle has legs 8 m and 15 m. Find its hypotenuse in metres.',answer:17,tolerance:0.0001,unit:'m',hint:'Compute the positive root of 8² + 15².',reason:'√(64 + 225) = √289 = 17 m.'},
+    transfer:{type:'number',prompt:'Physics: a displacement is 6 m east and 8 m north. Find the magnitude of the resultant in metres.',answer:10,tolerance:0.0001,unit:'m',hint:'The components are perpendicular, so use a right triangle.',reason:'√(6² + 8²) = 10 m. Its direction is a separate question.',wrong:[{value:14,kind:'conceptual',text:'Adding the legs gives the path length, not straight-line displacement.'}]},
+    quick:'First verify perpendicular legs. Magnitude = √(a² + b²); route length a + b is generally different.',
+  },
+  {
+    id:'similarity', title:'Scale and similar shapes', group:'Geometry', questionVersion:1, prerequisites:['ratios','area-volume'],
+    goal:'Distinguish a length scale from the resulting area and volume scales.',
+    need:'A small model is assumed to hold the same fraction of fluid as its length ratio.',
+    idea:'Similar shapes have matching angles and corresponding lengths in one fixed ratio k. Area involves two lengths and therefore scales by k²; volume involves three and scales by k³. This works only when the whole shape is scaled consistently.',
+    formula:'<math display="block" aria-label="length factor k, area factor k squared, volume factor k cubed"><mtext>length</mtext><mo>×</mo><mi>k</mi><mspace width="1em"/><mtext>area</mtext><mo>×</mo><msup><mi>k</mi><mn>2</mn></msup><mspace width="1em"/><mtext>volume</mtext><mo>×</mo><msup><mi>k</mi><mn>3</mn></msup></math>',
+    worked:['A model tank is enlarged so every inside length doubles. The linear scale is k = 2.','The full-size tank has 2³ = 8 times the model capacity, assuming the tanks are geometrically similar.'],
+    guided:{prompt:'Double both sides of a rectangle. How does its area change?',step:'Area multiplies two lengths, and each length doubles.',answer:'The area factor is 2 × 2 = 4.'},
+    diagnostic:{type:'choice',prompt:'If both sides of a rectangle double, by what factor does its area grow?',options:['4','2','8','It stays the same'],answer:0,hint:'Area contains two lengths.',reason:'(2l)(2w) = 4lw.',wrong:{1:['conceptual','Only a single length doubles; area contains two lengths.'],2:['conceptual','A factor of eight belongs to three doubled dimensions.'],3:['conceptual','Changing both sides changes area.']}},
+    independent:{type:'choice',prompt:'A geometrically similar tank has every inside length tripled. What is the capacity factor?',options:['27','3','9','6'],answer:0,hint:'Capacity is volume: multiply the length factor three times.',reason:'3³ = 27 times the volume.',wrong:{1:['conceptual','Three is the length factor only.'],2:['conceptual','Nine is the area factor.'],3:['numerical','Three dimensions scale, so compute 3 × 3 × 3.']}},
+    retry:{type:'choice',prompt:'Every dimension of a geometrically similar vessel doubles. What is its volume factor?',options:['8','2','4','16'],answer:0,hint:'Multiply the linear factor across three dimensions.',reason:'2³ = 8.',wrong:{1:['conceptual','That is the length factor.'],2:['conceptual','That is the area factor.'],3:['numerical','Volume has three factors of two, not four.']}},
+    transfer:{type:'number',prompt:'Chemical engineering: a 0.25 L model vessel is scaled so all inside lengths double. Find the full vessel capacity in litres.',answer:2,tolerance:0.0001,unit:'L',hint:'The volume factor is 2³ = 8.',reason:'0.25 L × 8 = 2.0 L.',wrong:[{value:0.5,kind:'conceptual',text:'That applies the length factor to a volume.'},{value:1,kind:'conceptual',text:'That applies the area factor to a volume.'}]},
+    quick:'For truly similar solids, length × k, area × k², volume × k³. State what quantity is being scaled.',
+  }
+];

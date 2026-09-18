@@ -2,13 +2,19 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {skills,skillById} from '../foundations/assets/skills.mjs';
 import {assess,answerRecord,progress,questionChanged,parseNumber,kinds} from '../foundations/assets/practice.mjs';
+import {visuals} from '../foundations/assets/visuals.mjs';
 
 const root=new URL('../',import.meta.url);
 const read=path=>readFileSync(new URL(path,root),'utf8');
 const data=JSON.parse(read('semester-1/curriculum.json'));
-assert.equal(skills.length,10);
+assert.equal(skills.length,13);
 assert.equal(new Set(skills.map(s=>s.id)).size,skills.length);
-assert.deepEqual(skills.map(s=>s.id),['ratios','signs','notation','units','formulas','graphs','trigonometry','vectors','logs','change']);
+assert.deepEqual(skills.map(s=>s.id),['ratios','signs','notation','units','formulas','graphs','trigonometry','vectors','logs','change','area-volume','right-triangles','similarity']);
+assert.deepEqual([...new Set(skills.map(s=>s.group))].sort(),['Algebra','Basic Math','Geometry','Next: Calculus','Trigonometry'].sort());
+for(const id of ['ratios','units','formulas','graphs','area-volume','right-triangles','similarity','trigonometry','change']){
+  assert.ok(visuals[id]?.html && visuals[id]?.caption);
+  assert.ok(visuals[id].html.includes('aria-label') || visuals[id].html.includes('<caption>'));
+}
 const visit=(id,seen=new Set())=>{assert.ok(!seen.has(id),`Cycle at ${id}`);const next=new Set(seen);next.add(id);for(const parent of skillById[id].prerequisites){assert.ok(skillById[parent]);visit(parent,next);}};
 for(const skill of skills){
   visit(skill.id);
@@ -59,4 +65,4 @@ const retry=answerRecord({},assess(skill.retry,String(skill.retry.answer)));
 assert.equal(progress({questions:{independent:q,retry,transfer}}),'Solved independently');
 assert.equal(questionChanged({questionVersion:1},2),true);
 assert.equal(questionChanged({questionVersion:2},2),false);
-console.log('Math Foundations: ten skills, prerequisites, question feedback, versioning, progress and topic links passed.');
+console.log('Math Foundations: 13 skills, four entry areas, original visuals, prerequisites, feedback, versioning and topic links passed.');

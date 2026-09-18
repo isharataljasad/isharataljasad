@@ -549,6 +549,10 @@
             {
               "id": "notation",
               "why": "Numerical: keep powers of ten and precision"
+            },
+            {
+              "id": "area-volume",
+              "why": "Geometry: distinguish square and cubic units"
             }
           ]
         },
@@ -664,6 +668,10 @@
             {
               "id": "trigonometry",
               "why": "Numerical: resolve a force from its stated angle"
+            },
+            {
+              "id": "right-triangles",
+              "why": "Geometry: find the magnitude of perpendicular components"
             }
           ]
         },

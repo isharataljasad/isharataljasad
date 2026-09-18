@@ -1,7 +1,8 @@
 // Shared foundation skills. IDs and question versions are stable across semesters.
+import {geometrySkills} from './geometry.mjs';
 export const skills = [
   {
-    id:'ratios', title:'Numbers, fractions and ratios', group:'Start here', questionVersion:1, prerequisites:[],
+    id:'ratios', title:'Numbers, fractions and ratios', group:'Basic Math', questionVersion:1, prerequisites:[],
     goal:'Turn a fraction, percentage or ratio into a quantity with a clear meaning.',
     need:'A percentage, concentration or proportion feels like a rule to memorize.',
     idea:'A fraction compares a part with a whole. A ratio compares quantities in a stated order. Convert a percent to a fraction of 100 before calculating. Estimate first to catch a misplaced decimal.',
@@ -13,10 +14,9 @@ export const skills = [
     retry:{type:'choice',prompt:'A sample has 0.45 mol in 0.90 L. What is its concentration?',options:['0.50 mol/L','2.0 mol/L','1.35 mol/L','0.405 mol/L'],answer:0,hint:'Amount divided by volume gives mol/L.',reason:'0.45 mol ÷ 0.90 L = 0.50 mol/L.',wrong:{1:['algebraic','Volume and amount are reversed.'],2:['algebraic','Adding the numbers does not find a ratio.'],3:['algebraic','Multiplying gives mol·L, not mol/L.']}},
     transfer:{type:'number',prompt:'Chemistry: 0.30 mol solute is dissolved to make 0.75 L of solution. Find concentration in mol/L.',answer:0.4,tolerance:0.0001,unit:'mol/L',hint:'Use amount ÷ total solution volume.',reason:'M = 0.30 mol ÷ 0.75 L = 0.40 mol/L.',wrong:[{value:2.5,kind:'algebraic',text:'The ratio is reversed; concentration uses mol divided by L.'}]},
     quick:'percent = 100 × (part/whole); concentration = amount/volume. State which quantity is the numerator.',
-    provenance:['Book: mathematical setup and conditions','Pearson: first move and specific error feedback']
   },
   {
-    id:'notation', title:'Powers and scientific notation', group:'Start here', questionVersion:1, prerequisites:['signs'],
+    id:'notation', title:'Powers and scientific notation', group:'Basic Math', questionVersion:1, prerequisites:['signs'],
     goal:'Read and calculate with powers of ten without losing sign or scale.',
     need:'Very large or small measurements make arithmetic unreliable.',
     idea:'In a × 10ⁿ, keep 1 ≤ |a| < 10. A negative exponent makes a small positive number; it does not make the number negative. Multiply coefficients and add exponents, then normalize.',
@@ -28,10 +28,9 @@ export const skills = [
     retry:{type:'number',prompt:'Calculate (4 × 10⁻²)(5 × 10³). Enter the ordinary number.',answer:200,tolerance:0.0001,hint:'20 × 10¹ must be normalized.',reason:'20 × 10¹ = 2 × 10² = 200.'},
     transfer:{type:'choice',prompt:'Chemistry: one sample has 2 × 10⁵ particles and another 8 × 10⁴. How many times larger is the first?',options:['2.5 times','0.25 times','25 times','1.2 times'],answer:0,hint:'Divide coefficients and subtract exponents.',reason:'(2/8) × 10^(5−4) = 0.25 × 10 = 2.5.',wrong:{1:['numerical','The power of ten contributes a factor of 10.'],2:['numerical','Check 2/8 = 0.25.'],3:['conceptual','A difference of counts is not a ratio.']}},
     quick:'For multiplication, add exponents; for division, subtract. Normalize the coefficient and estimate the scale.',
-    provenance:['Pearson: exponent rules before models','Book: notation and conditions']
   },
   {
-    id:'units', title:'Units, conversions and precision', group:'Start here', questionVersion:1, prerequisites:['ratios','notation'],
+    id:'units', title:'Units, conversions and precision', group:'Basic Math', questionVersion:1, prerequisites:['ratios','notation'],
     goal:'Convert and combine measured quantities while keeping units visible.',
     need:'A formula gives a plausible number with the wrong unit or scale.',
     idea:'Choose each conversion factor so the unwanted unit cancels. An equation needs compatible dimensions on both sides. Keep extra digits during calculation; round a measured result at the end to precision supported by the inputs.',
@@ -43,10 +42,9 @@ export const skills = [
     retry:{type:'number',prompt:'Convert 0.080 kg to grams. Enter the number of grams.',answer:80,tolerance:0.0001,hint:'The factor is 1000 g/kg.',reason:'0.080 kg × 1000 g/kg = 80 g.'},
     transfer:{type:'number',prompt:'Chemistry: 0.50 mol is dissolved to make 250 mL of solution. Find molarity in mol/L.',answer:2,tolerance:0.0001,unit:'mol/L',hint:'Convert 250 mL to 0.250 L, then divide amount by volume.',reason:'M = 0.50 mol ÷ 0.250 L = 2.0 mol/L.',wrong:[{value:0.002,kind:'units',text:'You used mL as if it were L. Convert first.'}]},
     quick:'Write conversion factors as ratios equal to one. Cancel units before arithmetic. For gas laws use kelvin, not °C.',
-    provenance:['Physics measurement topic: dimensional checks and guard digits','Book: precise notation and conditions']
   },
   {
-    id:'formulas', title:'Algebra and rearranging formulas', group:'Core tools', questionVersion:1, prerequisites:['ratios'],
+    id:'formulas', title:'Algebra and rearranging formulas', group:'Algebra', questionVersion:1, prerequisites:['ratios'],
     goal:'Isolate the required quantity while preserving equalities and restrictions.',
     need:'You know the right scientific equation but cannot solve it for the unknown.',
     idea:'Name the unknown. Undo additions before multiplications, or clear a denominator using the same valid operation on both sides. Keep a nonzero condition whenever you divide by a quantity.',
@@ -58,10 +56,9 @@ export const skills = [
     retry:{type:'number',prompt:'For M = n/V, n = 0.60 mol and M = 1.5 mol/L. Find V in L.',answer:0.4,tolerance:0.0001,unit:'L',hint:'V = n/M.',reason:'V = 0.60/1.5 = 0.40 L.'},
     transfer:{type:'choice',prompt:'Physics: From v² = u² + 2as, what is s when a ≠ 0?',options:['(v² − u²)/(2a)','(v − u)²/(2a)','(v² + u²)/(2a)','2a/(v² − u²)'],answer:0,hint:'Subtract u² before dividing by 2a.',reason:'v² − u² = 2as, so s = (v² − u²)/(2a).',wrong:{1:['algebraic','The difference of squares is not the square of a difference.'],2:['algebraic','Move u² by subtraction.'],3:['algebraic','The final ratio is inverted.']}},
     quick:'Isolate symbols before substituting numbers. Check in the original equation and compare units.',
-    provenance:['Book: rule plus conditions','Educator: explain the operation before calculating']
   },
   {
-    id:'graphs', title:'Functions, graphs and slope', group:'Core tools', questionVersion:1, prerequisites:['formulas'],
+    id:'graphs', title:'Functions, graphs and slope', group:'Algebra', questionVersion:1, prerequisites:['formulas'],
     goal:'Read a relationship from axes, calculate slope and explain its units.',
     need:'A graph, table or rate looks like a picture rather than a quantitative relationship.',
     idea:'Read the axis quantity and unit first. Slope is output change divided by input change. Its sign gives direction of change; its units are output unit per input unit. A point value is not a slope.',
@@ -73,10 +70,9 @@ export const skills = [
     retry:{type:'choice',prompt:'Pressure falls from 80 kPa at 0 min to 50 kPa at 3 min. Which slope describes the interval?',options:['−10 kPa/min','10 kPa/min','−30 kPa/min','−0.1 min/kPa'],answer:0,hint:'Change in pressure is −30 kPa over 3 min.',reason:'(50 − 80)/(3 − 0) = −10 kPa/min.',wrong:{1:['graphical','The sign must show pressure is falling.'],2:['graphical','−30 kPa is the change, not change per minute.'],3:['units','Pressure belongs in the numerator.']}},
     transfer:{type:'number',prompt:'Physics: position changes from 3 m at 1 s to 15 m at 4 s. Find average velocity in m/s.',answer:4,tolerance:0.0001,unit:'m/s',hint:'Divide displacement by elapsed time.',reason:'(15 − 3) m/(4 − 1) s = 4 m/s.'},
     quick:'Slope = Δoutput/Δinput. Label axes and units. A curve has an interval slope and a local tangent slope.',
-    provenance:['Educator: graph interpretation and secant-to-tangent sequence','Pearson: first move before calculation']
   },
   {
-    id:'trigonometry', title:'Angles, radians and trigonometry', group:'Core tools', questionVersion:1, prerequisites:['ratios'],
+    id:'trigonometry', title:'Angles, radians and trigonometry', group:'Trigonometry', questionVersion:1, prerequisites:['ratios','right-triangles'],
     goal:'Choose sine or cosine from a stated angle and convert degrees to radians.',
     need:'A direction or calculus angle appears and the component or unit is uncertain.',
     idea:'In a right triangle, cosine connects the adjacent side to the hypotenuse; sine connects the opposite side. Name the reference axis before using a component. A full turn is 2π radians = 360°. Calculus trig derivative rules use radians.',
@@ -88,10 +84,9 @@ export const skills = [
     retry:{type:'number',prompt:'Find cos 60°. Enter a decimal.',answer:0.5,tolerance:0.0001,hint:'The adjacent side is half the hypotenuse.',reason:'cos 60° = 1/2 = 0.5.'},
     transfer:{type:'number',prompt:'Physics: a 10 N force points 60° above the positive horizontal. Find its horizontal component in N.',answer:5,tolerance:0.0001,unit:'N',hint:'The horizontal side is adjacent to the stated angle.',reason:'Fₓ = 10 cos 60° = 5 N.',wrong:[{value:8.660254,kind:'conceptual',text:'That is the vertical component, which uses sine.'}]},
     quick:'From the horizontal: x = A cos θ, y = A sin θ. Use radians for calculus; check signs by quadrant.',
-    provenance:['Book: radian conditions and unit-circle relationships','Educator: method choice from a stated angle']
   },
   {
-    id:'vectors', title:'Vectors and components', group:'Core tools', questionVersion:1, prerequisites:['trigonometry','graphs'],
+    id:'vectors', title:'Vectors and components', group:'Trigonometry', questionVersion:1, prerequisites:['trigonometry','graphs'],
     goal:'Combine perpendicular components without confusing size and direction.',
     need:'Forces or velocities point in different directions.',
     idea:'Choose axes, give each component a sign, and add components separately. Magnitude is nonnegative. Direction needs the signs of both components; an inverse tangent alone can lose the quadrant.',
@@ -103,10 +98,9 @@ export const skills = [
     retry:{type:'choice',prompt:'A force has components (−6, +8) N. Where does it point, and what is its magnitude?',options:['10 N, upper left','14 N, upper right','10 N, lower left','2 N, upper left'],answer:0,hint:'Negative x means left; positive y means up.',reason:'√(36 + 64) = 10 N, in the upper-left quadrant.',wrong:{1:['conceptual','The x component is negative and magnitude is not a scalar sum.'],2:['conceptual','Positive y points up.'],3:['numerical','Use √(6² + 8²).']}},
     transfer:{type:'number',prompt:'Physics: a 10 N force points 60° above the horizontal, and another force is 2 N left. Find net horizontal force in N, taking right as positive.',answer:3,tolerance:0.0001,unit:'N',hint:'Resolve the angled force first, then add the signed leftward force.',reason:'10 cos 60° − 2 = 5 − 2 = +3 N.'},
     quick:'Pick axes; resolve; add x with x and y with y; find magnitude; use component signs for direction.',
-    provenance:['Physics force and motion lessons: axes and signed balances','Pearson: decision before arithmetic']
   },
   {
-    id:'logs', title:'Exponents and logarithms', group:'Core tools', questionVersion:1, prerequisites:['notation','formulas'],
+    id:'logs', title:'Exponents and logarithms', group:'Algebra', questionVersion:1, prerequisites:['notation','formulas'],
     goal:'Reverse an exponential and apply log laws only on their valid domain.',
     need:'A variable is in an exponent or a logarithmic expression must be simplified.',
     idea:'A logarithm asks which exponent produces its positive input. For base b, require b > 0 and b ≠ 1. A sum inside a logarithm cannot be split into a sum of logarithms. Check original arguments after solving.',
@@ -118,10 +112,9 @@ export const skills = [
     retry:{type:'choice',prompt:'Solve ln x = ln 7. Which statement is correct?',options:['x = 7, and x > 0 is satisfied','x = −7 or 7','x = e⁷','x = ln 7'],answer:0,hint:'The natural logarithm is one-to-one on positive inputs.',reason:'Equal natural logs have equal positive arguments, so x = 7.',wrong:{1:['conceptual','ln(−7) is not real.'],2:['algebraic','Exponentiating both sides gives x = 7.'],3:['algebraic','That repeats the right-hand side.']}},
     transfer:{type:'number',prompt:'Chemistry: pH = −log₁₀(c/(1 mol/L)). If c = 10⁻⁴ mol/L, find pH.',answer:4,tolerance:0.0001,hint:'The logarithm input is dimensionless: 10⁻⁴.',reason:'−log₁₀(10⁻⁴) = −(−4) = 4.',wrong:[{value:-4,kind:'numerical',text:'Keep the minus sign in the pH definition.'}]},
     quick:'log_b x = y means bʸ = x. Inputs must be positive. log_b(ab) = log_b a + log_b b for a,b > 0.',
-    provenance:['Book: inverse and domain conditions','Pearson: specific correction for log-domain errors']
   },
   {
-    id:'change', title:'Average change toward a derivative', group:'Calculus bridge', questionVersion:1, prerequisites:['graphs','formulas'],
+    id:'change', title:'Average change toward a derivative', group:'Next: Calculus', questionVersion:1, prerequisites:['graphs','formulas'],
     goal:'Distinguish an interval’s average rate from a rate at one instant.',
     need:'A calculus limit or derivative looks like an unexplained formula.',
     idea:'Average rate uses two different inputs. To approach the rate at one input a, use a second input a + h, simplify while h ≠ 0, then consider h approaching 0. The value at h = 0 is never obtained by dividing by zero.',
@@ -133,12 +126,11 @@ export const skills = [
     retry:{type:'choice',prompt:'A distance–time graph bends upward. What can you safely infer about its slope?',options:['An interval’s average slope may differ from the slope at one instant','Every interval has the same slope','The value of distance is the velocity','A slope is found by adding the axis values'],answer:0,hint:'A curve does not have one constant slope everywhere.',reason:'Average slope uses two points; a local slope describes one instant.',wrong:{1:['graphical','A bending graph has changing slopes.'],2:['graphical','Distance is a position quantity; velocity is distance change per time.'],3:['algebraic','A slope is a ratio of changes.']}},
     transfer:{type:'number',prompt:'Physics: position is s(t) = t² metres. Find average velocity from t = 0 s to t = 4 s in m/s.',answer:4,tolerance:0.0001,unit:'m/s',hint:'Use [s(4) − s(0)]/(4 − 0).',reason:'(16 − 0) m/4 s = 4 m/s. Velocity at t = 4 s is a different question.'},
     quick:'Average rate = Δoutput/Δinput. Instantaneous rate is a limit of nearby interval rates, when that limit exists.',
-    provenance:['Educator: average-to-instantaneous sequence','Book: conditions on the limit quotient']
   },
 ];
 
 skills.splice(1,0,{
-  id:'signs', title:'Signed numbers and order of operations', group:'Start here', questionVersion:1, prerequisites:['ratios'],
+  id:'signs', title:'Signed numbers and order of operations', group:'Basic Math', questionVersion:1, prerequisites:['ratios'],
   goal:'Keep the meaning of a negative quantity while simplifying an expression.',
   need:'A minus sign in heat, voltage or motion changes the answer unexpectedly.',
   idea:'Parentheses tell you which quantity is subtracted. Subtracting a negative adds its magnitude. Evaluate brackets before multiplication or division, then addition or subtraction. A negative physical result carries direction or energy-flow meaning.',
@@ -150,8 +142,8 @@ skills.splice(1,0,{
   retry:{type:'number',prompt:'Calculate −2(4 − 7).',answer:6,tolerance:0.0001,hint:'Evaluate the bracket before multiplication.',reason:'4 − 7 = −3; (−2)(−3) = 6.'},
   transfer:{type:'number',prompt:'Chemistry: E°cell = E°cathode − E°anode. Use +0.34 V and −0.76 V, respectively. Find E°cell in V.',answer:1.1,tolerance:0.0001,unit:'V',hint:'Keep the anode value in parentheses.',reason:'E°cell = +0.34 − (−0.76) = +1.10 V.',wrong:[{value:-0.42,kind:'numerical',text:'Subtract the signed anode potential, not its magnitude.'}]},
   quick:'Keep signs inside parentheses. Subtracting a negative adds; negative × negative is positive. Interpret a result’s physical sign.',
-  provenance:['Chemistry electrochemistry topic: signed potential convention','Pearson: error-specific feedback']
 });
+skills.push(...geometrySkills);
 export const skillById = Object.fromEntries(skills.map(skill => [skill.id, skill]));
 
 const transferRetries = {
@@ -164,6 +156,9 @@ const transferRetries = {
   trigonometry:{type:'number',prompt:'Physics: a 12 N force points 60° above the positive horizontal. Find its horizontal component in N.',answer:6,tolerance:0.0001,unit:'N',hint:'Use cosine for the adjacent side.',reason:'12 cos 60° = 6 N.'},
   vectors:{type:'number',prompt:'Physics: a 20 N force points 60° above the horizontal, and another force is 3 N left. Find net horizontal force in N, taking right as positive.',answer:7,tolerance:0.0001,unit:'N',hint:'Resolve 20 N horizontally, then subtract 3 N.',reason:'20 cos 60° − 3 = 7 N.'},
   logs:{type:'number',prompt:'Chemistry: pH = −log₁₀(c/(1 mol/L)). If c = 10⁻⁵ mol/L, find pH.',answer:5,tolerance:0.0001,hint:'The logarithm of 10⁻⁵ is −5.',reason:'−log₁₀(10⁻⁵) = 5.'},
-  change:{type:'number',prompt:'Physics: position is s(t) = t² metres. Find average velocity from t = 1 s to t = 3 s in m/s.',answer:4,tolerance:0.0001,unit:'m/s',hint:'Compute [s(3) − s(1)]/(3 − 1).',reason:'(9 − 1)/2 = 4 m/s.'}
+  change:{type:'number',prompt:'Physics: position is s(t) = t² metres. Find average velocity from t = 1 s to t = 3 s in m/s.',answer:4,tolerance:0.0001,unit:'m/s',hint:'Compute [s(3) − s(1)]/(3 − 1).',reason:'(9 − 1)/2 = 4 m/s.'},
+  'area-volume':{type:'number',prompt:'Chemistry: a vessel measures 0.4 m × 0.5 m × 0.2 m inside. Find its capacity in litres.',answer:40,tolerance:0.0001,unit:'L',hint:'Multiply to get 0.040 m³, then convert to litres.',reason:'0.4 × 0.5 × 0.2 = 0.040 m³ = 40 L.'},
+  'right-triangles':{type:'number',prompt:'Physics: perpendicular displacements are 9 m east and 12 m north. Find the resultant magnitude in metres.',answer:15,tolerance:0.0001,unit:'m',hint:'Use the positive root of 9² + 12².',reason:'√(81 + 144) = 15 m.'},
+  similarity:{type:'number',prompt:'Chemical engineering: a 0.50 L model vessel is scaled so every inside length triples. Find the larger capacity in litres.',answer:13.5,tolerance:0.0001,unit:'L',hint:'Volume factor = 3³ = 27.',reason:'0.50 L × 27 = 13.5 L.'}
 };
 for (const skill of skills) skill.transferRetry = transferRetries[skill.id];
