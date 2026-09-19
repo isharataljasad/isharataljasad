@@ -19,7 +19,8 @@ function inline(raw) {
     saved.push(`<code>${value}</code>`);
     return `@@SAVED${saved.length - 1}@@`;
   });
-  output = output.replace(/\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g, (_, label, href) => {
+  output = output.replace(/\[([^\]]+)\]\((\/[^)\s]+|https:\/\/[^)\s]+)\)/g, (_, label, href) => {
+    if (href.startsWith('/') && !href.startsWith('//')) return `<a href="${href}">${label}</a>`;
     const parsed = new URL(href.replaceAll('&amp;', '&'));
     if (parsed.protocol !== 'https:') throw new Error(`Unsupported link: ${href}`);
     return `<a href="${esc(parsed.href)}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`;
@@ -53,6 +54,9 @@ function render(markdown, model) {
       parts.push(`<h2 id="${id}">${esc(heading)}</h2>`);
       if (model.number === 3 && id === '2-a-function-is-a-relation-with-a-dependable-output') {
         parts.push('<figure class="model-figure"><img src="/foundations/models/figures/function-mapping.svg" alt="Two inputs can share one output in a function. One input leading to two different outputs is not a function." width="720" height="245"><figcaption>Follow the input: repeated outputs are allowed; two outputs for one input are not.</figcaption></figure>');
+      }
+      if (model.number === 3 && id === '4-read-function-notation-as-an-instruction') {
+        parts.splice(parts.length-1,0,fs.readFileSync(path.join(modelsRoot,'graph-explorer.html'),'utf8'));
       }
       i++;
     } else if (line.startsWith('|')) {
@@ -91,9 +95,10 @@ writePage(conceptUrl, shell('Functions and allowed inputs in three models', intr
 for (const model of models) {
   const markdown = fs.readFileSync(path.join(sourceRoot, model.source), 'utf8');
   const rendered = render(markdown, model);
+  if (model.number === 2) rendered.body += fs.readFileSync(path.join(modelsRoot,'guided-check.html'),'utf8');
   const switcher = `<nav class="model-switcher" aria-label="Compare the three models">${models.map((item) => `<a href="${item.url}"${item.number === model.number ? ' aria-current="page"' : ''}>Foundation ${item.number}<span>${esc(item.name)}</span></a>`).join('')}</nav>`;
   const toc = `<nav class="model-toc" aria-label="On this page"><h2>On this page</h2><ol>${rendered.headings.map((item) => `<li><a href="#${item.id}">${esc(item.heading)}</a></li>`).join('')}</ol></nav>`;
   const content = `<p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/models/">Three models</a> / Foundation ${model.number}</p><header class="model-hero model-chapter-hero"><p class="eyebrow">FOUNDATION ${model.number} · ${esc(model.name.toUpperCase())}</p><h1>${esc(rendered.title)}</h1><p>${esc(model.subtitle)}</p></header>${switcher}<div class="model-layout">${toc}<article class="model-article">${rendered.body}<p class="model-end"><a href="/foundations/models/">← Compare all three routes</a></p></article></div>`;
-  writePage(model.url, shell(`Foundation ${model.number} · ${rendered.title}`, content));
+  writePage(model.url, shell(`Foundation ${model.number} · ${rendered.title}`, content).replace('</head>','<script type="module" src="/foundations/models/interactions.mjs"></script></head>'));
 }
 console.log('Built the three-model pilot and three original Functions and Domain routes.');

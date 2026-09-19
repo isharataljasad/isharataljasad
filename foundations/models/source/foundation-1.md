@@ -6,6 +6,8 @@ Before this lesson: ordered pairs, the coordinate plane, intervals, square roots
 
 This page is one example of a larger curriculum map. Each subject needs the same clear placement and an explicit record of missing steps. The full four-area coverage review is still in progress.
 
+If the starting vocabulary is unfamiliar, use the [coordinate-plane explanation](/foundations/reading/geometry/coordinate-plane/) and the [variables explanation](/foundations/reading/algebra/variables-and-expressions/). The [written guide to this concept](/foundations/models/functions-and-domain/foundation-3/) explains ordered pairs and interval notation as you reach them. These are learning links, not an entrance test.
+
 ## Principle and why it works
 
 A **relation** is a collection of input and output pairs. A **function** is a relation in which each input has exactly one output within the relation. Different inputs may share an output: `(-2, 4)` and `(2, 4)` do not conflict. But `(2, 4)` and `(2, 7)` assign two outputs to the same input and therefore fail the function rule.

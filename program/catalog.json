@@ -1,0 +1,1334 @@
+{
+  "schemaVersion": 1,
+  "id": "yanbu-bsce",
+  "version": "2026-09-19",
+  "sources": [
+    {
+      "id": "student-plan",
+      "label": "Study plan image supplied by the project owner, 19 September 2026",
+      "scope": "Semester 2–8 course placement and four elective options; Semester 1 is outside the crop."
+    },
+    {
+      "id": "college-plan-2023",
+      "label": "Saved college study plan, 21 June 2023",
+      "url": "https://www.rcjy.edu.sa/umb/rcjy-media/vhvh5a22/bachelor-of-science-in-chemical-engineering-21-6-2023.pdf",
+      "scope": "Semester 1, credits and two elective slots in Semester 7. Current applicability requires confirmation."
+    },
+    {
+      "id": "college-descriptions",
+      "label": "Saved college course descriptions",
+      "url": "https://www.rcjy.edu.sa/umb/rcjy-media/jq1nholw/bscecourse-descriptions.pdf",
+      "scope": "Broad topic reference. Several course codes differ from the study plan; plan codes are used."
+    }
+  ],
+  "discrepancies": [
+    "The description document labels Academic Discourse ESP 401, Principles of Chemical Engineering CL 201, Differential Equations MA 205, and Physical Chemistry CPE 307. This map uses ESP 101, CE 201, MA 203 and CE 307 from the study plan.",
+    "The supplied image shows remaining courses, not the whole first semester. Semester 1 is restored from the saved college plan.",
+    "The 2023 plan assigns two 3-credit electives to Semester 7. The four displayed electives are options, not four compulsory courses.",
+    "Prerequisites, registration eligibility and current course changes must be checked with the college. Suggested preparation here is a learning aid."
+  ],
+  "semesters": [
+    {
+      "number": 1,
+      "credits": 18,
+      "electiveCredits": 0
+    },
+    {
+      "number": 2,
+      "credits": 17,
+      "electiveCredits": 0
+    },
+    {
+      "number": 3,
+      "credits": 18,
+      "electiveCredits": 0
+    },
+    {
+      "number": 4,
+      "credits": 18,
+      "electiveCredits": 0
+    },
+    {
+      "number": 5,
+      "credits": 17,
+      "electiveCredits": 0
+    },
+    {
+      "number": 6,
+      "credits": 18,
+      "electiveCredits": 0
+    },
+    {
+      "number": 7,
+      "credits": 16,
+      "electiveCredits": 6
+    },
+    {
+      "number": 8,
+      "credits": 6,
+      "electiveCredits": 0
+    }
+  ],
+  "courses": [
+    {
+      "id": "MA101",
+      "code": "MA 101",
+      "title": "Calculus I",
+      "semester": 1,
+      "credits": 4,
+      "area": "math",
+      "sourceIds": [
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Limits and continuity",
+        "Derivatives and rates",
+        "Optimisation and curve shape"
+      ],
+      "preparation": [
+        "algebra",
+        "trigonometry"
+      ],
+      "resources": [
+        {
+          "kind": "lesson-collection",
+          "label": "Open current course lessons",
+          "href": "/semester-1/math/"
+        }
+      ],
+      "status": "lessons-available",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "PHY101",
+      "code": "PHY 101",
+      "title": "General Physics I",
+      "semester": 1,
+      "credits": 4,
+      "area": "physics",
+      "sourceIds": [
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Units and vectors",
+        "Motion and forces",
+        "Energy and momentum"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [
+        {
+          "kind": "lesson-collection",
+          "label": "Open current course lessons",
+          "href": "/semester-1/physics/"
+        }
+      ],
+      "status": "lessons-available",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CHEM101",
+      "code": "CHEM 101",
+      "title": "General Chemistry I",
+      "semester": 1,
+      "credits": 4,
+      "area": "chemistry",
+      "sourceIds": [
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Atoms and bonds",
+        "Amounts and solutions",
+        "Energy and electrochemistry"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [
+        {
+          "kind": "lesson-collection",
+          "label": "Open current course lessons",
+          "href": "/semester-1/chemistry/"
+        }
+      ],
+      "status": "lessons-available",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ESP101",
+      "code": "ESP 101",
+      "title": "Introduction to Academic Discourse",
+      "semester": 1,
+      "credits": 3,
+      "area": "communication",
+      "sourceIds": [
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Read a scientific paragraph",
+        "Build an evidence-based paragraph",
+        "Summarise and cite a source"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ARB101",
+      "code": "ARB 101",
+      "title": "Practical Grammar",
+      "semester": 1,
+      "credits": 2,
+      "area": "communication",
+      "sourceIds": [
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Sentence structure",
+        "Grammatical agreement",
+        "Edit for clear meaning"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "HPE101",
+      "code": "HPE 101",
+      "title": "Health and Physical Education",
+      "semester": 1,
+      "credits": 1,
+      "area": "general",
+      "sourceIds": [
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Course expectations",
+        "Supervised practical activities",
+        "Reflect on participation"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ARB102",
+      "code": "ARB 102",
+      "title": "Objective Writing",
+      "semester": 2,
+      "credits": 2,
+      "area": "communication",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Separate evidence from opinion",
+        "Structure a report",
+        "Revise a scientific summary"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CSE101",
+      "code": "CSE 101",
+      "title": "Introduction to Programming",
+      "semester": 2,
+      "credits": 2,
+      "area": "computing",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Variables and expressions",
+        "Conditions and loops",
+        "Functions and files"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ESP102",
+      "code": "ESP 102",
+      "title": "Introduction to Report Writing",
+      "semester": 2,
+      "credits": 3,
+      "area": "communication",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Define audience and purpose",
+        "Explain a graph",
+        "Write methods and findings"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ISL101",
+      "code": "ISL 101",
+      "title": "Belief and Its Consequences",
+      "semester": 2,
+      "credits": 2,
+      "area": "general",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Read assigned source texts",
+        "Define key concepts",
+        "Explain connections with evidence"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "MA102",
+      "code": "MA 102",
+      "title": "Calculus II",
+      "semester": 2,
+      "credits": 4,
+      "area": "math",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Integration and accumulation",
+        "Integration techniques",
+        "Sequences and series"
+      ],
+      "preparation": [
+        "algebra",
+        "trigonometry"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "PHY102",
+      "code": "PHY 102",
+      "title": "General Physics II",
+      "semester": 2,
+      "credits": 4,
+      "area": "physics",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Waves and sound",
+        "Thermal processes",
+        "Electricity and magnetism"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE201",
+      "code": "CE 201",
+      "title": "Principles of Chemical Engineering",
+      "semester": 3,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Units and process variables",
+        "Nonreacting material balances",
+        "Reacting balances and energy"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [
+        {
+          "kind": "starter-lesson",
+          "label": "Read the first material balance lesson",
+          "href": "/program/lessons/material-balances/"
+        }
+      ],
+      "status": "starter-available",
+      "lessons": [
+        "material-balances"
+      ],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CHEM211",
+      "code": "CHEM 211",
+      "title": "General Chemistry II",
+      "semester": 3,
+      "credits": 3,
+      "area": "chemistry",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Equilibrium and acids",
+        "Reaction kinetics",
+        "Spontaneity and modern materials"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CHEM212",
+      "code": "CHEM 212",
+      "title": "General Chemistry II Lab",
+      "semester": 3,
+      "credits": 1,
+      "area": "lab",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Prepare from the approved method",
+        "Record observations and units",
+        "Evaluate uncertainty and results"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ESP201",
+      "code": "ESP 201",
+      "title": "Academic and Professional Communication",
+      "semester": 3,
+      "credits": 3,
+      "area": "communication",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Present an engineering argument",
+        "Write a professional message",
+        "Document a team decision"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ISL201",
+      "code": "ISL 201",
+      "title": "Professional Ethics",
+      "semester": 3,
+      "credits": 2,
+      "area": "general",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Identify an ethical issue",
+        "Compare responsibilities",
+        "Justify a professional decision"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "MA201",
+      "code": "MA 201",
+      "title": "Calculus III",
+      "semester": 3,
+      "credits": 3,
+      "area": "math",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Vectors and three-dimensional coordinates",
+        "Partial derivatives",
+        "Multiple integrals"
+      ],
+      "preparation": [
+        "algebra",
+        "trigonometry"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "MA202",
+      "code": "MA 202",
+      "title": "Probability and Statistics for Engineers",
+      "semester": 3,
+      "credits": 3,
+      "area": "math",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Describe variation",
+        "Probability and distributions",
+        "Estimation and hypothesis tests"
+      ],
+      "preparation": [
+        "algebra",
+        "trigonometry"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE203",
+      "code": "CE 203",
+      "title": "Introduction to Chemical Engineering Computing",
+      "semester": 4,
+      "credits": 1,
+      "area": "computing",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Translate balances into equations",
+        "Solve and check a model",
+        "Interpret numerical results"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE207",
+      "code": "CE 207",
+      "title": "Organic Chemistry Lab",
+      "semester": 4,
+      "credits": 1,
+      "area": "lab",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Understand the approved procedure",
+        "Record qualitative and quantitative evidence",
+        "Explain observations"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE202",
+      "code": "CE 202",
+      "title": "Materials Science",
+      "semester": 4,
+      "credits": 3,
+      "area": "chemistry",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Structure and properties",
+        "Material behaviour",
+        "Selection for a stated service"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE204",
+      "code": "CE 204",
+      "title": "Introduction to Chemical Engineering Computing Lab",
+      "semester": 4,
+      "credits": 1,
+      "area": "computing",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Implement a small model",
+        "Test units and boundary cases",
+        "Report reproducible results"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE205",
+      "code": "CE 205",
+      "title": "Fluid Mechanics",
+      "semester": 4,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Pressure and fluid properties",
+        "Continuity and energy",
+        "Pipe flow and losses"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE206",
+      "code": "CE 206",
+      "title": "Organic Chemistry",
+      "semester": 4,
+      "credits": 3,
+      "area": "chemistry",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Structure and functional groups",
+        "Reaction patterns",
+        "Characterisation and evidence"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CSE201",
+      "code": "CSE 201",
+      "title": "Introduction to Data Science",
+      "semester": 4,
+      "credits": 3,
+      "area": "computing",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Prepare and inspect data",
+        "Fit and evaluate a model",
+        "Separate training from evaluation"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "MA203",
+      "code": "MA 203",
+      "title": "Elements of Differential Equations",
+      "semester": 4,
+      "credits": 3,
+      "area": "math",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "First-order equations",
+        "Linear higher-order equations",
+        "Initial conditions and interpretation"
+      ],
+      "preparation": [
+        "algebra",
+        "trigonometry"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ARB201",
+      "code": "ARB 201",
+      "title": "Literary Styles",
+      "semester": 5,
+      "credits": 2,
+      "area": "communication",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Read for structure and style",
+        "Support an interpretation",
+        "Write for audience and purpose"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE301",
+      "code": "CE 301",
+      "title": "Chemical Engineering Thermodynamics",
+      "semester": 5,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Systems and state properties",
+        "First and second laws",
+        "Equilibrium and property models"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE302",
+      "code": "CE 302",
+      "title": "Heat Transfer",
+      "semester": 5,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Conduction",
+        "Convection and resistance",
+        "Heat exchanger balances"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE303",
+      "code": "CE 303",
+      "title": "Mass Transfer",
+      "semester": 5,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Diffusion and concentration gradients",
+        "Interphase transfer",
+        "Mass transfer balances"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CSE301",
+      "code": "CSE 301",
+      "title": "Introduction to Artificial Intelligence",
+      "semester": 5,
+      "credits": 3,
+      "area": "computing",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Search and representation",
+        "Learning from data",
+        "Evaluate uncertainty and failure"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "MA301",
+      "code": "MA 301",
+      "title": "Numerical Methods for Engineers",
+      "semester": 5,
+      "credits": 3,
+      "area": "math",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Roots and linear systems",
+        "Interpolation and numerical derivatives",
+        "Numerical differential equations"
+      ],
+      "preparation": [
+        "algebra",
+        "trigonometry"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE300",
+      "code": "CE 300",
+      "title": "Design Project I",
+      "semester": 6,
+      "credits": 2,
+      "area": "design",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Define a justified problem",
+        "Compare feasible concepts",
+        "Document assumptions and a project plan"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE304",
+      "code": "CE 304",
+      "title": "Separation Processes",
+      "semester": 6,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Phase equilibrium",
+        "Flash and column distillation",
+        "Absorption and extraction"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE305",
+      "code": "CE 305",
+      "title": "Kinetics and Reactor Design",
+      "semester": 6,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Rate laws and conversion",
+        "Batch and flow reactor balances",
+        "Interpret design assumptions"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE306",
+      "code": "CE 306",
+      "title": "Chemical Engineering Lab I",
+      "semester": 6,
+      "credits": 2,
+      "area": "lab",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Prepare an experimental balance",
+        "Record transport measurements",
+        "Compare model and evidence"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE307",
+      "code": "CE 307",
+      "title": "Physical Chemistry",
+      "semester": 6,
+      "credits": 3,
+      "area": "chemistry",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Solutions and equilibrium",
+        "Kinetics",
+        "Electrochemical systems"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE308",
+      "code": "CE 308",
+      "title": "Physical Chemistry Lab",
+      "semester": 6,
+      "credits": 1,
+      "area": "lab",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Connect an approved experiment to theory",
+        "Record and process measurements",
+        "Explain uncertainty"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "ISL301",
+      "code": "ISL 301",
+      "title": "Human Right in Islam",
+      "semester": 6,
+      "credits": 2,
+      "area": "general",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Define course concepts",
+        "Read assigned evidence",
+        "Discuss applications with sources"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "MS301",
+      "code": "MS 301",
+      "title": "Business and Entrepreneurship",
+      "semester": 6,
+      "credits": 2,
+      "area": "design",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Define a customer need",
+        "Evaluate costs and value",
+        "Build a supported business proposal"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE400",
+      "code": "CE 400",
+      "title": "Design Project II",
+      "semester": 7,
+      "credits": 2,
+      "area": "design",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Develop the selected design",
+        "Check calculations and constraints",
+        "Present a defensible final report"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE401",
+      "code": "CE 401",
+      "title": "Process Dynamics and Control",
+      "semester": 7,
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Dynamic balances",
+        "Response to disturbances",
+        "Feedback and stability"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE402",
+      "code": "CE 402",
+      "title": "Plant Design and Economics",
+      "semester": 7,
+      "credits": 3,
+      "area": "design",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Flowsheets and equipment sizing",
+        "Capital and operating costs",
+        "Compare alternatives and uncertainty"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE403",
+      "code": "CE 403",
+      "title": "Chemical Engineering Lab II",
+      "semester": 7,
+      "credits": 2,
+      "area": "lab",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Plan from the approved lab brief",
+        "Analyse separation and reaction data",
+        "Defend conclusions"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE490",
+      "code": "CE 490",
+      "title": "Internship",
+      "semester": 8,
+      "credits": 6,
+      "area": "design",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Agree learning objectives with a supervisor",
+        "Maintain a nonconfidential learning record",
+        "Reflect on engineering practice"
+      ],
+      "preparation": [],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE404",
+      "code": "CE 404",
+      "title": "Polymer Technology",
+      "semester": "elective",
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Polymer structure",
+        "Polymerisation concepts",
+        "Processing and material properties"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE405",
+      "code": "CE 405",
+      "title": "Desalination",
+      "semester": "elective",
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Water and salt balances",
+        "Thermal and membrane separation",
+        "Energy and performance measures"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE406",
+      "code": "CE 406",
+      "title": "Corrosion",
+      "semester": "elective",
+      "credits": 3,
+      "area": "chemistry",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Electrochemical driving forces",
+        "Corrosion mechanisms",
+        "Protection and material selection"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    },
+    {
+      "id": "CE407",
+      "code": "CE 407",
+      "title": "Process Pollution Control",
+      "semester": "elective",
+      "credits": 3,
+      "area": "process",
+      "sourceIds": [
+        "student-plan",
+        "college-plan-2023"
+      ],
+      "scopeStatus": "proposed-study-sequence",
+      "topics": [
+        "Pollutant sources and balances",
+        "Treatment principles",
+        "Interpret environmental performance"
+      ],
+      "preparation": [
+        "basic-math",
+        "algebra"
+      ],
+      "resources": [],
+      "status": "outline-only",
+      "lessons": [],
+      "officialPrerequisites": null
+    }
+  ]
+}

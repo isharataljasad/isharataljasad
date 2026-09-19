@@ -1,8 +1,10 @@
-# Relations Functions and Allowed Inputs
+# Relations, Functions and Allowed Inputs
 
 ## What you will understand before any questions
 
 You will be able to read a relation as pairs, a table, or points on a graph; find its domain and range; decide whether it is a function; explain the vertical-line test; evaluate function notation; and identify inputs excluded by a formula. Each decision is explained below before the question families appear.
+
+Start with reading a number line and substituting numbers into a simple expression. If either is unfamiliar, open [the coordinate plane](/foundations/reading/geometry/coordinate-plane/) or [variables and expressions](/foundations/reading/algebra/variables-and-expressions/), then return here. New notation is explained below when it is needed.
 
 ## 1. Start with an input and an output
 
@@ -34,9 +36,13 @@ Parentheses distinguish two different requests: `f(2) + 7 = −3 + 7 = 4`, while
 
 ## 5. Decide which inputs a formula permits
 
-For a finite list of pairs, only the listed inputs are in the domain. A formula usually describes many inputs, but its operations may exclude some. For real-number work, `√u` requires `u≥0`, a denominator requires a nonzero value, and `ln u` requires `u>0`. Apply all restrictions together.
+For a finite list of pairs, only the listed inputs are in the domain. When no domain is stated for a formula, introductory real-number work usually asks for its largest allowed real domain. Its operations may exclude some inputs. A square root `√u` requires `u≥0`: no real number squared is negative. A denominator must be nonzero: dividing by zero would ask for a number that, when multiplied by zero, could give a nonzero numerator. Even 0/0 is undefined: every number multiplied by zero gives zero, so there is no unique quotient. A zero numerator divided by a nonzero denominator is allowed. Apply all restrictions together.
 
 For `h(x)=√(x+4)/(x−2)`, the root needs `x+4≥0`, which gives `x≥−4`. The denominator needs `x−2≠0`, which excludes `2`. Thus the domain is `[-4,2)∪(2,∞)`. At `−4`, the root is zero and the denominator is `−6`, so the endpoint belongs. At `2`, the denominator is zero, so no value exists. A sketch alone is not needed to reach this decision.
+
+Read that interval notation in pieces. `[-4,2)` means every real number from negative four up to two: the square bracket includes negative four, and the round bracket excludes two. `(2,∞)` means every real number greater than two; infinity is not an endpoint that can be reached. The union sign `∪` joins the two sets. Together they say: start at negative four, continue to the right, and leave a hole at two.
+
+Later, logarithms add another restriction. `ln u` asks for the exponent that gives `u` when the positive number `e` is raised to that exponent. Such outputs are always positive, so a real logarithm requires `u>0`. You do not need logarithms to solve the square-root examples in this lesson.
 
 The modeled domain can be smaller. If `x` represents elapsed time, negative inputs are not part of the physical situation even when the algebraic formula would accept them. State the mathematical restrictions and the contextual restrictions separately, then intersect them.
 

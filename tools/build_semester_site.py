@@ -70,7 +70,9 @@ cards=[]
 for c in manifest['courses']:
     cards.append(f'''<article class="course-card"><span class="course-code">{c['code']} <span>{c['credits']} credits</span></span><h2>{c['title']}</h2><p>{c['tag']}</p><div class="course-progress"><span data-course-progress="{c['id']}">0</span> / {len(c['topics'])} topic checks passed</div><a class="button" href="/semester-1/{c['path']}/">Open {c['path'].title()} →</a></article>''')
 body=f'''<section class="welcome"><div><p class="eyebrow">CHEMICAL ENGINEERING · YEAR 1</p><h1>One semester.<br>Three science courses.</h1><p class="lead">Choose the topic you need. Try a short problem, work through the explanation, then solve a new example.</p><p class="plan-note">Published course scope · Your lecturer’s sequence will take priority when it is available.</p></div><aside class="today"><span class="section-label">YOUR NEXT SESSION</span><h2>Start where you need help</h2><p id="resume-note">Pick one course below to begin.</p><a id="resume-link" class="button" href="/semester-1/math/">Start with Calculus I →</a><span class="small-note">Progress is stored on this browser.</span></aside></section><section class="course-grid" aria-label="Current courses">{''.join(cards)}</section><section class="support-strip"><div><h2>A basic step getting in the way?</h2><p>Use a short refresher in algebra, trigonometry, graphs, units or logarithms, then return to your topic.</p></div><a href="/semester-1/foundations/">Open foundation support →</a></section><section class="scope-strip"><h2>Your current scope</h2><p>These three science courses account for 12 credit hours in the published first-semester plan. Other university requirements are outside this study workspace. Later semesters will be added after their course scope is confirmed.</p></section>'''
-write(SITE/'index.html',page('Semester 1 science courses',body,home=True))
+# The programme builder owns the root page. After this legacy build, run
+# connect-foundations.mjs and connect-program.mjs to restore shared navigation
+# and explanation-first topic order.
 write(BASE/'index.html',page('Semester 1 science courses',body,home=True))
 
 for c in manifest['courses']:

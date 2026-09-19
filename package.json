@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node test/science.mjs && node test/semester1.mjs && node test/foundations.mjs && node test/foundation-index.mjs && node test/foundation-models.mjs && node test/reading.mjs && node test/ma101.mjs && node test/phy101.mjs && node test/chemistry.mjs && node test/chemistry-goldwhite.mjs && node test/chemistry-books.mjs && node test/chemistry-pearson.mjs && node test/chemistry-csp.mjs && node test/chemistry-program.mjs && node test/biology-pearson.mjs && node test/gate.mjs"
+    "build:programme": "node tools/build-foundation-models.mjs && node tools/build-program.mjs && node tools/connect-program.mjs",
+    "test": "node test/science.mjs && node test/semester1.mjs && node test/foundations.mjs && node test/foundation-index.mjs && node test/foundation-models.mjs && node test/reading.mjs && node test/ma101.mjs && node test/phy101.mjs && node test/chemistry.mjs && node test/chemistry-goldwhite.mjs && node test/chemistry-books.mjs && node test/chemistry-pearson.mjs && node test/chemistry-csp.mjs && node test/chemistry-program.mjs && node test/biology-pearson.mjs && node test/gate.mjs && node test/program.mjs"
   },
   "dependencies": {
     "@vercel/functions": "3.1.3"
