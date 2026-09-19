@@ -20,6 +20,8 @@ Two Algebra 2 transcript files belong to episode 30. Both are listed separately,
 
 The early reading edition currently has seven original chapters. Their source Markdown is under `foundations/reading/source/`; `tools/build-foundation-reading.mjs` generates the HTML. The chapter catalog contains 296 canonical episodes and links only the written chapters. The other 289 are marked unwritten. Each published chapter explains the concepts and conditions before its selected question types and worked answers. A source file record is never labeled a written chapter merely because its transcript exists.
 
+The [three-model pilot](foundation-models.md) adds separate live approaches to one Algebra concept. It is reached from `/foundations/` after the four folder cards. It does not change the seven-chapter count or claim another episode is complete.
+
 Before adding a chapter, review the relevant transcript and independent references, identify assumed prerequisites and missing questions, then write new prose, examples, figures, question families, and answers. Do not copy transcript wording, exercises, frames, or branded teaching sequences. Check the mathematics and links, then rebuild both the reading pages and the folder index so the status remains accurate.
 
 ## Connections to Semester 1

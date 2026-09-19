@@ -1,0 +1,53 @@
+.models-page{max-width:1160px}
+.model-crumb{font-size:14px;color:var(--muted);margin:5px 0 27px}
+.model-crumb a{font-weight:700}
+.model-hero{max-width:850px;margin:0 0 31px}
+.model-hero h1{font-size:clamp(36px,4.3vw,54px);line-height:1.12;margin:10px 0 16px}
+.model-hero>p:last-child{font-size:18px;line-height:1.6;max-width:75ch}
+.pilot-topic{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:9px;padding:20px 24px;margin:30px 0}
+.pilot-topic>span{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.1em}
+.pilot-topic h2{font-size:25px;margin:7px 0 5px}
+.pilot-topic p{margin:0}
+.model-section-title{font-size:24px;margin:31px 0 17px}
+.model-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.model-card{display:flex;align-items:flex-start;gap:16px;min-height:200px;padding:23px;background:#fff;border:1px solid var(--line);border-radius:10px;text-decoration:none;box-shadow:0 4px 16px #1236470b}
+.model-card:hover,.model-card:focus-visible{border-color:var(--teal);box-shadow:0 8px 20px #1236471a}
+.model-number{color:var(--teal);font-size:24px;font-weight:800;line-height:1.1}
+.model-card>span:nth-child(2){display:flex;flex-direction:column;gap:6px}
+.model-card strong{font-size:15px;color:var(--muted)}
+.model-card-name{font-size:22px;font-weight:800;color:var(--ink);line-height:1.25}
+.model-card-copy{font-size:15px;line-height:1.5;color:var(--text)}
+.model-arrow{font-size:21px;color:var(--teal);margin-left:auto}
+.model-note{background:#e8f2f3;border-left:4px solid var(--teal);border-radius:4px;padding:15px 18px;margin:30px 0;line-height:1.6}
+.model-chapter-hero{max-width:930px;margin-bottom:20px}
+.model-switcher{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 25px}
+.model-switcher a{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;font-weight:800;text-decoration:none}
+.model-switcher a span{display:block;color:var(--muted);font-size:13px;font-weight:400}
+.model-switcher a[aria-current=page]{border-color:var(--teal);background:#e4f1ef;color:var(--ink)}
+.model-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:25px;align-items:start}
+.model-toc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:15px 16px;position:sticky;top:18px;max-height:calc(100vh - 36px);overflow-y:auto}
+.model-toc h2{font-size:15px;letter-spacing:.04em;margin:0 0 8px}
+.model-toc ol{list-style:none;padding:0;margin:0}
+.model-toc li{margin:7px 0;font-size:14px;line-height:1.4}
+.model-toc a{text-decoration:none}
+.model-toc a:hover{text-decoration:underline}
+.model-article{background:#fff;border:1px solid var(--line);border-radius:10px;padding:27px 34px;min-width:0}
+.model-article h2{font-size:24px;margin:29px 0 11px;padding-top:4px;scroll-margin-top:15px}
+.model-article h2:first-child{margin-top:0}
+.model-article p{margin:11px 0;max-width:76ch}
+.model-article ol{padding-left:25px;margin:12px 0 20px}
+.model-article li{padding-left:5px;margin:9px 0;max-width:76ch}
+.model-article code{font-family:Consolas,'Courier New',monospace;font-size:.96em;background:#eef3f5;border-radius:3px;padding:1px 4px;overflow-wrap:anywhere}
+.model-table-wrap{overflow-x:auto;margin:18px 0 24px;border:1px solid var(--line);border-radius:6px}
+.model-article table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px;line-height:1.5}
+.model-article th,.model-article td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.model-article th{background:#e8f1f3;color:var(--ink)}
+.model-article tr:last-child td{border-bottom:0}
+.model-article h2[id=coverage-before-questions],.model-article h2[id=distinct-checks-after-the-explanation]{border-top:2px solid var(--teal);padding-top:22px}
+.model-article h2[id=question-fingerprints]{border-top:1px solid var(--line);padding-top:22px}
+.model-figure{background:#f8fbfc;border:1px solid var(--line);border-radius:8px;padding:10px;margin:18px 0 24px}
+.model-figure img{display:block;width:100%;max-width:720px;height:auto;margin:auto}
+.model-figure figcaption{font-size:14px;color:var(--muted);margin:8px 4px 2px}
+.model-end{border-top:1px solid var(--line);padding-top:18px;margin-top:31px!important;font-size:15px}
+@media(max-width:850px){.model-grid{grid-template-columns:1fr}.model-card{min-height:0}.model-layout{grid-template-columns:1fr}.model-toc{position:static;max-height:none}.model-toc ol{columns:2}}
+@media(max-width:570px){.model-switcher{grid-template-columns:1fr}.model-article{padding:19px 17px}.model-toc ol{columns:1}.pilot-topic{padding:18px}.model-hero>p:last-child{font-size:17px}}
