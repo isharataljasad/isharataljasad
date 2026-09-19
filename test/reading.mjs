@@ -12,13 +12,13 @@ assert.deepEqual(Object.fromEntries(['Basic Math', 'Algebra', 'Geometry', 'Trigo
   'Basic Math': 67, Algebra: 135, Geometry: 71, Trigonometry: 23,
 });
 const available = catalog.filter((x) => x.url);
-assert.equal(available.length, 5);
+assert.equal(available.length, 7);
 assert.ok(read('foundations/assets/app.mjs').includes('href="/foundations/reading/"'));
 const listing = read('foundations/reading/index.html');
 const map = read('foundations/reading/map/index.html');
-assert.ok(listing.includes('Five') || listing.includes('5 written chapters'));
-assert.equal((map.match(/class="map-state available"/g) ?? []).length, 5);
-assert.equal((map.match(/class="map-state">Not written yet/g) ?? []).length, 291);
+assert.ok(listing.includes('7 written chapters'));
+assert.equal((map.match(/class="map-state available"/g) ?? []).length, 7);
+assert.equal((map.match(/class="map-state">Not written yet/g) ?? []).length, 289);
 for (const item of available) {
   const html = read(path.join(item.url.slice(1), 'index.html'));
   assert.ok(html.includes('<h1>') && html.includes('Coverage before questions'));
@@ -33,4 +33,4 @@ for (const item of available) {
 for (const image of ['coordinate-plane.svg', 'line-and-plane.svg', 'radian-arc.svg']) {
   assert.ok(existsSync(path.join(root, 'foundations/reading/figures', image)));
 }
-console.log('Reading library: 5 original chapters, four-area map, truthful availability and chapter links passed.');
+console.log('Reading library: 7 original chapters, four-area map, truthful availability and chapter links passed.');

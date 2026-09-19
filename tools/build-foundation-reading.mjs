@@ -13,6 +13,8 @@ const groups = [
 ];
 const lessons = [
   ['BM', '01.1', 'Basic Math/BM-01-01-expressions-and-variables.md'],
+  ['BM', '01.2', 'Basic Math/BM-01-02-exponents.md'],
+  ['BM', '01.3', 'Basic Math/BM-01-03-order-of-operations.md'],
   ['A1', '01', 'Algebra/A1-01-variables-and-expressions.md'],
   ['GE', '01', 'Geometry/GE-01-coordinate-plane.md'],
   ['GE', '02', 'Geometry/GE-02-points-lines-and-planes.md'],
