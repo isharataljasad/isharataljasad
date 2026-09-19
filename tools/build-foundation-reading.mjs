@@ -113,7 +113,7 @@ function shell(title, body, active = 'reading') {
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a></nav><span class="semester">SEMESTER 1</span></header>
 <main id="main" class="page reading-page">${body}</main>
-<footer class="footer">Math Foundations supports every semester. <a href="/foundations/">Return to the Foundations practice library</a>.</footer>
+<footer class="footer">Math Foundations supports every semester. <a href="/foundations/">Browse the four Foundations folders</a>.</footer>
 </body></html>\n`;
 }
 
@@ -145,7 +145,7 @@ for (const item of lessons) {
   const markdown = fs.readFileSync(item.source, 'utf8');
   const { title, headings, body } = renderMarkdown(markdown, item.source, item);
   const toc = `<nav class="reading-toc" aria-label="On this page"><h2>On this page</h2><ol>${headings.map((h) => `<li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('')}</ol></nav>`;
-  const article = `<p class="reading-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/reading/">Reading</a> / ${esc(item.group)}</p><header class="reading-hero chapter-hero"><p class="eyebrow">${esc(item.group.toUpperCase())} · EPISODE ${esc(item.episode)}</p><h1>${esc(title)}</h1><p class="reading-note">Early reading edition. Explanations come first; selected question types and answers follow.</p></header><div class="reading-layout">${toc}<article class="reading-article">${body}<p class="chapter-end"><a href="/foundations/reading/">← All reading chapters</a> · <a href="/foundations/">Practice a foundation skill →</a></p></article></div>`;
+  const article = `<p class="reading-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/reading/">Reading</a> / ${esc(item.group)}</p><header class="reading-hero chapter-hero"><p class="eyebrow">${esc(item.group.toUpperCase())} · EPISODE ${esc(item.episode)}</p><h1>${esc(title)}</h1><p class="reading-note">Early reading edition. Explanations come first; selected question types and answers follow.</p></header><div class="reading-layout">${toc}<article class="reading-article">${body}<p class="chapter-end"><a href="/foundations/reading/">← All reading chapters</a> · <a href="/foundations/">Browse the four folders →</a></p></article></div>`;
   writePage(item.url, shell(title, article));
 }
 console.log(`Built ${lessons.length} reading chapters, one library page, and one ${catalog.length}-episode map.`);

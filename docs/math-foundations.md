@@ -1,46 +1,29 @@
-# Shared Math Foundations
+# Math Foundations text library
 
-## Purpose and scope
+## Student entry
 
-This library is optional support for a science problem, not a prerequisite course. It now has four visible entry areas: **Basic Math** (`ratios`, `signs`, `notation`, `units`), **Algebra** (`formulas`, `graphs`, `logs`), **Geometry** (`area-volume`, `right-triangles`, `similarity`), and **Trigonometry** (`trigonometry`, `vectors`). `change` is a separate bridge into Calculus I. The skill IDs remain stable at `/foundations/?skill=<id>` and can receive a same-site `from` topic path, which provides a return link. The Semester 1 manifest maps specific mathematical obstacles to these IDs; future semesters should reuse the IDs, adding lessons only when a distinct skill is required.
+`/foundations/` opens with four subject folders: Basic Math, Algebra, Geometry, and Trigonometry. It does not load the former question-first practice application. Each folder lists every supplied subtitle file by episode and exact file name. Each file has a record page with an honest writing status. A record links to an original written chapter only when that chapter exists.
 
-The first layer covers number and ratio sense, signed arithmetic, powers of ten, units and precision, formula rearrangement, graph slope, area and volume, right-triangle distance, similar-shape scale, radians and components, logarithms, and the average-to-local-rate bridge. These are selected for current MA 101, PHY 101, and CHEM 101 questions or immediate preparation. Detailed integration, multivariable calculus, differential equations, probability and statistics, and advanced data analysis belong with later confirmed course scope. The published college plan establishes provisional scope; this map does not assert an official teaching order.
+The original source files remain in the user's local `Downloads/Math Foundations/Educator.com` directory. Their transcript text is not published on the student site. The committed `foundations/source-files.json` and generated pages index their names and canonical episode identities. Use `node tools/build-foundation-index.mjs --import <source-directory>` to rebuild the index from the local files, then `node tools/build-foundation-index.mjs` for routine regeneration from the committed manifest. The import checks source titles against `foundations/reading/catalog.json`.
 
-Prerequisites are suggestions, not locks: `ratios → signs → notation → units`; `ratios → formulas → graphs → change`; `units → area-volume → similarity`; `ratios → right-triangles → trigonometry → vectors`; `notation + formulas → logs`; `graphs` also supports `vectors`. Links in the lesson show the earlier steps. A student who solves the diagnostic can go directly to the independent check.
+| Folder | Source files | Distinct episodes |
+| --- | ---: | ---: |
+| Basic Math | 67 | 67 |
+| Algebra 1 + Algebra 2 | 136 | 135 |
+| Geometry | 71 | 71 |
+| Trigonometry | 23 | 23 |
+| **Total** | **297** | **296** |
 
-## Evidence from the three existing engines
+Two Algebra 2 transcript files belong to episode 30. Both are listed separately, while their episode is counted once. The source index is a file inventory, not 297 completed explanations.
 
-Inspected the local `MATH-BOK.docx`, `MATH-EDU.docx`, `MATH-PEA.docx`, `Learning Engines.docx`, and the native `/ma101/book/`, `/ma101/educator/`, `/ma101/pearson/` routes. The site routes contain 39 Book cards, 39 Educator cards, and 29 Pearson cards. This review did not inspect every page of the source calculus PDF or the original subtitle RAR; it uses the available authored guides and their site implementations.
+## Written chapters
 
-| Engine | Reusable strength seen in the material | Limitation addressed here |
-| --- | --- | --- |
-| Book | Principle, condition, worked solution, common trap, and compact equation retrieval. Its domain examples show why a rule is valid. | The full 39-card route is too much when a single algebraic step blocks a physics or chemistry problem. |
-| Educator | Meaning → method → worked reasoning → independent check. The written route reconstructs explanation without requiring video. Its secant-to-tangent sequence is useful for rates. | A student must still search a long calculus sequence to repair one cross-subject gap. Original subtitle completeness is not assumed. |
-| Pearson | A clear first move, plausible wrong answer, specific correction, and another try. Optional videos are secondary to a self-contained card. | Revealing an answer or marking a card read does not demonstrate independent transfer; a long source catalog adds search work. |
+The early reading edition currently has seven original chapters. Their source Markdown is under `foundations/reading/source/`; `tools/build-foundation-reading.mjs` generates the HTML. The chapter catalog contains 296 canonical episodes and links only the written chapters. The other 289 are marked unwritten. Each published chapter explains the concepts and conditions before its selected question types and worked answers. A source file record is never labeled a written chapter merely because its transcript exists.
 
-The shared lesson uses a short diagnostic, names the likely difficulty, states the minimum idea and valid conditions, shows meaningful steps, offers optional supported work, then asks for a fresh skill check and a science transfer. The quick reference is at the end. Source context is recorded in this editorial document; the client-side lesson files contain only our teaching content.
+Before adding a chapter, review the relevant transcript and independent references, identify assumed prerequisites and missing questions, then write new prose, examples, figures, question families, and answers. Do not copy transcript wording, exercises, frames, or branded teaching sequences. Check the mathematics and links, then rebuild both the reading pages and the folder index so the status remains accurate.
 
-### Additional source inventory and original lessons
+## Connections to Semester 1
 
-The local `Downloads/Math Foundations/Educator.com` folder contains 297 SRT files: Basic Math (67), Algebra 1 (63), Algebra 2 (73), Geometry (71), and Trigonometry (23). Two Algebra 2 files have the same number and title for episode 30, so the current canonical source map has 296 planned chapters. We inspected the filenames and selected transcript passages on units, proportions, graph slope, measurement, right triangles, similarity, Pythagorean distance, prism volume, and angle/trig decisions. These are noisy transcriptions and do not certify every spoken explanation or diagram. They inform topic selection and the likely order of a clear explanation; they are not copied into the student site. The newly written geometry lessons in the practice layer live in `foundations/assets/geometry.mjs`; original SVG figures and tables live in `foundations/assets/visuals.mjs`. The student interface has no source-provider labels or video dependency.
+Course topic panels point to the relevant Foundation subject folder. The legacy `/semester-1/foundations/` route redirects old section anchors to those folders. The previous practice engine files remain in the repository for reference, but `/foundations/` no longer loads them. Its old `?skill=` query is ignored by the static folder index, so existing bookmarks reach the folders instead of starting a question.
 
-### Explanation-first reading layer
-
-`/foundations/reading/` now provides five original, written chapters across the four Foundation areas. Each chapter presents the concept, conditions, worked reasoning, and a coverage statement before selected question families and explained answers. Three original SVG figures clarify the coordinate plane, line-plane incidence, and radians. `/foundations/reading/map/` shows all 296 canonical source episode titles, with only the five written chapters linked. The 291 other rows are marked not written yet. This is a published early reading edition behind the existing password gate, not a claim that the whole source series has been rewritten or approved. The content sources are under `foundations/reading/source/`; `tools/build-foundation-reading.mjs` generates the static pages from them and `catalog.json`.
-
-This is a curated first layer, not a claim that all 296 source lessons have been rebuilt or that a student has mastered a whole subject. The first release stays behind the existing site password gate. Review mathematical checks, accessibility, and source provenance as new lessons are added, and complete a separate rights and editorial review before any release without the gate.
-
-Editorial rule for later expansion: start with a specific obstacle in Calculus I, Physics, or Chemistry; identify the smallest missing skill; write our own explanation, example, figure or table and a different independent check; connect it back to that science topic. Do not copy a transcript, slide, source exercise, branded teaching sequence, or video frame. Keep the four areas as useful entry points, not locked courses. Add linear algebra, multivariable work, differential equations, and probability/statistics as linked layers when the student's confirmed courses require them. Preserve the distinction between an unaided check and durable mastery.
-
-## Practice records
-
-Records use browser local storage key `yic:math-foundations:v1`, separate from existing science topic records. Each skill has a `questionVersion`; a changed version discards its old answers. A diagnostic or supported step records **Practised**. A wrong answer, hint, or revealed reasoning records **Needs review** until the student answers a *different* skill problem and a *different* science transfer unaided on their first attempt. Those two fresh checks record **Solved independently**, a limited practice observation, not mastery. Revealing a solution never turns that same question into independent success. If a question is revised, increment its version, including its retries.
-
-The first release uses selected answer types: numeric results, method choice, interpretation, and error identification. Wrong choices and common numeric errors receive specific feedback labelled conceptual, algebraic, numerical, graphical, or units. New values alone are insufficient for some skills, so independent questions also test method or interpretation. Delayed recall across days, broader item banks, teacher review, and cross-device progress are future work. No mastery or exam-readiness claim is made from these checks.
-
-## Integration
-
-The shared navigation link is on the Semester 1 hub, course pages, and topic pages. Topic panels name the immediate math obstacle and pass the topic URL as a return path. The old `/semester-1/foundations/` route redirects legacy anchors into the shared library. A `from` path is accepted only for a Semester topic on this site.
-
-The `tools/connect-foundations.mjs` mapping is the source for Semester 1 topic links and the manifest's `foundationSkills` fields. When a later semester is built, its own topic mapping should point at these IDs rather than copy the lessons. Preserve the existing access middleware and separate science practice records.
-The new Geometry links currently point from Physics measurement and forces. Geometry lessons include Chemistry and engineering transfer cases; a Chemistry topic link should be added only where the topic actually asks for that geometric decision. Similarity is available in the library and can gain a topic link when it solves a confirmed course obstacle.
+The site's password gate remains in place. The published index and early chapters do not claim that all 296 topics are taught or mastered.

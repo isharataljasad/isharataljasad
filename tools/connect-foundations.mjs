@@ -2,6 +2,7 @@ import {readFileSync,writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {join,dirname} from 'node:path';
 import {skillById} from '../foundations/assets/skills.mjs';
+const areaBySkill={ratios:'basic-math',signs:'basic-math',notation:'basic-math',units:'basic-math',formulas:'algebra',graphs:'algebra',logs:'algebra',change:'algebra',trigonometry:'trigonometry',vectors:'trigonometry','area-volume':'geometry','right-triangles':'geometry',similarity:'geometry'};
 
 const root=dirname(dirname(fileURLToPath(import.meta.url)));
 const curriculumPath=join(root,'semester-1','curriculum.json');
@@ -46,7 +47,7 @@ for(const course of curriculum.courses){
     delete topic.foundation;
     const path=join(root,topic.href.slice(1),'index.html');
     let html=readFileSync(path,'utf8');
-    const panel=mapped.length?`<aside class="foundation-help"><h3>Math step getting in the way?</h3><ul>${mapped.map(([id,why])=>`<li><a href="/foundations/?skill=${id}&amp;from=${encodeURIComponent(topic.href)}">${why} →</a></li>`).join('')}</ul></aside>`:'';
+    const panel=mapped.length?`<aside class="foundation-help"><h3>Math foundation to read</h3><ul>${mapped.map(([id,why])=>`<li><a href="/foundations/${areaBySkill[id]}/">${why} →</a></li>`).join('')}</ul></aside>`:'';
     const oldLink=/<a class="foundation-link" href="\/semester-1\/foundations\/#(?:algebra|trigonometry|graphs|units|logs)">[^<]*<\/a>/;
     const existing=/<aside class="foundation-help">.*?<\/aside>/;
     if(oldLink.test(html)) html=html.replace(oldLink,panel);

@@ -43,11 +43,13 @@ for(const topic of data.courses.flatMap(c=>c.topics)){
   assert.ok(html.includes('href="/foundations/"'));
   for(const {id,why} of topic.foundationSkills){
     assert.ok(skillById[id] && why.length>10);
-    assert.ok(html.includes(`skill=${id}&amp;from=${encodeURIComponent(topic.href)}`),`${topic.key}/${id}`);
+    const area={ratios:'basic-math',signs:'basic-math',notation:'basic-math',units:'basic-math',formulas:'algebra',graphs:'algebra',logs:'algebra',change:'algebra',trigonometry:'trigonometry',vectors:'trigonometry','area-volume':'geometry','right-triangles':'geometry',similarity:'geometry'}[id];
+    assert.ok(html.includes(`href="/foundations/${area}/"`),`${topic.key}/${id}`);
   }
 }
 assert.ok(existsSync(new URL('foundations/index.html',root)));
-assert.ok(read('foundations/index.html').includes('/foundations/assets/app.mjs'));
+assert.ok(read('foundations/index.html').includes('297'));
+assert.ok(!read('foundations/index.html').includes('/foundations/assets/app.mjs'));
 assert.ok(read('semester-1/foundations/index.html').includes('redirect.mjs'));
 assert.equal(parseNumber('−2.5'),-2.5);
 assert.equal(parseNumber('1e3'),1000);

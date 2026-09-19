@@ -13,7 +13,7 @@ assert.deepEqual(Object.fromEntries(['Basic Math', 'Algebra', 'Geometry', 'Trigo
 });
 const available = catalog.filter((x) => x.url);
 assert.equal(available.length, 7);
-assert.ok(read('foundations/assets/app.mjs').includes('href="/foundations/reading/"'));
+assert.ok(read('foundations/index.html').includes('href="/foundations/reading/"'));
 const listing = read('foundations/reading/index.html');
 const map = read('foundations/reading/map/index.html');
 assert.ok(listing.includes('7 written chapters'));
