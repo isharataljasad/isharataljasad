@@ -13,7 +13,7 @@ for (const button of document.querySelectorAll('[data-add-goal]')) {
     const added = addWeekPlan(goal.weekPlan, { demo: false });
     setGoal(goalId);
     note.textContent = added
-      ? `أُضيفت ${countNoun(added, nouns.task)} إلى أسبوعك. افتح البلانر لترتيبها.`
+      ? `أُضيفت ${countNoun(added, nouns.task)} إلى أسبوعك. افتح التخطيط لترتيبها.`
       : 'مهام هذا الهدف موجودة في أسبوعك بالفعل.';
     note.classList.add('is-visible');
   });

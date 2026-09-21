@@ -1,7 +1,7 @@
 /* ==========================================================================
    tools/build-bayt.mjs — يبني قسم «بيت الفؤاد».
 
-   يولّد من bayt/data/: الصفحة الرئيسة، الرحلة، البلانر، درس الإنجليزية،
+   يولّد من bayt/data/: الصفحة الرئيسة، الرحلة، التخطيط، درس الإنجليزية،
    وملف الإنجاز. إضافة مادة أو فصل لاحقًا = إدخال في journey.mjs، لا صفحة
    جديدة تُكتب بخط اليد.
 
@@ -58,7 +58,7 @@ function shell(title, description, body, { script = null, active = '' } = {}) {
   const nav = [
     ['/bayt/', 'الرئيسة'],
     ['/bayt/journey/', 'رحلتي'],
-    ['/bayt/planner/', 'البلانر'],
+    ['/bayt/planner/', 'التخطيط'],
     ['/bayt/english/', 'الإنجليزية'],
     ['/bayt/portfolio/', 'ملف الإنجاز'],
   ].map(([href, label]) => `<a href="${href}"${href === active ? ' aria-current="page"' : ''}>${label}</a>`).join('');
@@ -89,7 +89,7 @@ const home = `<header class="bayt-hero">
 <p class="eyebrow">نموذج أولي · للتجربة والملاحظات</p>
 <h1>ادرس، نظّم أسبوعك، واخرج بإنجاز تعرضه.</h1>
 <p class="lead">بيت الفؤاد يربط ما تتعلّمه بجدولك وبملفك المهني. تختار هدفًا، فيعرض لك المهارات التي يحتاجها، ويضع خطوات التعلّم في أسبوعك، ويحفظ ما أنجزته.</p>
-<p class="hero-actions"><a class="button" href="/bayt/journey/">ابدأ من هدف</a> <a class="button ghost" href="/bayt/planner/">افتح البلانر</a></p>
+<p class="hero-actions"><a class="button" href="/bayt/journey/">ابدأ من هدف</a> <a class="button ghost" href="/bayt/planner/">افتح التخطيط</a></p>
 </header>
 <section class="chain" aria-labelledby="chain-title">
 <h2 id="chain-title">كيف تتصل الأقسام</h2>
@@ -105,7 +105,7 @@ const home = `<header class="bayt-hero">
 <div class="section-grid">${sectionCards}</div></section>
 <section class="honesty" aria-labelledby="honesty-title"><h2 id="honesty-title">ما هذا النموذج وما ليس هو</h2>
 <ul>
-<li>البلانر وملف الإنجاز <strong>يعملان فعلًا</strong> ويحفظان على جهازك.</li>
+<li>منظّم الوقت والدراسة وملف الإنجاز <strong>يعملان فعلًا</strong> ويحفظان على جهازك.</li>
 <li>الدروس المرتبطة موجودة ومكتوبة، وعددها محدود ومذكور في كل قسم.</li>
 <li>لا يصحّح التطبيق لغتك ولا يعطي درجة. مهمة الإنجليزية تُراجَع ذاتيًا بمعايير معلنة.</li>
 <li>التحضير لـ IELTS لا يضمن درجة 7 ولا أي درجة.</li>
@@ -139,11 +139,11 @@ ${reportLink}${action}</article>`;
 const journey = `<header class="bayt-hero compact"><p class="eyebrow">الخطوة الأولى</p><h1>اختر هدفًا، وسنحوّله إلى أسبوع.</h1>
 <p class="lead">الهدف ليس نية عامة. هنا يتحوّل إلى مهارات محددة، ودروس موجودة، ومهام لها أوقات في جدولك.</p></header>
 <div class="goal-grid">${goalCards}</div>
-<p class="section-note">إضافة الخطة تنشئ مهام حقيقية في بلانرك وتُحفظ على جهازك. يمكنك حذف أي مهمة لاحقًا.</p>`;
+<p class="section-note">إضافة الخطة تنشئ مهام حقيقية في جدولك الأسبوعي وتُحفظ على جهازك. يمكنك حذف أي مهمة لاحقًا.</p>`;
 
 write('bayt/journey/index.html', shell('رحلتي', 'اختر هدفًا فيتحول إلى مهارات ودروس ومهام في جدولك.', journey, { script: '/bayt/app/journey-page.mjs', active: '/bayt/journey/' }));
 
-/* ---- البلانر ---- */
+/* ---- التخطيط ---- */
 const dayColumns = days.map((d, i) => `<section class="day-column" data-day="${i}"><h3>${esc(d)}<span class="day-date" data-day-date="${i}"></span></h3><ul class="day-tasks" data-day-list="${i}"></ul></section>`).join('');
 
 const weekBar = `<nav class="week-bar" aria-label="التنقل بين الأسابيع">
@@ -154,7 +154,7 @@ const weekBar = `<nav class="week-bar" aria-label="التنقل بين الأس�
 </nav><p class="section-note" data-week-others role="status"></p>`;
 const habitOptions = suggestedHabits.map((h) => `<option value="${esc(h.title)}" data-area="${esc(h.area)}">${esc(h.title)} · ${esc(h.area)}</option>`).join('');
 
-const planner = `<header class="bayt-hero compact"><p class="eyebrow">البلانر</p><h1>أسبوعك</h1>
+const planner = `<header class="bayt-hero compact"><p class="eyebrow">التخطيط</p><h1>أسبوعك</h1>
 <p class="lead">كل أسبوع له تاريخه ومهامه وسجلّ عاداته. تنتقل بين الأسابيع دون أن يضيع ما مضى.</p></header>
 ${weekBar}
 <div class="demo-bar" data-demo-bar hidden>
@@ -182,11 +182,11 @@ ${weekBar}
 <button type="submit" class="button">أضف عادة</button></form>
 <div class="habit-list" data-habit-list></div></section>
 
-<section class="honesty"><h2>قيد التطوير في البلانر</h2>
+<section class="honesty"><h2>قيد التطوير في التخطيط</h2>
 <ul><li>الميزانية لم تُبنَ بعد.</li><li>تتبّع العلاقات لم يُبنَ بعد.</li><li>لا تنبيهات ولا مزامنة بين الأجهزة.</li>
 <li>لا تكرار تلقائي لمهمة أسبوعية؛ تُضاف يدويًا في كل أسبوع.</li></ul></section>`;
 
-write('bayt/planner/index.html', shell('البلانر', 'نظّم أسبوعك: مهام وعادات تُحفظ على جهازك.', planner, { script: '/bayt/app/planner-page.mjs', active: '/bayt/planner/' }));
+write('bayt/planner/index.html', shell('التخطيط', 'نظّم أسبوعك: مهام وعادات تُحفظ على جهازك.', planner, { script: '/bayt/app/planner-page.mjs', active: '/bayt/planner/' }));
 
 /* ---- الإنجليزية: الفهرس ثم الدرس ---- */
 const englishIndex = `<header class="bayt-hero compact"><p class="eyebrow">الإنجليزية</p><h1>اللغة الأكاديمية والكتابة التقنية</h1>

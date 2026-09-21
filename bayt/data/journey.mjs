@@ -23,7 +23,7 @@ export const statuses = {
 export const sections = [
   {
     id: 'planner',
-    title: 'البلانر',
+    title: 'التخطيط',
     line: 'الوقت، الأولويات، الصحة، العلاقات، الميزانية، والعادات.',
     href: '/bayt/planner/',
     status: 'partial',
@@ -164,7 +164,7 @@ export const goals = [
   },
 ];
 
-/* عادات أسبوعية افتراضية يقترحها البلانر. الطالب يضيف أو يحذف. */
+/* عادات أسبوعية افتراضية يقترحها التخطيط. الطالب يضيف أو يحذف. */
 export const suggestedHabits = [
   { id: 'HABIT-SLEEP', title: 'نوم منتظم قبل منتصف الليل', area: 'الصحة' },
   { id: 'HABIT-MOVE', title: 'حركة 30 دقيقة', area: 'الصحة' },

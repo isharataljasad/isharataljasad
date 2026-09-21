@@ -1,4 +1,4 @@
-/* البلانر: أسابيع مؤرخة، مهام وعادات لكل أسبوع على حدة. */
+/* التخطيط: أسابيع مؤرخة، مهام وعادات لكل أسبوع على حدة. */
 import {
   load, addTask, toggleTask, removeTask, pushTaskToNextWeek,
   addHabit, toggleHabitDay, removeHabit, habitDays,
