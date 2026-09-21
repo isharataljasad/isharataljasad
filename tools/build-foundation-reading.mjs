@@ -47,10 +47,25 @@ const figures = {
     alt: 'The x and y axes divide the plane into four quadrants. P at negative three, positive two lies in quadrant II.',
     caption: 'A coordinate is read horizontally, then vertically. Axis points lie outside all four quadrants.',
   },
-  '/foundations/reading/geometry/points-lines-and-planes/|3-being-in-a-plane-differs-from-passing-through-it': {
-    src: '/foundations/reading/figures/line-and-plane.svg',
-    alt: 'Line g lies entirely in plane M, while line h passes through plane N at only point T.',
-    caption: 'The complete shared set is a line in the first picture and one point in the second.',
+  '/foundations/reading/geometry/points-lines-and-planes/|2-a-line-a-segment-and-a-ray-are-different-sets': {
+    src: '/foundations/reading/figures/geometry-extents.svg', width: 420, height: 360,
+    alt: 'Segment AB stops at A and B. Ray AB starts at A and extends through and beyond B. Line AB extends beyond both A and B.',
+    caption: 'The endpoint and arrow marks describe extent. Letter order matters for the ray.',
+  },
+  '/foundations/reading/geometry/points-lines-and-planes/|3-name-an-object-using-enough-information': {
+    src: '/foundations/reading/figures/geometry-names.svg', width: 440, height: 340,
+    alt: 'Given configuration: A, B, D lie in that order on g in plane M. C is in M off g. E is outside M.',
+    caption: 'Use the stated locations, not apparent distances or angles. The slanted patch has no mathematical boundary.',
+  },
+  '/foundations/reading/geometry/points-lines-and-planes/|4-why-two-points-fix-a-line-but-three-fix-a-plane': {
+    src: '/foundations/reading/figures/geometry-plane-pencil.svg', width: 440, height: 340,
+    alt: 'Three differently tilted plane patches all contain the same line, shown as a shared spine. Points A, B, D on the spine belong to every plane.',
+    caption: 'Three collinear points cannot select one plane. Other planes can rotate around the same line.',
+  },
+  '/foundations/reading/geometry/points-lines-and-planes/|6-a-line-can-lie-in-pierce-or-miss-a-plane': {
+    src: '/foundations/reading/figures/geometry-line-plane-cases.svg', width: 360, height: 620,
+    alt: 'Three separate cases: a line contained in a plane shares the whole line; a piercing line shares only T; a parallel line outside shares no points.',
+    caption: 'Classify the complete line against the complete plane. The drawn patch shows only part of the plane.',
   },
   '/foundations/reading/trigonometry/angles/|2-radians-connect-angle-to-arc-length': {
     src: '/foundations/reading/figures/radian-arc.svg',
@@ -93,7 +108,7 @@ function tableHtml(lines, source, label) {
    these begins, so anything added here must also get its own branch below. */
 const startsBlock = (line) =>
   line.startsWith('## ') || line.startsWith('### ') || line.startsWith('|') ||
-  /^\d+\. /.test(line) || /^- /.test(line);
+  /^\d+\. /.test(line) || /^- /.test(line) || line.startsWith(':::');
 
 function renderMarkdown(markdown, source, item) {
   const lines = markdown.trim().split(/\r?\n/);
@@ -112,8 +127,19 @@ function renderMarkdown(markdown, source, item) {
       headings.push({ text, id });
       parts.push(`<h2 id="${id}">${esc(text)}</h2>`);
       const figure = figures[`${item.url}|${id}`];
-      if (figure) parts.push(`<figure class="reading-figure"><img src="${figure.src}" alt="${esc(figure.alt)}" width="660" height="360"><figcaption>${esc(figure.caption)}</figcaption></figure>`);
+      if (figure) parts.push(`<figure class="reading-figure"><img src="${figure.src}" alt="${esc(figure.alt)}" width="${figure.width || 660}" height="${figure.height || 360}"><figcaption>${esc(figure.caption)}</figcaption></figure>`);
       i++;
+    } else if (line.startsWith(':::answer ')) {
+      const label = line.slice(':::answer '.length).trim();
+      const block = [];
+      i++;
+      while (i < lines.length && lines[i].trim() !== ':::') block.push(lines[i++]);
+      if (i === lines.length || !label) throw new Error(`Invalid answer disclosure in ${source}`);
+      i++;
+      const answer = block.join('\n').trim().split(/\n\s*\n/).map(p => `<p>${inline(p.replace(/\n/g, ' '), source)}</p>`).join('');
+      parts.push(`<details class="reading-answer"><summary>${esc(label)}</summary>${answer}</details>`);
+    } else if (line.startsWith(':::')) {
+      throw new Error(`Unknown disclosure marker in ${source}: ${line}`);
     } else if (line.startsWith('### ')) {
       parts.push(`<h3>${esc(line.slice(4).trim())}</h3>`);
       i++;
