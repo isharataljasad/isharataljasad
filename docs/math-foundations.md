@@ -22,6 +22,8 @@ The early reading edition currently has seven original chapters. Their source Ma
 
 The [three-model pilot](foundation-models.md) adds separate live approaches to one Algebra concept. It is reached from `/foundations/` after the four folder cards. It does not change the seven-chapter count or claim another episode is complete.
 
+A chapter needs two registrations: a `[track, episode, path]` entry in the `lessons` list in `tools/build-foundation-reading.mjs`, and a `url` for that episode in `foundations/reading/catalog.json`. A Markdown file that is present but unregistered now stops the build and names itself; it used to be skipped in silence. The renderer understands `##`, `###`, `-` bullets, numbered lists, tables, `**bold**`, `` `code` `` and links to other chapter files by relative Markdown path.
+
 Before adding a chapter, review the relevant transcript and independent references, identify assumed prerequisites and missing questions, then write new prose, examples, figures, question families, and answers. Do not copy transcript wording, exercises, frames, or branded teaching sequences. Check the mathematics and links, then rebuild both the reading pages and the folder index so the status remains accurate.
 
 ## Connections to Semester 1

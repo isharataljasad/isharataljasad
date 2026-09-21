@@ -19,6 +19,17 @@ Course outlines are editorial topic groupings, not complete taught courses. Prer
 
 Stable course IDs must not depend on semester placement. `resources` holds independent lesson collections; `lessons` holds individually authored lessons. Future courses can use the same record shape. Extend the schema version if new required fields are introduced. Source evidence, available content and learning outcomes are separate properties.
 
+## Where authoring input lives
+
+Anything a builder reads but no student opens goes in a folder named `source/`. `.vercelignore` excludes `source/` and `tools/`, so those files are never deployed. This is not cosmetic: `vercel.json` sets `cleanUrls: true` and `trailingSlash: false`, so `a/b.html` and `a/b/index.html` both claim the URL `/a/b`, and only one of them can win. A source fragment left beside its generated page shadowed the CE 201 lesson this way. `test/routing.mjs` fails the build if that pair ever reappears.
+
+Two consequences follow from the same setting:
+
+- Use **root-absolute** asset paths (`/chemistry/atomic/engine.js`), never `./engine.js`. On a page served at `/chemistry/atomic`, a relative path resolves one level too high.
+- Put CSS in a stylesheet, not in an inline `<style>`. `style-src` allows `'self'` plus two fixed hashes; any other inline block is silently dropped in production while it still works in a local preview.
+
+Run `node tools/preview-server.mjs` for a local preview that reproduces both URL rules. It does not run the access gate.
+
 ## Build order
 
 For programme or models work:

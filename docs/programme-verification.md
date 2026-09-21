@@ -1,3 +1,5 @@
+> Superseded in part by [the 21 September 2026 independent review](review-2026-09-21.md), which re-verified every count below and found four production-only defects this round of checks did not cover: a clean-URL collision that shadowed the CE 201 lesson, a relative script path that broke the Atomic Arena, three inline stylesheets blocked by the CSP, and scrollable tables unreachable by keyboard. `npm test` now runs 18 scripts.
+
 # Programme expansion verification · 19 September 2026
 
 ## What was tested

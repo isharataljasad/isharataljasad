@@ -19,7 +19,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #d5
 .rail{border-right:1px solid var(--line);background:#f8fbfa}
 .rail-inner{position:sticky;top:0;max-height:100vh;overflow:auto;padding:31px 25px 42px}
 .eyebrow,.micro-label{font-size:11px;letter-spacing:.16em;font-weight:850;color:var(--teal);text-transform:uppercase}
-.rail h1{font-size:27px;line-height:1.18;letter-spacing:-.035em;margin:12px 0}
+/* .rail-title is the sidebar copy of the page name. It used to be a second
+   <h1> with the same text as the one in the main column; it is a paragraph now
+   so each page has a single top-level heading. font-weight restores the bold
+   that the <h1> element supplied by default. */
+.rail h1,.rail .rail-title{font-size:27px;font-weight:700;line-height:1.18;letter-spacing:-.035em;margin:12px 0}
 .rail-desc{font-size:14px;color:var(--muted);line-height:1.55;margin:0 0 22px}
 .rail-stat{display:flex;align-items:baseline;gap:7px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0}
 .rail-stat b{font-size:27px;line-height:1;color:var(--navy)}
@@ -94,6 +98,6 @@ tr:last-child td{border-bottom:0}
 .hub-card a{display:block;background:var(--navy);color:white;text-decoration:none;text-align:center;padding:10px;border-radius:5px;margin-top:auto;font-weight:750}
 .hub-card a:hover{background:var(--teal-dark)}
 .hub-note{padding:19px 22px;border:1px solid var(--line);border-left:4px solid var(--gold);background:var(--pale);margin-top:28px;font-size:14px}
-@media(max-width:980px){.page-grid{grid-template-columns:220px minmax(0,1fr)}.rail-inner{padding:25px 15px}.rail h1{font-size:23px}.hub-grid{gap:11px}.hub-card{padding:17px}}
-@media(max-width:760px){.site-header{height:auto;min-height:62px;flex-wrap:wrap;gap:6px 16px;padding:11px 15px}.site-header nav{order:3;flex-basis:100%;height:auto;overflow-x:auto}.site-header nav a{padding:8px}.site-back{margin-left:auto}.page-grid{display:block}.rail{border-right:0;border-bottom:1px solid var(--line)}.rail-inner{position:static;max-height:none;padding:17px}.rail h1,.rail-desc,.rail-stat{display:none}.toc-title{margin:10px 0 4px}.toc{flex-direction:row;overflow-x:auto;white-space:nowrap;padding-bottom:4px}.toc a,.toc a.toc-2{background:#eef4f4;white-space:nowrap;padding:7px 10px;font-size:12px}.hub-grid{grid-template-columns:1fr}.hub-card{min-height:0}.hub-card a{margin-top:15px}.intro h1{font-size:37px}main{padding:27px 16px 60px}}
+@media(max-width:980px){.page-grid{grid-template-columns:220px minmax(0,1fr)}.rail-inner{padding:25px 15px}.rail h1,.rail .rail-title{font-size:23px}.hub-grid{gap:11px}.hub-card{padding:17px}}
+@media(max-width:760px){.site-header{height:auto;min-height:62px;flex-wrap:wrap;gap:6px 16px;padding:11px 15px}.site-header nav{order:3;flex-basis:100%;height:auto;overflow-x:auto}.site-header nav a{padding:8px}.site-back{margin-left:auto}.page-grid{display:block}.rail{border-right:0;border-bottom:1px solid var(--line)}.rail-inner{position:static;max-height:none;padding:17px}.rail h1,.rail .rail-title,.rail-desc,.rail-stat{display:none}.toc-title{margin:10px 0 4px}.toc{flex-direction:row;overflow-x:auto;white-space:nowrap;padding-bottom:4px}.toc a,.toc a.toc-2{background:#eef4f4;white-space:nowrap;padding:7px 10px;font-size:12px}.hub-grid{grid-template-columns:1fr}.hub-card{min-height:0}.hub-card a{margin-top:15px}.intro h1{font-size:37px}main{padding:27px 16px 60px}}
 @media print{body{background:white;color:black;font-size:11pt}.site-header,.rail,.review-control,.top-button,.optional-video{display:none!important}.page-grid{display:block}main{max-width:none;padding:0}.unit{box-shadow:none;border:0;border-top:1px solid #bbb;border-radius:0;padding:12px 0;break-inside:auto}.lesson,.science-figure,.table-wrap{break-inside:avoid}.answer p{display:block}.answer{border:0}.answer summary{display:none}thead{display:table-row-group}.practice{background:white}}

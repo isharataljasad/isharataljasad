@@ -2,7 +2,13 @@
 
 ## Place in the curriculum
 
-Before this lesson: ordered pairs, the coordinate plane, intervals, square roots, and division by a nonzero number. Here: relations, functions, domain, and range. After it: reading graphs, piecewise functions, transformations, composition, and then limits. Each later topic depends on knowing which inputs actually have an output.
+This concept sits between what you already need and what it later unlocks.
+
+- **Assumed before it:** ordered pairs, the coordinate plane, intervals, square roots, and division by a nonzero number.
+- **Taught here:** relations, functions, domain, and range.
+- **Depends on it afterwards:** reading graphs, piecewise functions, transformations, composition, and then limits.
+
+Each later topic depends on knowing which inputs actually have an output.
 
 This page is one example of a larger curriculum map. Each subject needs the same clear placement and an explicit record of missing steps. The full four-area coverage review is still in progress.
 
@@ -19,6 +25,15 @@ On a graph, all points with the same input lie on one vertical line. Thus the ve
 ## Worked application
 
 Consider `f(x) = √(x + 4)/(x − 2)`. First require `x + 4 ≥ 0`, so `x ≥ −4`. Then require `x − 2 ≠ 0`, so `x ≠ 2`. The domain is `[-4, 2) ∪ (2, ∞)`. The endpoint `−4` is included because its square root is zero and the denominator is `−6`; `2` is excluded because division by zero has no value.
+
+### Test every candidate in the original expression
+
+A restriction tells you which inputs to suspect, not which to discard. Substitute each candidate back before deciding:
+
+- At `x = −4` the expression is `0 / −6 = 0`, a real value, so `−4` belongs to the domain.
+- At `x = 2` the expression is `√6 / 0`, which has no value, so `2` is excluded.
+
+A zero numerator is allowed; a zero denominator is not. Confusing the two is the most common way to lose a valid endpoint.
 
 If the formula represents a quantity measured only for time `x ≥ 0`, its modeled domain becomes `[0, 2) ∪ (2, ∞)` unless another physical limit is supplied. Mathematical and contextual restrictions must both be checked; a formally valid negative time may be meaningless in that experiment.
 

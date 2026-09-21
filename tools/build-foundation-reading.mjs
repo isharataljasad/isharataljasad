@@ -25,6 +25,22 @@ const lessons = [
   return { ...item, source: path.join(sourceRoot, source) };
 });
 const bySource = new Map(lessons.map((item) => [path.normalize(item.source), item.url]));
+
+/* A chapter file that is not in `lessons` above used to be skipped without a
+   word, so a newly written chapter simply never appeared on the site and the
+   author had no signal. Stop the build and name the file instead. */
+const unregistered = fs.readdirSync(sourceRoot, { recursive: true, withFileTypes: true })
+  .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+  .map((entry) => path.normalize(path.join(entry.parentPath ?? entry.path, entry.name)))
+  .filter((file) => !bySource.has(file));
+if (unregistered.length) {
+  throw new Error(
+    `Chapter markdown found but not registered in tools/build-foundation-reading.mjs:\n  ` +
+    unregistered.map((file) => path.relative(root, file)).join('\n  ') +
+    `\nAdd a [track, episode, relative path] entry to the lessons list, give the ` +
+    `episode a url in foundations/reading/catalog.json, then rebuild.`
+  );
+}
 const figures = {
   '/foundations/reading/geometry/coordinate-plane/|1-two-number-lines-make-one-plane': {
     src: '/foundations/reading/figures/coordinate-plane.svg',
@@ -61,13 +77,23 @@ function inline(text, source) {
   return out.replace(/@@CODE(\d+)@@/g, (_, n) => code[Number(n)]);
 }
 
-function tableHtml(lines, source) {
+function tableHtml(lines, source, label) {
   const rows = lines.map((line) => line.trim().slice(1, -1).split('|').map((cell) => cell.trim()));
   if (rows.length < 3 || !rows[1].every((cell) => /^:?-{3,}:?$/.test(cell))) throw new Error(`Bad table in ${source}`);
   const head = `<thead><tr>${rows[0].map((cell) => `<th scope="col">${inline(cell, source)}</th>`).join('')}</tr></thead>`;
   const body = `<tbody>${rows.slice(2).map((row) => `<tr>${row.map((cell) => `<td>${inline(cell, source)}</td>`).join('')}</tr>`).join('')}</tbody>`;
-  return `<div class="reading-table-wrap"><table>${head}${body}</table></div>`;
+  /* The wrapper scrolls sideways on narrow screens, so it must be reachable by
+     keyboard: without tabindex a keyboard-only reader cannot see the columns
+     that overflow. role + name announce it as a scrollable region. */
+  const name = esc(label ? `Table: ${label}` : 'Table');
+  return `<div class="reading-table-wrap" role="region" aria-label="${name}" tabindex="0"><table>${head}${body}</table></div>`;
 }
+
+/* Every construct the renderer understands. A paragraph runs until one of
+   these begins, so anything added here must also get its own branch below. */
+const startsBlock = (line) =>
+  line.startsWith('## ') || line.startsWith('### ') || line.startsWith('|') ||
+  /^\d+\. /.test(line) || /^- /.test(line);
 
 function renderMarkdown(markdown, source, item) {
   const lines = markdown.trim().split(/\r?\n/);
@@ -88,17 +114,24 @@ function renderMarkdown(markdown, source, item) {
       const figure = figures[`${item.url}|${id}`];
       if (figure) parts.push(`<figure class="reading-figure"><img src="${figure.src}" alt="${esc(figure.alt)}" width="660" height="360"><figcaption>${esc(figure.caption)}</figcaption></figure>`);
       i++;
+    } else if (line.startsWith('### ')) {
+      parts.push(`<h3>${esc(line.slice(4).trim())}</h3>`);
+      i++;
     } else if (line.startsWith('|')) {
       const block = [];
       while (i < lines.length && lines[i].trim().startsWith('|')) block.push(lines[i++]);
-      parts.push(tableHtml(block, source));
+      parts.push(tableHtml(block, source, headings[headings.length - 1]?.text));
     } else if (/^\d+\. /.test(line)) {
       const block = [];
       while (i < lines.length && /^\d+\. /.test(lines[i].trim())) block.push(lines[i++].trim().replace(/^\d+\. /, ''));
       parts.push(`<ol>${block.map((item) => `<li>${inline(item, source)}</li>`).join('')}</ol>`);
+    } else if (/^- /.test(line)) {
+      const block = [];
+      while (i < lines.length && /^- /.test(lines[i].trim())) block.push(lines[i++].trim().slice(2));
+      parts.push(`<ul>${block.map((item) => `<li>${inline(item, source)}</li>`).join('')}</ul>`);
     } else {
       const block = [];
-      while (i < lines.length && lines[i].trim() && !lines[i].trim().startsWith('## ') && !lines[i].trim().startsWith('|') && !/^\d+\. /.test(lines[i].trim())) block.push(lines[i++].trim());
+      while (i < lines.length && lines[i].trim() && !startsBlock(lines[i].trim())) block.push(lines[i++].trim());
       parts.push(`<p>${inline(block.join(' '), source)}</p>`);
     }
   }

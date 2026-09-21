@@ -1,0 +1,1 @@
+.page{max-width:1000px;margin:auto;padding:35px 24px}.card2{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin:14px 0}.scope{background:#e8efe2;border:1px solid #d3dfc8;padding:16px;border-radius:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:700px){.grid2{grid-template-columns:1fr}}

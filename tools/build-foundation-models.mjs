@@ -29,13 +29,21 @@ function inline(raw) {
   return output.replace(/@@SAVED(\d+)@@/g, (_, n) => saved[Number(n)]);
 }
 
-function table(block) {
+function table(block, label) {
   const rows = block.map((line) => line.slice(1, -1).split('|').map((cell) => cell.trim()));
   if (rows.length < 3 || !rows[1].every((cell) => /^:?-{3,}:?$/.test(cell))) throw new Error('Invalid model table');
   const head = `<thead><tr>${rows[0].map((cell) => `<th scope="col">${inline(cell)}</th>`).join('')}</tr></thead>`;
   const body = `<tbody>${rows.slice(2).map((row) => `<tr>${row.map((cell) => `<td>${inline(cell)}</td>`).join('')}</tr>`).join('')}</tbody>`;
-  return `<div class="model-table-wrap"><table>${head}${body}</table></div>`;
+  /* Scrollable on narrow screens, so it needs to be focusable and named;
+     see the same guard in build-foundation-reading.mjs. */
+  const name = esc(label ? `Table: ${label}` : 'Table');
+  return `<div class="model-table-wrap" role="region" aria-label="${name}" tabindex="0"><table>${head}${body}</table></div>`;
 }
+
+/* Every construct the renderer understands; a paragraph runs until one begins. */
+const startsBlock = (line) =>
+  line.startsWith('## ') || line.startsWith('### ') || line.startsWith('|') ||
+  /^\d+\. /.test(line) || /^- /.test(line);
 
 function render(markdown, model) {
   const lines = markdown.trim().split(/\r?\n/);
@@ -56,20 +64,27 @@ function render(markdown, model) {
         parts.push('<figure class="model-figure"><img src="/foundations/models/figures/function-mapping.svg" alt="Two inputs can share one output in a function. One input leading to two different outputs is not a function." width="720" height="245"><figcaption>Follow the input: repeated outputs are allowed; two outputs for one input are not.</figcaption></figure>');
       }
       if (model.number === 3 && id === '4-read-function-notation-as-an-instruction') {
-        parts.splice(parts.length-1,0,fs.readFileSync(path.join(modelsRoot,'graph-explorer.html'),'utf8'));
+        parts.splice(parts.length-1,0,fs.readFileSync(path.join(sourceRoot,'graph-explorer.html'),'utf8'));
       }
+      i++;
+    } else if (line.startsWith('### ')) {
+      parts.push(`<h3>${esc(line.slice(4).trim())}</h3>`);
       i++;
     } else if (line.startsWith('|')) {
       const block = [];
       while (i < lines.length && lines[i].trim().startsWith('|')) block.push(lines[i++].trim());
-      parts.push(table(block));
+      parts.push(table(block, headings[headings.length - 1]?.heading));
     } else if (/^\d+\. /.test(line)) {
       const block = [];
       while (i < lines.length && /^\d+\. /.test(lines[i].trim())) block.push(lines[i++].trim().replace(/^\d+\. /, ''));
       parts.push(`<ol>${block.map((item) => `<li>${inline(item)}</li>`).join('')}</ol>`);
+    } else if (/^- /.test(line)) {
+      const block = [];
+      while (i < lines.length && /^- /.test(lines[i].trim())) block.push(lines[i++].trim().slice(2));
+      parts.push(`<ul>${block.map((item) => `<li>${inline(item)}</li>`).join('')}</ul>`);
     } else {
       const block = [];
-      while (i < lines.length && lines[i].trim() && !lines[i].trim().startsWith('## ') && !lines[i].trim().startsWith('|') && !/^\d+\. /.test(lines[i].trim())) block.push(lines[i++].trim());
+      while (i < lines.length && lines[i].trim() && !startsBlock(lines[i].trim())) block.push(lines[i++].trim());
       parts.push(`<p>${inline(block.join(' '))}</p>`);
     }
   }
@@ -95,10 +110,14 @@ writePage(conceptUrl, shell('Functions and allowed inputs in three models', intr
 for (const model of models) {
   const markdown = fs.readFileSync(path.join(sourceRoot, model.source), 'utf8');
   const rendered = render(markdown, model);
-  if (model.number === 2) rendered.body += fs.readFileSync(path.join(modelsRoot,'guided-check.html'),'utf8');
+  if (model.number === 2) rendered.body += fs.readFileSync(path.join(sourceRoot,'guided-check.html'),'utf8');
+  /* Only the routes that actually carry a widget load the behaviour module:
+     Foundation 2 has the guided check, Foundation 3 the vertical-line explorer. */
+  const interactive = model.number === 2 || model.number === 3;
   const switcher = `<nav class="model-switcher" aria-label="Compare the three models">${models.map((item) => `<a href="${item.url}"${item.number === model.number ? ' aria-current="page"' : ''}>Foundation ${item.number}<span>${esc(item.name)}</span></a>`).join('')}</nav>`;
   const toc = `<nav class="model-toc" aria-label="On this page"><h2>On this page</h2><ol>${rendered.headings.map((item) => `<li><a href="#${item.id}">${esc(item.heading)}</a></li>`).join('')}</ol></nav>`;
   const content = `<p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/models/">Three models</a> / Foundation ${model.number}</p><header class="model-hero model-chapter-hero"><p class="eyebrow">FOUNDATION ${model.number} · ${esc(model.name.toUpperCase())}</p><h1>${esc(rendered.title)}</h1><p>${esc(model.subtitle)}</p></header>${switcher}<div class="model-layout">${toc}<article class="model-article">${rendered.body}<p class="model-end"><a href="/foundations/models/">← Compare all three routes</a></p></article></div>`;
-  writePage(model.url, shell(`Foundation ${model.number} · ${rendered.title}`, content).replace('</head>','<script type="module" src="/foundations/models/interactions.mjs"></script></head>'));
+  const page = shell(`Foundation ${model.number} · ${rendered.title}`, content);
+  writePage(model.url, interactive ? page.replace('</head>','<script type="module" src="/foundations/models/interactions.mjs"></script></head>') : page);
 }
 console.log('Built the three-model pilot and three original Functions and Domain routes.');

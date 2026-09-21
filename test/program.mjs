@@ -46,8 +46,15 @@ assert.equal(mixStreams(80,.15,70,0).fraction,.08);
 assert.equal(mixStreams(0,.2,50,.1).fraction,.1);
 for(const args of [[0,.2,0,0],[-1,.2,10,0],[1,2,1,0],[NaN,.2,1,0]])assert.throws(()=>mixStreams(...args),RangeError);
 assert.ok(balanceFeedback('8').correct);
-for(const raw of ['','NaN','Infinity','7.5','0.08','12','8%'])assert.equal(balanceFeedback(raw).correct,false);
-assert.notEqual(balanceFeedback('7.5').message,balanceFeedback('0.08').message);
+assert.ok(balanceFeedback(' 8 ').correct);
+for(const raw of ['','NaN','Infinity','7.5','0.08','12','8%','15','17.14','13.33'])assert.equal(balanceFeedback(raw).correct,false);
+/* Each named misconception must get its own repair, not the generic hint. */
+const generic=balanceFeedback('42').message;
+const repairs=['7.5','0.08','12','15','17.14','13.33'].map(raw=>balanceFeedback(raw).message);
+for(const message of repairs)assert.notEqual(message,generic);
+assert.equal(new Set(repairs).size,repairs.length,'Misconception repairs must be distinct');
+/* 15% is both the feed concentration and 12/80; the repair names the real fix. */
+assert.match(balanceFeedback('15').message,/150/);
 assert.equal(classifyPairs([[-2,5],[1,6],[3,6]]),true);
 assert.equal(classifyPairs([[-2,5],[1,6],[3,6],[3,8]]),false);
 assert.equal(classifyPairs([[1,6],[1,6]]),true);
