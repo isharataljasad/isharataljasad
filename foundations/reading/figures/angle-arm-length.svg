@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 280" role="img" aria-labelledby="aal-title">
+  <title id="aal-title">Two angles of fifty degrees drawn side by side. The right one has arms two and a half times longer than the left, yet both arcs are identical because the measure is the same.</title>
+  <!-- Both arms are placed from the vertex at exactly 50.00 degrees, and both
+       arcs use one radius, so the drawing asserts nothing the text does not.
+       Arm lengths are 62 and 155, a ratio of exactly 2.5. -->
+  <defs>
+    <marker id="aal-tip" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8" fill="#105c78"/></marker>
+  </defs>
+
+  <!-- LEFT: vertex (110,215), arms 62 long -->
+  <g stroke="#105c78" stroke-width="3" fill="none" marker-end="url(#aal-tip)">
+    <line x1="110" y1="215" x2="172" y2="215"/>
+    <line x1="110" y1="215" x2="149.9" y2="167.5"/>
+  </g>
+  <path d="M142 215 A 32 32 0 0 0 130.6 190.5" fill="none" stroke="#ad6421" stroke-width="3"/>
+  <circle cx="110" cy="215" r="6" fill="#153748"/>
+  <text x="110" y="248" fill="#153748" font-size="20" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">B</text>
+  <text x="160" y="201" fill="#ad6421" font-size="20" font-family="system-ui, sans-serif">50°</text>
+  <text x="110" y="272" fill="#566977" font-size="19" text-anchor="middle" font-family="system-ui, sans-serif">short arms</text>
+
+  <!-- RIGHT: vertex (330,215), arms 155 long, same 50 degrees -->
+  <g stroke="#105c78" stroke-width="3" fill="none" marker-end="url(#aal-tip)">
+    <line x1="330" y1="215" x2="485" y2="215"/>
+    <line x1="330" y1="215" x2="429.6" y2="96.3"/>
+  </g>
+  <path d="M362 215 A 32 32 0 0 0 350.6 190.5" fill="none" stroke="#ad6421" stroke-width="3"/>
+  <circle cx="330" cy="215" r="6" fill="#153748"/>
+  <text x="330" y="248" fill="#153748" font-size="20" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">E</text>
+  <text x="380" y="201" fill="#ad6421" font-size="20" font-family="system-ui, sans-serif">50°</text>
+  <text x="330" y="272" fill="#566977" font-size="19" text-anchor="middle" font-family="system-ui, sans-serif">arms drawn 2.5× longer</text>
+
+  <text x="260" y="36" fill="#153748" font-size="21" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">∠B ≅ ∠E</text>
+  <text x="260" y="62" fill="#566977" font-size="19" text-anchor="middle" font-family="system-ui, sans-serif">The arms are rays: they never end. Drawn length</text>
+  <text x="260" y="84" fill="#566977" font-size="19" text-anchor="middle" font-family="system-ui, sans-serif">is a fact about the picture, not about the angle.</text>
+</svg>

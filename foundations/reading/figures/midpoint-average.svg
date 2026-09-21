@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 250" role="img" aria-labelledby="ma-title">
+  <title id="ma-title">A number line with A at negative three, M at three and B at nine. The two halves are marked with equal ticks. Averaging the endpoints gives the midpoint three; subtracting them gives the distance twelve.</title>
+  <defs>
+    <marker id="ma-end" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#105c78"/></marker>
+    <marker id="ma-start" markerWidth="9" markerHeight="9" refX="1" refY="4" orient="auto"><path d="M8,0 L0,4 L8,8" fill="#105c78"/></marker>
+  </defs>
+
+  <line x1="22" y1="165" x2="506" y2="165" stroke="#105c78" stroke-width="3" marker-start="url(#ma-start)" marker-end="url(#ma-end)"/>
+
+  <!-- ticks every integer -4..10, 33px apart, -4 at x=40 -->
+  <g stroke="#105c78" stroke-width="2">
+    <line x1="40" y1="157" x2="40" y2="173"/><line x1="73" y1="157" x2="73" y2="173"/>
+    <line x1="106" y1="157" x2="106" y2="173"/><line x1="139" y1="157" x2="139" y2="173"/>
+    <line x1="172" y1="150" x2="172" y2="180" stroke-width="3"/>
+    <line x1="205" y1="157" x2="205" y2="173"/><line x1="238" y1="157" x2="238" y2="173"/>
+    <line x1="271" y1="157" x2="271" y2="173"/><line x1="304" y1="157" x2="304" y2="173"/>
+    <line x1="337" y1="157" x2="337" y2="173"/><line x1="370" y1="157" x2="370" y2="173"/>
+    <line x1="403" y1="157" x2="403" y2="173"/><line x1="436" y1="157" x2="436" y2="173"/>
+    <line x1="469" y1="157" x2="469" y2="173"/><line x1="502" y1="157" x2="502" y2="173"/>
+  </g>
+  <g fill="#153748" font-size="19" text-anchor="middle" font-family="system-ui, sans-serif">
+    <text x="40" y="198">−4</text><text x="73" y="198">−3</text><text x="106" y="198">−2</text>
+    <text x="139" y="198">−1</text><text x="172" y="198" font-weight="700">0</text>
+    <text x="205" y="198">1</text><text x="238" y="198">2</text><text x="271" y="198">3</text>
+    <text x="304" y="198">4</text><text x="337" y="198">5</text><text x="370" y="198">6</text>
+    <text x="403" y="198">7</text><text x="436" y="198">8</text><text x="469" y="198">9</text>
+    <text x="502" y="198">10</text>
+  </g>
+
+  <!-- the segment and its midpoint -->
+  <line x1="73" y1="165" x2="469" y2="165" stroke="#10766f" stroke-width="5"/>
+  <g stroke="#fff" stroke-width="2.5">
+    <circle cx="73" cy="165" r="8" fill="#ad6421"/>
+    <circle cx="271" cy="165" r="8" fill="#7a3f9d"/>
+    <circle cx="469" cy="165" r="8" fill="#ad6421"/>
+  </g>
+  <g font-size="21" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">
+    <text x="73" y="147" fill="#ad6421">A</text>
+    <text x="271" y="147" fill="#7a3f9d">M</text>
+    <text x="469" y="147" fill="#ad6421">B</text>
+  </g>
+
+  <!-- equal tick marks: one slash on each half declares congruence -->
+  <g stroke="#10766f" stroke-width="3">
+    <line x1="166" y1="155" x2="178" y2="175"/>
+    <line x1="364" y1="155" x2="376" y2="175"/>
+  </g>
+  <text x="271" y="228" fill="#10766f" font-size="19" text-anchor="middle" font-family="system-ui, sans-serif">AM = MB = 6, so each half is half of 12</text>
+
+  <!-- the two different operations -->
+  <text x="271" y="52" fill="#7a3f9d" font-size="20" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">halfway: (−3 + 9) ÷ 2 = 3</text>
+  <text x="271" y="80" fill="#ad6421" font-size="20" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">how far apart: |−3 − 9| = 12</text>
+  <text x="271" y="106" fill="#566977" font-size="18" text-anchor="middle" font-family="system-ui, sans-serif">average finds a point · difference finds a length</text>
+</svg>

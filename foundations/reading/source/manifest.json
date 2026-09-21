@@ -1,0 +1,13 @@
+{
+  "/foundations/reading/basic-math/expressions-and-variables/": "foundations/reading/source/Basic Math/BM-01-01-expressions-and-variables.md",
+  "/foundations/reading/basic-math/exponents/": "foundations/reading/source/Basic Math/BM-01-02-exponents.md",
+  "/foundations/reading/basic-math/order-of-operations/": "foundations/reading/source/Basic Math/BM-01-03-order-of-operations.md",
+  "/foundations/reading/basic-math/integers-and-the-number-line/": "foundations/reading/source/Basic Math/BM-04-01-integers-and-the-number-line.md",
+  "/foundations/reading/algebra/variables-and-expressions/": "foundations/reading/source/Algebra/A1-01-variables-and-expressions.md",
+  "/foundations/reading/geometry/coordinate-plane/": "foundations/reading/source/Geometry/GE-01-coordinate-plane.md",
+  "/foundations/reading/geometry/points-lines-and-planes/": "foundations/reading/source/Geometry/GE-02-points-lines-and-planes.md",
+  "/foundations/reading/geometry/measuring-segments/": "foundations/reading/source/Geometry/GE-03-measuring-segments.md",
+  "/foundations/reading/geometry/midpoints-and-congruence/": "foundations/reading/source/Geometry/GE-04-midpoints-and-congruence.md",
+  "/foundations/reading/geometry/angles/": "foundations/reading/source/Geometry/GE-05-angles.md",
+  "/foundations/reading/trigonometry/angles/": "foundations/reading/source/Trigonometry/TR-01-01-angles.md"
+}

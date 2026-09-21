@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="اجمع الحساب والافتراضات والوصف الإنجليزي في تقرير واحد قابل للتعديل."><title>تقرير موازنة مواد · بيت الفؤاد</title>
+<link rel="stylesheet" href="/bayt/bayt.css"></head>
+<body><a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<header class="bayt-header"><a class="bayt-brand" href="/bayt/">بيت الفؤاد<span>مساحة الطالب الجامعي</span></a>
+<nav class="bayt-nav" aria-label="أقسام التطبيق"><a href="/bayt/">الرئيسة</a><a href="/bayt/journey/">رحلتي</a><a href="/bayt/planner/">البلانر</a><a href="/bayt/english/">الإنجليزية</a><a href="/bayt/portfolio/">ملف الإنجاز</a></nav></header>
+<main id="main" class="bayt-main"><p class="crumb"><a href="/bayt/">بيت الفؤاد</a> / <a href="/bayt/journey/">رحلتي</a> / التقرير</p>
+<header class="bayt-hero compact"><p class="eyebrow">الناتج النهائي</p><h1 data-report-mode>تقرير موازنة مواد</h1>
+<p class="lead">التقرير الواحد يجمع ثلاثة أشياء: الحساب بوحداته، والافتراضات التي بنيتَ عليها، ووصف العملية بالإنجليزية. يُحفظ كاملًا ويمكنك تعديله لاحقًا.</p>
+<p class="prereq">قبل أن تبدأ: <a href="/bayt/math/units-and-mass-fractions/">الوحدات والكسور الكتلية</a> · <a href="/program/lessons/material-balances/">موازنة المواد</a> · <a href="/bayt/english/process-description/">وصف العملية بالإنجليزية</a></p></header>
+<p class="storage-warning" data-storage-warning hidden>تخزين المتصفح غير متاح الآن، لذلك لن يُحفظ ما تكتبه.</p>
+
+<form data-report-form>
+<section class="lesson-section"><h2>١ · المدخلات</h2>
+<p class="section-note">التدفقات بوحدة <code dir="ltr">kg/h</code>، والكسور الكتلية بين 0 و 1 بلا وحدة. لا تُدخل نسبة مئوية هنا.</p>
+<div class="field-grid">
+<label>تدفق التيار الأول <span class="unit">kg/h</span><input type="number" name="feedA" step="any" min="0" inputmode="decimal"></label>
+<label>كسره الكتلي من المذاب <span class="unit">0–1</span><input type="number" name="fractionA" step="any" min="0" max="1" inputmode="decimal"></label>
+<label>تدفق التيار الثاني <span class="unit">kg/h</span><input type="number" name="feedB" step="any" min="0" inputmode="decimal"></label>
+<label>كسره الكتلي من المذاب <span class="unit">0–1</span><input type="number" name="fractionB" step="any" min="0" max="1" inputmode="decimal"></label>
+</div>
+<div data-live></div></section>
+
+<section class="lesson-section"><h2>٢ · حسابك أنت</h2>
+<p class="section-note">احسب بنفسك ثم أدخل نتائجك. التطبيق لا يحسب عنك؛ يقارن فقط حين تطلب.</p>
+<div class="field-grid">
+<label>التدفق الكلي الخارج <span class="unit">kg/h</span><input type="number" name="outTotal" step="any" inputmode="decimal"></label>
+<label>تدفق المذاب الخارج <span class="unit">kg/h</span><input type="number" name="outSolute" step="any" inputmode="decimal"></label>
+<label>نسبة المذاب في المخرج <span class="unit">%</span><input type="number" name="outPercent" step="any" inputmode="decimal"></label>
+</div>
+<p><button type="button" class="button ghost" data-check>قارن نتائجي بالحساب المرجعي</button></p>
+<div class="check-box" data-check-result></div></section>
+
+<section class="lesson-section"><h2>٣ · افتراضاتك</h2>
+<p class="section-note">افتراض في كل سطر. مثال: حالة مستقرة · لا تفاعل · لا فقد مادة · الكسور كتلية لا مولية.</p>
+<textarea name="assumptions" rows="4" placeholder="حالة مستقرة&#10;لا تفاعل كيميائي&#10;لا فقد مادة"></textarea></section>
+
+<section class="lesson-section"><h2>٤ · وصف العملية بالإنجليزية</h2>
+<p class="section-note">ثلاث إلى خمس جمل، بالصيغة التي درستها في <a href="/bayt/english/process-description/">درس وصف العملية</a>.</p>
+<textarea name="processDescription" dir="ltr" lang="en" rows="6" maxlength="1200" placeholder="Two streams are fed to a mixer…"></textarea></section>
+
+<section class="lesson-section"><h2>٥ · احفظ</h2>
+<div class="status-key"><h3>ما الذي يسجّله التطبيق، وما الذي لا يسجّله</h3>
+<ul>
+<li><strong>إتمام المهمة:</strong> يسجّله. أنت سجّلت عملًا في تاريخ معلوم.</li>
+<li><strong>صحة الإجابة:</strong> يسجّلها لهذه المسألة وحدها، بمقارنة أرقامك بالحساب المرجعي.</li>
+<li><strong>إتقان المهارة:</strong> <em>لا يسجّله ولا يدّعيه</em>. الإتقان يحتاج مسائل مختلفة، وفاصلًا زمنيًا، وحكمًا بشريًا.</li>
+</ul></div>
+<p><button type="submit" class="button">احفظ التقرير في ملف إنجازي</button></p>
+<p class="save-note" data-save-note role="status"></p></section>
+</form></main>
+<footer class="bayt-footer"><p>نموذج تجريبي. كل ما تحفظه يبقى على جهازك ولا يُرسل إلى أي خادم.</p>
+<p>الكتابة التعليمية أصلية. الروابط الخارجية تشير إلى مصادرها الرسمية، ولا توجد شراكة مع أي ناشر.</p></footer>
+<script type="module" src="/bayt/app/report-page.mjs"></script>
+</body></html>

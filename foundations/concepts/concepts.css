@@ -1,0 +1,86 @@
+/* Concept hubs, approach pages, the concept index and the coverage ledger.
+   Builds on curriculum.css and reading.css; only adds what those lack. */
+
+.concepts-page { max-width: 1120px; margin: auto; padding: 30px 22px 70px; }
+
+.concept-hero { margin: 6px 0 20px; }
+.concept-hero h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -.035em; margin: 8px 0 12px; }
+.concept-hero p { max-width: 68ch; margin: 0; color: #3a4f5c; }
+.concept-count { font-weight: 700; color: #10766f; margin: 0 0 12px; }
+
+/* ---- switcher between the three routes ---- */
+.concept-switch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 26px; }
+.concept-switch-item {
+  display: flex; flex-direction: column; gap: 3px;
+  border: 1px solid #cddbe2; border-radius: 11px; padding: 12px 14px;
+  background: #fff; text-decoration: none; color: #153748;
+}
+.concept-switch-item:hover { border-color: #10766f; }
+.concept-switch-item[aria-current="page"] { background: #e6f0f2; border-color: #10766f; }
+.concept-switch-item.is-missing { background: #f5f7f8; color: #6a7c86; border-style: dashed; }
+.switch-number { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #566977; }
+.switch-name { font-weight: 700; }
+.switch-note { font-size: 13px; color: #566977; }
+
+.concept-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 30px; align-items: start; }
+.concept-toc { position: sticky; top: 16px; border: 1px solid #dfe8ec; border-radius: 12px; padding: 14px 16px; background: #fafcfc; }
+.concept-toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .07em; color: #566977; margin: 0 0 8px; }
+.concept-toc ol { margin: 0; padding-left: 18px; }
+.concept-toc li { margin: 5px 0; font-size: 14px; }
+
+.concept-related, .concept-evidence { border-top: 1px solid #e3eaee; margin-top: 30px; padding-top: 16px; }
+.concept-related h2, .concept-evidence h2 { font-size: 17px; margin: 0 0 8px; }
+
+/* ---- concept index ---- */
+.approach-legend { border: 1px solid #dfe8ec; border-radius: 13px; padding: 16px 20px; background: #fafcfc; margin: 0 0 22px; }
+.approach-legend dl { margin: 0; display: grid; gap: 10px; }
+.approach-legend dt { font-weight: 700; }
+.approach-legend dd { margin: 2px 0 0; color: #3a4f5c; }
+.approach-legend em { color: #10766f; font-style: normal; }
+
+.strand-block { margin: 34px 0 0; }
+.strand-head, .unit-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.strand-head { border-bottom: 2px solid #10766f; padding-bottom: 6px; margin-bottom: 4px; }
+.strand-head h2 { margin: 0; font-size: 25px; }
+.strand-head span, .unit-head span { font-size: 13px; color: #566977; }
+.unit-block { border-bottom: 1px solid #e9eff2; padding: 13px 0; }
+.unit-head h3 { margin: 0; font-size: 16px; }
+.unit-empty { margin: 5px 0 0; font-size: 14px; color: #6a7c86; }
+
+.concept-rows { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; }
+.concept-rows li { border: 1px solid #dfe8ec; border-radius: 11px; padding: 12px 14px; background: #fff; }
+.concept-row-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.concept-row-head h4 { margin: 0; font-size: 17px; }
+.concept-rows p { margin: 4px 0 8px; font-size: 14px; color: #3a4f5c; }
+
+.route-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.route-chip { font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid #b9cdd6; background: #eef5f6; color: #10566a; text-decoration: none; }
+.route-chip:hover { border-color: #10766f; }
+.route-chip.is-missing { background: #f4f6f7; color: #8a99a2; border-style: dashed; }
+
+.badge.partial { background: #fdf3e2; color: #8a5a17; }
+
+.model-card.is-missing { background: #f6f8f9; border-style: dashed; color: #6a7c86; }
+.model-card-best { display: block; font-size: 13px; color: #10766f; margin-top: 5px; }
+
+/* ---- coverage ledger ---- */
+.ledger-summary, .ledger-main { margin: 26px 0 0; }
+.ledger-main table, .ledger-summary table { font-size: 14px; }
+.ledger-main th[scope="row"] { text-align: left; min-width: 210px; }
+.ledger-main th small, .ledger-main td small { display: block; font-weight: 400; color: #566977; font-size: 12px; margin-top: 3px; }
+.tick { font-size: 15px; color: #10766f; }
+.tick.is-off { color: #b3c0c7; }
+td.is-done { background: #f3faf8; }
+
+@media (max-width: 860px) {
+  .concept-layout { grid-template-columns: 1fr; }
+  .concept-toc { position: static; }
+  .concept-switch { grid-template-columns: 1fr; }
+  .concepts-page { padding: 22px 16px 54px; }
+  .strand-head h2 { font-size: 21px; }
+}
+
+/* A focused scroll container must show that it is focused. */
+.reading-table-wrap:focus-visible, .concept-switch-item:focus-visible, .route-chip:focus-visible {
+  outline: 3px solid #10766f; outline-offset: 2px;
+}

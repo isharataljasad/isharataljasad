@@ -9,7 +9,10 @@ const home = read('foundations/index.html');
 const overview = read('foundations/models/index.html');
 const concept = read('foundations/models/functions-and-domain/index.html');
 assert.ok(home.includes('href="/foundations/models/"'));
-assert.ok(home.indexOf('The four folders') < home.indexOf('three-model pilot'));
+assert.ok(home.includes('href="/foundations/concepts/"'), 'the Foundations entry offers the concept routes');
+/* The four subject folders stay above the route-comparison section, so the
+   library is the first thing a student meets and the routes come after it. */
+assert.ok(home.indexOf('The four folders') < home.indexOf('href="/foundations/concepts/"'));
 assert.ok(overview.includes('ALG-FUNCTION-01') && concept.includes('Functions and allowed inputs'));
 
 for (const number of [1, 2, 3]) {

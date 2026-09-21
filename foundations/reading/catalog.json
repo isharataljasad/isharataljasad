@@ -158,7 +158,7 @@
     "track": "BM",
     "episode": "04.1",
     "title": "Integers and the Number Line",
-    "url": null
+    "url": "/foundations/reading/basic-math/integers-and-the-number-line/"
   },
   {
     "group": "Basic Math",
@@ -1432,21 +1432,21 @@
     "track": "GE",
     "episode": "03",
     "title": "Tools of Geometry - Measuring Segments",
-    "url": null
+    "url": "/foundations/reading/geometry/measuring-segments/"
   },
   {
     "group": "Geometry",
     "track": "GE",
     "episode": "04",
     "title": "Tools of Geometry - Midpoints and Segment Congruence",
-    "url": null
+    "url": "/foundations/reading/geometry/midpoints-and-congruence/"
   },
   {
     "group": "Geometry",
     "track": "GE",
     "episode": "05",
     "title": "Tools of Geometry - Angles",
-    "url": null
+    "url": "/foundations/reading/geometry/angles/"
   },
   {
     "group": "Geometry",

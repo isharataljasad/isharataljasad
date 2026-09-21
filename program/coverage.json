@@ -1,0 +1,1444 @@
+{
+ "generatedOn": "2026-09-21",
+ "deployment": {
+  "status": "not-verified",
+  "note": "This build checks local files only. No production deployment was verified."
+ },
+ "semesterTopics": [
+  {
+   "key": "MA101.limits",
+   "title": "Limits",
+   "course": "MA 101",
+   "href": "/semester-1/math/limits/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 2
+   },
+   "prerequisites": [
+    "formulas",
+    "change"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1222,
+   "sections": 4,
+   "figures": 2,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 6
+  },
+  {
+   "key": "MA101.continuity",
+   "title": "Continuity",
+   "course": "MA 101",
+   "href": "/semester-1/math/continuity/",
+   "material": {
+    "book": 1,
+    "pearson": 1,
+    "educator": 1
+   },
+   "prerequisites": [
+    "graphs"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 751,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 3
+  },
+  {
+   "key": "MA101.derivative",
+   "title": "Derivative as a rate",
+   "course": "MA 101",
+   "href": "/semester-1/math/derivative/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 2
+   },
+   "prerequisites": [
+    "change",
+    "graphs"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1080,
+   "sections": 4,
+   "figures": 2,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 6
+  },
+  {
+   "key": "MA101.rules",
+   "title": "Differentiation rules",
+   "course": "MA 101",
+   "href": "/semester-1/math/rules/",
+   "material": {
+    "book": 4,
+    "pearson": 4,
+    "educator": 6
+   },
+   "prerequisites": [
+    "formulas",
+    "trigonometry"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1722,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 14
+  },
+  {
+   "key": "MA101.related-rates",
+   "title": "Related rates",
+   "course": "MA 101",
+   "href": "/semester-1/math/related-rates/",
+   "material": {
+    "book": 2,
+    "pearson": 1,
+    "educator": 2
+   },
+   "prerequisites": [
+    "formulas",
+    "graphs"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 938,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 5
+  },
+  {
+   "key": "MA101.approximation",
+   "title": "Linear approximation",
+   "course": "MA 101",
+   "href": "/semester-1/math/approximation/",
+   "material": {
+    "book": 1,
+    "pearson": 1,
+    "educator": 1
+   },
+   "prerequisites": [
+    "graphs",
+    "formulas"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 630,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 3
+  },
+  {
+   "key": "MA101.mean-value",
+   "title": "Rolle and Mean Value Theorems",
+   "course": "MA 101",
+   "href": "/semester-1/math/mean-value/",
+   "material": {
+    "book": 1,
+    "pearson": 0,
+    "educator": 1
+   },
+   "prerequisites": [
+    "graphs",
+    "change"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 559,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 2
+  },
+  {
+   "key": "MA101.curve-shape",
+   "title": "Extrema and curve shape",
+   "course": "MA 101",
+   "href": "/semester-1/math/curve-shape/",
+   "material": {
+    "book": 3,
+    "pearson": 2,
+    "educator": 3
+   },
+   "prerequisites": [
+    "graphs"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1482,
+   "sections": 4,
+   "figures": 3,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 8
+  },
+  {
+   "key": "MA101.optimization",
+   "title": "Optimization",
+   "course": "MA 101",
+   "href": "/semester-1/math/optimization/",
+   "material": {
+    "book": 1,
+    "pearson": 1,
+    "educator": 1
+   },
+   "prerequisites": [
+    "formulas",
+    "graphs"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 766,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 3
+  },
+  {
+   "key": "PHY101.measurement",
+   "title": "Units and measurement",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/measurement/",
+   "material": {
+    "book": 1,
+    "pearson": 2,
+    "educator": 1
+   },
+   "prerequisites": [
+    "units",
+    "notation",
+    "area-volume"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 948,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 4
+  },
+  {
+   "key": "PHY101.motion",
+   "title": "Vectors and motion",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/motion/",
+   "material": {
+    "book": 4,
+    "pearson": 4,
+    "educator": 4
+   },
+   "prerequisites": [
+    "vectors",
+    "graphs"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 2210,
+   "sections": 4,
+   "figures": 5,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 12
+  },
+  {
+   "key": "PHY101.forces",
+   "title": "Newton laws and force diagrams",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/forces/",
+   "material": {
+    "book": 1,
+    "pearson": 4,
+    "educator": 2
+   },
+   "prerequisites": [
+    "vectors",
+    "trigonometry",
+    "right-triangles"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1351,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 7
+  },
+  {
+   "key": "PHY101.friction",
+   "title": "Friction and inclined surfaces",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/friction/",
+   "material": {
+    "book": 1,
+    "pearson": 1,
+    "educator": 1
+   },
+   "prerequisites": [
+    "trigonometry",
+    "vectors"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 880,
+   "sections": 4,
+   "figures": 3,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 3
+  },
+  {
+   "key": "PHY101.energy",
+   "title": "Work energy and power",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/energy/",
+   "material": {
+    "book": 3,
+    "pearson": 4,
+    "educator": 2
+   },
+   "prerequisites": [
+    "trigonometry",
+    "formulas"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1581,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 9
+  },
+  {
+   "key": "PHY101.momentum",
+   "title": "Impulse and momentum",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/momentum/",
+   "material": {
+    "book": 2,
+    "pearson": 4,
+    "educator": 2
+   },
+   "prerequisites": [
+    "vectors",
+    "formulas"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1470,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 8
+  },
+  {
+   "key": "PHY101.circular-motion",
+   "title": "Circular motion",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/circular-motion/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 2
+   },
+   "prerequisites": [
+    "formulas",
+    "trigonometry"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1146,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 6
+  },
+  {
+   "key": "PHY101.lab-graphs",
+   "title": "Laboratory graphs and evidence",
+   "course": "PHY 101",
+   "href": "/semester-1/physics/lab-graphs/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 2
+   },
+   "prerequisites": [
+    "graphs",
+    "units"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1313,
+   "sections": 4,
+   "figures": 3,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 6
+  },
+  {
+   "key": "CHEM101.atomic-structure",
+   "title": "Atomic structure",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/atomic-structure/",
+   "material": {
+    "book": 1,
+    "pearson": 1,
+    "educator": 2
+   },
+   "prerequisites": [
+    "notation"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 825,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 3
+  },
+  {
+   "key": "CHEM101.quantum-theory",
+   "title": "Quantum theory",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/quantum-theory/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 3
+   },
+   "prerequisites": [
+    "notation",
+    "formulas"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1133,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 5
+  },
+  {
+   "key": "CHEM101.periodic-table",
+   "title": "Periodic table",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/periodic-table/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 2
+   },
+   "prerequisites": [],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1075,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 4
+  },
+  {
+   "key": "CHEM101.bonding",
+   "title": "Chemical bonding",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/bonding/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 4
+   },
+   "prerequisites": [
+    "trigonometry"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1462,
+   "sections": 4,
+   "figures": 3,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 6
+  },
+  {
+   "key": "CHEM101.aqueous-reactions",
+   "title": "Reactions in solution",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/aqueous-reactions/",
+   "material": {
+    "book": 4,
+    "pearson": 5,
+    "educator": 5
+   },
+   "prerequisites": [
+    "ratios",
+    "units"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 2029,
+   "sections": 4,
+   "figures": 3,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 10
+  },
+  {
+   "key": "CHEM101.solutions",
+   "title": "Properties of solutions",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/solutions/",
+   "material": {
+    "book": 2,
+    "pearson": 3,
+    "educator": 2
+   },
+   "prerequisites": [
+    "ratios",
+    "units"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1231,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 5
+  },
+  {
+   "key": "CHEM101.gases",
+   "title": "Properties of gases",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/gases/",
+   "material": {
+    "book": 1,
+    "pearson": 3,
+    "educator": 2
+   },
+   "prerequisites": [
+    "units",
+    "formulas"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1155,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 5
+  },
+  {
+   "key": "CHEM101.thermochemistry",
+   "title": "Thermochemistry",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/thermochemistry/",
+   "material": {
+    "book": 2,
+    "pearson": 2,
+    "educator": 2
+   },
+   "prerequisites": [
+    "formulas",
+    "signs",
+    "units"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1087,
+   "sections": 4,
+   "figures": 0,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 4
+  },
+  {
+   "key": "CHEM101.electrochemistry",
+   "title": "Electrochemistry",
+   "course": "CHEM 101",
+   "href": "/semester-1/chemistry/electrochemistry/",
+   "material": {
+    "book": 2,
+    "pearson": 3,
+    "educator": 2
+   },
+   "prerequisites": [
+    "signs",
+    "formulas"
+   ],
+   "questions": 2,
+   "state": "local-file",
+   "source": null,
+   "words": 1226,
+   "sections": 4,
+   "figures": 3,
+   "tables": 0,
+   "countedBy": "interactive checks",
+   "interactiveChecks": 2,
+   "answersShown": true,
+   "answerDisclosures": 5
+  }
+ ],
+ "courseSummary": {
+  "lessons-available": 3,
+  "outline-only": 46,
+  "starter-available": 1
+ },
+ "note": "Content availability is read from local files. It does not verify publication, curriculum completeness or learning outcomes.",
+ "episodes": {
+  "catalogued": 296,
+  "sourceRecords": 297,
+  "units": 49
+ },
+ "strands": [
+  {
+   "id": "basic-math",
+   "group": "Basic Math",
+   "units": 11,
+   "episodes": 67,
+   "concepts": 4
+  },
+  {
+   "id": "algebra",
+   "group": "Algebra",
+   "units": 22,
+   "episodes": 135,
+   "concepts": 2
+  },
+  {
+   "id": "geometry",
+   "group": "Geometry",
+   "units": 12,
+   "episodes": 71,
+   "concepts": 5
+  },
+  {
+   "id": "trigonometry",
+   "group": "Trigonometry",
+   "units": 4,
+   "episodes": 23,
+   "concepts": 1
+  }
+ ],
+ "concepts": [
+  {
+   "id": "ALG-FUNCTION-01",
+   "title": "Functions and allowed inputs",
+   "strand": "algebra",
+   "unit": "A1/Functions",
+   "courses": [
+    "MA101"
+   ],
+   "material": "2 catalogued episode(s)",
+   "prerequisites": [
+    "ALG-VARIABLE-01",
+    "GEO-COORDINATE-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": true,
+     "href": "/foundations/models/functions-and-domain/foundation-1/",
+     "state": "generated",
+     "source": "foundations/models/source/foundation-1.md",
+     "words": 849,
+     "sections": 6,
+     "figures": 0,
+     "tables": 1,
+     "questions": 3,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": false,
+     "answerDisclosures": 0
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": true,
+     "href": "/foundations/models/functions-and-domain/foundation-2/",
+     "state": "generated",
+     "source": "foundations/models/source/foundation-2.md",
+     "words": 772,
+     "sections": 6,
+     "figures": 0,
+     "tables": 1,
+     "questions": 2,
+     "countedBy": "interactive checks",
+     "interactiveChecks": 2,
+     "answersShown": false,
+     "answerDisclosures": 0
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/models/functions-and-domain/foundation-3/",
+     "state": "generated",
+     "source": "foundations/models/source/foundation-3.md",
+     "words": 1732,
+     "sections": 11,
+     "figures": 3,
+     "tables": 1,
+     "questions": 6,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "every domain and endpoint substitution recomputed by hand",
+     "the parabola SVG matches y = x²/2 to 2e-15 over 1001 sampled points",
+     "both misconception replies and the changed case driven in the browser",
+     "vertical-line explorer checked at x = 0 and at both tangent endpoints"
+    ]
+   },
+   "gaps": [
+    "Piecewise and composite functions are separate concepts and are not covered"
+   ]
+  },
+  {
+   "id": "ALG-VARIABLE-01",
+   "title": "Variables and expressions",
+   "strand": "algebra",
+   "unit": "A1/Basic Concepts",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "BM-ORDER-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/algebra/variables-and-expressions/",
+     "state": "generated",
+     "source": "foundations/reading/source/Algebra/A1-01-variables-and-expressions.md",
+     "words": 899,
+     "sections": 9,
+     "figures": 0,
+     "tables": 1,
+     "questions": 5,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": null,
+   "gaps": []
+  },
+  {
+   "id": "GEO-COORDINATE-01",
+   "title": "The coordinate plane",
+   "strand": "geometry",
+   "unit": "GE/Tools of Geometry",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "BM-INTEGER-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/geometry/coordinate-plane/",
+     "state": "generated",
+     "source": "foundations/reading/source/Geometry/GE-01-coordinate-plane.md",
+     "words": 854,
+     "sections": 8,
+     "figures": 1,
+     "tables": 1,
+     "questions": 6,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": null,
+   "gaps": []
+  },
+  {
+   "id": "GEO-INCIDENCE-01",
+   "title": "Points, lines and planes",
+   "strand": "geometry",
+   "unit": "GE/Tools of Geometry",
+   "courses": [
+    "MA101",
+    "CE202"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "GEO-COORDINATE-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": true,
+     "href": "/foundations/concepts/points-lines-and-planes/approach-1/",
+     "state": "generated",
+     "source": "foundations/concepts/source/points-lines-and-planes/approach-1.md",
+     "words": 1687,
+     "sections": 11,
+     "figures": 0,
+     "tables": 5,
+     "questions": 4,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 1
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": true,
+     "href": "/foundations/concepts/points-lines-and-planes/approach-2/",
+     "state": "generated",
+     "source": "foundations/concepts/source/points-lines-and-planes/approach-2.md",
+     "words": 2104,
+     "sections": 10,
+     "figures": 0,
+     "tables": 6,
+     "questions": 4,
+     "countedBy": "headed question families",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 2
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/geometry/points-lines-and-planes/",
+     "state": "generated",
+     "source": "foundations/reading/source/Geometry/GE-02-points-lines-and-planes.md",
+     "words": 4028,
+     "sections": 16,
+     "figures": 4,
+     "tables": 5,
+     "questions": 12,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 12
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "incidence and determination rules checked against their stated conditions",
+     "all eight table-of-contents anchors resolve on each new route",
+     "all three routes reachable from each other; current route marked",
+     "five scrollable tables focusable and in the tab order at 375px",
+     "no horizontal overflow at 375px; single h1 per page"
+    ]
+   },
+   "gaps": [
+    "Segment and angle measure, congruence and proof technique are later concepts",
+    "The reference and practice routes carry no diagram; the written guide supplies all four"
+   ]
+  },
+  {
+   "id": "GEO-SEGMENT-01",
+   "title": "Measuring segments",
+   "strand": "geometry",
+   "unit": "GE/Tools of Geometry",
+   "courses": [
+    "MA101",
+    "CE202"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "GEO-INCIDENCE-01",
+    "BM-INTEGER-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/geometry/measuring-segments/",
+     "state": "generated",
+     "source": "foundations/reading/source/Geometry/GE-03-measuring-segments.md",
+     "words": 1743,
+     "sections": 9,
+     "figures": 1,
+     "tables": 1,
+     "questions": 6,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 1
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "all six answers recomputed, including both negative-coordinate subtractions",
+     "the solve-and-check question re-solved and both parts confirmed positive",
+     "the betweenness pair checked in both directions (16 holds, 15 fails)"
+    ]
+   },
+   "gaps": [
+    "Reference and guided-practice routes not written",
+    "Distance between two points in the plane belongs to the coordinate-geometry unit"
+   ]
+  },
+  {
+   "id": "GEO-MIDPOINT-01",
+   "title": "Midpoints and segment congruence",
+   "strand": "geometry",
+   "unit": "GE/Tools of Geometry",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "GEO-SEGMENT-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/geometry/midpoints-and-congruence/",
+     "state": "generated",
+     "source": "foundations/reading/source/Geometry/GE-04-midpoints-and-congruence.md",
+     "words": 1615,
+     "sections": 9,
+     "figures": 1,
+     "tables": 2,
+     "questions": 6,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 1
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "every midpoint recomputed and checked equidistant from both endpoints",
+     "the backwards endpoint problem solved twice, by formula and by repeated move, with matching results",
+     "bisector counts checked against the definition, including the single perpendicular case"
+    ]
+   },
+   "gaps": [
+    "Reference and guided-practice routes not written",
+    "Perpendicularity is only named here; it is defined in the angles chapter"
+   ]
+  },
+  {
+   "id": "GEO-ANGLE-01",
+   "title": "Angles",
+   "strand": "geometry",
+   "unit": "GE/Tools of Geometry",
+   "courses": [
+    "MA101",
+    "PHY101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "GEO-MIDPOINT-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/geometry/angles/",
+     "state": "generated",
+     "source": "foundations/reading/source/Geometry/GE-05-angles.md",
+     "words": 1751,
+     "sections": 10,
+     "figures": 1,
+     "tables": 3,
+     "questions": 7,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 1
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "all seven answers recomputed, including both addition-postulate solves",
+     "both solved values checked to leave every part positive and under 180 degrees",
+     "the two fifty-degree arcs in the figure drawn at one radius and measured equal"
+    ]
+   },
+   "gaps": [
+    "Reference and guided-practice routes not written",
+    "Angle pairs (complementary, supplementary, vertical) and parallel-line angles are later units"
+   ]
+  },
+  {
+   "id": "BM-ORDER-01",
+   "title": "Order of operations",
+   "strand": "basic-math",
+   "unit": "BM/01",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "BM-EXPONENT-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/basic-math/order-of-operations/",
+     "state": "generated",
+     "source": "foundations/reading/source/Basic Math/BM-01-03-order-of-operations.md",
+     "words": 1189,
+     "sections": 10,
+     "figures": 0,
+     "tables": 1,
+     "questions": 8,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": null,
+   "gaps": []
+  },
+  {
+   "id": "BM-EXPONENT-01",
+   "title": "Exponents",
+   "strand": "basic-math",
+   "unit": "BM/01",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "BM-EXPRESSION-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/basic-math/exponents/",
+     "state": "generated",
+     "source": "foundations/reading/source/Basic Math/BM-01-02-exponents.md",
+     "words": 1214,
+     "sections": 10,
+     "figures": 0,
+     "tables": 0,
+     "questions": 7,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": null,
+   "gaps": []
+  },
+  {
+   "id": "BM-EXPRESSION-01",
+   "title": "Expressions and variables",
+   "strand": "basic-math",
+   "unit": "BM/01",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/basic-math/expressions-and-variables/",
+     "state": "generated",
+     "source": "foundations/reading/source/Basic Math/BM-01-01-expressions-and-variables.md",
+     "words": 899,
+     "sections": 9,
+     "figures": 0,
+     "tables": 1,
+     "questions": 5,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": null,
+   "gaps": []
+  },
+  {
+   "id": "BM-INTEGER-01",
+   "title": "Integers and the number line",
+   "strand": "basic-math",
+   "unit": "BM/04",
+   "courses": [
+    "MA101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "BM-EXPRESSION-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/basic-math/integers-and-the-number-line/",
+     "state": "generated",
+     "source": "foundations/reading/source/Basic Math/BM-04-01-integers-and-the-number-line.md",
+     "words": 1639,
+     "sections": 10,
+     "figures": 1,
+     "tables": 2,
+     "questions": 5,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 1
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "all five answers recomputed, including the freezer comparison",
+     "number-line figure checked for tick spacing and label legibility at 375px (10.2px effective)",
+     "both chapter cross-links resolve; figure has descriptive alternative text"
+    ]
+   },
+   "gaps": [
+    "Reference and guided-practice routes not written",
+    "Integer arithmetic (episodes 04.2 to 04.6) is a separate concept and is not covered"
+   ]
+  },
+  {
+   "id": "TRIG-ANGLE-01",
+   "title": "Angles and radian measure",
+   "strand": "trigonometry",
+   "unit": "TR/1",
+   "courses": [
+    "MA101",
+    "PHY101"
+   ],
+   "material": "1 catalogued episode(s)",
+   "prerequisites": [
+    "GEO-COORDINATE-01",
+    "GEO-ANGLE-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/foundations/reading/trigonometry/angles/",
+     "state": "generated",
+     "source": "foundations/reading/source/Trigonometry/TR-01-01-angles.md",
+     "words": 905,
+     "sections": 9,
+     "figures": 1,
+     "tables": 1,
+     "questions": 6,
+     "countedBy": "numbered question list",
+     "interactiveChecks": 0,
+     "answersShown": true,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": null,
+   "gaps": []
+  },
+  {
+   "id": "CE-MATBAL-01",
+   "title": "A first material balance",
+   "strand": "process",
+   "unit": "CE201/Units and process variables",
+   "courses": [
+    "CE201"
+   ],
+   "material": "no episode inventory for this course",
+   "prerequisites": [
+    "BM-ORDER-01",
+    "ALG-VARIABLE-01"
+   ],
+   "routes": [
+    {
+     "approach": 1,
+     "name": "Curriculum reference",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 2,
+     "name": "Guided practice",
+     "written": false,
+     "state": "missing"
+    },
+    {
+     "approach": 3,
+     "name": "Written teaching guide",
+     "written": true,
+     "href": "/program/lessons/material-balances/",
+     "state": "generated",
+     "source": "program/lessons/source/material-balances.html",
+     "words": 886,
+     "sections": 7,
+     "figures": 1,
+     "tables": 1,
+     "questions": 1,
+     "countedBy": "interactive checks",
+     "interactiveChecks": 1,
+     "answersShown": false,
+     "answerDisclosures": 0
+    }
+   ],
+   "verification": {
+    "on": "2026-09-21",
+    "checks": [
+     "mixer arithmetic checked at water feeds of 0, 10, 50, 100 and 300 kg/h",
+     "six named wrong answers each return their own repair, distinct from the generic hint",
+     "non-numeric and unit-bearing input rejected with a usable message"
+    ]
+   },
+   "gaps": [
+    "Reacting and unsteady systems, recycle and purge are not covered",
+    "Only one worked mixer; CE 201 needs many more lessons"
+   ]
+  }
+ ]
+}

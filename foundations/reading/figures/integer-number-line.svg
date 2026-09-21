@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" role="img" aria-labelledby="inl-title">
+  <title id="inl-title">A number line from negative eight to eight. Negative eight sits five steps left of negative three, so it is the smaller number, while its distance from zero is the larger one.</title>
+  <!-- Type is sized so the labels stay legible when this 660-wide figure is
+       scaled to about 290px on a phone: 23 in the viewBox renders near 10px. -->
+  <defs>
+    <marker id="inl-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="#105c78"/>
+    </marker>
+    <marker id="inl-arrow-start" markerWidth="9" markerHeight="9" refX="1" refY="4" orient="auto">
+      <path d="M8,0 L0,4 L8,8" fill="#105c78"/>
+    </marker>
+  </defs>
+
+  <line x1="24" y1="170" x2="636" y2="170" stroke="#105c78" stroke-width="3"
+        marker-start="url(#inl-arrow-start)" marker-end="url(#inl-arrow)"/>
+
+  <!-- 17 ticks, -8..8, 36px apart, zero at x=330 -->
+  <g stroke="#105c78" stroke-width="2.4">
+    <line x1="42" y1="161" x2="42" y2="179"/><line x1="78" y1="161" x2="78" y2="179"/>
+    <line x1="114" y1="161" x2="114" y2="179"/><line x1="150" y1="161" x2="150" y2="179"/>
+    <line x1="186" y1="161" x2="186" y2="179"/><line x1="222" y1="161" x2="222" y2="179"/>
+    <line x1="258" y1="161" x2="258" y2="179"/><line x1="294" y1="161" x2="294" y2="179"/>
+    <line x1="330" y1="154" x2="330" y2="186" stroke-width="3.5"/>
+    <line x1="366" y1="161" x2="366" y2="179"/><line x1="402" y1="161" x2="402" y2="179"/>
+    <line x1="438" y1="161" x2="438" y2="179"/><line x1="474" y1="161" x2="474" y2="179"/>
+    <line x1="510" y1="161" x2="510" y2="179"/><line x1="546" y1="161" x2="546" y2="179"/>
+    <line x1="582" y1="161" x2="582" y2="179"/><line x1="618" y1="161" x2="618" y2="179"/>
+  </g>
+
+  <g fill="#153748" font-size="23" text-anchor="middle" font-family="system-ui, sans-serif">
+    <text x="42" y="210">−8</text><text x="78" y="210">−7</text><text x="114" y="210">−6</text>
+    <text x="150" y="210">−5</text><text x="186" y="210">−4</text><text x="222" y="210">−3</text>
+    <text x="258" y="210">−2</text><text x="294" y="210">−1</text>
+    <text x="330" y="212" font-size="27" font-weight="700">0</text>
+    <text x="366" y="210">1</text><text x="402" y="210">2</text><text x="438" y="210">3</text>
+    <text x="474" y="210">4</text><text x="510" y="210">5</text><text x="546" y="210">6</text>
+    <text x="582" y="210">7</text><text x="618" y="210">8</text>
+  </g>
+
+  <circle cx="42" cy="170" r="9" fill="#ad6421" stroke="#fff" stroke-width="2.5"/>
+  <circle cx="222" cy="170" r="9" fill="#10766f" stroke="#fff" stroke-width="2.5"/>
+
+  <!-- distance from zero, measured for each marked point -->
+  <path d="M42 120 H330" fill="none" stroke="#ad6421" stroke-width="2" stroke-dasharray="6 5"/>
+  <path d="M222 72 H330" fill="none" stroke="#10766f" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="186" y="110" fill="#ad6421" font-size="22" text-anchor="middle" font-family="system-ui, sans-serif">|−8| = 8 steps</text>
+  <text x="276" y="62" fill="#10766f" font-size="22" text-anchor="middle" font-family="system-ui, sans-serif">|−3| = 3 steps</text>
+
+  <text x="140" y="250" fill="#153748" font-size="21" text-anchor="middle" font-family="system-ui, sans-serif">further left</text>
+  <text x="140" y="278" fill="#153748" font-size="24" text-anchor="middle" font-weight="700" font-family="system-ui, sans-serif">−8 &lt; −3</text>
+  <text x="500" y="250" fill="#566977" font-size="21" text-anchor="middle" font-family="system-ui, sans-serif">larger in this direction →</text>
+</svg>

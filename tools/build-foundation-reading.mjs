@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { esc, slug, makeInline, renderMarkdown as render } from './lib/markdown.mjs';
+import { concepts, approaches } from '../program/concepts.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const readingRoot = path.join(root, 'foundations', 'reading');
@@ -15,9 +17,13 @@ const lessons = [
   ['BM', '01.1', 'Basic Math/BM-01-01-expressions-and-variables.md'],
   ['BM', '01.2', 'Basic Math/BM-01-02-exponents.md'],
   ['BM', '01.3', 'Basic Math/BM-01-03-order-of-operations.md'],
+  ['BM', '04.1', 'Basic Math/BM-04-01-integers-and-the-number-line.md'],
   ['A1', '01', 'Algebra/A1-01-variables-and-expressions.md'],
   ['GE', '01', 'Geometry/GE-01-coordinate-plane.md'],
   ['GE', '02', 'Geometry/GE-02-points-lines-and-planes.md'],
+  ['GE', '03', 'Geometry/GE-03-measuring-segments.md'],
+  ['GE', '04', 'Geometry/GE-04-midpoints-and-congruence.md'],
+  ['GE', '05', 'Geometry/GE-05-angles.md'],
   ['TR', '1.1', 'Trigonometry/TR-01-01-angles.md'],
 ].map(([track, episode, source]) => {
   const item = catalog.find((x) => x.track === track && x.episode === episode);
@@ -67,108 +73,65 @@ const figures = {
     alt: 'Three separate cases: a line contained in a plane shares the whole line; a piercing line shares only T; a parallel line outside shares no points.',
     caption: 'Classify the complete line against the complete plane. The drawn patch shows only part of the plane.',
   },
+  '/foundations/reading/geometry/measuring-segments/|3-betweenness-is-a-measured-fact-not-a-picture': {
+    src: '/foundations/reading/figures/segment-addition.svg', width: 520, height: 250,
+    alt: 'A number line with P at negative three, Q at two and R at six. PQ is five, QR is four and PR is nine, so the two parts add to the whole.',
+    caption: 'Each length is the absolute difference of the coordinates. The parts add to the whole only because Q lies between P and R.',
+  },
+  '/foundations/reading/geometry/midpoints-and-congruence/|2-finding-a-midpoint-from-coordinates': {
+    src: '/foundations/reading/figures/midpoint-average.svg', width: 520, height: 250,
+    alt: 'A number line with A at negative three, M at three and B at nine. Equal tick marks on both halves show AM equals MB. Averaging gives three; subtracting gives twelve.',
+    caption: 'Averaging the endpoints locates a point. Subtracting them measures a length. The two questions need different operations.',
+  },
+  '/foundations/reading/geometry/angles/|1-an-angle-is-two-rays-from-one-point': {
+    src: '/foundations/reading/figures/angle-arm-length.svg', width: 520, height: 280,
+    alt: 'Two fifty-degree angles side by side. The right one has arms two and a half times longer, yet both arcs are identical because the measure is unchanged.',
+    caption: 'Both angles measure fifty degrees. Arm length belongs to the drawing, never to the angle.',
+  },
+  '/foundations/reading/basic-math/integers-and-the-number-line/|2-the-number-line-orders-integers-by-position': {
+    src: '/foundations/reading/figures/integer-number-line.svg', width: 660, height: 300,
+    alt: 'A number line from negative eight to eight. Negative eight lies five steps left of negative three, so it is the smaller number, while its distance from zero is the larger one.',
+    caption: 'Order is decided by position, not by the size of the digits. Distance from zero is a separate measurement.',
+  },
   '/foundations/reading/trigonometry/angles/|2-radians-connect-angle-to-arc-length': {
     src: '/foundations/reading/figures/radian-arc.svg',
     alt: 'An arc of length s on a circle of radius r defines an angle theta of s divided by r radians.',
     caption: 'Arc length and radius have the same length unit; their ratio measures the angle in radians.',
   },
 };
-const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const slug = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-
-function inline(text, source) {
-  const code = [];
-  let out = esc(text).replace(/`([^`]+)`/g, (_, value) => {
-    code.push(`<code>${value}</code>`);
-    return `@@CODE${code.length - 1}@@`;
-  });
-  out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, target) => {
+/* Chapter-to-chapter links are written as relative Markdown paths in the
+   source and resolved here to the published URL of the linked chapter. An
+   unmapped target fails the build rather than shipping a dead link. */
+function inlineFor(source) {
+  return makeInline((target, label) => {
     const resolved = path.normalize(path.resolve(path.dirname(source), decodeURIComponent(target)));
     const url = bySource.get(resolved);
     if (!url) throw new Error(`Unmapped chapter link ${target} in ${source}`);
     return `<a href="${esc(url)}">${label}</a>`;
   });
-  out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  return out.replace(/@@CODE(\d+)@@/g, (_, n) => code[Number(n)]);
 }
-
-function tableHtml(lines, source, label) {
-  const rows = lines.map((line) => line.trim().slice(1, -1).split('|').map((cell) => cell.trim()));
-  if (rows.length < 3 || !rows[1].every((cell) => /^:?-{3,}:?$/.test(cell))) throw new Error(`Bad table in ${source}`);
-  const head = `<thead><tr>${rows[0].map((cell) => `<th scope="col">${inline(cell, source)}</th>`).join('')}</tr></thead>`;
-  const body = `<tbody>${rows.slice(2).map((row) => `<tr>${row.map((cell) => `<td>${inline(cell, source)}</td>`).join('')}</tr>`).join('')}</tbody>`;
-  /* The wrapper scrolls sideways on narrow screens, so it must be reachable by
-     keyboard: without tabindex a keyboard-only reader cannot see the columns
-     that overflow. role + name announce it as a scrollable region. */
-  const name = esc(label ? `Table: ${label}` : 'Table');
-  return `<div class="reading-table-wrap" role="region" aria-label="${name}" tabindex="0"><table>${head}${body}</table></div>`;
-}
-
-/* Every construct the renderer understands. A paragraph runs until one of
-   these begins, so anything added here must also get its own branch below. */
-const startsBlock = (line) =>
-  line.startsWith('## ') || line.startsWith('### ') || line.startsWith('|') ||
-  /^\d+\. /.test(line) || /^- /.test(line) || line.startsWith(':::');
 
 function renderMarkdown(markdown, source, item) {
-  const lines = markdown.trim().split(/\r?\n/);
-  const first = lines.shift();
-  if (!first?.startsWith('# ')) throw new Error(`Missing title: ${source}`);
-  const title = first.slice(2).trim();
-  const headings = [];
-  const parts = [];
-  for (let i = 0; i < lines.length;) {
-    const line = lines[i].trim();
-    if (!line) { i++; continue; }
-    if (/^\*\*.*Early reading edition\*\*$/.test(line)) { i++; continue; }
-    if (line.startsWith('## ')) {
-      const text = line.slice(3).trim();
-      const id = slug(text);
-      headings.push({ text, id });
-      parts.push(`<h2 id="${id}">${esc(text)}</h2>`);
+  return render(markdown, {
+    source,
+    inline: inlineFor(source),
+    tableClass: 'reading-table-wrap',
+    answerClass: 'reading-answer',
+    onHeading: (id) => {
       const figure = figures[`${item.url}|${id}`];
-      if (figure) parts.push(`<figure class="reading-figure"><img src="${figure.src}" alt="${esc(figure.alt)}" width="${figure.width || 660}" height="${figure.height || 360}"><figcaption>${esc(figure.caption)}</figcaption></figure>`);
-      i++;
-    } else if (line.startsWith(':::answer ')) {
-      const label = line.slice(':::answer '.length).trim();
-      const block = [];
-      i++;
-      while (i < lines.length && lines[i].trim() !== ':::') block.push(lines[i++]);
-      if (i === lines.length || !label) throw new Error(`Invalid answer disclosure in ${source}`);
-      i++;
-      const answer = block.join('\n').trim().split(/\n\s*\n/).map(p => `<p>${inline(p.replace(/\n/g, ' '), source)}</p>`).join('');
-      parts.push(`<details class="reading-answer"><summary>${esc(label)}</summary>${answer}</details>`);
-    } else if (line.startsWith(':::')) {
-      throw new Error(`Unknown disclosure marker in ${source}: ${line}`);
-    } else if (line.startsWith('### ')) {
-      parts.push(`<h3>${esc(line.slice(4).trim())}</h3>`);
-      i++;
-    } else if (line.startsWith('|')) {
-      const block = [];
-      while (i < lines.length && lines[i].trim().startsWith('|')) block.push(lines[i++]);
-      parts.push(tableHtml(block, source, headings[headings.length - 1]?.text));
-    } else if (/^\d+\. /.test(line)) {
-      const block = [];
-      while (i < lines.length && /^\d+\. /.test(lines[i].trim())) block.push(lines[i++].trim().replace(/^\d+\. /, ''));
-      parts.push(`<ol>${block.map((item) => `<li>${inline(item, source)}</li>`).join('')}</ol>`);
-    } else if (/^- /.test(line)) {
-      const block = [];
-      while (i < lines.length && /^- /.test(lines[i].trim())) block.push(lines[i++].trim().slice(2));
-      parts.push(`<ul>${block.map((item) => `<li>${inline(item, source)}</li>`).join('')}</ul>`);
-    } else {
-      const block = [];
-      while (i < lines.length && lines[i].trim() && !startsBlock(lines[i].trim())) block.push(lines[i++].trim());
-      parts.push(`<p>${inline(block.join(' '), source)}</p>`);
-    }
-  }
-  return { title, headings, body: parts.join('\n') };
+      if (!figure) return null;
+      return `<figure class="reading-figure"><img src="${figure.src}" alt="${esc(figure.alt)}" width="${figure.width || 660}" height="${figure.height || 360}"><figcaption>${esc(figure.caption)}</figcaption></figure>`;
+    },
+  });
 }
 
-function shell(title, body, active = 'reading') {
+function shell(title, body, needsRouteStyles = false) {
+  /* concepts.css carries the route switcher; only chapters that show one load it. */
+  const routeStyles = needsRouteStyles ? '<link rel="stylesheet" href="/foundations/concepts/concepts.css">' : '';
   return `<!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Original, explanation-first math foundation chapters for engineering study."><title>${esc(title)} | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css">${routeStyles}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a></nav><span class="semester">SEMESTER 1</span></header>
 <main id="main" class="page reading-page">${body}</main>
@@ -200,11 +163,45 @@ const mapGroups = groups.map(([group, id]) => {
 }).join('\n');
 writePage('/foundations/reading/map/', shell('Foundation episode map', `<p class="reading-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/reading/">Reading</a> / Episode map</p><header class="reading-hero"><p class="eyebrow">COURSE MAP</p><h1>Four areas, ${catalog.length} planned chapters</h1><p>There are ${available.length} written reading chapters available now. The other titles come from the supplied lesson sequence and are shown for orientation. A title in this map does not mean its explanation has been written or checked.</p></header>${mapGroups}`));
 
+/* A chapter that is registered as a concept treatment carries the same route
+   switcher the generated approach pages use, so a student can move between all
+   three treatments from any of them rather than only forwards. It appears only
+   when there is somewhere to switch to. */
+const conceptForUrl = new Map();
+for (const concept of concepts) {
+  for (const href of Object.values(concept.approaches)) conceptForUrl.set(href, concept);
+}
+
+function routeSwitcher(url) {
+  const concept = conceptForUrl.get(url);
+  if (!concept) return '';
+  const written = approaches.filter((a) => concept.approaches[a.number]);
+  if (written.length < 2) return '';
+  const items = approaches.map((a) => {
+    const href = concept.approaches[a.number];
+    const label = `<span class="switch-number">Approach ${a.number}</span><span class="switch-name">${esc(a.name)}</span>`;
+    if (!href) return `<span class="concept-switch-item is-missing">${label}<span class="switch-note">not written yet</span></span>`;
+    const here = href === url;
+    return `<a class="concept-switch-item" href="${esc(href)}"${here ? ' aria-current="page"' : ''}>${label}<span class="switch-note">${esc(a.bestFor)}</span></a>`;
+  }).join('');
+  return `<nav class="concept-switch" aria-label="Three ways to learn this concept">${items}</nav><p class="reading-note"><a href="${esc(concept.hub || '/foundations/concepts/')}">Compare the three routes for ${esc(concept.title)} →</a></p>`;
+}
+
 for (const item of lessons) {
   const markdown = fs.readFileSync(item.source, 'utf8');
   const { title, headings, body } = renderMarkdown(markdown, item.source, item);
   const toc = `<nav class="reading-toc" aria-label="On this page"><h2>On this page</h2><ol>${headings.map((h) => `<li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('')}</ol></nav>`;
-  const article = `<p class="reading-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/reading/">Reading</a> / ${esc(item.group)}</p><header class="reading-hero chapter-hero"><p class="eyebrow">${esc(item.group.toUpperCase())} · EPISODE ${esc(item.episode)}</p><h1>${esc(title)}</h1><p class="reading-note">Early reading edition. Explanations come first; selected question types and answers follow.</p></header><div class="reading-layout">${toc}<article class="reading-article">${body}<p class="chapter-end"><a href="/foundations/reading/">← All reading chapters</a> · <a href="/foundations/">Browse the four folders →</a></p></article></div>`;
-  writePage(item.url, shell(title, article));
+  const switcher = routeSwitcher(item.url);
+  const article = `<p class="reading-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/reading/">Reading</a> / ${esc(item.group)}</p><header class="reading-hero chapter-hero"><p class="eyebrow">${esc(item.group.toUpperCase())} · EPISODE ${esc(item.episode)}</p><h1>${esc(title)}</h1><p class="reading-note">Early reading edition. Explanations come first; selected question types and answers follow.</p></header>${switcher}<div class="reading-layout">${toc}<article class="reading-article">${body}<p class="chapter-end"><a href="/foundations/reading/">← All reading chapters</a> · <a href="/foundations/">Browse the four folders →</a></p></article></div>`;
+  writePage(item.url, shell(title, article, switcher !== ''));
 }
+/* Which chapter came from which Markdown file. The coverage ledger reads this
+   to identify local pages that this repository can rebuild; not to verify deployment.
+   It lives under source/ so it is never deployed. */
+fs.writeFileSync(
+  path.join(sourceRoot, 'manifest.json'),
+  JSON.stringify(Object.fromEntries(lessons.map((item) => [item.url, path.relative(root, item.source).split(path.sep).join('/')])), null, 2) + '\n',
+  'utf8'
+);
+
 console.log(`Built ${lessons.length} reading chapters, one library page, and one ${catalog.length}-episode map.`);
