@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "to-kelvin",
+   "version": "cea582b84644",
    "answer": 325.15,
    "tolerance": 0.3,
    "unit": "K",
@@ -24,6 +25,7 @@
   },
   {
    "id": "ideal-volume",
+   "version": "21de2f860fff",
    "answer": 49.2,
    "tolerance": 0.3,
    "unit": "L",
@@ -45,6 +47,7 @@
   },
   {
    "id": "two-state",
+   "version": "f844c788e43d",
    "answer": 4,
    "tolerance": 0.05,
    "unit": "L",
@@ -66,6 +69,7 @@
   },
   {
    "id": "moles-from-pvt",
+   "version": "c15aab020ac8",
    "answer": 0.5,
    "tolerance": 0.01,
    "unit": "mol",
@@ -87,6 +91,7 @@
   },
   {
    "id": "partial-pressure",
+   "version": "55ff970645b7",
    "answer": 1,
    "tolerance": 0.02,
    "unit": "atm",
@@ -103,6 +108,20 @@
     {
      "value": 4,
      "why": "كتبتَ الضغط الكلي. الضغط الجزئي لمكوّن واحد أصغر منه دائمًا في خليط."
+    }
+   ]
+  },
+  {
+   "id": "graham",
+   "version": "55e775800b88",
+   "answer": 4,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "√(32/2)=4.",
+   "commonErrors": [
+    {
+     "value": 16,
+     "why": "لم تأخذ الجذر التربيعي."
     }
    ]
   }

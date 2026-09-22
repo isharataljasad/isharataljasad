@@ -1,5 +1,5 @@
 export function parseAnswer(value) {
-  const s=String(value ?? '').trim().replaceAll('−','-');
+  const s=String(value ?? '').trim().replaceAll('−','-').replaceAll('٫','.').replace(/[٠-٩۰-۹]/g,c=>String(c.charCodeAt(0)-(c>='۰'?1776:1632)));
   if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(s)) return null;
   const n=Number(s);
   return Number.isFinite(n)?n:null;

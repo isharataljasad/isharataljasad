@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "displacement",
+   "version": "fafbc9ebc59c",
    "answer": 200,
    "tolerance": 0.5,
    "unit": "m",
@@ -24,6 +25,7 @@
   },
   {
    "id": "final-velocity",
+   "version": "b240c64d2f88",
    "answer": 17,
    "tolerance": 0.1,
    "unit": "m/s",
@@ -45,6 +47,7 @@
   },
   {
    "id": "stopping-distance",
+   "version": "9d3a94889c33",
    "answer": 90,
    "tolerance": 0.5,
    "unit": "m",
@@ -66,6 +69,7 @@
   },
   {
    "id": "area-under-graph",
+   "version": "d7cdab02b89a",
    "answer": 40,
    "tolerance": 0.5,
    "unit": "m",
@@ -87,6 +91,7 @@
   },
   {
    "id": "distance-from-rest",
+   "version": "b2100e1e0055",
    "answer": 25,
    "tolerance": 0.2,
    "unit": "m",
@@ -103,6 +108,20 @@
     {
      "value": 5,
      "why": "ضربتَ التسارع في الزمن ثم قسمتَ، أو استعملتَ ‎½at‎ بدل ‎½at²‎؛ الزمن يدخل مربّعًا."
+    }
+   ]
+  },
+  {
+   "id": "projectile",
+   "version": "68155dbe128a",
+   "answer": 12,
+   "tolerance": 0.001,
+   "unit": "m",
+   "solution": "t=√(2×45/10)=3 s ثم x=4×3.",
+   "commonErrors": [
+    {
+     "value": 18,
+     "why": "لا تحسب زمن السقوط بقسمة الارتفاع على g."
     }
    ]
   }

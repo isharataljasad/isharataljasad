@@ -1,0 +1,75 @@
+{
+ "key": "MA101.approximation",
+ "questions": [
+  {
+   "id": "root",
+   "version": "6c02c53b030f",
+   "answer": 3.01,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "f(9)=3، f′(9)=1/6، dx=0.06، فيكون L=3.01.",
+   "commonErrors": [
+    {
+     "value": 3.06,
+     "why": "أضفت dx دون ضربه في ميل الجذر."
+    }
+   ]
+  },
+  {
+   "id": "cube",
+   "version": "c716eb67124d",
+   "answer": 0.12,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "f′(2)=12، إذن dy=12×0.01.",
+   "commonErrors": [
+    {
+     "value": 8,
+     "why": "أعطيت قيمة الدالة بدل التغير."
+    }
+   ]
+  },
+  {
+   "id": "relative",
+   "version": "cbf957545e60",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "%",
+   "solution": "لخطأ صغير، خطأ الحجم النسبي يقارب ثلاثة أمثال خطأ نصف القطر.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "الحجم يتناسب مع r³ لا r."
+    }
+   ]
+  },
+  {
+   "id": "reciprocal",
+   "version": "2e3f3cef9437",
+   "answer": 0.495,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "L=1/2−(1/4)(0.02)=0.495.",
+   "commonErrors": [
+    {
+     "value": 0.505,
+     "why": "مشتقة 1/x سالبة؛ زيادة المقام تخفض القيمة."
+    }
+   ]
+  },
+  {
+   "id": "direction",
+   "version": "1dbbe3d0f01b",
+   "answer": 0.01,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "القيمة 4.41 والتقريب 4.4؛ الفرق موجب لأن التقعر موجب.",
+   "commonErrors": [
+    {
+     "value": -0.01,
+     "why": "عكست ترتيب الطرح أو اتجاه التقعر."
+    }
+   ]
+  }
+ ]
+}

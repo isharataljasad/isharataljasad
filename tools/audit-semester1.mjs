@@ -14,6 +14,7 @@
    ========================================================================== */
 import fs from 'node:fs';
 import path from 'node:path';
+import {explorations} from '../semester-1/assets/exploration-models.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -29,7 +30,7 @@ try {
 const strip = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const words = (s) => (s ? s.split(/\s+/).filter(Boolean).length : 0);
 
-/* الحدّ الأدنى ليُعدّ المحور مكتملًا. مبني على ما تتطلبه المراجعة، لا على رقم اعتباطي. */
+/* Structural screening thresholds only. They do not establish curriculum completeness. */
 const MIN = { referenceWords: 350, questionTypes: 4, workedSteps: 3 };
 
 const rows = [];
@@ -40,10 +41,11 @@ for (const course of curriculum.courses) {
     const main = (html.match(/<main[\s\S]*<\/main>/) || [''])[0];
 
     /* الشرح الأصلي في الصفحة القائمة: الفكرة + المثال + السياق فقط. */
-    const originalWords = words(topic.idea) + words(topic.example) + words(topic.context);
+    let originalWords = words(topic.idea) + words(topic.example) + words(topic.context);
     /* المدمج: كل ما تحت «مزيد من المساعدة» مصدره خارجي. */
     const helpIndex = main.search(/Need more help|مزيد من المساعدة/i);
-    const embeddedWords = helpIndex > -1 ? words(strip(main.slice(helpIndex))) : 0;
+    const helpEnd=main.indexOf('<div id="try">',helpIndex);
+    const embeddedWords = helpIndex > -1 ? words(strip(main.slice(helpIndex,helpEnd>helpIndex?helpEnd:undefined))) : 0;
 
     /* الرسوم: تُحسب أصلية فقط إذا لم تأتِ من مجلدات المصادر. */
     const allImages = [...main.matchAll(/<img[^>]*src="([^"]+)"/g)].map((m) => m[1]);
@@ -63,6 +65,10 @@ for (const course of curriculum.courses) {
     const referenceBlock = section('bayt-reference', 'bayt-visual');
     const visualBlock = section('bayt-visual', 'bayt-guided');
     const reference = bayt ? words(strip(referenceBlock)) : originalWords;
+    if(bayt) {
+      const guideStart=main.indexOf('id="bayt-guided"'), guideEnd=main.indexOf('<section class="more-help">',guideStart);
+      originalWords += reference + words(strip(main.slice(guideStart,guideEnd)));
+    }
 
     const questionTypes = bayt ? (bayt.questionTypes?.length || 0) : ['diagnostic', 'transfer'].filter((k) => topic[k]).length;
     const explainedFeedback = bayt
@@ -81,7 +87,7 @@ for (const course of curriculum.courses) {
       /* المرجعي يكتمل بتعريفات وعلاقات مكتوبة، لا بفقرة واحدة. */
       reference: reference >= MIN.referenceWords && (bayt?.reference?.definitions?.length || 0) >= 2,
       /* البصري يكتمل برسم أصلي وتغذية راجعة تفسّر الخطأ. */
-      visual: figures >= 1 && explainedFeedback,
+      visual: figures >= 1 && explainedFeedback && Boolean(explorations[topic.key]),
       /* المتدرّج يكتمل ببداية ومتطلبات وخطوات بأسبابها. */
       guided: Boolean(bayt?.guided?.start) && prereq >= 1 && workedSteps >= MIN.workedSteps,
       questions: questionTypes >= MIN.questionTypes,
@@ -95,12 +101,15 @@ for (const course of curriculum.courses) {
       originalWords, embeddedWords, originalFigures: figures, publisherImages,
       tables, prereq, questionTypes, explainedFeedback, objectives, workedSteps,
       bayt: Boolean(bayt),
+      referenceWords:reference, interactiveExploration:Boolean(explorations[topic.key]),
+      curriculumConfirmed:false,
     });
   }
 }
 
 const pad = (s, n) => String(s).padEnd(n);
-console.log('المادة    الموضوع             الحالة   مرجعي بصري متدرّج أسئلة | أصلي مدمج رسوم(أصلي/ناشر) جداول أنماط');
+console.log('فحص بنية الدروس؛ لا يثبت اكتمال منهج المدرّس.');
+console.log('المادة    الموضوع             البنية   مرجعي بصري متدرّج أسئلة | أصلي مدمج رسوم(أصلي/ناشر) جداول أنماط');
 console.log('─'.repeat(112));
 for (const r of rows) {
   const mark = (b) => (b ? ' ✓  ' : ' ✗  ');
@@ -130,5 +139,5 @@ const totals = summary.reduce((a, s) => ({ total: a.total + s.total, complete: a
 console.log(`\nالإجمالي: ${totals.total} موضوعًا → مكتمل ${totals.complete} · جزئي ${totals.partial} · ناقص ${totals.missing}`);
 
 fs.writeFileSync(path.join(root, 'semester-1/coverage.json'),
-  JSON.stringify({ generatedOn: new Date().toISOString().slice(0, 10), criteria: MIN, summary, topics: rows }, null, 1) + '\n', 'utf8');
+  JSON.stringify({ generatedOn: new Date().toISOString().slice(0, 10), interpretation:'Structural coverage only. Word and question counts do not establish pedagogical quality or completeness against the lecturer syllabus.', curriculumStatus:'Published broad descriptions mapped; current detailed lecturer outlines and laboratory list not supplied.', criteria: MIN, summary, topics: rows }, null, 1) + '\n', 'utf8');
 console.log('كُتب التقرير إلى semester-1/coverage.json');

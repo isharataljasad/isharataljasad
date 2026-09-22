@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "heat-water",
+   "version": "d6df1bb8c1b4",
    "answer": 41800,
    "tolerance": 50,
    "unit": "J",
@@ -24,6 +25,7 @@
   },
   {
    "id": "sign-convention",
+   "version": "1144a68b1184",
    "answer": -50,
    "tolerance": 0.2,
    "unit": "kJ/mol",
@@ -45,6 +47,7 @@
   },
   {
    "id": "delta-t",
+   "version": "236f2552c374",
    "answer": -5.5,
    "tolerance": 0.05,
    "unit": "°C",
@@ -66,6 +69,7 @@
   },
   {
    "id": "hess",
+   "version": "da69e3113e18",
    "answer": -120,
    "tolerance": 0.5,
    "unit": "kJ",
@@ -87,6 +91,7 @@
   },
   {
    "id": "specific-heat",
+   "version": "85a04afe68b2",
    "answer": 2.083,
    "tolerance": 0.02,
    "unit": "J/(g·°C)",
@@ -103,6 +108,34 @@
     {
      "value": 10,
      "why": "قسمتَ على الكتلة وحدها وأهملتَ ‎ΔT‎."
+    }
+   ]
+  },
+  {
+   "id": "first-law",
+   "version": "deca67b5d414",
+   "answer": 70,
+   "tolerance": 0.001,
+   "unit": "J",
+   "solution": "q=+100 وw=−30.",
+   "commonErrors": [
+    {
+     "value": 130,
+     "why": "العمل المبذول بواسطة النظام سالب في اتفاقية الكيمياء."
+    }
+   ]
+  },
+  {
+   "id": "formation",
+   "version": "fd91bf1b293b",
+   "answer": -50,
+   "tolerance": 0.001,
+   "unit": "kJ",
+   "solution": "−100−[−10+2(−20)]=−50.",
+   "commonErrors": [
+    {
+     "value": -70,
+     "why": "نسيت معامل B وهو 2."
     }
    ]
   }

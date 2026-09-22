@@ -1,0 +1,89 @@
+{
+ "key": "CHEM101.aqueous-reactions",
+ "questions": [
+  {
+   "id": "moles",
+   "version": "038764416317",
+   "answer": 0.006,
+   "tolerance": 0.00001,
+   "unit": "mol",
+   "solution": "0.030×0.200=0.006 mol.",
+   "commonErrors": [
+    {
+     "value": 6,
+     "why": "استعملت mL كأنها L."
+    }
+   ]
+  },
+  {
+   "id": "precipitate",
+   "version": "43ad30bc65ee",
+   "answer": 0.003,
+   "tolerance": 0.00001,
+   "unit": "mol",
+   "solution": "النسبة 1:1؛ Ag⁺ يحدد المنتج.",
+   "commonErrors": [
+    {
+     "value": 0.005,
+     "why": "اعتمدت المتفاعل الزائد."
+    }
+   ]
+  },
+  {
+   "id": "spectators",
+   "version": "6030f3504ac4",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "نوع",
+   "solution": "Na⁺ وNO3⁻ يظهران دون تغير.",
+   "commonErrors": [
+    {
+     "value": 4,
+     "why": "كل الأيونات موجودة أولًا لكن Ag⁺ وCl⁻ يتغيران."
+    }
+   ]
+  },
+  {
+   "id": "neutralization",
+   "version": "2df5f04af79b",
+   "answer": 50,
+   "tolerance": 0.001,
+   "unit": "mL",
+   "solution": "n=0.005 mol، V=0.005/0.100=0.050 L.",
+   "commonErrors": [
+    {
+     "value": 12.5,
+     "why": "عكست نسبة التركيز؛ القاعدة الأقل تركيزًا تحتاج حجمًا أكبر."
+    }
+   ]
+  },
+  {
+   "id": "redox",
+   "version": "f3542af52dda",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "إلكترون",
+   "solution": "التأكسد من 0 إلى +2 يعني فقد إلكترونين.",
+   "commonErrors": [
+    {
+     "value": -2,
+     "why": "عدد الإلكترونات موجب؛ اتجاه فقدها يمثله موضعها في المعادلة."
+    }
+   ]
+  },
+  {
+   "id": "charge",
+   "version": "6c7be97916c9",
+   "answer": 0,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "+2−2=0 مثل الراسب المتعادل.",
+   "commonErrors": [
+    {
+     "value": 4,
+     "why": "جمعت مقادير الشحنات وأهملت الإشارات."
+    }
+   ]
+  }
+ ]
+}

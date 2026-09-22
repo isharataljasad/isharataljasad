@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "molarity-from-mass",
+   "version": "ede5fdcb263b",
    "answer": 0.2,
    "tolerance": 0.005,
    "unit": "mol/L",
@@ -24,6 +25,7 @@
   },
   {
    "id": "dilution-concentration",
+   "version": "38260c56ccfa",
    "answer": 0.5,
    "tolerance": 0.005,
    "unit": "mol/L",
@@ -45,6 +47,7 @@
   },
   {
    "id": "moles-in-volume",
+   "version": "cfa6d14bfaed",
    "answer": 0.1,
    "tolerance": 0.002,
    "unit": "mol",
@@ -66,6 +69,7 @@
   },
   {
    "id": "mass-percent",
+   "version": "2a1dc437fb38",
    "answer": 10,
    "tolerance": 0.05,
    "unit": "%",
@@ -87,6 +91,7 @@
   },
   {
    "id": "stock-volume",
+   "version": "0e5375792fe5",
    "answer": 25,
    "tolerance": 0.2,
    "unit": "mL",
@@ -103,6 +108,34 @@
     {
      "value": 150,
      "why": "توقفتَ عند حاصل الضرب ‎C₂V₂ = 150‎ ولم تقسمه على ‎C₁‎."
+    }
+   ]
+  },
+  {
+   "id": "freezing",
+   "version": "2b25d7ca81a5",
+   "answer": 0.93,
+   "tolerance": 0.001,
+   "unit": "°C",
+   "solution": "1×1.86×0.5=.93.",
+   "commonErrors": [
+    {
+     "value": 1.86,
+     "why": "لم تضرب في المولالية."
+    }
+   ]
+  },
+  {
+   "id": "henry",
+   "version": "551d6eb3882f",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "c يتناسب مع P.",
+   "commonErrors": [
+    {
+     "value": 0.5,
+     "why": "قلبت العلاقة الطردية."
     }
    ]
   }

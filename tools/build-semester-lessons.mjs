@@ -13,8 +13,10 @@
    ========================================================================== */
 import fs from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import { lessons } from '../bayt/data/lessons/index.mjs';
 import { validate } from '../bayt/data/lessons/schema.mjs';
+import {explorations,evaluate} from '../semester-1/assets/exploration-models.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const verifyOnly = process.argv.includes('--verify');
@@ -84,6 +86,7 @@ function reference(lesson) {
   return `<section id="bayt-reference" class="bayt-section" ${AR} aria-labelledby="bayt-reference-title">`
     + `<p class="section-label">الطريقة الأولى · مرجع</p>`
     + `<h2 id="bayt-reference-title">التعريفات والعلاقات</h2>`
+    + (lesson.reference.explanations ?? []).map(p => `<p class="bayt-explanation">${H(p)}</p>`).join('')
     + `<dl class="bayt-definitions">${defs}</dl>`
     + (relations ? `<h3>العلاقات التي ستستعملها</h3><ul class="bayt-relations">${relations}</ul>` : '')
     + derivation
@@ -100,14 +103,14 @@ function table(t) {
     + `<thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
-function visual(lesson) {
+function visual(lesson, topic) {
   const f = lesson.visual.figure;
   const video = lesson.visual.video
     ? `<p class="bayt-video"><a href="${H(lesson.visual.video.href)}" target="_blank" rel="noopener">`
       + `${H(lesson.visual.video.label)}</a> `
       + `<span class="bayt-note">${H(lesson.visual.video.note)}</span></p>`
     /* لا رابط فيديو بغير تحقق: الرابط الميت أسوأ من غيابه. */
-    : `<p class="bayt-note">لم ندرج فيديو هنا: لم نتحقق من مقطع يغطي هذه الفكرة بهذه الرموز.</p>`;
+    : '';
 
   return `<section id="bayt-visual" class="bayt-section" ${AR} aria-labelledby="bayt-visual-title">`
     + `<p class="section-label">الطريقة الثانية · صورة وتدريب</p>`
@@ -117,7 +120,21 @@ function visual(lesson) {
     + table(lesson.visual.table)
     + (lesson.visual.reading ? `<p class="bayt-reading">${H(lesson.visual.reading)}</p>` : '')
     + video
+    + exploration(topic)
   + `</section>`;
+}
+
+function exploration(topic) {
+ const m=explorations[topic.key];
+ if(!m) throw new Error(`Missing exploration: ${topic.key}`);
+ const result=evaluate(m,m.start);
+ return `<section class="bayt-exploration" data-exploration hidden><h3>${H(m.title)}</h3>`
+  + `<p>${H(m.assumptions)}</p><label for="explore-value">${H(m.label)} <output data-explore-input></output></label>`
+  + `<input id="explore-value" type="range" min="${m.min}" max="${m.max}" step="${m.step}" value="${m.start}">`
+  + `<p class="bayt-explore-output">الناتج: <output data-explore-result dir="ltr"></output></p><p data-explore-why aria-live="polite"></p>`
+  + `<table class="bayt-table"><caption>قارن القيمة الحالية بجارتيها</caption><thead><tr><th>${H(m.label)} (${H(m.unit)})</th><th>الناتج (${H(m.resultUnit)})</th></tr></thead><tbody></tbody></table>`
+  + `<button type="button">إعادة القيم</button></section>`
+  + `<noscript><p>مثال التجربة: ${H(m.assumptions)} عند ${m.start} ${H(m.unit)}: ${H(result.value??'غير معرّفة')} ${H(m.resultUnit)}. ${H(result.text)}</p></noscript>`;
 }
 
 function guided(lesson) {
@@ -159,7 +176,8 @@ function practice(lesson, topic) {
       + `</form>`
       + `<p class="feedback bayt-feedback" role="status" aria-live="polite"></p>`
       + `<button class="text-button bayt-reveal" type="button">اعرض الحل المشروح</button>`
-      + `<div class="solution bayt-solution" hidden></div>`
+      + `<div class="solution bayt-solution" hidden>${H(q.solution)}</div>`
+      + `<noscript><p>الإجابة: ${H(q.answer)} ${H(q.unit ?? '')}. ${H(q.solution)}</p></noscript>`
     + `</section>`;
   }).join('');
 
@@ -171,7 +189,7 @@ function practice(lesson, topic) {
     + items
     + `<p id="bayt-summary" class="bayt-summary" role="status" aria-live="polite"></p>`
     + `<noscript><p>التحقق التلقائي يحتاج جافاسكربت. `
-    + `الحلول المشروحة مذكورة في الشرح أعلاه.</p></noscript>`
+    + `الحلول المشروحة متاحة بجانب كل سؤال.</p></noscript>`
   + `</section>`;
 }
 
@@ -205,7 +223,7 @@ function build(html, lesson, topic) {
   /* الشرح الأصلي يبقى، وتضاف الطرق الثلاث بعده وقبل كتل المصادر. */
   const sources = '<section class="more-help">';
   if (!html.includes(sources)) throw new Error(`${topic.key}: كتلة المصادر غير موجودة`);
-  html = html.replace(sources, wrap(reference(lesson) + visual(lesson) + guided(lesson)) + sources);
+  html = html.replace(sources, wrap(reference(lesson) + visual(lesson, topic) + guided(lesson)) + sources);
 
   /* التدريب قبل خاتمة الصفحة، بعد الفحصين اللذين يحملان تقدم الطالب المحفوظ. */
   const finish = '<div class="finish">';
@@ -241,7 +259,7 @@ for (const lesson of lessons) {
   const data = {
     key: topic.key,
     questions: lesson.questionTypes.map((q) => ({
-      id: q.id, answer: q.answer, tolerance: q.tolerance, unit: q.unit ?? '',
+      id: q.id, version:createHash('sha256').update(JSON.stringify(q)).digest('hex').slice(0,12), answer: q.answer, tolerance: q.tolerance, unit: q.unit ?? '',
       solution: q.solution,
       commonErrors: q.commonErrors.map((e) => ({ value: e.value, why: e.why })),
     })),

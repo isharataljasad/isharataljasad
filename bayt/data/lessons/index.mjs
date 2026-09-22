@@ -31,11 +31,26 @@ import phy101Friction from './phy101-friction.mjs';
 
 import phy101CircularMotion from './phy101-circular-motion.mjs';
 
-export const lessons = [
+import phy101LabGraphs from './phy101-lab-graphs.mjs';
+import ma101RelatedRates from './ma101-related-rates.mjs';
+import ma101Approximation from './ma101-approximation.mjs';
+import ma101MeanValue from './ma101-mean-value.mjs';
+import ma101CurveShape from './ma101-curve-shape.mjs';
+import chem101QuantumTheory from './chem101-quantum-theory.mjs';
+import chem101Bonding from './chem101-bonding.mjs';
+import chem101AqueousReactions from './chem101-aqueous-reactions.mjs';
+import chem101Electrochemistry from './chem101-electrochemistry.mjs';
+import { extendLessons } from './extensions.mjs';
+
+export const lessons = extendLessons([
   ma101Limits,
   ma101Continuity,
   ma101Derivative,
   ma101Rules,
+  ma101RelatedRates,
+  ma101Approximation,
+  ma101MeanValue,
+  ma101CurveShape,
   ma101Optimization,
   phy101Measurement,
   phy101Motion,
@@ -44,9 +59,14 @@ export const lessons = [
   phy101Energy,
   phy101Momentum,
   phy101CircularMotion,
+  phy101LabGraphs,
   chem101AtomicStructure,
   chem101Solutions,
   chem101Gases,
   chem101PeriodicTable,
   chem101Thermochemistry,
-];
+  chem101QuantumTheory,
+  chem101Bonding,
+  chem101AqueousReactions,
+  chem101Electrochemistry,
+]);

@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "zeff-na",
+   "version": "4fa8608f857c",
    "answer": 1,
    "tolerance": 0.1,
    "unit": "شحنة",
@@ -24,6 +25,7 @@
   },
   {
    "id": "period",
+   "version": "d92c295b974b",
    "answer": 3,
    "tolerance": 0.1,
    "unit": "رقم الدورة",
@@ -45,6 +47,7 @@
   },
   {
    "id": "valence",
+   "version": "776c63582e69",
    "answer": 3,
    "tolerance": 0.1,
    "unit": "إلكترون",
@@ -66,6 +69,7 @@
   },
   {
    "id": "compare-zeff",
+   "version": "a6a3b2f06e67",
    "answer": 6,
    "tolerance": 0.1,
    "unit": "شحنة",
@@ -87,6 +91,7 @@
   },
   {
    "id": "shielding",
+   "version": "5270b632cf91",
    "answer": 10,
    "tolerance": 0.1,
    "unit": "إلكترون",
@@ -103,6 +108,20 @@
     {
      "value": 2,
      "why": "عددتَ المستوى الأول وحده. الحجب يشمل كل المستويات الداخلية."
+    }
+   ]
+  },
+  {
+   "id": "hund",
+   "version": "5a8c2bb6264d",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "تُشغل المدارات الثلاثة منفردة قبل الازدواج.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "زاوجت إلكترونات قبل شغل المدارات المتساوية الطاقة منفردة."
     }
    ]
   }

@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "removable-value",
+   "version": "1ba37636949c",
    "answer": 8,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -24,6 +25,7 @@
   },
   {
    "id": "jump-size",
+   "version": "d6941a6c4031",
    "answer": 2,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -45,6 +47,7 @@
   },
   {
    "id": "infinite-point",
+   "version": "3452ba9c1634",
    "answer": 3,
    "tolerance": 0.001,
    "unit": "قيمة x",
@@ -66,6 +69,7 @@
   },
   {
    "id": "three-conditions",
+   "version": "8e2c4c4c29fe",
    "answer": 0.16667,
    "tolerance": 0.002,
    "unit": "عدد",
@@ -87,6 +91,7 @@
   },
   {
    "id": "piecewise-constant",
+   "version": "5e03c8dafe86",
    "answer": 6,
    "tolerance": 0.001,
    "unit": "عدد",

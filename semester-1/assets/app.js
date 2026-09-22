@@ -1,10 +1,11 @@
 import {parseAnswer,isCorrect,status} from './practice.mjs';
 import {initBaytPractice} from './bayt-practice.mjs';
+import {initExplorations} from './explorations.mjs';
+import {readProgress,saveProgress} from './progress-store.mjs';
+initExplorations();
 
-const storageKey='yic-bsce:published-2023:semester-1:v1';
-let state={topics:{}};
-try {const s=JSON.parse(localStorage.getItem(storageKey));if(s && typeof s.topics==='object' && s.topics!==null) state=s;}catch{}
-const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(state));}catch{document.querySelectorAll('.small-note').forEach(e=>e.textContent='Progress cannot be saved in this browser session.');}};
+let state=readProgress();
+const save=()=>{if(!saveProgress(state,'legacy',document.body.dataset.topic)) document.querySelectorAll('.small-note').forEach(e=>e.textContent='Progress cannot be saved in this browser session.');};
 const safeRecord=key=>state.topics[key] && typeof state.topics[key]==='object'?state.topics[key]:{};
 
 async function init(){
@@ -14,7 +15,7 @@ async function init(){
   const topics=curriculum.courses.flatMap(c=>c.topics);
   for(const t of topics){
     const record=state.topics[t.key];
-    if(record && record.checkpointVersion!==t.checkpointVersion) delete state.topics[t.key];
+    if(record && record.checkpointVersion!==t.checkpointVersion) state.topics[t.key]={bayt:record.bayt,checkpointVersion:t.checkpointVersion};
   }
   for(const c of curriculum.courses){
     const passed=c.topics.filter(t=>status(state.topics[t.key])==='Check passed').length;

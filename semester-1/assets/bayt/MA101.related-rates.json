@@ -1,0 +1,75 @@
+{
+ "key": "MA101.related-rates",
+ "questions": [
+  {
+   "id": "sphere",
+   "version": "755d0dc0a2dd",
+   "answer": 5.026548245743669,
+   "tolerance": 0.01,
+   "unit": "m³/s",
+   "solution": "4π(2)²(0.1)=1.6π.",
+   "commonErrors": [
+    {
+     "value": 1.2566370614359172,
+     "why": "استعملت نصف القطر دون تربيعه أو فقدت عاملًا. اكتب 4πr² كاملًا."
+    }
+   ]
+  },
+  {
+   "id": "cylinder",
+   "version": "7082bf636467",
+   "answer": 0.1909859317102744,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "solution": "نقسم التدفق الحجمي على πR².",
+   "commonErrors": [
+    {
+     "value": 0.6,
+     "why": "ساويت الحجم بالارتفاع دون مساحة القاعدة."
+    }
+   ]
+  },
+  {
+   "id": "ladder",
+   "version": "a83b50dde33c",
+   "answer": -0.3,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "solution": "y=8 ثم dy/dt=−6(0.4)/8.",
+   "commonErrors": [
+    {
+     "value": 0.3,
+     "why": "هذه قيمة السرعة المطلقة، لكن المطلوب معدل تغير الارتفاع بإشارته."
+    }
+   ]
+  },
+  {
+   "id": "cone",
+   "version": "8709ef8854d1",
+   "answer": 0.15915494309189535,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "solution": "V=πh³/12، لذلك dV/dt=πh² dh/dt/4. عند h=2 نقسم على π.",
+   "commonErrors": [
+    {
+     "value": 0.5,
+     "why": "أغفلت المساحة المتغيرة التي تظهر بعد الاشتقاق."
+    }
+   ]
+  },
+  {
+   "id": "area",
+   "version": "d1f8ad24c3fc",
+   "answer": 37.69911184307752,
+   "tolerance": 0.02,
+   "unit": "cm²/s",
+   "solution": "A=πr² فتكون dA/dt=2πr dr/dt=12π.",
+   "commonErrors": [
+    {
+     "value": 18.84955592153876,
+     "why": "نسيت معدل تغير نصف القطر أو عامل 2."
+    }
+   ]
+  }
+ ]
+}

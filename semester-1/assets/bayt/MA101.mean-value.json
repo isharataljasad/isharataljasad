@@ -1,0 +1,75 @@
+{
+ "key": "MA101.mean-value",
+ "questions": [
+  {
+   "id": "rolle",
+   "version": "9e176896acd0",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "f(1)=f(5)=0 والمشتقة 2x−6، فـc=3.",
+   "commonErrors": [
+    {
+     "value": 0,
+     "why": "الصفر هو قيمة المشتقة المطلوبة، وليس موضع النقطة."
+    }
+   ]
+  },
+  {
+   "id": "mvt",
+   "version": "0852fb01ddd7",
+   "answer": 4,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "m=(36−4)/4=8؛ 2c=8 فـc=4.",
+   "commonErrors": [
+    {
+     "value": 8,
+     "why": "حسبت الميل الصحيح لكن المطلوب إحداثي النقطة."
+    }
+   ]
+  },
+  {
+   "id": "invalid",
+   "version": "cf7d93c27866",
+   "answer": 0,
+   "tolerance": 0.001,
+   "unit": "اختيار عددي",
+   "solution": "لا: المشتقة غير موجودة عند الصفر، رغم الاتصال وتساوي الطرفين.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "تساوي الطرفين لا يعالج غياب الاشتقاق عند الزاوية."
+    }
+   ]
+  },
+  {
+   "id": "motion",
+   "version": "6bbe0d235517",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "s",
+   "solution": "متوسط السرعة 16/4=4 m/s، والسرعة 2t؛ إذن t=2 s.",
+   "commonErrors": [
+    {
+     "value": 4,
+     "why": "هذا مقدار السرعة المتوسطة أو نهاية الفترة، وليس اللحظة المطلوبة."
+    }
+   ]
+  },
+  {
+   "id": "multiple",
+   "version": "5ff5910ea361",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "نقطة",
+   "solution": "3c²−1=0 يعطي ±1/√3 وكلاهما داخل الفترة.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "النظرية تقول واحدة على الأقل، وقد يوجد أكثر."
+    }
+   ]
+  }
+ ]
+}

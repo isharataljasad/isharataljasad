@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "convert-speed",
+   "version": "9a377ada4e20",
    "answer": 30,
    "tolerance": 0.05,
    "unit": "m/s",
@@ -24,6 +25,7 @@
   },
   {
    "id": "sig-figs",
+   "version": "194de6599631",
    "answer": 4.1,
    "tolerance": 0.01,
    "unit": "g/cm³",
@@ -45,6 +47,7 @@
   },
   {
    "id": "dimensions",
+   "version": "8355fd59bbd7",
    "answer": -1,
    "tolerance": 0.01,
    "unit": "أُسّ",
@@ -66,6 +69,7 @@
   },
   {
    "id": "prefix",
+   "version": "dbaa0511b5d9",
    "answer": 0.00025,
    "tolerance": 5e-7,
    "unit": "m",
@@ -87,6 +91,7 @@
   },
   {
    "id": "consistency",
+   "version": "69e3a7978775",
    "answer": 3600,
    "tolerance": 1,
    "unit": "m",
@@ -103,6 +108,20 @@
     {
      "value": 900,
      "why": "ضربتَ 15 في 60 فحسبتَ مسافة دقيقة واحدة لا أربع."
+    }
+   ]
+  },
+  {
+   "id": "addition-precision",
+   "version": "36a186f83a1b",
+   "answer": 12.4,
+   "tolerance": 0.0001,
+   "unit": "",
+   "solution": "المنزلة الأقل دقة جزء العشرة.",
+   "commonErrors": [
+    {
+     "value": 12.41,
+     "why": "هذا المجموع الخام؛ أوحيت بدقة أكبر مما تعطيه0.3."
     }
    ]
   }

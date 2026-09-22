@@ -8,26 +8,7 @@
    إتقانًا للمهارة، ولا يصحّ أن يرفع حالة الموضوع من تلقائه. */
 import { parseAnswer } from './practice.mjs';
 import { countNoun, nouns } from '/bayt/app/arabic-count.mjs';
-
-const storageKey = 'yic-bsce:published-2023:semester-1:v1';
-
-function loadState() {
-  try {
-    const raw = JSON.parse(localStorage.getItem(storageKey));
-    if (raw && typeof raw.topics === 'object' && raw.topics !== null) return raw;
-  } catch { /* متصفّح يمنع التخزين، أو بيانات تالفة */ }
-  return { topics: {} };
-}
-
-/* الحفظ قد يفشل بلا استثناء مفيد؛ النداء يخبرنا لنصدق مع الطالب. */
-function persist(state) {
-  try {
-    localStorage.setItem(storageKey, JSON.stringify(state));
-    return true;
-  } catch {
-    return false;
-  }
-}
+import {readProgress,saveProgress} from './progress-store.mjs';
 
 const unitText = (unit) => (unit && unit !== 'عدد' ? ` بوحدة ${unit}` : '');
 
@@ -52,7 +33,7 @@ export async function initBaytPractice() {
   }
 
   const byId = new Map(data.questions.map((q) => [q.id, q]));
-  const state = loadState();
+  const state = readProgress();
   const record = (state.topics[key] && typeof state.topics[key] === 'object') ? state.topics[key] : {};
   state.topics[key] = record;
   /* سجلّ مستقل حتى لا يختلط بحقول الفحصين القديمين التي تقود حالة الموضوع. */
@@ -62,7 +43,7 @@ export async function initBaytPractice() {
   const summary = document.getElementById('bayt-summary');
   const update = () => {
     record.updatedAt = new Date().toISOString();
-    const saved = persist(state);
+    const saved = saveProgress(state,'bayt',key);
     if (!summary) return;
     const solved = data.questions.filter((q) => bayt[q.id]?.correct).length;
     const revealed = data.questions.filter((q) => bayt[q.id]?.revealed).length;
@@ -82,7 +63,7 @@ export async function initBaytPractice() {
 
     const feedback = section.querySelector('.bayt-feedback');
     const solution = section.querySelector('.bayt-solution');
-    const entry = (bayt[id] && typeof bayt[id] === 'object') ? bayt[id] : {};
+    const entry = (bayt[id] && typeof bayt[id] === 'object' && bayt[id].version===question.version) ? bayt[id] : {version:question.version};
     bayt[id] = entry;
 
     section.querySelector('form').addEventListener('submit', (event) => {
@@ -110,7 +91,7 @@ export async function initBaytPractice() {
       const known = question.commonErrors.find((e) => Math.abs(value - e.value) <= question.tolerance);
       feedback.dataset.result = 'retry';
       feedback.textContent = known
-        ? `ليست صحيحة، والسبب معروف: ${known.why}`
+        ? `ليست صحيحة. أحد أسباب الوصول إلى هذه القيمة: ${known.why}`
         : 'ليست صحيحة، وليست من الأخطاء التي نعرف سببها. '
           + 'راجع خطوات المثال المحلول أعلاه واحدة واحدة، وتحقق من الإشارات والأُسس.';
       update();

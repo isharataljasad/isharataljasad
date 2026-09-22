@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "from-definition",
+   "version": "2486e7cbeb19",
    "answer": 10,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -24,6 +25,7 @@
   },
   {
    "id": "average-rate",
+   "version": "2fc85d616e8a",
    "answer": 5,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -45,6 +47,7 @@
   },
   {
    "id": "polynomial-point",
+   "version": "6f6c1f583225",
    "answer": 10,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -66,6 +69,7 @@
   },
   {
    "id": "velocity",
+   "version": "3a4d37918e39",
    "answer": 30,
    "tolerance": 0.01,
    "unit": "m/s",
@@ -87,6 +91,7 @@
   },
   {
    "id": "reciprocal",
+   "version": "c5e2272cb937",
    "answer": -0.25,
    "tolerance": 0.002,
    "unit": "عدد",

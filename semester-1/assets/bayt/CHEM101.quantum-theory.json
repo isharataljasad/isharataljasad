@@ -1,0 +1,89 @@
+{
+ "key": "CHEM101.quantum-theory",
+ "questions": [
+  {
+   "id": "photon",
+   "version": "5704ba357e82",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "eV",
+   "solution": "1240/620=2 eV.",
+   "commonErrors": [
+    {
+     "value": 0.5,
+     "why": "عكست العلاقة؛ الطاقة تقل حين يزيد الطول الموجي."
+    }
+   ]
+  },
+  {
+   "id": "transition",
+   "version": "f8d268135fa1",
+   "answer": 10.2,
+   "tolerance": 0.001,
+   "unit": "eV",
+   "solution": "E2=−3.4 وE1=−13.6؛ مقدار الفرق 10.2 eV.",
+   "commonErrors": [
+    {
+     "value": -10.2,
+     "why": "هذه إشارة تغير طاقة الذرة؛ طاقة الفوتون موجبة."
+    }
+   ]
+  },
+  {
+   "id": "orbitals",
+   "version": "ca9b421d5f75",
+   "answer": 5,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "l=2، فيكون 2l+1=5.",
+   "commonErrors": [
+    {
+     "value": 10,
+     "why": "هذا عدد الإلكترونات الأقصى لا الأفلاك."
+    }
+   ]
+  },
+  {
+   "id": "capacity",
+   "version": "e789f9b749be",
+   "answer": 18,
+   "tolerance": 0.001,
+   "unit": "إلكترون",
+   "solution": "2n²=2×9=18.",
+   "commonErrors": [
+    {
+     "value": 9,
+     "why": "حسبت عدد الأفلاك ونسيت إلكترونين لكل فلك."
+    }
+   ]
+  },
+  {
+   "id": "matter",
+   "version": "67a68702231b",
+   "answer": 0.5,
+   "tolerance": 0.001,
+   "unit": "نسبة",
+   "solution": "λ=h/p؛ مضاعفة p تنصف λ.",
+   "commonErrors": [
+    {
+     "value": 2,
+     "why": "العلاقة عكسية لا طردية."
+    }
+   ]
+  },
+  {
+   "id": "photoelectric",
+   "version": "1163578b4fcd",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "eV",
+   "solution": "5−2=3 eV.",
+   "commonErrors": [
+    {
+     "value": 7,
+     "why": "دالة الشغل تستهلك من طاقة الفوتون ولا تضاف إليها."
+    }
+   ]
+  }
+ ]
+}

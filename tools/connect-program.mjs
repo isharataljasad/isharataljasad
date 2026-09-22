@@ -8,6 +8,7 @@ const topicPages=curriculum.courses.flatMap(c=>c.topics.map(t=>t.href.slice(1)+'
 const pages=['semester-1/index.html',...curriculum.courses.map(c=>`semester-1/${c.path}/index.html`),...topicPages,'foundations/index.html',...['basic-math','algebra','geometry','trigonometry'].map(s=>`foundations/${s}/index.html`),'foundations/models/index.html','foundations/models/functions-and-domain/index.html',...[1,2,3].map(n=>`foundations/models/functions-and-domain/foundation-${n}/index.html`)];
 for(const file of pages){
  let html=read(file);
+ if(file.startsWith('semester-1/')&&!html.includes('href="/semester-1/coverage/"')) html=html.replace('</nav><span class="semester">','<a href="/semester-1/coverage/">محتوى الفصل</a></nav><span class="semester">');
  if(!html.includes('href="/program/"'))html=html.replace('</nav><span class="semester">','<a href="/program/">Programme map</a></nav><span class="semester">');
  html=html.replace('href="/">← Semester 1','href="/semester-1/">← Semester 1');
  if(topicPages.includes(file)){

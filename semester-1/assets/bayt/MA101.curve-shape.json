@@ -1,0 +1,75 @@
+{
+ "key": "MA101.curve-shape",
+ "questions": [
+  {
+   "id": "critical",
+   "version": "5d14d8d36288",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "3x²−3=0 عند ±1.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "أهملت الجذر السالب."
+    }
+   ]
+  },
+  {
+   "id": "minimum",
+   "version": "ed0ca8b299ef",
+   "answer": -2,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "عند x=1 تنتقل المشتقة من − إلى +، وقيمة الدالة −2.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "هذا موضع الصغرى وليس قيمتها."
+    }
+   ]
+  },
+  {
+   "id": "inflection",
+   "version": "c315766147ec",
+   "answer": 0,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "f″=12x² لا تتغير إشارتها عند الصفر.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "اعتبرت كل صفر للمشتقة الثانية انعطافًا."
+    }
+   ]
+  },
+  {
+   "id": "absolute",
+   "version": "6e841a04ab72",
+   "answer": 9,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "نقارن f(−1)=1 وf(0)=0 وf(3)=9.",
+   "commonErrors": [
+    {
+     "value": 0,
+     "why": "النقطة الحرجة صغرى؛ نسيت مقارنة الطرفين."
+    }
+   ]
+  },
+  {
+   "id": "concavity",
+   "version": "9025c8a2b8fd",
+   "answer": -12,
+   "tolerance": 0.001,
+   "unit": "عدد",
+   "solution": "f″=6x، إذن −12، والتقعر لأسفل هناك.",
+   "commonErrors": [
+    {
+     "value": 9,
+     "why": "هذه f′(−2) وليست المشتقة الثانية."
+    }
+   ]
+  }
+ ]
+}

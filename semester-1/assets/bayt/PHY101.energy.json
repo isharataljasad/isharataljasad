@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "work-angle",
+   "version": "0a328bcaedca",
    "answer": 100,
    "tolerance": 1,
    "unit": "J",
@@ -24,6 +25,7 @@
   },
   {
    "id": "kinetic",
+   "version": "c06aa75306a4",
    "answer": 36,
    "tolerance": 0.5,
    "unit": "J",
@@ -45,6 +47,7 @@
   },
   {
    "id": "free-fall-speed",
+   "version": "fd9ad35b3240",
    "answer": 19.8,
    "tolerance": 0.2,
    "unit": "m/s",
@@ -66,6 +69,7 @@
   },
   {
    "id": "potential",
+   "version": "95865cc4d388",
    "answer": 58.8,
    "tolerance": 0.3,
    "unit": "J",
@@ -87,6 +91,7 @@
   },
   {
    "id": "power",
+   "version": "ab35326f5ee6",
    "answer": 150,
    "tolerance": 1,
    "unit": "W",
@@ -103,6 +108,20 @@
     {
      "value": 0.0067,
      "why": "قلبتَ الكسر فقسمتَ الزمن على الشغل."
+    }
+   ]
+  },
+  {
+   "id": "spring",
+   "version": "7f1ef43e4c39",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "J",
+   "solution": "½×100×.2²=2.",
+   "commonErrors": [
+    {
+     "value": 10,
+     "why": "نسيت تربيع الاستطالة."
     }
    ]
   }

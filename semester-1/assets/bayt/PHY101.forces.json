@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "second-law",
+   "version": "77cb6febb9b4",
    "answer": 4,
    "tolerance": 0.05,
    "unit": "m/s²",
@@ -24,6 +25,7 @@
   },
   {
    "id": "weight",
+   "version": "af67c7104e7c",
    "answer": 78.4,
    "tolerance": 0.2,
    "unit": "N",
@@ -45,6 +47,7 @@
   },
   {
    "id": "elevator-normal",
+   "version": "6b167692fdd7",
    "answer": 896,
    "tolerance": 2,
    "unit": "N",
@@ -66,6 +69,7 @@
   },
   {
    "id": "net-force",
+   "version": "3566c80975a7",
    "answer": 3,
    "tolerance": 0.05,
    "unit": "m/s²",
@@ -87,6 +91,7 @@
   },
   {
    "id": "third-law",
+   "version": "731903444cd2",
    "answer": 10,
    "tolerance": 0.1,
    "unit": "N",

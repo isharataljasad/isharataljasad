@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "power",
+   "version": "8357eeb76998",
    "answer": 80,
    "tolerance": 0.01,
    "unit": "عدد",
@@ -24,6 +25,7 @@
   },
   {
    "id": "product",
+   "version": "1f5b23a37791",
    "answer": 1,
    "tolerance": 0.01,
    "unit": "عدد",
@@ -45,6 +47,7 @@
   },
   {
    "id": "quotient",
+   "version": "f21dbf479885",
    "answer": -0.5,
    "tolerance": 0.01,
    "unit": "عدد",
@@ -66,6 +69,7 @@
   },
   {
    "id": "chain",
+   "version": "11841d86723e",
    "answer": 8,
    "tolerance": 0.01,
    "unit": "عدد",
@@ -87,6 +91,7 @@
   },
   {
    "id": "negative-exponent",
+   "version": "40199678d3e9",
    "answer": -6,
    "tolerance": 0.01,
    "unit": "عدد",
@@ -103,6 +108,76 @@
     {
      "value": -2,
      "why": "أهملتَ المعامل ‎3‎ فاشتققتَ ‎x⁻²‎ وحدها."
+    }
+   ]
+  },
+  {
+   "id": "trig-derivative",
+   "version": "11d52141e822",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "3cos(0)=3.",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "نسيت مشتقة الدالة الداخلية 3x."
+    }
+   ]
+  },
+  {
+   "id": "implicit",
+   "version": "1caa0233b066",
+   "answer": -0.75,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "2x+2yy′=0 ثم −3/4.",
+   "commonErrors": [
+    {
+     "value": 0.75,
+     "why": "اشتقاق المعادلة يعطي طرح الحد 2x عند عزله."
+    }
+   ]
+  },
+  {
+   "id": "log-derivative",
+   "version": "c63e315eec02",
+   "answer": 1,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "2x/(1+x²)=1.",
+   "commonErrors": [
+    {
+     "value": 0.5,
+     "why": "نسيت مشتقة الداخل 2x."
+    }
+   ]
+  },
+  {
+   "id": "second",
+   "version": "9e7956b03fc2",
+   "answer": 12,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "s′=3t² ثم s″=6t.",
+   "commonErrors": [
+    {
+     "value": 144,
+     "why": "ربعت قيمة المشتقة الأولى بدل اشتقاقها."
+    }
+   ]
+  },
+  {
+   "id": "variable-power",
+   "version": "66e13e479a71",
+   "answer": 1,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "xˣ(ln x+1) عند 1 يساوي 1.",
+   "commonErrors": [
+    {
+     "value": 0,
+     "why": "استعملت مشتقة ثابت بدل تتبع الأس والأساس المتغيرين."
     }
    ]
   }

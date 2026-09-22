@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "direct",
+   "version": "bcfe471ec183",
    "answer": 21,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -24,6 +25,7 @@
   },
   {
    "id": "factor",
+   "version": "e437976e3dfa",
    "answer": 10,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -45,6 +47,7 @@
   },
   {
    "id": "value-vs-limit",
+   "version": "d675c43dd870",
    "answer": 4,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -66,6 +69,7 @@
   },
   {
    "id": "one-sided",
+   "version": "5dad72b8713c",
    "answer": -1,
    "tolerance": 0.001,
    "unit": "عدد",
@@ -87,6 +91,7 @@
   },
   {
    "id": "conjugate",
+   "version": "9780a8f70f1c",
    "answer": 0.16667,
    "tolerance": 0.002,
    "unit": "عدد",
@@ -103,6 +108,48 @@
     {
      "value": 6,
      "why": "قلبتَ الكسر. الناتج ‎1/6‎ لا ‎6‎؛ راجع موضع البسط والمقام بعد الحذف."
+    }
+   ]
+  },
+  {
+   "id": "trig-limit",
+   "version": "8b6fbc6ca559",
+   "answer": 5,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "أعد كتابتها 5 sin(5x)/(5x).",
+   "commonErrors": [
+    {
+     "value": 1,
+     "why": "نسيت العامل 5 خارج النهاية الأساسية."
+    }
+   ]
+  },
+  {
+   "id": "infinite-limit",
+   "version": "0d3a7e4a32da",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "اقسم على x² ثم خذ النهاية.",
+   "commonErrors": [
+    {
+     "value": 0,
+     "why": "النهاية صفر عندما تكون درجة البسط أصغر، وهنا الدرجتان متساويتان."
+    }
+   ]
+  },
+  {
+   "id": "epsilon",
+   "version": "58ea978da66e",
+   "answer": 0.05,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "نقسم سماحية المخرج على معامل تضخيم الخطأ 2.",
+   "commonErrors": [
+    {
+     "value": 0.2,
+     "why": "الميل يضاعف الخطأ؛ لذلك نصغّر مسافة المدخل."
     }
    ]
   }

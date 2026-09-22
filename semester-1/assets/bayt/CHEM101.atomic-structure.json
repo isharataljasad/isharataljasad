@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "neutrons",
+   "version": "180c06b2338b",
    "answer": 30,
    "tolerance": 0.01,
    "unit": "نيوترون",
@@ -24,6 +25,7 @@
   },
   {
    "id": "electrons-ion",
+   "version": "3ec2341b2ec9",
    "answer": 18,
    "tolerance": 0.01,
    "unit": "إلكترون",
@@ -45,6 +47,7 @@
   },
   {
    "id": "weighted-mass",
+   "version": "ed3f201f60df",
    "answer": 10.8,
    "tolerance": 0.02,
    "unit": "u",
@@ -66,6 +69,7 @@
   },
   {
    "id": "charge-from-counts",
+   "version": "a3ff6fd3e898",
    "answer": 2,
    "tolerance": 0.01,
    "unit": "شحنة",
@@ -87,6 +91,7 @@
   },
   {
    "id": "isotope-vs-ion",
+   "version": "da1766820ff9",
    "answer": 24,
    "tolerance": 0.01,
    "unit": "نيوترون",
@@ -103,6 +108,20 @@
     {
      "value": 44,
      "why": "كتبتَ العدد الكتلي دون طرح البروتونات."
+    }
+   ]
+  },
+  {
+   "id": "moles-to-atoms",
+   "version": "efc006239f17",
+   "answer": 6,
+   "tolerance": 0.001,
+   "unit": "mol",
+   "solution": "لكل جزيء ذرتاH، فالنسبة2.",
+   "commonErrors": [
+    {
+     "value": 3,
+     "why": "ساويت مولات الجزيئات بمولات ذرات الهيدروجين."
     }
    ]
   }

@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "centripetal-accel",
+   "version": "75ca1a7c461b",
    "answer": 4,
    "tolerance": 0.05,
    "unit": "m/s²",
@@ -24,6 +25,7 @@
   },
   {
    "id": "centripetal-force",
+   "version": "1895a81ea51f",
    "answer": 9600,
    "tolerance": 20,
    "unit": "N",
@@ -45,6 +47,7 @@
   },
   {
    "id": "speed-from-period",
+   "version": "9d40d3e4490a",
    "answer": 3.14,
    "tolerance": 0.05,
    "unit": "m/s",
@@ -66,6 +69,7 @@
   },
   {
    "id": "max-turn-speed",
+   "version": "b3c78fb3ad82",
    "answer": 14,
    "tolerance": 0.2,
    "unit": "m/s",
@@ -87,6 +91,7 @@
   },
   {
    "id": "net-force-constant-speed",
+   "version": "875ddb545358",
    "answer": 4,
    "tolerance": 0.05,
    "unit": "N",

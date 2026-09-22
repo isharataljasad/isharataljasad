@@ -1,0 +1,89 @@
+{
+ "key": "CHEM101.electrochemistry",
+ "questions": [
+  {
+   "id": "voltage",
+   "version": "82197b45f4ba",
+   "answer": 1.24,
+   "tolerance": 0.001,
+   "unit": "V",
+   "solution": "0.80−(−0.44)=1.24.",
+   "commonErrors": [
+    {
+     "value": 0.36,
+     "why": "جمعت القيم بإشاراتها بدل طرح جهد اختزال الأنود."
+    }
+   ]
+  },
+  {
+   "id": "gibbs",
+   "version": "3213c4056d5f",
+   "answer": -192.97,
+   "tolerance": 0.02,
+   "unit": "kJ/mol",
+   "solution": "−2×96485×1/1000=−192.97.",
+   "commonErrors": [
+    {
+     "value": 192.97,
+     "why": "الجهد الموجب يقابل ΔG سالبة للتفاعل المكتوب."
+    }
+   ]
+  },
+  {
+   "id": "nernst",
+   "version": "76c7411d415f",
+   "answer": 1.04084,
+   "tolerance": 0.0002,
+   "unit": "V",
+   "solution": "log10(100)=2، فنطرح 0.05916.",
+   "commonErrors": [
+    {
+     "value": 1.15916,
+     "why": "Q الأكبر من واحد يخفض الجهد في الاتجاه المكتوب."
+    }
+   ]
+  },
+  {
+   "id": "charge",
+   "version": "f2638c8836df",
+   "answer": 600,
+   "tolerance": 0.001,
+   "unit": "C",
+   "solution": "5 دقائق=300 s؛ q=2×300.",
+   "commonErrors": [
+    {
+     "value": 10,
+     "why": "لم تحول الدقائق إلى ثوان."
+    }
+   ]
+  },
+  {
+   "id": "deposit",
+   "version": "62c64ddb4cf3",
+   "answer": 1,
+   "tolerance": 0.001,
+   "unit": "mol",
+   "solution": "هذه 2 mol إلكترونات، فتنتج 1 mol Cu.",
+   "commonErrors": [
+    {
+     "value": 2,
+     "why": "نسيت إلكترونين لكل أيون نحاس."
+    }
+   ]
+  },
+  {
+   "id": "anode",
+   "version": "97defedebd73",
+   "answer": 1,
+   "tolerance": 0.001,
+   "unit": "اختيار عددي",
+   "solution": "نعم دائمًا؛ تتغير الإشارة مقارنة بالجلفانية لكن التعريف ثابت.",
+   "commonErrors": [
+    {
+     "value": 0,
+     "why": "خلطت تعريف القطب بإشارته الكهربائية."
+    }
+   ]
+  }
+ ]
+}

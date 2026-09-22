@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "momentum-basic",
+   "version": "99a6cae4fe20",
    "answer": 30000,
    "tolerance": 10,
    "unit": "kg·m/s",
@@ -24,6 +25,7 @@
   },
   {
    "id": "inelastic-rest",
+   "version": "36ccf2d02f4e",
    "answer": 2,
    "tolerance": 0.05,
    "unit": "m/s",
@@ -45,6 +47,7 @@
   },
   {
    "id": "signed-collision",
+   "version": "e07dade21c23",
    "answer": 0.4,
    "tolerance": 0.02,
    "unit": "m/s",
@@ -66,6 +69,7 @@
   },
   {
    "id": "impulse",
+   "version": "baa48dbfdf03",
    "answer": 10,
    "tolerance": 0.1,
    "unit": "N·s",
@@ -87,6 +91,7 @@
   },
   {
    "id": "energy-lost",
+   "version": "08751cf8a205",
    "answer": 24,
    "tolerance": 0.5,
    "unit": "J",

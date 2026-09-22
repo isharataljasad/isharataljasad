@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "kinetic-flat",
+   "version": "3a6a63da5cdc",
    "answer": 19.6,
    "tolerance": 0.2,
    "unit": "N",
@@ -24,6 +25,7 @@
   },
   {
    "id": "normal-incline",
+   "version": "f1b49512bd1e",
    "answer": 42.4,
    "tolerance": 0.3,
    "unit": "N",
@@ -45,6 +47,7 @@
   },
   {
    "id": "parallel-incline",
+   "version": "6aac85ef991b",
    "answer": 24.5,
    "tolerance": 0.2,
    "unit": "N",
@@ -66,6 +69,7 @@
   },
   {
    "id": "critical-angle",
+   "version": "2a155bf48644",
    "answer": 45,
    "tolerance": 0.5,
    "unit": "درجة",
@@ -87,6 +91,7 @@
   },
   {
    "id": "static-start",
+   "version": "8016b7b0d066",
    "answer": 98,
    "tolerance": 0.5,
    "unit": "N",

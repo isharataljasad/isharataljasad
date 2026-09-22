@@ -3,6 +3,7 @@
  "questions": [
   {
    "id": "max-area",
+   "version": "b0114a9168d8",
    "answer": 100,
    "tolerance": 0.5,
    "unit": "m²",
@@ -24,6 +25,7 @@
   },
   {
    "id": "min-sum-squares",
+   "version": "d20c05f5c5f1",
    "answer": 72,
    "tolerance": 0.5,
    "unit": "عدد",
@@ -45,6 +47,7 @@
   },
   {
    "id": "box-cut",
+   "version": "c65b81c24251",
    "answer": 2,
    "tolerance": 0.05,
    "unit": "cm",
@@ -66,6 +69,7 @@
   },
   {
    "id": "endpoint",
+   "version": "7176f2c97d01",
    "answer": 16,
    "tolerance": 0.05,
    "unit": "عدد",
@@ -87,6 +91,7 @@
   },
   {
    "id": "fence-wall",
+   "version": "78f309a5104d",
    "answer": 450,
    "tolerance": 1,
    "unit": "m²",

@@ -209,6 +209,15 @@
 
 /* الإخفاء بالسمة hidden يجب أن يغلب أي عرض معلن أعلاه. */
 [hidden] { display: none !important; }
+.bayt-exploration { padding:20px; margin-top:24px; background:#eef6f8; border:1px solid var(--line); border-radius:12px; }
+.bayt-exploration label { display:block; font-weight:600; }
+.bayt-exploration input[type="range"] { width:100%; min-height:44px; direction:ltr; accent-color:#105c78; }
+.bayt-exploration button { min-height:44px; margin-top:16px; }
+.bayt-explore-output { font-size:1.3rem; font-weight:700; color:#105c78; }
+.bayt-explanation { line-height:1.95; }
+/* Off-screen positioning to the left creates huge scroll widths in RTL roots. */
+.skip:not(:focus) { left:0; top:0; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.skip:focus { width:auto; height:auto; clip-path:none; }
 
 @media (max-width: 600px) {
   .bayt-intro,
