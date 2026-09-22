@@ -27,6 +27,10 @@ import phy101Momentum from './phy101-momentum.mjs';
 
 import chem101PeriodicTable from './chem101-periodic-table.mjs';
 
+import phy101Friction from './phy101-friction.mjs';
+
+import phy101CircularMotion from './phy101-circular-motion.mjs';
+
 export const lessons = [
   ma101Limits,
   ma101Continuity,
@@ -36,8 +40,10 @@ export const lessons = [
   phy101Measurement,
   phy101Motion,
   phy101Forces,
+  phy101Friction,
   phy101Energy,
   phy101Momentum,
+  phy101CircularMotion,
   chem101AtomicStructure,
   chem101Solutions,
   chem101Gases,

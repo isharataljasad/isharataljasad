@@ -17,9 +17,9 @@
   {
    "code": "PHY 101",
    "total": 8,
-   "complete": 5,
+   "complete": 7,
    "partial": 0,
-   "missing": 3,
+   "missing": 1,
    "evidence": "Broad published scope; provisional topic breakdown"
   },
   {
@@ -338,24 +338,24 @@
    "topic": "friction",
    "title": "Friction and inclined surfaces",
    "evidence": "Broad published scope; provisional topic breakdown",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 67,
-   "embeddedWords": 705,
-   "originalFigures": 0,
+   "embeddedWords": 921,
+   "originalFigures": 1,
    "publisherImages": 6,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 5,
+   "bayt": true
   },
   {
    "course": "PHY 101",
@@ -413,24 +413,24 @@
    "topic": "circular-motion",
    "title": "Circular motion",
    "evidence": "Broad published scope; provisional topic breakdown",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 62,
-   "embeddedWords": 984,
-   "originalFigures": 0,
+   "embeddedWords": 1198,
+   "originalFigures": 1,
    "publisherImages": 6,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 6,
+   "bayt": true
   },
   {
    "course": "PHY 101",
