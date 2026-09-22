@@ -9,25 +9,25 @@
   {
    "code": "MA 101",
    "total": 9,
-   "complete": 4,
+   "complete": 5,
    "partial": 0,
-   "missing": 5,
+   "missing": 4,
    "evidence": "Published topics; proposed study order"
   },
   {
    "code": "PHY 101",
    "total": 8,
-   "complete": 3,
+   "complete": 4,
    "partial": 0,
-   "missing": 5,
+   "missing": 4,
    "evidence": "Broad published scope; provisional topic breakdown"
   },
   {
    "code": "CHEM 101",
    "total": 9,
-   "complete": 3,
+   "complete": 4,
    "partial": 0,
-   "missing": 6,
+   "missing": 5,
    "evidence": "Published topics; proposed study order"
   }
  ],
@@ -238,24 +238,24 @@
    "topic": "optimization",
    "title": "Optimization",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 73,
-   "embeddedWords": 593,
-   "originalFigures": 0,
+   "embeddedWords": 806,
+   "originalFigures": 1,
    "publisherImages": 3,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 10,
+   "bayt": true
   },
   {
    "course": "PHY 101",
@@ -363,24 +363,24 @@
    "topic": "energy",
    "title": "Work energy and power",
    "evidence": "Broad published scope; provisional topic breakdown",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 79,
-   "embeddedWords": 1392,
-   "originalFigures": 0,
+   "embeddedWords": 1590,
+   "originalFigures": 1,
    "publisherImages": 9,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 7,
+   "bayt": true
   },
   {
    "course": "PHY 101",
@@ -638,24 +638,24 @@
    "topic": "thermochemistry",
    "title": "Thermochemistry",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 70,
-   "embeddedWords": 908,
-   "originalFigures": 0,
+   "embeddedWords": 1112,
+   "originalFigures": 1,
    "publisherImages": 4,
-   "tables": 0,
-   "prereq": 3,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "tables": 1,
+   "prereq": 2,
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 6,
+   "bayt": true
   },
   {
    "course": "CHEM 101",
