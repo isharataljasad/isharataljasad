@@ -17,17 +17,17 @@
   {
    "code": "PHY 101",
    "total": 8,
-   "complete": 4,
+   "complete": 5,
    "partial": 0,
-   "missing": 4,
+   "missing": 3,
    "evidence": "Broad published scope; provisional topic breakdown"
   },
   {
    "code": "CHEM 101",
    "total": 9,
-   "complete": 4,
+   "complete": 5,
    "partial": 0,
-   "missing": 5,
+   "missing": 4,
    "evidence": "Published topics; proposed study order"
   }
  ],
@@ -388,24 +388,24 @@
    "topic": "momentum",
    "title": "Impulse and momentum",
    "evidence": "Broad published scope; provisional topic breakdown",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 68,
-   "embeddedWords": 1292,
-   "originalFigures": 0,
+   "embeddedWords": 1504,
+   "originalFigures": 1,
    "publisherImages": 8,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 7,
+   "bayt": true
   },
   {
    "course": "PHY 101",
@@ -513,24 +513,24 @@
    "topic": "periodic-table",
    "title": "Periodic table",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 57,
-   "embeddedWords": 932,
-   "originalFigures": 0,
+   "embeddedWords": 1110,
+   "originalFigures": 1,
    "publisherImages": 2,
-   "tables": 0,
-   "prereq": 0,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "tables": 1,
+   "prereq": 2,
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 7,
+   "bayt": true
   },
   {
    "course": "CHEM 101",

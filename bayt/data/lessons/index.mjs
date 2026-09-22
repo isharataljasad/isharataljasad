@@ -23,6 +23,10 @@ import chem101Thermochemistry from './chem101-thermochemistry.mjs';
 
 import ma101Optimization from './ma101-optimization.mjs';
 
+import phy101Momentum from './phy101-momentum.mjs';
+
+import chem101PeriodicTable from './chem101-periodic-table.mjs';
+
 export const lessons = [
   ma101Limits,
   ma101Continuity,
@@ -33,8 +37,10 @@ export const lessons = [
   phy101Motion,
   phy101Forces,
   phy101Energy,
+  phy101Momentum,
   chem101AtomicStructure,
   chem101Solutions,
   chem101Gases,
+  chem101PeriodicTable,
   chem101Thermochemistry,
 ];
