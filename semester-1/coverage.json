@@ -9,25 +9,25 @@
   {
    "code": "MA 101",
    "total": 9,
-   "complete": 2,
+   "complete": 3,
    "partial": 0,
-   "missing": 7,
+   "missing": 6,
    "evidence": "Published topics; proposed study order"
   },
   {
    "code": "PHY 101",
    "total": 8,
-   "complete": 1,
+   "complete": 2,
    "partial": 0,
-   "missing": 7,
+   "missing": 6,
    "evidence": "Broad published scope; provisional topic breakdown"
   },
   {
    "code": "CHEM 101",
    "total": 9,
-   "complete": 1,
+   "complete": 2,
    "partial": 0,
-   "missing": 8,
+   "missing": 7,
    "evidence": "Published topics; proposed study order"
   }
  ],
@@ -88,24 +88,24 @@
    "topic": "derivative",
    "title": "Derivative as a rate",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 70,
-   "embeddedWords": 900,
-   "originalFigures": 0,
+   "embeddedWords": 1087,
+   "originalFigures": 1,
    "publisherImages": 8,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 7,
+   "bayt": true
   },
   {
    "course": "MA 101",
@@ -288,24 +288,24 @@
    "topic": "motion",
    "title": "Vectors and motion",
    "evidence": "Broad published scope; provisional topic breakdown",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 61,
-   "embeddedWords": 2043,
-   "originalFigures": 0,
+   "embeddedWords": 2248,
+   "originalFigures": 1,
    "publisherImages": 17,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 7,
+   "bayt": true
   },
   {
    "course": "PHY 101",
@@ -588,24 +588,24 @@
    "topic": "solutions",
    "title": "Properties of solutions",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 71,
-   "embeddedWords": 1053,
-   "originalFigures": 0,
+   "embeddedWords": 1255,
+   "originalFigures": 1,
    "publisherImages": 5,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 7,
+   "bayt": true
   },
   {
    "course": "CHEM 101",
