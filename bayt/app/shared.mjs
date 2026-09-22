@@ -29,22 +29,6 @@ export function wireShell(render) {
   return refresh;
 }
 
-/* العدد مع المعدود بالعربية. القاعدة: الواحد والاثنان لهما صيغتهما،
-   ومن ثلاثة إلى عشرة جمع، وما فوقها مفرد منصوب.
-   مثال: مهمة واحدة · مهمتان · 5 مهام · 15 مهمة. */
-export function countNoun(n, { one, two, few, many }) {
-  if (n === 1) return one;
-  if (n === 2) return two;
-  if (n >= 3 && n <= 10) return `${n} ${few}`;
-  return `${n} ${many}`;
-}
-
-export const nouns = {
-  task: { one: 'مهمة واحدة', two: 'مهمتان', few: 'مهام', many: 'مهمة' },
-  sentence: { one: 'جملة واحدة', two: 'جملتان', few: 'جمل', many: 'جملة' },
-  achievement: { one: 'إنجاز واحد', two: 'إنجازان', few: 'إنجازات', many: 'إنجازًا' },
-  minute: { one: 'دقيقة واحدة', two: 'دقيقتان', few: 'دقائق', many: 'دقيقة' },
-  word: { one: 'كلمة واحدة', two: 'كلمتان', few: 'كلمات', many: 'كلمة' },
-  week: { one: 'أسبوع واحد', two: 'أسبوعان', few: 'أسابيع', many: 'أسبوعًا' },
-  assumption: { one: 'افتراض واحد', two: 'افتراضان', few: 'افتراضات', many: 'افتراضًا' },
-};
+/* القاعدة اللغوية تعيش في وحدة مستقلة بلا تبعيات، وتُعاد هنا
+   حتى يبقى المستوردون الحاليون على حالهم. */
+export { countNoun, nouns } from './arabic-count.mjs';

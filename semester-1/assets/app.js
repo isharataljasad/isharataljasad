@@ -1,4 +1,5 @@
 import {parseAnswer,isCorrect,status} from './practice.mjs';
+import {initBaytPractice} from './bayt-practice.mjs';
 
 const storageKey='yic-bsce:published-2023:semester-1:v1';
 let state={topics:{}};
@@ -57,4 +58,6 @@ async function init(){
     });
   }
 }
-init().catch(()=>{document.querySelectorAll('.feedback').forEach(e=>{e.textContent='Practice checking could not load. Refresh to try again; the written lessons remain available.';});});
+// تدريب بيت الفؤاد مستقل: تعذّر تحميل بيانات المقرر لا يجوز أن يعطّله.
+initBaytPractice().catch(()=>{});
+init().catch(()=>{document.querySelectorAll('.feedback:not(.bayt-feedback)').forEach(e=>{e.textContent='Practice checking could not load. Refresh to try again; the written lessons remain available.';});});

@@ -1,0 +1,216 @@
+/* أقسام بيت الفؤاد داخل صفحات الفصل الأول.
+   الصفحة إنجليزية من اليسار، وهذه الكتل عربية من اليمين، فكل كتلة تعلن
+   اتجاهها بنفسها ولا تعتمد على اتجاه الصفحة. */
+
+/* شريط الخطوات كان أربعة روابط فاتّسع لها بلا التفاف. أضفنا أربعة أخرى،
+   فصار يخرج عن عرض الهاتف ويجرّ الصفحة أفقيًا. الالتفاف يحلّها، ولا يصغّر
+   هدف اللمس كما يفعل تصغير الحشو. */
+.steps { flex-wrap: wrap; }
+
+.steps a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.bayt-intro,
+.bayt-section {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  margin: 26px 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  line-height: 1.9;
+}
+
+.bayt-intro { border-top: 4px solid var(--gold); }
+
+.bayt-brand {
+  margin: 0 0 4px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .5px;
+}
+
+.bayt-intro h2,
+.bayt-section h2 { margin: 0 0 14px; color: var(--ink); }
+.bayt-section h3 { margin: 20px 0 8px; color: var(--ink); font-size: 1.05rem; }
+
+.bayt-note { color: var(--muted); font-size: .92rem; }
+
+/* بطاقات: الأهداف والحدود والمتطلبات جنبًا إلى جنب على الشاشة الواسعة،
+   وفوق بعضها على الهاتف. */
+.bayt-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.bayt-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.bayt-card h3 { margin: 0 0 8px; font-size: .98rem; color: var(--blue); }
+.bayt-card ul { margin: 0; padding-inline-start: 20px; }
+.bayt-card li { margin-bottom: 6px; }
+
+.bayt-index {
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.bayt-index h3 { margin: 0 0 8px; font-size: .98rem; }
+.bayt-index ol { margin: 0; padding-inline-start: 22px; }
+.bayt-index li { margin-bottom: 5px; }
+
+/* المتطلب يُعالَج في مكانه، فهو مطوي حتى يحتاجه الطالب. */
+.bayt-prereq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+  /* هدف اللمس لا يقل عن 44 بكسل، والهوامش السالبة تمنع تباعد السطور. */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  margin: -10px 0;
+  padding: 10px 0;
+}
+
+.bayt-prereq-why { color: var(--muted); font-size: .92rem; margin: 6px 0; }
+
+.bayt-definitions { margin: 0; }
+
+.bayt-def {
+  border-inline-start: 3px solid var(--teal);
+  padding-inline-start: 12px;
+  margin-bottom: 14px;
+}
+
+.bayt-def dt { font-weight: 700; color: var(--ink); }
+.bayt-def dd { margin: 4px 0 0; }
+
+.bayt-en,
+.bayt-unit,
+.bayt-formula {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .92em;
+  color: var(--blue);
+}
+
+.bayt-relations { list-style: none; margin: 0; padding: 0; }
+
+.bayt-relations li {
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  display: grid;
+  gap: 2px;
+}
+
+.bayt-formula { font-size: 1.02rem; font-weight: 600; }
+.bayt-relation-name { font-weight: 600; color: var(--ink); }
+.bayt-relation-note { color: var(--muted); font-size: .93rem; }
+
+/* كل خطوة تحمل سببها تحتها؛ السبب هو ما يُترك عادةً بلا قول. */
+.bayt-derivation ol,
+.bayt-worked ol { padding-inline-start: 22px; }
+
+.bayt-derivation li,
+.bayt-worked li { margin-bottom: 14px; }
+
+.bayt-step-do { display: block; }
+
+.bayt-step-why {
+  display: block;
+  color: var(--teal);
+  font-size: .93rem;
+  border-inline-start: 2px solid var(--teal);
+  padding-inline-start: 10px;
+  margin-top: 4px;
+}
+
+.bayt-figure { margin: 0 0 12px; text-align: center; }
+.bayt-svg { width: 100%; height: auto; max-width: 540px; }
+.bayt-figure figcaption { color: var(--muted); font-size: .93rem; margin-top: 6px; }
+.bayt-alt-note { color: var(--muted); font-size: .9rem; }
+
+.bayt-table-wrap { overflow-x: auto; margin: 14px 0; }
+.bayt-table { border-collapse: collapse; width: 100%; min-width: 320px; }
+.bayt-table caption { text-align: start; color: var(--muted); font-size: .93rem; padding-bottom: 6px; }
+
+.bayt-table th,
+.bayt-table td {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: start;
+}
+
+.bayt-table thead th { background: var(--paper); color: var(--ink); }
+.bayt-table tbody th { font-weight: 600; font-family: Consolas, "Courier New", monospace; }
+
+.bayt-worked {
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.bayt-worked h3 { margin-top: 0; }
+.bayt-worked-task { font-weight: 600; }
+.bayt-worked-answer { margin-bottom: 0; }
+
+.bayt-skipped {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 14px;
+  margin-bottom: 8px;
+}
+
+.bayt-skipped summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.bayt-skipped p { margin-top: 0; }
+
+.bayt-check {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.bayt-check h3 { margin-top: 0; }
+.bayt-aim { color: var(--muted); font-size: .93rem; margin: 0 0 8px; }
+.bayt-prompt { font-weight: 600; }
+.bayt-check label { display: block; margin-bottom: 6px; }
+
+.bayt-check .answer-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.bayt-check input { flex: 1 1 160px; min-height: 44px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; }
+.bayt-check button[type="submit"] { min-height: 44px; padding: 8px 20px; }
+
+.bayt-feedback[data-result="correct"] { color: var(--teal); font-weight: 600; }
+.bayt-feedback[data-result="retry"] { color: #a4531f; }
+.bayt-feedback[data-result="error"] { color: #a4531f; }
+
+.bayt-reveal { min-height: 44px; }
+.bayt-solution { background: var(--paper); border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
+.bayt-summary { color: var(--muted); font-size: .93rem; border-top: 1px solid var(--line); padding-top: 12px; }
+
+/* الإخفاء بالسمة hidden يجب أن يغلب أي عرض معلن أعلاه. */
+[hidden] { display: none !important; }
+
+@media (max-width: 600px) {
+  .bayt-intro,
+  .bayt-section { padding: 16px; }
+}

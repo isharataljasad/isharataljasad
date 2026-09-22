@@ -1,4 +1,31 @@
-"""Build a curriculum-first Semester 1 above the independently retained sources."""
+"""Build a curriculum-first Semester 1 above the independently retained sources.
+
+BAYT_GUARD — اقرأ قبل إعادة التشغيل.
+
+هذا المولّد يعيد كتابة صفحات المواضيع الستة والعشرين من الصفر، فيمحو أقسام
+بيت الفؤاد المدمجة فيها: الفهرس والأهداف والحدود والمتطلبات والشرح المرجعي
+والرسم والجدول والشرح المتدرّج وأنماط الأسئلة. وهو يحتاج بايثون و lxml،
+وكلاهما غير متاح على جهاز التطوير الحالي (سبتمبر 2026).
+
+الترتيب الصحيح إن احتجت تشغيله:
+
+    python tools/build_semester_site.py --i-will-rebuild-lessons
+    node tools/connect-foundations.mjs
+    node tools/connect-program.mjs
+    node tools/build-semester-lessons.mjs   ← يعيد دروس بيت الفؤاد
+    npm test
+
+وبدون العَلَم يتوقف البناء، حمايةً من محو الدروس بلا قصد.
+"""
+import sys
+
+if '--i-will-rebuild-lessons' not in sys.argv:
+    sys.exit(
+        'توقف: إعادة البناء تمحو دروس بيت الفؤاد من صفحات المواضيع. '
+        'اقرأ التعليق أعلى هذا الملف، ثم أعد التشغيل مع --i-will-rebuild-lessons '
+        'وأتبعه بـ node tools/build-semester-lessons.mjs'
+    )
+
 from pathlib import Path
 from html import escape
 import json
