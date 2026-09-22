@@ -11,12 +11,21 @@ import chem101Solutions from './chem101-solutions.mjs';
 
 import phy101Motion from './phy101-motion.mjs';
 
+import ma101Rules from './ma101-rules.mjs';
+
+import phy101Forces from './phy101-forces.mjs';
+
+import chem101Gases from './chem101-gases.mjs';
+
 export const lessons = [
   ma101Limits,
   ma101Continuity,
   ma101Derivative,
+  ma101Rules,
   phy101Measurement,
   phy101Motion,
+  phy101Forces,
   chem101AtomicStructure,
   chem101Solutions,
+  chem101Gases,
 ];

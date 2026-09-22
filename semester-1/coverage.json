@@ -9,25 +9,25 @@
   {
    "code": "MA 101",
    "total": 9,
-   "complete": 3,
+   "complete": 4,
    "partial": 0,
-   "missing": 6,
+   "missing": 5,
    "evidence": "Published topics; proposed study order"
   },
   {
    "code": "PHY 101",
    "total": 8,
-   "complete": 2,
+   "complete": 3,
    "partial": 0,
-   "missing": 6,
+   "missing": 5,
    "evidence": "Broad published scope; provisional topic breakdown"
   },
   {
    "code": "CHEM 101",
    "total": 9,
-   "complete": 2,
+   "complete": 3,
    "partial": 0,
-   "missing": 7,
+   "missing": 6,
    "evidence": "Published topics; proposed study order"
   }
  ],
@@ -113,24 +113,24 @@
    "topic": "rules",
    "title": "Differentiation rules",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 68,
-   "embeddedWords": 1547,
-   "originalFigures": 0,
+   "embeddedWords": 1711,
+   "originalFigures": 1,
    "publisherImages": 14,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 8,
+   "bayt": true
   },
   {
    "course": "MA 101",
@@ -313,24 +313,24 @@
    "topic": "forces",
    "title": "Newton laws and force diagrams",
    "evidence": "Broad published scope; provisional topic breakdown",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 72,
-   "embeddedWords": 1155,
-   "originalFigures": 0,
+   "embeddedWords": 1370,
+   "originalFigures": 1,
    "publisherImages": 7,
-   "tables": 0,
-   "prereq": 3,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "tables": 1,
+   "prereq": 2,
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 6,
+   "bayt": true
   },
   {
    "course": "PHY 101",
@@ -613,24 +613,24 @@
    "topic": "gases",
    "title": "Properties of gases",
    "evidence": "Published topics; proposed study order",
-   "state": "ناقص",
+   "state": "مكتمل",
    "axis": {
-    "reference": false,
-    "visual": false,
-    "guided": false,
-    "questions": false
+    "reference": true,
+    "visual": true,
+    "guided": true,
+    "questions": true
    },
    "originalWords": 71,
-   "embeddedWords": 977,
-   "originalFigures": 0,
+   "embeddedWords": 1181,
+   "originalFigures": 1,
    "publisherImages": 5,
-   "tables": 0,
+   "tables": 1,
    "prereq": 2,
-   "questionTypes": 2,
-   "explainedFeedback": false,
-   "objectives": 0,
-   "workedSteps": 1,
-   "bayt": false
+   "questionTypes": 5,
+   "explainedFeedback": true,
+   "objectives": 3,
+   "workedSteps": 6,
+   "bayt": true
   },
   {
    "course": "CHEM 101",
