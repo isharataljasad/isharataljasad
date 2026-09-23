@@ -1,0 +1,5053 @@
+[
+ {
+  "id": "H07-COVER",
+  "file": "H07-00-INTRO/H07-COVER-01.png",
+  "folder": "H07-00-INTRO",
+  "part": 1,
+  "of": 1,
+  "items": []
+ },
+ {
+  "id": "H07-DESC",
+  "file": "H07-00-INTRO/H07-DESC-01.png",
+  "folder": "H07-00-INTRO",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "desc",
+    "k": "big",
+    "split": null,
+    "chars": 142,
+    "head": "يمتدّ الحزب السابع في هذا المشروع من قول"
+   },
+   {
+    "seg": "desc",
+    "k": "big",
+    "split": null,
+    "chars": 201,
+    "head": "يبدأ الحزب بميزان البرّ، ثم يحاجّ أهل ال"
+   },
+   {
+    "seg": "desc",
+    "k": "big",
+    "split": null,
+    "chars": 284,
+    "head": "ثم يدخل في غزوة أُحد، ويذكّر أثناءها ببد"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-MAP",
+  "file": "H07-00-INTRO/H07-MAP-01.png",
+  "folder": "H07-00-INTRO",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "map١",
+    "k": "p",
+    "split": null,
+    "chars": 14,
+    "head": "الآيات: ٩٢–١٠١"
+   },
+   {
+    "seg": "map١",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C001 – H07-C005 (٥)"
+   },
+   {
+    "seg": "map١",
+    "k": "p",
+    "split": null,
+    "chars": 83,
+    "head": "السؤال المركزي: ما الذي يُصدّق دعوى الإي"
+   },
+   {
+    "seg": "map٢",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١٠٢–١٠٩"
+   },
+   {
+    "seg": "map٢",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C006 – H07-C009 (٤)"
+   },
+   {
+    "seg": "map٢",
+    "k": "p",
+    "split": null,
+    "chars": 70,
+    "head": "السؤال المركزي: كيف تتحوّل التقوى الفردي"
+   },
+   {
+    "seg": "map٣",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١١٠–١٢٠"
+   },
+   {
+    "seg": "map٣",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C010 – H07-C013 (٤)"
+   },
+   {
+    "seg": "map٣",
+    "k": "p",
+    "split": null,
+    "chars": 79,
+    "head": "السؤال المركزي: كيف تُحفظ الخيرية بأسباب"
+   },
+   {
+    "seg": "map٤",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١٢١–١٢٩"
+   },
+   {
+    "seg": "map٤",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C014 – H07-C018 (٥)"
+   },
+   {
+    "seg": "map٤",
+    "k": "p",
+    "split": null,
+    "chars": 68,
+    "head": "السؤال المركزي: أين يضع القلب ثقته: في ا"
+   },
+   {
+    "seg": "map٥",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١٣٠–١٣٨"
+   },
+   {
+    "seg": "map٥",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C019 – H07-C021 (٣)"
+   },
+   {
+    "seg": "map٥",
+    "k": "p",
+    "split": null,
+    "chars": 78,
+    "head": "السؤال المركزي: ما التقوى التي يُرجى معه"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-MAP",
+  "file": "H07-00-INTRO/H07-MAP-02.png",
+  "folder": "H07-00-INTRO",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "map٦",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١٣٩–١٤٨"
+   },
+   {
+    "seg": "map٦",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C022 – H07-C025 (٤)"
+   },
+   {
+    "seg": "map٦",
+    "k": "p",
+    "split": null,
+    "chars": 58,
+    "head": "السؤال المركزي: كيف يقرأ المؤمن الهزيمة "
+   },
+   {
+    "seg": "map٧",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١٤٩–١٥٨"
+   },
+   {
+    "seg": "map٧",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C026 – H07-C032 (٧)"
+   },
+   {
+    "seg": "map٧",
+    "k": "p",
+    "split": null,
+    "chars": 76,
+    "head": "السؤال المركزي: ماذا تكشف المصيبة ممّا ف"
+   },
+   {
+    "seg": "map٨",
+    "k": "p",
+    "split": null,
+    "chars": 15,
+    "head": "الآيات: ١٥٩–١٦٤"
+   },
+   {
+    "seg": "map٨",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C033 – H07-C037 (٥)"
+   },
+   {
+    "seg": "map٨",
+    "k": "p",
+    "split": null,
+    "chars": 61,
+    "head": "السؤال المركزي: ما الأخلاق والأمانة التي"
+   },
+   {
+    "seg": "map٩",
+    "k": "p",
+    "split": null,
+    "chars": 44,
+    "head": "الآيات: ١٦٥–١٧٠ (والآية ١٧١ للسياق التفس"
+   },
+   {
+    "seg": "map٩",
+    "k": "p",
+    "split": null,
+    "chars": 33,
+    "head": "البطاقات: H07-C038 – H07-C040 (٣)"
+   },
+   {
+    "seg": "map٩",
+    "k": "p",
+    "split": null,
+    "chars": 79,
+    "head": "السؤال المركزي: كيف يُقرأ الألم: مراجعةً"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST01-OPEN",
+  "file": "H07-ST01/H07-ST01-OPEN-01.png",
+  "folder": "H07-ST01",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 219,
+    "head": "تبدأ هذه المحطة بميزانٍ للبرّ: أن تبذل م"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 67,
+    "head": "ما الذي يُصدّق دعوى الإيمان حين تُمتحن ب"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C001",
+  "file": "H07-ST01/H07-C001-01.png",
+  "folder": "H07-ST01",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 126,
+    "head": "﴿لَن تَنَالُوا۟ ٱلْبِرَّ حَتَّىٰ تُنفِقُ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 838,
+    "head": "هذا حث من الله لعباده على الإنفاق في طرق"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٦ - الحزب السادس - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C001",
+  "file": "H07-ST01/H07-C001-02.png",
+  "folder": "H07-ST01",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 244,
+    "head": "تجعل الآية البرَّ غايةً تُطلَب، وتحثّ عل"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 157,
+    "head": "ثم تأتي خاتمتها فتحفظ الباب مفتوحًا: {وم"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 50,
+    "head": "ما الشيء الذي أحبّه، ويمكن أن يكون بابي "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C002",
+  "file": "H07-ST01/H07-C002-01.png",
+  "folder": "H07-ST01",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 219,
+    "head": "﴿۞ كُلُّ ٱلطَّعَامِ كَانَ حِلًّا لِّبَنِ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 101,
+    "head": "﴿فَمَنِ ٱفْتَرَىٰ عَلَى ٱللَّهِ ٱلْكَذِب"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 104,
+    "head": "﴿قُلْ صَدَقَ ٱللَّهُۗ فَٱتَّبِعُوا۟ مِلّ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 345,
+    "head": "وهذا رد على اليهود بزعمهم الباطل أن النس"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C002",
+  "file": "H07-ST01/H07-C002-02.png",
+  "folder": "H07-ST01",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 1310,
+    "head": "حرمه على نفسه لما أصابه عرق النسا نذر لئ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 61,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C002",
+  "file": "H07-ST01/H07-C002-03.png",
+  "folder": "H07-ST01",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 194,
+    "head": "حين نشأ الجدل في الحلال والحرام لم تُقاب"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 209,
+    "head": "ثم يسمّي النصُّ من افترى على الله الكذب "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 65,
+    "head": "حين يتبيّن لي الحقّ في مسألة، هل أتّبعه "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-01.png",
+  "folder": "H07-ST01",
+  "part": 1,
+  "of": 9,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 98,
+    "head": "﴿إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ ل"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 220,
+    "head": "﴿فِيهِ ءَايَٰتٌۢ بَيِّنَٰتٌ مَّقَامُ إِب"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 609,
+    "head": "يخبر تعالى عن شرف هذا البيت الحرام، وأنه"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-02.png",
+  "folder": "H07-ST01",
+  "part": 2,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 1427,
+    "head": "واضحات، وبراهين قاطعات على أنواع من العل"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-03.png",
+  "folder": "H07-ST01",
+  "part": 3,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 269,
+    "head": "احترامه، حتى إن الواحد منهم مع شدة حميته"
+   },
+   {
+    "seg": "tafsir",
+    "k": "subhead",
+    "split": null,
+    "chars": 29,
+    "head": "نقل عن ابن القيم أورده السعدي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 360,
+    "head": "قال فائدة: {ولله على الناس حج البيت من ا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 445,
+    "head": "ويرجح الوجه الأول بأن يقال قوله: \"حج الب"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 130,
+    "head": "والفائدة الثانية: أن الاسم المجرور من حي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-04.png",
+  "folder": "H07-ST01",
+  "part": 4,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 57,
+    "head": "تضييعه، إذ ليس ما أوجبه الله سبحانه بمثا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 944,
+    "head": "وأما قوله: \"مَنْ\"فهي بدل، وقد استهوى طائ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 262,
+    "head": "الوجه الثاني: أن إضافة المصدر إلى الفاعل"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-05.png",
+  "folder": "H07-ST01",
+  "part": 5,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 633,
+    "head": "المضاف إليه بالمفعول والظرف حمل على المك"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 201,
+    "head": "وباب البعض من الكل أن يكون أخص من المبدل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 396,
+    "head": "وأما المجرور من قوله\"لله\"فيحتمل وجهين: أ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-06.png",
+  "folder": "H07-ST01",
+  "part": 6,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 466,
+    "head": "المجرور وإن كان موضعه التأخير، لأنه ضمير"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 966,
+    "head": "ومن فوائد الآية وأسرارها أنه سبحانه إذا "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-07.png",
+  "folder": "H07-ST01",
+  "part": 7,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 127,
+    "head": "لعظم مقته لتارك حقه الذي أوجبه عليه، ثم "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 207,
+    "head": "وتأمل سر البدل في الآية المقتضي لذكر الإ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 1015,
+    "head": "ثم تأمل ما في الآية من الإيضاح بعد الإبه"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-08.png",
+  "folder": "H07-ST01",
+  "part": 8,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 162,
+    "head": "رؤيته، فهذه المثابة للمحبين يثوبون إليه "
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 54,
+    "head": "أطوف به والنفس بعد مشوقة ... إليه وهل بع"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 54,
+    "head": "وألثم منه الركن أطلب برد ما ... بقلبي من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 56,
+    "head": "فوالله ما ازداد إلا صبابة ... ولا القلب "
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 58,
+    "head": "فيا جنة المأوى ويا غاية المنى ... ويا من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 54,
+    "head": "أبت غلبات الشوق إلا تقربا ... إليك فما ل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 52,
+    "head": "وما كان صدى عنك صد ملالة ... ولي شاهد من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 60,
+    "head": "دعوت اصطباري عنك بعدك والبكا ... فلبى ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 54,
+    "head": "وقد زعموا أن المحب إذا نأى ... سيبلى هوا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 61,
+    "head": "ولو كان هذا الزعم حقا لكان ذا ... دواء ا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 48,
+    "head": "بلى إنه يبلى والهوى على ... حاله لم يبله"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 51,
+    "head": "وهذا محب قاده الشوق والهوى ... بغير زمام"
+   },
+   {
+    "seg": "tafsir",
+    "k": "verse",
+    "split": null,
+    "chars": 53,
+    "head": "أتاك على بعد المزار ولو ونت ... مطيته جا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 28,
+    "head": "انتهى كلامه رحمه الله تعالى."
+   },
+   {
+    "seg": "tafsir",
+    "k": "endquote",
+    "split": null,
+    "chars": 25,
+    "head": "نهاية النقل عن ابن القيّم"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 73,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C003",
+  "file": "H07-ST01/H07-C003-09.png",
+  "folder": "H07-ST01",
+  "part": 9,
+  "of": 9,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 209,
+    "head": "وصف الله البيت قبل أن يذكر فريضته: أوّلُ"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 147,
+    "head": "ثم جاء الوجوب مقرونًا بالاستطاعة: {من اس"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 74,
+    "head": "هل أتعامل مع الطاعات أثقالًا مفروضة، أم "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C004",
+  "file": "H07-ST01/H07-C004-01.png",
+  "folder": "H07-ST01",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 111,
+    "head": "﴿قُلْ يَٰٓأَهْلَ ٱلْكِتَٰبِ لِمَ تَكْفُر"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 168,
+    "head": "﴿قُلْ يَٰٓأَهْلَ ٱلْكِتَٰبِ لِمَ تَصُدُّ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 145,
+    "head": "﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِن "
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 78,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ٩"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 337,
+    "head": "يوبخ تعالى أهل الكتاب من اليهود والنصارى"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C004",
+  "file": "H07-ST01/H07-C004-02.png",
+  "folder": "H07-ST01",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 555,
+    "head": "{الذين كفروا وصدوا عن سبيل الله زدناهم ع"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 134,
+    "head": "تبدأ الآيات بسؤالين لأهل الكتاب: لِمَ تك"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 230,
+    "head": "ثم تلتفت إلى المؤمنين بتحذيرٍ محدّد: إن "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C004",
+  "file": "H07-ST01/H07-C004-03.png",
+  "folder": "H07-ST01",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 66,
+    "head": "لمن أمنح زمام التوجيه في ديني وقيمي؟ وهل"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C005",
+  "file": "H07-ST01/H07-C005-01.png",
+  "folder": "H07-ST01",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 165,
+    "head": "﴿وَكَيْفَ تَكْفُرُونَ وَأَنتُمْ تُتْلَىٰ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 75,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ٩"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 781,
+    "head": "ثم ذكر تعالى السبب الأعظم والموجب الأكبر"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C005",
+  "file": "H07-ST01/H07-C005-02.png",
+  "folder": "H07-ST01",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 175,
+    "head": "يقوم استنكار {وكيف تكفرون} على حضور سببي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 163,
+    "head": "ثم تقرّر الآية قاعدة: {ومن يعتصم بالله ف"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 57,
+    "head": "ما نصيب آيات الله المتلوّة من يومي؟ وبمن"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST02-OPEN",
+  "file": "H07-ST02/H07-ST02-OPEN-01.png",
+  "folder": "H07-ST02",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 229,
+    "head": "تبدأ المحطة بتقوى الله حقّ تقاته إلى الخ"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 54,
+    "head": "كيف تتحوّل التقوى الفردية إلى اجتماعٍ يح"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C006",
+  "file": "H07-ST02/H07-C006-01.png",
+  "folder": "H07-ST02",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 122,
+    "head": "﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱتَّق"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 343,
+    "head": "﴿وَٱعْتَصِمُوا۟ بِحَبْلِ ٱللَّهِ جَمِيعً"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 479,
+    "head": "هذا أمر من الله لعباده المؤمنين أن يتقوه"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C006",
+  "file": "H07-ST02/H07-C006-02.png",
+  "folder": "H07-ST02",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 1426,
+    "head": "المتعلقة بالقلب والجوارح كثيرة جدا، يجمع"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C006",
+  "file": "H07-ST02/H07-C006-03.png",
+  "folder": "H07-ST02",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 80,
+    "head": "إلى الإسلام، واتباع الرسول صلى الله عليه"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 174,
+    "head": "أمرٌ بالتقوى {حق تقاته}، ثم نهيٌ عن المو"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 250,
+    "head": "ثم ينتقل الخطاب من الفرد إلى الجماعة: {و"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 71,
+    "head": "أين أحتاج أن أُصلح ما بيني وبين أخٍ لي، "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C007",
+  "file": "H07-ST02/H07-C007-01.png",
+  "folder": "H07-ST02",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 154,
+    "head": "﴿وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 144,
+    "head": "﴿وَلَا تَكُونُوا۟ كَٱلَّذِينَ تَفَرَّقُو"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 665,
+    "head": "أي: وليكن منكم أيها المؤمنون الذين مَنَّ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C007",
+  "file": "H07-ST02/H07-C007-02.png",
+  "folder": "H07-ST02",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 1042,
+    "head": "الغش والمعاملات الباطلة، وكل هذه الأمور "
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": "head",
+    "chars": 68,
+    "head": "{ولتكن منكم أمة}: طلبٌ بأن توجد في المؤم"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C007",
+  "file": "H07-ST02/H07-C007-03.png",
+  "folder": "H07-ST02",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 140,
+    "head": "الخير والأمر بالمعروف والنهي عن المنكر، "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 143,
+    "head": "ثم يأتي التحذير من حال الذين تفرّقوا واخ"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 82,
+    "head": "ما الدور الممكن لي — بقدر علمي واستطاعتي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C008",
+  "file": "H07-ST02/H07-C008-01.png",
+  "folder": "H07-ST02",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 175,
+    "head": "﴿يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 96,
+    "head": "﴿وَأَمَّا ٱلَّذِينَ ٱبْيَضَّتْ وُجُوهُهُ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 109,
+    "head": "﴿تِلْكَ ءَايَٰتُ ٱللَّهِ نَتْلُوهَا عَلَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 330,
+    "head": "يخبر تعالى عن حال يوم القيامة وما فيه من"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C008",
+  "file": "H07-ST02/H07-C008-02.png",
+  "folder": "H07-ST02",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 568,
+    "head": "وأولئك ابيضت وجوههم، لما في قلوبهم من ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 698,
+    "head": "{وأما الذين ابيضت وجوههم} فيهنئون أكمل ت"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C008",
+  "file": "H07-ST02/H07-C008-03.png",
+  "folder": "H07-ST02",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 159,
+    "head": "تنقل الآيات المشهد إلى يوم القيامة: وجوه"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 113,
+    "head": "ثم تُختم الآيات بتقرير العدل: {وما الله "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 70,
+    "head": "ما الذي أرجو أن يظهر من قلبي يوم تظهر ال"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C009",
+  "file": "H07-ST02/H07-C009-01.png",
+  "folder": "H07-ST02",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 96,
+    "head": "﴿وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا ف"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 160,
+    "head": "أي: هو المالك لما في السماوات وما في الأ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 140,
+    "head": "آيةٌ قصيرة تضع ما قبلها في إطاره: لله ما"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 56,
+    "head": "أيّ أمرٍ يشغلني اليوم أحتاج أن أتذكّر أن"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST03-OPEN",
+  "file": "H07-ST03/H07-ST03-OPEN-01.png",
+  "folder": "H07-ST03",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 194,
+    "head": "تصف المحطة خيرية الأمة وأوصافها، ثم تنصف"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 63,
+    "head": "كيف تُحفظ الخيرية بأسبابها دون تعميمٍ ظا"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C010",
+  "file": "H07-ST03/H07-C010-01.png",
+  "folder": "H07-ST03",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 243,
+    "head": "﴿كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنّ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 107,
+    "head": "﴿لَن يَضُرُّوكُمْ إِلَّآ أَذًىۖ وَإِن ي"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 337,
+    "head": "﴿ضُرِبَتْ عَلَيْهِمُ ٱلذِّلَّةُ أَيْنَ م"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 70,
+    "head": "يمدح تعالى هذه الأمة ويخبر أنها خير الأم"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C010",
+  "file": "H07-ST03/H07-C010-02.png",
+  "folder": "H07-ST03",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 1465,
+    "head": "بتكميلهم لأنفسهم بالإيمان المستلزم للقيا"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C010",
+  "file": "H07-ST03/H07-C010-03.png",
+  "folder": "H07-ST03",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 260,
+    "head": "بها بغيا وعنادا {ويقتلون الأنبياء بغير ح"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 177,
+    "head": "{كنتم خير أمة أخرجت للناس} خبرٌ جاء مقرو"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 216,
+    "head": "ثم تبيّن الآيات أن ما يصيب المؤمنين من أ"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 48,
+    "head": "أيّ هذه الأوصاف الثلاثة أحتاج أن أقوّيه "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C011",
+  "file": "H07-ST03/H07-C011-01.png",
+  "folder": "H07-ST03",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 137,
+    "head": "﴿۞ لَيْسُوا۟ سَوَآءًۗ مِّنْ أَهْلِ ٱلْك"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 178,
+    "head": "﴿يُؤْمِنُونَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْـٔ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 91,
+    "head": "﴿وَمَا يَفْعَلُوا۟ مِنْ خَيْرٍ فَلَن يُك"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 415,
+    "head": "لما بين تعالى الفرقة الفاسقة من أهل الكت"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C011",
+  "file": "H07-ST03/H07-C011-02.png",
+  "folder": "H07-ST03",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 79,
+    "head": "أوقات الليل وطول تهجدهم وتلاوتهم لكتاب ر"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 1043,
+    "head": "{يؤمنون بالله واليوم الآخر} أي: كإيمان ا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C011",
+  "file": "H07-ST03/H07-C011-03.png",
+  "folder": "H07-ST03",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 390,
+    "head": "بعد ذكر الفريق الفاسق يأتي الإنصاف: {ليس"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 136,
+    "head": "ثم وعدٌ بألّا يُجحد عملهم: {وما يفعلوا م"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 47,
+    "head": "هل أنصف في حكمي على الناس، أم أعمّم بسبب"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C012",
+  "file": "H07-ST03/H07-C012-01.png",
+  "folder": "H07-ST03",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 171,
+    "head": "﴿إِنَّ ٱلَّذِينَ كَفَرُوا۟ لَن تُغْنِىَ "
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 214,
+    "head": "﴿مَثَلُ مَا يُنفِقُونَ فِى هَٰذِهِ ٱلْحَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 416,
+    "head": "يخبر تعالى أن الذين كفروا لن تغني عنهم أ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 138,
+    "head": "ثم ضرب مثلا لما ينفقه الكفار من أموالهم "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C012",
+  "file": "H07-ST03/H07-C012-02.png",
+  "folder": "H07-ST03",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 455,
+    "head": "نتيجته ويؤمل إدراك ريعه، فبينما هو كذلك "
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 184,
+    "head": "تقرّر الآيات أن الأموال والأولاد لا تغني"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 79,
+    "head": "وتُختم الآية بإعادة المسؤولية إلى أصحابه"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 32,
+    "head": "على أيّ أساس أبني ما أعمل وأنفق؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C013",
+  "file": "H07-ST03/H07-C013-01.png",
+  "folder": "H07-ST03",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 274,
+    "head": "﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا ت"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 276,
+    "head": "﴿هَٰٓأَنتُمْ أُو۟لَآءِ تُحِبُّونَهُمْ و"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 198,
+    "head": "﴿إِن تَمْسَسْكُمْ حَسَنَةٌ تَسُؤْهُمْ وَ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C013",
+  "file": "H07-ST03/H07-C013-02.png",
+  "folder": "H07-ST03",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 643,
+    "head": "ينهى تعالى عباده المؤمنين أن يتخذوا بطان"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 551,
+    "head": "قال الله مهيجا للمؤمنين على الحذر من هؤل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 82,
+    "head": "{إن تمسسكم حسنة} كالنصر على الأعداء وحصو"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C013",
+  "file": "H07-ST03/H07-C013-03.png",
+  "folder": "H07-ST03",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 272,
+    "head": "{وإن تصبكم سيئة يفرحوا بها وإن تصبروا وت"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 285,
+    "head": "تنهى الآيات عن اتخاذ {بطانة من دونكم} مم"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 124,
+    "head": "ثم تضع الآيات منهج التعامل مع كيدهم: {وإ"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 55,
+    "head": "هل أضع ثقتي في مواضعها؟ وهل أقابل الكيد "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST04-OPEN",
+  "file": "H07-ST04/H07-ST04-OPEN-01.png",
+  "folder": "H07-ST04",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 196,
+    "head": "يبدأ حديث غزوة أحد: النبي ﷺ يبوّئ المؤمن"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 52,
+    "head": "أين يضع القلب ثقته: في الأسباب، أم في من"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C014",
+  "file": "H07-ST04/H07-C014-01.png",
+  "folder": "H07-ST04",
+  "part": 1,
+  "of": 4,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 111,
+    "head": "﴿وَإِذْ غَدَوْتَ مِنْ أَهْلِكَ تُبَوِّئُ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 76,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 893,
+    "head": "هذه الآيات نزلت في وقعة \"أُحد\" وقصتها مش"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C014",
+  "file": "H07-ST04/H07-C014-02.png",
+  "folder": "H07-ST04",
+  "part": 2,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 1392,
+    "head": "والعدد، حتى اجتمع عندهم من ذلك ما جزموا "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C014",
+  "file": "H07-ST04/H07-C014-03.png",
+  "folder": "H07-ST04",
+  "part": 3,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 638,
+    "head": "الخروج في أول النهار، لأن النبي صلى الله"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 194,
+    "head": "يبدأ سياق غزوة أُحد بمشهد النبي ﷺ يبوّئ "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 84,
+    "head": "وتُختم الآية بـ{والله سميع عليم}: يسمع م"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C014",
+  "file": "H07-ST04/H07-C014-04.png",
+  "folder": "H07-ST04",
+  "part": 4,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 54,
+    "head": "حين يصيبني ما أكره، هل أستحضر ما سبق من "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C015",
+  "file": "H07-ST04/H07-C015-01.png",
+  "folder": "H07-ST04",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 127,
+    "head": "﴿إِذْ هَمَّت طَّآئِفَتَانِ مِنكُمْ أَن "
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 76,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 848,
+    "head": "ومن لطفه بهم وإحسانه إليهم أنه، لما {همت"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C015",
+  "file": "H07-ST04/H07-C015-02.png",
+  "folder": "H07-ST04",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 172,
+    "head": "همّت طائفتان من المؤمنين أن تفشلا، والله"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 130,
+    "head": "ثم تأمر: {وعلى الله فليتوكل المؤمنون}؛ و"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 37,
+    "head": "حين يعرض لي الضعف، إلى من ألجأ أولًا؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C016",
+  "file": "H07-ST04/H07-C016-01.png",
+  "folder": "H07-ST04",
+  "part": 1,
+  "of": 4,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 109,
+    "head": "﴿وَلَقَدْ نَصَرَكُمُ ٱللَّهُ بِبَدْرٍ وَ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 134,
+    "head": "﴿إِذْ تَقُولُ لِلْمُؤْمِنِينَ أَلَن يَكْ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 158,
+    "head": "﴿بَلَىٰٓۚ إِن تَصْبِرُوا۟ وَتَتَّقُوا۟ و"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 151,
+    "head": "﴿وَمَا جَعَلَهُ ٱللَّهُ إِلَّا بُشْرَىٰ "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 140,
+    "head": "وهذا امتنان منه على عباده المؤمنين، وتذك"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C016",
+  "file": "H07-ST04/H07-C016-02.png",
+  "folder": "H07-ST04",
+  "part": 2,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 745,
+    "head": "في السنة الثانية من الهجرة، خرج النبي صل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 451,
+    "head": "{ألن يكفيكم أن يمدكم ربكم بثلاثة آلاف من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 64,
+    "head": "{وما جعله الله} أي: إمداده لكم بالملائكة"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C016",
+  "file": "H07-ST04/H07-C016-03.png",
+  "folder": "H07-ST04",
+  "part": 3,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 601,
+    "head": "وتفرحون {ولتطمئن قلوبكم به وما النصر إلا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 181,
+    "head": "تذكّر الآيات بنصر بدر والمؤمنون أذلّة في"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 222,
+    "head": "ثم تحدّد وظيفة الإمداد: {وما جعله الله إ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C016",
+  "file": "H07-ST04/H07-C016-04.png",
+  "folder": "H07-ST04",
+  "part": 4,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 37,
+    "head": "على ماذا يطمئن قلبي حين آخذ بالأسباب؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C017",
+  "file": "H07-ST04/H07-C017-01.png",
+  "folder": "H07-ST04",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 98,
+    "head": "﴿لِيَقْطَعَ طَرَفًا مِّنَ ٱلَّذِينَ كَفَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 687,
+    "head": "يخبر تعالى أن نصره عباده المؤمنين لأحد أ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C017",
+  "file": "H07-ST04/H07-C017-02.png",
+  "folder": "H07-ST04",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 151,
+    "head": "تذكر الآية غايتين للنصر: أن يقطع الله طر"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 94,
+    "head": "فالنصر قد يأتي في صورة ذهاب بعض قوّة الم"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 38,
+    "head": "هل أحصر النصر في صورةٍ واحدة أتوقّعها؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C018",
+  "file": "H07-ST04/H07-C018-01.png",
+  "folder": "H07-ST04",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 107,
+    "head": "﴿لَيْسَ لَكَ مِنَ ٱلْأَمْرِ شَىْءٌ أَوْ "
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 137,
+    "head": "﴿وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا ف"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 663,
+    "head": "لما جرى يوم \"أحد\" ما جرى، وجرى على النبي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C018",
+  "file": "H07-ST04/H07-C018-02.png",
+  "folder": "H07-ST04",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 1397,
+    "head": "وقد تاب الله على هؤلاء المعينين وغيرهم، "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C018",
+  "file": "H07-ST04/H07-C018-03.png",
+  "folder": "H07-ST04",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 414,
+    "head": "إحسانه وعميم إحسانه، فقال {والله غفور رح"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 67,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 186,
+    "head": "خطابٌ للنبي ﷺ في أشدّ المواقف: {ليس لك م"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 174,
+    "head": "ونبّه السعدي إلى أن التوبة أُسندت إلى ال"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 52,
+    "head": "هل أعلّق قلبي بأحدٍ من الخلق فيما لا يمل"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST05-OPEN",
+  "file": "H07-ST05/H07-ST05-OPEN-01.png",
+  "folder": "H07-ST05",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 190,
+    "head": "تفصّل المحطة خصال التقوى: ترك الربا، وتق"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 62,
+    "head": "ما التقوى التي يُرجى معها الفلاح، وكيف ن"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C019",
+  "file": "H07-ST05/H07-C019-01.png",
+  "folder": "H07-ST05",
+  "part": 1,
+  "of": 4,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 139,
+    "head": "﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا ت"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 62,
+    "head": "﴿وَٱتَّقُوا۟ ٱلنَّارَ ٱلَّتِىٓ أُعِدَّتْ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 65,
+    "head": "﴿وَأَطِيعُوا۟ ٱللَّهَ وَٱلرَّسُولَ لَعَل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 80,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 550,
+    "head": "تقدم في مقدمة هذا التفسير أن العبد ينبغي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C019",
+  "file": "H07-ST05/H07-C019-02.png",
+  "folder": "H07-ST05",
+  "part": 2,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 227,
+    "head": "ولعل الحكمة -والله أعلم- في إدخال هذه ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 71,
+    "head": "ثم قال: {بلى إن تصبروا وتتقوا ويأتوكم من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 950,
+    "head": "فكأن النفوس اشتاقت إلى معرفة خصال التقوى"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 68,
+    "head": "ففي قوله: {أضعافًا مضاعفة} تنبيه على شدة"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C019",
+  "file": "H07-ST05/H07-C019-03.png",
+  "folder": "H07-ST05",
+  "part": 3,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 63,
+    "head": "تحريمه، وأن تحريم الربا حكمته أن الله من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 164,
+    "head": "وذلك أن الله أوجب إنظار المعسر، وبقاء ما"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 460,
+    "head": "والفلاح متوقف على التقوى، فلهذا قال: {وا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 123,
+    "head": "فطاعة الله وطاعة رسوله، من أسباب حصول ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": "head",
+    "chars": 268,
+    "head": "يرى السعدي أن إدخال هذه الآيات أثناء قصة"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C019",
+  "file": "H07-ST05/H07-C019-04.png",
+  "folder": "H07-ST05",
+  "part": 4,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 22,
+    "head": "إباحة القليل من الربا."
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 67,
+    "head": "ثم أمرٌ بتقوى الله، وتقوى النار، وطاعة ا"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 43,
+    "head": "هل في معاملاتي ما يُثقل على محتاجٍ أو مع"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C020",
+  "file": "H07-ST05/H07-C020-01.png",
+  "folder": "H07-ST05",
+  "part": 1,
+  "of": 4,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 128,
+    "head": "﴿۞ وَسَارِعُوٓا۟ إِلَىٰ مَغْفِرَةٍ مِّن "
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 148,
+    "head": "﴿ٱلَّذِينَ يُنفِقُونَ فِى ٱلسَّرَّآءِ و"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 221,
+    "head": "﴿وَٱلَّذِينَ إِذَا فَعَلُوا۟ فَٰحِشَةً أ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 155,
+    "head": "﴿أُو۟لَٰٓئِكَ جَزَآؤُهُم مَّغْفِرَةٌ مّ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 80,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C020",
+  "file": "H07-ST05/H07-C020-02.png",
+  "folder": "H07-ST05",
+  "part": 2,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 318,
+    "head": "ثم أمرهم تعالى بالمسارعة إلى مغفرته وإدر"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 223,
+    "head": "{والكاظمين الغيظ} أي: إذا حصل لهم من غير"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 416,
+    "head": "{والعافين عن الناس} يدخل في العفو عن الن"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 266,
+    "head": "ثم ذكر حالة أعم من غيرها، وأحسن وأعلى وأ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C020",
+  "file": "H07-ST05/H07-C020-03.png",
+  "folder": "H07-ST05",
+  "part": 3,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 446,
+    "head": "يراك\" وأما الإحسان إلى المخلوق، فهو إيصا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 336,
+    "head": "ثم ذكر اعتذارهم لربهم من جناياتهم وذنوبه"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 469,
+    "head": "{أولئك} الموصوفون بتلك الصفات {جزاؤهم مغ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 68,
+    "head": "وهذه الآيات الكريمات من أدلة أهل السنة و"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C020",
+  "file": "H07-ST05/H07-C020-04.png",
+  "folder": "H07-ST05",
+  "part": 4,
+  "of": 4,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 378,
+    "head": "في الإيمان، خلافا للمرجئة، ووجه الدلالة "
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 122,
+    "head": "{وسارعوا} فعلُ حركة لا انتظار. ثم تصف ال"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 161,
+    "head": "ثم تذكر حالهم إذا وقعوا في الذنب: {ذكروا"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 29,
+    "head": "أيّ هذه الخصال أبدأ به اليوم؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C021",
+  "file": "H07-ST05/H07-C021-01.png",
+  "folder": "H07-ST05",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 117,
+    "head": "﴿قَدْ خَلَتْ مِن قَبْلِكُمْ سُنَنٌ فَسِي"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 70,
+    "head": "﴿هَٰذَا بَيَانٌ لِّلنَّاسِ وَهُدًى وَمَو"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 318,
+    "head": "وهذه الآيات الكريمات، وما بعدها في قصة \""
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C021",
+  "file": "H07-ST05/H07-C021-02.png",
+  "folder": "H07-ST05",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 469,
+    "head": "{فسيروا في الأرض} بأبدانكم وقلوبكم {فانظ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 185,
+    "head": "{وهدى وموعظة للمتقين} لأنهم هم المنتفعون"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 141,
+    "head": "ويحتمل أن الإشارة في قوله: {هذا بيان للن"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 155,
+    "head": "{قد خلت من قبلكم سنن}: فأحوال الأمم الما"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C021",
+  "file": "H07-ST05/H07-C021-03.png",
+  "folder": "H07-ST05",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 99,
+    "head": "ثم تحدّد الآية من ينتفع: {هذا بيان للناس"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 52,
+    "head": "ما العبرة التي أقرؤها في أحداثٍ مرّت بي "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST06-OPEN",
+  "file": "H07-ST06/H07-ST06-OPEN-01.png",
+  "folder": "H07-ST06",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 184,
+    "head": "بعد القرح يأتي النهي عن الوهن والحزن، مع"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 42,
+    "head": "كيف يقرأ المؤمن الهزيمة والفقد دون أن يه"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C022",
+  "file": "H07-ST06/H07-C022-01.png",
+  "folder": "H07-ST06",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 89,
+    "head": "﴿وَلَا تَهِنُوا۟ وَلَا تَحْزَنُوا۟ وَأَن"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 233,
+    "head": "﴿إِن يَمْسَسْكُمْ قَرْحٌ فَقَدْ مَسَّ ٱل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 80,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 560,
+    "head": "يقول تعالى مشجعا لعباده المؤمنين، ومقويا"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C022",
+  "file": "H07-ST06/H07-C022-02.png",
+  "folder": "H07-ST06",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 269,
+    "head": "ثم سلاهم بما حصل لهم من الهزيمة، وبيَّن "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 229,
+    "head": "ومن الحكم في ذلك أن هذه الدار يعطي الله "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 316,
+    "head": "{وليعلم الله الذين آمنوا} هذا أيضا من ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 407,
+    "head": "{ويتخذ منكم شهداء} وهذا أيضا من بعض الحك"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C022",
+  "file": "H07-ST06/H07-C022-03.png",
+  "folder": "H07-ST06",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 89,
+    "head": "{ولو أرادوا الخروج لأعدوا له عدة ولكن كر"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 125,
+    "head": "نهيٌ عن الوهن في الأبدان والحزن في القلو"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 142,
+    "head": "ثم مواساة: القرح أصاب الفريقين، والأيام "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 56,
+    "head": "كيف أقرأ مصيبتي: نهايةً، أم يومًا من أيا"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C023",
+  "file": "H07-ST06/H07-C023-01.png",
+  "folder": "H07-ST06",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 75,
+    "head": "﴿وَلِيُمَحِّصَ ٱللَّهُ ٱلَّذِينَ ءَامَنُ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 130,
+    "head": "﴿أَمْ حَسِبْتُمْ أَن تَدْخُلُوا۟ ٱلْجَنّ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 114,
+    "head": "﴿وَلَقَدْ كُنتُمْ تَمَنَّوْنَ ٱلْمَوْتَ "
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 80,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 446,
+    "head": "{وليمحص الله الذين آمنوا} وهذا أيضا من ا"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C023",
+  "file": "H07-ST06/H07-C023-02.png",
+  "folder": "H07-ST06",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 576,
+    "head": "ثم قال تعالى: {أم حسبتم أن تدخلوا الجنة "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 420,
+    "head": "ثم وبخهم تعالى على عدم صبرهم بأمر كانوا "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 159,
+    "head": "وفي هذه الآية دليل على أنه لا يكره تمني "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C023",
+  "file": "H07-ST06/H07-C023-03.png",
+  "folder": "H07-ST06",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 13,
+    "head": "ثم قال تعالى:"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 189,
+    "head": "من حِكم الابتلاء التمحيص: {وليمحص الله ا"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 165,
+    "head": "ثم عتابٌ لمن تمنّى لقاء العدو قبل وقوعه،"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 43,
+    "head": "هل أطلب غاياتٍ عالية دون استعدادٍ لمشقّت"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C024",
+  "file": "H07-ST06/H07-C024-01.png",
+  "folder": "H07-ST06",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 239,
+    "head": "﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَل"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 216,
+    "head": "﴿وَمَا كَانَ لِنَفْسٍ أَن تَمُوتَ إِلَّا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 345,
+    "head": "يقول تعالى: {وما محمد إلا رسول قد خلت من"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C024",
+  "file": "H07-ST06/H07-C024-02.png",
+  "folder": "H07-ST06",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 290,
+    "head": "قال [الله] تعالى: {ومن ينقلب على عقبيه ف"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 378,
+    "head": "وفي هذه الآية الكريمة إرشاد من الله تعال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 149,
+    "head": "وفي هذه الآية أيضا أعظم دليل على فضيلة ا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 281,
+    "head": "ثم أخبر تعالى أن النفوس جميعها متعلقة بآ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 63,
+    "head": "ثم أخبر تعالى أنه يعطي الناس من ثواب الد"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C024",
+  "file": "H07-ST06/H07-C024-03.png",
+  "folder": "H07-ST06",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 79,
+    "head": "إراداتهم، فقال: {ومن يرد ثواب الدنيا نؤت"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 139,
+    "head": "قال الله تعالى: {كلا نمدُّ هؤلاء وهؤلاء "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 109,
+    "head": "{وسنجزي الشاكرين} ولم يذكر جزاءهم ليدل ذ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 187,
+    "head": "{وما محمد إلا رسول قد خلت من قبله الرسل}"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 130,
+    "head": "ثم تقرّر الآيات أن الآجال بيد الله {كتاب"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 58,
+    "head": "هل التزامي قائمٌ على الله، أم مرتبطٌ بأش"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C025",
+  "file": "H07-ST06/H07-C025-01.png",
+  "folder": "H07-ST06",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 192,
+    "head": "﴿وَكَأَيِّن مِّن نَّبِىٍّ قَٰتَلَ مَعَهُ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 180,
+    "head": "﴿وَمَا كَانَ قَوْلَهُمْ إِلَّآ أَن قَال"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 114,
+    "head": "﴿فَـَٔاتَىٰهُمُ ٱللَّهُ ثَوَابَ ٱلدُّنْي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 278,
+    "head": "هذا تسلية للمؤمنين، وحث على الاقتداء بهم"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C025",
+  "file": "H07-ST06/H07-C025-02.png",
+  "folder": "H07-ST06",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 193,
+    "head": "{فما وهنوا لما أصابهم في سبيل الله وما ض"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 270,
+    "head": "ثم ذكر قولهم واستنصارهم لربهم، فقال: {وم"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 606,
+    "head": "ثم إنهم لم يتكلوا على ما بذلوا جهدهم به "
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C025",
+  "file": "H07-ST06/H07-C025-03.png",
+  "folder": "H07-ST06",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 85,
+    "head": "نموذجٌ من أتباع الأنبياء: {فما وهنوا لما"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 177,
+    "head": "ثم تذكر الآيات ما قالوه في الشدّة: استغف"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 63,
+    "head": "هل أجمع في شدّتي بين مراجعة نفسي والاستغ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST07-OPEN",
+  "file": "H07-ST07/H07-ST07-OPEN-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 293,
+    "head": "تبدأ المحطة بالتحذير من طاعة الذين كفروا"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 60,
+    "head": "ماذا تكشف المصيبة ممّا في الصدور، وكيف ي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C026",
+  "file": "H07-ST07/H07-C026-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 138,
+    "head": "﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِن "
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 62,
+    "head": "﴿بَلِ ٱللَّهُ مَوْلَىٰكُمْۖ وَهُوَ خَيْر"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 181,
+    "head": "﴿سَنُلْقِى فِى قُلُوبِ ٱلَّذِينَ كَفَرُو"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 165,
+    "head": "وهذا نهي من الله للمؤمنين أن يطيعوا الكا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 106,
+    "head": "ثم أخبر أنه مولاهم وناصرهم، ففيه إخبار ل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 63,
+    "head": "وفي ضمن ذلك الحث لهم على اتخاذه وحده ولي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C026",
+  "file": "H07-ST07/H07-C026-02.png",
+  "folder": "H07-ST07",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 139,
+    "head": "فمن ولايته ونصره لهم أنه وعدهم أنه سيلقي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 358,
+    "head": "وذلك أن المشركين -بعدما انصرفوا من وقعة "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 523,
+    "head": "ثم ذكر السبب الموجب لإلقاء الرعب في قلوب"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C026",
+  "file": "H07-ST07/H07-C026-03.png",
+  "folder": "H07-ST07",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 111,
+    "head": "تحذيرٌ من طاعة الذين كفروا، لأنها تردّ ع"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 156,
+    "head": "ثم تبيّن الآيات أن الرعب يُلقى في قلوب ا"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 37,
+    "head": "من أتولّى حقًّا؟ وأين أبحث عن الأمان؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C027",
+  "file": "H07-ST07/H07-C027-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 369,
+    "head": "﴿وَلَقَدْ صَدَقَكُمُ ٱللَّهُ وَعْدَهُۥٓ "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 497,
+    "head": "أي: {ولقد صدقكم الله وعده} بالنصر، فنصرك"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 69,
+    "head": "فالواجب في هذه الحال خصوصًا، وفي غيرها ع"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C027",
+  "file": "H07-ST07/H07-C027-02.png",
+  "folder": "H07-ST07",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 143,
+    "head": "{منكم من يريد الدنيا} وهم الذين أوجب لهم"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 362,
+    "head": "{ثم صرفكم عنهم} أي: بعدما وجدت هذه الأمو"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 166,
+    "head": "ومن فضله على المؤمنين أنه لا يقدّر عليهم"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 125,
+    "head": "تبدأ الآية بتقرير أن الله صدق وعده، ثم ت"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 132,
+    "head": "ثم تكشف تفاوت الإرادات: {منكم من يريد ال"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C027",
+  "file": "H07-ST07/H07-C027-03.png",
+  "folder": "H07-ST07",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 58,
+    "head": "حين يتغيّر حالي، هل أراجع التنازع والمعص"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C028",
+  "file": "H07-ST07/H07-C028-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 235,
+    "head": "﴿۞ إِذْ تُصْعِدُونَ وَلَا تَلْوُۥنَ عَلَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 76,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 209,
+    "head": "يذكرهم تعالى حالهم في وقت انهزامهم عن ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 446,
+    "head": "والحال أنه ليس عليكم خطر كبير، إذ لستم آ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C028",
+  "file": "H07-ST07/H07-C028-02.png",
+  "folder": "H07-ST07",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 439,
+    "head": "ولكن الله -بلطفه وحسن نظره لعباده- جعل ا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 178,
+    "head": "ويحتمل أن معنى قوله: {لكيلا تحزنوا على م"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 116,
+    "head": "تصوّر الآية لحظة الانهزام والرسول ﷺ يدعو"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 163,
+    "head": "وذكر السعدي في معنى {لكيلا تحزنوا} وجهين"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C028",
+  "file": "H07-ST07/H07-C028-03.png",
+  "folder": "H07-ST07",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 48,
+    "head": "هل يمكن أن يكون في غمٍّ مرّ بي تمرينٌ عل"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C029",
+  "file": "H07-ST07/H07-C029-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 639,
+    "head": "﴿ثُمَّ أَنزَلَ عَلَيْكُم مِّنۢ بَعْدِ ٱل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 76,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 70,
+    "head": "{ثم أنزل عليكم من بعد الغم} الذي أصابكم "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 135,
+    "head": "ولا شك أن هذا رحمة بهم، وإحسان وتثبيت لق"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C029",
+  "file": "H07-ST07/H07-C029-02.png",
+  "folder": "H07-ST07",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 21,
+    "head": "أمكن أن يأتيه النعاس."
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 133,
+    "head": "وهذه الطائفة التي أنعم الله عليها بالنعا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 520,
+    "head": "وأما الطائفة الأخرى الذين {قد أهمتهم أنف"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 601,
+    "head": "{يخفون} يعني المنافقين {في أنفسهم ما لا "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C029",
+  "file": "H07-ST07/H07-C029-03.png",
+  "folder": "H07-ST07",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 108,
+    "head": "فيها من نفاق وإيمان وضعف إيمان، {وليمحص "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 125,
+    "head": "{والله عليم بذات الصدور} أي: بما فيها وم"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 13,
+    "head": "ثم قال تعالى:"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 145,
+    "head": "بعد الغمّ صار الناس طائفتين: طائفةٌ أنزل"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 151,
+    "head": "ثم تكشف الآية غايةً من غايات ما جرى: {ول"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 42,
+    "head": "عند المصيبة، أيّ ظنٍّ بالله يغلب على قلب"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C030",
+  "file": "H07-ST07/H07-C030-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 196,
+    "head": "﴿إِنَّ ٱلَّذِينَ تَوَلَّوْا۟ مِنكُمْ يَو"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 247,
+    "head": "يخبر تعالى عن حال الذين انهزموا يوم \"أحد"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 118,
+    "head": "قال تعالى: {إن عبادي ليس لك عليهم سلطان}"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 165,
+    "head": "{إن الله غفور} للمذنبين الخطائين بما يوف"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 92,
+    "head": "ثم إن تاب وأناب قبل منه، وصيره كأنه لم ي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C030",
+  "file": "H07-ST07/H07-C030-02.png",
+  "folder": "H07-ST07",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 164,
+    "head": "الذين تولّوا يوم التقى الجمعان {إنما است"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 72,
+    "head": "ثم {ولقد عفا الله عنهم إن الله غفور حليم"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 45,
+    "head": "هل هناك ذنبٌ صغير قد يكون مدخلًا لزلّةٍ "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C031",
+  "file": "H07-ST07/H07-C031-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 327,
+    "head": "﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا ت"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 124,
+    "head": "﴿وَلَئِن قُتِلْتُمْ فِى سَبِيلِ ٱللَّهِ "
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 80,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 108,
+    "head": "ينهى تعالى عباده المؤمنين أن يشابهوا الك"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 200,
+    "head": "ينهاهم عن مشابهتهم في كل شيء، وفي هذا ال"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C031",
+  "file": "H07-ST07/H07-C031-02.png",
+  "folder": "H07-ST07",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 356,
+    "head": "ويقولون: {لو كانوا عندنا ما ماتوا وما قت"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 80,
+    "head": "قال الله ردا عليهم: {والله يحيي ويميت} أ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 51,
+    "head": "{والله بما تعملون بصير} فيجازيكم بأعمالك"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 195,
+    "head": "ثم أخبر تعالى أن القتل في سبيله أو الموت"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 222,
+    "head": "نهيٌ عن مشابهة الذين كفروا في قولهم لإخو"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C031",
+  "file": "H07-ST07/H07-C031-03.png",
+  "folder": "H07-ST07",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 163,
+    "head": "والمذموم هنا «لو» التي تعترض على القدر و"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 85,
+    "head": "هل أعيش بعد ما قُدِّر في حسرة «لو» المعت"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C032",
+  "file": "H07-ST07/H07-C032-01.png",
+  "folder": "H07-ST07",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 68,
+    "head": "﴿وَلَئِن مُّتُّمْ أَوْ قُتِلْتُمْ لَإِلَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 76,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 167,
+    "head": "وأن الخلق أيضا إذا ماتوا أو قتلوا بأي حا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 108,
+    "head": "موتٌ أو قتل — المرجع إلى الله. ونبّه الس"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 37,
+    "head": "هل أستحضر أن كل طريقٍ ينتهي إلى الله؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST08-OPEN",
+  "file": "H07-ST08/H07-ST08-OPEN-01.png",
+  "folder": "H07-ST08",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 206,
+    "head": "بعد ما جرى تأتي الرحمة: لينٌ من الله، وع"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 45,
+    "head": "ما الأخلاق والأمانة التي تجمع الناس على "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C033",
+  "file": "H07-ST08/H07-C033-01.png",
+  "folder": "H07-ST08",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 269,
+    "head": "﴿فَبِمَا رَحْمَةٍ مِّنَ ٱللَّهِ لِنتَ لَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 145,
+    "head": "أي: برحمة الله لك ولأصحابك، منَّ الله عل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 120,
+    "head": "{ولو كنت فظا} أي: سيئ الخلق {غليظ القلب}"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 272,
+    "head": "فالأخلاق الحسنة من الرئيس في الدين، تجذب"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C033",
+  "file": "H07-ST08/H07-C033-02.png",
+  "folder": "H07-ST08",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 188,
+    "head": "أليس من أوجب الواجبات، وأهم المهمات، الا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 143,
+    "head": "ثم أمره الله تعالى بأن يعفو عنهم ما صدر "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 187,
+    "head": "{وشاورهم في الأمر} أي: الأمور التي تحتاج"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 403,
+    "head": "ومنها: أن فيها تسميحا لخواطرهم، وإزالة ل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 89,
+    "head": "ومنها: أن في الاستشارة تنور الأفكار، بسب"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 137,
+    "head": "ومنها: ما تنتجه الاستشارة من الرأي: المص"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C033",
+  "file": "H07-ST08/H07-C033-03.png",
+  "folder": "H07-ST08",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 108,
+    "head": "لرسوله -صلى الله عليه وسلم- وهو أكمل الن"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 205,
+    "head": "ثم قال تعالى: {فإذا عزمت} أي: على أمر من"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 172,
+    "head": "لِينُ النبي ﷺ لأصحابه رحمةٌ من الله، ولو"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 187,
+    "head": "ثم أوامر متتابعة: اعفُ عنهم، واستغفر لهم"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 99,
+    "head": "في موقع مسؤوليتي — بيتًا أو عملًا أو جما"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C034",
+  "file": "H07-ST08/H07-C034-01.png",
+  "folder": "H07-ST08",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 165,
+    "head": "﴿إِن يَنصُرْكُمُ ٱللَّهُ فَلَا غَالِبَ ل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 203,
+    "head": "أي: إن يمددكم الله بنصره ومعونته {فلا غا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 100,
+    "head": "{وإن يخذلكم} ويكلكم إلى أنفسكم {فمن ذا ا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 292,
+    "head": "وفي ضمن ذلك الأمر بالاستنصار بالله والاع"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 76,
+    "head": "وفي هذه الآية الأمر بالتوكل على الله وحد"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C034",
+  "file": "H07-ST08/H07-C034-02.png",
+  "folder": "H07-ST08",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 170,
+    "head": "{إن ينصركم الله فلا غالب لكم وإن يخذلكم "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 35,
+    "head": "على من أعتمد حقًّا حين أخطّط وأعمل؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C035",
+  "file": "H07-ST08/H07-C035-01.png",
+  "folder": "H07-ST08",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 163,
+    "head": "﴿وَمَا كَانَ لِنَبِىٍّ أَن يَغُلَّۚ وَمَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 447,
+    "head": "الغلول هو: الكتمان من الغنيمة، [والخيانة"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 271,
+    "head": "فبمجرد علم العبد بالواحد منهم، يجزم بسلا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 203,
+    "head": "ثم ذكر الوعيد على من غل، فقال: {ومن يغلل"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C035",
+  "file": "H07-ST08/H07-C035-02.png",
+  "folder": "H07-ST08",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 128,
+    "head": "على مقدار كسبه، {وهم لا يظلمون} أي: لا ي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 192,
+    "head": "لما ذكر عقوبة الغال، وأنه يأتي يوم القيا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 163,
+    "head": "تنزّه الآية النبيّ ﷺ عن الغلول، ثم تذكر "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 105,
+    "head": "ثم {ثم توفى كل نفس ما كسبت وهم لا يظلمون"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 50,
+    "head": "هل تحت يدي مالٌ أو أمانةٌ أحتاج إلى مراج"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C036",
+  "file": "H07-ST08/H07-C036-01.png",
+  "folder": "H07-ST08",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 124,
+    "head": "﴿أَفَمَنِ ٱتَّبَعَ رِضْوَٰنَ ٱللَّهِ كَم"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 74,
+    "head": "﴿هُمْ دَرَجَٰتٌ عِندَ ٱللَّهِۗ وَٱللَّهُ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 176,
+    "head": "يخبر تعالى أنه لا يستوي من كان قصده رضوا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 142,
+    "head": "{أفمن كان مؤمنا كمن كان فاسقا لا يستوون}"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C036",
+  "file": "H07-ST08/H07-C036-02.png",
+  "folder": "H07-ST08",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 348,
+    "head": "فالمتبعون لرضوان الله يسعون في نيل الدرج"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 144,
+    "head": "{أفمن اتبع رضوان الله كمن باء بسخط من ال"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 56,
+    "head": "في قراري القادم: هل أتحرّى رضوان الله، أ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C037",
+  "file": "H07-ST08/H07-C037-01.png",
+  "folder": "H07-ST08",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 234,
+    "head": "﴿لَقَدْ مَنَّ ٱللَّهُ عَلَى ٱلْمُؤْمِنِي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 333,
+    "head": "هذه المنة التي امتن الله بها على عباده، "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 60,
+    "head": "{ويزكيهم} من الشرك، والمعاصي، والرذائل، "
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 300,
+    "head": "و {يعلمهم الكتاب} إما جنس الكتاب الذي هو"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 68,
+    "head": "فجمع لهم بين تعليم الأحكام، وما به تنفذ "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C037",
+  "file": "H07-ST08/H07-C037-02.png",
+  "folder": "H07-ST08",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 249,
+    "head": "وثمراتها، ففاقوا بهذه الأمور العظيمة جمي"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 139,
+    "head": "يمتنّ الله على المؤمنين ببعثة رسولٍ منهم"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 112,
+    "head": "وتلفت الآية إلى أن التزكية جاءت بين التل"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 67,
+    "head": "هل آخذ من هذه المنّة التلاوة وحدها، أم أ"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-ST09-OPEN",
+  "file": "H07-ST09/H07-ST09-OPEN-01.png",
+  "folder": "H07-ST09",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "open",
+    "k": "big",
+    "split": null,
+    "chars": 194,
+    "head": "تجيب المحطة عن سؤال المصيبة: {قل هو من ع"
+   },
+   {
+    "seg": "sq",
+    "k": "big",
+    "split": null,
+    "chars": 63,
+    "head": "كيف يُقرأ الألم: مراجعةً للنفس وتسليمًا "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C038",
+  "file": "H07-ST09/H07-C038-01.png",
+  "folder": "H07-ST09",
+  "part": 1,
+  "of": 2,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 172,
+    "head": "﴿أَوَلَمَّآ أَصَٰبَتْكُم مُّصِيبَةٌ قَد"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 76,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 284,
+    "head": "هذا تسلية من الله تعالى لعباده المؤمنين،"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 171,
+    "head": "{قلتم أنى هذا} أي: من أين أصابنا ما أصاب"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 167,
+    "head": "{إن الله على كل شيء قدير} فإياكم وسوء ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C038",
+  "file": "H07-ST09/H07-C038-02.png",
+  "folder": "H07-ST09",
+  "part": 2,
+  "of": 2,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 212,
+    "head": "عند السؤال {أنّى هذا} يأتي الجواب: {قل ه"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 117,
+    "head": "ثم {إن الله على كل شيء قدير}؛ وفسّرها ال"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 65,
+    "head": "هل أراجع ما ثبت من تقصيري وأصلحه، مع فهم"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C039",
+  "file": "H07-ST09/H07-C039-01.png",
+  "folder": "H07-ST09",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 102,
+    "head": "﴿وَمَآ أَصَٰبَكُمْ يَوْمَ ٱلْتَقَى ٱلْج"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 320,
+    "head": "﴿وَلِيَعْلَمَ ٱلَّذِينَ نَافَقُوا۟ۚ وَقِ"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 154,
+    "head": "﴿ٱلَّذِينَ قَالُوا۟ لِإِخْوَٰنِهِمْ وَقَ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 80,
+    "head": "مقطعٌ متصلٌ كاملٌ من شرح السعدي للآيات ١"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 138,
+    "head": "ثم أخبر أن ما أصابهم يوم التقى الجمعان، "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C039",
+  "file": "H07-ST09/H07-C039-02.png",
+  "folder": "H07-ST09",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 1045,
+    "head": "وقوعه. والأمر القدري -إذا نفذ، لم يبق إل"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 65,
+    "head": "ومنه قولهم: {لو نعلم قتالا لاتبعناكم} فإ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 186,
+    "head": "ويستدل بهذه الآية على قاعدة \"ارتكاب أخف "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C039",
+  "file": "H07-ST09/H07-C039-03.png",
+  "folder": "H07-ST09",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 62,
+    "head": "{والله أعلم بما يكتمون} فيبديه لعباده ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 274,
+    "head": "ثم قال تعالى: {الذين قالوا لإخوانهم وقعد"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 107,
+    "head": "وفي هذه الآيات دليل على أن العبد قد يكون"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 63,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 163,
+    "head": "ما أصابهم يوم التقى الجمعان فبإذن الله، "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 186,
+    "head": "ثم جاء الرد على من قال: {لو أطاعونا ما ق"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 29,
+    "head": "هل يطابق ما أقوله ما في قلبي؟"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C040",
+  "file": "H07-ST09/H07-C040-01.png",
+  "folder": "H07-ST09",
+  "part": 1,
+  "of": 3,
+  "items": [
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 122,
+    "head": "﴿وَلَا تَحْسَبَنَّ ٱلَّذِينَ قُتِلُوا۟ ف"
+   },
+   {
+    "seg": "quran",
+    "k": "q",
+    "split": null,
+    "chars": 176,
+    "head": "﴿فَرِحِينَ بِمَآ ءَاتَىٰهُمُ ٱللَّهُ مِ"
+   },
+   {
+    "seg": "context",
+    "k": "q",
+    "split": null,
+    "chars": 109,
+    "head": "﴿۞ يَسْتَبْشِرُونَ بِنِعْمَةٍ مِّنَ ٱللّ"
+   },
+   {
+    "seg": "tafsir",
+    "k": "note",
+    "split": null,
+    "chars": 74,
+    "head": "المقطع التفسيري كاملًا للآيات ١٦٩–١٧١ كم"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": "head",
+    "chars": 140,
+    "head": "هذه الآيات الكريمة فيها فضيلة الشهداء وك"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C040",
+  "file": "H07-ST09/H07-C040-02.png",
+  "folder": "H07-ST09",
+  "part": 2,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 371,
+    "head": "للقتال في سبيل الله والتعرض للشهادة، فقا"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 791,
+    "head": "ولفظ: {عند ربهم} يقتضي علو درجتهم، وقربه"
+   },
+   {
+    "seg": "tafsir",
+    "k": "p",
+    "split": null,
+    "chars": 134,
+    "head": "وفي هذه الآيات إثبات نعيم البرزخ، وأن ال"
+   },
+   {
+    "seg": "tafsir",
+    "k": "source",
+    "split": null,
+    "chars": 59,
+    "head": "المصدر: ٠٧ - الحزب السابع - تفسير السعدي"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-C040",
+  "file": "H07-ST09/H07-C040-03.png",
+  "folder": "H07-ST09",
+  "part": 3,
+  "of": 3,
+  "items": [
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 138,
+    "head": "نهيٌ عن حسبان الذين قُتلوا في سبيل الله "
+   },
+   {
+    "seg": "tadabbur",
+    "k": "p",
+    "split": null,
+    "chars": 236,
+    "head": "وذكر السعدي أن في هذه الآيات تسليةً للأح"
+   },
+   {
+    "seg": "tadabbur",
+    "k": "question",
+    "split": null,
+    "chars": 84,
+    "head": "كيف تتغيّر نظرتي إلى القتل في سبيل الله "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-S01",
+  "file": "H07-SUMMARY/H07-S01-01.png",
+  "folder": "H07-SUMMARY",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 38,
+    "head": "يسير الحزب السابع من البرّ إلى البشرى:"
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 124,
+    "head": "يبدأ بالبذل من المحبوب، ويمرّ بالاعتصام "
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-S02",
+  "file": "H07-SUMMARY/H07-S02-01.png",
+  "folder": "H07-SUMMARY",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 165,
+    "head": "١ صدق الدعوى — ٢ الحبل الجامع — ٣ الخيري"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-S03",
+  "file": "H07-SUMMARY/H07-S03-01.png",
+  "folder": "H07-SUMMARY",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 26,
+    "head": "الصبر: ١٢٠، ١٢٥، ١٤٢، ١٤٦."
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 27,
+    "head": "التقوى: ١٢٠، ١٢٥، ١٣٠، ١٣٣."
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 23,
+    "head": "التوكّل: ١٢٢، ١٥٩، ١٦٠."
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 24,
+    "head": "الأمر كله لله: ١٢٨، ١٥٤."
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 33,
+    "head": "مراجعة النفس: ١٣٥، ١٤٧، ١٥٥، ١٦٥."
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 18,
+    "head": "التمحيص: ١٤١، ١٥٤."
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-S04",
+  "file": "H07-SUMMARY/H07-S04-01.png",
+  "folder": "H07-SUMMARY",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 20,
+    "head": "ماذا أبذل ممّا أحبّ؟"
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 24,
+    "head": "بمن أعتصم، ومع من أجتمع؟"
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 32,
+    "head": "على ماذا يطمئن قلبي عند الأسباب؟"
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 46,
+    "head": "ما الظنّ الذي يغلب على قلبي بالله عند ال"
+   },
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 64,
+    "head": "هل أراجع تقصيري وأصلحه، وآخذ بالأسباب مع"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ },
+ {
+  "id": "H07-S05",
+  "file": "H07-SUMMARY/H07-S05-01.png",
+  "folder": "H07-SUMMARY",
+  "part": 1,
+  "of": 1,
+  "items": [
+   {
+    "seg": "sum",
+    "k": "sum",
+    "split": null,
+    "chars": 98,
+    "head": "هذه خلاصةٌ تدبّرية مستخرجة من هذا الحزب،"
+   }
+  ],
+  "problems": [],
+  "textErrors": []
+ }
+]
