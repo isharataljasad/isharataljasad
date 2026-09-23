@@ -66,7 +66,7 @@ def body(a,b):
             if cur: paras.append(' '.join(cur)); cur=[]
             paras.append(s); continue
         cur.append(s)
-        if re.search(r'[.؟!]\s*$|\}\s*\.$',s):
+        if re.search(r'[.؟!]\s*$|\}\s*\.$',s) and i not in (580,):  # 580: الجملة تستمر في الصورة (R02)
             paras.append(' '.join(cur)); cur=[]
     if cur: paras.append(' '.join(cur))
     return paras,pages,marks
