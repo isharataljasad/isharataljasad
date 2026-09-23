@@ -8,7 +8,7 @@ const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.NODE_PATH + '/playwright');
 
 const C = JSON.parse(fs.readFileSync('content_R03.json', 'utf8'));
-const OUT = process.argv[2] || '../images-R03-F2';
+const OUT = process.argv[2] || '../images-R04';
 const ONLY = process.argv[3] ? process.argv[3].split(',') : null;
 
 const AR = s => String(s).replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
@@ -32,7 +32,7 @@ body{margin:0;background:#ddd;font-family:AR;direction:rtl}
 .ftr .c{color:#fff;font-weight:700;font-size:38px;text-align:center;flex:1}
 .ftr .l{color:#d3b37b;font-size:32px;width:260px;text-align:left}
 .area{position:absolute;left:40px;right:40px;top:224px;bottom:160px;display:flex;flex-direction:column;gap:20px;overflow:hidden}
-.ctitle{flex:0 0 auto;color:var(--g);font-weight:700;font-size:36px;line-height:1.5;padding:0 8px 0 8px;margin-bottom:-4px}
+.ctitle{flex:0 0 auto;color:var(--g);font-weight:700;font-size:36px;line-height:1.5;padding:20px 8px 0 8px;margin-bottom:-24px}
 .panel{background:#fff;border-radius:16px;padding:18px 30px 26px 32px;border-right:7px solid var(--g);flex:0 0 auto}
 .panel.q{border-right-color:var(--gold)}
 .panel.ctx{border-right-color:#c9b58c;background:#fdfaf3}
@@ -41,16 +41,16 @@ body{margin:0;background:#ddd;font-family:AR;direction:rtl}
 .panel.q .lab,.panel.ctx .lab{color:#927036}
 .lab .cont{font-weight:400;color:#7b7a70;font-size:26px}
 .it{margin:0 0 12px}.it:last-child{margin-bottom:0}
-.q .it,.ctx .it{font-family:AQ;font-size:48.5px;line-height:2.02;color:#123d30;text-align:right}
-.p{font-size:48px;line-height:1.865;color:#202d27;text-align:right}
+.q .it,.ctx .it{font-family:AQ;font-size:48.5px;line-height:90px;color:#123d30;text-align:right}
+.p{font-size:48px;line-height:80px;color:#202d27;text-align:right}
 .note{font-size:30px;line-height:1.7;color:#7b7a70}
 .sub{font-size:36px;font-weight:700;color:#927036;text-align:center;border-top:1px solid #e5d7bb;border-bottom:1px solid #e5d7bb;padding:6px 0;margin:8px 0 14px}
-.vs{font-size:48px;line-height:1.865;text-align:center;color:#202d27}
+.vs{font-size:48px;line-height:80px;text-align:center;color:#202d27}
 .endq{font-size:30px;color:#927036;text-align:center;margin-top:4px}
 .src{font-size:28px;color:#7b7a70;line-height:1.6;margin-top:8px}
 .qst{background:#fff;border-radius:12px;padding:12px 22px 16px;border:2px solid var(--gold)}
 .qst .ql{font-weight:700;color:#927036;font-size:32px;display:block;line-height:1.35}
-.qst .qt{font-size:48px;line-height:1.865;color:var(--g);font-weight:700}
+.qst .qt{font-size:48px;line-height:80px;color:var(--g);font-weight:700}
 .area.center{justify-content:center}
 .cover{position:absolute;top:206px;bottom:144px;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 80px}
 .cover .a{color:#927036;font-size:48px;font-weight:700;line-height:1.7}
@@ -129,13 +129,27 @@ function PAGINATE(doc) {
         const e = mk(item.k, text); pn.appendChild(e);
         if (!over()) { pageRec.items.push({ k: item.k, t: text, seg: seg.key }); break; }
         e.remove();
-        if (item.k === 'source' && !item._kept) {
+        if ((item.k === 'source' || item.k === 'question') && !item._kept) {
           const prevEl = [...pn.querySelectorAll('.it')].pop();
           const prevRec = pageRec.items[pageRec.items.length - 1];
-          if (prevEl && prevRec && prevRec.seg === seg.key && !prevRec.split && pn.querySelectorAll('.it').length > 1) {
+          if (prevEl && prevRec && prevRec.seg === seg.key && !prevRec.split && (item.k === 'question' || pn.querySelectorAll('.it').length > 1)) {
             prevEl.remove(); pageRec.items.pop(); item._kept = true;
+            // السؤال يرافق ختام التدبر: يُنقل ذيل الفقرة الأخيرة (من آخر نهاية جملة) لا الفقرة كلها إن طالت
+            let carry = prevRec;
+            if (item.k === 'question') {
+              const pw = prevRec.t.split(' ');
+              if (pw.length > 30) {
+                let cut = 0;
+                for (let b2 = pw.length - 10; b2 >= 8; b2--) if (scoreAt(pw, b2) === 3) { cut = b2; break; }
+                if (cut) {
+                  const headT = pw.slice(0, cut).join(' ');
+                  pn.appendChild(mk(prevRec.k, headT)); pageRec.items.push({ ...prevRec, t: headT, split: 'head' });
+                  carry = { ...prevRec, t: pw.slice(cut).join(' ') };
+                }
+              }
+            }
             newPage(); pn = addPanel(seg, true);
-            pn.appendChild(mk(prevRec.k, prevRec.t)); pageRec.items.push(prevRec);
+            pn.appendChild(mk(carry.k, carry.t)); pageRec.items.push(carry);
             continue;
           }
         }
@@ -216,13 +230,13 @@ C.stations.forEach((st, si) => {
     const segs = [{ key: 'quran', cls: 'q', label: 'القرآن الكريم', items: c.quran.map(t => ({ k: 'q', t: Qr(t), orig: t })) }];
     if (c.context.length) segs.push({ key: 'context', cls: 'ctx', label: c.context_note.replace(/:$/, ''), items: c.context.map(t => ({ k: 'q', t: Qr(t), orig: t })) });
     segs.push({ key: 'tafsir', cls: '', label: 'تفسير السعدي', items: [...c.tafsir.map(x => ({ k: x.k, t: NB(x.t), orig0: x.t })), { k: 'source', t: c.source }] });
-    segs.push({ key: 'tadabbur', cls: 'd', keep: true, label: 'تدبر الفؤاد', items: [...c.tadabbur.map(t => ({ k: 'p', t })), { k: 'question', t: c.question }] });
+    segs.push({ key: 'tadabbur', cls: 'd', label: 'تدبر الفؤاد', items: [...c.tadabbur.map(t => ({ k: 'p', t })), { k: 'question', t: c.question }] });
     docs.push({ id: c.id, folder, l1: L1, l2, ctitle: `${c.title} · ${c.ref}`, segs, card: c, station: st.n });
   }
 });
 C.summaries.forEach(s => {
   const id = 'H07-S' + s.id.slice(5).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
-  docs.push({ id, folder: 'H07-SUMMARY', l1: L1, l2: 'خلاصة المسار التدبّري', ctitle: s.title, areaCls: 'center',
+  docs.push({ id, folder: 'H07-SUMMARY', l1: L1, l2: 'خلاصة المسار التدبري', ctitle: s.title, areaCls: 'center',
     segs: [{ key: 'sum', cls: 'd', label: '', items: s.lines.map(t => ({ k: 'p', t })) }] });
 });
 
