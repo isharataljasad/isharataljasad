@@ -259,8 +259,16 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: ['BM-EXPONENT-01'],
     next: ['ALG-VARIABLE-01', 'CE-MATBAL-01'],
-    approaches: { 3: '/foundations/reading/basic-math/order-of-operations/' },
-    evidence: 'Supplied Basic Math episode 01.3.',
+    hub: '/foundations/concepts/order-of-operations/',
+    approaches: {
+      1: '/foundations/concepts/order-of-operations/approach-1/',
+      2: '/foundations/concepts/order-of-operations/approach-2/',
+      3: '/foundations/reading/basic-math/order-of-operations/',
+    },
+    evidence: 'Supplied Basic Math episode 01.3. Reference and practice routes written to close '
+      + 'the coverage gap. The practice route keeps one expression fixed and alters a single mark '
+      + 'per family, because on this topic nearly every wrong answer is the correct value of a '
+      + 'slightly different expression, and naming that expression is the feedback that helps.',
   },
   {
     id: 'BM-EXPONENT-01',
@@ -273,8 +281,16 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: ['BM-EXPRESSION-01'],
     next: ['BM-ORDER-01'],
-    approaches: { 3: '/foundations/reading/basic-math/exponents/' },
-    evidence: 'Supplied Basic Math episode 01.2.',
+    hub: '/foundations/concepts/exponents/',
+    approaches: {
+      1: '/foundations/concepts/exponents/approach-1/',
+      2: '/foundations/concepts/exponents/approach-2/',
+      3: '/foundations/reading/basic-math/exponents/',
+    },
+    evidence: 'Supplied Basic Math episode 01.2. Reference and practice routes written to close '
+      + 'the coverage gap. The practice route works on one square tile so that squaring a length '
+      + 'carries a visible consequence — the unit changes and the area scales by the square of the '
+      + 'scale factor — rather than being an exercise in symbol handling.',
   },
   {
     id: 'BM-EXPRESSION-01',
@@ -308,7 +324,12 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: ['BM-EXPRESSION-01'],
     next: ['GEO-COORDINATE-01', 'GEO-SEGMENT-01'],
-    approaches: { 3: '/foundations/reading/basic-math/integers-and-the-number-line/' },
+    hub: '/foundations/concepts/integers-and-the-number-line/',
+    approaches: {
+      1: '/foundations/concepts/integers-and-the-number-line/approach-1/',
+      2: '/foundations/concepts/integers-and-the-number-line/approach-2/',
+      3: '/foundations/reading/basic-math/integers-and-the-number-line/',
+    },
     evidence: 'Supplied Basic Math episode 04.1. Written to close the gap the coverage ledger exposed: this concept is a prerequisite of the coordinate plane but had no treatment at all.',
     verified: {
       on: '2026-09-21',
