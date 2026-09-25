@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {catalog} from '../program/catalog.mjs';
+import {concepts,approaches} from '../program/concepts.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const knownIds=new Set();
 for(const c of catalog.courses){
@@ -31,5 +32,22 @@ for(const c of catalog.courses){
  const content=`<p class="program-breadcrumb"><a href="/program/">Programme</a> / <a href="/program/#semester-${c.semester}">${c.semester==='elective'?'Electives':`Semester ${c.semester}`}</a> / ${e(c.code)}</p><p class="eyebrow">${e(c.code)} · ${c.credits} CREDITS · ${c.semester==='elective'?'ELECTIVE OPTION':`SEMESTER ${c.semester}`}</p><h1>${e(c.title)}</h1><span class="badge ${c.resources.length?'ready':''}">${status(c)}</span><div class="learning-sequence"><span>Understand</span><span>See an example</span><span>Apply</span><span>Explain your reasoning</span></div><div class="course-layout"><div><section class="program-panel"><h2>Available learning</h2>${resources}${c.status==='starter-available'?'<p>This first lesson covers steady, nonreacting mixing. It does not cover the entire course.</p>':''}</section><section class="program-panel"><h2>Proposed study outline</h2><p>${note}</p><ol class="course-outline">${c.topics.map(topic=>`<li>${e(topic)}<span>Organising topic · detailed coverage to be checked against the course outline</span></li>`).join('')}</ol></section><section class="program-panel"><h2>How to use this course</h2><p>${c.resources.length?'Start with the available explanation. Write down the quantities, definitions and assumptions in your own words. Follow the worked example before attempting an unfamiliar case.':'Use the proposed outline to see what this course will involve. Begin with the suggested preparation while its teaching chapters are being developed.'} If a step is unclear, return to its mathematical or scientific prerequisite.</p><p>New lessons will appear under Available learning. Use the college’s current course outline to check which topics and assessments apply to your class.</p></section></div><aside><section class="program-panel"><h2>My study list</h2><button type="button" class="course-save" data-save-course="${c.id}" aria-pressed="false">Save to my study list</button><p id="save-note" class="local-note">Saved on this browser. Saving does not mean you completed the course.</p></section><section class="program-panel"><h2>Suggested preparation</h2>${preparation?`<ul>${preparation}</ul>`:'<p>Gather your lecturer’s outline, assigned readings and assessment instructions.</p>'}<p class="local-note">These are study suggestions, not official prerequisites.</p></section><section class="program-panel"><h2>Course record</h2><p>Code and placement: ${c.semester===1?'saved college plan':'supplied study plan image and saved college plan'}. Credits: saved college plan.</p><p><a href="/program/#sources">Read source notes and known code differences →</a></p></section></aside></div>`;
  write(`program/courses/${c.id.toLowerCase()}/index.html`,shell(`${c.code} · ${c.title}`,content));
 }
-write('program/lessons/material-balances/index.html',shell('A first material balance',fs.readFileSync(path.join(root,'program/lessons/source/material-balances.html'),'utf8'),{script:'/program/lessons/balance-ui.mjs'}));
+/* A programme lesson can also be one concept's third route. When it is, it
+   carries the same route switcher as a reading chapter, so a reader can move
+   between the three treatments from any of them. test/curriculum.mjs checks
+   that this navigation works in every direction. */
+function routeSwitcher(url){
+ const concept=concepts.find(c=>Object.values(c.approaches).includes(url));
+ if(!concept)return '';
+ if(approaches.filter(a=>concept.approaches[a.number]).length<2)return '';
+ const items=approaches.map(a=>{
+  const href=concept.approaches[a.number];
+  const label=`<span class="switch-number">Approach ${a.number}</span><span class="switch-name">${e(a.name)}</span>`;
+  if(!href)return `<span class="concept-switch-item is-missing">${label}<span class="switch-note">not written yet</span></span>`;
+  return `<a class="concept-switch-item" href="${e(href)}"${href===url?' aria-current="page"':''}>${label}<span class="switch-note">${e(a.bestFor)}</span></a>`;
+ }).join('');
+ return `<nav class="concept-switch" aria-label="Three ways to learn this concept">${items}</nav><p class="program-note"><a href="${e(concept.hub||'/foundations/concepts/')}">Compare the three routes for ${e(concept.title)} →</a></p>`;
+}
+
+write('program/lessons/material-balances/index.html',shell('A first material balance',routeSwitcher('/program/lessons/material-balances/')+fs.readFileSync(path.join(root,'program/lessons/source/material-balances.html'),'utf8'),{script:'/program/lessons/balance-ui.mjs'}));
 console.log(`Built programme map: ${catalog.courses.length} course records, eight semesters and one original process lesson.`);

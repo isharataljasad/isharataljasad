@@ -256,7 +256,12 @@ export const concepts = [
     courses: ['MA101', 'PHY101'],
     prerequisites: ['GEO-MIDPOINT-01'],
     next: ['TRIG-ANGLE-01'],
-    approaches: { 3: '/foundations/reading/geometry/angles/' },
+    hub: '/foundations/concepts/angles-geometry/',
+    approaches: {
+      1: '/foundations/concepts/angles-geometry/approach-1/',
+      2: '/foundations/concepts/angles-geometry/approach-2/',
+      3: '/foundations/reading/geometry/angles/',
+    },
     evidence: 'Supplied Geometry episode 05. The arm-length figure was drawn because that misconception is the one a diagram actively encourages.',
     verified: {
       on: '2026-09-21',
@@ -372,7 +377,12 @@ export const concepts = [
     courses: ['MA101', 'PHY101'],
     prerequisites: ['GEO-COORDINATE-01', 'GEO-ANGLE-01'],
     next: [],
-    approaches: { 3: '/foundations/reading/trigonometry/angles/' },
+    hub: '/foundations/concepts/angles/',
+    approaches: {
+      1: '/foundations/concepts/angles/approach-1/',
+      2: '/foundations/concepts/angles/approach-2/',
+      3: '/foundations/reading/trigonometry/angles/',
+    },
     evidence: 'Supplied Trigonometry episode 1.1.',
   },
   {
@@ -386,7 +396,12 @@ export const concepts = [
     courses: ['CE201'],
     prerequisites: ['BM-ORDER-01', 'ALG-VARIABLE-01'],
     next: [],
-    approaches: { 3: '/program/lessons/material-balances/' },
+    hub: '/foundations/concepts/material-balances/',
+    approaches: {
+      1: '/foundations/concepts/material-balances/approach-1/',
+      2: '/foundations/concepts/material-balances/approach-2/',
+      3: '/program/lessons/material-balances/',
+    },
     evidence: 'Original lesson written for CE 201 from the course topic list. No episode inventory covers this course.',
     verified: {
       on: '2026-09-21',
