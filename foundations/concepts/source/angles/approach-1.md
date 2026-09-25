@@ -64,7 +64,9 @@ Adding or removing whole turns leaves the terminal ray unmoved.
 | degrees | `θ + 360k` for integer `k` |
 | radians | `θ + 2πk` for integer `k` |
 
-`-30°`, `330°` and `690°` all end on the same ray and describe three different rotations. Reduce by whole turns when you need the direction; keep the original when the amount of rotation is what matters — a motor that has turned `690°` has not done the same work as one that turned `-30°`.
+`-30°`, `330°` and `690°` all end on the same ray and describe three different rotations. Reduce by whole turns when you need the direction; keep the original when the amount of rotation is what matters — turning through `690°` sweeps `23` times the angle of `-30°`, and a point on the rim at radius `r` travels `23` times as far.
+
+Note what that does **not** settle. Rotational work is `W = ∫ τ dθ`, which reduces to `τ Δθ` only when the torque is constant, so the angle alone cannot tell you how much work was done. An ideal shaft turning against no net torque does zero work through any angle. Angle fixes the geometry — how far the rim travelled — and nothing about energy without a stated torque.
 
 ## Terminal direction: check the axes first
 

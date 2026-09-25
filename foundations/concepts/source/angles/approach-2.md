@@ -60,16 +60,28 @@ The log records three separate movements of the dish: `-30°`, `330°`, and `690
 
 ### Decide: do the three end with the marker pointing the same way?
 
-### Then decide: did the dish do the same amount of work in each case?
+### Then decide: did the rim marker travel the same distance in each case?
+
+Assume the dish turns steadily in the stated direction, without reversing.
 
 :::answer What coterminal shares, and what it does not
 Yes to the first: all three are coterminal. They differ by whole revolutions — `330 = -30 + 360` and `690 = -30 + 720` — so the marker finishes in the same direction every time.
 
-No to the second. The three record rotations of thirty degrees clockwise, three hundred and thirty counterclockwise, and almost two full revolutions counterclockwise. A motor driving the third turned nearly twenty-three times as far as one driving the first, and in the opposite direction.
+No to the second. Path length uses the **size** of the rotation, `|θ| r`, not the reduced angle. At `r = 2.5 m`:
 
-So coterminal means *the terminal rays coincide*, not *the angles are interchangeable*. Reduce by whole turns when the question is about direction — which quadrant, which trigonometric value. Keep the original measure when the question is about the turning itself — how long the motor ran, how far the marker travelled, how much cable wound onto the mast.
+| Movement | `|θ|` in radians | Distance travelled |
+| --- | --- | --- |
+| `-30°` | `0.524` | `1.31 m` |
+| `330°` | `5.760` | `14.40 m` |
+| `690°` | `12.043` | `30.11 m` |
 
-The error worth naming: reducing an angle by whole turns out of habit, in a question that was asking about the rotation.
+The third sweeps exactly `23` times the angle of the first — `690/30 = 23` — so its marker travels exactly `23` times as far, and in the opposite direction.
+
+So coterminal means *the terminal rays coincide*, not *the angles are interchangeable*. Reduce by whole turns when the question is about direction — which quadrant, which trigonometric value. Keep the original measure when the question is about the sweep itself: distance along the rim, or cable wound onto the mast.
+
+**What the angle does not settle.** It does not give the time taken, which needs a rotational speed. And it does not give the work done, which is `W = ∫ τ dθ` and needs the torque; with no net torque an ideal shaft does zero work through any angle at all. Angle fixes geometry, not energy and not duration.
+
+The error worth naming: reducing an angle by whole turns out of habit, in a question that was asking about the sweep.
 :::
 
 ## Family 4 · Where does it finish?
