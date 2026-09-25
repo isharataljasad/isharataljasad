@@ -132,7 +132,12 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: ['BM-ORDER-01'],
     next: ['ALG-FUNCTION-01', 'CE-MATBAL-01'],
-    approaches: { 3: '/foundations/reading/algebra/variables-and-expressions/' },
+    hub: '/foundations/concepts/variables-and-expressions/',
+    approaches: {
+      1: '/foundations/concepts/variables-and-expressions/approach-1/',
+      2: '/foundations/concepts/variables-and-expressions/approach-2/',
+      3: '/foundations/reading/algebra/variables-and-expressions/',
+    },
     evidence: 'Supplied Algebra 1 episode 01.',
   },
   {
