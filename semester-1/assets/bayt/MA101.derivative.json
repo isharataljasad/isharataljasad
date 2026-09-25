@@ -6,20 +6,20 @@
    "version": "2486e7cbeb19",
    "answer": 10,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "‎f(5 + h) = 25 + 10h + h²‎، فالبسط بعد الطرح ‎10h + h²‎، والقسمة على ‎h‎ تعطي ‎10 + h‎، والنهاية عند ‎h → 0‎ هي 10.",
+   "unit": "Number",
+   "solution": "f(5 + h) = 25 + 10h + h², so the numerator after subtraction is 10h + h², Dividing by h gives 10 + h, and the limit at h → 0 is 10.",
    "commonErrors": [
     {
      "value": 25,
-     "why": "أعطيتَ ‎f(5)‎ لا ‎f′(5)‎. الأولى ارتفاع المنحنى عند 5، والثانية ميله هناك."
+     "why": "You gave f(5) not f′(5). the first the height of the curve at 5, and the second its slope there."
     },
     {
      "value": 5,
-     "why": "كتبتَ النقطة ‎a‎ نفسها. المشتقة عدد آخر يصف الميل، وليست إحداثي النقطة."
+     "why": "You wrote the point a itself. The derivative is another number that describes the slope, not the coordinate of the point."
     },
     {
      "value": 2,
-     "why": "كتبتَ الأُسّ. مشتقة ‎x²‎ هي ‎2x‎، وعند ‎x = 5‎ تساوي 10 لا 2."
+     "why": "You wrote the exponent. The derivative of x² is 2x, and when x = 5 is equal to 10 not 2."
     }
    ]
   },
@@ -28,20 +28,20 @@
    "version": "2fc85d616e8a",
    "answer": 5,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "‎(f(4) − f(1))/(4 − 1) = (16 − 1)/3 = 15/3 = 5‎. وهذا ميل القاطع بين النقطتين، لا ميل المماس عند أيّهما.",
+   "unit": "Number",
+   "solution": "‎(f(4) − f(1))/(4 − 1) = (16 − 1)/3 = 15/3 = 5‎. This is the slope of the secant between the two points, not the slope of the tangent at either point.",
    "commonErrors": [
     {
      "value": 15,
-     "why": "نسيتَ القسمة على طول الفترة. الفرق في ‎f‎ وحده ليس معدلًا؛ المعدل نسبةٌ بين تغيّرين."
+     "why": "You forgot to divide by the interval. The difference in f alone is not modified; The rate is a ratio between two changes."
     },
     {
      "value": 8,
-     "why": "حسبتَ المشتقة اللحظية عند ‎x = 4‎. المتوسط يصف الفترة كلها، والمشتقة تصف نقطة واحدة، وهما لا يتساويان هنا."
+     "why": "You calculated the instantaneous derivative at x = 4. The average describes the entire interval, The derivative describes one point, and they are not equal here."
     },
     {
      "value": 2,
-     "why": "حسبتَ المشتقة اللحظية عند ‎x = 1‎ بدل المتوسط على الفترة."
+     "why": "You calculated the instantaneous derivative at x = 1 instead of the average over the interval."
     }
    ]
   },
@@ -50,20 +50,20 @@
    "version": "6f6c1f583225",
    "answer": 10,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "‎f(2 + h) = 3(4 + 4h + h²) − 2(2 + h) = 12 + 12h + 3h² − 4 − 2h‎. اطرح ‎f(2) = 8‎ فيبقى ‎10h + 3h²‎، واقسم على ‎h‎ فتحصل على ‎10 + 3h‎، والنهاية 10.",
+   "unit": "Number",
+   "solution": "‎f(2 + h) = 3(4 + 4h + h²) − 2(2 + h) = 12 + 12h + 3h² − 4 − 2h‎. Subtract f(2) = 8 and you get 10h + 3h², divide by h and you get 10 + 3h. And the limit is 10.",
    "commonErrors": [
     {
      "value": 8,
-     "why": "أعطيتَ ‎f(2) = 3(4) − 4 = 8‎، وهي قيمة الدالة لا مشتقتها."
+     "why": "You are given f(2) = 3(4) − 4 = 8, which is the value of the function, not its derivative."
     },
     {
      "value": 12,
-     "why": "أهملتَ الحدّ ‎−2x‎. مشتقته ‎−2‎ تُطرح من 12 فتعطي 10."
+     "why": "You neglected the term −2x., its derivative −2 is subtracted from 12 to give 10."
     },
     {
      "value": 4,
-     "why": "حسبتَ متوسط معدل التغيّر من ‎0‎ إلى ‎2‎: ‎(8 − 0)/2 = 4‎، وهو ميل قاطع لا ميل مماس."
+     "why": "You calculated the average rate of change from 0 to 2: (8 − 0)/2 = 4, It is a conclusive slope, not a tangent slope."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": 30,
    "tolerance": 0.01,
    "unit": "m/s",
-   "solution": "السرعة اللحظية ‎s′(t)‎. من التعريف: ‎s(3 + h) − s(3) = 30h + 5h²‎، والقسمة على ‎h‎ تعطي ‎30 + 5h‎، والنهاية ‎30 m/s‎.",
+   "solution": "Instantaneous speed s′(t). from definition : s(3 + h) − s(3) = 30h + 5h², Dividing by h gives 30 + 5h, and the limit is 30 m/s.",
    "commonErrors": [
     {
      "value": 45,
-     "why": "أعطيتَ الموضع ‎s(3) = 45 m‎ لا السرعة. الموضع بالمتر والسرعة بالمتر لكل ثانية، ووحدتاهما مختلفتان."
+     "why": "You gave the position s(3) = 45 m, not the speed. Position is in meters and speed is in meters per second, and their units are different."
     },
     {
      "value": 15,
-     "why": "حسبتَ ‎s(3)/3 = 15‎، وهي السرعة المتوسطة من ‎t = 0‎ إلى ‎t = 3‎، لا السرعة اللحظية عند ‎t = 3‎. المتوسط يصف رحلة، واللحظي يصف لحظة."
+     "why": "You calculated s(3)/3 = 15, which is the average speed from t = 0 to t = 3, No instantaneous speed at t = 3. average describes a trip, instantaneous describes an instant."
     },
     {
      "value": 10,
-     "why": "كتبتَ المعامل ‎10‎ من ‎s′(t) = 10t‎ دون ضربه في ‎t = 3‎."
+     "why": "You wrote the parameter 10 from s′(t) = 10t without multiplying it by t = 3."
     }
    ]
   },
@@ -94,20 +94,20 @@
    "version": "c5e2272cb937",
    "answer": -0.25,
    "tolerance": 0.002,
-   "unit": "عدد",
-   "solution": "البسط ‎1/(2 + h) − 1/2 = −h/(2(2 + h))‎. اقسم على ‎h‎ فتحصل على ‎−1/(2(2 + h))‎، وعند ‎h = 0‎ يساوي ‎−1/4 = −0.25‎.",
+   "unit": "Number",
+   "solution": "Numerator 1/(2 + h) − 1/2 = −h/(2(2 + h)). Divide by h and you get −1/(2(2 + h)), and when h = 0 equals −1/4 = −0.25.",
    "commonErrors": [
     {
      "value": 0.25,
-     "why": "أهملتَ الإشارة السالبة. الدالة ‎1/x‎ متناقصة عند ‎x = 2‎، فمشتقتها سالبة حتمًا؛ والإشارة تأتي من ‎2 − (2 + h) = −h‎."
+     "why": "You ignored the negative sign. The function 1/x is decreasing at x = 2, Its derivative is definitely negative; The sign comes from 2 − (2 + h) = −h."
     },
     {
      "value": 0.5,
-     "why": "أعطيتَ ‎f(2) = 1/2‎، وهي قيمة الدالة لا ميلها."
+     "why": "You are given f(2) = 1/2, which is the value of the function, not its slope."
     },
     {
      "value": -0.5,
-     "why": "نسيتَ تربيع المقام. الناتج ‎−1/(2 × 2)‎ لا ‎−1/2‎."
+     "why": "You forgot to square the denominator. Output −1/(2 × 2) not −1/2."
     }
    ]
   }

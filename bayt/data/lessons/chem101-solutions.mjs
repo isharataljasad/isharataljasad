@@ -4,7 +4,7 @@
    والنقاط تمثّل كمية المذاب، لا بلوراتٍ داخل المحلول:
    الملح المذاب يتفكّك إلى أيونات ولا يبقى على هيئة بلورات. */
 const figure = `<svg viewBox="0 0 480 270" role="img" aria-labelledby="fig-dil-title" class="bayt-svg">`
-  + `<title id="fig-dil-title">كأسان: الأول محلول مركّز والثاني بعد إضافة الماء، وكمية المذاب واحدة فيهما</title>`
+  + `<title id="fig-dil-title">Two cups: the first is a concentrated solution and the second is after adding water, and the amount of solute is the same in both</title>`
   /* الكأس الأول: ماء أقل. */
   + `<rect x="62" y="128" width="116" height="80" fill="#cfe6ef"/>`
   + `<path d="M 60 60 L 60 210 L 180 210 L 180 60" fill="none" stroke="#284955" stroke-width="3"/>`
@@ -22,10 +22,10 @@ const figure = `<svg viewBox="0 0 480 270" role="img" aria-labelledby="fig-dil-t
   /* سهم الإضافة. */
   + `<line x1="196" y1="135" x2="282" y2="135" stroke="#c69748" stroke-width="3"/>`
   + `<polyline points="272,128 282,135 272,142" fill="none" stroke="#c69748" stroke-width="3"/>`
-  + `<text x="282" y="122" font-size="15" fill="#c69748" text-anchor="end">أضف ماءً</text>`
+  + `<text x="282" y="122" font-size="15" fill="#c69748" text-anchor="end">Add water</text>`
   + `<text x="120" y="234" font-size="16" fill="#153748" text-anchor="middle">0.20 M</text>`
   + `<text x="360" y="234" font-size="16" fill="#153748" text-anchor="middle">0.10 M</text>`
-  + `<text x="240" y="258" font-size="13" fill="#566f7a" text-anchor="middle">عدد النقاط واحد في الكأسين؛ الحجم وحده تضاعف</text>`
+  + `<text x="240" y="258" font-size="13" fill="#566f7a" text-anchor="middle">The number of points is the same in both cups; The volume alone doubled</text>`
   + `</svg>`;
 
 export default {
@@ -33,196 +33,196 @@ export default {
   topic: 'solutions',
 
   objectives: [
-    'تحسب المولارية من كتلة المذاب وحجم المحلول، بتحويل الكتلة إلى مولات أولًا.',
-    'تحلّ مسائل التخفيف بحفظ كمية المذاب، وتحسب الحجم أو التركيز المجهول.',
-    'تختار مقياس التركيز المناسب، وتفرّق بين المولارية والنسبة الكتلية.',
+    "Molarity is calculated from the mass of the solute and the volume of the solution, first converting the mass to moles.",
+    "Use conservation of solute amount to calculate an unknown volume or concentration after dilution.",
+    "Choose the appropriate concentration scale, and differentiate between molarity and mass percentage.",
   ],
 
   boundaries: [
-    'الخواص التجميعية (ارتفاع درجة الغليان، الضغط الأسموزي) ليست في هذا الدرس.',
-    'الذوبانية ومنحنياتها وتأثير الحرارة عليها ليست هنا.',
-    'المحاليل غير المثالية وتغيّر الحجم عند المزج خارج نطاق الدرس؛ '
-      + 'نفترض أن الحجوم جمعية.',
-    'حسابات التفاعل في المحلول وعامل التحديد موضوع درس «التفاعلات في المحلول».',
+    "Collective properties (boiling point elevation, osmotic pressure) are not covered in this lesson.",
+    "Solubility, its curves, and the effect of heat on it are not here.",
+    "Non-ideal solutions and volume changes when mixing are outside the scope of the lesson; "
+      + "We assume that the volumes are additive.",
+    "Calculations of the reaction in solution and the determination factor are the subject of the lesson “Reactions in Solution”.",
   ],
 
   prerequisites: [
     {
-      title: 'تحويل الكتلة إلى مولات',
-      why: 'المولارية تُعرَّف بالمولات لا بالغرامات، فمن يقسم الغرامات على اللترات يحصل على شيء آخر.',
-      recap: 'عدد المولات ‎n = m / M‎ حيث ‎m‎ الكتلة بالغرام و‎M‎ الكتلة المولية بـ ‎g/mol‎. '
-        + 'والكتلة المولية تُجمع من الجدول الدوري: ‎M(NaCl) = 22.99 + 35.45 = 58.44 g/mol‎. '
-        + 'مثال: ‎11.69 g‎ من ‎NaCl‎ تساوي ‎11.69 / 58.44 = 0.200 mol‎.',
+      title: "Convert mass to moles",
+      why: "Molarity is defined in moles, not grams, so whoever divides grams by liters gets something else.",
+      recap: "The number of moles is n = m / M, where m is the mass in grams and M is the molar mass in g/mol. "
+        + "The molar mass is collected from the periodic table : M(NaCl) = 22.99 + 35.45 = 58.44 g/mol. "
+        + "Example: 11.69 g from NaCl equals 11.69 / 58.44 = 0.200 mol.",
       href: '/semester-1/chemistry/atomic-structure/',
-      hrefLabel: 'الكتلة الذرية في درس تركيب الذرة',
+      hrefLabel: "Atomic mass in the lesson on the structure of the atom",
     },
     {
-      title: 'تحويل المليلتر إلى لتر',
-      why: 'وحدة المولارية ‎mol/L‎، وترك الحجم بالمليلتر يعطي ناتجًا أصغر ألف مرة.',
-      recap: '‎1 L = 1000 mL‎، فالتحويل قسمة على ألف: ‎250 mL = 0.250 L‎. '
-        + 'وعلامة الخطأ سريعة: تركيز محلول مخبري معتاد يقع بين ‎0.01‎ و‎10 mol/L‎، '
-        + 'فإن خرج ناتجك بالمئات فأنت غالبًا لم تحوّل الحجم.',
+      title: "Convert milliliters to liters",
+      why: "The unit for molarity is mol/L, leaving the volume in milliliters gives a result a thousand times smaller.",
+      recap: "1 L = 1000 mL, the conversion is divided by one thousand: 250 mL = 0.250 L. "
+        + "The sign of error is quick: a typical laboratory solution concentration falls between 0.01 and 10 mol/L, "
+        + "If your output comes out in the hundreds, you probably did not convert the volume.",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'المذاب والمذيب',
+        term: "Solute and solvent",
         en: 'Solute and solvent',
-        text: 'المذاب هو المكوّن الأقل كمية والذي ينتشر في الآخر، والمذيب هو الأكثر. '
-          + 'والمحلول مجموعهما. وأكثر الأخطاء في هذا الدرس سببه الخلط بين «كتلة المذيب» '
-          + 'و«كتلة المحلول» عند حساب النسبة الكتلية.',
+        text: "The solute is the component with the least amount that diffuses into the other, and the solvent the most. "
+          + "The solution is their sum. Most of the errors in this lesson are caused by confusing the “mass of the solvent” "
+          + "And the “mass of the solution” when calculating the mass percentage.",
       },
       {
-        term: 'المولارية',
+        term: "Molarity",
         en: 'Molarity (M)',
-        text: 'مولات المذاب في لتر واحد من **المحلول**، لا من المذيب: ‎M = n / V‎ بوحدة ‎mol/L‎. '
-          + 'ولهذا يُذاب المذاب أولًا ثم يُكمَّل الحجم إلى العلامة، ولا يُضاف لترٌ من الماء ابتداءً.',
+        text: "Moles of solute in one liter of **solution**, not of solvent : M = n / V in mol/L. "
+          + "For this reason, the solute is dissolved first, then the volume is brought to the mark, and a liter of water is not added to begin with.",
       },
       {
-        term: 'النسبة الكتلية',
+        term: "Mass ratio",
         en: 'Mass percent',
-        text: 'كتلة المذاب مقسومة على كتلة المحلول كلها، مضروبة في مئة. '
-          + 'ولا تحتاج كتلة مولية ولا حجمًا، فهي مفيدة حين تكون الكتلة المولية مجهولة '
-          + 'أو حين يكون المحلول خليطًا غير محدَّد التركيب.',
+        text: "The mass of the solute divided by the mass of the entire solution, multiplied by one hundred. "
+          + "It does not require molar mass or volume, and is useful when the molar mass is unknown "
+          + "Or when the solution is a mixture of uncertain composition.",
       },
       {
-        term: 'المولالية',
+        term: "Molality",
         en: 'Molality (m)',
-        text: 'مولات المذاب لكل كيلوغرام من **المذيب**. '
-          + 'وتختلف عن المولارية في المقام: هذه تنسب إلى المذيب بالكتلة، وتلك إلى المحلول بالحجم. '
-          + 'وتُفضَّل المولالية حين تتغيّر الحرارة، لأن الكتلة لا تتمدّد بينما الحجم يتمدّد.',
+        text: "Moles of solute per kilogram of **solvent**. "
+          + "It differs from molarity in the denominator: this is attributed to the solvent by mass, and that to the solution by volume. "
+          + "Molality is preferred when temperature changes, because mass does not expand while volume does.",
       },
       {
-        term: 'التخفيف',
+        term: "Dilution",
         en: 'Dilution',
-        text: 'إضافة مذيب إلى محلول. كمية المذاب لا تتغيّر البتة، والحجم يزيد، فالتركيز ينقص. '
-          + 'وهذا هو مضمون العلاقة ‎C₁V₁ = C₂V₂‎.',
+        text: "Adding a solvent to a solution. The amount of solute does not change at all, the volume increases, but the concentration decreases. "
+          + "This is the content of the relationship C₁V₁ = C₂V₂.",
       },
     ],
     relations: [
       {
         formula: 'M = n / V   (mol / L of solution)',
-        name: 'المولارية',
-        note: 'الحجم حجم المحلول النهائي، لا حجم المذيب المضاف.',
+        name: "Molarity",
+        note: "Volume The volume of the final solution, not the volume of solvent added.",
       },
       {
         formula: 'n = m / M_molar',
-        name: 'المولات من الكتلة',
-        note: 'خطوة لا تُتجاوز: المولارية لا تقبل الغرامات مباشرة.',
+        name: "Moles of mass",
+        note: "An unmissable step: Molarity does not accept fines directly.",
       },
       {
         formula: 'C₁V₁ = C₂V₂',
-        name: 'التخفيف',
-        note: 'الطرفان يمثّلان مولات المذاب نفسها قبل الإضافة وبعدها.',
+        name: "Dilution",
+        note: "The two sides represent moles of the same solute before and after addition.",
       },
       {
         formula: 'mass % = (mass solute / mass solution) × 100',
-        name: 'النسبة الكتلية',
-        note: 'المقام كتلة المحلول: المذاب والمذيب معًا.',
+        name: "Mass ratio",
+        note: "The denominator is the mass of the solution: the solute and solvent combined.",
       },
     ],
     derivation: {
-      title: 'من أين جاءت C₁V₁ = C₂V₂ ولماذا لا تصلح للمزج',
-      intro: 'تُحفظ هذه العلاقة كثيرًا وتُستعمل في غير موضعها. ولو رأيتَ من أين جاءت لعرفتَ متى تنكسر.',
+      title: "Where did C₁V₁ = C₂V₂ come from and why is it not suitable for mixing",
+      intro: "This relationship is often memorized and used out of place. If you saw where it came from, you would know when it breaks.",
       steps: [
         {
-          do: 'اكتب مولات المذاب قبل التخفيف: ‎n₁ = C₁ × V₁‎.',
-          why: 'هذا مجرد قلب لتعريف المولارية ‎C = n/V‎، وليس قانونًا جديدًا.',
+          do: "Write the moles of solute before dilution: n₁ = C₁ × V₁.",
+          why: "This is just a reversal of the definition of molarity C = n/V, not a new law.",
         },
         {
-          do: 'لاحظ أن إضافة الماء لا تضيف مذابًا ولا تُنقصه، فـ ‎n₂ = n₁‎.',
-          why: 'هذه هي الفكرة كلها: المحفوظ هو كمية المذاب، لا التركيز ولا الحجم. '
-            + 'والتركيز ينقص لأن البسط ثابت والمقام كبر.',
+          do: "Note that adding water does not add or subtract solute, so n₂ = n₁.",
+          why: "That's the whole idea: what is preserved is the amount of solute, not the concentration or the volume. "
+            + "The concentration decreases because the numerator is fixed and the denominator is increased.",
         },
         {
-          do: 'اكتب المولات بعد التخفيف ‎n₂ = C₂ × V₂‎ وساوِ بين التعبيرين: ‎C₁V₁ = C₂V₂‎.',
-          why: 'المساواة ليست بين التركيزين ولا بين الحجمين، بل بين حاصلَي الضرب، '
-            + 'لأن كلًّا منهما يساوي عدد المولات نفسه.',
+          do: "Write the moles after dilution as n₂ = C₂ × V₂ and equate the two expressions as : C₁V₁ = C₂V₂.",
+          why: "Equality is not between the two concentrations nor between the two sizes, but rather between the two products. "
+            + "Because each of them equals the same number of moles.",
         },
         {
-          do: 'ولهذا تنكسر عند مزج محلولين فيهما مذاب: عندئذٍ ‎n = n₁ + n₂‎.',
-          why: 'الاشتقاق افترض أن المضاف خالٍ من المذاب. فإن كان فيه مذاب وجب جمع المولات '
-            + 'ثم القسمة على الحجم الكلي، وهذه موازنة مكوّن لا تخفيف.',
+          do: "This is why it breaks when two solutions containing a solute are mixed: then n = n₁ + n₂.",
+          why: "Derivation Assume that the additive is free of solute. If there is solute in it, the moles must be added "
+            + "Then divide by the total volume, and this is component balancing, not dilution.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'التخفيف: المذاب ثابت والحجم يزيد',
+    title: "Dilution: The solute is constant and the volume increases",
     figure: {
       svg: figure,
-      caption: 'كأسان: عدد النقاط واحد فيهما، والماء وحده زاد. '
-        + 'النقاط تمثّل كمية المذاب؛ والملح المذاب لا يوجد على هيئة بلورات داخل المحلول بل يتفكّك إلى أيونات.',
-      alt: 'كأسان متجاوران متساويا الحجم. في الأول ماء يملأ الجزء الأسفل وفيه ثماني نقاط خضراء '
-        + 'متقاربة، وتحته مكتوب تركيزه. وبينهما سهم يشير إلى إضافة الماء. '
-        + 'وفي الثاني الماء أعلى بكثير وفيه ثماني نقاط أيضًا لكنها متباعدة، وتحته تركيز يساوي '
-        + 'نصف الأول. فعدد النقاط لم يتغيّر وإنما اتسع الحيّز الذي توزّعت فيه.',
+      caption: "Two cups: the number of drops is the same, and the water alone is more. "
+        + "The dots represent the amount of solute; The dissolved salt does not exist in the form of crystals inside the solution, but rather disintegrates into ions.",
+      alt: "Two cups side by side of equal volume. In the first, water fills the lower part, and there are eight green dots in it "
+        + "Close together, and below it is written its concentration. Between them is an arrow indicating the addition of water. "
+        + "In the second, the water is much higher, and it also has eight points, but they are far apart, and below it there is an equal concentration "
+        + "First half. The number of points did not change, but the space in which they were distributed expanded.",
     },
     table: {
-      caption: 'ثلاثة مقاييس للتركيز: ما البسط وما المقام',
-      head: ['المقياس', 'البسط', 'المقام', 'يتأثر بالحرارة؟', 'متى تختاره'],
+      caption: "Three measures of concentration: what is the numerator and what is the denominator",
+      head: ["Scale", "numerator", "The place", "Affected by heat?", "When do you choose it?"],
       rows: [
-        ['المولارية M', 'مولات المذاب', 'لتر المحلول', 'نعم، لأن الحجم يتمدّد', 'التفاعلات في المحلول'],
-        ['النسبة الكتلية', 'كتلة المذاب', 'كتلة المحلول', 'لا', 'حين تجهل الكتلة المولية'],
-        ['المولالية m', 'مولات المذاب', 'كيلوغرام المذيب', 'لا', 'الخواص التجميعية'],
+        ["Molarity M", "Moles of solute", "liter of solution", "Yes, because volume expands", "Reactions in solution"],
+        ["Mass ratio", "mass of solute", "Mass of solution", "No", "When you don't know the molar mass"],
+        ["Molality m", "Moles of solute", "kilogram of solvent", "No", "Collective properties"],
       ],
     },
-    reading: 'اقرأ عمود المقام وحده: هو موضع أكثر الأخطاء. '
-      + 'المولارية تنسب إلى **المحلول** والمولالية إلى **المذيب**، '
-      + 'والنسبة الكتلية إلى **المحلول** أيضًا. '
-      + 'فمن قسم على كتلة المذيب في النسبة الكتلية حصل على رقم أكبر من الصحيح دائمًا.',
+    reading: "Read the Maqam column alone: it is the site of most errors. "
+      + "Molarity is attributed to **solution** and molality to **solvent**, "
+      + "And the mass ratio to **solution** as well. "
+      + "Whoever divides by the mass of the solvent by the mass ratio always obtains a number greater than the correct one.",
   },
 
   guided: {
-    start: 'اسأل نفسك سؤالين قبل أي حساب: ما الذي أعطيتُه، كتلةً أم مولات؟ وما المقام المطلوب، '
-      + 'حجمُ محلول أم كتلةُ مذيب؟ الإجابة عنهما تحدّد المعادلة وحدها. '
-      + 'وفي مسائل التخفيف ابدأ دائمًا من السؤال: هل المضاف خالٍ من المذاب؟ '
-      + 'فإن كان فيه مذاب فالمسألة موازنة مكوّن لا تخفيفًا.',
+    start: "Ask yourself two questions before any calculation: What have I been given, masses or moles? What position is required? "
+      + "Volume of solution or mass of solvent? The answer to them determines the equation alone. "
+      + "In dilution issues, always start with the question: Is the additive free of solute? "
+      + "If there is a solute in it, the issue is balancing the component, not diluting it.",
     workedExamples: [
       {
-        title: 'مثال 1 · تحضير محلول بتركيز معلوم',
-        task: 'ما كتلة ‎NaCl‎ اللازمة لتحضير ‎250 mL‎ من محلول ‎0.100 M‎؟ '
-          + 'الكتلة المولية ‎58.44 g/mol‎.',
+        title: "Example 1 · Prepare a solution with a known concentration",
+        task: "What mass of NaCl is needed to prepare 250 mL from a solution of 0.100 M? "
+          + "Molar mass 58.44 g/mol.",
         steps: [
           {
-            do: 'حوّل الحجم: ‎250 mL = 0.250 L‎.',
-            why: 'المولارية بوحدة ‎mol/L‎، فالحجم يجب أن يكون باللتر قبل أي ضرب.',
+            do: "Convert volume: 250 mL = 0.250 L.",
+            why: "Molarity is in mol/L, so the volume must be in liters before any multiplication.",
           },
           {
-            do: 'احسب المولات: ‎n = C × V = 0.100 × 0.250 = 0.0250 mol‎.',
-            why: 'قلبُ تعريف المولارية يعطي المولات من التركيز والحجم مباشرة.',
+            do: "Calculate the moles : n = C × V = 0.100 × 0.250 = 0.0250 mol.",
+            why: "Inverting the definition of molarity gives moles of concentration and volume directly.",
           },
           {
-            do: 'حوّل إلى كتلة: ‎m = n × M = 0.0250 × 58.44 = 1.46 g‎.',
-            why: 'الميزان يزن غرامات لا مولات، فالخطوة الأخيرة ترجمة إلى ما يمكن قياسه عمليًا.',
+            do: "Convert to mass: m = n × M = 0.0250 × 58.44 = 1.46 g.",
+            why: "The scale weighs grams, not moles, so the last step is translation into what can be measured practically.",
           },
         ],
         answer: '1.46 g',
       },
       {
-        title: 'مثال 2 · تخفيف محلول مركّز',
-        task: 'إلى أي حجم نخفّف ‎25.0 mL‎ من محلول ‎2.00 M‎ ليصير تركيزه ‎0.500 M‎؟',
+        title: "Example 2 · Dilution of a concentrated solution",
+        task: "To what volume do we dilute 25.0 mL from 2.00 M solution so that its concentration becomes 0.500 M?",
         steps: [
           {
-            do: 'تحقّق من الشرط: المضاف ماء خالٍ من المذاب، فالعلاقة ‎C₁V₁ = C₂V₂‎ صالحة.',
-            why: 'الاشتقاق قام على ثبات المولات؛ ولو كان المضاف يحوي مذابًا لبطل هذا الشرط.',
+            do: "Check the condition: The additive is water with no solute, so the relationship C₁V₁ = C₂V₂ is valid.",
+            why: "The derivation is based on the constant moles; If the additive contained a solute, this condition would be invalid.",
           },
           {
-            do: 'عوّض: ‎2.00 × 25.0 = 0.500 × V₂‎.',
-            why: 'الوحدات هنا ‎mL‎ في الطرفين، ولا حاجة للتحويل ما دامت متطابقة، '
-              + 'لأنها تُحذف من الطرفين.',
+            do: "Replace : 2.00 × 25.0 = 0.500 × V₂.",
+            why: "The units here are mL on both sides, and there is no need to convert as long as they are identical. "
+              + "Because it is deleted from both sides.",
           },
           {
-            do: 'حلّ: ‎V₂ = 50.0 / 0.500 = 100 mL‎.',
-            why: 'الناتج أكبر من الحجم الأصلي، وهذا فحص سريع: التخفيف يزيد الحجم دائمًا.',
+            do: "Solve: V₂ = 50.0 / 0.500 = 100 mL.",
+            why: "The product is larger than the original volume. Here's a quick check: dilution always increases volume.",
           },
           {
-            do: 'الماء المضاف ‎100 − 25 = 75 mL‎، لا ‎100 mL‎.',
-            why: 'السؤال قد يطلب الحجم النهائي أو حجم الماء المضاف، وهما مختلفان. '
-              + 'اقرأ المطلوب بدقة قبل أن تكتب.',
+            do: "Water added 100 − 25 = 75 mL, not 100 mL.",
+            why: "The question may ask for the final volume or the volume of water added, which are different. "
+              + "Read the requirements carefully before you write.",
           },
         ],
         answer: 'V₂ = 100 mL (water added = 75 mL)',
@@ -230,23 +230,23 @@ export default {
     ],
     skipped: [
       {
-        q: 'لماذا نُكمل الحجم إلى العلامة ولا نضيف لترًا من الماء؟',
-        a: 'لأن المولارية تنسب إلى حجم **المحلول** لا المذيب. '
-          + 'وإذابة المذاب تغيّر الحجم قليلًا، فلو أضفتَ لترًا كاملًا من الماء لصار الحجم النهائي '
-          + 'أكبر من لتر، والتركيز أقل من المطلوب. '
-          + 'ولهذا صُنعت الدوارق الحجمية بعلامة واحدة عند الرقبة.',
+        q: "Why do we supplement the volume to the mark and not add a liter of water?",
+        a: "Because molarity is attributed to the volume of the **solution**, not the solvent. "
+          + "Dissolving the solute changes the volume slightly. If you added a full liter of water, it would be the final volume "
+          + "Greater than a liter, the concentration is less than required. "
+          + "This is why volumetric flasks are made with a single mark at the neck.",
       },
       {
-        q: 'هل يتغيّر التركيز إذا أخذتُ نصف المحلول؟',
-        a: 'لا. التركيز خاصية شدّية: نسبة لا كمية. '
-          + 'فنصف المحلول فيه نصف المولات في نصف الحجم، والنسبة كما هي. '
-          + 'وهذا يميّزه عن عدد المولات الذي ينتصف فعلًا.',
+        q: "Does the concentration change if I take half the solution?",
+        a: "No. Concentration is an intensive property: a ratio, not a quantity. "
+          + "Half the solution contains half the moles in half the volume, and the ratio is the same. "
+          + "This distinguishes it from the number of moles, which is actually the middle.",
       },
       {
-        q: 'لماذا تُذكر المولالية أصلًا ما دامت المولارية أسهل؟',
-        a: 'لأن الحجم يتمدّد بالحرارة والكتلة لا تتمدّد. '
-          + 'فمحلول مولاريته ‎1.00 M‎ عند ‎20 °C‎ تقلّ مولاريته عند ‎80 °C‎ دون أن يخرج منه شيء. '
-          + 'أما المولالية فتبقى كما هي، ولهذا تُستعمل في الخواص التجميعية التي تُقاس عبر مدى حراري.',
+        q: "Why mention molality at all if molarity is easier?",
+        a: "Because volume expands with heat, but mass does not expand. "
+          + "A solution whose molarity is 1.00 M at 20 °C decreases in molarity at 80 °C without anything coming out of it. "
+          + "As for molality, it remains the same, which is why it is used in colligative properties that are measured over a temperature range.",
       },
     ],
   },
@@ -254,97 +254,97 @@ export default {
   questionTypes: [
     {
       id: 'molarity-from-mass',
-      family: 'النمط الأول · مولارية من كتلة',
-      aim: 'تحوّل الكتلة إلى مولات قبل القسمة على الحجم.',
+      family: "Type I · Molarity of mass",
+      aim: "Convert mass to moles before dividing by volume.",
       objectives: [0],
-      prompt: 'أُذيب ‎5.85 g‎ من ‎NaCl‎ وأُكمل الحجم إلى ‎0.500 L‎. '
-        + 'ما مولارية المحلول؟ الكتلة المولية ‎58.44 g/mol‎.',
+      prompt: "5.85 g was dissolved from NaCl and sized to 0.500 L. "
+        + "What is the molarity of the solution? Molar mass 58.44 g/mol.",
       unit: 'mol/L',
       answer: 0.2,
       tolerance: 0.005,
-      solution: '‎n = 5.85 / 58.44 = 0.100 mol‎، ثم ‎M = 0.100 / 0.500 = 0.200 mol/L‎.',
+      solution: "n = 5.85 / 58.44 = 0.100 mol, then M = 0.100 / 0.500 = 0.200 mol/L.",
       commonErrors: [
-        { value: 11.7, why: 'قسمتَ الغرامات على اللترات مباشرة. المولارية مولات على لتر، '
-          + 'فلا بد من القسمة على الكتلة المولية أولًا؛ وحدة ناتجك ‎g/L‎ لا ‎mol/L‎.' },
-        { value: 0.1, why: 'توقفتَ عند عدد المولات ولم تقسم على الحجم. ‎0.100‎ هي ‎n‎ لا ‎M‎.' },
-        { value: 0.05, why: 'ضربتَ في الحجم بدل القسمة عليه.' },
+        { value: 11.7, why: "You divided the fines directly by liters. molarity moles per liter, "
+          + "It is necessary to divide by the molar mass first; Your output unit is g/L not mol/L." },
+        { value: 0.1, why: "You stopped at the number of moles and did not divide by the volume.. 0.100 is n, not M." },
+        { value: 0.05, why: "You multiplied by the volume instead of dividing by it." },
       ],
     },
     {
       id: 'dilution-concentration',
-      family: 'النمط الثاني · تركيز بعد التخفيف',
-      aim: 'تطبّق حفظ المذاب في الاتجاه الصحيح.',
+      family: "Type 2 · Concentration after dilution",
+      aim: "Apply solute conservation in the correct direction.",
       objectives: [1],
-      prompt: 'خُفِّف ‎25.0 mL‎ من محلول ‎2.00 M‎ إلى حجم نهائي ‎100.0 mL‎. '
-        + 'ما التركيز النهائي؟',
+      prompt: "25.0 mL was diluted from 2.00 M solution to a final volume of 100.0 mL. "
+        + "What is the final concentration?",
       unit: 'mol/L',
       answer: 0.5,
       tolerance: 0.005,
       solution: '‎C₂ = C₁V₁ / V₂ = (2.00 × 25.0) / 100.0 = 0.500 mol/L‎. '
-        + 'وقد صار الحجم أربعة أمثاله فصار التركيز ربعه.',
+        + "The volume has become four times its volume and the concentration has become a quarter.",
       commonErrors: [
-        { value: 8, why: 'قلبتَ النسبة فحسبتَ ‎C₁V₂/V₁‎. التخفيف يُنقص التركيز دائمًا، '
-          + 'فأي ناتج أكبر من ‎2.00‎ خطأ بلا حاجة إلى مراجعة الحساب.' },
-        { value: 2, why: 'كتبتَ التركيز الأصلي. إضافة الماء لا تترك التركيز كما هو؛ '
-          + 'الثابت هو عدد المولات لا التركيز.' },
-        { value: 0.02, why: 'أهملتَ تحويلًا أو قسمتَ على ‎1000‎ زيادةً. '
-          + 'الوحدتان ‎mL‎ في الطرفين فتُحذفان، ولا حاجة إلى تحويل أصلًا.' },
+        { value: 8, why: "You inverted the ratio and calculated C₁V₂/V₁. Dilution always decreases concentration. "
+          + "Any result greater than 2.00 is an error without needing to review the calculation." },
+        { value: 2, why: "You wrote the original concentration. Adding water does not leave the concentration the same; "
+          + "The constant is the number of moles, not the concentration." },
+        { value: 0.02, why: "You omitted a conversion or over-divided 1000. "
+          + "The units mL at both ends are deleted, and there is no need to convert at all." },
       ],
     },
     {
       id: 'moles-in-volume',
-      family: 'النمط الثالث · مولات في حجم معلوم',
-      aim: 'تحوّل المليلتر إلى لتر قبل الضرب.',
+      family: "The third type: moles in a known volume",
+      aim: "Convert milliliters to liters before multiplying.",
       objectives: [0],
-      prompt: 'كم مولًا من المذاب في ‎250 mL‎ من محلول ‎0.400 M‎؟',
+      prompt: "How many moles of solute are in 250 mL than 0.400 M solution?",
       unit: 'mol',
       answer: 0.1,
       tolerance: 0.002,
-      solution: '‎250 mL = 0.250 L‎، فـ ‎n = 0.400 × 0.250 = 0.100 mol‎.',
+      solution: "250 mL = 0.250 L, n = 0.400 × 0.250 = 0.100 mol.",
       commonErrors: [
-        { value: 100, why: 'ضربتَ في ‎250‎ دون تحويلها إلى لترات. '
-          + 'مئة مول في كوب صغير قيمة غير معقولة، وهذه علامة كافية لمراجعة الوحدة.' },
-        { value: 1.6, why: 'قسمتَ التركيز على الحجم. المولات حاصل ضرب لا حاصل قسمة: ‎n = C × V‎.' },
-        { value: 0.625, why: 'قسمتَ الحجم على التركيز.' },
+        { value: 100, why: "You multiplied by 250 without converting to litres. "
+          + "One hundred moles in a small cup is an unreasonable value, and this is a sufficient mark to review the unit." },
+        { value: 1.6, why: "You divided the concentration on volume. Moles are a product, not a division, : n = C × V." },
+        { value: 0.625, why: "You divide the volume by the concentration." },
       ],
     },
     {
       id: 'mass-percent',
-      family: 'النمط الرابع · نسبة كتلية',
-      aim: 'تقسم على كتلة المحلول لا كتلة المذيب.',
+      family: "Type IV: Mass ratio",
+      aim: "Divide by the mass of the solution, not the mass of the solvent.",
       objectives: [2],
-      prompt: 'أُذيب ‎20.0 g‎ من مادة في ‎180.0 g‎ من الماء. '
-        + 'ما النسبة الكتلية للمذاب؟ اكتب العدد بلا علامة النسبة.',
+      prompt: "20.0 g of a substance is dissolved in 180.0 g of water. "
+        + "What is the mass percentage of solute? Write the number without the ratio sign.",
       unit: '%',
       answer: 10,
       tolerance: 0.05,
-      solution: 'كتلة المحلول ‎20.0 + 180.0 = 200.0 g‎، '
-        + 'فالنسبة ‎(20.0 / 200.0) × 100 = 10.0%‎.',
+      solution: "Solution mass 20.0 + 180.0 = 200.0 g, "
+        + "The ratio is (20.0 / 200.0) × 100 = 10.0%.",
       commonErrors: [
-        { value: 11.1, why: 'قسمتَ على كتلة المذيب ‎180.0 g‎ لا على كتلة المحلول ‎200.0 g‎. '
-          + 'المحلول هو المذاب والمذيب معًا، وهذا أكثر أخطاء هذا النمط.' },
-        { value: 20, why: 'كتبتَ كتلة المذاب بالغرامات بدل النسبة المئوية.' },
-        { value: 9, why: 'قسمتَ على ‎220‎ أي عددتَ المذاب مرتين في المقام.' },
+        { value: 11.1, why: "You divided by the mass of the solvent 180.0 g, not by the mass of the solution 200.0 g. "
+          + "The solution is both solute and solvent, and this is the most common error of this pattern." },
+        { value: 20, why: "You write the mass of the solute in grams rather than percentages." },
+        { value: 9, why: "You divided by 220, meaning you counted the solute twice in the denominator." },
       ],
     },
     {
       id: 'stock-volume',
-      family: 'النمط الخامس · حجم المحلول المركّز',
-      aim: 'تحلّ للمجهول في الطرف الآخر من العلاقة.',
+      family: "Fifth type: Volume of concentrated solution",
+      aim: "A solution to the unknown on the other side of the relationship.",
       objectives: [1],
-      prompt: 'كم مليلترًا من محلول ‎6.00 M‎ يلزم لتحضير ‎500.0 mL‎ من محلول ‎0.300 M‎؟',
+      prompt: "How many milliliters of 6.00 M solution are needed to prepare 500.0 mL from 0.300 M solution?",
       unit: 'mL',
       answer: 25,
       tolerance: 0.2,
       solution: '‎V₁ = C₂V₂ / C₁ = (0.300 × 500.0) / 6.00 = 150 / 6.00 = 25.0 mL‎. '
-        + 'ثم يُكمَّل الحجم بالماء إلى ‎500.0 mL‎.',
+        + "The volume is then supplemented with water to 500.0 mL.",
       commonErrors: [
-        { value: 10000, why: 'قلبتَ النسبة فحسبتَ ‎C₁V₂/C₂‎. '
-          + 'المحلول المركّز يلزم منه حجم أصغر من الحجم النهائي دائمًا، '
-          + 'فناتج أكبر من ‎500‎ خطأ بيّن.' },
-        { value: 475, why: 'حسبتَ حجم الماء المضاف لا حجم المحلول المركّز. '
-          + 'المطلوب ‎V₁‎، والماء المضاف هو ‎500 − 25 = 475 mL‎.' },
-        { value: 150, why: 'توقفتَ عند حاصل الضرب ‎C₂V₂ = 150‎ ولم تقسمه على ‎C₁‎.' },
+        { value: 10000, why: "You inverted the ratio and calculated C₁V₂/C₂. "
+          + "A concentrated solution always requires a volume smaller than the final volume. "
+          + "An output greater than 500 is a clear error." },
+        { value: 475, why: "You calculated the volume of water added, not the volume of the concentrated solution. "
+          + "The required V₁, and the water added is 500 − 25 = 475 mL." },
+        { value: 150, why: "You stopped at the product C₂V₂ = 150 and did not divide it by C₁." },
       ],
     },
   ],

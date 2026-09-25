@@ -11,15 +11,15 @@
    "commonErrors": [
     {
      "value": 0.25,
-     "why": "قسمتَ الفرق الأفقي على الرأسي. الميل هو الرأسي على الأفقي، ووحدة ناتجك ‎s/m‎ وهي مقلوب السرعة."
+     "why": "You divided the horizontal difference by the vertical. The slope is the vertical over the horizontal, and the unit of your product is s/m, which is the reciprocal of the velocity."
     },
     {
      "value": 3,
-     "why": "جمعتَ القيم بدل طرحها: ‎24/8 = 3‎. الميل فرقٌ على فرق."
+     "why": "You added the values instead of subtracting them. : 24/8 = 3. The slope is a difference upon a difference."
     },
     {
      "value": 16,
-     "why": "حسبتَ الفرق الرأسي وحده ولم تقسمه على الفرق الأفقي."
+     "why": "You calculated the vertical difference alone and did not divide it by the horizontal difference."
     }
    ]
   },
@@ -33,15 +33,15 @@
    "commonErrors": [
     {
      "value": 0.004,
-     "why": "قسمتَ الاستطالة على القوة. وحدة ناتجك ‎m/N‎ وهي مقلوب ثابت النابض."
+     "why": "You divide the elongation by the force. The unit of your output is m/N, which is the reciprocal of the spring constant."
     },
     {
      "value": 2500,
-     "why": "أخطأتَ في موضع الفاصلة العشرية عند القسمة على ‎0.060‎."
+     "why": "You misplaced the decimal point when dividing by 0.060."
     },
     {
      "value": 25,
-     "why": "قسمتَ على ‎0.60‎ بدل ‎0.060‎، أي بخطأ عامل عشرة في الاستطالة."
+     "why": "You divided by 0.60 instead of 0.060, that is, with an error of a factor of ten in the elongation."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 9.87,
    "tolerance": 0.1,
    "unit": "m/s²",
-   "solution": "الميل ‎= 4π²/g‎، فـ ‎g = 4π²/slope = 39.48/4.00 = 9.87 m/s²‎.",
+   "solution": "slope = 4π²/g, g = 4π²/slope = 39.48/4.00 = 9.87 m/s².",
    "commonErrors": [
     {
      "value": 4,
-     "why": "كتبتَ الميل نفسه. الميل ‎4π²/g‎ لا ‎g‎، فيبقى قلبٌ وضرب."
+     "why": "You wrote the same mile. The slope is 4π²/g, not g, so it remains a heart and a beat."
     },
     {
      "value": 39.48,
-     "why": "كتبتَ ‎4π²‎ ولم تقسمه على الميل."
+     "why": "You wrote 4π² and did not divide it by the mile."
     },
     {
      "value": 158,
-     "why": "ضربتَ الميل في ‎4π²‎ بدل القسمة. والفحص السريع: ‎g‎ قريبة من ‎9.8‎، فأي ناتج بعيد عنها يستدعي مراجعة الترتيب."
+     "why": "You multiplied the slope by 4π² instead of dividing. The quick scan : g is close to 9.8, so any result far from it requires reviewing the arrangement."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "490449f364c0",
    "answer": 6,
    "tolerance": 0.05,
-   "unit": "وحدة y",
-   "solution": "الميل ‎= 8.0/4.0 = 2.0‎، والتقاطع ‎2.0‎، فـ ‎y = 2.0(2.0) + 2.0 = 6.0‎. و‎x = 2.0‎ تقع داخل مدى القياس، فهذه قراءة داخلية تعتمد عليها البيانات.",
+   "unit": "y module",
+   "solution": "The slope is = 8.0/4.0 = 2.0, and the intercept is 2.0, so y = 2.0(2.0) + 2.0 = 6.0. x = 2.0 is within the measurement range, so this is an internal reading on which the data is based.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "أهملتَ التقاطع فحسبتَ ‎m x‎ وحده. الخط لا يمرّ بنقطة الأصل، فـ ‎y = m x + c‎ لا ‎y = m x‎."
+     "why": "You neglected the intersection and counted m x alone. The line does not pass through the origin, so y = m x + c not y = m x."
     },
     {
      "value": 2,
-     "why": "كتبتَ الميل أو التقاطع بدل قيمة ‎y‎ عند ‎x = 2.0‎."
+     "why": "You wrote the slope or intercept instead of y with x = 2.0."
     },
     {
      "value": 10,
-     "why": "كتبتَ قيمة ‎y‎ عند طرف المدى ‎x = 4.0‎."
+     "why": "You wrote the value of y at the end of the range x = 4.0."
     }
    ]
   },
@@ -94,20 +94,20 @@
    "version": "84771eec7f16",
    "answer": 2,
    "tolerance": 0.05,
-   "unit": "وحدة y",
-   "solution": "الميل ‎= (11.0 − 5.0)/(3.0 − 1.0) = 3.0‎. ومن ‎5.0 = 3.0(1.0) + c‎ يكون ‎c = 2.0‎.",
+   "unit": "y module",
+   "solution": "slope = (11.0 − 5.0)/(3.0 − 1.0) = 3.0. And from 5.0 = 3.0(1.0) + c it is c = 2.0.",
    "commonErrors": [
     {
      "value": 3,
-     "why": "كتبتَ الميل لا التقاطع. التقاطع قيمة ‎y‎ عند ‎x = 0‎."
+     "why": "You wrote the slope, not the intercept. The intersection value of y is at x = 0."
     },
     {
      "value": 5,
-     "why": "كتبتَ قيمة ‎y‎ عند أول نقطة. وهي عند ‎x = 1.0‎ لا ‎x = 0‎."
+     "why": "You wrote the value of y at the first point. It is at x = 1.0, not x = 0."
     },
     {
      "value": 0,
-     "why": "افترضتَ مرور الخط بنقطة الأصل. النقطتان لا تسمحان بذلك: لو مرّ بالأصل لكان ‎y = 5x‎ ولما مرّ بالنقطة الثانية."
+     "why": "You assume that the line passes through the origin. The colon does not allow this: if it had passed through the original, it would have been y = 5x and it would not have passed through the second point."
     }
    ]
   },
@@ -117,11 +117,11 @@
    "answer": 4,
    "tolerance": 0.001,
    "unit": "%",
-   "solution": "مشتقة x² تعطي عامل2 في عدم اليقين النسبي.",
+   "solution": "The derivative of x² gives the relative uncertainty factor 2.",
    "commonErrors": [
     {
      "value": 2,
-     "why": "الأس يضاعف الحساسية النسبية هنا."
+     "why": "The exponent multiplies the relative sensitivity here."
     }
    ]
   }

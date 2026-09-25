@@ -1,5 +1,5 @@
 import {explorations,evaluate} from './exploration-models.mjs';
-const format=n=>n===null?'غير معرّفة':Number(n.toPrecision(6)).toLocaleString('en-US',{maximumSignificantDigits:6});
+const format=n=>n===null?"Undefined":Number(n.toPrecision(6)).toLocaleString('en-US',{maximumSignificantDigits:6});
 export function initExplorations() {
  const holder=document.querySelector('[data-exploration]');
  const model=explorations[document.body.dataset.topic];

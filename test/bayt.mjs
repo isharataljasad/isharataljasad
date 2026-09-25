@@ -52,12 +52,12 @@ const areas = new Set(flagship.skills.map((id) => skillById.get(id).section));
 assert.ok(areas.has('english') && areas.size >= 3, 'التجربة الكاملة تربط ثلاثة أقسام على الأقل');
 
 /* ---- العدد مع المعدود ---- */
-assert.equal(countNoun(1, nouns.task), 'مهمة واحدة');
-assert.equal(countNoun(2, nouns.task), 'مهمتان');
-assert.equal(countNoun(5, nouns.task), '5 مهام');
-assert.equal(countNoun(11, nouns.task), '11 مهمة');
-assert.equal(countNoun(3, nouns.sentence), '3 جمل');
-assert.equal(countNoun(1, nouns.achievement), 'إنجاز واحد');
+assert.equal(countNoun(1, nouns.task), '1 task');
+assert.equal(countNoun(2, nouns.task), '2 tasks');
+assert.equal(countNoun(5, nouns.task), '5 tasks');
+assert.equal(countNoun(11, nouns.task), '11 tasks');
+assert.equal(countNoun(3, nouns.sentence), '3 sentences');
+assert.equal(countNoun(1, nouns.achievement), '1 achievement');
 
 /* ---- درس الإنجليزية ---- */
 assert.ok(exists(lesson.prerequisite.href), 'درس الإنجليزية يشير إلى متطلب موجود');
@@ -69,18 +69,18 @@ assert.ok(lesson.task.model.text.length > 120, 'نموذج إجابة حقيقي
 /* الشرح قبل السؤال: المهمة تأتي بعد كل أقسام الشرح في الصفحة المبنية. */
 const lessonPage = read('bayt/english/process-description/index.html');
 assert.ok(lessonPage.indexOf('id="task"') > lessonPage.lastIndexOf('lesson-section">'), 'المهمة بعد الشرح');
-assert.ok(lessonPage.includes('لا يصحّح لغتك'), 'الصفحة تذكر أن التطبيق لا يصحح اللغة');
+assert.ok(/does not correct your language/i.test(lessonPage), 'الصفحة تذكر أن التطبيق لا يصحح اللغة');
 
 /* ---- صدق الادعاءات ---- */
 const home = read('bayt/index.html');
-for (const phrase of ['لا يضمن', 'على جهازك']) {
+for (const phrase of ['does not guarantee', 'on your device']) {
   assert.ok(home.includes(phrase), `الصفحة الرئيسة يجب أن تذكر: ${phrase}`);
 }
 const english = read('bayt/english/index.html');
-assert.ok(/هدف وليس وعدًا|لا يضمن أي تطبيق درجة/.test(english), 'قسم الإنجليزية لا يعد بدرجة');
+assert.ok(/A goal, not a promise|does not guarantee/i.test(english), 'قسم الإنجليزية لا يعد بدرجة');
 /* لا إيحاء بشراكة مع ناشر. */
 for (const page of ['bayt/index.html', 'bayt/english/index.html', 'bayt/english/process-description/index.html']) {
-  assert.equal(/بالشراكة|شريك رسمي|معتمد من/.test(read(page)), false, `${page}: إيحاء بشراكة`);
+  assert.equal(/in partnership with|official partner|accredited by/i.test(read(page)), false, `${page}: إيحاء بشراكة`);
 }
 
 /* ---- سياسة الأمان: لا نص برمجي ولا نمط داخل الصفحة ---- */
@@ -93,7 +93,7 @@ for (const page of pages) {
   assert.equal(/<style[ >]/.test(html), false, `${page}: نمط داخل الصفحة`);
   assert.equal(/\son[a-z]+\s*=\s*"/i.test(html), false, `${page}: معالج حدث داخل الوسم`);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${page}: عنوان رئيس واحد`);
-  assert.match(html, /<html lang="ar" dir="rtl">/, `${page}: اتجاه الصفحة`);
+  assert.match(html, /<html lang="en" dir="ltr">/, `${page}: اتجاه الصفحة`);
   assert.ok(html.includes('bayt.css'), `${page}: ملف التنسيق`);
   /* كل رابط داخلي يشير إلى صفحة أو ملف موجود. */
   for (const [, href] of html.matchAll(/href="(\/[^"#?]+)"/g)) {
@@ -133,13 +133,13 @@ const units = skillById.get('SKILL-UNITS');
 assert.equal(units.learn.href, '/bayt/math/units-and-mass-fractions/', 'مهارة الوحدات لها درسها الخاص');
 assert.notEqual(units.learn.href, '/foundations/reading/basic-math/order-of-operations/', 'لا تعود لدرس لا يغطيها');
 const unitsPage = read('bayt/math/units-and-mass-fractions/index.html');
-for (const topic of ['الكسر الكتلي', 'عامل التحويل', 'تدفق المكوّن']) {
-  assert.ok(unitsPage.includes(topic), `درس الوحدات لا يغطي: ${topic}`);
+for (const topic of ['Mass fraction', 'Conversion factor', 'Component flow']) {
+  assert.ok(unitsPage.toLowerCase().includes(topic.toLowerCase()), `درس الوحدات لا يغطي: ${topic}`);
 }
 assert.ok(unitsPage.includes('/program/lessons/material-balances/'), 'درس الوحدات يمهّد لموازنة المواد');
 assert.ok((unitsPage.match(/<details class="reading-answer"/g) || []).length >= 5, 'خمسة تطبيقات بإجابات مشروحة');
 /* الشرح قبل التطبيق. */
-assert.ok(unitsPage.indexOf('class="question-list"') > unitsPage.indexOf('الكسر الكتلي'), 'التطبيق بعد الشرح');
+assert.ok(unitsPage.indexOf('class="question-list"') > unitsPage.indexOf('Mass fraction'), 'التطبيق بعد الشرح');
 
 /* ---- التقرير الكامل ---- */
 const reportPage = read('bayt/report/index.html');
@@ -151,10 +151,10 @@ assert.equal(/<textarea[^>]*name="description"/.test(reportPage), false, 'اسم
 assert.ok(reportPage.includes('kg/h'), 'الوحدات معلنة في النموذج');
 
 /* التمييز الثلاثي معلن للطالب ومسجّل في البيانات. */
-for (const line of ['إتمام المهمة', 'صحة الإجابة', 'إتقان المهارة']) {
+for (const line of ['Task completion', 'Correct answer', 'Skill Mastery']) {
   assert.ok(reportPage.includes(line), `صفحة التقرير لا تفصل: ${line}`);
 }
-assert.ok(/لا يسجّله ولا يدّعيه/.test(reportPage), 'الإتقان لا يُدّعى');
+assert.ok(/does not record|does not claim|not recorded/i.test(reportPage), 'الإتقان لا يُدّعى');
 const reportCode = read('bayt/app/report-page.mjs');
 assert.ok(reportCode.includes('calculationChecked'), 'صحة الإجابة مسجّلة منفصلة');
 assert.equal(/mastery\s*:\s*true/.test(reportCode), false, 'لا يُسجَّل إتقان إطلاقًا');
@@ -163,7 +163,7 @@ assert.ok(stateCode.includes('mastery') && stateCode.includes('لا يُسجَّ
 /* نتيجة التحقق لا تبقى معروضة بعد تغيير قيمة تؤثر في الحساب، وإلا قرأ
    الطالب «تطابق» على أرقام لم تُقارن. */
 assert.ok(reportCode.includes('staleCheck'), 'لا يوجد إبطال لنتيجة التحقق');
-assert.ok(reportCode.includes('تغيّرت القيم؛ أعد التحقق'), 'رسالة إعادة التحقق مفقودة');
+assert.ok(reportCode.includes('Values have changed; Recheck'), 'رسالة إعادة التحقق مفقودة');
 for (const fieldName of ['outTotal', 'outSolute', 'outPercent', 'feedA', 'fractionA', 'feedB', 'fractionB']) {
   assert.ok(new RegExp(`'${fieldName}'`).test(reportCode), `الحقل ${fieldName} لا يُبطل التحقق عند تغييره`);
 }
@@ -171,8 +171,8 @@ for (const fieldName of ['outTotal', 'outSolute', 'outPercent', 'feedA', 'fracti
 /* ---- صحة شرح عامل التحويل ----
    قلب الكسر يعطي (t/h) × (t/kg) = t²/(h·kg): الطن مربَّع في البسط لا المقام. */
 assert.ok(unitsPage.includes('t²/(h·kg)'), 'الناتج الصحيح لقلب العامل غير مذكور');
-assert.ok(unitsPage.includes('البسط'), 'موضع t² غير مذكور');
-assert.equal(/t²[^.<]{0,40}المقام/.test(unitsPage.replace(/<[^>]+>/g, ' ')), false, 'ما زال يضع t² في المقام');
+assert.ok(unitsPage.includes('numerator'), 'موضع t² غير مذكور');
+assert.equal(/t²[^.<]{0,40}in the denominator/.test(unitsPage.replace(/<[^>]+>/g, ' ')), false, 'ما زال يضع t² في المقام');
 
 /* التقرير قابل للمراجعة والتعديل. */
 assert.ok(reportCode.includes("get('edit')"), 'التقرير يُفتح للتعديل');

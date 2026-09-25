@@ -1,0 +1,81 @@
+{
+ "slug": "integers-and-the-number-line",
+ "checks": [
+  {
+   "id": "limit",
+   "kind": "choice",
+   "prompt": "A vaccine store must be held at or below `-20 °C`. Tuesday logged `-18 °C`. Is that within limit?",
+   "options": [
+    {
+     "label": "No, it is warmer than the limit",
+     "correct": true
+    },
+    {
+     "label": "Yes, because 18 is a smaller number than 20",
+     "why": "consistent with comparing the digits and ignoring the side of zero. Among negatives the larger digit is the smaller number, so `-18` lies to the right of `-20` and is warmer."
+    },
+    {
+     "label": "It cannot be decided from one reading",
+     "why": "consistent with treating a single reading as insufficient evidence, but a limit is a threshold and one reading above it is already a breach."
+    }
+   ],
+   "solution": "`-18` lies to the right of `-20` on the line, so it is warmer. \"At or below\" needs a position further left, such as `-20` or `-25`.",
+   "followUp": {
+    "prompt": "Of the readings `-22`, `-18` and `-25`, enter the coldest.",
+    "answer": -25,
+    "tolerance": 0.001,
+    "unit": "°C",
+    "solution": "`-25` lies furthest left, so it is coldest, although `25` is the largest digit."
+   },
+   "version": 1
+  },
+  {
+   "id": "order",
+   "kind": "number",
+   "prompt": "Enter the smaller of `-25` and `-18`.",
+   "answer": -25,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`-25` lies further left on the number line, so it is the smaller number.",
+   "responses": [
+    {
+     "value": -18,
+     "why": "consistent with ranking by absolute value. `|-25|` exceeds `|-18|`, but the bars discard the side of zero, which is what an order comparison needs."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now enter the value of `|-25| - |-18|`.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "solution": "`25 - 18 = 7`. Both bars report a distance from zero, and a distance is never negative."
+   },
+   "version": 1
+  },
+  {
+   "id": "double-sign",
+   "kind": "number",
+   "prompt": "Evaluate `-(-22)` and explain what the outer negative sign does.",
+   "answer": 22,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "A minus sign in front means \"the opposite of\", so this asks for the opposite of negative twenty-two.",
+   "responses": [
+    {
+     "value": -22,
+     "why": "consistent with treating one sign as a typing slip and deleting it. Each sign is an instruction."
+    },
+    {
+     "value": 0,
+     "why": "consistent with reading the two signs as cancelling to nothing rather than as two applications of \"the opposite of\"."
+    }
+   ],
+   "followUp": {
+    "prompt": "A number and its opposite always sum to the same value. Enter `-22 + 22`.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "Zero, which is exactly what \"same distance from zero, other side\" means."
+   },
+   "version": 1
+  }
+ ]
+}

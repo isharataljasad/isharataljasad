@@ -3,19 +3,19 @@
 /* الرسم: مسألة السياج بجانب جدار.
    اخترناها لأن القيد فيها مرئي: ضلع لا يحتاج سياجًا، وهذا وحده يغيّر الجواب. */
 const figure = `<svg viewBox="0 0 460 240" role="img" aria-labelledby="fig-opt-title" class="bayt-svg">`
-  + `<title id="fig-opt-title">مستطيل ملاصق لجدار، ثلاثة أضلاعه سياج والرابع هو الجدار</title>`
+  + `<title id="fig-opt-title">A rectangle adjacent to a wall, three sides of which are fences and the fourth is the wall</title>`
   + `<line x1="70" y1="60" x2="390" y2="60" stroke="#153748" stroke-width="7"/>`
-  + `<text x="264" y="46" font-size="15" fill="#153748" text-anchor="middle">الجدار</text>`
+  + `<text x="264" y="46" font-size="15" fill="#153748" text-anchor="middle">The wall</text>`
   /* الأضلاع الثلاثة التي تحتاج سياجًا. */
   + `<line x1="90" y1="60" x2="90" y2="180" stroke="#c69748" stroke-width="4"/>`
   + `<line x1="90" y1="180" x2="370" y2="180" stroke="#c69748" stroke-width="4"/>`
   + `<line x1="370" y1="60" x2="370" y2="180" stroke="#c69748" stroke-width="4"/>`
   + `<rect x="90" y="60" width="280" height="120" fill="#cfe6ef" opacity="0.45"/>`
-  + `<text x="230" y="128" font-size="15" fill="#105c78" text-anchor="middle">المساحة</text>`
+  + `<text x="230" y="128" font-size="15" fill="#105c78" text-anchor="middle">Space</text>`
   + `<text x="230" y="202" font-size="16" fill="#284955" text-anchor="middle">x</text>`
   + `<text x="76" y="126" font-size="16" fill="#284955" text-anchor="middle">y</text>`
   + `<text x="384" y="126" font-size="16" fill="#284955" text-anchor="middle">y</text>`
-  + `<text x="230" y="228" font-size="13" fill="#566f7a" text-anchor="middle">السياج يغطي ثلاثة أضلاع فقط، فالقيد هو x + 2y</text>`
+  + `<text x="230" y="228" font-size="13" fill="#566f7a" text-anchor="middle">The fence covers only three sides, so the constraint is x + 2y</text>`
   + `</svg>`;
 
 export default {
@@ -23,208 +23,205 @@ export default {
   topic: 'optimization',
 
   objectives: [
-    'تكتب دالة الهدف بمتغير واحد باستعمال معادلة القيد.',
-    'تحدّد المجال المسموح وتفحص أطرافه، لا النقاط الحرجة وحدها.',
-    'تبرّر أن النقطة الحرجة عظمى أو صغرى بدل أن تفترض ذلك.',
+    "The objective function is written in one variable using the constraint equation.",
+    "Determine the feasible domain and check its endpoints as well as its critical points.",
+    "Justify whether the critical point is maximum or minimum instead of assuming that it is.",
   ],
 
   boundaries: [
-    'التحسين بمتغيرين فأكثر ومضاعفات لاغرانج ليست في هذا الدرس.',
-    'التحسين تحت قيود المتباينات (البرمجة الخطية) خارج النطاق.',
-    'الطرق العددية للتحسين ليست هنا.',
-    'مسائل التحسين التي تتطلب دوالّ مثلثية أو أسّية ليست في هذا الدرس.',
+    "Optimization with two or more variables and Lagrange multipliers are not in this lesson.",
+    "Optimization under constraints of inequalities (linear programming) is out of scope.",
+    "Numerical methods for optimization are not here.",
+    "Optimization problems that require trigonometric or exponential functions are not in this lesson.",
   ],
 
   prerequisites: [
     {
-      title: 'قواعد الاشتقاق',
-      why: 'بعد بناء النموذج تبقى الخطوة الآلية: اشتق وساوِ بالصفر. وخطأ الاشتقاق يفسد نموذجًا صحيحًا.',
-      recap: 'قاعدة القوة ‎(xⁿ)′ = n x^(n−1)‎، وقاعدة الجداء ‎(fg)′ = f′g + fg′‎. '
-        + 'ودوالّ الهدف في هذا الدرس كثيرات حدود غالبًا، فالاشتقاق فيها مباشر بعد فكّ الأقواس. '
-        + 'وفكّ القوس قبل الاشتقاق أسهل من تطبيق الجداء في أكثر المسائل.',
+      title: "Derivation rules",
+      why: "After building the model, the automated step remains: differentiate and equal to zero. A derivation error corrupts a correct model.",
+      recap: "The force rule is (xⁿ)′ = n x^(n−1), and the product rule is (fg)′ = f′g + fg′. "
+        + "The objective functions in this lesson are mostly polynomials, so the differentiation is straightforward after expanding the parentheses. "
+        + "Expanding the bracket before derivation is easier than applying the product to most problems.",
       href: '/semester-1/math/rules/',
-      hrefLabel: 'درس قواعد الاشتقاق',
+      hrefLabel: "Study the rules of derivation",
     },
     {
-      title: 'حلّ معادلة تربيعية',
-      why: 'مساواة المشتقة بالصفر تعطي معادلة تربيعية في أكثر مسائل هذا الدرس، وقد يكون لها جذران.',
-      recap: 'بالتحليل: ‎x² − 8x + 12 = (x − 2)(x − 6) = 0‎ فالجذران ‎2‎ و‎6‎. '
-        + 'أو بالقانون العام ‎x = (−b ± √(b² − 4ac)) / 2a‎. '
-        + 'وحين يظهر جذران، لا يكون كلاهما مقبولًا بالضرورة: القيد الهندسي يستبعد أحدهما غالبًا.',
+      title: "Solve a quadratic equation",
+      why: "Equating the derivative to zero gives a quadratic equation in most of the problems in this lesson, and it may have two roots.",
+      recap: "By factoring : x² − 8x + 12 = (x − 2)(x − 6) = 0, the roots are 2 and 6. "
+        + "Or by common law x = (−b ± √(b² − 4ac)) / 2a. "
+        + "When two roots appear, both are not necessarily acceptable: geometric constraints often exclude one or the other.",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'دالة الهدف',
+        term: "Objective function",
         en: 'Objective function',
-        text: 'الكمية المراد تعظيمها أو تصغيرها: مساحة أو حجم أو تكلفة أو مسافة. '
-          + 'وتُكتب أولًا كما تأتي طبيعيًّا، ولو بمتغيرين، ثم تُختزل إلى متغير واحد.',
+        text: "The quantity to be maximized or minimized: area, volume, cost, or distance. "
+          + "It is first written as it comes naturally, even with two variables, and then reduced to one variable.",
       },
       {
-        term: 'القيد',
+        term: "Constraint",
         en: 'Constraint',
-        text: 'معادلة تربط المتغيرين، مصدرها معطًى في السؤال: طول سياج متاح، أو محيط ثابت، '
-          + 'أو حجم مطلوب. '
-          + 'وهي أداتك الوحيدة لحذف متغير من دالة الهدف، فلا يصحّ الاشتقاق قبل استعمالها.',
+        text: "An equation linking the two variables, its source is given in the question: the length of an available fence, or a fixed perimeter, "
+          + "Or required volume. "
+          + "It is your only tool for deleting a variable from the objective function, so derivation is not valid before using it.",
       },
       {
-        term: 'النقطة الحرجة',
+        term: "Critical point",
         en: 'Critical point',
-        text: 'قيمة في داخل المجال تنعدم عندها المشتقة أو لا تكون معرَّفة. '
-          + 'وليست كل نقطة حرجة نهايةً عظمى أو صغرى؛ قد تكون نقطة انقلاب، '
-          + 'ولهذا يلزم اختبار بعدها.',
+        text: "A critical number c lies in the domain and satisfies f′(c)=0 or has an undefined derivative. It is a candidate for an extremum, not a guarantee. For example, x³ has a stationary point at 0 but no local maximum or minimum there.",
       },
       {
-        term: 'المجال المسموح',
+        term: "Feasible domain",
         en: 'Feasible domain',
-        text: 'القيم التي لها معنى في المسألة لا في الجبر وحده: الأطوال موجبة، '
-          + 'والقطعة المقصوصة أصغر من نصف الضلع، وهكذا. '
-          + 'وتحديده ليس شكليًّا: هو الذي يستبعد الجذور غير المقبولة ويحدّد الأطراف الواجب فحصها.',
+        text: "Values that have meaning in the problem, not in algebra alone: lengths are positive, "
+          + "The cut piece is smaller than half the side, and so on. "
+          + "Its definition is not formal: it is what excludes unacceptable roots and identifies the parties that must be examined.",
       },
       {
-        term: 'اختبار المشتقة الثانية',
+        term: "Second derivative test",
         en: 'Second derivative test',
-        text: 'إن كانت ‎f″(c) < 0‎ فالنقطة عظمى محلية، وإن كانت ‎f″(c) > 0‎ فصغرى محلية. '
-          + 'وإن كانت صفرًا فالاختبار لا يحسم، ويُرجَع إلى إشارة المشتقة الأولى حول النقطة.',
+        text: "Suppose f′(c)=0 and the second derivative exists near c. If f″(c)>0, f has a local minimum at c; if f″(c)<0, it has a local maximum. If f″(c)=0, this test is inconclusive. Check the first derivative on both sides or use another argument.",
       },
     ],
     relations: [
       {
-        formula: "f′(c) = 0  عند نهاية داخلية",
-        name: 'شرط النقطة الحرجة',
-        note: 'شرط لازم لا كافٍ: كل نهاية داخلية حرجة، وليست كل حرجة نهايةً.',
+        formula: "f′(c) = 0 at inner limit",
+        name: "Critical point condition",
+        note: "A necessary, not sufficient, condition: every internal limit is critical, and not every critical limit is an limit.",
       },
       {
-        formula: "f″(c) < 0 ⟹ عظمى ,  f″(c) > 0 ⟹ صغرى",
-        name: 'اختبار المشتقة الثانية',
-        note: 'أسرع من فحص الإشارات حين تسهل المشتقة الثانية.',
+        formula: "f″(c) < 0 ⟹ maximum,  f″(c) > 0 ⟹ minor",
+        name: "Second derivative test",
+        note: "Faster than checking sign when the second derivative is smoothed out.",
       },
       {
-        formula: 'قارن f عند النقاط الحرجة وعند طرفَي المجال',
-        name: 'النهاية المطلقة',
-        note: 'على فترة مغلقة، النهاية المطلقة واحدة من هذه القيم.',
+        formula: "Compare f at critical points and at both ends of the range",
+        name: "The absolute limit",
+        note: "On a closed interval, the absolute limit is one of these values.",
       },
     ],
     derivation: {
-      title: 'لماذا لا يكفي حلّ f′(x) = 0',
-      intro: 'الخطوة المحفوظة هي «اشتق وساوِ بالصفر»، وهي تعطي جوابًا خاطئًا في حالتين شائعتين.',
+      title: "Why solving f′(x) = 0 is not enough",
+      intro: "The saved step is “differentiate and equal to zero,” which gives an incorrect answer in two common cases.",
       steps: [
         {
-          do: 'خذ ‎f(x) = x²‎ على الفترة ‎[1, 4]‎ واسأل عن أكبر قيمة.',
-          why: 'مثال صغير يكشف المشكلة أوضح من كلام عام.',
+          do: "Take f(x) = x² on the interval [1, 4] and ask for the largest value.",
+          why: "A small example reveals the problem more clearly than general words.",
         },
         {
-          do: 'المشتقة ‎2x‎ تنعدم عند ‎x = 0‎، وهي خارج الفترة تمامًا.',
-          why: 'فالطريقة المحفوظة لا تعطي شيئًا هنا، ومع ذلك للدالة أكبر قيمة قطعًا.',
+          do: "The derivative 2x zeros at x = 0, which is completely outside the interval.",
+          why: "The memorized method gives nothing here, yet the function definitely has the largest value.",
         },
         {
-          do: 'افحص الطرفين: ‎f(1) = 1‎ و‎f(4) = 16‎، فالعظمى ‎16‎ عند الطرف.',
-          why: 'الدالة متزايدة على الفترة كلها، فأكبر قيمة عند أقصى اليمين، '
-            + 'ولا تنعدم المشتقة هناك ولا يلزم أن تنعدم.',
+          do: "Examine the terminals : f(1) = 1 and f(4) = 16, the maximum is 16 at the terminal.",
+          why: "The function is increasing over the entire interval, with the largest value at the far right, "
+            + "The derivative does not exist there, nor does it need to exist.",
         },
         {
-          do: 'والحالة الثانية: جذر للمشتقة يقع خارج المجال المسموح هندسيًّا، أو على طرفه فيعطي قيمة صفرية.',
-          why: 'كما في مسألة الصندوق أدناه: للمشتقة جذران، أحدهما يجعل الحجم صفرًا. '
-            + 'فالجبر لا يعرف أن الطول لا يكون سالبًا ولا أن الحجم لا يكون صفرًا؛ أنت من يعرف.',
+          do: "The second case: a root of the derivative lies outside the geometrically permissible range, or on its edge, giving a zero value.",
+          why: "As in the box problem below: The derivative has two roots, one of which makes the magnitude zero. "
+            + "Algebra does not know that the length is not negative nor that the volume is zero; You are the one who knows.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'القيد أولًا، ثم الاشتقاق',
+    title: "Use the constraint before differentiating",
     figure: {
       svg: figure,
-      caption: 'مساحة مستطيلة بجانب جدار. ثلاثة أضلاع فقط تحتاج سياجًا، '
-        + 'فالقيد ‎x + 2y = L‎ لا ‎2x + 2y = L‎. وهذا الفرق وحده يغيّر الأبعاد المثلى.',
-      alt: 'مستطيل ملاصق من أعلاه لخط سميك يمثّل جدارًا. '
-        + 'الأضلاع الثلاثة الأخرى مرسومة بلون السياج: الأيسر والأيمن طول كل منهما ‎y‎، '
-        + 'والسفلي طوله ‎x‎. وداخل المستطيل كلمة المساحة. '
-        + 'وتحته سطر يبيّن أن السياج يغطي ثلاثة أضلاع فقط، فالقيد هو ‎x‎ زائد ضعف ‎y‎.',
+      caption: "A rectangular space next to a wall. Only three sides need a fence, "
+        + "The constraint is x + 2y = L, not 2x + 2y = L., and this difference alone changes the optimal dimensions.",
+      alt: "A rectangle adjacent at the top to a thick line representing a wall. "
+        + "The other three sides are drawn in the color of the fence: the left and right sides are each of length y, "
+        + "The bottom one has a length of x., and inside the rectangle is the word space. "
+        + "Below it is a line indicating that the fence covers only three sides, so the entry is x plus double y.",
     },
     table: {
-      caption: 'خطوات الحل، وما يقع فيه الخطأ عند كل خطوة',
-      head: ['الخطوة', 'ما تفعله', 'الخطأ الشائع هنا'],
+      caption: "Steps to the solution, and what goes wrong at each step",
+      head: ["Step", "What you do", "Common mistake here"],
       rows: [
-        ['1', 'ارسم وسمِّ المتغيرات', 'الاشتقاق قبل الرسم، فيضيع القيد'],
-        ['2', 'اكتب دالة الهدف', 'الخلط بين الهدف والقيد'],
-        ['3', 'اكتب معادلة القيد', 'عدّ ضلع الجدار ضمن السياج'],
-        ['4', 'احذف متغيرًا واكتب الهدف بمتغير واحد', 'الاشتقاق بمتغيرين معًا'],
-        ['5', 'حدّد المجال المسموح', 'تخطّي هذه الخطوة كليًّا'],
-        ['6', 'اشتق وساوِ بالصفر', 'قبول كل جذر دون فحص'],
-        ['7', 'افحص النقاط الحرجة والأطراف', 'الاكتفاء بالنقطة الحرجة'],
-        ['8', 'أجب عمّا سُئلت عنه', 'إعطاء x بدل المساحة، أو العكس'],
+        ['1', "Draw and label the variables", "Derivation before drawing, so the restriction is lost"],
+        ['2', "Write the objective function", "Confusing goal and restriction"],
+        ['3', "Write the constraint equation", "Count the side of the wall within the fence"],
+        ['4', "Delete a variable and write the target with one variable", "Differentiation with two variables together"],
+        ['5', "Specify the allowed field", "Skip this step entirely"],
+        ['6', "Differentiate and equal to zero", "Accept each root without checking"],
+        ['7', "Check critical points and terminals", "Just the critical point"],
+        ['8', "Answer what you are asked", "Give x space allowance, or vice versa"],
       ],
     },
-    reading: 'الخطوتان الخامسة والسابعة هما الأكثر تخطّيًا وأكثر ما يُفقِد الدرجات. '
-      + 'والخطوة الثامنة تستحق وقفة: كثير من الحلول الصحيحة حسابيًّا تجيب عن سؤال آخر، '
-      + 'فيُعطى البُعد حيث تُطلب المساحة. اقرأ السؤال مرة أخرى قبل أن تكتب الجواب.',
+    reading: "Steps five and seven are the ones that are skipped the most and are the ones that lead to the most losing grades. "
+      + "The eighth step deserves a pause: many mathematically correct solutions answer another question. "
+      + "Dimension is given where space is required. Read the question again before writing the answer.",
   },
 
   guided: {
-    start: 'ارسم الشكل وسمِّ أبعاده بحروف قبل أي حساب. ثم اكتب سطرين منفصلين: '
-      + 'سطر «أريد أن أعظّم/أصغّر…» وهو دالة الهدف، وسطر «والمعطى أن…» وهو القيد. '
-      + 'ثم استعمل القيد لحذف متغير. ثم اكتب المجال المسموح صراحةً بمتباينة. '
-      + 'وبعد ذلك فقط اشتق. وفي النهاية ارجع إلى السؤال: ماذا طُلب بالضبط؟',
+    start: "Draw the shape and label its dimensions in letters before any calculations. Then write two separate lines: "
+      + "The line “I want to maximize/minimize..” is the goal function, and the line “It is given that..” which is the constraint. "
+      + "Then use the constraint to delete a variable. Then write the domain that is explicitly allowed by the inequality. "
+      + "And then just derive. Finally, return to the question: What exactly was asked?",
     workedExamples: [
       {
-        title: 'مثال 1 · أكبر مساحة بمحيط ثابت',
-        task: 'مستطيل محيطه ‎40 m‎. ما أكبر مساحة ممكنة له؟',
+        title: "Example 1 · The largest area with a fixed perimeter",
+        task: "A rectangle with perimeter 40 m. is its largest possible area?",
         steps: [
           {
-            do: 'الهدف: ‎A = x y‎. والقيد: ‎2x + 2y = 40‎، أي ‎y = 20 − x‎.',
-            why: 'فصل الهدف عن القيد يمنع الخلط بينهما، وهو أشهر خطأ في هذا النوع.',
+            do: "Target: A = x y. and constraint: 2x + 2y = 40, i.e. y = 20 − x.",
+            why: "Separating the goal from the restriction prevents confusion between them, which is the most common mistake of this type.",
           },
           {
-            do: 'عوّض: ‎A(x) = x(20 − x) = 20x − x²‎.',
-            why: 'صارت الدالة بمتغير واحد، وهذا شرط الاشتقاق. ولا يصحّ الاشتقاق قبل هذه الخطوة.',
+            do: "Replace : A(x) = x(20 − x) = 20x − x².",
+            why: "The function now has one variable, and this is the condition for differentiation. The derivation is not valid before this step.",
           },
           {
-            do: 'المجال: ‎0 < x < 20‎ لأن الطولين موجبان.',
-            why: 'المجال يحدّد ما نقبله من جذور وما نفحصه من أطراف. وتخطّيه هو أصل أكثر الأخطاء.',
+            do: "The range : 0 < x < 20 because both lengths are positive.",
+            why: "The field determines what roots we accept and what edges we examine. Skipping it is the root of most mistakes.",
           },
           {
-            do: 'اشتق: ‎A′ = 20 − 2x = 0‎ فـ ‎x = 10‎، و‎A″ = −2 < 0‎ فهي عظمى.',
-            why: 'المشتقة الثانية سالبة ثابتة، فالنقطة عظمى قطعًا ولا حاجة لفحص الأطراف هنا؛ '
-              + 'ولو تُركت بلا اختبار لكانت دعوى بلا دليل.',
+            do: "Derive : A′ = 20 − 2x = 0 from x = 10, and A″ = −2 < 0 is maximum.",
+            why: "The second derivative is negative and constant, so the point is definitely maximum and there is no need to examine the edges here; "
+              + "If left untested, it would be a claim without evidence.",
           },
           {
-            do: 'المساحة ‎A = 10 × 10 = 100 m²‎.',
-            why: 'السؤال عن المساحة لا عن البُعد، فالجواب ‎100‎ لا ‎10‎. '
-              + 'ولاحظ أن الشكل الأمثل مربّع، وهذه نتيجة عامة لمحيط ثابت.',
+            do: "Area A = 10 × 10 = 100 m².",
+            why: "The question is about space, not distance, so the answer is 100, not 10. "
+              + "Note that the optimal shape is a square, and this is a general result for a fixed perimeter.",
           },
         ],
         answer: 'A = 100 m²',
       },
       {
-        title: 'مثال 2 · صندوق مفتوح من صفيحة مربّعة',
-        task: 'صفيحة مربّعة ضلعها ‎12 cm‎. تُقصّ من أركانها مربّعات ضلعها ‎x‎ ثم تُثنى الأطراف. '
-          + 'ما ‎x‎ التي تعطي أكبر حجم؟',
+        title: "Example 2 · An open box from a square plate",
+        task: "A square plate with side 12 cm. is cut from its corners with squares of side x, then the ends are folded. "
+          + "Which x gives the largest volume?",
         steps: [
           {
-            do: 'أبعاد القاعدة ‎(12 − 2x)‎ في ‎(12 − 2x)‎، والارتفاع ‎x‎، '
-              + 'فالحجم ‎V = x(12 − 2x)²‎.',
-            why: 'يُقصّ من الطرفين معًا، فالنقصان ‎2x‎ لا ‎x‎. وهذا موضع خطأ متكرر.',
+            do: "Dimensions of base (12 − 2x) in (12 − 2x), height x, "
+              + "The volume is V = x(12 − 2x)².",
+            why: "It is cut from both ends together, so the decrease is 2x, not x., and this is a frequent error.",
           },
           {
-            do: 'المجال: ‎0 < x < 6‎، لأن ‎12 − 2x‎ يجب أن يبقى موجبًا.',
-            why: 'عند ‎x = 6‎ تنعدم القاعدة فينعدم الحجم؛ فهذه حدّ لا حلّ.',
+            do: "The range: 0 < x < 6, because 12 − 2x must remain positive.",
+            why: "At x = 6 the base is non-existent and the volume is non-existent; This is a limit, not a solution.",
           },
           {
-            do: 'فكّ واشتق: ‎V = 4x³ − 48x² + 144x‎، فـ ‎V′ = 12x² − 96x + 144 = 12(x − 2)(x − 6)‎.',
-            why: 'الفكّ قبل الاشتقاق أسهل من قاعدة الجداء هنا، ويقلّ فيه الخطأ.',
+            do: "Decompose and differentiate : V = 4x³ − 48x² + 144x, so V′ = 12x² − 96x + 144 = 12(x − 2)(x − 6).",
+            why: "Derivation before derivation is easier than the product rule here, and there are fewer errors.",
           },
           {
-            do: 'الجذران ‎2‎ و‎6‎. والثاني طرف المجال ويعطي ‎V = 0‎، فيُستبعد.',
-            why: 'الجبر أعطى جذرين، والهندسة استبعدت أحدهما. '
-              + 'ولو قُبل ‎6‎ لكان الجواب أصغر حجم ممكن لا أكبره.',
+            do: "The two roots are 2 and 6., and the second is the end of the domain and gives V = 0, so it is excluded.",
+            why: "Algebra gave two roots, and geometry excluded one. "
+              + "If 6 had been accepted, the answer would have been the smallest possible volume, not the largest.",
           },
           {
-            do: 'إذن ‎x = 2 cm‎، والحجم ‎2 × 8² = 128 cm³‎.',
-            why: 'فحص الطرفين يؤكّد: عند ‎x → 0‎ وعند ‎x → 6‎ يؤول الحجم إلى صفر، '
-              + 'فالقيمة الداخلية هي العظمى.',
+            do: "So x = 2 cm, and the volume is 2 × 8² = 128 cm³.",
+            why: "Examination of both ends confirms: at x → 0 and at x → 6 the volume becomes zero. "
+              + "The internal value is the greatest.",
           },
         ],
         answer: 'x = 2 cm, V = 128 cm³',
@@ -232,24 +229,24 @@ export default {
     ],
     skipped: [
       {
-        q: 'لماذا يخرج المربّع دائمًا جوابًا في مسائل المحيط الثابت؟',
-        a: 'لأن الدالة ‎A = x(P/2 − x)‎ قطعٌ مكافئ رأسه في منتصف جذريها، '
-          + 'وهو الموضع الذي يتساوى فيه البُعدان. '
-          + 'وهذه نتيجة للمحيط الكامل. أما مع جدار يعفيك من ضلع فالجواب ليس مربّعًا، '
-          + 'كما في مسألة السياج أعلاه.',
+        q: "Why does the square always give an answer in constant perimeter problems?",
+        a: "Because the function A = x(P/2 − x) is a parabola whose vertex is at the midpoint of its roots, "
+          + "It is the place where the two dimensions are equal. "
+          + "This is a result of the complete circumference. As for a wall that relieves you of a side, the answer is not square. "
+          + "As in the issue of the fence above.",
       },
       {
-        q: 'متى أستعمل اختبار المشتقة الثانية ومتى أفحص الأطراف؟',
-        a: 'المشتقة الثانية تحسم أن النقطة عظمى أو صغرى **محليًّا**. '
-          + 'أما إن كان المجال فترة مغلقة فالنهاية المطلقة قد تكون عند طرف، '
-          + 'فلا بد من مقارنة قيم الدالة عند النقاط الحرجة وعند الطرفين. '
-          + 'وإن كان المجال مفتوحًا وكانت الدالة تؤول إلى صفر عند الطرفين فالنقطة الحرجة هي المطلوبة.',
+        q: "When do I use the second derivative test and when do I examine the edges?",
+        a: "The second derivative determines whether the point is maximum or minimum **locally**. "
+          + "If the domain is a closed interval, then the absolute limit may be at one limit. "
+          + "It is necessary to compare the values of the function at critical points and at both ends. "
+          + "If the field is open and the function leads to zero at both ends, then the critical point is what is required.",
       },
       {
-        q: 'ماذا لو أعطت المشتقة جذرًا سالبًا؟',
-        a: 'استبعده إن كان يمثّل طولًا أو حجمًا، فهذه كميات موجبة بطبيعتها. '
-          + 'وهذا هو معنى المجال المسموح: الجبر لا يعرف أن الضلع لا يكون سالبًا، '
-          + 'وأنت من يفرض هذا الشرط. ولا تُسقط الجذر بلا ذكر سبب إسقاطه.',
+        q: "What if the derivative gives a negative root?",
+        a: "Eliminate it if it represents length or volume, as these are inherently positive quantities. "
+          + "This is the meaning of the permissible field: algebra does not know that the side is not negative, "
+          + "You are the one who imposes this condition. Do not drop the root without mentioning the reason for dropping it.",
       },
     ],
   },
@@ -257,99 +254,99 @@ export default {
   questionTypes: [
     {
       id: 'max-area',
-      family: 'النمط الأول · أكبر مساحة بمحيط ثابت',
-      aim: 'تستعمل القيد لحذف متغير، وتجيب عمّا سُئلت عنه.',
+      family: "Type 1: The largest area with a fixed perimeter",
+      aim: "You use the constraint to delete a variable, and answer what you were asked about.",
       objectives: [0],
-      prompt: 'مستطيل محيطه ‎40 m‎. ما أكبر مساحة ممكنة له بالمتر المربّع؟',
+      prompt: "A rectangle with perimeter 40 m. is its largest possible area in square metres?",
       unit: 'm²',
       answer: 100,
       tolerance: 0.5,
-      solution: '‎y = 20 − x‎ فـ ‎A = 20x − x²‎، و‎A′ = 20 − 2x = 0‎ عند ‎x = 10‎. '
-        + 'و‎A″ = −2 < 0‎ فهي عظمى، والمساحة ‎10 × 10 = 100 m²‎.',
+      solution: "y = 20 − x at A = 20x − x², A′ = 20 − 2x = 0 at x = 10. "
+        + "The A″ = −2 < 0 is a maximum, and the space is 10 × 10 = 100 m².",
       commonErrors: [
-        { value: 10, why: 'أعطيتَ البُعد لا المساحة. السؤال عن المساحة بالمتر المربّع، '
-          + 'فأكمل الخطوة الأخيرة بضرب البُعدين.' },
-        { value: 400, why: 'عاملتَ ‎40‎ على أنها ضلع المربّع. هي المحيط، '
-          + 'فالضلع ‎40/4 = 10‎ والمساحة ‎100‎.' },
-        { value: 40, why: 'كتبتَ المحيط المعطى بدل المساحة المطلوبة.' },
+        { value: 10, why: "You were given dimension, not space. Question about the area in square metres, "
+          + "Complete the last step by multiplying the two dimensions." },
+        { value: 400, why: "You treated 40 as a side of the square. is the ocean, "
+          + "The side is 40/4 = 10 and the area is 100." },
+        { value: 40, why: "You wrote the given perimeter instead of the required area." },
       ],
     },
     {
       id: 'min-sum-squares',
-      family: 'النمط الثاني · أصغر مجموع مربّعين',
-      aim: 'تبرّر أن النقطة صغرى لا عظمى.',
+      family: "The second type: The smallest sum of two squares",
+      aim: "Justify that the point is a minimum, not a maximum.",
       objectives: [2],
-      prompt: 'عددان موجبان مجموعهما ‎12‎. ما أصغر قيمة لمجموع مربّعيهما؟',
-      unit: 'عدد',
+      prompt: "Two positive numbers whose sum is 12. What is the smallest value of the sum of their squares?",
+      unit: "Number",
       answer: 72,
       tolerance: 0.5,
-      solution: '‎y = 12 − x‎ فـ ‎S = x² + (12 − x)² = 2x² − 24x + 144‎. '
-        + 'و‎S′ = 4x − 24 = 0‎ عند ‎x = 6‎، و‎S″ = 4 > 0‎ فهي صغرى. '
-        + 'والمجموع ‎36 + 36 = 72‎.',
+      solution: "y = 12 − x to S = x² + (12 − x)² = 2x² − 24x + 144. "
+        + "S′ = 4x − 24 = 0 is at x = 6, and S″ = 4 > 0 is minor. "
+        + "The total is 36 + 36 = 72.",
       commonErrors: [
-        { value: 144, why: 'ربّعتَ المجموع فحسبتَ ‎12²‎. '
-          + 'ومجموع المربّعين ليس مربّع المجموع: ‎(a + b)² = a² + 2ab + b²‎.' },
-        { value: 36, why: 'حسبتَ مربّع أحد العددين وأهملتَ الآخر. المطلوب مجموع المربّعين.' },
-        { value: 6, why: 'أعطيتَ قيمة العدد لا مجموع المربّعين.' },
+        { value: 144, why: "You squared the sum and calculated 12². "
+          + "The sum of the two squares is not the square of the sum : (a + b)² = a² + 2ab + b²." },
+        { value: 36, why: "You calculated the square of one number and neglected the other. The sum of the two squares is required." },
+        { value: 6, why: "You gave the value of the number, not the sum of the squares." },
       ],
     },
     {
       id: 'box-cut',
-      family: 'النمط الثالث · جذران وأحدهما مرفوض',
-      aim: 'تستبعد الجذر الذي يخرج عن المجال المسموح.',
+      family: "The third type: Two roots, one of which is rejected",
+      aim: "It excludes the root that falls outside the permitted range.",
       objectives: [1],
-      prompt: 'صفيحة مربّعة ضلعها ‎12 cm‎، تُقصّ من أركانها مربّعات ضلعها ‎x‎ ثم تُثنى لتكوّن صندوقًا مفتوحًا. '
-        + 'ما قيمة ‎x‎ بالسنتيمتر التي تعطي أكبر حجم؟',
+      prompt: "A square plate with sides 12 cm, whose corners are cut with squares with sides x, then folded to form an open box. "
+        + "What value of x in centimeters gives the largest volume?",
       unit: 'cm',
       answer: 2,
       tolerance: 0.05,
-      solution: '‎V = x(12 − 2x)²‎، و‎V′ = 12(x − 2)(x − 6)‎، فالجذران ‎2‎ و‎6‎. '
-        + 'والمجال ‎0 < x < 6‎، فـ ‎6‎ طرفٌ يعطي حجمًا صفريًّا. إذن ‎x = 2 cm‎.',
+      solution: "V = x(12 − 2x)² and V′ = 12(x − 2)(x − 6), the roots are 2 and 6. "
+        + "The range is 0 < x < 6, so 6 is a term that gives zero volume. So x = 2 cm.",
       commonErrors: [
-        { value: 6, why: 'قبلتَ الجذر الآخر دون فحص المجال. '
-          + 'عند ‎x = 6‎ تصير القاعدة ‎12 − 12 = 0‎ فينعدم الحجم؛ '
-          + 'فهو أصغر حجم ممكن لا أكبره.' },
-        { value: 3, why: 'قسمتَ الضلع على ‎4‎. القسمة على أربعة قاعدة محفوظة لمسألة أخرى، '
-          + 'ولا تنتج من اشتقاق هذه الدالة.' },
-        { value: 128, why: 'أعطيتَ الحجم لا قيمة ‎x‎. السؤال عن طول القطعة المقصوصة بالسنتيمتر.' },
+        { value: 6, why: "You accepted the other root without checking the domain. "
+          + "At x = 6, the base becomes 12 − 12 = 0 and the volume ceases; "
+          + "It is the smallest possible volume, not the largest." },
+        { value: 3, why: "You divided the side by 4. Division by four is a rule reserved for another problem, "
+          + "It does not result from the derivation of this function." },
+        { value: 128, why: "You gave the volume no value x. The question is about the length of the cut piece in centimeters." },
       ],
     },
     {
       id: 'endpoint',
-      family: 'النمط الرابع · النهاية عند طرف',
-      aim: 'تفحص الأطراف حين لا تنعدم المشتقة داخل الفترة.',
+      family: "Fourth style · limit at one limit",
+      aim: "The terms are checked when the derivative does not exist within the interval.",
       objectives: [1],
-      prompt: 'ما أكبر قيمة للدالة ‎f(x) = x²‎ على الفترة المغلقة من ‎x = 1‎ إلى ‎x = 4‎؟',
-      unit: 'عدد',
+      prompt: "What is the largest value of the function f(x) = x² on the closed interval from x = 1 to x = 4?",
+      unit: "Number",
       answer: 16,
       tolerance: 0.05,
-      solution: '‎f′(x) = 2x‎ تنعدم عند ‎x = 0‎ وهي خارج الفترة، فلا نقاط حرجة داخلها. '
-        + 'نفحص الطرفين: ‎f(1) = 1‎ و‎f(4) = 16‎، فالعظمى ‎16‎.',
+      solution: "f′(x) = 2x zeros when x = 0 is outside the interval, so there are no critical points inside it. "
+        + "We examine the extremes : f(1) = 1 and f(4) = 16, the maximum is 16.",
       commonErrors: [
-        { value: 0, why: 'ساويتَ المشتقة بالصفر وقبلتَ ‎x = 0‎ مع أنها خارج الفترة. '
-          + 'النقطة الحرجة لا تُقبل إلا إن وقعت داخل المجال.' },
-        { value: 1, why: 'أخذتَ الطرف الأصغر. الدالة متزايدة على هذه الفترة، فأكبر قيمة عند أقصى اليمين.' },
-        { value: 8, why: 'حسبتَ ‎f′(4) = 8‎ وهي قيمة المشتقة لا قيمة الدالة.' },
+        { value: 0, why: "You set the derivative equal to zero and accept x = 0 even though it is outside the interval. "
+          + "The critical point is only accepted if it falls within the range." },
+        { value: 1, why: "You took the smaller end. The function is increasing over this interval, with the largest value at the far right." },
+        { value: 8, why: "You calculated f′(4) = 8, which is the value of the derivative, not the value of the function." },
       ],
     },
     {
       id: 'fence-wall',
-      family: 'النمط الخامس · قيد ناقص ضلعًا',
-      aim: 'تكتب القيد من الشكل لا من العادة.',
+      family: "Fifth style · A restriction with a missing side",
+      aim: "The entry is written from form, not from habit.",
       objectives: [0],
-      prompt: 'يُراد سياج مستطيل بجانب جدار، فلا يحتاج الضلع الملاصق للجدار سياجًا. '
-        + 'المتاح ‎60 m‎ من السياج. ما أكبر مساحة ممكنة بالمتر المربّع؟',
+      prompt: "A rectangular fence is intended next to a wall, so the side adjacent to the wall does not require a fence. "
+        + "Disposable 60 m of fence. What is the largest possible area in square metres?",
       unit: 'm²',
       answer: 450,
       tolerance: 1,
-      solution: 'القيد ‎x + 2y = 60‎ فـ ‎x = 60 − 2y‎، والمساحة ‎A = xy = 60y − 2y²‎. '
-        + 'و‎A′ = 60 − 4y = 0‎ عند ‎y = 15‎، فـ ‎x = 30‎ والمساحة ‎450 m²‎.',
+      solution: "The entry x + 2y = 60 is in x = 60 − 2y, and the space is A = xy = 60y − 2y². "
+        + "And A′ = 60 − 4y = 0 is at y = 15, then x = 30 and the space is 450 m².",
       commonErrors: [
-        { value: 225, why: 'استعملتَ القيد ‎2x + 2y = 60‎ فخرج مربّع ضلعه ‎15‎. '
-          + 'الجدار يعفيك من ضلع، فالقيد ‎x + 2y‎ والشكل الأمثل ليس مربّعًا: '
-          + 'الضلع الموازي للجدار ضعف كلٍّ من الضلعين الآخرين.' },
-        { value: 900, why: 'اعتبرتَ ‎60‎ ضلعًا أو عدّدتَ الأضلاع خطأً فخرج ‎30 × 30‎.' },
-        { value: 15, why: 'أعطيتَ البُعد ‎y‎ لا المساحة المطلوبة.' },
+        { value: 225, why: "You used the constraint 2x + 2y = 60 and a square with side 15. came out "
+          + "The wall relieves you of a side, so the constraint is x + 2y and the optimal shape is not a square: "
+          + "The side parallel to the wall is twice each of the other two sides." },
+        { value: 900, why: "You considered 60 to be a side or you counted the sides incorrectly and 30 × 30. came out" },
+        { value: 15, why: "You gave the dimension y, not the required space." },
       ],
     },
   ],

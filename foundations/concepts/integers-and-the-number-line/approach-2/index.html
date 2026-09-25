@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Integers and the Number Line | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a> / Approach 2</p>
@@ -35,6 +35,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Decide whether a measured value belongs to the integers, and say why the distinction can change a judgement.</li><li>Compare two negatives by position, and state a &quot;below a limit&quot; ruling that contradicts the digits.</li><li>Give an opposite, evaluate a double sign, and check the pair sums to zero.</li><li>Compute an absolute value, and say why it cannot be used to order two integers.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/integers-and-the-number-line/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/basic-math/integers-and-the-number-line/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/integers-and-the-number-line/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/expressions-and-variables/">Expressions and variables</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/coordinate-plane/">The coordinate plane</a> · <a href="/foundations/concepts/measuring-segments/">Measuring segments</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/integers-and-the-number-line/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/basic-math/integers-and-the-number-line/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/integers-and-the-number-line/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="integers-and-the-number-line">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="limit">
+<p class="check-prompt">A vaccine store must be held at or below <code>-20 °C</code>. Tuesday logged <code>-18 °C</code>. Is that within limit?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> No, it is warmer than the limit</label><label><input type="radio" name="answer" value="1"> Yes, because 18 is a smaller number than 20</label><label><input type="radio" name="answer" value="2"> It cannot be decided from one reading</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>-18</code> lies to the right of <code>-20</code> on the line, so it is warmer. &quot;At or below&quot; needs a position further left, such as <code>-20</code> or <code>-25</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Of the readings <code>-22</code>, <code>-18</code> and <code>-25</code>, enter the coldest.</p>
+<form><div class="check-row"><label for="follow-integers-and-the-number-line-limit">Your answer <span class="check-unit">(°C)</span></label><input id="follow-integers-and-the-number-line-limit" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>-25</code> lies furthest left, so it is coldest, although <code>25</code> is the largest digit.</p></details>
+</div>
+</section><section class="check" data-check="order">
+<p class="check-prompt">Enter the smaller of <code>-25</code> and <code>-18</code>.</p>
+
+<form><div class="check-row"><label for="check-integers-and-the-number-line-order">Your answer</label><input id="check-integers-and-the-number-line-order" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>-25</code> lies further left on the number line, so it is the smaller number.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now enter the value of <code>|-25| - |-18|</code>.</p>
+<form><div class="check-row"><label for="follow-integers-and-the-number-line-order">Your answer</label><input id="follow-integers-and-the-number-line-order" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>25 - 18 = 7</code>. Both bars report a distance from zero, and a distance is never negative.</p></details>
+</div>
+</section><section class="check" data-check="double-sign">
+<p class="check-prompt">Evaluate <code>-(-22)</code> and explain what the outer negative sign does.</p>
+
+<form><div class="check-row"><label for="check-integers-and-the-number-line-double-sign">Your answer</label><input id="check-integers-and-the-number-line-double-sign" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>A minus sign in front means &quot;the opposite of&quot;, so this asks for the opposite of negative twenty-two.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>A number and its opposite always sum to the same value. Enter <code>-22 + 22</code>.</p>
+<form><div class="check-row"><label for="follow-integers-and-the-number-line-double-sign">Your answer</label><input id="follow-integers-and-the-number-line-double-sign" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>Zero, which is exactly what &quot;same distance from zero, other side&quot; means.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/expressions-and-variables/">Expressions and variables</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/coordinate-plane/">The coordinate plane</a> · <a href="/foundations/concepts/measuring-segments/">Measuring segments</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

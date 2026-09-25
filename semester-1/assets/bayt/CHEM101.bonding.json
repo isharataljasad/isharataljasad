@@ -6,12 +6,12 @@
    "version": "956d98fd0546",
    "answer": 24,
    "tolerance": 0.001,
-   "unit": "إلكترون",
+   "unit": "Electron",
    "solution": "5+3×6+1=24.",
    "commonErrors": [
     {
      "value": 22,
-     "why": "أنقصت إلكترونًا للشحنة السالبة بدل إضافته."
+     "why": "I subtracted an electron for the negative charge instead of adding it."
     }
    ]
   },
@@ -20,12 +20,12 @@
    "version": "57b89dc39136",
    "answer": 1,
    "tolerance": 0.001,
-   "unit": "عدد",
+   "unit": "Number",
    "solution": "5−0−8/2=+1.",
    "commonErrors": [
     {
      "value": -1,
-     "why": "عكست طرح الإلكترونات التي تخص الذرة."
+     "why": "It reflects the subtraction of electrons that belong to the atom."
     }
    ]
   },
@@ -34,12 +34,12 @@
    "version": "add6e22d75d6",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "مجال",
-   "solution": "الرابطة المتعددة تعد مجالًا واحدًا؛ يوجد مجالان.",
+   "unit": "domain",
+   "solution": "A multi-association is a single domain; There are two areas.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "عددت أزواج الرابطة بدل المجالات."
+     "why": "Bond pairs are counted instead of domains."
     }
    ]
   },
@@ -48,12 +48,12 @@
    "version": "7c67e8c7c2c3",
    "answer": 0,
    "tolerance": 0.001,
-   "unit": "اختيار عددي",
-   "solution": "عزما الرابطتين متساويان ومتعاكسان.",
+   "unit": "Numerical selection",
+   "solution": "The moments of the two bonds are equal and opposite.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "قطبية الروابط لا تعني تلقائيًا قطبية الجزيء."
+     "why": "The polarity of bonds does not automatically mean the polarity of the molecule."
     }
    ]
   },
@@ -62,12 +62,12 @@
    "version": "b49e61ef4016",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "عدد",
+   "unit": "Number",
    "solution": "(8−4)/2=2.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "نسيت القسمة على اثنين."
+     "why": "I forgot to divide by two."
     }
    ]
   },
@@ -76,12 +76,12 @@
    "version": "d29aa0781b7d",
    "answer": 0,
    "tolerance": 0.001,
-   "unit": "اختيار عددي",
-   "solution": "التبخر يفصل الجزيئات أساسًا، ولا يفك روابطها التساهمية إلى ذرات.",
+   "unit": "Numerical selection",
+   "solution": "Evaporation essentially separates molecules, not breaking their covalent bonds into atoms.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "خلطت التجاذب بين الجزيئات بالروابط داخل الجزيء."
+     "why": "Confuse intermolecular attraction with intramolecular bonds."
     }
    ]
   }

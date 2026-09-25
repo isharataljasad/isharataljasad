@@ -13,9 +13,9 @@ assert.equal(inventory.topics.length, 17);
 assert.equal(new Set(inventory.topics.map(t => t.id)).size, inventory.topics.length);
 assert.equal(new Set(inventory.topics.map(t => t.url)).size, inventory.topics.length);
 assert.equal(new Set(inventory.topics.map(t => t.unit)).size, 9);
-assert.match(html, /17<\/strong><small>صفحة موضوع/);
-assert.match(html, /0<\/strong><small>فيديو شُغّل/);
-assert.match(html, /غير مثبت/);
+assert.match(html, /17<\/strong><small>Linked topic page/);
+assert.match(html, /0<\/strong><small>Video played/);
+assert.match(html, /Not verified/);
 assert.ok(!/<script\b/i.test(html), 'No inline or external scripts required for the inventory to render');
 assert.ok(!/<style\b/i.test(html), 'Do not introduce an inline style blocked by the strict CSP');
 for (const topic of inventory.topics) {

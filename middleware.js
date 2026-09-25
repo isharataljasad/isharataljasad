@@ -22,9 +22,9 @@ export const config = { matcher: "/((?!_vercel/).*)" };
 
 const limiter = makeLimiter();
 
-const MSG_REJECTED = "كلمة المرور غير صحيحة.";
-const TOO_MANY = "محاولات كثيرة. انتظر قليلًا ثم أعد المحاولة.";
-const MISCONFIGURED = "البوابة غير مهيأة على هذا النشر.";
+const MSG_REJECTED = "The password is incorrect.";
+const TOO_MANY = "Many attempts. Wait a while and try again.";
+const MISCONFIGURED = "The portal is not configured for this deployment.";
 
 /* Same headers for every gate response. The login page is the one place that
    needs an inline <style>, so it gets a nonce — never 'unsafe-inline'.

@@ -136,7 +136,7 @@ function shell(title, body, needsRouteStyles = false) {
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a></nav><span class="semester">SEMESTER 1</span></header>
 <main id="main" class="page reading-page">${body}</main>
 <footer class="footer">Math Foundations supports every semester. <a href="/foundations/">Browse the four Foundations folders</a>.</footer>
-</body></html>\n`;
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>\n`;
 }
 
 function writePage(url, html) {

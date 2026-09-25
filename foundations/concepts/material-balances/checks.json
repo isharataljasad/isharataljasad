@@ -1,0 +1,86 @@
+{
+ "slug": "material-balances",
+ "checks": [
+  {
+   "id": "total",
+   "kind": "number",
+   "prompt": "Feed A is `100 kg/h` and feed B is `50 kg/h` into a steady mixer with no reaction. Find the outlet flow.",
+   "answer": 150,
+   "tolerance": 0.5,
+   "unit": "kg/h",
+   "solution": "Steady state with no reaction gives input = output: `100 + 50 = 150 kg/h`.",
+   "responses": [
+    {
+     "value": 50,
+     "why": "consistent with subtracting the streams rather than adding them."
+    },
+    {
+     "value": 350,
+     "why": "consistent with adding the tank inventory of about 200 kg to the flows. A mass in kg and a flow in kg/h cannot be added, and at steady state the inventory does not enter the balance."
+    }
+   ],
+   "followUp": {
+    "prompt": "A different tank receives `10 kg/h` and discharges `7 kg/h`. Enter its accumulation.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "unit": "kg/h",
+    "solution": "`10 - 7 = 3 kg/h`. Here input does not equal output, so the short form is unavailable."
+   },
+   "version": 1
+  },
+  {
+   "id": "fraction",
+   "kind": "number",
+   "prompt": "Feed A is `100 kg/h` at `20%` solute by mass; feed B is `50 kg/h` of pure water. Find the outlet solute mass fraction, as a percentage.",
+   "answer": 13.33,
+   "tolerance": 0.1,
+   "unit": "%",
+   "solution": "Solute: `100 × 0.20 = 20 kg/h`. Total: `150 kg/h`. Fraction: `20/150 = 13.33%`. The solute flow did not change; the total it sits in grew.",
+   "responses": [
+    {
+     "value": 20,
+     "why": "consistent with reporting the feed fraction unchanged, or the solute flow in kg/h as though it were a percentage."
+    },
+    {
+     "value": 10,
+     "why": "consistent with taking the unweighted average of 20% and 0%, which would need the two flows to be equal."
+    }
+   ],
+   "followUp": {
+    "prompt": "Enter the outlet solute flow in `kg/h` for the same mixer.",
+    "answer": 20,
+    "tolerance": 0.1,
+    "unit": "kg/h",
+    "solution": "`20 + 0 = 20 kg/h`, unchanged. Dilution moves the fraction and leaves the component flow alone."
+   },
+   "version": 1
+  },
+  {
+   "id": "weighted",
+   "kind": "number",
+   "prompt": "Feed A is `80 kg/h` at `15%` solute; feed B is `70 kg/h` of pure water. Find the outlet mass fraction, as a percentage.",
+   "answer": 8,
+   "tolerance": 0.1,
+   "unit": "%",
+   "solution": "Solute in: `80 × 0.15 = 12 kg/h`. Total: `150 kg/h`. Fraction: `12/150 = 8.00%`.",
+   "responses": [
+    {
+     "value": 7.5,
+     "why": "consistent with averaging 15% and 0% without weighting. That would be right only if the flows were equal; at 80 against 70 the richer stream pulls the result above the midpoint."
+    },
+    {
+     "value": 12,
+     "why": "consistent with reporting the solute flow in kg/h rather than the fraction."
+    }
+   ],
+   "followUp": {
+    "prompt": "If both feeds were `75 kg/h`, one at `15%` and one pure, what would the outlet fraction be, as a percentage?",
+    "answer": 7.5,
+    "tolerance": 0.1,
+    "unit": "%",
+    "solution": "`75 × 0.15 = 11.25 kg/h` in `150 kg/h`, which is `7.5%`. With equal flows the unweighted average happens to be right — which is exactly the condition it needs."
+   },
+   "version": 1
+  }
+ ]
+}

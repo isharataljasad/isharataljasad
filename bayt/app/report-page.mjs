@@ -43,15 +43,15 @@ if (form) {
     const ref = reference();
     liveBox.textContent = '';
     if (!ref) {
-      liveBox.append(el('p', { class: 'section-note', text: 'أدخل التدفقين والكسرين ليظهر ملخص المدخلات. الكسر بين 0 و 1، لا نسبة مئوية.' }));
+      liveBox.append(el('p', { class: 'section-note', text: "Enter both streams and fractions to display a summary of the inputs. The fraction between 0 and 1, not a percentage." }));
       return;
     }
     liveBox.append(
-      el('p', { class: 'section-note', text: 'مدخلاتك كما فهمها التطبيق. الحساب عليك، لا عليه:' }),
+      el('p', { class: 'section-note', text: "Your input as understood by the application. The account is on you, not on him:" }),
       el('ul', { class: 'live-list' },
-        el('li', { text: `الداخل الكلي = ${num('feedA')} + ${num('feedB')} kg/h` }),
-        el('li', { text: `مذاب من التيار الأول = ${num('feedA')} × ${num('fractionA')} kg/h` }),
-        el('li', { text: `مذاب من التيار الثاني = ${num('feedB')} × ${num('fractionB')} kg/h` })));
+        el('li', { text: `Overall interior = ${num('feedA')} + ${num('feedB')} kg/h` }),
+        el('li', { text: `Solute from the first stream = ${num('feedA')} × ${num('fractionA')} kg/h` }),
+        el('li', { text: `Solute from the second stream = ${num('feedB')} × ${num('fractionB')} kg/h` })));
   }
 
   const near = (a, b, tol) => a !== null && Math.abs(a - b) <= tol;
@@ -59,22 +59,22 @@ if (form) {
   /* يقارن إجابة الطالب بالحساب المرجعي. النتيجة «صحة إجابة»، لا أكثر. */
   function checkAnswers() {
     const ref = reference();
-    if (!ref) return { state: 'not-checked', lines: ['لم تكتمل المدخلات، فلا يمكن التحقق.'] };
+    if (!ref) return { state: 'not-checked', lines: ["Input is not complete, verification cannot be done."] };
 
     const parts = [
-      ['التدفق الكلي الخارج', num('outTotal'), ref.total, 0.01, 'kg/h'],
-      ['تدفق المذاب الخارج', num('outSolute'), ref.solute, 0.01, 'kg/h'],
-      ['نسبة المذاب في المخرج', num('outPercent'), ref.percent, 0.05, '%'],
+      ["Total outflow", num('outTotal'), ref.total, 0.01, 'kg/h'],
+      ["Outflow of solute", num('outSolute'), ref.solute, 0.01, 'kg/h'],
+      ["Percentage of solute in the outlet", num('outPercent'), ref.percent, 0.05, '%'],
     ];
     const lines = [];
     let matched = 0, answered = 0;
     for (const [name, given, expected, tol, unit] of parts) {
-      if (given === null) { lines.push(`${name}: لم تُدخل قيمة.`); continue; }
+      if (given === null) { lines.push(`${name}: You did not enter a value.`); continue; }
       answered++;
-      if (near(given, expected, tol)) { matched++; lines.push(`${name}: يطابق (${expected.toFixed(2)} ${unit}).`); }
-      else lines.push(`${name}: لديك ${given}، والحساب يعطي ${expected.toFixed(2)} ${unit}.`);
+      if (near(given, expected, tol)) { matched++; lines.push(`${name}: matches (${expected.toFixed(2)} ${unit}).`); }
+      else lines.push(`${name}: You have ${given}And the account gives ${expected.toFixed(2)} ${unit}.`);
     }
-    if (!answered) return { state: 'not-checked', lines: ['لم تُدخل أي نتيجة بعد.'] };
+    if (!answered) return { state: 'not-checked', lines: ["No results have been entered yet."] };
     return { state: matched === parts.length ? 'match' : 'mismatch', lines, matched, total: parts.length };
   }
 
@@ -84,14 +84,14 @@ if (form) {
     checkBox.textContent = '';
     checkBox.dataset.state = result.state;
     const title = result.state === 'match'
-      ? 'نتائجك تطابق الحساب المرجعي لهذه المسألة.'
+      ? "Your results match the reference calculation for this problem."
       : result.state === 'mismatch'
-        ? `طابق ${result.matched} من ${result.total}. راجع ما لم يطابق.`
-        : 'لا يمكن التحقق بعد.';
+        ? `Match ${result.matched} of ${result.total}. Review what doesn't match.`
+        : "Can't verify yet.";
     checkBox.append(
       el('p', { class: 'check-title', text: title }),
       el('ul', {}, ...result.lines.map((line) => el('li', { text: line }))),
-      el('p', { class: 'section-note', text: 'هذا تحقق من مسألة واحدة. مطابقة الأرقام ليست إتقانًا للمهارة.' }));
+      el('p', { class: 'section-note', text: "This is a check of one issue. Matching numbers is not mastering a skill." }));
     return result;
   }
 
@@ -107,7 +107,7 @@ if (form) {
     checkShown = false;
     checkBox.textContent = '';
     checkBox.dataset.state = 'stale';
-    checkBox.append(el('p', { class: 'check-title', text: 'تغيّرت القيم؛ أعد التحقق.' }));
+    checkBox.append(el('p', { class: 'check-title', text: "Values have changed; Recheck." }));
   }
 
   for (const name of [...inputFields, ...answerFields]) {
@@ -129,9 +129,9 @@ if (form) {
     for (const [name, value] of Object.entries(r.results || {})) if (field(name)) field(name).value = value;
     if (field('assumptions')) field('assumptions').value = (r.assumptions || []).join('\n');
     if (field('processDescription')) field('processDescription').value = r.description || '';
-    if (heading) heading.textContent = 'تعديل تقرير محفوظ';
+    if (heading) heading.textContent = "Modify a saved report";
     const submit = form.querySelector('button[type="submit"]');
-    if (submit) submit.textContent = 'احفظ التعديل';
+    if (submit) submit.textContent = "Save the modification";
     renderLive();
   }
 
@@ -145,18 +145,18 @@ if (form) {
       .split('\n').map((s) => s.trim()).filter(Boolean);
 
     if (!ref) {
-      if (saveNote) { saveNote.className = 'save-note warn'; saveNote.textContent = 'أكمل التدفقين والكسرين قبل الحفظ.'; }
+      if (saveNote) { saveNote.className = 'save-note warn'; saveNote.textContent = "Complete the two flows and two fractions before saving."; }
       return;
     }
     if (!description) {
-      if (saveNote) { saveNote.className = 'save-note warn'; saveNote.textContent = 'اكتب وصف العملية بالإنجليزية قبل الحفظ.'; }
+      if (saveNote) { saveNote.className = 'save-note warn'; saveNote.textContent = "Write the process description in English before saving."; }
       return;
     }
 
     const result = checkAnswers();
     const report = {
       kind: 'material-balance',
-      units: { flow: 'kg/h', fraction: 'بلا وحدة (0–1)', percent: '%' },
+      units: { flow: 'kg/h', fraction: "No unit (0–1)", percent: '%' },
       inputs: {
         feedA: num('feedA'), fractionA: num('fractionA'),
         feedB: num('feedB'), fractionB: num('fractionB'),
@@ -170,18 +170,18 @@ if (form) {
 
     if (editing) {
       updateAchievement(editing.id, { report, status });
-      if (saveNote) { saveNote.className = 'save-note'; saveNote.textContent = 'حُدّث التقرير. افتح ملف الإنجاز لتراه.'; }
+      if (saveNote) { saveNote.className = 'save-note'; saveNote.textContent = "The report has been updated. Open the achievement file to see it."; }
     } else {
       addAchievement({
-        title: 'تقرير موازنة مواد: خلّاط بتيارين',
-        kind: 'تقرير',
+        title: "Material balance report: a two-stream mixer",
+        kind: "Report",
         skill: 'SKILL-MATBAL',
         goal: 'GOAL-CE201-REPORT',
         report, status, demo: false,
       });
       if (saveNote) {
         saveNote.className = 'save-note';
-        saveNote.textContent = `حُفظ التقرير كاملًا: الحساب ووحداته و${countNoun(assumptions.length, nouns.assumption)} والوصف الإنجليزي.`;
+        saveNote.textContent = `Save the complete report: the account, its units, and${countNoun(assumptions.length, nouns.assumption)} And the English description.`;
       }
       form.reset();
       renderLive();

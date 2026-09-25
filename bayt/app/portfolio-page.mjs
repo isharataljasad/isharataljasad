@@ -21,11 +21,11 @@ function render() {
 
   if (summary) {
     summary.textContent = achievements.length
-      ? `${countNoun(achievements.length, nouns.achievement)} محفوظ على هذا الجهاز.`
-      : 'لا إنجازات بعد. أنجز مهمة الإنجليزية، أو أضف إنجازًا يدويًا.';
+      ? `${countNoun(achievements.length, nouns.achievement)} Saved on this device.`
+      : "No achievements yet. Complete an English task, or add an achievement manually.";
   }
   if (!achievements.length) {
-    box.append(el('p', { class: 'section-note', text: 'حين تكمل مهمة تحفظ نتيجتها، ستظهر هنا بتاريخها والمهارة التي تثبتها.' }));
+    box.append(el('p', { class: 'section-note', text: "When you complete a task whose score is saved, it will appear here with its history and the skill you demonstrated." }));
     return;
   }
 
@@ -40,8 +40,8 @@ function render() {
 
     const meta = el('p', { class: 'ach-meta' },
       el('span', { text: arabicDate(item.savedAt) }),
-      skill ? el('span', { text: ` · يثبت: ${skill.title}` }) : null,
-      goal ? el('span', { text: ` · ضمن: ${goal.title}` }) : null);
+      skill ? el('span', { text: ` · Prove: ${skill.title}` }) : null,
+      goal ? el('span', { text: ` · Within: ${goal.title}` }) : null);
 
     /* التقرير المنظّم يُعرض بأقسامه، لا كنص واحد. */
     const body = item.report ? renderReport(item.report)
@@ -49,10 +49,10 @@ function render() {
 
     const status = renderStatus(item.status);
     const edit = item.report
-      ? el('a', { class: 'link-button', href: `/bayt/report/?edit=${item.id}`, text: 'راجع أو عدّل' })
+      ? el('a', { class: 'link-button', href: `/bayt/report/?edit=${item.id}`, text: "Review or edit" })
       : null;
 
-    const remove = el('button', { type: 'button', class: 'icon-button', 'aria-label': `احذف: ${item.title}`, text: '×' });
+    const remove = el('button', { type: 'button', class: 'icon-button', 'aria-label': `Delete: ${item.title}`, text: '×' });
     remove.addEventListener('click', () => { removeAchievement(item.id); render(); refreshDemoBar(); });
 
     const foot = (edit) ? el('p', { class: 'ach-foot' }, edit) : null;
@@ -64,13 +64,13 @@ function render() {
 function renderStatus(status) {
   if (!status) return null;
   const checked = status.calculationChecked;
-  const answer = checked === 'match' ? ['نتائج الحساب طابقت التحقق', 'ok']
-    : checked === 'mismatch' ? ['بعض النتائج لم تطابق', 'warn']
-      : ['لم يُطلب تحقق حسابي', 'idle'];
+  const answer = checked === 'match' ? ["The calculation results matched the verification", 'ok']
+    : checked === 'mismatch' ? ["Some results did not match", 'warn']
+      : ["No calculation check requested", 'idle'];
   return el('ul', { class: 'status-row' },
-    el('li', { class: 'st ok', text: 'أتممتَ المهمة وسجّلتها' }),
+    el('li', { class: 'st ok', text: "You completed the task and recorded it" }),
     el('li', { class: `st ${answer[1]}`, text: answer[0] }),
-    el('li', { class: 'st idle', text: 'الإتقان لا يُقاس هنا' }));
+    el('li', { class: 'st idle', text: "Mastery is not measured here" }));
 }
 
 function renderReport(report) {
@@ -79,25 +79,25 @@ function renderReport(report) {
   const round = (v) => (typeof v === 'number' ? Math.round(v * 100) / 100 : '—');
 
   wrap.append(
-    el('h4', { text: 'المدخلات' }),
+    el('h4', { text: "Input" }),
     el('ul', {},
-      el('li', { text: `التيار الأول: ${i.feedA} ${report.units?.flow || ''} · كسر ${i.fractionA}` }),
-      el('li', { text: `التيار الثاني: ${i.feedB} ${report.units?.flow || ''} · كسر ${i.fractionB}` })),
-    el('h4', { text: 'نتائجك' }),
+      el('li', { text: `First stream: ${i.feedA} ${report.units?.flow || ''} · fraction ${i.fractionA}` }),
+      el('li', { text: `The second stream: ${i.feedB} ${report.units?.flow || ''} · fraction ${i.fractionB}` })),
+    el('h4', { text: "Your results" }),
     el('ul', {},
-      el('li', { text: `التدفق الكلي الخارج: ${r.outTotal ?? '—'} ${report.units?.flow || ''}` }),
-      el('li', { text: `تدفق المذاب الخارج: ${r.outSolute ?? '—'} ${report.units?.flow || ''}` }),
-      el('li', { text: `نسبة المذاب: ${r.outPercent ?? '—'} %` })),
-    el('h4', { text: 'الحساب المرجعي' }),
+      el('li', { text: `Total outflow: ${r.outTotal ?? '—'} ${report.units?.flow || ''}` }),
+      el('li', { text: `Outflow of solute: ${r.outSolute ?? '—'} ${report.units?.flow || ''}` }),
+      el('li', { text: `Solute ratio: ${r.outPercent ?? '—'} %` })),
+    el('h4', { text: "Reference calculation" }),
     el('ul', {},
       el('li', { text: `${round(ref.total)} ${report.units?.flow || ''} · ${round(ref.solute)} ${report.units?.flow || ''} · ${round(ref.percent)} %` })));
 
   if (report.assumptions?.length) {
-    wrap.append(el('h4', { text: 'الافتراضات' }),
+    wrap.append(el('h4', { text: "Assumptions" }),
       el('ul', {}, ...report.assumptions.map((a) => el('li', { text: a }))));
   }
   if (report.description) {
-    wrap.append(el('h4', { text: 'وصف العملية' }),
+    wrap.append(el('h4', { text: "Description of the process" }),
       el('p', { class: 'en', dir: 'ltr', lang: 'en', text: report.description }));
   }
   return wrap;
@@ -112,7 +112,7 @@ if (form) {
     const data = new FormData(form);
     const title = String(data.get('title') || '').trim();
     if (!title) return;
-    addAchievement({ title, kind: String(data.get('kind') || '').trim() || 'عمل', demo: false });
+    addAchievement({ title, kind: String(data.get('kind') || '').trim() || "Work", demo: false });
     form.reset();
     render();
   });

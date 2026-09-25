@@ -11,7 +11,7 @@
    "commonErrors": [
     {
      "value": 0.5,
-     "why": "عكست العلاقة؛ الطاقة تقل حين يزيد الطول الموجي."
+     "why": "The relationship reversed; Energy decreases when wavelength increases."
     }
    ]
   },
@@ -21,11 +21,11 @@
    "answer": 10.2,
    "tolerance": 0.001,
    "unit": "eV",
-   "solution": "E2=−3.4 وE1=−13.6؛ مقدار الفرق 10.2 eV.",
+   "solution": "E2=−3.4 and E1=−13.6; The amount of difference is 10.2 eV.",
    "commonErrors": [
     {
      "value": -10.2,
-     "why": "هذه إشارة تغير طاقة الذرة؛ طاقة الفوتون موجبة."
+     "why": "This is a sign that changes the energy of the atom; The energy of the photon is positive."
     }
    ]
   },
@@ -34,12 +34,12 @@
    "version": "ca9b421d5f75",
    "answer": 5,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "l=2، فيكون 2l+1=5.",
+   "unit": "Number",
+   "solution": "l=2, so 2l+1=5.",
    "commonErrors": [
     {
      "value": 10,
-     "why": "هذا عدد الإلكترونات الأقصى لا الأفلاك."
+     "why": "This is the maximum number of electrons, not orbitals."
     }
    ]
   },
@@ -48,12 +48,12 @@
    "version": "e789f9b749be",
    "answer": 18,
    "tolerance": 0.001,
-   "unit": "إلكترون",
+   "unit": "Electron",
    "solution": "2n²=2×9=18.",
    "commonErrors": [
     {
      "value": 9,
-     "why": "حسبت عدد الأفلاك ونسيت إلكترونين لكل فلك."
+     "why": "I calculated the number of orbitals and forgot two electrons for each orbital."
     }
    ]
   },
@@ -62,12 +62,12 @@
    "version": "67a68702231b",
    "answer": 0.5,
    "tolerance": 0.001,
-   "unit": "نسبة",
-   "solution": "λ=h/p؛ مضاعفة p تنصف λ.",
+   "unit": "Ratio",
+   "solution": "λ=h/p; Doubling p does justice to λ.",
    "commonErrors": [
     {
      "value": 2,
-     "why": "العلاقة عكسية لا طردية."
+     "why": "The relationship is inverse, not direct."
     }
    ]
   },
@@ -81,7 +81,7 @@
    "commonErrors": [
     {
      "value": 7,
-     "why": "دالة الشغل تستهلك من طاقة الفوتون ولا تضاف إليها."
+     "why": "The work function consumes photon energy and does not add to it."
     }
    ]
   }

@@ -11,15 +11,15 @@
    "commonErrors": [
     {
      "value": 36,
-     "why": "ضربتَ القوة في الكتلة. العلاقة ‎F = ma‎، فالتسارع ‎F/m‎ لا ‎F × m‎؛ ووحدة ناتجك ‎N·kg‎ وهي ليست تسارعًا."
+     "why": "You multiply the force by the mass. The relationship is F = ma, so the acceleration is F/m not F × m; And your output unit is N·kg which is not acceleration."
     },
     {
      "value": 0.25,
-     "why": "قسمتَ الكتلة على القوة. راجع أي الكميتين في البسط."
+     "why": "You divide the mass by the force. Review which two quantities are in the numerator."
     },
     {
      "value": 9,
-     "why": "طرحتَ بدل القسمة."
+     "why": "You subtracted instead of division."
     }
    ]
   },
@@ -33,15 +33,15 @@
    "commonErrors": [
     {
      "value": 8,
-     "why": "كتبتَ الكتلة. الوزن قوة وحدتها النيوتن، والكتلة مقدار مادة وحدتها الكيلوغرام، وهما كميتان مختلفتان لا مقياسان لشيء واحد."
+     "why": "You wrote the mass. Weight is a force whose unit is a newton, and mass is a quantity of matter whose unit is a kilogram. They are two different quantities, not measures of the same thing."
     },
     {
      "value": 0.816,
-     "why": "قسمتَ الكتلة على ‎g‎ بدل ضربها فيه."
+     "why": "You divided the mass by g instead of multiplying it by it."
     },
     {
      "value": 80,
-     "why": "استعملتَ ‎g = 10‎ مع أن السؤال حدّد ‎9.8‎. التقريب مقبول حين يُترك لك، لا حين تُعطى القيمة."
+     "why": "You used g = 10 even though the question specified 9.8. Approximation is acceptable when left up to you, not when the value is given."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 896,
    "tolerance": 2,
    "unit": "N",
-   "solution": "‎N − mg = ma‎، فـ ‎N = m(g + a) = 70 × 12.8 = 896 N‎.",
+   "solution": "N − mg = ma, N = m(g + a) = 70 × 12.8 = 896 N.",
    "commonErrors": [
     {
      "value": 686,
-     "why": "حسبتَ ‎mg‎ وأهملتَ التسارع. المساواة ‎N = mg‎ شرطها ألّا يكون هناك تسارع رأسي، وهو شرط منقوض هنا."
+     "why": "You calculated mg and neglected the acceleration. The equality N = mg requires that there be no vertical acceleration, which is a condition that is violated here."
     },
     {
      "value": 210,
-     "why": "حسبتَ ‎ma‎ وحدها. هذه هي القوة المحصّلة لا قوة الأرضية؛ قوة الأرضية تشمل موازنة الوزن أيضًا."
+     "why": "You counted ma alone. This is the resultant force, not the ground force; Floor force includes balancing weight as well."
     },
     {
      "value": 476,
-     "why": "طرحتَ التسارع بدل جمعه، فحسبتَ ‎m(g − a)‎. ذلك يصلح لمصعد يتسارع لأسفل؛ وهنا التسارع لأعلى فالقوة أكبر من الوزن لا أصغر."
+     "why": "You subtracted the acceleration instead of adding it, and calculated m(g − a). This works for an elevator accelerating downward; Here the acceleration is upward, so the force is greater than the weight, not smaller."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": 3,
    "tolerance": 0.05,
    "unit": "m/s²",
-   "solution": "المحصّلة ‎15 − 9.0 = 6.0 N‎ نحو اليمين، فـ ‎a = 6.0/2.0 = 3.0 m/s²‎.",
+   "solution": "The resultant 15 − 9.0 = 6.0 N to the right, then a = 6.0/2.0 = 3.0 m/s².",
    "commonErrors": [
     {
      "value": 12,
-     "why": "جمعتَ القوتين بدل طرحهما. القوى متجهات، والمتضادتان تطرحان. ولو جُمعتا لكان التسارع أكبر مع أن إحداهما تعيق الأخرى."
+     "why": "You added the two forces instead of subtracting them. Forces are vectors, and opposites are subtracted. If they were combined, the acceleration would be greater, even though one hinders the other."
     },
     {
      "value": 6,
-     "why": "توقفتَ عند القوة المحصّلة ولم تقسمها على الكتلة. وحدة ناتجك ‎N‎ والسؤال عن ‎m/s²‎."
+     "why": "You stopped at the net force and did not divide it by the mass. Your output unit is N and the question is for m/s²."
     },
     {
      "value": 1.5,
-     "why": "قسمتَ على القوة أو ضربتَ في الكتلة بدل القسمة عليها."
+     "why": "You divided by the power or multiplied by the mass instead of dividing by it."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 10,
    "tolerance": 0.1,
    "unit": "N",
-   "solution": "بقانون نيوتن الثالث، القوتان متساويتان في المقدار ومتضادتان في الاتجاه: ‎10 N‎. ولا تتوقف على الكتلة ولا على التسارع. والصندوق يتسارع مع ذلك لأن قوة يدك تؤثّر عليه هو، وقوته تؤثّر عليك أنت.",
+   "solution": "By Newton's third law, the two forces are equal in magnitude and opposite in direction: 10 N. It does not depend on mass or acceleration. However, the box accelerates because the force of your hand affects it, and its force affects you.",
    "commonErrors": [
     {
      "value": 40,
-     "why": "ضربتَ القوة في الكتلة. رد الفعل يساوي الفعل في المقدار دائمًا، ولا علاقة له بكتلة أي من الجسمين."
+     "why": "You multiply the force by the mass. The reaction is always equal to the action, It has nothing to do with the mass of either body."
     },
     {
      "value": 2.5,
-     "why": "قسمتَ القوة على الكتلة فحسبتَ التسارع ‎2.5 m/s²‎ لا القوة. انتبه إلى وحدة المطلوب."
+     "why": "You divided the force by the mass and calculated the acceleration 2.5 m/s², not the force. Pay attention to the desired unit."
     },
     {
      "value": 0,
-     "why": "ظننتَ أن رد الفعل يُلغي الفعل فتكون المحصّلة صفرًا. القوتان على جسمين مختلفين، فلا تجتمعان في مخطط واحد ولا تُلغيان."
+     "why": "You thought that the reaction cancels out the action, so the result is zero. The two forces are on two different bodies, so they do not come together in one diagram or cancel out."
     }
    ]
   }

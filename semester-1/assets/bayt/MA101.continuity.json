@@ -6,20 +6,20 @@
    "version": "1ba37636949c",
    "answer": 8,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "حلّل واختصر: ‎(x − 4)(x + 4)/(x − 4) = x + 4‎ لكل ‎x ≠ 4‎، فالنهاية ‎4 + 4 = 8‎. والاتصال يقتضي ‎k = 8‎.",
+   "unit": "Number",
+   "solution": "Analyze and reduce : (x − 4)(x + 4)/(x − 4) = x + 4 for every x ≠ 4, so the limit is 4 + 4 = 8. The continuity requires k = 8.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "كتبتَ النقطة ‎a = 4‎ بدل قيمة النهاية. بعد الاختصار بقي ‎x + 4‎، والتعويض فيه يعطي 8 لا 4."
+     "why": "You wrote the point a = 4 instead of the limit value. After the cancellation x + 4 remains, substituting it gives 8, not 4."
     },
     {
      "value": 0,
-     "why": "قرأتَ الصورة ‎0/0‎ صفرًا دون تحليل، فظننتَ النهاية صفرًا."
+     "why": "You read the indeterminate form 0/0 as zero without factoring, so you thought the limit was zero."
     },
     {
      "value": 16,
-     "why": "عوّضتَ في البسط وحده. المطلوب نهاية الكسر كله بعد الاختصار."
+     "why": "You substituted in the numerator alone. What is required is the limit of the entire fraction after the cancellation."
     }
    ]
   },
@@ -28,20 +28,20 @@
    "version": "d6941a6c4031",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "على اليمين ‎x > 2‎ فـ ‎|x − 2| = x − 2‎ والنسبة ‎+1‎. وعلى اليسار ‎x < 2‎ فـ ‎|x − 2| = −(x − 2)‎ والنسبة ‎−1‎. والفرق ‎1 − (−1) = 2‎، وهو مقدار القفزة.",
+   "unit": "Number",
+   "solution": "On the right x > 2 then |x − 2| = x − 2 and the ratio is +1. and on the left x < 2 The ratio is |x − 2| = −(x − 2), the ratio is −1., and the difference is 1 − (−1) = 2, which is the amount of the jump.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "ظننتَ الجهتين متساويتين. القيمة المطلقة تفكّ بإشارتين مختلفتين على جانبي 2، ومن هنا جاء الاختلاف."
+     "why": "You thought the two sides were equal. The absolute value is decoded by two different signs On either side of 2, hence the difference."
     },
     {
      "value": -2,
-     "why": "عكستَ ترتيب الطرح. المطلوب اليمين ناقص اليسار، أي ‎1 − (−1)‎."
+     "why": "You reversed the order of presentation. The right minus the left is required, i.e. 1 − (−1)."
     },
     {
      "value": 1,
-     "why": "حسبتَ جهة واحدة فقط ولم تطرح منها الأخرى."
+     "why": "You only calculated one side and did not subtract the other."
     }
    ]
   },
@@ -50,20 +50,20 @@
    "version": "3452ba9c1634",
    "answer": 3,
    "tolerance": 0.001,
-   "unit": "قيمة x",
-   "solution": "المقام ينعدم عند ‎x = 3‎ و‎x = −3‎، والبسط لا ينعدم عند أيّهما، فكلاهما انقطاع لا نهائي. والقيمة الموجبة هي ‎x = 3‎.",
+   "unit": "x value",
+   "solution": "The denominator is non-existent at x = 3 and x = −3, and the numerator is non-existent at either of them. They are both endless discontinuitys. The positive value is x = 3.",
    "commonErrors": [
     {
      "value": -2,
-     "why": "هذا جذر البسط لا المقام. انعدام البسط وحده يعطي صفرًا، ولا يصنع انقطاعًا لا نهائيًا."
+     "why": "This is the root of the numerator, not the denominator. The null of the numerator alone gives zero, It does not create an infinite discontinuity."
     },
     {
      "value": 9,
-     "why": "أخذتَ الثابت من ‎x² − 9‎ دون حلّ المعادلة. جذرا ‎x² = 9‎ هما ‎±3‎."
+     "why": "You took the constant from x² − 9 without solving the equation. The two roots of x² = 9 are ±3."
     },
     {
      "value": 0,
-     "why": "المقام عند ‎x = 0‎ يساوي ‎−9‎ وهو لا ينعدم، فالدالة متصلة هناك."
+     "why": "The denominator at x = 0 is equal to −9 and it is not zero, so the function is continuous there."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "8e2c4c4c29fe",
    "answer": 0.16667,
    "tolerance": 0.002,
-   "unit": "عدد",
-   "solution": "حلّل المقام: ‎x² − 9 = (x − 3)(x + 3)‎، فالكسر ‎(x − 3)/((x − 3)(x + 3)) = 1/(x + 3)‎ لكل ‎x ≠ 3‎. والتعويض يعطي ‎1/6 ≈ 0.1667‎. فالنهاية موجودة والانقطاع عند 3 قابل للإزالة، لا لا نهائي.",
+   "unit": "Number",
+   "solution": "Factor the denominator : x² − 9 = (x − 3)(x + 3), so the fraction is (x − 3)/((x − 3)(x + 3)) = 1/(x + 3) For each x ≠ 3. the substitution gives 1/6 ≈ 0.1667. the limit exists and the discontinuity at 3 is removable, not infinite.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "قرأتَ الصورة ‎0/0‎ صفرًا. انعدام البسط والمقام معًا علامة عامل مشترك يجب اختصاره، لا علامة نتيجة صفرية."
+     "why": "Indeterminate form 0/0 read zero. The absence of the numerator and denominator together is a sign of a common factor It should be shortened, not marked as a zero result."
     },
     {
      "value": 6,
-     "why": "قلبتَ الكسر. بعد الاختصار بقي ‎1/(x + 3)‎ فالناتج ‎1/6‎ لا ‎6‎."
+     "why": "You reversed the fraction. After the shortening remains 1/(x + 3), the result is 1/6, not 6."
     },
     {
      "value": 0.33333,
-     "why": "اختصرتَ خطأً فبقي ‎1/(2x)‎ أو ما يشبهه. المقام بعد الاختصار هو ‎x + 3‎، وعند ‎x = 3‎ يساوي 6 لا 3."
+     "why": "You shortened incorrectly and it remains 1/(2x) or something similar. The denominator after the cancellation is x + 3, and when x = 3 is equal to 6, not 3."
     }
    ]
   },
@@ -94,20 +94,20 @@
    "version": "5e03c8dafe86",
    "answer": 6,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "من اليمين: ‎1 + 2 − 1 = 2‎. ومن اليسار ومن القيمة: ‎a(1) − 4 = a − 4‎. المساواة ‎a − 4 = 2‎ تعطي ‎a = 6‎.",
+   "unit": "Number",
+   "solution": "From the right : 1 + 2 − 1 = 2., from the left and from the value : a(1) − 4 = a − 4. The equality a − 4 = 2 gives a = 6.",
    "commonErrors": [
     {
      "value": -2,
-     "why": "ساويتَ ‎a − 4‎ بصفر بدل مساواتها بنهاية الفرع الأيمن."
+     "why": "You set a − 4 to zero instead of setting it equal to the limit of the right branch."
     },
     {
      "value": 2,
-     "why": "كتبتَ قيمة النهاية اليمنى بدل قيمة ‎a‎. بعد إيجاد النهاية يبقى حلّ المعادلة ‎a − 4 = 2‎."
+     "why": "You wrote the value of the right limit instead of the value of a. after finding the limit that remains Solve the equation a − 4 = 2."
     },
     {
      "value": 10,
-     "why": "جمعتَ 4 إلى النهاية مرتين، أو حسبتَ الفرع الأيمن ‎1 + 2 + 1 = 4‎ بإهمال إشارة ‎−1‎."
+     "why": "You added 4 to the limit twice, or you calculated the right branch 1 + 2 + 1 = 4 Ignoring the −1. sign"
     }
    ]
   }

@@ -11,15 +11,15 @@
    "commonErrors": [
     {
      "value": 52,
-     "why": "لم تحوّل أصلًا. السيليزية لا تُستعمل في أي حساب غازي."
+     "why": "Not converted at all. Celsius is not used in any gas calculation."
     },
     {
      "value": 221.15,
-     "why": "طرحتَ ‎52‎ من ‎273.15‎ بدل جمعهما. الحرارة الموجبة بالسيليزية أعلى من نقطة التجمّد، فكلفنها أكبر من ‎273‎ لا أصغر."
+     "why": "You subtracted 52 from 273.15 instead of adding them. The positive temperature in Celsius is higher than the freezing point, so its Kelvin is greater than 273, not smaller."
     },
     {
      "value": -221.15,
-     "why": "طرحتَ ‎273.15‎ من ‎52‎، وهذا هو التحويل العكسي من كلفن إلى سيليزية."
+     "why": "You subtract 273.15 from 52, and this is the inverse conversion from Kelvin to Celsius."
     }
    ]
   },
@@ -33,15 +33,15 @@
    "commonErrors": [
     {
      "value": 98.5,
-     "why": "نسيتَ القسمة على الضغط. ‎nRT‎ وحدها ليست حجمًا؛ وحدتها ‎L·atm‎."
+     "why": "You forgot to divide by pressure. nRT alone is not volume; Its unit is L·atm."
     },
     {
      "value": 196.9,
-     "why": "ضربتَ في الضغط بدل القسمة عليه. الضغط والحجم عكسيان، فمضاعفة الضغط تنصّف الحجم ولا تضاعفه."
+     "why": "You multiplied by the pressure instead of dividing by it. Pressure and volume are inverse, so doubling the pressure halves the volume, not doubles it."
     },
     {
      "value": 16.4,
-     "why": "أهملتَ عدد المولات فحسبتَ ‎RT/P‎ وحدها."
+     "why": "You neglected the number of moles and calculated RT/P alone."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 4,
    "tolerance": 0.05,
    "unit": "L",
-   "solution": "حوّل: ‎300.15 K‎ و‎600.15 K‎. وبثبات الضغط: ‎V₂ = V₁ × T₂/T₁ = 2.00 × 600.15/300.15 = 4.00 L‎.",
+   "solution": "Convert : 300.15 K and 600.15 K. With constant pressure : V₂ = V₁ × T₂/T₁ = 2.00 × 600.15/300.15 = 4.00 L.",
    "commonErrors": [
     {
      "value": 24.2,
-     "why": "قسمتَ بالسيليزية فحصلتَ على نسبة ‎327/27 ≈ 12‎. صفر السيليزية اصطلاح لا انعدام، فالنسب فيها بلا معنى؛ والنسبة الصحيحة بالكلفن هي ‎2.0‎."
+     "why": "You divided in Celsius and got a ratio of 327/27 ≈ 12. Zero Celsius is a term, not non-existence, as the ratios in it are meaningless; The correct ratio in Kelvin is 2.0."
     },
     {
      "value": 1,
-     "why": "قلبتَ النسبة فقسمتَ ‎T₁/T₂‎. التسخين بضغط ثابت يزيد الحجم لا ينقصه."
+     "why": "You inverted the ratio and divided T₁/T₂. Heating with constant pressure increases the volume, not decreases it."
     },
     {
      "value": 2,
-     "why": "كتبتَ الحجم الأصلي دون تغيير."
+     "why": "You wrote the original volume without changing it."
     }
    ]
   },
@@ -77,15 +77,15 @@
    "commonErrors": [
     {
      "value": 2,
-     "why": "قلبتَ الكسر فحسبتَ ‎RT/PV‎. والعلامة الكاشفة: مول واحد يشغل ‎22.4 L‎ في هذه الظروف، فـ ‎11.2 L‎ لا بد أن تكون نصف مول لا مولين."
+     "why": "You flipped the fraction and calculated RT/PV. The revealing sign: one mole occupies 22.4 L in these conditions, 11.2 L must be half a mole, not a mole."
     },
     {
      "value": 11.2,
-     "why": "كتبتَ الحجم. المطلوب عدد مولات بوحدة ‎mol‎ لا ‎L‎."
+     "why": "You wrote the volume. The number of moles in units of mol is required, not L."
     },
     {
      "value": 22.4,
-     "why": "كتبتَ الحجم المولي القياسي بدل أن تحسب به."
+     "why": "You wrote the standard molar volume instead of calculating it."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 1,
    "tolerance": 0.02,
    "unit": "atm",
-   "solution": "الكسر المولي ‎x_A = 0.25 / 1.00 = 0.25‎، فالضغط الجزئي ‎P_A = 0.25 × 4.0 = 1.0 atm‎.",
+   "solution": "molar fraction x_A = 0.25 / 1.00 = 0.25, The partial pressure is P_A = 0.25 × 4.0 = 1.0 atm.",
    "commonErrors": [
     {
      "value": 0.25,
-     "why": "توقفتَ عند الكسر المولي. الكسر عدد بلا وحدة، والضغط الجزئي يُقاس بـ ‎atm‎؛ ينقصك ضربه في الضغط الكلي."
+     "why": "You stopped at mole fraction. A fraction is a unitless number, The partial pressure is measured as atm; You lack a hit in total pressure."
     },
     {
      "value": 3,
-     "why": "حسبتَ الضغط الجزئي لـ ‎B‎ لا لـ ‎A‎. المكوّن الأوفر له الضغط الأكبر، و‎A‎ هو الأقلّ هنا."
+     "why": "You calculated the partial pressure for B, not A. The largest component has the highest pressure, and A has the lowest here."
     },
     {
      "value": 4,
-     "why": "كتبتَ الضغط الكلي. الضغط الجزئي لمكوّن واحد أصغر منه دائمًا في خليط."
+     "why": "You wrote down the total pressure. The partial pressure of a single component is always smaller than that of a mixture."
     }
    ]
   },
@@ -121,7 +121,7 @@
    "commonErrors": [
     {
      "value": 16,
-     "why": "لم تأخذ الجذر التربيعي."
+     "why": "Didn't take the square root."
     }
    ]
   }

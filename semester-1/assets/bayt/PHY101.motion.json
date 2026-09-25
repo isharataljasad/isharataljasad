@@ -7,19 +7,19 @@
    "answer": 200,
    "tolerance": 0.5,
    "unit": "m",
-   "solution": "اجعل الشرق موجبًا: ‎Δx = +300 − 100 = +200 m‎. أما المسافة المقطوعة فهي ‎400 m‎، وهي كمية أخرى.",
+   "solution": "Make East positive: Δx = +300 − 100 = +200 m. The distance traveled is 400 m, which is another quantity.",
    "commonErrors": [
     {
      "value": 400,
-     "why": "جمعتَ الطولين، وهذه المسافة المقطوعة لا الإزاحة. الإزاحة تنظر إلى نقطتي البداية والنهاية وحدهما، والعودة غربًا تطرح ولا تضيف."
+     "why": "You added the two lengths, and this is the distance traveled, not the displacement. Displacement looks at the start and limit points alone, and returning west subtracts and does not add."
     },
     {
      "value": 100,
-     "why": "كتبتَ طول الشوط الثاني وحده."
+     "why": "You wrote the entire second half alone."
     },
     {
      "value": 300,
-     "why": "كتبتَ طول الشوط الأول وأهملتَ العودة."
+     "why": "You wrote throughout the first half and neglected to come back."
     }
    ]
   },
@@ -33,15 +33,15 @@
    "commonErrors": [
     {
      "value": 12,
-     "why": "حسبتَ ‎at‎ وحده وأهملتَ ‎v₀‎. الحدّ ‎at‎ هو الزيادة في السرعة لا السرعة نفسها."
+     "why": "You calculated at alone and neglected v₀. The limit at is the increase in speed, not the speed itself."
     },
     {
      "value": 60,
-     "why": "ضربتَ ‎v₀ × a × t‎. المعادلة جمعٌ لا ضربٌ للثلاثة."
+     "why": "v₀ × a × t. You multiplied the equation by addition, not multiplication, of three."
     },
     {
      "value": 32,
-     "why": "استعملتَ ‎½at²‎ بدل ‎at‎؛ ذلك حدّ الإزاحة لا حدّ السرعة."
+     "why": "You used ½at² instead of at; That is the displacement limit, not the speed limit."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 90,
    "tolerance": 0.5,
    "unit": "m",
-   "solution": "‎0 = (30)² + 2(−5.0)Δx‎، أي ‎10Δx = 900‎، فـ ‎Δx = 90 m‎.",
+   "solution": "0 = (30)² + 2(−5.0)Δx, any 10Δx = 900, then Δx = 90 m.",
    "commonErrors": [
     {
      "value": 180,
-     "why": "أهملتَ العامل ‎2‎ في ‎2aΔx‎، فقسمتَ على ‎5‎ بدل ‎10‎."
+     "why": "You neglected the factor 2 in 2aΔx, so you divided by 5 instead of 10."
     },
     {
      "value": 6,
-     "why": "حسبتَ زمن التوقّف ‎30/5.0 = 6.0 s‎ لا المسافة. انتبه إلى وحدة المطلوب: السؤال عن أمتار لا ثوانٍ."
+     "why": "You calculated the stopping time 30/5.0 = 6.0 s, not the distance. Pay attention to the unit required: the question is about meters, not seconds."
     },
     {
      "value": 45,
-     "why": "قسمتَ السرعة على التسارع ثم ضربتَ في شيء، أو استعملتَ ‎v₀/2a‎ بدل ‎v₀²/2a‎. السرعة تدخل مربّعة."
+     "why": "You divide the speed by the acceleration and then multiply by something, or use v₀/2a v₀²/2a. Replace the speed into square."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": 40,
    "tolerance": 0.5,
    "unit": "m",
-   "solution": "الشكل تحت منحنى السرعة مثلث قاعدته ‎5.0 s‎ وارتفاعه ‎16 m/s‎، فالمساحة ‎½ × 5.0 × 16 = 40 m‎.",
+   "solution": "The figure under the velocity curve is a triangle with base 5.0 s and height 16 m/s. The area is ½ × 5.0 × 16 = 40 m.",
    "commonErrors": [
     {
      "value": 80,
-     "why": "حسبتَ مساحة مستطيل ‎5.0 × 16‎. السرعة لم تكن ‎16 m/s‎ طوال المدة بل بلغتها في آخرها، فالشكل مثلث."
+     "why": "You calculated the area of rectangle 5.0 × 16. The speed was not 16 m/s throughout the period, but reached it at the end of the period, as the shape is triangular."
     },
     {
      "value": 3.2,
-     "why": "قسمتَ السرعة على الزمن فحسبتَ التسارع ‎3.2 m/s²‎ لا الإزاحة."
+     "why": "You divided the speed by the time and calculated the acceleration 3.2 m/s², not the displacement."
     },
     {
      "value": 20,
-     "why": "أخذتَ نصف الزمن أو نصف السرعة مرتين؛ عامل النصف يُضرب مرة واحدة في حاصل ضرب القاعدة في الارتفاع."
+     "why": "You took half the time or half the speed twice; The factor of half is multiplied once Multiplied by the product of the base and the height."
     }
    ]
   },
@@ -99,15 +99,15 @@
    "commonErrors": [
     {
      "value": 50,
-     "why": "أهملتَ عامل النصف فحسبتَ ‎at²‎. والنصف ليس اصطلاحًا: هو أثر كون السرعة تزداد من الصفر لا أن تكون كاملة من البداية."
+     "why": "You neglected the half factor and calculated at². Half is not a term: it is the effect of the speed increasing from zero rather than being complete from the beginning."
     },
     {
      "value": 10,
-     "why": "حسبتَ السرعة النهائية ‎at = 10 m/s‎ لا المسافة. وحدة ناتجك ‎m/s‎ والسؤال عن ‎m‎."
+     "why": "You calculated the final speed at = 10 m/s, not the distance. Your output unit is m/s and the question is for m."
     },
     {
      "value": 5,
-     "why": "ضربتَ التسارع في الزمن ثم قسمتَ، أو استعملتَ ‎½at‎ بدل ‎½at²‎؛ الزمن يدخل مربّعًا."
+     "why": "You multiplied the acceleration by the time and then divided, or you used ½at instead of ½at²; Time enters a square."
     }
    ]
   },
@@ -117,11 +117,11 @@
    "answer": 12,
    "tolerance": 0.001,
    "unit": "m",
-   "solution": "t=√(2×45/10)=3 s ثم x=4×3.",
+   "solution": "t=√(2×45/10)=3 s then x=4×3.",
    "commonErrors": [
     {
      "value": 18,
-     "why": "لا تحسب زمن السقوط بقسمة الارتفاع على g."
+     "why": "Do not calculate the fall time by dividing the height by g."
     }
    ]
   }

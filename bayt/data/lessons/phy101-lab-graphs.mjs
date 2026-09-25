@@ -6,14 +6,14 @@
 /* الرسم: التمثيل نفسه مرتين، منحنيًا ثم مستقيمًا بعد التخطيط.
    المقصود أن الاستقامة ليست صدفة بل اختيار للمحورين. */
 const figure = `<svg viewBox="0 0 480 240" role="img" aria-labelledby="fig-lab-title" class="bayt-svg">`
-  + `<title id="fig-lab-title">تمثيلان: الأول منحنٍ عند رسم الزمن الدوري مع الطول، والثاني مستقيم عند رسم مربّع الزمن الدوري</title>`
+  + `<title id="fig-lab-title">Two representations: the first is curved when plotting periodic time with length, and the second is straight when plotting periodic time as a square</title>`
   /* يسارًا: منحنٍ. */
   + `<line x1="50" y1="180" x2="215" y2="180" stroke="#284955" stroke-width="2"/>`
   + `<line x1="50" y1="185" x2="50" y2="35" stroke="#284955" stroke-width="2"/>`
   + `<polyline points="50,180 90,133 130,111 170,96 210,85" fill="none" stroke="#c0392b" stroke-width="3"/>`
   + `<text x="222" y="186" font-size="15" fill="#284955">L</text>`
   + `<text x="38" y="32" font-size="15" fill="#284955">T</text>`
-  + `<text x="130" y="210" font-size="14" fill="#c0392b" text-anchor="middle">منحنٍ: لا ميل واحد</text>`
+  + `<text x="130" y="210" font-size="14" fill="#c0392b" text-anchor="middle">Curved: Not one slope</text>`
   /* يمينًا: مستقيم بعد تربيع المحور الرأسي. */
   + `<line x1="280" y1="180" x2="445" y2="180" stroke="#284955" stroke-width="2"/>`
   + `<line x1="280" y1="185" x2="280" y2="35" stroke="#284955" stroke-width="2"/>`
@@ -22,8 +22,8 @@ const figure = `<svg viewBox="0 0 480 240" role="img" aria-labelledby="fig-lab-t
   + `<circle cx="388" cy="94" r="4" fill="#153748"/><circle cx="424" cy="66" r="4" fill="#153748"/>`
   + `<text x="452" y="186" font-size="15" fill="#284955">L</text>`
   + `<text x="262" y="32" font-size="15" fill="#284955">T²</text>`
-  + `<text x="360" y="210" font-size="14" fill="#10766f" text-anchor="middle">مستقيم: للميل معنى</text>`
-  + `<text x="240" y="232" font-size="13" fill="#566f7a" text-anchor="middle">الاستقامة اختيارُ محورين، لا صدفة في البيانات</text>`
+  + `<text x="360" y="210" font-size="14" fill="#10766f" text-anchor="middle">Straight: slope has a meaning</text>`
+  + `<text x="240" y="232" font-size="13" fill="#566f7a" text-anchor="middle">Integrity is a choice of two axes, no coincidence in the data</text>`
   + `</svg>`;
 
 export default {
@@ -31,196 +31,191 @@ export default {
   topic: 'lab-graphs',
 
   objectives: [
-    'تختار المحورين اللذين يجعلان العلاقة خطية قبل أن تحسب أي ميل.',
-    'تحسب الميل من نقطتين على خط التوفيق، وتقرأ وحدته ومعناه الفيزيائي.',
-    'تفرّق بين قراءة داخل مدى القياس واستقراء خارجه، ولا تدّعي أكثر مما تدعمه البيانات.',
+    "You choose the two axes that make the relationship linear before you calculate any slope.",
+    "You calculate the slope from two points on the alignment line, and read its unit and physical meaning.",
+    "It differentiates between a reading within the measurement range and an extrapolation outside it, and does not claim more than what the data supports.",
   ],
 
   boundaries: [
-    'الانحدار بالمربّعات الصغرى وحساب معامل التحديد ليسا في هذا الدرس.',
-    'حساب عدم اليقين وأشرطة الخطأ وانتشاره خارج النطاق هنا.',
-    'التوزيعات الإحصائية واختبارات الدلالة ليست في هذا الدرس.',
-    'التمثيل اللوغاريتمي لاستخراج الأُسّ يُذكر إشارةً ولا يُفصَّل.',
+    "Least squares regression and calculating the coefficient of determination are not in this lesson.",
+    "Calculate uncertainty, error bars, and spread outside the range here.",
+    "Statistical distributions and significance tests are not in this lesson.",
+    "The logarithmic representation of exponent extraction is given a sign and is not detailed.",
   ],
 
   prerequisites: [
     {
-      title: 'حساب الميل من نقطتين',
-      why: 'كل استنتاج كمّي في المختبر يمرّ بالميل، وخطأ حسابه يفسد النتيجة الفيزيائية كلها.',
-      recap: 'الميل ‎= (y₂ − y₁)/(x₂ − x₁)‎. '
-        + 'خذ نقطتين **على خط التوفيق** لا نقطتي بيانات، وباعد بينهما قدر الإمكان لتقليل أثر القراءة. '
-        + 'ووحدة الميل هي وحدة المحور الرأسي مقسومة على وحدة الأفقي، وهي التي تكشف معناه الفيزيائي.',
+      title: "Calculate the slope from two points",
+      why: "Every quantum deduction in the laboratory goes by the mile, and a mistake in its calculation spoils the whole physical result.",
+      recap: "slope = (y₂ − y₁)/(x₂ − x₁). "
+        + "Take two points **on the matching line**, not two data points, and space them as far apart as possible to reduce the reading effect. "
+        + "The unit of slope is the unit of the vertical axis divided by the unit of the horizontal, which reveals its physical meaning.",
       href: '/semester-1/physics/motion/',
-      hrefLabel: 'الميل والمساحة في درس الحركة',
+      hrefLabel: "slope and area in motion lesson",
     },
     {
-      title: 'قراءة الوحدات المركّبة',
-      why: 'وحدة الميل هي التي تخبرك ما الذي قِسته؛ ومن يهملها قد يسمّي الناتج باسم كمية أخرى.',
-      recap: 'ميل تمثيل الإزاحة مع الزمن وحدته ‎m/s‎ فهو سرعة. '
-        + 'وميل تمثيل القوة مع الاستطالة وحدته ‎N/m‎ فهو ثابت نابض. '
-        + 'اكتب الوحدة قبل أن تسمّي الكمية، لا بعد أن تسمّيها.',
+      title: "Reading complex units",
+      why: "The unit of slope is what tells you what you measured; Whoever neglects it may name the result by another quantity.",
+      recap: "The slope represents displacement with time and its unit is m/s, so it is velocity. "
+        + "The slope of the representation of force with elongation and its unit is N/m, so it is a spring constant. "
+        + "Write the unit before you name the quantity, not after you name it.",
       href: '/semester-1/physics/measurement/',
-      hrefLabel: 'درس الوحدات والقياس',
+      hrefLabel: "Study units and measurement",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'المتغير المستقل والتابع',
+        term: "Independent and dependent variable",
         en: 'Independent and dependent variables',
-        text: 'المستقل ما تضبطه أنت، ويُرسم على المحور الأفقي. والتابع ما تقيسه نتيجةً، ويُرسم على الرأسي. '
-          + 'وقلب المحورين يقلب الميل إلى مقلوبه، فيتغيّر معناه الفيزيائي تمامًا.',
+        text: "Plot the independent variable on the horizontal axis and the dependent variable on the vertical axis. For a nonzero straight-line slope, swapping axes takes its reciprocal and changes its units. The relationship and the experimental design determine what each axis means.",
       },
       {
-        term: 'خط التوفيق الأفضل',
+        term: "Line of best fit",
         en: 'Line of best fit',
-        text: 'خط مستقيم يمرّ بين النقاط بحيث يوازن انحرافها فوقه وتحته. '
-          + 'ولا يلزم أن يمرّ بأي نقطة بيانات، ولا أن يمرّ بنقطة الأصل إلا إذا تطلّبت الفيزياء ذلك. '
-          + 'ونقاط حسابِ الميل تُؤخذ منه هو، لا من جدول القياسات.',
+        text: "A fitted line represents the trend of scattered measurements. It need not pass through an individual data point or through the origin. Use widely separated points on the fitted line to estimate its slope. A formal fit should state its method and any uncertainty assumptions.",
       },
       {
-        term: 'التخطيط',
+        term: "Planning",
         en: 'Linearisation',
-        text: 'اختيار دالة للمحور بحيث تصير العلاقة مستقيمة، مثل رسم ‎T²‎ بدل ‎T‎. '
-          + 'وفائدته أن الميل عندئذٍ عددٌ واحد له معنى، بينما ميل المنحنى يتغيّر من نقطة إلى أخرى.',
+        text: "Choose a function for the axis so that the relationship becomes straight, such as plotting T² instead of T. "
+          + "Its benefit is that the slope is then a single number with a meaning, while the slope of the curve changes from one point to another.",
       },
       {
-        term: 'الاستقراء خارج المدى',
+        term: "Extrapolation out of range",
         en: 'Extrapolation',
-        text: 'تقدير قيمة خارج مدى القياسات. '
-          + 'وهو أضعف من القراءة الداخلية دائمًا، لأن العلاقة قد تنكسر خارج ما جرّبتَه. '
-          + 'فنابض خطي حتى حدّ معيّن يتشوّه بعده، ولا تخبرك بذلك بيانات الداخل.',
+        text: "Estimating a value outside the range of measurements. "
+          + "It is always weaker than internal reading, because the relationship may break outside of what you have experienced. "
+          + "A spring is linear up to a certain limit after which it deforms, and the internal data does not tell you that.",
       },
       {
-        term: 'التقاطع مع المحور الرأسي',
+        term: "Intersection with the vertical axis",
         en: 'Intercept',
-        text: 'قيمة التابع عند انعدام المستقل. '
-          + 'وقد يكون له معنى فيزيائي كسرعة ابتدائية، وقد يكشف خطأً منهجيًّا في القياس '
-          + 'إن كان ينبغي أن يكون صفرًا ولم يكن.',
+        text: "The vertical intercept is the dependent-variable value predicted when the independent variable is zero. It can represent a physical initial value or suggest a systematic offset. Interpret it using the model and the measured range.",
       },
     ],
     relations: [
       {
         formula: 'slope = (y₂ − y₁) / (x₂ − x₁)',
-        name: 'الميل',
-        note: 'من نقطتين على خط التوفيق، متباعدتين.',
+        name: "slope",
+        note: "From two points on the conciliation line, far apart.",
       },
       {
         formula: 'unit(slope) = unit(y) / unit(x)',
-        name: 'وحدة الميل',
-        note: 'هي الدليل على ماهية الكمية المقيسة.',
+        name: "slope unit",
+        note: "It is evidence of the nature of the measured quantity.",
       },
       {
         formula: 'T = 2π √(L/g)  ⟹  T² = (4π²/g) L',
-        name: 'تخطيط البندول',
-        note: 'ارسم ‎T²‎ مع ‎L‎ فيخرج مستقيم ميله ‎4π²/g‎.',
+        name: "Pendulum layout",
+        note: "Plot T² with L and the line of slope 4π²/g. comes out",
       },
       {
         formula: 'y = m x + c',
-        name: 'صورة الخط',
-        note: 'الميل والتقاطع كلاهما يحمل معنى فيزيائيًّا.',
+        name: "Font image",
+        note: "Slope and intercept both have physical meaning.",
       },
     ],
     derivation: {
-      title: 'لماذا نخطّط بدل أن نحسب الميل من المنحنى مباشرة',
-      intro: 'قد يُقال: لماذا لا نأخذ ميل المنحنى وننتهي؟ والجواب أن ذلك الميل ليس عددًا واحدًا.',
+      title: "Why do we plot instead of calculating the slope directly from the curve?",
+      intro: "It may be said: Why don't we take the slope of the curve and finish? The answer is that the slope is not a single number.",
       steps: [
         {
-          do: 'ارسم زمن البندول ‎T‎ مع الطول ‎L‎: يخرج منحنٍ يزداد ثم يتسطّح.',
-          why: 'لأن العلاقة ‎T ∝ √L‎ لا ‎T ∝ L‎، والجذر يصنع هذا الانحناء.',
+          do: "Draw the time of the pendulum T with the length L:, producing a curve that increases and then flattens.",
+          why: "Because the relationship is T ∝ √L not T ∝ L, and the root makes this curvature.",
         },
         {
-          do: 'جرّب أخذ ميل المنحنى: ستحصل على قيمة مختلفة عند كل موضع.',
-          why: 'فليس للمنحنى ميل واحد، ولا يمكن نسبة عدد واحد إليه. '
-            + 'وأي عدد تستخرجه سيعتمد على النقطتين اللتين اخترتَهما، وهذا ليس قياسًا.',
+          do: "Try taking the slope of the curve: you'll get a different value at each position.",
+          why: "The curve does not have a single slope, and a single number cannot be attributed to it. "
+            + "Any number you get will depend on the two points you chose, and this is not a measurement.",
         },
         {
-          do: 'ربّع طرفي ‎T = 2π√(L/g)‎ فتحصل على ‎T² = (4π²/g) L‎.',
-          why: 'صارت العلاقة على صورة ‎y = m x‎ بمتغيّرين جديدين: ‎T²‎ و‎L‎.',
+          do: "Square both sides of T = 2π√(L/g) and you get T² = (4π²/g) L.",
+          why: "The relationship became y = m x with two new variables : T² and L.",
         },
         {
-          do: 'ارسم ‎T²‎ مع ‎L‎: يخرج مستقيم ميله ‎4π²/g‎، فـ ‎g = 4π²/slope‎.',
-          why: 'فالميل الآن عدد واحد له معنى، ومنه نستخرج ثابتًا فيزيائيًّا. '
-            + 'والاستقامة ليست خاصية في البيانات بل نتيجة اختيارنا للمحورين.',
+          do: "Draw T² with L: coming out with a line of slope 4π²/g, so g = 4π²/slope.",
+          why: "The slope is now a single, meaningful number, and from it we extract a physical constant. "
+            + "Straightness is not a property of the data, but rather the result of our choice of the two axes.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'الاستقامة اختيار لا صدفة',
+    title: "Integrity is a choice, not a coincidence",
     figure: {
       svg: figure,
-      caption: 'البيانات نفسها مرسومة مرتين. على اليسار ‎T‎ مع ‎L‎ فيخرج منحنٍ لا ميل واحد له. '
-        + 'وعلى اليمين ‎T²‎ مع ‎L‎ فيخرج مستقيم ميله ‎4π²/g‎.',
-      alt: 'رسمان متجاوران. الأيسر محوره الرأسي الزمن الدوري والأفقي الطول، وفيه منحنى أحمر يصعد '
-        + 'ثم يتسطّح، وتحته عبارة تقول إنه منحنٍ ولا ميل واحد له. '
-        + 'والأيمن محوره الرأسي مربّع الزمن الدوري والأفقي الطول، وفيه نقاط بيانات يمرّ بينها خط مستقيم أخضر، '
-        + 'وتحته عبارة تقول إنه مستقيم وللميل معنى. '
-        + 'وسطر أخير يذكّر بأن الاستقامة اختيار محورين لا صدفة في البيانات.',
+      caption: "The same data is plotted twice. On the left, T and L come out with a curve that has no slope. "
+        + "On the right is T² with L, so its slope line comes out as 4π²/g.",
+      alt: "Two drawings side by side. The left axis has a vertical axis of periodic time and a horizontal axis of length, and has a red curve that goes up "
+        + "Then it flattens, and underneath it is a statement saying that it is curved and has no slope. "
+        + "The right axis has the vertical square of the periodic time and the horizontal axis is the length, and it contains data points with a green straight line passing between them, "
+        + "Underneath it is a phrase that says it is straight and the slope has a meaning. "
+        + "A final line reminds us that straightness is a choice of two axes, not a coincidence in the data.",
     },
     table: {
-      caption: 'ماذا يعني الميل في تجارب مختلفة',
-      head: ['المحور الرأسي', 'المحور الأفقي', 'وحدة الميل', 'الكمية التي يمثّلها'],
+      caption: "What does slope mean in different experiments?",
+      head: ["Vertical axis", "Horizontal axis", "slope unit", "The quantity it represents"],
       rows: [
-        ['الإزاحة (m)', 'الزمن (s)', 'm/s', 'السرعة'],
-        ['السرعة (m/s)', 'الزمن (s)', 'm/s²', 'التسارع'],
-        ['القوة (N)', 'الاستطالة (m)', 'N/m', 'ثابت النابض'],
-        ['T² (s²)', 'الطول (m)', 's²/m', '4π²/g ومنه g'],
-        ['الجهد (V)', 'التيار (A)', 'V/A = Ω', 'المقاومة'],
+        ["Offset (m)", "Time (s)", 'm/s', "Speed"],
+        ["Speed (m/s)", "Time (s)", 'm/s²', "Acceleration"],
+        ["Power (N)", "Elongation (m)", 'N/m', "Spring constant"],
+        ['T² (s²)', "Length (m)", 's²/m', "4π²/g and from g"],
+        ["Potentiometer (V)", "Current (A)", 'V/A = Ω', "Resistance"],
       ],
     },
-    reading: 'اقرأ العمود الثالث وحده: الوحدة تحدّد الكمية قبل أن تسمّيها. '
-      + 'ولهذا اكتب وحدة الميل أولًا ثم اسأل: أي كمية فيزيائية وحدتها هذه؟ '
-      + 'والصف الرابع يبيّن أن الميل قد لا يكون هو المطلوب نفسه، بل خطوةً إليه: '
-      + 'الميل ‎4π²/g‎ والمطلوب ‎g‎، فيبقى قلبٌ وضربٌ بعد قراءة الرسم.',
+    reading: "Read the third column alone: The unit defines the quantity before it names it. "
+      + "That's why write the unit for the slope first, then ask: What physical quantity is this unit? "
+      + "The fourth row shows that the tendency may not be the desired thing itself, but rather a step towards it: "
+      + "The slope is 4π²/g and the required g, so a heart and a beat remain after reading the drawing.",
   },
 
   guided: {
-    start: 'قبل الرسم: اكتب العلاقة المتوقّعة نظريًّا، ثم رتّبها على صورة ‎y = m x + c‎ '
-      + 'وحدّد ماذا تضع على كل محور. '
-      + 'وبعد الرسم: ارسم خط التوفيق، ثم خذ منه نقطتين متباعدتين، ثم احسب الميل بوحدته. '
-      + 'ثم ترجم الميل إلى الكمية المطلوبة. '
-      + 'وفي الوصف: قل ما تدعمه البيانات في مداها، ولا تعمّم خارجه.',
+    start: "Before drawing: Write down the theoretically expected relationship, then arrange it in the form y = m x + c "
+      + "Determine what to place on each axis. "
+      + "After drawing: Draw the alignment line, then take two far apart points from it, then calculate the slope in its unit. "
+      + "Then translate the slope into the quantity required. "
+      + "In the description: say what the data supports within its scope, and do not generalize beyond it.",
     workedExamples: [
       {
-        title: 'مثال 1 · ميل ومعناه',
-        task: 'تمثيل الإزاحة مع الزمن، وعلى خط التوفيق نقطتان: ‎(2.0 s, 4.0 m)‎ و‎(6.0 s, 20.0 m)‎. '
-          + 'ما الكمية التي يمثّلها الميل وما قيمتها؟',
+        title: "Example 1 · mile and its meaning",
+        task: "Representing the displacement with time, and on the matching line there are two points : (2.0 s, 4.0 m) and (6.0 s, 20.0 m). "
+          + "What quantity does the slope represent and what is its value?",
         steps: [
           {
-            do: 'احسب: ‎(20.0 − 4.0)/(6.0 − 2.0) = 16.0/4.0 = 4.0‎.',
-            why: 'الفرق في الرأسي على الفرق في الأفقي، بهذا الترتيب لا بعكسه.',
+            do: "Calculate: (20.0 − 4.0)/(6.0 − 2.0) = 16.0/4.0 = 4.0.",
+            why: "The difference in the vertical over the difference in the horizontal, in this order and not the other way around.",
           },
           {
-            do: 'الوحدة ‎m/s‎.',
-            why: 'وحدة المحور الرأسي على وحدة الأفقي؛ وهي التي تسمّي الكمية.',
+            do: "Module m/s.",
+            why: "Vertical axis unit on horizontal unit; It is what is called quantity.",
           },
           {
-            do: 'إذن الميل سرعة قيمتها ‎4.0 m/s‎.',
-            why: 'والتقاطع غير الصفري مع المحور الرأسي يعني أن الجسم لم يبدأ من نقطة الأصل، '
-              + 'وهذا معلومة إضافية لا خطأ.',
+            do: "So the slope speed value is 4.0 m/s.",
+            why: "A non-zero intersection with the vertical axis means that the body did not start from the origin. "
+              + "This is additional information, not an error.",
           },
         ],
         answer: 'slope = 4.0 m/s (velocity)',
       },
       {
-        title: 'مثال 2 · استخراج ثابت فيزيائي بالتخطيط',
-        task: 'رُسم ‎T²‎ مع ‎L‎ لبندول فكان الميل ‎4.00 s²/m‎. ما قيمة ‎g‎؟',
+        title: "Example 2 · Extracting a physical constant by plotting",
+        task: "T² and L were drawn for a pendulum, so the slope was 4.00 s²/m. What is the value of g?",
         steps: [
           {
-            do: 'من ‎T² = (4π²/g) L‎ يكون الميل ‎= 4π²/g‎.',
-            why: 'مقارنة العلاقة بصورة ‎y = m x‎ تحدّد ما يمثّله الميل قبل أي حساب.',
+            do: "From T² = (4π²/g) L the slope is = 4π²/g.",
+            why: "Comparing the relationship to the image y = m x determines what the slope represents before any calculation.",
           },
           {
-            do: 'اقلب: ‎g = 4π²/slope = 39.48/4.00‎.',
-            why: 'المطلوب في المقام، فالحلّ يقتضي القلب لا القسمة المباشرة على ‎4π²‎.',
+            do: "Turn: g = 4π²/slope = 39.48/4.00.",
+            why: "What is required in the first place, the solution requires the heart, not direct division by 4π².",
           },
           {
-            do: 'الناتج ‎g = 9.87 m/s²‎.',
-            why: 'قريب من القيمة المقبولة ‎9.81‎، والفرق ضمن ما يُتوقّع من قياس مخبري. '
-              + 'وتحقّق الوحدة: ‎1/(s²/m) = m/s²‎ وهي وحدة تسارع.',
+            do: "Output g = 9.87 m/s².",
+            why: "It is close to the accepted value 9.81, and the difference is within what would be expected from a laboratory measurement. "
+              + "The unit realizes : 1/(s²/m) = m/s², which is an acceleration unit.",
           },
         ],
         answer: 'g = 9.87 m/s²',
@@ -228,24 +223,24 @@ export default {
     ],
     skipped: [
       {
-        q: 'هل أجبر خط التوفيق على المرور بنقطة الأصل؟',
-        a: 'لا، إلا إذا كانت الفيزياء تفرض ذلك. '
-          + 'فتمثيل القوة مع الاستطالة ينبغي أن يمرّ بالأصل لأن استطالة صفرية تعني قوة صفرية. '
-          + 'فإن لم يمرّ فذلك يكشف خطأ منهجيًّا كصفر غير مضبوط في الميزان. '
-          + 'أما إجباره على المرور بالأصل رغم البيانات فيخفي الخطأ ولا يصلحه.',
+        q: "Is the reconciliation line forced to pass through the origin?",
+        a: "No, unless physics dictates it. "
+          + "Representing force with elongation must go through the origin because zero elongation means zero force. "
+          + "If it does not pass, this reveals a systematic error, such as an incorrect zero on the scale. "
+          + "Forcing him to go through the original despite the data hides the error and does not correct it.",
       },
       {
-        q: 'كم نقطة بيانات تكفي؟',
-        a: 'نقطتان تحدّدان خطًّا لكنهما لا تثبتان خطّيّة. '
-          + 'فالخطّية دعوى عن العلاقة، وإثباتها يحتاج نقاطًا كافية موزّعة على المدى كله. '
-          + 'وخمس إلى سبع نقاط مبدأ معقول في مختبر السنة الأولى، مع تكرار القياس عند كل نقطة.',
+        q: "How many data points are enough?",
+        a: "Two points define a line but do not prove a line. "
+          + "Sin is a claim about the relationship, and proving it requires sufficient points distributed over the entire period. "
+          + "Five to seven points is a reasonable guideline in a first-year laboratory, with repeated measurement at each point.",
       },
       {
-        q: 'ما الخطأ في قول «العلاقة خطية» بعد تجربة واحدة؟',
-        a: 'أنه يعمّم على مدى لم يُقَس. '
-          + 'الصياغة الأمانة: «العلاقة خطية في المدى المقيس من كذا إلى كذا». '
-          + 'فالنابض خطي حتى حدّ المرونة ثم يتوقف، والمقاومة ثابتة حتى تسخن. '
-          + 'وما لم تقسه لا تصفه.',
+        q: "What is wrong with saying “the relationship is linear” after one experiment?",
+        a: "It generalizes over an unmeasured extent. "
+          + "Honest wording: “The relationship is linear in the range measured from such and such to that.” "
+          + "The spring is linear until the limit of elasticity and then stops, and the resistance is constant until it heats up. "
+          + "And what you do not measure, do not describe.",
       },
     ],
   },
@@ -253,93 +248,93 @@ export default {
   questionTypes: [
     {
       id: 'slope-two-points',
-      family: 'النمط الأول · ميل من نقطتين',
-      aim: 'ترتّب الفرقين ولا تعكسهما.',
+      family: "The first type is a two-point slope",
+      aim: "Arrange the two teams and do not reverse them.",
       objectives: [1],
-      prompt: 'على خط توفيق لتمثيل الإزاحة مع الزمن نقطتان: ‎(2.0 s, 4.0 m)‎ و‎(6.0 s, 20.0 m)‎. '
-        + 'ما الميل؟',
+      prompt: "On a matching line to represent displacement with time, there are two points : (2.0 s, 4.0 m) and (6.0 s, 20.0 m). "
+        + "What is the slope?",
       unit: 'm/s',
       answer: 4,
       tolerance: 0.05,
       solution: '‎(20.0 − 4.0)/(6.0 − 2.0) = 16.0/4.0 = 4.0 m/s‎.',
       commonErrors: [
-        { value: 0.25, why: 'قسمتَ الفرق الأفقي على الرأسي. '
-          + 'الميل هو الرأسي على الأفقي، ووحدة ناتجك ‎s/m‎ وهي مقلوب السرعة.' },
-        { value: 3, why: 'جمعتَ القيم بدل طرحها: ‎24/8 = 3‎. الميل فرقٌ على فرق.' },
-        { value: 16, why: 'حسبتَ الفرق الرأسي وحده ولم تقسمه على الفرق الأفقي.' },
+        { value: 0.25, why: "You divided the horizontal difference by the vertical. "
+          + "The slope is the vertical over the horizontal, and the unit of your product is s/m, which is the reciprocal of the velocity." },
+        { value: 3, why: "You added the values instead of subtracting them. : 24/8 = 3. The slope is a difference upon a difference." },
+        { value: 16, why: "You calculated the vertical difference alone and did not divide it by the horizontal difference." },
       ],
     },
     {
       id: 'spring-constant',
-      family: 'النمط الثاني · ميل بمعنى فيزيائي',
-      aim: 'تقرأ الوحدة وتترجمها إلى كمية.',
+      family: "The second type is a tendency in the physical sense",
+      aim: "Reads the unit and translates it into a quantity.",
       objectives: [1],
-      prompt: 'على تمثيل القوة مع الاستطالة نقطتان: ‎(0.020 m, 5.0 N)‎ و‎(0.080 m, 20.0 N)‎. '
-        + 'ما ثابت النابض؟',
+      prompt: "On the representation of force with elongation are two points : (0.020 m, 5.0 N) and (0.080 m, 20.0 N). "
+        + "What is the spring constant?",
       unit: 'N/m',
       answer: 250,
       tolerance: 2,
       solution: '‎(20.0 − 5.0)/(0.080 − 0.020) = 15.0/0.060 = 250 N/m‎.',
       commonErrors: [
-        { value: 0.004, why: 'قسمتَ الاستطالة على القوة. وحدة ناتجك ‎m/N‎ وهي مقلوب ثابت النابض.' },
-        { value: 2500, why: 'أخطأتَ في موضع الفاصلة العشرية عند القسمة على ‎0.060‎.' },
-        { value: 25, why: 'قسمتَ على ‎0.60‎ بدل ‎0.060‎، أي بخطأ عامل عشرة في الاستطالة.' },
+        { value: 0.004, why: "You divide the elongation by the force. The unit of your output is m/N, which is the reciprocal of the spring constant." },
+        { value: 2500, why: "You misplaced the decimal point when dividing by 0.060." },
+        { value: 25, why: "You divided by 0.60 instead of 0.060, that is, with an error of a factor of ten in the elongation." },
       ],
     },
     {
       id: 'linearise-pendulum',
-      family: 'النمط الثالث · استخراج ثابت بالتخطيط',
-      aim: 'تقلب العلاقة بعد مقارنتها بصورة الخط.',
+      family: "The third type: Fixed extraction by layout",
+      aim: "The relationship fluctuates after comparing it to the line image.",
       objectives: [0, 1],
-      prompt: 'رُسم ‎T²‎ مع ‎L‎ لبندول فكان الميل ‎4.00 s²/m‎. ما قيمة ‎g‎؟ '
-        + 'استعمل ‎4π² = 39.48‎.',
+      prompt: "T² and L were drawn for a pendulum, so the slope was 4.00 s²/m. What is the value of g? "
+        + "Use 4π² = 39.48.",
       unit: 'm/s²',
       answer: 9.87,
       tolerance: 0.1,
-      solution: 'الميل ‎= 4π²/g‎، فـ ‎g = 4π²/slope = 39.48/4.00 = 9.87 m/s²‎.',
+      solution: "slope = 4π²/g, g = 4π²/slope = 39.48/4.00 = 9.87 m/s².",
       commonErrors: [
-        { value: 4, why: 'كتبتَ الميل نفسه. الميل ‎4π²/g‎ لا ‎g‎، فيبقى قلبٌ وضرب.' },
-        { value: 39.48, why: 'كتبتَ ‎4π²‎ ولم تقسمه على الميل.' },
-        { value: 158, why: 'ضربتَ الميل في ‎4π²‎ بدل القسمة. '
-          + 'والفحص السريع: ‎g‎ قريبة من ‎9.8‎، فأي ناتج بعيد عنها يستدعي مراجعة الترتيب.' },
+        { value: 4, why: "You wrote the same mile. The slope is 4π²/g, not g, so it remains a heart and a beat." },
+        { value: 39.48, why: "You wrote 4π² and did not divide it by the mile." },
+        { value: 158, why: "You multiplied the slope by 4π² instead of dividing. "
+          + "The quick scan : g is close to 9.8, so any result far from it requires reviewing the arrangement." },
       ],
     },
     {
       id: 'interpolate',
-      family: 'النمط الرابع · قراءة داخل المدى',
-      aim: 'تقرأ من الخط قيمةً بين قياسين، لا خارجهما.',
+      family: "The fourth type is reading within the range",
+      aim: "You read from a line a value between two measurements, not outside them.",
       objectives: [2],
-      prompt: 'خط التوفيق يمرّ بالنقطتين ‎(0, 2.0)‎ و‎(4.0, 10.0)‎، والقياسات أُخذت بين ‎x = 0‎ و‎x = 4.0‎. '
-        + 'ما قيمة ‎y‎ عند ‎x = 2.0‎؟',
-      unit: 'وحدة y',
+      prompt: "The alignment line passes through the points (0, 2.0) and (4.0, 10.0), and the measurements were taken between x = 0 and x = 4.0. "
+        + "What is the value of y at x = 2.0?",
+      unit: "y module",
       answer: 6,
       tolerance: 0.05,
-      solution: 'الميل ‎= 8.0/4.0 = 2.0‎، والتقاطع ‎2.0‎، فـ ‎y = 2.0(2.0) + 2.0 = 6.0‎. '
-        + 'و‎x = 2.0‎ تقع داخل مدى القياس، فهذه قراءة داخلية تعتمد عليها البيانات.',
+      solution: "The slope is = 8.0/4.0 = 2.0, and the intercept is 2.0, so y = 2.0(2.0) + 2.0 = 6.0. "
+        + "x = 2.0 is within the measurement range, so this is an internal reading on which the data is based.",
       commonErrors: [
-        { value: 4, why: 'أهملتَ التقاطع فحسبتَ ‎m x‎ وحده. '
-          + 'الخط لا يمرّ بنقطة الأصل، فـ ‎y = m x + c‎ لا ‎y = m x‎.' },
-        { value: 2, why: 'كتبتَ الميل أو التقاطع بدل قيمة ‎y‎ عند ‎x = 2.0‎.' },
-        { value: 10, why: 'كتبتَ قيمة ‎y‎ عند طرف المدى ‎x = 4.0‎.' },
+        { value: 4, why: "You neglected the intersection and counted m x alone. "
+          + "The line does not pass through the origin, so y = m x + c not y = m x." },
+        { value: 2, why: "You wrote the slope or intercept instead of y with x = 2.0." },
+        { value: 10, why: "You wrote the value of y at the end of the range x = 4.0." },
       ],
     },
     {
       id: 'intercept',
-      family: 'النمط الخامس · التقاطع من نقطتين',
-      aim: 'تحسب الميل ثم تعود للتقاطع.',
+      family: "Fifth pattern · Two-point intersection",
+      aim: "You calculate the slope and then return to the intercept.",
       objectives: [1],
-      prompt: 'خط توفيق يمرّ بالنقطتين ‎(1.0, 5.0)‎ و‎(3.0, 11.0)‎. '
-        + 'ما تقاطعه مع المحور الرأسي؟',
-      unit: 'وحدة y',
+      prompt: "A conciliation line passes through the points (1.0, 5.0) and (3.0, 11.0). "
+        + "What is its intersection with the vertical axis?",
+      unit: "y module",
       answer: 2,
       tolerance: 0.05,
-      solution: 'الميل ‎= (11.0 − 5.0)/(3.0 − 1.0) = 3.0‎. '
-        + 'ومن ‎5.0 = 3.0(1.0) + c‎ يكون ‎c = 2.0‎.',
+      solution: "slope = (11.0 − 5.0)/(3.0 − 1.0) = 3.0. "
+        + "And from 5.0 = 3.0(1.0) + c it is c = 2.0.",
       commonErrors: [
-        { value: 3, why: 'كتبتَ الميل لا التقاطع. التقاطع قيمة ‎y‎ عند ‎x = 0‎.' },
-        { value: 5, why: 'كتبتَ قيمة ‎y‎ عند أول نقطة. وهي عند ‎x = 1.0‎ لا ‎x = 0‎.' },
-        { value: 0, why: 'افترضتَ مرور الخط بنقطة الأصل. '
-          + 'النقطتان لا تسمحان بذلك: لو مرّ بالأصل لكان ‎y = 5x‎ ولما مرّ بالنقطة الثانية.' },
+        { value: 3, why: "You wrote the slope, not the intercept. The intersection value of y is at x = 0." },
+        { value: 5, why: "You wrote the value of y at the first point. It is at x = 1.0, not x = 0." },
+        { value: 0, why: "You assume that the line passes through the origin. "
+          + "The colon does not allow this: if it had passed through the original, it would have been y = 5x and it would not have passed through the second point." },
       ],
     },
   ],

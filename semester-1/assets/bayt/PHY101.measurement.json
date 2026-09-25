@@ -7,19 +7,19 @@
    "answer": 30,
    "tolerance": 0.05,
    "unit": "m/s",
-   "solution": "‎108 × (1000 m / 1 km) × (1 h / 3600 s)‎. تُحذف ‎km‎ و‎h‎ فيبقى ‎m/s‎، والحساب ‎108 × 1000 ÷ 3600 = 30‎.",
+   "solution": "108 × (1000 m / 1 km) × (1 h / 3600 s)., km and h are deleted, leaving m/s. And the account is 108 × 1000 ÷ 3600 = 30.",
    "commonErrors": [
     {
      "value": 388.8,
-     "why": "ضربتَ في 3.6 بدل القسمة عليها. القاعدة السريعة هي القسمة على 3.6 عند الانتقال من ‎km/h‎ إلى ‎m/s‎، لأن المتر أصغر من الكيلومتر بينما الثانية أصغر من الساعة."
+     "why": "You multiplied by 3.6 instead of dividing by it. A quick rule is to divide by 3.6 When moving from km/h to m/s, because a meter is smaller than a kilometer while a second is smaller than an hour."
     },
     {
      "value": 108000,
-     "why": "حوّلتَ الكيلومترات إلى أمتار ونسيتَ تحويل الساعات إلى ثوانٍ، فالناتج عندك ‎m/h‎ لا ‎m/s‎. راجع الوحدات الباقية قبل الحساب."
+     "why": "You converted kilometers into meters and forgot to convert hours into seconds. Your result is m/h, not m/s. Check the remaining units before calculating."
     },
     {
      "value": 1.8,
-     "why": "قسمتَ على 60 مرة واحدة فقط. الساعة ستون دقيقة والدقيقة ستون ثانية، فالساعة 3600 ثانية لا 60."
+     "why": "You divided 60 only once. An hour is sixty minutes and a minute is sixty seconds. The clock is 3600, not 60."
     }
    ]
   },
@@ -29,19 +29,19 @@
    "answer": 4.1,
    "tolerance": 0.01,
    "unit": "g/cm³",
-   "solution": "‎24.8 ÷ 6.0 = 4.1333...‎. في ‎24.8‎ ثلاثة أرقام معنوية وفي ‎6.0‎ رقمان، فالناتج برقمين معنويين: ‎4.1 g/cm³‎.",
+   "solution": "24.8 ÷ 6.0 = 4.1333.. in 24.8 there are three significant figures and in 6.0 there are two significant figures, The result has two significant figures : 4.1 g/cm³.",
    "commonErrors": [
     {
      "value": 4.13,
-     "why": "أبقيتَ ثلاثة أرقام معنوية أو أكثر، وربما كتبتَ ناتج الآلة كما هو. المعطى ‎6.0‎ فيه رقمان فقط، والناتج لا يكون أدقّ من أضعف قياس دخل فيه. الآلة لا تعرف دقة قياسك؛ التقريب قرارك أنت."
+     "why": "You kept three or more significant figures, and perhaps wrote the machine's output as is. The given 6.0 has only two numbers, and the result is not more accurate than the weakest measurement entered into it. The machine does not know the accuracy of your measurement; The approximation is your decision."
     },
     {
      "value": 4,
-     "why": "قرّبتَ إلى رقم معنوي واحد. أقلّ المعطيات فيه رقمان لا واحد."
+     "why": "You rounded to one significant figure. The minimum data contains two numbers, not one."
     },
     {
      "value": 0.242,
-     "why": "قسمتَ الحجم على الكتلة. الكثافة كتلة على حجم، ووحدة ناتجك ‎cm³/g‎ وهي مقلوب الكثافة."
+     "why": "You divide the volume by the mass. density mass over volume, The unit of your output is cm³/g, which is the reciprocal of density."
     }
    ]
   },
@@ -50,20 +50,20 @@
    "version": "8355fd59bbd7",
    "answer": -1,
    "tolerance": 0.01,
-   "unit": "أُسّ",
-   "solution": "القوة ‎kg·m/s²‎، والمساحة ‎m²‎. فالضغط ‎kg·m/(s²·m²) = kg/(m·s²)‎. المتر صار في المقام بأُسّ واحد، فأُسّه ‎−1‎.",
+   "unit": "Exponent",
+   "solution": "The force is kg·m/s², the area is m²., and the pressure is kg·m/(s²·m²) = kg/(m·s²). The meter becomes in the denominator with one power, its exponent is −1.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "أخذتَ أُسّ المتر من القوة وحدها وأهملتَ قسمة المساحة. المساحة ‎m²‎ في المقام تخفض الأُسّ من ‎+1‎ إلى ‎−1‎."
+     "why": "You took the power of the meter from the power alone and neglected to divide the area. The area m² in the denominator reduces the exponent from +1 to −1."
     },
     {
      "value": -2,
-     "why": "هذا أُسّ الثانية لا أُسّ المتر. التعبير ‎kg·m⁻¹·s⁻²‎، فانتبه إلى أي حرف تقرأ."
+     "why": "This is the power of the second, not the power of the meter. The expression is kg·m⁻¹·s⁻², so pay attention to which letter you read."
     },
     {
      "value": 2,
-     "why": "وضعتَ المساحة في البسط. الضغط قوة على مساحة، فالمساحة في المقام."
+     "why": "You put the area in the numerator. Pressure is a force over an area, so area is the denominator."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": 0.00025,
    "tolerance": 5e-7,
    "unit": "m",
-   "solution": "‎μ‎ تعني ‎10⁻⁶‎، فـ ‎250 μm = 250 × 10⁻⁶ m = 2.5 × 10⁻⁴ m = 0.00025 m‎.",
+   "solution": "μ means 10⁻⁶, then 250 μm = 250 × 10⁻⁶ m = 2.5 × 10⁻⁴ m = 0.00025 m.",
    "commonErrors": [
     {
      "value": 0.25,
-     "why": "قرأتَ الرمز ‎μ‎ على أنه «ميلي». ميلي ‎10⁻³‎ ومايكرو ‎10⁻⁶‎، والفرق بينهما ألف ضعف."
+     "why": "You read the code μ as “Milly.” Miele 10⁻³ and Micro 10⁻⁶, The difference between them is a thousand fold."
     },
     {
      "value": 2.5,
-     "why": "استعملتَ «سنتي» ‎10⁻²‎ بدل «مايكرو»."
+     "why": "You used “centi» 10⁻²” instead of “micro”."
     },
     {
      "value": 2.5e-7,
-     "why": "استعملتَ «نانو» ‎10⁻⁹‎ بدل «مايكرو» ‎10⁻⁶‎."
+     "why": "You used “Nano » 10⁻⁹” instead of “Micro » 10⁻⁶.”."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 3600,
    "tolerance": 1,
    "unit": "m",
-   "solution": "المعادلة ‎x = v·t‎ تتطلب الزمن بالثانية لأن السرعة بـ ‎m/s‎. ‎4.0 min = 240 s‎، فالمسافة ‎15 × 240 = 3600 m‎.",
+   "solution": "The equation x = v·t requires the time in seconds because the speed is in m/s. 4.0 min = 240 s, the distance is 15 × 240 = 3600 m.",
    "commonErrors": [
     {
      "value": 60,
-     "why": "عوّضتَ بالدقائق مباشرة. السرعة بـ ‎m/s‎، فالزمن يجب أن يكون بالثانية؛ وحدة الناتج عندك صارت ‎m·min/s‎ وهي ليست مسافة."
+     "why": "You are compensated directly in minutes. Speed ​​is in m/s, time should be in seconds; Your output unit is m·min/s, which is not a space."
     },
     {
      "value": 216000,
-     "why": "حوّلتَ الدقائق إلى ثوانٍ مرتين، أو ضربتَ في 3600 بدل 240."
+     "why": "You converted minutes to seconds twice, or multiplied by 3600 instead of 240."
     },
     {
      "value": 900,
-     "why": "ضربتَ 15 في 60 فحسبتَ مسافة دقيقة واحدة لا أربع."
+     "why": "You multiplied 15 by 60 and calculated a distance of one minute, not four."
     }
    ]
   },
@@ -117,11 +117,11 @@
    "answer": 12.4,
    "tolerance": 0.0001,
    "unit": "",
-   "solution": "المنزلة الأقل دقة جزء العشرة.",
+   "solution": "The least accurate place is the tenth part.",
    "commonErrors": [
     {
      "value": 12.41,
-     "why": "هذا المجموع الخام؛ أوحيت بدقة أكبر مما تعطيه0.3."
+     "why": "This raw total; I suggest more accuracy than 0.3. gives"
     }
    ]
   }

@@ -21,8 +21,8 @@ function updateCounter() {
   const sentences = countSentences(text);
   const inRange = sentences >= 3 && sentences <= 5;
   counter.textContent = text
-    ? `${countNoun(words, nouns.word)} · نحو ${countNoun(sentences, nouns.sentence)}${inRange ? '' : ' — المطلوب بين ثلاث وخمس'}`
-    : 'المطلوب بين ثلاث وخمس جمل.';
+    ? `${countNoun(words, nouns.word)} · about ${countNoun(sentences, nouns.sentence)}${inRange ? '' : " - Between three and five are required"}`
+    : "Between three and five sentences are required.";
   counter.classList.toggle('warn', Boolean(text) && !inRange);
 }
 
@@ -36,7 +36,7 @@ if (modelButton && modelBox) {
   modelButton.addEventListener('click', () => {
     const shown = !modelBox.hidden;
     modelBox.hidden = shown;
-    modelButton.textContent = shown ? 'أظهر نموذج الإجابة' : 'أخفِ نموذج الإجابة';
+    modelButton.textContent = shown ? "Show sample answer" : "Hide sample answer";
     if (!shown) modelBox.scrollIntoView({ block: 'nearest' });
   });
 }
@@ -46,7 +46,7 @@ if (form) {
     event.preventDefault();
     const text = answer ? answer.value.trim() : '';
     if (!text) {
-      if (note) { note.textContent = 'اكتب نصّك أولًا قبل الحفظ.'; note.classList.add('warn'); }
+      if (note) { note.textContent = "Write your text first before saving."; note.classList.add('warn'); }
       return;
     }
     const checked = [...form.querySelectorAll('input[name="check"]:checked')].map((i) => i.value);
@@ -57,13 +57,15 @@ if (form) {
       kind: lesson.outcome.kind,
       skill: lesson.skill,
       goal: 'GOAL-CE201-REPORT',
-      body: `${text}\n\n— راجعتُ ذاتيًا: ${labels.length ? labels.join(' / ') : 'لم أعلّم أي بند'} (${checked.length} من ${lesson.task.checklist.length})`,
+      body: `${text}
+
+- I checked myself: ${labels.length ? labels.join(' / ') : "I did not mark any item"} (${checked.length} of ${lesson.task.checklist.length})`,
       demo: false,
     });
 
     if (note) {
       note.classList.remove('warn');
-      note.textContent = `حُفظ في ملف إنجازك مع ${checked.length} من ${lesson.task.checklist.length} بنود المراجعة. افتح ملف الإنجاز لتراه.`;
+      note.textContent = `Save to your achievement file with ${checked.length} of ${lesson.task.checklist.length} Review items. Open the achievement file to see it.`;
     }
   });
 }

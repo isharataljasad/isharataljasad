@@ -6,12 +6,12 @@
    "version": "9e176896acd0",
    "answer": 3,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "f(1)=f(5)=0 والمشتقة 2x−6، فـc=3.",
+   "unit": "Number",
+   "solution": "f(1)=f(5)=0 and the derivative 2x−6, so c=3.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "الصفر هو قيمة المشتقة المطلوبة، وليس موضع النقطة."
+     "why": "Zero is the value of the desired derivative, not the position of the point."
     }
    ]
   },
@@ -20,12 +20,12 @@
    "version": "0852fb01ddd7",
    "answer": 4,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "m=(36−4)/4=8؛ 2c=8 فـc=4.",
+   "unit": "Number",
+   "solution": "m=(36−4)/4=8; 2c=8 to c=4.",
    "commonErrors": [
     {
      "value": 8,
-     "why": "حسبت الميل الصحيح لكن المطلوب إحداثي النقطة."
+     "why": "I calculated the correct slope, but what was required was the coordinate of the point."
     }
    ]
   },
@@ -34,12 +34,12 @@
    "version": "cf7d93c27866",
    "answer": 0,
    "tolerance": 0.001,
-   "unit": "اختيار عددي",
-   "solution": "لا: المشتقة غير موجودة عند الصفر، رغم الاتصال وتساوي الطرفين.",
+   "unit": "Numerical selection",
+   "solution": "No: The derivative does not exist at zero, even though both sides are connected and equal.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "تساوي الطرفين لا يعالج غياب الاشتقاق عند الزاوية."
+     "why": "Equality of both sides does not cure the absence of differentiation at the angle."
     }
    ]
   },
@@ -49,11 +49,11 @@
    "answer": 2,
    "tolerance": 0.001,
    "unit": "s",
-   "solution": "متوسط السرعة 16/4=4 m/s، والسرعة 2t؛ إذن t=2 s.",
+   "solution": "Average speed 16/4=4 m/s, average speed 2t; So t=2 s.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "هذا مقدار السرعة المتوسطة أو نهاية الفترة، وليس اللحظة المطلوبة."
+     "why": "This is the average speed or limit of the interval, not the desired moment."
     }
    ]
   },
@@ -62,12 +62,12 @@
    "version": "5ff5910ea361",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "نقطة",
-   "solution": "3c²−1=0 يعطي ±1/√3 وكلاهما داخل الفترة.",
+   "unit": "Point",
+   "solution": "3c²−1=0 gives ±1/√3 and both are inside the interval.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "النظرية تقول واحدة على الأقل، وقد يوجد أكثر."
+     "why": "The theorem is at least one, and there may be more."
     }
    ]
   }

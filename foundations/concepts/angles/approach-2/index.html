@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Angles and Radian Measure | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/angles/">Angles and radian measure</a> / Approach 2</p>
@@ -36,6 +36,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Convert in both directions, and use a range check to catch a reversed factor.</li><li>Apply <code>s = rθ</code> after converting, and say why the formula needs radians rather than merely preferring them.</li><li>Decide whether a question is about terminal direction or about amount of rotation, and choose the measure accordingly.</li><li>Reduce a negative or large angle by whole turns, and recognise a boundary direction that belongs to no quadrant.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/angles/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/trigonometry/angles/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/angles/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/coordinate-plane/">The coordinate plane</a> · <a href="/foundations/concepts/angles-geometry/">Angles</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/angles/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/trigonometry/angles/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/angles/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="angles">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="to-radians">
+<p class="check-prompt">A dish turns <code>225°</code>. Express that in radians, as a decimal.</p>
+
+<form><div class="check-row"><label for="check-angles-to-radians">Your answer <span class="check-unit">(rad)</span></label><input id="check-angles-to-radians" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>225 × π/180 = 5π/4 ≈ 3.927</code>. More than half a revolution and less than one, so it must lie between <code>π</code> and <code>2π</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>A log reads <code>11π/6</code> radians. Express it in degrees.</p>
+<form><div class="check-row"><label for="follow-angles-to-radians">Your answer <span class="check-unit">(degrees)</span></label><input id="follow-angles-to-radians" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>(11π/6) × 180/π = 330°</code>.</p></details>
+</div>
+</section><section class="check" data-check="arc">
+<p class="check-prompt">A marker sits at <code>r = 2.5 m</code> on the dish rim. The dish turns <code>60°</code>. How far does the marker travel?</p>
+
+<form><div class="check-row"><label for="check-angles-arc">Your answer <span class="check-unit">(m)</span></label><input id="check-angles-arc" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Convert first: <code>60° = π/3 ≈ 1.047</code>. Then <code>s = rθ = 2.5 × 1.047 ≈ 2.62 m</code>, which is a sixth of the <code>15.7 m</code> circumference.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>The same marker, with the dish turning <code>450°</code>. How far does it travel?</p>
+<form><div class="check-row"><label for="follow-angles-arc">Your answer <span class="check-unit">(m)</span></label><input id="follow-angles-arc" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>450° = 5π/2 ≈ 7.854</code> rad, so <code>s = 2.5 × 7.854 ≈ 19.6 m</code>. Distance uses the full rotation, not the reduced angle.</p></details>
+</div>
+</section><section class="check" data-check="boundary">
+<p class="check-prompt">The dish turns <code>-450°</code> from its initial ray. Where does the marker finish?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> On the negative y-axis, in no quadrant</label><label><input type="radio" name="answer" value="1"> Quadrant IV</label><label><input type="radio" name="answer" value="2"> Quadrant III</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>-450 + 720 = 270</code>, which is the negative y-axis: due south if the initial ray points east.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Reduce <code>690°</code> by whole turns and enter the result in degrees.</p>
+<form><div class="check-row"><label for="follow-angles-boundary">Your answer <span class="check-unit">(degrees)</span></label><input id="follow-angles-boundary" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>690 - 360 = 330°</code>. Reduce for direction; keep the original when the question is about the sweep.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/coordinate-plane/">The coordinate plane</a> · <a href="/foundations/concepts/angles-geometry/">Angles</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

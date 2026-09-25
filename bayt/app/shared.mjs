@@ -14,7 +14,7 @@ export const el = (tag, attrs = {}, ...children) => {
 };
 
 /* شارة «تجريبي» تظهر على كل عنصر لم يُدخله الطالب بنفسه. */
-export const demoTag = () => el('span', { class: 'demo-tag', text: 'تجريبي' });
+export const demoTag = () => el('span', { class: 'demo-tag', text: "Demo" });
 
 /* يعرض تحذير التخزين وشريط البيانات التجريبية إن لزم، ويعيد الرسم بعد المسح. */
 export function wireShell(render) {

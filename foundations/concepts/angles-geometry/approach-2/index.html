@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Angles | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/angles-geometry/">Angles</a> / Approach 2</p>
@@ -35,6 +35,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Decide whether a single-letter angle name is legal, and name every angle at a shared vertex unambiguously.</li><li>State what changes when an arm is redrawn longer, and rank two angles by measure rather than by appearance.</li><li>Add two measures, classify the result, and name the given that licensed the addition.</li><li>Say what a diagram asserts and what it does not, and justify a right angle from the givens rather than from the page.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/angles-geometry/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/geometry/angles/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/angles-geometry/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/midpoints-and-congruence/">Midpoints and segment congruence</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/angles/">Angles and radian measure</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/angles-geometry/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/geometry/angles/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/angles-geometry/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="angles-geometry">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="naming">
+<p class="check-prompt">Three arms are welded at <code>B</code>, running to <code>A</code>, <code>D</code> and <code>C</code>. Is <code>∠B</code> a legal name for one of the angles?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> No, three rays leave <code>B</code> so the name is ambiguous</label><label><input type="radio" name="answer" value="1"> Yes, the vertex letter is enough</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Each angle needs three letters, with <code>B</code> in the middle: <code>∠ABD</code>, <code>∠DBC</code>, <code>∠ABC</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Is <code>∠ABD</code> the same angle as <code>∠DBA</code>? Enter 1 for yes or 0 for no.</p>
+<form><div class="check-row"><label for="follow-angles-geometry-naming">Your answer</label><input id="follow-angles-geometry-naming" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>Yes. Reversing the outer letters names the same pair of arms. Moving the middle letter, as in <code>∠BAD</code>, moves the vertex and gives a different angle.</p></details>
+</div>
+</section><section class="check" data-check="addition">
+<p class="check-prompt"><code>m∠ABD = 35°</code> and <code>m∠DBC = 55°</code>, with <code>D</code> in the interior of <code>∠ABC</code>. Find <code>m∠ABC</code>.</p>
+
+<form><div class="check-row"><label for="check-angles-geometry-addition">Your answer <span class="check-unit">(degrees)</span></label><input id="check-angles-geometry-addition" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>35 + 55 = 90</code>, so <code>∠ABC</code> is a right angle — because the arithmetic says so, not because the sketch looks square.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>If instead <code>m∠ABC = 120°</code> and <code>m∠ABD = 35°</code>, find <code>m∠DBC</code>.</p>
+<form><div class="check-row"><label for="follow-angles-geometry-addition">Your answer <span class="check-unit">(degrees)</span></label><input id="follow-angles-geometry-addition" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>120 - 35 = 85</code>. The same postulate rearranged.</p></details>
+</div>
+</section><section class="check" data-check="diagram">
+<p class="check-prompt">On a drawing an angle looks square but carries no small square and no stated measure. May you use <code>90°</code> in a calculation?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> No, an unmarked angle asserts nothing</label><label><input type="radio" name="answer" value="1"> Yes, if it clearly looks like a right angle</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>What is marked may be used; what is merely drawn may not. This is the same rule that governs equal-looking lengths.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>In the joint above, <code>m∠ABD = 35°</code> and <code>m∠DBC = 55°</code> are given. Enter <code>m∠ABC</code> in degrees, and note that this time you are entitled to the answer.</p>
+<form><div class="check-row"><label for="follow-angles-geometry-diagram">Your answer <span class="check-unit">(degrees)</span></label><input id="follow-angles-geometry-diagram" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>35 + 55 = 90</code>. So the angle really is a right angle — established by the givens, not by how the drawing looks. A correct conclusion reached from the page would still have been reached the wrong way.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/midpoints-and-congruence/">Midpoints and segment congruence</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/angles/">Angles and radian measure</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

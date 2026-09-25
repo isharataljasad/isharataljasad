@@ -6,7 +6,7 @@
 /* الرسم: مخطط الجسم الحر. الجسم معزول عمدًا عن الأرض والسطح،
    لأن أول خطوة في الحل أن تقرّر: أي جسم أرسم قواه؟ */
 const figure = `<svg viewBox="0 0 480 270" role="img" aria-labelledby="fig-fbd-title" class="bayt-svg">`
-  + `<title id="fig-fbd-title">مخطط جسم حر: صندوق معزول عليه قوة عمودية لأعلى ووزن لأسفل وقوة أفقية</title>`
+  + `<title id="fig-fbd-title">Free-body diagram: An isolated box with a vertical force upward, a weight downward, and a horizontal force</title>`
   + `<rect x="190" y="100" width="100" height="70" rx="4" fill="#cfe6ef" stroke="#284955" stroke-width="2"/>`
   /* القوة العمودية على السطح، لأعلى. */
   + `<line x1="240" y1="100" x2="240" y2="34" stroke="#10766f" stroke-width="3"/>`
@@ -20,7 +20,7 @@ const figure = `<svg viewBox="0 0 480 270" role="img" aria-labelledby="fig-fbd-t
   + `<line x1="290" y1="135" x2="378" y2="135" stroke="#c69748" stroke-width="3"/>`
   + `<polyline points="368,128 380,135 368,142" fill="none" stroke="#c69748" stroke-width="3"/>`
   + `<text x="336" y="124" font-size="17" fill="#c69748">F</text>`
-  + `<text x="240" y="256" font-size="13" fill="#566f7a" text-anchor="middle">كل سهم هنا قوة تؤثر على هذا الجسم وحده</text>`
+  + `<text x="240" y="256" font-size="13" fill="#566f7a" text-anchor="middle">Every arrow here has a force affecting this body alone</text>`
   + `</svg>`;
 
 export default {
@@ -28,192 +28,192 @@ export default {
   topic: 'forces',
 
   objectives: [
-    'تحدّد الجسم أولًا ثم ترسم عليه القوى الخارجية وحدها في مخطط جسم حر.',
-    'تطبّق ‎ΣF = ma‎ على كل محور، وتحسب التسارع أو القوة أو الكتلة.',
-    'تميّز زوج الفعل ورد الفعل عن قوتين متوازنتين على الجسم نفسه.',
+    "You first identify the body and then draw the external forces on it alone in a free-body diagram.",
+    "ΣF = ma is applied to each axis, and calculates acceleration, force, or mass.",
+    "Distinguish a third-law pair, which acts on two different bodies, from balanced forces acting on one body.",
   ],
 
   boundaries: [
-    'الاحتكاك والمستوى المائل موضوع الدرس التالي؛ هنا نفترض السطوح ملساء ما لم يُذكر خلاف ذلك.',
-    'العزوم والاتزان الدوراني ليست في هذا الدرس.',
-    'الأنظمة المتسارعة كأُطر إسناد (القوى الوهمية) خارج النطاق.',
-    'مقاومة الهواء مهملة في كل أمثلة هذا الدرس.',
+    "Friction and the inclined plane are the topic of the next lesson; Here we assume surfaces are smooth unless otherwise stated.",
+    "Moments and rotational equilibrium are not covered in this lesson.",
+    "Accelerated systems as frames of reference (imaginary forces) are out of scope.",
+    "Air resistance is neglected in all of the examples in this lesson.",
   ],
 
   prerequisites: [
     {
-      title: 'الحركة بتسارع ثابت',
-      why: 'قانون نيوتن الثاني يعطيك التسارع، ثم تحتاج معادلات الحركة لتصل إلى السرعة أو المسافة.',
-      recap: '‎v = v₀ + at‎ و‎x = x₀ + v₀t + ½at²‎ و‎v² = v₀² + 2aΔx‎. '
-        + 'فمسألة القوى كثيرًا ما تنتهي عند التسارع، ويبقى نصفها الثاني حركةً خالصة.',
+      title: "Movement with constant acceleration",
+      why: "Newton's second law gives you acceleration, then you need equations of motion to arrive at speed or distance.",
+      recap: "v = v₀ + at, x = x₀ + v₀t + ½at² and v² = v₀² + 2aΔx. "
+        + "The issue of forces often ends with acceleration, and the second half remains pure motion.",
       href: '/semester-1/physics/motion/',
-      hrefLabel: 'درس المتجهات والحركة',
+      hrefLabel: "Study vectors and motion",
     },
     {
-      title: 'تحليل المتجه إلى مركبتين',
-      why: 'قوة مائلة لا تدخل ‎ΣF = ma‎ كما هي؛ تدخل مركبتها على كل محور.',
-      recap: 'قوة ‎F‎ تصنع زاوية ‎θ‎ مع الأفقي: مركبتها الأفقية ‎F cos θ‎ والرأسية ‎F sin θ‎. '
-        + 'ومجموع مربّعَي المركبتين يساوي مربّع المقدار، وهذا فحص سريع لصحة التحليل. '
-        + 'ولاحظ أن ‎cos‎ تصاحب المحور الذي تُقاس منه الزاوية.',
+      title: "Decompose a vector into two components",
+      why: "Inclined force does not enter ΣF = ma as is; Its vehicle enters on each axle.",
+      recap: "The force of F makes an angle of θ with the horizontal: its horizontal component F cos θ and vertical F sin θ. "
+        + "The sum of the squares of the two components is equal to the square of the magnitude, and this is a quick check of the validity of the factoring. "
+        + "Note that cos accompanies the axis from which the angle is measured.",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'مخطط الجسم الحر',
+        term: "Free body diagram",
         en: 'Free-body diagram',
-        text: 'رسم يعزل جسمًا واحدًا ويُظهر القوى الخارجية المؤثرة عليه وحده. '
-          + 'ولا تُرسم فيه القوى التي يؤثّر بها هو على غيره، ولا القوى الداخلية بين أجزائه. '
-          + 'وأول خطوة ليست الرسم بل اختيار الجسم: تغيير الاختيار يغيّر المخطط كله.',
+        text: "A drawing that isolates a single body and shows the external forces acting on it alone. "
+          + "The forces with which it affects others are not depicted, nor are the internal forces between its parts. "
+          + "The first step is not drawing, but choosing the body: changing the choice changes the whole plan.",
       },
       {
-        term: 'القوة المحصّلة',
+        term: "Resultant force",
         en: 'Net force',
-        text: 'المجموع المتجه للقوى الخارجية: ‎ΣF‎. '
-          + 'وهي وحدها التي تدخل قانون نيوتن الثاني؛ فالقوى المتوازنة لا تُهمَل من الرسم '
-          + 'لكنها تُلغي بعضها في المجموع.',
+        text: "The vector sum of the external forces: ΣF. "
+          + "It is the only one that enters Newton's second law; Balanced forces are not neglected in the drawing "
+          + "But it cancels some of them out in total.",
       },
       {
-        term: 'الوزن',
+        term: "Weight",
         en: 'Weight',
-        text: 'قوة جذب الأرض للجسم: ‎W = mg‎، بوحدة النيوتن. '
-          + 'يختلف عن الكتلة اختلافًا جوهريًا: الكتلة مقدار المادة بالكيلوغرام ولا تتغيّر بتغيّر المكان، '
-          + 'والوزن قوة تتغيّر بتغيّر ‎g‎.',
+        text: "The force of gravity of the Earth on the body : W = mg, in newtons. "
+          + "It is fundamentally different from mass: mass is the amount of matter in kilograms and does not change with location. "
+          + "Weight is a force that changes with g.",
       },
       {
-        term: 'قوة التلامس العمودية',
+        term: "Normal force",
         en: 'Normal force',
-        text: 'قوة يؤثّر بها السطح على الجسم عموديًّا على السطح. '
-          + 'وليست مساوية للوزن دائمًا؛ إنما تتساوى معه في حالة خاصة: '
-          + 'سطح أفقي بلا تسارع رأسي ولا قوة رأسية أخرى.',
+        text: "A force exerted by a surface on an object perpendicular to the surface. "
+          + "It is not always equal to weight; It is equal to it in a special case: "
+          + "A horizontal surface with no vertical acceleration or other vertical force.",
       },
       {
-        term: 'قانون نيوتن الثالث',
+        term: "Newton's third law",
         en: 'Newton third law',
-        text: 'إذا أثّر جسم ‎A‎ على ‎B‎ بقوة، أثّر ‎B‎ على ‎A‎ بقوة مساوية في المقدار ومضادة في الاتجاه. '
-          + 'والفارق الحاسم: القوتان تؤثّران على **جسمين مختلفين**، '
-          + 'فلا تُجمعان أبدًا في مخطط جسم حر واحد ولا تُلغي إحداهما الأخرى.',
+        text: "If A acts on B with a force, B acts on A with an equal and opposite force. "
+          + "The crucial difference: the two forces affect **two different bodies**, "
+          + "They are never combined in one free body diagram nor do they cancel each other out.",
       },
     ],
     relations: [
       {
         formula: 'ΣF = m a',
-        name: 'نيوتن الثاني',
-        note: 'تُطبَّق على كل محور مستقلًّا: ‎ΣFx = max‎ و‎ΣFy = may‎.',
+        name: "Newton II",
+        note: ": ΣFx = max and ΣFy = may. are applied to each axis independently",
       },
       {
         formula: 'W = m g',
-        name: 'الوزن',
-        note: 'قوة بالنيوتن، لا كتلة بالكيلوغرام.',
+        name: "Weight",
+        note: "Force in newtons, not mass in kilograms.",
       },
       {
-        formula: 'N = m(g + a)  في مصعد يتسارع لأعلى',
-        name: 'القوة العمودية في مصعد',
-        note: 'تصير ‎m(g − a)‎ عند التسارع لأسفل، وصفرًا في السقوط الحر.',
+        formula: "N = m(g + a) In an elevator accelerating upward",
+        name: "Normal force in an elevator",
+        note: "It becomes m(g − a) on downward acceleration, and zero in free fall.",
       },
       {
         formula: 'F_AB = −F_BA',
-        name: 'الفعل ورد الفعل',
-        note: 'على جسمين مختلفين؛ ولهذا لا يمنعان الحركة.',
+        name: "Action and reaction",
+        note: "On two different bodies; That's why they don't prevent movement.",
       },
     ],
     derivation: {
-      title: 'لماذا لا تساوي القوة العمودية الوزنَ دائمًا',
-      intro: 'تُحفظ ‎N = mg‎ كأنها قانون، وهي ليست قانونًا بل نتيجة حالة خاصة. فلنرَ من أين جاءت ومتى تسقط.',
+      title: "Why doesn't normal force always equal weight?",
+      intro: "N = mg is preserved as a law, which is not a law but the result of a special case. Let's see where it comes from and when it drops.",
       steps: [
         {
-          do: 'ارسم جسمًا على سطح أفقي ساكن: القوى الرأسية هي ‎N‎ لأعلى و‎W‎ لأسفل.',
-          why: 'المخطط يحصر ما يدخل المعادلة؛ وما لم يُرسم لن يظهر في المجموع.',
+          do: "Draw a body on a stationary horizontal surface: the vertical forces are N up and W down.",
+          why: "The chart limits what enters the equation; What is not drawn will not appear in the total.",
         },
         {
-          do: 'طبّق نيوتن الثاني رأسيًّا: ‎N − W = m a_y‎.',
-          why: 'هذه هي المعادلة العامة. وكل ما بعدها فرعٌ عنها بحسب قيمة ‎a_y‎.',
+          do: "Apply Newton's second vertically: N − W = m a_y.",
+          why: "This is the general equation. Everything after it is a branch of it according to the value of a_y.",
         },
         {
-          do: 'إن كان الجسم ساكنًا أو يتحرك بسرعة ثابتة فـ ‎a_y = 0‎، فينتج ‎N = W‎.',
-          why: 'هنا نشأت القاعدة المحفوظة. وشرطها ‎a_y = 0‎، وهو شرط يُنسى فتُعمَّم القاعدة بلا وجه حق.',
+          do: "If the object is at rest or moving at a constant speed, then a_y = 0 results in N = W.",
+          why: "Here the preserved rule originated. Its condition is a_y = 0, which is a condition that is forgotten and the rule is unjustly generalized.",
         },
         {
-          do: 'وإن تسارع الجسم رأسيًّا، كمصعد يصعد بتسارع ‎a‎، فـ ‎N = m(g + a) > W‎.',
-          why: 'فالمساواة انكسرت لأن شرطها انكسر. '
-            + 'وفي السقوط الحر ‎a = g‎ فتصير ‎N = 0‎، وهذا هو انعدام الوزن الظاهري: '
-            + 'الجاذبية لم تختفِ، وإنما اختفت قوة السطح.',
+          do: "If the body accelerates vertically, such as an elevator ascending with an acceleration of a, then N = m(g + a) > W.",
+          why: "Equality was broken because its condition was broken. "
+            + "In free fall, a = g becomes N = 0, and this is apparent weightlessness: "
+            + "Gravity did not disappear, but the surface force did.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'مخطط الجسم الحر: جسم واحد، وقواه وحدها',
+    title: "Free-body diagram: one body, its forces alone",
     figure: {
       svg: figure,
-      caption: 'الصندوق معزول عن السطح والأرض عمدًا. كل سهم قوة تؤثّر عليه هو، '
-        + 'ولا يُرسم فيه ما يؤثّر به هو على غيره.',
-      alt: 'صندوق مستطيل معزول في وسط الرسم. يخرج من أعلاه سهم أخضر إلى أعلى رمزه ‎N‎ وهو قوة السطح، '
-        + 'ومن أسفله سهم أحمر إلى أسفل رمزه ‎W‎ ويساوي الكتلة في تسارع الجاذبية، '
-        + 'ومن جانبه الأيمن سهم ذهبي أفقي رمزه ‎F‎. '
-        + 'وتحت الرسم سطر يذكّر بأن كل سهم قوة على هذا الجسم وحده.',
+      caption: "The box is intentionally isolated from the roof and ground. Every arrow has a force acting on it, "
+        + "Nothing is depicted in it that affects others.",
+      alt: "An isolated rectangular box in the center of the drawing. A green arrow emerges from the top, its symbol is N, which is the surface force. "
+        + "Below it is a red downward arrow whose symbol is W and equals the mass multiplied by the gravitational acceleration. "
+        + "On its right side is a horizontal golden arrow, symbol F. "
+        + "Under the drawing is a line reminding us that each arrow has a force on this body alone.",
     },
     table: {
-      caption: 'القوة العمودية على جسم كتلته m في مواقف مختلفة',
-      head: ['الموقف', 'التسارع الرأسي', 'القوة العمودية N', 'مقارنة بالوزن'],
+      caption: "The normal force on a body of mass m in different situations",
+      head: ["Attitude", "Vertical acceleration", "N vertical force", "Compared to weight"],
       rows: [
-        ['ساكن على سطح أفقي', '0', 'mg', 'مساوية'],
-        ['مصعد يتسارع لأعلى بمقدار a', '+a', 'm(g + a)', 'أكبر'],
-        ['مصعد يتسارع لأسفل بمقدار a', '−a', 'm(g − a)', 'أصغر'],
-        ['سقوط حر', '−g', '0', 'معدومة'],
-        ['ساكن مع دفع رأسي لأسفل F', '0', 'mg + F', 'أكبر'],
+        ["Stay on a horizontal surface", '0', 'mg', "Equal"],
+        ["An elevator accelerates upward by a", '+a', 'm(g + a)', "Bigger"],
+        ["An elevator accelerates downward by a", '−a', 'm(g − a)', "Smaller"],
+        ["Free fall", '−g', '0', "Non-existent"],
+        ["Static with vertical push down F", '0', 'mg + F', "Bigger"],
       ],
     },
-    reading: 'الصف الأول وحده هو الذي يعطي ‎N = mg‎، وهو الذي يُحفظ ويُعمَّم خطأً على البقية. '
-      + 'واقرأ الصف الأخير بعناية: الجسم ساكن ومع ذلك ‎N ≠ mg‎، '
-      + 'فالسكون وحده لا يكفي؛ الشرط ألّا تكون هناك قوة رأسية أخرى.',
+    reading: "Only the first row yields N = mg, which is preserved and incorrectly generalized to the rest. "
+      + "And read the last row carefully: The body is at rest and yet N ≠ mg, "
+      + "Stillness alone is not enough; The condition is that there is no other vertical force.",
   },
 
   guided: {
-    start: 'ابدأ بجملة مكتوبة: «الجسم الذي أدرسه هو كذا». '
-      + 'ثم ارسم عليه القوى الخارجية وحدها: الوزن دائمًا، وقوة السطح إن كان ملامسًا، '
-      + 'وقوة الخيط إن كان مربوطًا، وأي قوة مؤثرة مذكورة. '
-      + 'ثم اختر اتجاهًا موجبًا لكل محور، واكتب ‎ΣF = ma‎ لكل محور على حدة. '
-      + 'ولا تخلط قوى جسمين في معادلة واحدة؛ لكل جسم مخططه ومعادلته.',
+    start: "Start with a written sentence: “The object I am studying is this.” "
+      + "Then draw on it the external forces alone: always the weight, and the force of the surface if it is in contact. "
+      + "The force of the thread if it is tied, and any applied force are mentioned. "
+      + "Then choose a positive direction for each axis, and write ΣF = ma for each axis individually. "
+      + "Do not mix the forces of two bodies in one equation; Every body has its own diagram and equation.",
     workedExamples: [
       {
-        title: 'مثال 1 · تسارع على سطح أملس',
-        task: 'صندوق كتلته ‎5.0 kg‎ على سطح أفقي أملس، يُدفع بقوة أفقية ‎20 N‎. ما تسارعه؟',
+        title: "Example 1 · Acceleration on a smooth surface",
+        task: "A box of mass 5.0 kg on a smooth horizontal surface is pushed by a horizontal force 20 N. What is its acceleration?",
         steps: [
           {
-            do: 'الجسم هو الصندوق. القوى عليه: الوزن لأسفل، وقوة السطح لأعلى، والدفع أفقيًّا.',
-            why: 'تحديد الجسم أولًا يمنع إقحام قوى تؤثّر على السطح أو على اليد الدافعة.',
+            do: "The body is the box. Forces on it: weight down, surface force up, and horizontal push.",
+            why: "Identifying the body first prevents the introduction of forces that affect the surface or the driving hand.",
           },
           {
-            do: 'رأسيًّا: لا تسارع، فـ ‎N = W‎ ولا تدخلان الحساب الأفقي.',
-            why: 'المحوران مستقلّان؛ والقوى الرأسية المتوازنة لا تؤثّر في التسارع الأفقي.',
+            do: "Vertical: No acceleration, N = W and N = W do not enter the horizontal calculation.",
+            why: "The two axes are independent; Balanced vertical forces do not affect horizontal acceleration.",
           },
           {
-            do: 'أفقيًّا: ‎ΣFx = 20 N‎ وحدها لأن السطح أملس، فـ ‎a = 20/5.0 = 4.0 m/s²‎.',
-            why: 'الملاسة تعني انعدام الاحتكاك، فلا قوة أفقية غير الدفع.',
+            do: "Horizontally : ΣFx = 20 N alone because the surface is smooth, a = 20/5.0 = 4.0 m/s².",
+            why: "Smoothness means no friction, so there is no horizontal force other than pushing.",
           },
         ],
         answer: 'a = 4.0 m/s²',
       },
       {
-        title: 'مثال 2 · قوة السطح في مصعد',
-        task: 'شخص كتلته ‎60 kg‎ يقف في مصعد يتسارع لأعلى بمقدار ‎2.0 m/s²‎. '
-          + 'ما قوة الأرضية عليه؟ خذ ‎g = 9.8 m/s²‎.',
+        title: "Example 2 · Surface force in an elevator",
+        task: "A person with mass 60 kg stands in an elevator accelerating upward by 2.0 m/s². "
+          + "What is the force of the ground on it? Take g = 9.8 m/s².",
         steps: [
           {
-            do: 'الجسم هو الشخص. القوى عليه: ‎N‎ لأعلى من الأرضية، و‎W = mg‎ لأسفل.',
-            why: 'المصعد ليس هو الجسم المدروس، فقواه لا تُرسم هنا.',
+            do: "The body is the person. The forces on it are : N up from the floor, and W = mg down.",
+            why: "The elevator is not the object studied, its forces are not depicted here.",
           },
           {
-            do: 'اجعل لأعلى موجبًا واكتب: ‎N − mg = ma‎.',
-            why: 'التسارع لأعلى موجب باختيارنا، فالطرف الأيمن موجب، ولهذا ستكون ‎N‎ أكبر من الوزن.',
+            do: "Make UP positive and write : N − mg = ma.",
+            why: "The upward acceleration is positive by our choice, so the right side is positive, so N will be greater than the weight.",
           },
           {
-            do: 'حلّ: ‎N = m(g + a) = 60 × (9.8 + 2.0) = 60 × 11.8 = 708 N‎.',
-            why: 'الوزن ‎588 N‎ والقوة ‎708 N‎، والفرق ‎120 N‎ هو ‎ma‎ بالضبط. '
-              + 'وهذا ما يُحسّه الراكب ثقلًا زائدًا عند بدء الصعود.',
+            do: "Solve: N = m(g + a) = 60 × (9.8 + 2.0) = 60 × 11.8 = 708 N.",
+            why: "The weight is 588 N, the force is 708 N, and the difference between 120 N is exactly ma. "
+              + "This is what the rider feels as extra weight when starting the climb.",
           },
         ],
         answer: 'N = 708 N',
@@ -221,24 +221,24 @@ export default {
     ],
     skipped: [
       {
-        q: 'إذا كان لكل فعل رد فعل مساوٍ ومضاد، فلماذا يتحرك أي شيء أصلًا؟',
-        a: 'لأن القوتين تؤثّران على جسمين مختلفين. '
-          + 'أنت تدفع الصندوق فيتسارع بفعل قوتك عليه، والصندوق يدفعك فتتأثر أنت بقوته. '
-          + 'ولا تجتمع القوتان على جسم واحد فتُلغيان. '
-          + 'أما القوتان اللتان تُلغيان بعضهما فهما على الجسم نفسه، كالوزن وقوة السطح، وهما ليستا زوج فعل ورد فعل.',
+        q: "If every action has an equal and opposite reaction, why does anything move at all?",
+        a: "Because the two forces affect two different bodies. "
+          + "You push the box and it accelerates due to your force on it, and the box pushes you and you are affected by its force. "
+          + "The two forces do not come together on one body and are canceled out. "
+          + "As for the two forces that cancel each other, they are on the same body, such as weight and surface force, and they are not an action-reaction pair.",
       },
       {
-        q: 'هل «انعدام الوزن» في المحطة الفضائية يعني انعدام الجاذبية؟',
-        a: 'لا. الجاذبية هناك قريبة من ‎90%‎ من قيمتها على السطح. '
-          + 'وإنما المحطة وكل ما فيها في سقوط حر مستمر حول الأرض، فالتسارع واحد للجميع، '
-          + 'فتنعدم قوة التلامس بين الرائد وأرضية المحطة. '
-          + 'والمنعدم هو ‎N‎ لا ‎W‎، كما في الصف الرابع من الجدول.',
+        q: "Does “weightlessness” on the space station mean zero gravity?",
+        a: "No. The gravity there is close to 90% than its value on the surface. "
+          + "But the station and everything in it are in continuous free fall around the Earth, so the acceleration is the same for all. "
+          + "There is no contact force between the pioneer and the station ground. "
+          + "The null is N, not W, as in the fourth row of the table.",
       },
       {
-        q: 'متى أحتاج مخططًا لكل جسم بدل مخطط واحد؟',
-        a: 'حين تُسأل عن قوة داخلية بين الجسمين، كشدّ الخيط الواصل بينهما. '
-          + 'فإن سُئلت عن تسارع النظام كله فيكفي مخطط واحد للكتلة الكلية، '
-          + 'لأن القوى الداخلية تُلغي بعضها. أما الشدّ فلا يظهر إلا إذا عزلتَ أحد الجسمين.',
+        q: "When do I need a chart for each body instead of just one?",
+        a: "When you are asked about an internal force between two bodies, such as the tension of the thread connecting them. "
+          + "If you are asked about the acceleration of the entire system, one diagram of the total mass is sufficient. "
+          + "Because internal forces cancel each other out. As for tension, it does not appear unless you isolate one of the two bodies.",
       },
     ],
   },
@@ -246,98 +246,98 @@ export default {
   questionTypes: [
     {
       id: 'second-law',
-      family: 'النمط الأول · تسارع من قوة',
-      aim: 'تقسم القوة على الكتلة في الاتجاه الصحيح.',
+      family: "The first type is acceleration of force",
+      aim: "You divide the force by the mass in the right direction.",
       objectives: [1],
-      prompt: 'قوة محصّلة ‎12 N‎ تؤثّر على جسم كتلته ‎3.0 kg‎. ما تسارعه؟',
+      prompt: "A net force 12 N acts on a body of mass 3.0 kg. What is its acceleration?",
       unit: 'm/s²',
       answer: 4,
       tolerance: 0.05,
       solution: '‎a = ΣF/m = 12/3.0 = 4.0 m/s²‎.',
       commonErrors: [
-        { value: 36, why: 'ضربتَ القوة في الكتلة. العلاقة ‎F = ma‎، فالتسارع ‎F/m‎ لا ‎F × m‎؛ '
-          + 'ووحدة ناتجك ‎N·kg‎ وهي ليست تسارعًا.' },
-        { value: 0.25, why: 'قسمتَ الكتلة على القوة. راجع أي الكميتين في البسط.' },
-        { value: 9, why: 'طرحتَ بدل القسمة.' },
+        { value: 36, why: "You multiply the force by the mass. The relationship is F = ma, so the acceleration is F/m not F × m; "
+          + "And your output unit is N·kg which is not acceleration." },
+        { value: 0.25, why: "You divide the mass by the force. Review which two quantities are in the numerator." },
+        { value: 9, why: "You subtracted instead of division." },
       ],
     },
     {
       id: 'weight',
-      family: 'النمط الثاني · الوزن مقابل الكتلة',
-      aim: 'تفرّق بين الكيلوغرام والنيوتن.',
+      family: "The second type is weight versus mass",
+      aim: "Differentiate between kilograms and newtons.",
       objectives: [1],
-      prompt: 'ما وزن جسم كتلته ‎8.0 kg‎ على سطح الأرض؟ خذ ‎g = 9.8 m/s²‎.',
+      prompt: "What is the weight of an object of mass 8.0 kg on the surface of the Earth? Take g = 9.8 m/s².",
       unit: 'N',
       answer: 78.4,
       tolerance: 0.2,
       solution: '‎W = mg = 8.0 × 9.8 = 78.4 N‎.',
       commonErrors: [
-        { value: 8, why: 'كتبتَ الكتلة. الوزن قوة وحدتها النيوتن، والكتلة مقدار مادة وحدتها الكيلوغرام، '
-          + 'وهما كميتان مختلفتان لا مقياسان لشيء واحد.' },
-        { value: 0.816, why: 'قسمتَ الكتلة على ‎g‎ بدل ضربها فيه.' },
-        { value: 80, why: 'استعملتَ ‎g = 10‎ مع أن السؤال حدّد ‎9.8‎. '
-          + 'التقريب مقبول حين يُترك لك، لا حين تُعطى القيمة.' },
+        { value: 8, why: "You wrote the mass. Weight is a force whose unit is a newton, and mass is a quantity of matter whose unit is a kilogram. "
+          + "They are two different quantities, not measures of the same thing." },
+        { value: 0.816, why: "You divided the mass by g instead of multiplying it by it." },
+        { value: 80, why: "You used g = 10 even though the question specified 9.8. "
+          + "Approximation is acceptable when left up to you, not when the value is given." },
       ],
     },
     {
       id: 'elevator-normal',
-      family: 'النمط الثالث · قوة السطح مع تسارع رأسي',
-      aim: 'ترسم المخطط ولا تعمّم N = mg.',
+      family: "The third type is surface force with vertical acceleration",
+      aim: "Draw the chart and do not generalize N = mg.",
       objectives: [0, 1],
-      prompt: 'شخص كتلته ‎70 kg‎ في مصعد يتسارع لأعلى بمقدار ‎3.0 m/s²‎. '
-        + 'ما مقدار قوة الأرضية عليه؟ خذ ‎g = 9.8 m/s²‎.',
+      prompt: "A person with mass 70 kg in an elevator is accelerating upward by 3.0 m/s². "
+        + "What is the force of the ground on it? Take g = 9.8 m/s².",
       unit: 'N',
       answer: 896,
       tolerance: 2,
-      solution: '‎N − mg = ma‎، فـ ‎N = m(g + a) = 70 × 12.8 = 896 N‎.',
+      solution: "N − mg = ma, N = m(g + a) = 70 × 12.8 = 896 N.",
       commonErrors: [
-        { value: 686, why: 'حسبتَ ‎mg‎ وأهملتَ التسارع. '
-          + 'المساواة ‎N = mg‎ شرطها ألّا يكون هناك تسارع رأسي، وهو شرط منقوض هنا.' },
-        { value: 210, why: 'حسبتَ ‎ma‎ وحدها. هذه هي القوة المحصّلة لا قوة الأرضية؛ '
-          + 'قوة الأرضية تشمل موازنة الوزن أيضًا.' },
-        { value: 476, why: 'طرحتَ التسارع بدل جمعه، فحسبتَ ‎m(g − a)‎. '
-          + 'ذلك يصلح لمصعد يتسارع لأسفل؛ وهنا التسارع لأعلى فالقوة أكبر من الوزن لا أصغر.' },
+        { value: 686, why: "You calculated mg and neglected the acceleration. "
+          + "The equality N = mg requires that there be no vertical acceleration, which is a condition that is violated here." },
+        { value: 210, why: "You counted ma alone. This is the resultant force, not the ground force; "
+          + "Floor force includes balancing weight as well." },
+        { value: 476, why: "You subtracted the acceleration instead of adding it, and calculated m(g − a). "
+          + "This works for an elevator accelerating downward; Here the acceleration is upward, so the force is greater than the weight, not smaller." },
       ],
     },
     {
       id: 'net-force',
-      family: 'النمط الرابع · محصّلة قوتين متضادتين',
-      aim: 'تطرح قبل أن تقسم، ولا تتوقف عند المحصّلة.',
+      family: "The fourth type is the result of two opposing forces",
+      aim: "It is subtracted before it is divided, and does not stop at the result.",
       objectives: [1],
-      prompt: 'قوتان أفقيتان على جسم كتلته ‎2.0 kg‎: ‎15 N‎ نحو اليمين و‎9.0 N‎ نحو اليسار. '
-        + 'ما مقدار تسارعه؟',
+      prompt: "Two horizontal forces on a body of mass 2.0 kg: 15 N to the right and 9.0 N to the left. "
+        + "How much is it accelerating?",
       unit: 'm/s²',
       answer: 3,
       tolerance: 0.05,
-      solution: 'المحصّلة ‎15 − 9.0 = 6.0 N‎ نحو اليمين، فـ ‎a = 6.0/2.0 = 3.0 m/s²‎.',
+      solution: "The resultant 15 − 9.0 = 6.0 N to the right, then a = 6.0/2.0 = 3.0 m/s².",
       commonErrors: [
-        { value: 12, why: 'جمعتَ القوتين بدل طرحهما. القوى متجهات، والمتضادتان تطرحان. '
-          + 'ولو جُمعتا لكان التسارع أكبر مع أن إحداهما تعيق الأخرى.' },
-        { value: 6, why: 'توقفتَ عند القوة المحصّلة ولم تقسمها على الكتلة. '
-          + 'وحدة ناتجك ‎N‎ والسؤال عن ‎m/s²‎.' },
-        { value: 1.5, why: 'قسمتَ على القوة أو ضربتَ في الكتلة بدل القسمة عليها.' },
+        { value: 12, why: "You added the two forces instead of subtracting them. Forces are vectors, and opposites are subtracted. "
+          + "If they were combined, the acceleration would be greater, even though one hinders the other." },
+        { value: 6, why: "You stopped at the net force and did not divide it by the mass. "
+          + "Your output unit is N and the question is for m/s²." },
+        { value: 1.5, why: "You divided by the power or multiplied by the mass instead of dividing by it." },
       ],
     },
     {
       id: 'third-law',
-      family: 'النمط الخامس · رد الفعل',
-      aim: 'تدرك أن القوتين على جسمين، فلا تُلغيان ولا تتغيّران بالكتلة.',
+      family: "Type 5: Reaction",
+      aim: "You realize that the two forces are on two bodies, so they are not canceled or changed by mass.",
       objectives: [2],
-      prompt: 'تدفع يدُك صندوقًا كتلته ‎4.0 kg‎ بقوة ‎10 N‎ على سطح أملس. '
-        + 'ما مقدار القوة التي يؤثّر بها الصندوق على يدك؟',
+      prompt: "Your hand pushes a box of mass 4.0 kg with a force of 10 N along a smooth surface. "
+        + "How much force does the box exert on your hand?",
       unit: 'N',
       answer: 10,
       tolerance: 0.1,
-      solution: 'بقانون نيوتن الثالث، القوتان متساويتان في المقدار ومتضادتان في الاتجاه: ‎10 N‎. '
-        + 'ولا تتوقف على الكتلة ولا على التسارع. '
-        + 'والصندوق يتسارع مع ذلك لأن قوة يدك تؤثّر عليه هو، وقوته تؤثّر عليك أنت.',
+      solution: "By Newton's third law, the two forces are equal in magnitude and opposite in direction: 10 N. "
+        + "It does not depend on mass or acceleration. "
+        + "However, the box accelerates because the force of your hand affects it, and its force affects you.",
       commonErrors: [
-        { value: 40, why: 'ضربتَ القوة في الكتلة. رد الفعل يساوي الفعل في المقدار دائمًا، '
-          + 'ولا علاقة له بكتلة أي من الجسمين.' },
-        { value: 2.5, why: 'قسمتَ القوة على الكتلة فحسبتَ التسارع ‎2.5 m/s²‎ لا القوة. '
-          + 'انتبه إلى وحدة المطلوب.' },
-        { value: 0, why: 'ظننتَ أن رد الفعل يُلغي الفعل فتكون المحصّلة صفرًا. '
-          + 'القوتان على جسمين مختلفين، فلا تجتمعان في مخطط واحد ولا تُلغيان.' },
+        { value: 40, why: "You multiply the force by the mass. The reaction is always equal to the action, "
+          + "It has nothing to do with the mass of either body." },
+        { value: 2.5, why: "You divided the force by the mass and calculated the acceleration 2.5 m/s², not the force. "
+          + "Pay attention to the desired unit." },
+        { value: 0, why: "You thought that the reaction cancels out the action, so the result is zero. "
+          + "The two forces are on two different bodies, so they do not come together in one diagram or cancel out." },
       ],
     },
   ],

@@ -7,19 +7,19 @@
    "answer": 100,
    "tolerance": 0.5,
    "unit": "m²",
-   "solution": "‎y = 20 − x‎ فـ ‎A = 20x − x²‎، و‎A′ = 20 − 2x = 0‎ عند ‎x = 10‎. و‎A″ = −2 < 0‎ فهي عظمى، والمساحة ‎10 × 10 = 100 m²‎.",
+   "solution": "y = 20 − x at A = 20x − x², A′ = 20 − 2x = 0 at x = 10. The A″ = −2 < 0 is a maximum, and the space is 10 × 10 = 100 m².",
    "commonErrors": [
     {
      "value": 10,
-     "why": "أعطيتَ البُعد لا المساحة. السؤال عن المساحة بالمتر المربّع، فأكمل الخطوة الأخيرة بضرب البُعدين."
+     "why": "You were given dimension, not space. Question about the area in square metres, Complete the last step by multiplying the two dimensions."
     },
     {
      "value": 400,
-     "why": "عاملتَ ‎40‎ على أنها ضلع المربّع. هي المحيط، فالضلع ‎40/4 = 10‎ والمساحة ‎100‎."
+     "why": "You treated 40 as a side of the square. is the ocean, The side is 40/4 = 10 and the area is 100."
     },
     {
      "value": 40,
-     "why": "كتبتَ المحيط المعطى بدل المساحة المطلوبة."
+     "why": "You wrote the given perimeter instead of the required area."
     }
    ]
   },
@@ -28,20 +28,20 @@
    "version": "d20c05f5c5f1",
    "answer": 72,
    "tolerance": 0.5,
-   "unit": "عدد",
-   "solution": "‎y = 12 − x‎ فـ ‎S = x² + (12 − x)² = 2x² − 24x + 144‎. و‎S′ = 4x − 24 = 0‎ عند ‎x = 6‎، و‎S″ = 4 > 0‎ فهي صغرى. والمجموع ‎36 + 36 = 72‎.",
+   "unit": "Number",
+   "solution": "y = 12 − x to S = x² + (12 − x)² = 2x² − 24x + 144. S′ = 4x − 24 = 0 is at x = 6, and S″ = 4 > 0 is minor. The total is 36 + 36 = 72.",
    "commonErrors": [
     {
      "value": 144,
-     "why": "ربّعتَ المجموع فحسبتَ ‎12²‎. ومجموع المربّعين ليس مربّع المجموع: ‎(a + b)² = a² + 2ab + b²‎."
+     "why": "You squared the sum and calculated 12². The sum of the two squares is not the square of the sum : (a + b)² = a² + 2ab + b²."
     },
     {
      "value": 36,
-     "why": "حسبتَ مربّع أحد العددين وأهملتَ الآخر. المطلوب مجموع المربّعين."
+     "why": "You calculated the square of one number and neglected the other. The sum of the two squares is required."
     },
     {
      "value": 6,
-     "why": "أعطيتَ قيمة العدد لا مجموع المربّعين."
+     "why": "You gave the value of the number, not the sum of the squares."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 2,
    "tolerance": 0.05,
    "unit": "cm",
-   "solution": "‎V = x(12 − 2x)²‎، و‎V′ = 12(x − 2)(x − 6)‎، فالجذران ‎2‎ و‎6‎. والمجال ‎0 < x < 6‎، فـ ‎6‎ طرفٌ يعطي حجمًا صفريًّا. إذن ‎x = 2 cm‎.",
+   "solution": "V = x(12 − 2x)² and V′ = 12(x − 2)(x − 6), the roots are 2 and 6. The range is 0 < x < 6, so 6 is a term that gives zero volume. So x = 2 cm.",
    "commonErrors": [
     {
      "value": 6,
-     "why": "قبلتَ الجذر الآخر دون فحص المجال. عند ‎x = 6‎ تصير القاعدة ‎12 − 12 = 0‎ فينعدم الحجم؛ فهو أصغر حجم ممكن لا أكبره."
+     "why": "You accepted the other root without checking the domain. At x = 6, the base becomes 12 − 12 = 0 and the volume ceases; It is the smallest possible volume, not the largest."
     },
     {
      "value": 3,
-     "why": "قسمتَ الضلع على ‎4‎. القسمة على أربعة قاعدة محفوظة لمسألة أخرى، ولا تنتج من اشتقاق هذه الدالة."
+     "why": "You divided the side by 4. Division by four is a rule reserved for another problem, It does not result from the derivation of this function."
     },
     {
      "value": 128,
-     "why": "أعطيتَ الحجم لا قيمة ‎x‎. السؤال عن طول القطعة المقصوصة بالسنتيمتر."
+     "why": "You gave the volume no value x. The question is about the length of the cut piece in centimeters."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "7176f2c97d01",
    "answer": 16,
    "tolerance": 0.05,
-   "unit": "عدد",
-   "solution": "‎f′(x) = 2x‎ تنعدم عند ‎x = 0‎ وهي خارج الفترة، فلا نقاط حرجة داخلها. نفحص الطرفين: ‎f(1) = 1‎ و‎f(4) = 16‎، فالعظمى ‎16‎.",
+   "unit": "Number",
+   "solution": "f′(x) = 2x zeros when x = 0 is outside the interval, so there are no critical points inside it. We examine the extremes : f(1) = 1 and f(4) = 16, the maximum is 16.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "ساويتَ المشتقة بالصفر وقبلتَ ‎x = 0‎ مع أنها خارج الفترة. النقطة الحرجة لا تُقبل إلا إن وقعت داخل المجال."
+     "why": "You set the derivative equal to zero and accept x = 0 even though it is outside the interval. The critical point is only accepted if it falls within the range."
     },
     {
      "value": 1,
-     "why": "أخذتَ الطرف الأصغر. الدالة متزايدة على هذه الفترة، فأكبر قيمة عند أقصى اليمين."
+     "why": "You took the smaller end. The function is increasing over this interval, with the largest value at the far right."
     },
     {
      "value": 8,
-     "why": "حسبتَ ‎f′(4) = 8‎ وهي قيمة المشتقة لا قيمة الدالة."
+     "why": "You calculated f′(4) = 8, which is the value of the derivative, not the value of the function."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 450,
    "tolerance": 1,
    "unit": "m²",
-   "solution": "القيد ‎x + 2y = 60‎ فـ ‎x = 60 − 2y‎، والمساحة ‎A = xy = 60y − 2y²‎. و‎A′ = 60 − 4y = 0‎ عند ‎y = 15‎، فـ ‎x = 30‎ والمساحة ‎450 m²‎.",
+   "solution": "The entry x + 2y = 60 is in x = 60 − 2y, and the space is A = xy = 60y − 2y². And A′ = 60 − 4y = 0 is at y = 15, then x = 30 and the space is 450 m².",
    "commonErrors": [
     {
      "value": 225,
-     "why": "استعملتَ القيد ‎2x + 2y = 60‎ فخرج مربّع ضلعه ‎15‎. الجدار يعفيك من ضلع، فالقيد ‎x + 2y‎ والشكل الأمثل ليس مربّعًا: الضلع الموازي للجدار ضعف كلٍّ من الضلعين الآخرين."
+     "why": "You used the constraint 2x + 2y = 60 and a square with side 15. came out The wall relieves you of a side, so the constraint is x + 2y and the optimal shape is not a square: The side parallel to the wall is twice each of the other two sides."
     },
     {
      "value": 900,
-     "why": "اعتبرتَ ‎60‎ ضلعًا أو عدّدتَ الأضلاع خطأً فخرج ‎30 × 30‎."
+     "why": "You considered 60 to be a side or you counted the sides incorrectly and 30 × 30. came out"
     },
     {
      "value": 15,
-     "why": "أعطيتَ البُعد ‎y‎ لا المساحة المطلوبة."
+     "why": "You gave the dimension y, not the required space."
     }
    ]
   }

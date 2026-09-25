@@ -1,0 +1,83 @@
+{
+ "slug": "angles",
+ "checks": [
+  {
+   "id": "to-radians",
+   "kind": "number",
+   "prompt": "A dish turns `225°`. Express that in radians, as a decimal.",
+   "answer": 3.927,
+   "tolerance": 0.01,
+   "unit": "rad",
+   "solution": "`225 × π/180 = 5π/4 ≈ 3.927`. More than half a revolution and less than one, so it must lie between `π` and `2π`.",
+   "responses": [
+    {
+     "value": 12892,
+     "why": "consistent with using the reciprocal factor `180/π`. The two factors differ by about 3283, so a reversal is obvious from the size."
+    },
+    {
+     "value": 0.625,
+     "why": "consistent with dividing by 360 rather than converting."
+    }
+   ],
+   "followUp": {
+    "prompt": "A log reads `11π/6` radians. Express it in degrees.",
+    "answer": 330,
+    "tolerance": 0.5,
+    "unit": "degrees",
+    "solution": "`(11π/6) × 180/π = 330°`."
+   },
+   "version": 1
+  },
+  {
+   "id": "arc",
+   "kind": "number",
+   "prompt": "A marker sits at `r = 2.5 m` on the dish rim. The dish turns `60°`. How far does the marker travel?",
+   "answer": 2.618,
+   "tolerance": 0.02,
+   "unit": "m",
+   "solution": "Convert first: `60° = π/3 ≈ 1.047`. Then `s = rθ = 2.5 × 1.047 ≈ 2.62 m`, which is a sixth of the `15.7 m` circumference.",
+   "responses": [
+    {
+     "value": 150,
+     "why": "consistent with substituting `60` without converting. That is an arc sixty times the radius of its own circle, for a sixth of a turn."
+    }
+   ],
+   "followUp": {
+    "prompt": "The same marker, with the dish turning `450°`. How far does it travel?",
+    "answer": 19.63,
+    "tolerance": 0.1,
+    "unit": "m",
+    "solution": "`450° = 5π/2 ≈ 7.854` rad, so `s = 2.5 × 7.854 ≈ 19.6 m`. Distance uses the full rotation, not the reduced angle."
+   },
+   "version": 1
+  },
+  {
+   "id": "boundary",
+   "kind": "choice",
+   "prompt": "The dish turns `-450°` from its initial ray. Where does the marker finish?",
+   "options": [
+    {
+     "label": "On the negative y-axis, in no quadrant",
+     "correct": true
+    },
+    {
+     "label": "Quadrant IV",
+     "why": "consistent with treating `270°` as inside the interval from `270°` to `360°` rather than at its edge. Boundary directions belong to no quadrant."
+    },
+    {
+     "label": "Quadrant III",
+     "why": "consistent with the same edge confusion on the other side."
+    }
+   ],
+   "solution": "`-450 + 720 = 270`, which is the negative y-axis: due south if the initial ray points east.",
+   "followUp": {
+    "prompt": "Reduce `690°` by whole turns and enter the result in degrees.",
+    "answer": 330,
+    "tolerance": 0.5,
+    "unit": "degrees",
+    "solution": "`690 - 360 = 330°`. Reduce for direction; keep the original when the question is about the sweep."
+   },
+   "version": 1
+  }
+ ]
+}

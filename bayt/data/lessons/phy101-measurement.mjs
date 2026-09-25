@@ -7,7 +7,7 @@
 /* الرسم: سلسلة التحويل بالكسور، والوحدات المحذوفة مشطوبة.
    الشطب هو الفكرة: الوحدة تُحذف كما يُحذف العدد، لا بالحفظ بل بالاختصار. */
 const figure = `<svg viewBox="0 0 560 130" role="img" aria-labelledby="fig-units-title" class="bayt-svg">`
-  + `<title id="fig-units-title">سلسلة تحويل 90 كيلومترًا في الساعة إلى أمتار في الثانية، والوحدات المتكررة مشطوبة</title>`
+  + `<title id="fig-units-title">90 Conversion series Kilometers per hour to meters per second, repeating units crossed out</title>`
   + `<text x="80" y="66" font-size="17" fill="#153748" text-anchor="middle">90 km</text>`
   + `<line x1="40" y1="78" x2="120" y2="78" stroke="#284955" stroke-width="2"/>`
   + `<text x="80" y="102" font-size="17" fill="#153748" text-anchor="middle">1 h</text>`
@@ -35,176 +35,170 @@ export default {
   topic: 'measurement',
 
   objectives: [
-    'تحوّل بين الوحدات بترتيب عوامل التحويل بحيث تُحذف الوحدات غير المطلوبة.',
-    'تحدّد عدد الأرقام المعنوية في ناتج ضرب أو قسمة، وتقرّب إليه.',
-    'تستعمل التحليل البُعدي للحكم على معادلة قبل حلّها.',
+    "Convert between units in the order of conversion factors so that unwanted units are omitted.",
+    "Determine the number of significant figures in a multiplication or division result, and round to it.",
+    "Dimensional analysis is used to judge an equation before solving it.",
   ],
 
   boundaries: [
-    'حساب عدم اليقين الإحصائي والانحراف المعياري ليس في هذا الدرس.',
-    'انتشار الخطأ بالمشتقات الجزئية ليس هنا.',
-    'الجمع والطرح لهما قاعدة أرقام معنوية مختلفة عن الضرب والقسمة، '
-      + 'ولم نتناولها هنا إلا بالإشارة.',
+    "Calculating statistical uncertainty and standard deviation is not in this lesson.",
+    "Error propagation by partial derivatives is not here.",
+    "Addition and subtraction have a different significant number base than multiplication and division. "
+      + "We have only discussed it here by reference.",
   ],
 
   prerequisites: [
     {
-      title: 'القوى العشرية والصيغة العلمية',
-      why: 'البادئات كلها قوى للعشرة، فمن لا يقرأ ‎10⁻⁶‎ بثقة لا يستطيع التحويل بينها.',
-      recap: 'الأُسّ الموجب يعني الضرب المتكرر: ‎10³ = 1000‎. والسالب يعني القسمة: ‎10⁻³ = 0.001‎. '
-        + 'وعند ضرب القوى تُجمع الأُسس: ‎10³ × 10⁻⁶ = 10⁻³‎. '
-        + 'والصيغة العلمية تكتب العدد على شكل رقم بين 1 و10 مضروب في قوة للعشرة، مثل ‎7 × 10⁻⁵‎.',
+      title: "Decimal forces and scientific formula",
+      why: "The prefixes are all forces of ten, so anyone who does not read 10⁻⁶ with confidence cannot convert between them.",
+      recap: "A positive exponent means multiplication: 10³ = 1000. and a negative exponent means division: 10⁻³ = 0.001. "
+        + "When the forces are multiplied, the exponents add : 10³ × 10⁻⁶ = 10⁻³. "
+        + "The scientific form writes the number as a number between 1 and 10 multiplied by a power of ten, such as 7 × 10⁻⁵.",
     },
     {
-      title: 'ضرب الكسور واختصارها',
-      why: 'عامل التحويل كسر، وسلسلة التحويل ضربُ كسور، والحذف فيها هو نفسه اختصار الكسور.',
-      recap: 'عند ضرب الكسور يُضرب البسط في البسط والمقام في المقام. وأي عامل يظهر في بسط '
-        + 'ومقام يُحذف: ‎(3 × 5)/(5 × 7) = 3/7‎. الوحدات تُعامَل معاملة هذه العوامل تمامًا، '
-        + 'فـ ‎km‎ في بسط و‎km‎ في مقام يُحذفان.',
+      title: "Multiply and reduce fractions",
+      why: "The conversion operator is a fraction, and the conversion series is the multiplication of fractions, and deletion in it is the same as contraction of fractions.",
+      recap: "When multiplying fractions, the numerator is multiplied by the numerator and the denominator is multiplied by the denominator. Any factor appears in the numerator "
+        + "And the denominator is removed : (3 × 5)/(5 × 7) = 3/7. The units are treated exactly like these factors, "
+        + "km in the numerator and km in the denominator are eliminated.",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'الكميات الأساسية في النظام الدولي',
+        term: "Fundamental quantities in the international system",
         en: 'SI base quantities',
-        text: 'سبع كميات تُبنى منها بقية الوحدات. يهمّك في هذا المقرر ثلاث: الطول بالمتر ‎m‎، '
-          + 'والكتلة بالكيلوغرام ‎kg‎، والزمن بالثانية ‎s‎. '
-          + 'ولاحظ أن وحدة الكتلة الأساسية هي الكيلوغرام لا الغرام، وهذا استثناء يخالف بقية البادئات.',
+        text: "SI has seven base quantities. This course often uses length in metres (m), mass in kilograms (kg), and time in seconds (s). Derived units combine base units; for example, a newton is kg·m/s².",
       },
       {
-        term: 'عامل التحويل',
+        term: "Conversion factor",
         en: 'Conversion factor',
-        text: 'كسر بسطه ومقامه يمثّلان المقدار نفسه بوحدتين مختلفتين، فقيمته واحد صحيح. '
-          + 'مثل ‎(1000 m)/(1 km)‎، وهو يساوي 1 لأن ‎1000 m‎ و‎1 km‎ طولان متساويان. '
-          + 'ولأنه يساوي واحدًا فالضرب فيه لا يغيّر المقدار، بل يغيّر الوحدة التي نعبّر بها عنه.',
+        text: "A fraction whose numerator and denominator represent the same expression in two different units, so its value is one. "
+          + "Same as (1000 m)/(1 km), it is equal to 1 because 1000 m and 1 km are equal lengths. "
+          + "Because it is equal to one, multiplying by it does not change the amount, but rather changes the unit with which we express it.",
       },
       {
-        term: 'الرقم المعنوي',
+        term: "Significant figure",
         en: 'Significant figure',
-        text: 'رقم يحمل معلومة عن دقة القياس. الأصفار في وسط العدد أو بعد الفاصلة العشرية معنوية، '
-          + 'أما الأصفار التي تسبق أول رقم غير صفري فليست معنوية؛ '
-          + 'ففي ‎0.00340‎ ثلاثة أرقام معنوية هي 3 و4 والصفر الأخير.',
+        text: "Significant figures indicate the precision represented by a measured value. Nonzero digits, zeros between significant digits, and trailing zeros after a decimal point following a nonzero digit are significant. Leading zeros are not. Thus 0.00340 has three significant figures: 3, 4 and the final 0.",
       },
       {
-        term: 'البُعد',
+        term: "Distance",
         en: 'Dimension',
-        text: 'نوع الكمية بصرف النظر عن وحدتها، ويُرمز له بحرف: الطول ‎L‎ والكتلة ‎M‎ والزمن ‎T‎. '
-          + 'فالسرعة بُعدها ‎L/T‎ سواء قيست بـ ‎m/s‎ أو ‎km/h‎. '
-          + 'ولا يُجمع إلا ما اتحدت أبعاده، وهذا ما يجعل التحليل البُعدي أداة فحص.',
+        text: "A dimension describes the kind of physical quantity independently of the chosen unit: length L, mass M and time T. Velocity has dimension L/T whether expressed in m/s or km/h. Quantities added together must have the same dimensions.",
       },
     ],
     relations: [
       {
         formula: '1 km = 10³ m ,  1 cm = 10⁻² m ,  1 μm = 10⁻⁶ m',
-        name: 'البادئات الشائعة',
-        note: 'البادئة قوة للعشرة تُضرب في الوحدة الأساسية، لا وحدة جديدة.',
+        name: "Common prefixes",
+        note: "The prefix is a power of ten that is multiplied by the base unit, not a new unit.",
       },
       {
         formula: '[v] = L/T ,  [a] = L/T² ,  [F] = M·L/T²',
-        name: 'أبعاد الكميات الحركية',
-        note: 'تُشتقّ من التعريف: السرعة إزاحة على زمن، والتسارع سرعة على زمن.',
+        name: "Dimensions of kinetic quantities",
+        note: "It is derived from the definition: speed is displacement divided by time, and acceleration is speed divided by time.",
       },
       {
-        formula: 'عدد الأرقام المعنوية في ناتج الضرب أو القسمة = أقلّها في المعطيات',
-        name: 'قاعدة الضرب والقسمة',
-        note: 'الناتج لا يكون أدقّ من أضعف قياس دخل فيه.',
+        formula: "The number of significant figures in the product of multiplication or division = is the least in the data",
+        name: "Multiplication and division rule",
+        note: "The result is no more accurate than the weakest measurement entered into it.",
       },
     ],
     derivation: {
-      title: 'لماذا يجوز الضرب في عامل التحويل دون أن تتغيّر الكمية',
-      intro: 'الضرب عادةً يغيّر المقدار، فكيف نضرب ولا يتغيّر شيء؟ الجواب في قيمة العامل نفسه.',
+      title: "Why is it permissible to multiply by the conversion factor without changing the quantity?",
+      intro: "Multiplication usually changes the amount, so how can we multiply and nothing changes? The answer is in the value of the factor itself.",
       steps: [
         {
-          do: 'انطلق من المساواة المعروفة ‎1 h = 3600 s‎.',
-          why: 'هذه ليست قاعدة تحويل بل حقيقة عن الزمن: المدّتان واحدة، والتعبيران مختلفان.',
+          do: "Depart from the known equality 1 h = 3600 s.",
+          why: "This is not a conversion rule but a fact about time: the two durations are the same, and the two expressions are different.",
         },
         {
-          do: 'اقسم الطرفين على ‎1 h‎ فتحصل على ‎1 = (3600 s)/(1 h)‎.',
-          why: 'قسمة مقدار على نفسه تعطي واحدًا، فالكسر الناتج قيمته واحد لا أكثر ولا أقل.',
+          do: "Divide both sides by 1 h and you get 1 = (3600 s)/(1 h).",
+          why: "Dividing an amount by itself gives one, so the resulting fraction has a value of one, nothing more and nothing less.",
         },
         {
-          do: 'اضرب كميتك في هذا الكسر، أو في مقلوبه ‎(1 h)/(3600 s)‎.',
-          why: 'الضرب في واحد لا يغيّر المقدار. والمقلوب أيضًا يساوي واحدًا، فلك أن تختار أيّهما.',
+          do: "Multiply your quantity by this fraction, or by its reciprocal (1 h)/(3600 s).",
+          why: "Multiplying by one does not change the amount. The reciprocal also equals one, so you can choose which one.",
         },
         {
-          do: 'اختر الاتجاه الذي يضع الوحدة المراد حذفها في الجهة المقابلة لموضعها الحالي.',
-          why: 'هنا يقع الخطأ الشائع: العاملان صحيحان كلاهما، والاتجاه وحده هو ما يحذف الوحدة أو يضاعفها.',
+          do: "Choose an orientation that places the unit to be deleted opposite its current position.",
+          why: "Here the common error occurs: both factors are correct, and the direction alone is what eliminates or doubles the unit.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'الوحدات تُختصر كما تُختصر الأعداد',
+    title: "Cancel units using conversion factors",
     figure: {
       svg: figure,
-      caption: 'سلسلة تحويل ‎90 km/h‎ إلى ‎m/s‎. الوحدة المشطوبة ظهرت في بسط ومقام فحُذفت كما يُحذف العدد، وما بقي بلا شطب هو وحدة الناتج ودليلك على صحة ترتيب العوامل.',
-      alt: 'ثلاثة كسور مضروبة في بعضها ثم علامة يساوي والناتج. الكسر الأول تسعون كيلومترًا على ساعة، '
-        + 'والثاني ألف متر على كيلومتر واحد، والثالث ساعة واحدة على ثلاثة آلاف وستمائة ثانية، '
-        + 'والناتج خمسة وعشرون مترًا في الثانية. كلمة كيلومتر مشطوبة في بسط الأول ومقام الثاني، '
-        + 'وكلمة ساعة مشطوبة في مقام الأول وبسط الثالث، فلم يبقَ بلا شطب إلا المتر والثانية.',
+      caption: "The series for converting 90 km/h to m/s. The crossed-out unit appeared in the numerator and denominator and was deleted just as a number is deleted, and what remains without crossing out is the unit of the result and your evidence of the correct order of the factors.",
+      alt: "Three fractions multiplied together, then the equal sign and the result. The first fraction is ninety kilometers per hour, "
+        + "The second is one thousand meters divided by one kilometre, and the third is one hour divided by three thousand six hundred seconds. "
+        + "The result is twenty-five meters per second. The word kilometer is crossed out in the numerator of the first and the denominator of the second. "
+        + "The word hour is crossed out in the denominator of the first and the numerator of the third, so only the meter and the second are left uncrossed.",
     },
     table: {
-      caption: 'البادئات التي ستقابلها في هذا المقرر',
-      head: ['البادئة', 'الرمز', 'المعامل', 'مثال'],
+      caption: "The prefixes you will encounter in this course",
+      head: ["Prefix", "Symbol", "Factories", "Example"],
       rows: [
-        ['كيلو', 'k', '10³', '1 km = 1000 m'],
-        ['سنتي', 'c', '10⁻²', '1 cm = 0.01 m'],
-        ['ميلي', 'm', '10⁻³', '1 mm = 0.001 m'],
-        ['مايكرو', 'μ', '10⁻⁶', '1 μm = 0.000001 m'],
-        ['نانو', 'n', '10⁻⁹', '1 nm = 10⁻⁹ m'],
+        ["Kilo", 'k', '10³', '1 km = 1000 m'],
+        ["My year", 'c', '10⁻²', '1 cm = 0.01 m'],
+        ["Millie", 'm', '10⁻³', '1 mm = 0.001 m'],
+        ["Micro", 'μ', '10⁻⁶', '1 μm = 0.000001 m'],
+        ["Nano", 'n', '10⁻⁹', '1 nm = 10⁻⁹ m'],
       ],
     },
-    reading: 'انتبه إلى أن الرمز ‎m‎ يدل على «ميلي» حين يسبق وحدة، وعلى «متر» حين يكون الوحدة نفسها. '
-      + 'فـ ‎mm‎ ميليمتر، و‎ms‎ ميلي ثانية. والخلط بين «ميلي» و«مايكرو» يغيّر الناتج ألف ضعف، '
-      + 'وهو أكثر أخطاء هذا الدرس تكرارًا.',
+    reading: "Note that the symbol m denotes “millie” when it precedes a unit, and “meter” when it is the unit itself. "
+      + "mm is millimeters, and ms is milliseconds. Mixing between “micro” and “micro” changes the result a thousand times. "
+      + "This is the most frequent mistake in this lesson.",
   },
 
   guided: {
-    start: 'ابدأ بكتابة ما لديك وما تريده بوحدتيهما. ثم رتّب عوامل التحويل بحيث تقع كل وحدة '
-      + 'غير مرغوبة مرة في البسط ومرة في المقام. لا تحسب أي عدد قبل أن تتأكد أن الوحدات '
-      + 'المتبقية هي المطلوبة بالضبط؛ فالوحدات تكشف خطأ الترتيب قبل أن تكلّفك الحساب.',
+    start: "Start by writing down what you have and what you want in their units. Then arrange the conversion factors so that each unit falls into place "
+      + "Undesirable, sometimes in the numerator and sometimes in the denominator. Do not calculate any number before you are sure that the units are "
+      + "The remainder is exactly what is required; The units detect an error in the arrangement before it costs you the calculation.",
     workedExamples: [
       {
-        title: 'مثال 1 · تحويل سرعة',
-        task: 'حوّل ‎90 km/h‎ إلى ‎m/s‎.',
+        title: "Example 1 · conversion speed",
+        task: "Convert 90 km/h to m/s.",
         steps: [
           {
-            do: 'اكتب المطلوب: نريد ‎m‎ في البسط و‎s‎ في المقام، ولدينا ‎km‎ في البسط و‎h‎ في المقام.',
-            why: 'تحديد الهدف بالوحدات يجعل اختيار العوامل قرارًا لا تخمينًا.',
+            do: "Write down the requirement: We want m in the numerator and s in the denominator, and we have km in the numerator and h in the denominator.",
+            why: "Setting the goal in units makes selecting factors a decision rather than a guess.",
           },
           {
-            do: 'لحذف ‎km‎ من البسط اضرب في ‎(1000 m)/(1 km)‎.',
-            why: '‎km‎ الآن في البسط، فنضعها في المقام لتُحذف، ويدخل ‎m‎ مكانها.',
+            do: "To remove km from the numerator, multiply by (1000 m)/(1 km).",
+            why: "km is now in the numerator, so we put it in the denominator to cancel out, and m comes in its place.",
           },
           {
-            do: 'لحذف ‎h‎ من المقام اضرب في ‎(1 h)/(3600 s)‎.',
-            why: '‎h‎ في المقام، فنضعها في البسط لتُحذف، وتدخل ‎s‎ في المقام.',
+            do: "To remove h from the denominator, multiply by (1 h)/(3600 s).",
+            why: "h is in the denominator, so we put it in the numerator to cancel out, and s is inserted in the denominator.",
           },
           {
-            do: 'احسب: ‎90 × 1000 ÷ 3600 = 25‎، والوحدة الباقية ‎m/s‎.',
-            why: 'الحساب آخر خطوة لأن الوحدات تكون قد أثبتت صحة الترتيب قبله.',
+            do: "Calculate : 90 × 1000 ÷ 3600 = 25, and the remaining unit is m/s.",
+            why: "The calculation is the last step because the units have proven the correctness of the arrangement before it.",
           },
         ],
         answer: '25 m/s',
       },
       {
-        title: 'مثال 2 · أرقام معنوية في قسمة',
-        task: 'كتلة عيّنة ‎12.5 g‎ وحجمها ‎4.1 cm³‎. احسب الكثافة.',
+        title: "Example 2 · Significant numbers in division",
+        task: "Sample mass 12.5 g and volume 4.1 cm³. Calculate the density.",
         steps: [
           {
-            do: 'اقسم: ‎12.5 ÷ 4.1 = 3.0487...‎',
-            why: 'نحسب أولًا بكل الأرقام، ثم نقرّب في النهاية، لا في كل خطوة.',
+            do: "Swear: 12.5 ÷ 4.1 = 3.0487..",
+            why: "We calculate first with all the numbers, then we round at the limit, not at every step.",
           },
           {
-            do: 'عُدّ الأرقام المعنوية: في ‎12.5‎ ثلاثة، وفي ‎4.1‎ اثنان.',
-            why: 'القاعدة تنظر إلى أضعف المعطيات، فالناتج محكوم بالأقل.',
+            do: "Count the significant figures: 12.5 has three, and 4.1 has two.",
+            why: "The rule looks at the weakest data, so the outcome is governed by the least.",
           },
           {
-            do: 'قرّب إلى رقمين معنويين: ‎3.0 g/cm³‎.',
-            why: 'كتابة ‎3.0487‎ تدّعي دقة لم يعطها القياس؛ الرقم الزائد معلومة مختلَقة.',
+            do: "Round to two significant figures: 3.0 g/cm³.",
+            why: "Writing 3.0487 claims accuracy that the measurement did not give; The extra number is fabricated information.",
           },
         ],
         answer: '3.0 g/cm³',
@@ -212,20 +206,20 @@ export default {
     ],
     skipped: [
       {
-        q: 'لماذا نكتب ‎3.0‎ ولا نكتب ‎3‎ وقد استوت قيمتهما؟',
-        a: 'لأنهما لا يستويان في الدقة المعلنة. ‎3‎ فيه رقم معنوي واحد ويعني أن القيمة بين 2.5 و3.5 تقريبًا، '
-          + 'و‎3.0‎ فيه رقمان ويعني أنها بين 2.95 و3.05. الصفر هنا معلومة، لا زينة.',
+        q: "Why do we write 3.0 and not 3 when their values are equal?",
+        a: "Because they are not equal to the declared accuracy,. 3 has one significant digit, which means that the value is approximately between 2.5 and 3.5. "
+          + "3.0 has two numbers, meaning it is between 2.95 and 3.05. The zero here is information, not embellishment.",
       },
       {
-        q: 'كيف أعرف أن ترتيب عوامل التحويل خاطئ قبل أن أحسب؟',
-        a: 'انظر إلى الوحدات المتبقية. إن بقيت ‎km·h‎ أو ظهرت وحدة مربّعة لم تطلبها، فالترتيب مقلوب. '
-          + 'وهذه هي فائدة كتابة الوحدات في كل خطوة: تكشف الخطأ قبل الحساب.',
+        q: "How do I know the order of the conversion factors is wrong before I calculate?",
+        a: "Look at the remaining units. If km·h remains or a square unit appears that you did not request, the order is reversed. "
+          + "This is the benefit of writing units at each step: it detects the error before the calculation.",
       },
       {
-        q: 'هل التحليل البُعدي يثبت صحة المعادلة؟',
-        a: 'لا. يكشف الخطأ ولا يثبت الصواب. معادلة أبعادها متسقة قد تكون خاطئة في معامل عددي، '
-          + 'مثل ‎x = v·t‎ و‎x = 2v·t‎، فأبعادهما واحدة وإحداهما خطأ. '
-          + 'أما اختلاف الأبعاد فيكفي وحده للحكم بالخطأ قطعًا.',
+        q: "Does dimensional analysis prove the validity of the equation?",
+        a: "No. It reveals error and does not prove what is correct. An equation whose dimensions are consistent may be wrong in a numerical factor. "
+          + "Like x = v·t and x = 2v·t, their dimensions are the same and one of them is wrong. "
+          + "The difference in dimensions alone is sufficient to definitively rule that there is an error.",
       },
     ],
   },
@@ -233,97 +227,97 @@ export default {
   questionTypes: [
     {
       id: 'convert-speed',
-      family: 'النمط الأول · تحويل مركّب',
-      aim: 'ترتّب عاملين في اتجاهين مختلفين في مسألة واحدة.',
+      family: "The first type is a compound transformation",
+      aim: "Arranging two factors in two different directions in one problem.",
       objectives: [0],
-      prompt: 'حوّل ‎108 km/h‎ إلى ‎m/s‎.',
+      prompt: "Convert 108 km/h to m/s.",
       unit: 'm/s',
       answer: 30,
       tolerance: 0.05,
-      solution: '‎108 × (1000 m / 1 km) × (1 h / 3600 s)‎. تُحذف ‎km‎ و‎h‎ فيبقى ‎m/s‎، '
-        + 'والحساب ‎108 × 1000 ÷ 3600 = 30‎.',
+      solution: "108 × (1000 m / 1 km) × (1 h / 3600 s)., km and h are deleted, leaving m/s. "
+        + "And the account is 108 × 1000 ÷ 3600 = 30.",
       commonErrors: [
-        { value: 388.8, why: 'ضربتَ في 3.6 بدل القسمة عليها. القاعدة السريعة هي القسمة على 3.6 '
-          + 'عند الانتقال من ‎km/h‎ إلى ‎m/s‎، لأن المتر أصغر من الكيلومتر بينما الثانية أصغر من الساعة.' },
-        { value: 108000, why: 'حوّلتَ الكيلومترات إلى أمتار ونسيتَ تحويل الساعات إلى ثوانٍ، '
-          + 'فالناتج عندك ‎m/h‎ لا ‎m/s‎. راجع الوحدات الباقية قبل الحساب.' },
-        { value: 1.8, why: 'قسمتَ على 60 مرة واحدة فقط. الساعة ستون دقيقة والدقيقة ستون ثانية، '
-          + 'فالساعة 3600 ثانية لا 60.' },
+        { value: 388.8, why: "You multiplied by 3.6 instead of dividing by it. A quick rule is to divide by 3.6 "
+          + "When moving from km/h to m/s, because a meter is smaller than a kilometer while a second is smaller than an hour." },
+        { value: 108000, why: "You converted kilometers into meters and forgot to convert hours into seconds. "
+          + "Your result is m/h, not m/s. Check the remaining units before calculating." },
+        { value: 1.8, why: "You divided 60 only once. An hour is sixty minutes and a minute is sixty seconds. "
+          + "The clock is 3600, not 60." },
       ],
     },
     {
       id: 'sig-figs',
-      family: 'النمط الثاني · الأرقام المعنوية',
-      aim: 'تقرّر كم رقمًا يحقّ لك كتابته في الناتج.',
+      family: "The second type: Significant numbers",
+      aim: "Decide how many numbers you are allowed to write in the output.",
       objectives: [1],
-      prompt: 'كتلة ‎24.8 g‎ وحجم ‎6.0 cm³‎. احسب الكثافة بالأرقام المعنوية الصحيحة، '
-        + 'واكتب الناتج عددًا.',
+      prompt: "Mass of 24.8 g and volume of 6.0 cm³. Calculate the density in whole significant figures, "
+        + "Write the result as a number.",
       unit: 'g/cm³',
       answer: 4.1,
       tolerance: 0.01,
-      solution: '‎24.8 ÷ 6.0 = 4.1333...‎. في ‎24.8‎ ثلاثة أرقام معنوية وفي ‎6.0‎ رقمان، '
-        + 'فالناتج برقمين معنويين: ‎4.1 g/cm³‎.',
+      solution: "24.8 ÷ 6.0 = 4.1333.. in 24.8 there are three significant figures and in 6.0 there are two significant figures, "
+        + "The result has two significant figures : 4.1 g/cm³.",
       commonErrors: [
-        { value: 4.13, why: 'أبقيتَ ثلاثة أرقام معنوية أو أكثر، وربما كتبتَ ناتج الآلة كما هو. '
-          + 'المعطى ‎6.0‎ فيه رقمان فقط، والناتج لا يكون أدقّ من أضعف قياس دخل فيه. '
-          + 'الآلة لا تعرف دقة قياسك؛ التقريب قرارك أنت.' },
-        { value: 4, why: 'قرّبتَ إلى رقم معنوي واحد. أقلّ المعطيات فيه رقمان لا واحد.' },
-        { value: 0.242, why: 'قسمتَ الحجم على الكتلة. الكثافة كتلة على حجم، '
-          + 'ووحدة ناتجك ‎cm³/g‎ وهي مقلوب الكثافة.' },
+        { value: 4.13, why: "You kept three or more significant figures, and perhaps wrote the machine's output as is. "
+          + "The given 6.0 has only two numbers, and the result is not more accurate than the weakest measurement entered into it. "
+          + "The machine does not know the accuracy of your measurement; The approximation is your decision." },
+        { value: 4, why: "You rounded to one significant figure. The minimum data contains two numbers, not one." },
+        { value: 0.242, why: "You divide the volume by the mass. density mass over volume, "
+          + "The unit of your output is cm³/g, which is the reciprocal of density." },
       ],
     },
     {
       id: 'dimensions',
-      family: 'النمط الثالث · التحليل البُعدي',
-      aim: 'تفكّك وحدة مركّبة إلى الوحدات الأساسية.',
+      family: "The third type: Dimensional analysis",
+      aim: "Decomposition of a complex unit into its basic units.",
       objectives: [2],
-      prompt: 'الضغط قوة مقسومة على مساحة. إذا عبّرنا عن وحدة الضغط بدلالة ‎kg‎ و‎m‎ و‎s‎ فقط، '
-        + 'فما أُسّ المتر في هذا التعبير؟ اكتب العدد بإشارته.',
-      unit: 'أُسّ',
+      prompt: "Pressure is force divided by area. If we express the unit pressure in terms of kg, m and s only, "
+        + "What is the exponent of the meter in this expression? Write the number with a sign.",
+      unit: "Exponent",
       answer: -1,
       tolerance: 0.01,
-      solution: 'القوة ‎kg·m/s²‎، والمساحة ‎m²‎. فالضغط ‎kg·m/(s²·m²) = kg/(m·s²)‎. '
-        + 'المتر صار في المقام بأُسّ واحد، فأُسّه ‎−1‎.',
+      solution: "The force is kg·m/s², the area is m²., and the pressure is kg·m/(s²·m²) = kg/(m·s²). "
+        + "The meter becomes in the denominator with one power, its exponent is −1.",
       commonErrors: [
-        { value: 1, why: 'أخذتَ أُسّ المتر من القوة وحدها وأهملتَ قسمة المساحة. '
-          + 'المساحة ‎m²‎ في المقام تخفض الأُسّ من ‎+1‎ إلى ‎−1‎.' },
-        { value: -2, why: 'هذا أُسّ الثانية لا أُسّ المتر. التعبير ‎kg·m⁻¹·s⁻²‎، فانتبه إلى أي حرف تقرأ.' },
-        { value: 2, why: 'وضعتَ المساحة في البسط. الضغط قوة على مساحة، فالمساحة في المقام.' },
+        { value: 1, why: "You took the power of the meter from the power alone and neglected to divide the area. "
+          + "The area m² in the denominator reduces the exponent from +1 to −1." },
+        { value: -2, why: "This is the power of the second, not the power of the meter. The expression is kg·m⁻¹·s⁻², so pay attention to which letter you read." },
+        { value: 2, why: "You put the area in the numerator. Pressure is a force over an area, so area is the denominator." },
       ],
     },
     {
       id: 'prefix',
-      family: 'النمط الرابع · البادئات',
-      aim: 'تقرأ البادئة بمعاملها الصحيح دون خلط بين ميلي ومايكرو.',
+      family: "Fourth style · Prefixes",
+      aim: "The prefix is read with its integer modulus without confusion between milli and micro.",
       objectives: [0],
-      prompt: 'سُمك صفيحة ‎250 μm‎. كم يساوي بالمتر؟',
+      prompt: "What is the thickness of 250 μm. plate in metres?",
       unit: 'm',
       answer: 0.00025,
       tolerance: 0.0000005,
-      solution: '‎μ‎ تعني ‎10⁻⁶‎، فـ ‎250 μm = 250 × 10⁻⁶ m = 2.5 × 10⁻⁴ m = 0.00025 m‎.',
+      solution: "μ means 10⁻⁶, then 250 μm = 250 × 10⁻⁶ m = 2.5 × 10⁻⁴ m = 0.00025 m.",
       commonErrors: [
-        { value: 0.25, why: 'قرأتَ الرمز ‎μ‎ على أنه «ميلي». ميلي ‎10⁻³‎ ومايكرو ‎10⁻⁶‎، '
-          + 'والفرق بينهما ألف ضعف.' },
-        { value: 2.5, why: 'استعملتَ «سنتي» ‎10⁻²‎ بدل «مايكرو».' },
-        { value: 0.00000025, why: 'استعملتَ «نانو» ‎10⁻⁹‎ بدل «مايكرو» ‎10⁻⁶‎.' },
+        { value: 0.25, why: "You read the code μ as “Milly.” Miele 10⁻³ and Micro 10⁻⁶, "
+          + "The difference between them is a thousand fold." },
+        { value: 2.5, why: "You used “centi» 10⁻²” instead of “micro”." },
+        { value: 0.00000025, why: "You used “Nano » 10⁻⁹” instead of “Micro » 10⁻⁶.”." },
       ],
     },
     {
       id: 'consistency',
-      family: 'النمط الخامس · اتساق الوحدات قبل التعويض',
-      aim: 'توحّد الوحدات قبل استعمال أي معادلة، لا بعدها.',
+      family: "Fifth pattern: Consistency of units before substitution",
+      aim: "Unite units before using any equation, not after.",
       objectives: [0],
-      prompt: 'جسم يتحرك بسرعة ثابتة ‎15 m/s‎ لمدة ‎4.0‎ دقائق. ما المسافة المقطوعة بالمتر؟',
+      prompt: "An object moves at a constant speed 15 m/s for a period of 4.0 minutes. What is the distance traveled in metres?",
       unit: 'm',
       answer: 3600,
       tolerance: 1,
-      solution: 'المعادلة ‎x = v·t‎ تتطلب الزمن بالثانية لأن السرعة بـ ‎m/s‎. '
-        + '‎4.0 min = 240 s‎، فالمسافة ‎15 × 240 = 3600 m‎.',
+      solution: "The equation x = v·t requires the time in seconds because the speed is in m/s. "
+        + "4.0 min = 240 s, the distance is 15 × 240 = 3600 m.",
       commonErrors: [
-        { value: 60, why: 'عوّضتَ بالدقائق مباشرة. السرعة بـ ‎m/s‎، فالزمن يجب أن يكون بالثانية؛ '
-          + 'وحدة الناتج عندك صارت ‎m·min/s‎ وهي ليست مسافة.' },
-        { value: 216000, why: 'حوّلتَ الدقائق إلى ثوانٍ مرتين، أو ضربتَ في 3600 بدل 240.' },
-        { value: 900, why: 'ضربتَ 15 في 60 فحسبتَ مسافة دقيقة واحدة لا أربع.' },
+        { value: 60, why: "You are compensated directly in minutes. Speed ​​is in m/s, time should be in seconds; "
+          + "Your output unit is m·min/s, which is not a space." },
+        { value: 216000, why: "You converted minutes to seconds twice, or multiplied by 3600 instead of 240." },
+        { value: 900, why: "You multiplied 15 by 60 and calculated a distance of one minute, not four." },
       ],
     },
   ],

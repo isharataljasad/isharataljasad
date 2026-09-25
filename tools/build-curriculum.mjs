@@ -21,6 +21,7 @@ import path from 'node:path';
 import { esc, slug, makeInline, externalOrLocal, renderMarkdown } from './lib/markdown.mjs';
 import { approaches, strands, unitNames, concepts } from '../program/concepts.mjs';
 import { catalog as programme } from '../program/catalog.mjs';
+import { conceptChecks } from '../program/concept-checks.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const conceptsRoot = path.join(root, 'foundations', 'concepts');
@@ -96,7 +97,7 @@ const shell = (title, description, body, extraCss = '') => `<!doctype html>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page">${body}</main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>
 `;
 
 const write = (relative, html) => {
@@ -132,15 +133,76 @@ for (const concept of concepts) {
       ? `<nav class="concept-toc" aria-label="On this page"><h2>On this page</h2><ol>${rendered.headings.map((h) => `<li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('')}</ol></nav>`
       : '';
     const switcher = approachSwitcher(concept, number);
+    /* Approach 2 is the practice route, so it carries the interactive checks
+       when the concept has any. The written decisions above stay; these ask
+       the reader to commit and then judge the commitment. */
+    const checks = number === '2' ? checksBlock(concept) : '';
     const body = `${crumb(concept, `Approach ${number}`)}
 <header class="concept-hero"><p class="eyebrow">APPROACH ${number} · ${esc(approach.name.toUpperCase())}</p><h1>${esc(rendered.title)}</h1><p>${esc(approach.purpose)}</p></header>
 ${switcher}
-<div class="concept-layout">${toc}<article class="reading-article">${rendered.body}${relatedBlock(concept)}</article></div>`;
+<div class="concept-layout">${toc}<article class="reading-article">${rendered.body}${checks}${relatedBlock(concept)}</article></div>`;
 
     write(`foundations/concepts/${concept.slug}/approach-${number}/index.html`,
-      shell(`Approach ${number} · ${rendered.title}`, approach.purpose, body));
+      shell(`Approach ${number} · ${rendered.title}`, approach.purpose, body,
+        checks ? '<script type="module" src="/foundations/concepts/checks.mjs"></script>' : ''));
     builtApproaches++;
   }
+}
+
+/* ---------- interactive checks ------------------------------------------ */
+
+function field(q, idPrefix) {
+  if (q.kind === 'choice') {
+    return `<fieldset class="check-options"><legend class="visually-hidden">Choose one</legend>${
+      q.options.map((o, i) => `<label><input type="radio" name="answer" value="${i}"> ${inline(o.label)}</label>`).join('')
+    }</fieldset>`;
+  }
+  const unit = q.unit ? ` <span class="check-unit">(${esc(q.unit)})</span>` : '';
+  return `<label for="${idPrefix}">Your answer${unit}</label>`
+    + `<input id="${idPrefix}" name="answer" type="text" inputmode="decimal" autocomplete="off" required>`;
+}
+
+function checksBlock(concept) {
+  const checks = conceptChecks[concept.slug];
+  if (!checks || !checks.length) return '';
+
+  /* The data file the runtime fetches. Answers live here rather than in the
+     page so the markup stays readable; this is a study aid, not an exam. */
+  write(`foundations/concepts/${concept.slug}/checks.json`,
+    JSON.stringify({ slug: concept.slug, checks }, null, 1) + '\n');
+
+  const items = checks.map((q) => {
+    const followUp = q.followUp ? `<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>${inline(q.followUp.prompt)}</p>
+<form><div class="check-row">${field(q.followUp, `follow-${concept.slug}-${q.id}`)}<button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>${inline(q.followUp.solution)}</p></details>
+</div>` : '';
+
+    const prereq = q.prerequisite
+      ? `<p class="check-prereq">Needs a step you are unsure of? <a href="${esc(q.prerequisite.href)}">${esc(q.prerequisite.label)}</a></p>`
+      : '';
+
+    return `<section class="check" data-check="${esc(q.id)}">
+<p class="check-prompt">${inline(q.prompt)}</p>
+${prereq}
+<form><div class="check-row">${field(q, `check-${concept.slug}-${q.id}`)}<button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>${inline(q.solution)}</p></div>
+${followUp}
+</section>`;
+  }).join('');
+
+  return `<section class="concept-checks" data-concept-checks="${esc(concept.slug)}">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+${items}
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section>`;
 }
 
 /* ---------- shared fragments -------------------------------------------- */
@@ -401,12 +463,12 @@ const coverageBody = `<p class="model-crumb"><a href="/program/">Programme</a> /
 <p>${coveredEpisodes} of ${episodes.length} catalogued episodes are attached to a concept. The remaining episodes are not mapped to this concept registry; that does not establish whether related material exists elsewhere on the site. An indexed episode is not a lesson.</p></section>
 <section class="ledger-main"><h2>Concept by concept</h2>
 <p>${totalWritten} of ${concepts.length * 3} possible treatments exist for the ${concepts.length} registered concepts. This denominator covers registered concepts only, not the full curriculum.</p>
-<p>Tools of Geometry has five written guides. Reference and practice routes remain missing for four of those concepts, so the unit is not complete across all three approaches.</p>
+<p>All five registered Tools of Geometry concepts now have reference, practice and written-guide routes. This describes those five concepts only; it does not establish coverage of every geometry topic.</p>
 <dl class="ledger-key"><div><dt>Generated locally</dt><dd>The page exists in this build and has an identified source file from which it can be rebuilt.</dd></div><div><dt>Local page</dt><dd>The page exists in this build, but this registry has not identified its source. Neither local status verifies publication.</dd></div><div><dt>Missing</dt><dd>No treatment is registered for that route.</dd></div><div><dt>Questions</dt><dd>Counted from the page, with the method named. Pages use three shapes — headed families, a numbered question list, or interactive checks — so the counter reports which one it read. When it recognises none it says so rather than reporting zero.</dd></div></dl>
 <div class="reading-table-wrap" role="region" aria-label="Table: Concept coverage" tabindex="0"><table><thead><tr><th scope="col">Concept</th>${approaches.map((a) => `<th scope="col">${a.number} · ${esc(a.short)}</th>`).join('')}<th scope="col">Verification</th><th scope="col">Remaining gaps</th></tr></thead><tbody>${ledgerRows}</tbody></table></div></section>
 <section class="ledger-main"><h2>Semester 1 topic pages</h2>
 <p>These 26 pages take a different shape: instead of three separate routes they put the explanation, a worked example and all three source treatments on one page. That is the integrated experience the three routes are working towards, so they are measured separately here.</p>
-<p><strong>One gap applies to all of them.</strong> Their answer checking shares <code>/semester-1/assets/app.js</code>, which returns a single generic message for every wrong answer. None of them names the specific mistake the way the guided-practice route does. Their two questions are also a matched pair rather than genuinely different problem families.</p>
+<p>Each page includes an original Bayt lesson with reference explanations, worked steps, a visual exploration model and multiple question types. These practice questions provide targeted feedback for anticipated wrong answers. The two older topic checks remain a separate matched pair; neither system awards mastery. See the <a href="/semester-1/coverage/">semester lesson inventory</a> for the current counts and scope limits.</p>
 <div class="reading-table-wrap" role="region" aria-label="Table: Semester 1 topic pages" tabindex="0"><table><thead><tr><th scope="col">Topic</th><th scope="col">Course</th><th scope="col">Source material on the page</th><th scope="col">Explanation</th><th scope="col">Questions</th></tr></thead><tbody>${semesterTopics.map((t) => `<tr><th scope="row"><a href="${t.href}">${esc(t.title)}</a><small>${esc(t.key)}</small></th><td>${esc(t.course)}</td><td><small>${t.material.book + t.material.pearson + t.material.educator} treatments (${t.material.book}/${t.material.pearson}/${t.material.educator})</small></td><td><small>${t.words} words · ${t.sections} sections · ${t.figures} figures</small></td><td><small>${t.questions} checked</small></td></tr>`).join('')}</tbody></table></div></section>
 <section class="ledger-main"><h2>Programme courses</h2>
 <p>The programme map holds ${programme.courses.length} course records across eight semesters. Availability is recorded per course and shown on every card.</p>

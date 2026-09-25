@@ -1,0 +1,86 @@
+{
+ "slug": "exponents",
+ "checks": [
+  {
+   "id": "area",
+   "kind": "number",
+   "prompt": "A square tile has side `s = 3 cm`. Give its area as a number in `cm²`.",
+   "answer": 9,
+   "tolerance": 0.001,
+   "unit": "cm²",
+   "solution": "`(3 cm)² = 9 cm²`. Both the number and the unit are squared.",
+   "responses": [
+    {
+     "value": 6,
+     "why": "consistent with reading the exponent as a multiplier, `3 × 2`."
+    },
+    {
+     "value": 12,
+     "why": "consistent with computing a perimeter, `4s`, rather than an area."
+    }
+   ],
+   "followUp": {
+    "prompt": "The side is tripled. Give the new area in `cm²`.",
+    "answer": 81,
+    "tolerance": 0.001,
+    "unit": "cm²",
+    "solution": "`(3s)² = (9 cm)² = 81 cm²`. Tripling a length multiplies area by nine, not by three."
+   },
+   "version": 1
+  },
+  {
+   "id": "coefficient",
+   "kind": "choice",
+   "prompt": "A tile of side `s` has its side tripled. Which expression gives the new area?",
+   "options": [
+    {
+     "label": "`(3s)²`",
+     "correct": true
+    },
+    {
+     "label": "`3s²`",
+     "why": "That is three times the original area — three separate tiles, not one larger tile. Only `s` is squared and the `3` sits outside."
+    },
+    {
+     "label": "`3s`",
+     "why": "That is a length, not an area. Nothing has been squared."
+    }
+   ],
+   "solution": "Tripling the side gives a new side `3s`, so the new area is `(3s)² = 9s²`.",
+   "followUp": {
+    "prompt": "At `s = 2`, evaluate `3s²`.",
+    "kind": "number",
+    "answer": 12,
+    "tolerance": 0.001,
+    "solution": "`3 × 2² = 3 × 4 = 12`. The coefficient multiplies after the power is taken."
+   },
+   "version": 1
+  },
+  {
+   "id": "negative-exponent",
+   "kind": "number",
+   "prompt": "Evaluate `3/x²` at `x = 2`. Enter one numerical value.",
+   "answer": 0.75,
+   "tolerance": 0.005,
+   "unit": "",
+   "solution": "`3/2² = 3/4 = 0.75`. Rewrite as `3x⁻²` if that is clearer; the exponent acts on `x` alone.",
+   "responses": [
+    {
+     "value": 1.5,
+     "why": "consistent with evaluating `3/x` instead of `3/x²`: the denominator is 4, not 2."
+    },
+    {
+     "value": 2.25,
+     "why": "consistent with squaring the whole of `3/x` rather than `x` alone."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now evaluate `(3/x)²` at `x = 2`, to see the difference a bracket makes.",
+    "answer": 2.25,
+    "tolerance": 0.005,
+    "solution": "`(3/2)² = 1.5² = 2.25`. Here the bracket puts the whole quotient inside the base."
+   },
+   "version": 1
+  }
+ ]
+}

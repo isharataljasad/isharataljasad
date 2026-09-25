@@ -3,27 +3,27 @@
 /* الرسم: مخطط مستويات الطاقة للحالتين.
    الإشارة ليست اصطلاحًا يُحفظ بل اتجاه سهم يُرى: نزولٌ فسالب، صعودٌ فموجب. */
 const figure = `<svg viewBox="0 0 480 240" role="img" aria-labelledby="fig-thermo-title" class="bayt-svg">`
-  + `<title id="fig-thermo-title">مخططا طاقة متجاوران: تفاعل طارد للحرارة نواتجه أدنى، وماص نواتجه أعلى</title>`
+  + `<title id="fig-thermo-title">Two side-by-side energy diagrams: an exothermic reaction with lower products and an endothermic reaction with higher products</title>`
   + `<line x1="30" y1="40" x2="30" y2="190" stroke="#284955" stroke-width="2"/>`
-  + `<text x="46" y="32" font-size="13" fill="#284955" text-anchor="start">الطاقة</text>`
+  + `<text x="46" y="32" font-size="13" fill="#284955" text-anchor="start">Energy</text>`
   /* طارد للحرارة: النواتج أدنى من المتفاعلات. */
   + `<line x1="60" y1="70" x2="125" y2="70" stroke="#105c78" stroke-width="3"/>`
   + `<line x1="135" y1="170" x2="200" y2="170" stroke="#105c78" stroke-width="3"/>`
   + `<line x1="130" y1="72" x2="130" y2="164" stroke="#c0392b" stroke-width="2"/>`
   + `<polyline points="124,154 130,166 136,154" fill="none" stroke="#c0392b" stroke-width="2"/>`
-  + `<text x="92" y="60" font-size="13" fill="#284955" text-anchor="middle">متفاعلات</text>`
-  + `<text x="167" y="162" font-size="13" fill="#284955" text-anchor="middle">نواتج</text>`
+  + `<text x="92" y="60" font-size="13" fill="#284955" text-anchor="middle">Reactants</text>`
+  + `<text x="167" y="162" font-size="13" fill="#284955" text-anchor="middle">Outputs</text>`
   + `<text x="136" y="120" font-size="14" fill="#c0392b" text-anchor="end">ΔH &lt; 0</text>`
-  + `<text x="130" y="212" font-size="14" fill="#153748" text-anchor="middle">طارد للحرارة</text>`
+  + `<text x="130" y="212" font-size="14" fill="#153748" text-anchor="middle">Exothermic</text>`
   /* ماص للحرارة: النواتج أعلى. */
   + `<line x1="280" y1="170" x2="345" y2="170" stroke="#105c78" stroke-width="3"/>`
   + `<line x1="355" y1="70" x2="420" y2="70" stroke="#105c78" stroke-width="3"/>`
   + `<line x1="350" y1="168" x2="350" y2="76" stroke="#10766f" stroke-width="2"/>`
   + `<polyline points="344,86 350,74 356,86" fill="none" stroke="#10766f" stroke-width="2"/>`
-  + `<text x="312" y="190" font-size="13" fill="#284955" text-anchor="middle">متفاعلات</text>`
-  + `<text x="387" y="60" font-size="13" fill="#284955" text-anchor="middle">نواتج</text>`
+  + `<text x="312" y="190" font-size="13" fill="#284955" text-anchor="middle">Reactants</text>`
+  + `<text x="387" y="60" font-size="13" fill="#284955" text-anchor="middle">Outputs</text>`
   + `<text x="356" y="120" font-size="14" fill="#10766f" text-anchor="end">ΔH &gt; 0</text>`
-  + `<text x="350" y="212" font-size="14" fill="#153748" text-anchor="middle">ماص للحرارة</text>`
+  + `<text x="350" y="212" font-size="14" fill="#153748" text-anchor="middle">Endothermic</text>`
   + `</svg>`;
 
 export default {
@@ -31,199 +31,190 @@ export default {
   topic: 'thermochemistry',
 
   objectives: [
-    'تحدّد النظام والمحيط، وتطبّق اصطلاح الإشارة من منظور النظام.',
-    'تحسب الحرارة المنتقلة من ‎q = m c ΔT‎ بفرق حرارة مرتَّب.',
-    'تجمع محتويات حرارية بقانون هس مع الاحتفاظ بالإشارات.',
+    "It defines the system and its surroundings, and applies sign conventions from the perspective of the system.",
+    "The heat transferred from q = m c ΔT is calculated with an ordered temperature difference.",
+    "Heat contents are summed by Hess's law while preserving the signs.",
   ],
 
   boundaries: [
-    'الإنتروبي وطاقة جبس الحرة وتلقائية التفاعل ليست في هذا الدرس.',
-    'تغيّر السعة الحرارية النوعية مع درجة الحرارة مهمل هنا.',
-    'المسعّر عند ثبوت الحجم ‎(q_v)‎ يُذكر إشارةً؛ وحساباتنا عند ثبوت الضغط.',
-    'طاقات الروابط وحساب ‎ΔH‎ منها خارج نطاق هذا الدرس.',
+    "Entropy, Gibbs free energy, and reaction spontaneity are not covered in this lesson.",
+    "The change in specific heat capacity with temperature is neglected here.",
+    "When the volume is constant, the price, (q_v), is given a sign; And our calculations when the pressure is constant.",
+    "Bond energies and calculating ΔH of them are beyond the scope of this lesson.",
   ],
 
   prerequisites: [
     {
-      title: 'حساب المولات',
-      why: 'المحتوى الحراري يُعطى غالبًا لكل مول، فالربط بين الكتلة والحرارة يمر بالمولات.',
-      recap: '‎n = m / M‎. فإذا كان ‎ΔH = −890 kJ/mol‎ لاحتراق الميثان، '
-        + 'فحرق ‎0.50 mol‎ يطلق ‎445 kJ‎. '
-        + 'وانتبه إلى «لكل مول»: هي جزء من الوحدة لا زيادة في العبارة.',
+      title: "Malls calculation",
+      why: "Enthalpy is often given per mole, as the relationship between mass and heat goes through moles.",
+      recap: "n = m / M. If ΔH = −890 kJ/mol for methane combustion, "
+        + "Burning 0.50 mol releases 445 kJ. "
+        + "Pay attention to “per mole”: it is part of the unit, not an addition to the phrase.",
       href: '/semester-1/chemistry/solutions/',
-      hrefLabel: 'تحويل الكتلة إلى مولات',
+      hrefLabel: "Convert mass to moles",
     },
     {
-      title: 'ترتيب الطرح في فرق الحرارة',
-      why: 'إشارة ‎ΔT‎ تحدّد إشارة ‎q‎، فعكس الطرح يقلب معنى النتيجة كلها.',
-      recap: '‎ΔT = T_final − T_initial‎، النهائية أولًا دائمًا. '
-        + 'فارتفاع من ‎20 °C‎ إلى ‎35 °C‎ يعطي ‎ΔT = +15‎، وانخفاض من ‎35‎ إلى ‎20‎ يعطي ‎−15‎. '
-        + 'ولاحظ أن فرق الحرارة واحد في السيليزية والكلفن، فلا حاجة إلى تحويل هنا.',
+      title: "Order of subtraction in temperature difference",
+      why: "The sign ΔT determines the sign q, so reversing the subtraction changes the meaning of the entire result.",
+      recap: "ΔT = T_final − T_initial, always final first. "
+        + "An increase from 20 °C to 35 °C gives ΔT = +15, and a decrease from 35 to 20 gives −15. "
+        + "Note that the temperature difference is the same in Celsius and Kelvin, so there is no need for conversion here.",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'النظام والمحيط',
+        term: "System and surroundings",
         en: 'System and surroundings',
-        text: 'النظام هو ما تدرسه، وهو في التفاعل: المواد المتفاعلة والناتجة. '
-          + 'والمحيط كل ما عداه، وهو غالبًا الماء والوعاء. '
-          + 'وكل إشارة في هذا الدرس تُقرأ **من منظور النظام**، فتحديده أولًا ليس ترفًا بل شرط لصحة الإشارة.',
+        text: "The system is the part selected for study; the surroundings are everything outside it. In a reaction calorimetry model, one may choose the reacting chemicals as the system and the water and vessel as surroundings. Always state this choice before assigning heat signs.",
       },
       {
-        term: 'الحرارة',
+        term: "Heat",
         en: 'Heat (q)',
-        text: 'طاقة تنتقل بسبب فرق في درجة الحرارة، بوحدة الجول. '
-          + 'وهي ليست خاصية يملكها الجسم بل انتقالٌ يحدث؛ '
-          + 'فلا يقال «حرارة الجسم» بمعنى ما يحويه، وإنما يقال حرارته المنتقلة إليه أو منه.',
+        text: "Energy transferred due to a temperature difference, in joules. "
+          + "It is not a property that the body possesses, but rather a transfer that occurs; "
+          + "It is not said “the heat of the body” in the sense of what it contains, but rather the heat transferred to or from it.",
       },
       {
-        term: 'التفاعل الطارد للحرارة',
+        term: "Exothermic reaction",
         en: 'Exothermic',
-        text: 'يطلق حرارة إلى المحيط، فيسخن المحيط ويكون ‎ΔH < 0‎. '
-          + 'والإشارة سالبة لأن النظام **فقد** طاقة؛ وارتفاع حرارة الماء حوله لا يجعلها موجبة، '
-          + 'فالماء محيط لا نظام.',
+        text: "An exothermic process transfers heat from the chosen system to its surroundings. At constant pressure under the usual calorimetry assumptions, ΔH<0. The surroundings may warm while the system loses energy.",
       },
       {
-        term: 'التفاعل الماص للحرارة',
+        term: "Endothermic reaction",
         en: 'Endothermic',
-        text: 'يمتصّ حرارة من المحيط، فيبرد المحيط ويكون ‎ΔH > 0‎. '
-          + 'ومثاله الشائع إذابة بعض الأملاح في الماء، فتنخفض حرارة الماء بينما ‎ΔH‎ موجب.',
+        text: "An endothermic process absorbs heat into the chosen system from its surroundings. At constant pressure under the usual calorimetry assumptions, ΔH>0. The surroundings may cool, for example during some salt-dissolution processes.",
       },
       {
-        term: 'المحتوى الحراري',
+        term: "Enthalpy",
         en: 'Enthalpy change (ΔH)',
-        text: 'الحرارة المنتقلة عند ثبوت الضغط. دالة حالة: قيمتها تعتمد على البداية والنهاية '
-          + 'ولا تعتمد على المسار. '
-          + 'وهذه الخاصية بالذات هي التي تجعل قانون هس ممكنًا.',
+        text: "Enthalpy H=U+pV is a state function. Its change equals heat transferred at constant pressure when only pressure–volume work occurs. Because ΔH depends on the initial and final states, reaction enthalpies can be combined using Hess’s law.",
       },
       {
-        term: 'السعة الحرارية النوعية',
+        term: "Specific heat capacity",
         en: 'Specific heat capacity (c)',
-        text: 'الحرارة اللازمة لرفع حرارة غرام واحد درجةً واحدة، بوحدة ‎J/(g·°C)‎. '
-          + 'وللماء قيمة عالية ‎4.18‎، ولهذا يُستعمل في المسعّرات وفي تبريد المحركات: '
-          + 'يمتصّ حرارة كثيرة بارتفاع قليل.',
+        text: "Specific heat capacity relates heat to mass and temperature change: q=mcΔT when c is approximately constant and there is no phase change. Water has c≈4.18 J/(g·°C), so substantial heat can produce a comparatively small temperature change.",
       },
     ],
     relations: [
       {
         formula: 'q = m c ΔT',
-        name: 'الحرارة المنتقلة',
-        note: 'تصلح للمحيط (الماء) عادةً، لا للنظام مباشرة.',
+        name: "Transferred heat",
+        note: "Usually suitable for the environment (water), not the system directly.",
       },
       {
         formula: 'ΔT = T_final − T_initial',
-        name: 'فرق الحرارة',
-        note: 'النهائية أولًا؛ الترتيب يحدّد الإشارة.',
+        name: "Temperature difference",
+        note: "final first; The order determines the sign.",
       },
       {
         formula: 'q_system = − q_surroundings',
-        name: 'تبادل الحرارة',
-        note: 'ما يفقده أحدهما يكسبه الآخر؛ ومن هنا تأتي إشارة السالب.',
+        name: "Heat exchange",
+        note: "What one loses, the other gains; Hence the negative sign.",
       },
       {
         formula: 'ΔH_total = Σ ΔH_steps',
-        name: 'قانون هس',
-        note: 'اجمع بإشاراتها؛ وإذا عُكست خطوة انقلبت إشارتها.',
+        name: "Hess's law",
+        note: "Gather with its sign; If a step is reversed, its sign is reversed.",
       },
     ],
     derivation: {
-      title: 'لماذا يكون ΔH سالبًا في التفاعل الذي يُسخّن الماء',
-      intro: 'يبدو متناقضًا: الحرارة ارتفعت والإشارة سالبة. والتناقض يزول بمجرد تحديد من هو النظام.',
+      title: "Why is ΔH negative in the reaction that heats water?",
+      intro: "It seems contradictory: the temperature has risen and the sign is negative. The contradiction disappears once we determine who the regime is.",
       steps: [
         {
-          do: 'حدّد النظام: هو المواد المتفاعلة، لا الماء ولا الكأس.',
-          why: 'الماء أداة قياس لا موضوع دراسة. وكل إشارة تُقرأ من منظور النظام وحده.',
+          do: "Identify the system: it is the reactants, not water or the beaker.",
+          why: "Water is a measuring instrument, not a subject of study. Every sign is read from the perspective of the system alone.",
         },
         {
-          do: 'التفاعل أطلق طاقة خرجت منه إلى الماء، فالنظام **فقد** طاقة.',
-          why: 'الفقد نقصان، والنقصان يُكتب بإشارة سالبة؛ فالإشارة تصف الاتجاه لا الكمية.',
+          do: "The reaction released energy from it into the water, so the system **lost** energy.",
+          why: "Loss is a decrease, and the decrease is written with a negative sign; The sign describes direction, not quantity.",
         },
         {
-          do: 'اكتب: ‎q_system = −q_water‎. فإن امتصّ الماء ‎+2000 J‎ كان ‎q_system = −2000 J‎.',
-          why: 'الطاقة لا تفنى: ما كسبه الماء هو ما فقده التفاعل بالضبط، والإشارتان متعاكستان.',
+          do: "Write : q_system = −q_water., if the water absorbed by +2000 J is q_system = −2000 J.",
+          why: "Energy cannot be destroyed: what the water gains is exactly what the reaction loses, and the two signs are opposite.",
         },
         {
-          do: 'فارتفاع حرارة الماء دليلٌ على أن ‎ΔH‎ سالب، لا على أنه موجب.',
-          why: 'وهذا هو موضع الخطأ الشائع: يُنظر إلى الماء ويُنسب حاله إلى النظام. '
-            + 'والقاعدة العملية: سخن المحيط فالتفاعل طارد وإشارته سالبة.',
+          do: "The increase in water temperature is evidence that ΔH is negative, not positive.",
+          why: "This is where the common mistake lies: water is viewed and its condition is attributed to the system. "
+            + "The practical rule: heat the surroundings, the reaction is repulsive and its sign is negative.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'اتجاه السهم هو الإشارة',
+    title: "Heat-transfer direction determines the sign",
     figure: {
       svg: figure,
-      caption: 'في الطارد للحرارة تهبط الطاقة من المتفاعلات إلى النواتج فيكون ‎ΔH‎ سالبًا، '
-        + 'وفي الماص ترتفع فيكون موجبًا. والإشارة تصف اتجاه السهم لا مقدار الحرارة.',
-      alt: 'مخططان متجاوران، ومحور رأسي على اليسار يدل على الطاقة. '
-        + 'في الأيسر خط المتفاعلات أعلى وخط النواتج أدنى، وبينهما سهم أحمر يشير إلى أسفل، '
-        + 'وتحته وصفه بأنه طارد للحرارة ومحتواه الحراري سالب. '
-        + 'وفي الأيمن خط المتفاعلات أدنى وخط النواتج أعلى، وبينهما سهم أخضر يشير إلى أعلى، '
-        + 'وتحته وصفه بأنه ماص للحرارة ومحتواه الحراري موجب.',
+      caption: "In an exotherm, energy drops from the reactants to the products, so ΔH is negative. "
+        + "In the absorber, it rises and is positive. The sign describes the direction of the arrow, not the amount of heat.",
+      alt: "Two diagrams side by side, and the vertical axis on the left indicates energy. "
+        + "On the left, the line of reactants is higher and the line of products is lower, with a red arrow pointing down between them. "
+        + "Underneath it is described as exothermic and its heat content is negative. "
+        + "On the right, the line of reactants is lower and the line of products is higher, and between them is a green arrow pointing upward. "
+        + "Underneath it is described as endothermic and its heat content is positive.",
     },
     table: {
-      caption: 'من الملاحظة إلى الإشارة',
-      head: ['ما تلاحظه', 'حال المحيط', 'حال النظام', 'إشارة ΔH', 'النوع'],
+      caption: "From observation to reference",
+      head: ["What you notice", "The state of the surroundings", "System status", "ΔH sign", "Type"],
       rows: [
-        ['الكأس سخن', 'اكتسب حرارة', 'فقد طاقة', 'سالبة', 'طارد'],
-        ['الكأس برد', 'فقد حرارة', 'اكتسب طاقة', 'موجبة', 'ماص'],
-        ['ذوبان ملح يبرّد الماء', 'فقد حرارة', 'اكتسب طاقة', 'موجبة', 'ماص'],
-        ['احتراق يُسخّن الهواء', 'اكتسب حرارة', 'فقد طاقة', 'سالبة', 'طارد'],
+        ["The cup is hot", "Gain heat", "He lost energy", "Negative", "Repellent"],
+        ["The cup got cold", "He lost heat", "Gain energy", "Positive", "Absorbent"],
+        ["dissolution salt cools the water", "He lost heat", "Gain energy", "Positive", "Absorbent"],
+        ["Combustion heats the air", "Gain heat", "He lost energy", "Negative", "Repellent"],
       ],
     },
-    reading: 'اقرأ العمودين الثاني والثالث معًا: هما دائمًا متعاكسان، وهذا هو ‎q_sys = −q_surr‎. '
-      + 'ولاحظ أن العمود الأول هو ما تراه، والرابع هو ما تكتبه، وبينهما خطوة واحدة: '
-      + 'اسأل ماذا حدث للنظام لا ماذا حدث للكأس.',
+    reading: "Read the second and third columns together: they are always opposites, that is q_sys = −q_surr. "
+      + "Notice that the first column is what you see, and the fourth is what you write, and there is one step between them: "
+      + "Ask what happened to the system, not what happened to the cup.",
   },
 
   guided: {
-    start: 'اكتب أولًا: «النظام هو…». ثم احسب ‎q‎ للماء بـ ‎q = mcΔT‎ مع ‎ΔT‎ مرتَّبة نهائيةً ثم ابتدائية. '
-      + 'ثم اقلب الإشارة لتحصل على ‎q‎ للنظام. '
-      + 'وإن طُلب ‎ΔH‎ لكل مول فاقسم على عدد المولات المتفاعلة في التجربة. '
-      + 'وفي مسائل هس: رتّب المعادلات حتى تُحذف المواد الوسيطة، واقلب إشارة كل معادلة عكستَها.',
+    start: "First write: “The system is…”. Then calculate q for water as q = mcΔT with ΔT arranged as final and then as initial. "
+      + "Then invert the sign to get q for the system. "
+      + "If ΔH is required per mole, divide by the number of moles reacting in the experiment. "
+      + "In Hessian problems: arrange the equations so that the intermediates are eliminated, and invert the sign of each equation you reverse.",
     workedExamples: [
       {
-        title: 'مثال 1 · حرارة تسخين ماء',
-        task: 'كم حرارةً يلزم لرفع حرارة ‎250 g‎ من الماء من ‎20.0 °C‎ إلى ‎45.0 °C‎؟ '
-          + 'خذ ‎c = 4.18 J/(g·°C)‎.',
+        title: "Example 1 · The temperature of heating water",
+        task: "How much heat is needed to raise the temperature of 250 g of water from 20.0 °C to 45.0 °C? "
+          + "Take c = 4.18 J/(g·°C).",
         steps: [
           {
-            do: 'احسب ‎ΔT = 45.0 − 20.0 = 25.0 °C‎.',
-            why: 'الفرق لا القيمة النهائية. ولو عوّضتَ ‎45.0‎ لحسبتَ تسخينًا من الصفر المطلق للسيليزية، وهذا لا معنى له.',
+            do: "Calculate ΔT = 45.0 − 20.0 = 25.0 °C.",
+            why: "The difference is not the final value. If you substituted 45.0, you would calculate heating from absolute zero Celsius, and this does not make sense.",
           },
           {
-            do: 'عوّض: ‎q = 250 × 4.18 × 25.0‎.',
-            why: 'الوحدات تُختصر: ‎g × J/(g·°C) × °C‎ يبقى منها الجول وحده.',
+            do: "Replace : q = 250 × 4.18 × 25.0.",
+            why: "The units are abbreviated : g × J/(g·°C) × °C, leaving only the joule.",
           },
           {
-            do: 'الناتج ‎26125 J ≈ 26.1 kJ‎، وإشارته موجبة لأن الماء اكتسب.',
-            why: 'الماء هنا هو ما ندرسه، فالاكتساب موجب. '
-              + 'ولو كان الماء محيطًا لتفاعل لَقلبنا الإشارة عند الانتقال إلى النظام.',
+            do: "The output is 26125 J ≈ 26.1 kJ, and its sign is positive because water has been gained.",
+            why: "Water here is what we are studying, so the gain is positive. "
+              + "If the water were surrounding, it would react, and we would invert the sign when moving to the system.",
           },
         ],
         answer: 'q = 26125 J ≈ 26.1 kJ',
       },
       {
-        title: 'مثال 2 · من قياس المسعّر إلى إشارة التفاعل',
-        task: 'أُجري تفاعل في ‎100.0 g‎ من الماء فارتفعت حرارته ‎5.00 °C‎. '
-          + 'ما ‎q‎ للتفاعل؟ خذ ‎c = 4.18 J/(g·°C)‎.',
+        title: "Example 2 · from calorimeter measurement to reaction sign",
+        task: "A reaction was carried out in 100.0 g of water and its temperature increased 5.00 °C. "
+          + "What does q interact with? Take c = 4.18 J/(g·°C).",
         steps: [
           {
-            do: 'النظام هو التفاعل، والمحيط هو الماء.',
-            why: 'تحديد النظام أولًا هو ما يمنع الخطأ في الإشارة لاحقًا.',
+            do: "The system is the interaction, and the surroundings is the water.",
+            why: "Identifying the system first is what prevents sign error later.",
           },
           {
-            do: 'احسب حرارة الماء: ‎q_water = 100.0 × 4.18 × 5.00 = +2090 J‎.',
-            why: 'موجبة لأن الماء اكتسب حرارة وارتفعت درجته.',
+            do: "Calculate the temperature of the water: q_water = 100.0 × 4.18 × 5.00 = +2090 J.",
+            why: "Positive because the water gained heat and its temperature rose.",
           },
           {
-            do: 'اقلب الإشارة للنظام: ‎q_reaction = −2090 J‎.',
-            why: 'ما اكتسبه الماء هو ما فقده التفاعل. '
-              + 'فالتفاعل طارد للحرارة رغم أن ما لاحظتَه هو ارتفاع الحرارة.',
+            do: "Invert the sign to the system : q_reaction = −2090 J.",
+            why: "What the water gained is what the reaction lost. "
+              + "The reaction is exothermic, although what you observed was a rise in temperature.",
           },
         ],
         answer: 'q_reaction = −2090 J (exothermic)',
@@ -231,22 +222,22 @@ export default {
     ],
     skipped: [
       {
-        q: 'لماذا لا نحوّل درجة الحرارة إلى كلفن هنا كما فعلنا في الغازات؟',
-        a: 'لأن ‎q = mcΔT‎ تستعمل **فرقًا** لا قيمةً مطلقة. '
-          + 'وطول الدرجة واحد في السيليزية والكلفن، فالفرق واحد فيهما. '
-          + 'أما قوانين الغازات فتستعمل نسبًا بين قيم مطلقة، والنسبة تتغيّر بتغيّر نقطة الصفر.',
+        q: "Why don't we convert the temperature to Kelvin here as we did for gases?",
+        a: "Because q = mcΔT uses a **difference** not an absolute value. "
+          + "The degree length is the same in Celsius and Kelvin, so the difference is the same in them. "
+          + "Gas laws use ratios between absolute values, and the ratio changes with the change of the zero point.",
       },
       {
-        q: 'كيف يكون ΔH دالة حالة مع أن الحرارة تعتمد على المسار؟',
-        a: 'الحرارة عمومًا تعتمد على المسار فعلًا. لكن **عند ثبوت الضغط** تساوي الحرارةُ المنتقلة '
-          + 'التغيّرَ في المحتوى الحراري، وهو دالة حالة. '
-          + 'فالقيد «ثبوت الضغط» هو ما يجعل ‎ΔH‎ مستقلًّا عن المسار، وبه يصحّ قانون هس.',
+        q: "How can ΔH be a state function even though the temperature depends on the path?",
+        a: "The temperature in general really depends on the track. But **when the pressure is constant** the heat transferred is equal "
+          + "The change in enthalpy, which is a function of state. "
+          + "The constraint “pressure constant” is what makes ΔH independent of the path, and thus Hess’s law holds true.",
       },
       {
-        q: 'هل التفاعل الطارد للحرارة تلقائي دائمًا؟',
-        a: 'لا. كثير من الطاردة تلقائي، لكن العلامة الحاسمة ليست ‎ΔH‎ وحده بل طاقة جبس الحرة، '
-          + 'وهي تجمع المحتوى الحراري مع الإنتروبي والحرارة. '
-          + 'وذوبان بعض الأملاح ماص للحرارة ويحدث تلقائيًّا. وتفصيل ذلك خارج حدود هذا الدرس.',
+        q: "Is an exothermic reaction always spontaneous?",
+        a: "No. Many extruders are automatic, but the decisive factor is not the ΔH alone, but the Gibbs free energy. "
+          + "It combines enthalpy with entropy and heat. "
+          + "The dissolution of some salts is endothermic and occurs spontaneously. Detailing that is beyond the scope of this lesson.",
       },
     ],
   },
@@ -254,94 +245,94 @@ export default {
   questionTypes: [
     {
       id: 'heat-water',
-      family: 'النمط الأول · حرارة من mcΔT',
-      aim: 'تستعمل الفرق لا القيمة النهائية.',
+      family: "Mode 1 · Heat from mcΔT",
+      aim: "The difference is used, not the final value.",
       objectives: [1],
-      prompt: 'كم جولًا يلزم لرفع حرارة ‎200.0 g‎ من الماء من ‎25.0 °C‎ إلى ‎75.0 °C‎؟ '
-        + 'خذ ‎c = 4.18 J/(g·°C)‎.',
+      prompt: "How many joules would it take to raise the temperature of 200.0 g of water from 25.0 °C to 75.0 °C? "
+        + "Take c = 4.18 J/(g·°C).",
       unit: 'J',
       answer: 41800,
       tolerance: 50,
-      solution: '‎ΔT = 75.0 − 25.0 = 50.0 °C‎، فـ ‎q = 200.0 × 4.18 × 50.0 = 41800 J‎.',
+      solution: "ΔT = 75.0 − 25.0 = 50.0 °C, q = 200.0 × 4.18 × 50.0 = 41800 J.",
       commonErrors: [
-        { value: 62700, why: 'استعملتَ الحرارة النهائية ‎75.0‎ بدل الفرق. '
-          + 'القانون يأخذ ‎ΔT‎، والتعويض بالقيمة النهائية يعني تسخينًا من صفر السيليزية وهو ليس المطلوب.' },
-        { value: 20900, why: 'استعملتَ الحرارة الابتدائية ‎25.0‎ بدل الفرق.' },
-        { value: 836, why: 'أهملتَ ‎ΔT‎ فحسبتَ ‎m c‎ وحدهما.' },
+        { value: 62700, why: "You used the final temperature 75.0 instead of the difference. "
+          + "The law takes ΔT, and substituting the final value means heating from zero Celsius, which is not what is desired." },
+        { value: 20900, why: "You used the initial temperature 25.0 instead of the difference." },
+        { value: 836, why: "You neglected ΔT and counted m c alone." },
       ],
     },
     {
       id: 'sign-convention',
-      family: 'النمط الثاني · إشارة المحتوى الحراري',
-      aim: 'تقرأ الإشارة من منظور النظام لا المحيط.',
+      family: "Type 2 · Enthalpy sign",
+      aim: "The sign is read from the perspective of the system, not the environment.",
       objectives: [0],
-      prompt: 'تفاعل يطلق ‎50.0 kJ‎ لكل مول. ما ‎ΔH‎ بوحدة ‎kJ/mol‎؟ اكتب العدد بإشارته.',
+      prompt: "Reaction releases 50.0 kJ per mole. What is ΔH and kJ/mol module? Write the number with a sign.",
       unit: 'kJ/mol',
       answer: -50,
       tolerance: 0.2,
-      solution: 'الإطلاق يعني أن النظام فقد طاقة، فالإشارة سالبة: ‎ΔH = −50.0 kJ/mol‎.',
+      solution: "Release means the system has lost power, so the sign is negative : ΔH = −50.0 kJ/mol.",
       commonErrors: [
-        { value: 50, why: 'أهملتَ الإشارة. التفاعل الطارد للحرارة ‎ΔH‎ سالب لأن النظام فقد طاقة، '
-          + 'حتى لو ارتفعت حرارة الماء حوله؛ فالماء محيط لا نظام.' },
-        { value: -50000, why: 'حوّلتَ إلى الجول مع أن السؤال حدّد ‎kJ/mol‎. '
-          + 'الإشارة صحيحة والوحدة خاطئة.' },
-        { value: 0, why: 'المحتوى الحراري لا ينعدم في تفاعل يطلق طاقة؛ '
-          + 'انعدامه يعني ألّا فرق في الطاقة بين المتفاعلات والنواتج.' },
+        { value: 50, why: "You ignored the sign. The exothermic reaction ΔH is negative because the system has lost energy, "
+          + "Even if the temperature of the water around it rises; Water is part of the surroundings, not a system." },
+        { value: -50000, why: "You converted to joules even though the question specified kJ/mol. "
+          + "The sign is correct and the unit is incorrect." },
+        { value: 0, why: "Enthalpy does not exist in a reaction that releases energy; "
+          + "Its absence means that there is no difference in energy between the reactants and products." },
       ],
     },
     {
       id: 'delta-t',
-      family: 'النمط الثالث · ترتيب فرق الحرارة',
-      aim: 'تطرح النهائية ناقص الابتدائية بهذا الترتيب.',
+      family: "The third type is the arrangement of temperature differences",
+      aim: "Subtract the final minus the primary in this order.",
       objectives: [1],
-      prompt: 'انخفضت حرارة محلول من ‎24.0 °C‎ إلى ‎18.5 °C‎. ما ‎ΔT‎ بإشارته؟',
+      prompt: "The temperature of solution decreased from 24.0 °C to 18.5 °C. What does ΔT indicate?",
       unit: '°C',
       answer: -5.5,
       tolerance: 0.05,
       solution: '‎ΔT = T_final − T_initial = 18.5 − 24.0 = −5.5 °C‎. '
-        + 'والإشارة السالبة تعني أن المحلول فقد حرارة، فالعملية ماصة من منظور ما يذوب فيه.',
+        + "A negative sign means that the solution has lost heat, so the process is absorbent from the perspective of what is dissolved in it.",
       commonErrors: [
-        { value: 5.5, why: 'عكستَ الطرح فحسبتَ الابتدائية ناقص النهائية. '
-          + 'الترتيب المتفق عليه هو النهائية أولًا، وهو الذي يجعل الإشارة تدل على الاتجاه.' },
-        { value: 42.5, why: 'جمعتَ الحرارتين. الفرق طرحٌ لا جمع.' },
-        { value: 18.5, why: 'كتبتَ الحرارة النهائية بدل الفرق.' },
+        { value: 5.5, why: "You reversed the subtraction and calculated the initial minus the final. "
+          + "The agreed upon order is final first, which makes the sign indicate the direction." },
+        { value: 42.5, why: "You collected the two temperatures. The difference is subtraction, not addition." },
+        { value: 18.5, why: "You wrote the final temperature instead of the difference." },
       ],
     },
     {
       id: 'hess',
-      family: 'النمط الرابع · جمع بقانون هس',
-      aim: 'تجمع بالإشارات ولا تجمع المقادير المجرّدة.',
+      family: "The fourth type is summation by Hess's law",
+      aim: "It is combined using signs and not abstract quantities.",
       objectives: [2],
-      prompt: 'تفاعل يتمّ في خطوتين: الأولى ‎ΔH₁ = −200 kJ‎ والثانية ‎ΔH₂ = +80 kJ‎. '
-        + 'ما ‎ΔH‎ الكلي بوحدة ‎kJ‎؟ اكتب العدد بإشارته.',
+      prompt: "A reaction that takes place in two steps: the first is ΔH₁ = −200 kJ and the second is ΔH₂ = +80 kJ. "
+        + "What is the total ΔH with kJ unit? Write the number with a sign.",
       unit: 'kJ',
       answer: -120,
       tolerance: 0.5,
       solution: '‎ΔH = ΔH₁ + ΔH₂ = −200 + 80 = −120 kJ‎. '
-        + 'والمحتوى الحراري دالة حالة، فمجموع الخطوات هو التغيّر الكلي مهما كان المسار.',
+        + "The heat content is a state function, so the sum of the steps is the total change, regardless of the path.",
       commonErrors: [
-        { value: 280, why: 'جمعتَ المقدارين مهملًا الإشارتين. '
-          + 'الخطوة الأولى تُطلق والثانية تمتصّ، فهما يتعارضان جزئيًّا ولا يتراكمان.' },
-        { value: -280, why: 'جعلتَ الخطوة الثانية سالبة أيضًا. إشارتها موجبة كما أُعطيت.' },
-        { value: 120, why: 'أصبتَ المقدار وأخطأتَ الإشارة. '
-          + 'الطارد أكبر من الماص هنا، فالمحصّلة طاردة وإشارتها سالبة.' },
+        { value: 280, why: "You added the two expressions, ignoring the signs. "
+          + "The first step releases and the second absorbs, they are partly opposed and not cumulative." },
+        { value: -280, why: "You also made the second step negative. Its sign is positive as given." },
+        { value: 120, why: "You got the amount right and you missed the sign. "
+          + "The repulsive is greater than the absorber here, so the resultant is repulsive and its sign is negative." },
       ],
     },
     {
       id: 'specific-heat',
-      family: 'النمط الخامس · إيجاد السعة النوعية',
-      aim: 'تعزل c في المقام الصحيح.',
+      family: "Fifth type: Finding the specific capacity",
+      aim: "c is isolated in the right denominator.",
       objectives: [1],
-      prompt: 'امتصّت عيّنة كتلتها ‎50.0 g‎ مقدار ‎500 J‎ فارتفعت حرارتها ‎4.80 °C‎. '
-        + 'ما سعتها الحرارية النوعية؟',
+      prompt: "A sample with mass 50.0 g absorbed an amount of 500 J and its temperature increased 4.80 °C. "
+        + "What is its specific heat capacity?",
       unit: 'J/(g·°C)',
       answer: 2.083,
       tolerance: 0.02,
       solution: '‎c = q / (m ΔT) = 500 / (50.0 × 4.80) = 500 / 240 = 2.08 J/(g·°C)‎.',
       commonErrors: [
-        { value: 240, why: 'حسبتَ ‎m ΔT‎ ولم تقسم ‎q‎ عليه.' },
-        { value: 0.48, why: 'قلبتَ الكسر فحسبتَ ‎m ΔT / q‎.' },
-        { value: 10, why: 'قسمتَ على الكتلة وحدها وأهملتَ ‎ΔT‎.' },
+        { value: 240, why: "You calculated m ΔT and did not divide q by it." },
+        { value: 0.48, why: "You flipped the fraction and calculated m ΔT / q." },
+        { value: 10, why: "You divided by the mass alone and neglected ΔT." },
       ],
     },
   ],

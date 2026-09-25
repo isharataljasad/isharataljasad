@@ -65,7 +65,7 @@ const formatter = (options) => {
 export function weekLabel(key) {
   const dates = weekDates(key);
   const fmt = formatter({ day: 'numeric', month: 'long' });
-  if (!fmt) return `أسبوع ${key}`;
+  if (!fmt) return `A week ${key}`;
   return `${fmt.format(dates[0])} – ${fmt.format(dates[6])}`;
 }
 
@@ -78,10 +78,10 @@ export const isCurrentWeek = (key) => key === weekKey();
 
 export function relativeWeek(key) {
   const diff = Math.round((new Date(`${key}T00:00:00`) - new Date(`${weekKey()}T00:00:00`)) / 604800000);
-  if (diff === 0) return 'هذا الأسبوع';
-  if (diff === 1) return 'الأسبوع القادم';
-  if (diff === -1) return 'الأسبوع الماضي';
-  return diff > 0 ? `بعد ${diff} أسابيع` : `قبل ${Math.abs(diff)} أسابيع`;
+  if (diff === 0) return "This week";
+  if (diff === 1) return "Next week";
+  if (diff === -1) return "Last week";
+  return diff > 0 ? `After ${diff} Weeks` : `Before ${Math.abs(diff)} Weeks`;
 }
 
 /* ---- التحميل والترحيل ---- */
@@ -243,7 +243,7 @@ export function removeHabit(habitId) {
 export function addAchievement({ title, kind, body, skill, goal, report, status, demo = false }) {
   const state = load();
   const record = {
-    id: id('ach'), title, kind: kind || 'عمل', body: body || '',
+    id: id('ach'), title, kind: kind || "Work", body: body || '',
     skill: skill || null, goal: goal || null,
     report: report || null,
     status: { completed: true, calculationChecked: 'not-checked', ...(status || {}) },

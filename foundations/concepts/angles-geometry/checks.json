@@ -1,0 +1,79 @@
+{
+ "slug": "angles-geometry",
+ "checks": [
+  {
+   "id": "naming",
+   "kind": "choice",
+   "prompt": "Three arms are welded at `B`, running to `A`, `D` and `C`. Is `∠B` a legal name for one of the angles?",
+   "options": [
+    {
+     "label": "No, three rays leave `B` so the name is ambiguous",
+     "correct": true
+    },
+    {
+     "label": "Yes, the vertex letter is enough",
+     "why": "consistent with a diagram where only one angle sits at the vertex. Here `∠B` could mean `∠ABD`, `∠DBC` or `∠ABC`, and an ambiguous name is not a name."
+    }
+   ],
+   "solution": "Each angle needs three letters, with `B` in the middle: `∠ABD`, `∠DBC`, `∠ABC`.",
+   "followUp": {
+    "prompt": "Is `∠ABD` the same angle as `∠DBA`? Enter 1 for yes or 0 for no.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "Yes. Reversing the outer letters names the same pair of arms. Moving the middle letter, as in `∠BAD`, moves the vertex and gives a different angle."
+   },
+   "version": 1
+  },
+  {
+   "id": "addition",
+   "kind": "number",
+   "prompt": "`m∠ABD = 35°` and `m∠DBC = 55°`, with `D` in the interior of `∠ABC`. Find `m∠ABC`.",
+   "answer": 90,
+   "tolerance": 0.001,
+   "unit": "degrees",
+   "solution": "`35 + 55 = 90`, so `∠ABC` is a right angle — because the arithmetic says so, not because the sketch looks square.",
+   "responses": [
+    {
+     "value": 20,
+     "why": "consistent with subtracting the two measures rather than adding them."
+    },
+    {
+     "value": 35,
+     "why": "consistent with reporting one part instead of the whole."
+    }
+   ],
+   "followUp": {
+    "prompt": "If instead `m∠ABC = 120°` and `m∠ABD = 35°`, find `m∠DBC`.",
+    "answer": 85,
+    "tolerance": 0.001,
+    "unit": "degrees",
+    "solution": "`120 - 35 = 85`. The same postulate rearranged."
+   },
+   "version": 1
+  },
+  {
+   "id": "diagram",
+   "kind": "choice",
+   "prompt": "On a drawing an angle looks square but carries no small square and no stated measure. May you use `90°` in a calculation?",
+   "options": [
+    {
+     "label": "No, an unmarked angle asserts nothing",
+     "correct": true
+    },
+    {
+     "label": "Yes, if it clearly looks like a right angle",
+     "why": "consistent with treating the drawing as evidence. Only a mark, a stated measure or a derived value may be used; appearance is not a claim."
+    }
+   ],
+   "solution": "What is marked may be used; what is merely drawn may not. This is the same rule that governs equal-looking lengths.",
+   "followUp": {
+    "prompt": "In the joint above, `m∠ABD = 35°` and `m∠DBC = 55°` are given. Enter `m∠ABC` in degrees, and note that this time you are entitled to the answer.",
+    "answer": 90,
+    "tolerance": 0.001,
+    "unit": "degrees",
+    "solution": "`35 + 55 = 90`. So the angle really is a right angle — established by the givens, not by how the drawing looks. A correct conclusion reached from the page would still have been reached the wrong way."
+   },
+   "version": 1
+  }
+ ]
+}

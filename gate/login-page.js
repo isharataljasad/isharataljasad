@@ -13,16 +13,16 @@ const esc = s => String(s).replace(/[&<>"']/g, c =>
 export function loginPage({ nonce, error = "", status = 200 }) {
   const msg = error
     ? `<p class="err" role="alert">${esc(error)}</p>`
-    : `<p class="invite">هذه التجربة متاحة بدعوة. أدخل كلمة المرور للمتابعة.</p>`;
+    : `<p class="invite">This experience is available by invitation. Enter your password to continue.</p>`;
 
   return `<!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0e1a15">
 <meta name="robots" content="noindex,nofollow">
-<title>مختبر العلوم · الدخول</title>
+<title>Science Lab · Sign in</title>
 <style nonce="${nonce}">
 :root{--ink:#0e1a15;--paper:#fbf8f1;--surface:#fff;--line:#ded8c9;--text:#16211c;
 --muted:#5a6b62;--gold:#8a6d3b;--danger:#8c2f2f}
@@ -54,17 +54,17 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 </head>
 <body>
 <main class="card">
-  <div class="mark" aria-hidden="true">ف</div>
-  <h1>مختبر العلوم</h1>
-  <p class="sub">منصة المشروع · من الفهم إلى الاكتشاف</p>
+  <div class="mark" aria-hidden="true">B</div>
+  <h1>Science Lab</h1>
+  <p class="sub">Project platform · From understanding to discovery</p>
   ${msg}
   <form method="POST" action="/login" autocomplete="off" accept-charset="UTF-8">
-    <label for="pw">كلمة المرور</label>
+    <label for="pw">Password</label>
     <input id="pw" name="password" type="password" required autofocus maxlength="256"
            autocomplete="current-password" spellcheck="false" dir="ltr">
-    <button type="submit">الدخول</button>
+    <button type="submit">Sign in</button>
   </form>
-  <p class="foot">ثلاثة مصادر · مسار واضح · تعلم قابل للتجربة</p>
+  <p class="foot">Three sources · A clear path · Experiential learning</p>
 </main>
 </body>
 </html>`;

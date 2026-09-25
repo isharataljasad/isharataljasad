@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · The Coordinate Plane | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/coordinate-plane/">The coordinate plane</a> / Approach 2</p>
@@ -36,6 +36,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Convert between a pair and a movement, and say why swapping the entries moves the point.</li><li>Name a quadrant from the signs, and recognise a point that is in none of them.</li><li>Find the line through two pegs and test a third by substitution, rather than by how the sketch looks.</li><li>Recognise a vertical line, say why its slope is undefined rather than zero, and give the test that replaces the slope.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/coordinate-plane/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/geometry/coordinate-plane/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/coordinate-plane/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a></p><p><strong>Leads to:</strong> <a href="/foundations/models/functions-and-domain/">Functions and allowed inputs</a> · <a href="/foundations/concepts/points-lines-and-planes/">Points, lines and planes</a> · <a href="/foundations/concepts/angles/">Angles and radian measure</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/coordinate-plane/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/geometry/coordinate-plane/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/coordinate-plane/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="coordinate-plane">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="axis-point">
+<p class="check-prompt">A survey peg sits at <code>(0, -7)</code>. Which quadrant is it in?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> Neither, it is on an axis</label><label><input type="radio" name="answer" value="1"> Quadrant III</label><label><input type="radio" name="answer" value="2"> Quadrant IV</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>A point with a zero coordinate lies on a boundary, and a boundary is in no region. A question offering only III or IV has no correct option.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Peg <code>A</code> is at <code>(1, -2)</code>. Enter its quadrant number.</p>
+<form><div class="check-row"><label for="follow-coordinate-plane-axis-point">Your answer</label><input id="follow-coordinate-plane-axis-point" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>Positive <code>x</code> and negative <code>y</code> is quadrant IV.</p></details>
+</div>
+</section><section class="check" data-check="on-the-line">
+<p class="check-prompt">The line through <code>A(1, -2)</code> and <code>B(3, 2)</code> is <code>y = 2x - 4</code>. What <code>y</code> does it give at <code>x = 4</code>?</p>
+
+<form><div class="check-row"><label for="check-coordinate-plane-on-the-line">Your answer</label><input id="check-coordinate-plane-on-the-line" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>2(4) - 4 = 4</code>. So <code>C(4, 4)</code> lies on the line and <code>D(4, 3)</code> does not.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Peg <code>D</code> is at <code>(4, 3)</code>. What is the vertical gap in metres to the line <code>y = 2x - 4</code> at the same x-coordinate?</p>
+<form><div class="check-row"><label for="follow-coordinate-plane-on-the-line">Your answer <span class="check-unit">(m)</span></label><input id="follow-coordinate-plane-on-the-line" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>At <code>x = 4</code>, the line has <code>y = 4</code>. The vertical gap is <code>|4 - 3| = 1 m</code>. This is not the shortest perpendicular distance to the line.</p></details>
+</div>
+</section><section class="check" data-check="vertical">
+<p class="check-prompt">Two pegs sit at <code>(5, 1)</code> and <code>(5, 7)</code>. What is the slope of the line through them?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> Undefined</label><label><input type="radio" name="answer" value="1"> Zero</label><label><input type="radio" name="answer" value="2"> Very large</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>The run is <code>5 - 5 = 0</code>, so the slope is undefined and <code>y = mx + c</code> cannot describe the line. It is <code>x = 5</code>, and a third peg is tested by whether its <code>x</code> equals 5.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>A different pair sits at <code>(2, 6)</code> and <code>(9, 6)</code>. Enter the slope of the line through them.</p>
+<form><div class="check-row"><label for="follow-coordinate-plane-vertical">Your answer</label><input id="follow-coordinate-plane-vertical" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>The rise is <code>6 - 6 = 0</code> and the run is <code>7</code>, so the slope is <code>0</code>. This is the horizontal case, where the slope exists and equals zero — the opposite situation to the vertical line above.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a></p><p><strong>Leads to:</strong> <a href="/foundations/models/functions-and-domain/">Functions and allowed inputs</a> · <a href="/foundations/concepts/points-lines-and-planes/">Points, lines and planes</a> · <a href="/foundations/concepts/angles/">Angles and radian measure</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

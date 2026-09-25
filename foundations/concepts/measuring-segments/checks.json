@@ -1,0 +1,81 @@
+{
+ "slug": "measuring-segments",
+ "checks": [
+  {
+   "id": "negative-coord",
+   "kind": "number",
+   "prompt": "Stations `P` and `Q` sit at `-9 m` and `-3 m` on a pipe run. Find `PQ`.",
+   "answer": 6,
+   "tolerance": 0.001,
+   "unit": "m",
+   "solution": "`|-9 - (-3)| = |-6| = 6` metres. Subtracting a negative adds.",
+   "responses": [
+    {
+     "value": 12,
+     "why": "consistent with reading `-9 - (-3)` as `-9 - 3`, which mishandles the double sign."
+    }
+   ],
+   "followUp": {
+    "prompt": "Station `R` is at `4 m`. Find `QR`.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "unit": "m",
+    "solution": "`|-3 - 4| = |-7| = 7` metres. Reading `-3 - 4` as `-1` would give a one-metre weld gap instead of seven."
+   },
+   "version": 1
+  },
+  {
+   "id": "betweenness",
+   "kind": "choice",
+   "prompt": "Three marks give `DE = 8`, `EF = 5`, `DF = 11`. Is `E` between `D` and `F`?",
+   "options": [
+    {
+     "label": "No, and the three are not collinear at all",
+     "correct": true
+    },
+    {
+     "label": "No, but they are still on one line",
+     "why": "consistent with stopping at the failed addition. If the three were on one line in any order, one of the three additions would have worked; none does."
+    },
+    {
+     "label": "Yes",
+     "why": "consistent with applying the addition rule without testing it. `8 + 5 = 13`, which is not `11`."
+    }
+   ],
+   "solution": "`8 + 5 = 13 ≠ 11`, so `E` is not between them. And since the two shorter lengths exceed the longest, the marks form a triangle.",
+   "followUp": {
+    "prompt": "Marks `A`, `B`, `C` lie in that order with `AC = 30` and `AB = 11`. Find `BC`.",
+    "answer": 19,
+    "tolerance": 0.001,
+    "solution": "`BC = AC - AB = 30 - 11 = 19`, the same postulate rearranged."
+   },
+   "version": 1
+  },
+  {
+   "id": "unknown",
+   "kind": "number",
+   "prompt": "`P`, `Q`, `R` lie in that order with `PQ = 2x + 1`, `QR = x - 3`, `PR = 25`. Find `x`.",
+   "answer": 9,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`(2x + 1) + (x - 3) = 25` gives `3x - 2 = 25`, so `x = 9`.",
+   "responses": [
+    {
+     "value": 19,
+     "why": "consistent with solving for `PQ` rather than for `x`. `PQ = 2(9) + 1 = 19`."
+    },
+    {
+     "value": 8,
+     "why": "consistent with dropping the `-2` when collecting terms, solving `3x = 25` and rounding."
+    }
+   ],
+   "followUp": {
+    "prompt": "Using that `x`, find `QR`.",
+    "answer": 6,
+    "tolerance": 0.001,
+    "solution": "`QR = 9 - 3 = 6`, and `19 + 6 = 25` confirms the whole."
+   },
+   "version": 1
+  }
+ ]
+}

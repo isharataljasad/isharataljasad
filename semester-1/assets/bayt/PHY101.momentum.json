@@ -11,15 +11,15 @@
    "commonErrors": [
     {
      "value": 75,
-     "why": "قسمتَ الكتلة على السرعة. كمّ الحركة حاصل ضرب لا قسمة."
+     "why": "You divide the mass by the speed. The amount of motion is a product of multiplication, not division."
     },
     {
      "value": 300000,
-     "why": "أخطأتَ في عدد الأصفار. ‎1500 × 20 = 30000‎ لا ‎300000‎."
+     "why": "You made a mistake in the number of zeros:. 1500 × 20 = 30000, not 300000."
     },
     {
      "value": 600000,
-     "why": "ضربتَ في مربّع السرعة أو أضفتَ عامل الطاقة الحركية؛ كمّ الحركة خطي في السرعة ولا يُربّعها."
+     "why": "You multiplied by the square of the speed or added the kinetic energy factor; The quantum of motion is linear in velocity and not quadratic."
     }
    ]
   },
@@ -29,19 +29,19 @@
    "answer": 2,
    "tolerance": 0.05,
    "unit": "m/s",
-   "solution": "‎2.0(6.0) + 4.0(0) = (2.0 + 4.0) v‎، فـ ‎12 = 6.0 v‎ و‎v = 2.0 m/s‎.",
+   "solution": "2.0(6.0) + 4.0(0) = (2.0 + 4.0) v, 12 = 6.0 v and v = 2.0 m/s.",
    "commonErrors": [
     {
      "value": 6,
-     "why": "كتبتَ السرعة الابتدائية. بعد الالتحام صارت الكتلة ثلاثة أمثالها، فالسرعة لا بد أن تقلّ."
+     "why": "You wrote the initial velocity. After coalescence, the mass tripled. The speed must decrease."
     },
     {
      "value": 3,
-     "why": "قسمتَ على كتلة الجسم المتحرك وحدها. بعد الالتحام تتحرك الكتلتان معًا، فالمقام مجموعهما."
+     "why": "You divide by the mass of the moving object alone. After coalescence, the two masses move together, so the denominator is their sum."
     },
     {
      "value": 1.5,
-     "why": "قسمتَ على كتلة الجسم الساكن وحدها."
+     "why": "You divide by the mass of the body at rest alone."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 0.4,
    "tolerance": 0.02,
    "unit": "m/s",
-   "solution": "‎3.0(+4.0) + 2.0(−5.0) = 12 − 10 = +2.0‎. وبعدها ‎5.0 v = +2.0‎ فـ ‎v = +0.40 m/s‎ يمينًا.",
+   "solution": "‎3.0(+4.0) + 2.0(−5.0) = 12 − 10 = +2.0‎. Then 5.0 v = +2.0 then v = +0.40 m/s right.",
    "commonErrors": [
     {
      "value": 4.4,
-     "why": "جمعتَ المقدارين مهملًا إشارة الجسم الثاني: ‎(12 + 10)/5 = 4.4‎. الجسم الثاني يتحرك يسارًا فكمّ حركته سالب ويطرح."
+     "why": "You added the two expressions, neglecting the sign of the second object : (12 + 10)/5 = 4.4. The second body moves to the left, so its momentum is negative and subtracted."
     },
     {
      "value": -0.4,
-     "why": "أخطأتَ في الإشارة النهائية. كمّ حركة الأول ‎12‎ أكبر من ‎10‎، فالمحصّلة موجبة والحركة يمينًا."
+     "why": "You missed the final sign. The momentum of the first 12 is greater than 10, so the resultant is positive and the movement is to the right."
     },
     {
      "value": 2,
-     "why": "توقفتَ عند مجموع كمّ الحركة ‎+2.0 kg·m/s‎ ولم تقسمه على الكتلة الكلية."
+     "why": "You stopped at the total momentum +2.0 kg·m/s and did not divide it by the total mass."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": 10,
    "tolerance": 0.1,
    "unit": "N·s",
-   "solution": "‎J = F Δt = 200 × 0.050 = 10 N·s‎، وهي تكافئ ‎10 kg·m/s‎ من التغيّر في كمّ الحركة.",
+   "solution": "J = F Δt = 200 × 0.050 = 10 N·s, which is equivalent to 10 kg·m/s in terms of momentum change.",
    "commonErrors": [
     {
      "value": 4000,
-     "why": "قسمتَ القوة على الزمن. الدفع حاصل ضرب؛ والقسمة على الزمن تعطي معدل تغيّر القوة وهو ليس المطلوب."
+     "why": "You divided power by time. impulse is a product of multiplication; Dividing by time gives the rate of change of force, which is not what is required."
     },
     {
      "value": 200,
-     "why": "كتبتَ القوة. الدفع يجمع القوة والزمن معًا، ووحدته ‎N·s‎ لا ‎N‎."
+     "why": "You wrote force. Thrust combines force and time, and its unit is N·s, not N."
     },
     {
      "value": 0.05,
-     "why": "كتبتَ الزمن بدل الدفع."
+     "why": "You wrote time instead of impulse."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 24,
    "tolerance": 0.5,
    "unit": "J",
-   "solution": "قبل: ‎½(2.0)(6.0)² = 36 J‎. وبعد: ‎½(6.0)(2.0)² = 12 J‎. فالمفقود ‎36 − 12 = 24 J‎، تحوّل إلى حرارة وتشوّه وصوت.",
+   "solution": "Before : ½(2.0)(6.0)² = 36 J. and after : ½(6.0)(2.0)² = 12 J. The missing 36 − 12 = 24 J turned into heat, distortion, and sound.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "افترضتَ أن الطاقة الحركية محفوظة. هي محفوظة في التصادم المرن وحده؛ والالتحام أكبر أنواع التصادم فقدًا للطاقة. والمحفوظ هنا كمّ الحركة لا الطاقة."
+     "why": "You assumed that kinetic energy is conserved. They are preserved in elastic collision alone; Coalition is the type of collision that loses the most energy. What is preserved here is the momentum, not the energy."
     },
     {
      "value": 36,
-     "why": "كتبتَ الطاقة قبل التصادم لا المفقود منها."
+     "why": "You wrote the energy before the collision, not the energy lost."
     },
     {
      "value": 12,
-     "why": "كتبتَ الطاقة بعد التصادم لا الفرق بينهما."
+     "why": "You wrote the energy after the collision, not the difference between them."
     }
    ]
   }

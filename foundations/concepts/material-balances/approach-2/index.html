@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · A First Material Balance | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/material-balances/">A first material balance</a> / Approach 2</p>
@@ -34,6 +34,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Sort the given numbers into masses and mass flow rates, and say why inventory drops out at steady state.</li><li>State the general balance and check the two conditions before reducing it to input = output.</li><li>Balance total and component in separate columns, and say which quantity changed and which did not.</li><li>Explain why averaging two mass fractions is wrong, and name the condition under which it happens to work.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/material-balances/approach-1/">Curriculum reference</a> — the balance and its conditions as lookup tables.</li><li><a href="/program/lessons/material-balances/">Starter lesson</a> — the full explanation with a worked mixer and an explorer.</li><li><a href="/foundations/concepts/material-balances/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/order-of-operations/">Order of operations</a> · <a href="/foundations/concepts/variables-and-expressions/">Variables and expressions</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/material-balances/approach-1/">Curriculum reference</a> — the balance and its conditions as lookup tables.</li><li><a href="/program/lessons/material-balances/">Starter lesson</a> — the full explanation with a worked mixer and an explorer.</li><li><a href="/foundations/concepts/material-balances/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="material-balances">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="total">
+<p class="check-prompt">Feed A is <code>100 kg/h</code> and feed B is <code>50 kg/h</code> into a steady mixer with no reaction. Find the outlet flow.</p>
+
+<form><div class="check-row"><label for="check-material-balances-total">Your answer <span class="check-unit">(kg/h)</span></label><input id="check-material-balances-total" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Steady state with no reaction gives input = output: <code>100 + 50 = 150 kg/h</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>A different tank receives <code>10 kg/h</code> and discharges <code>7 kg/h</code>. Enter its accumulation.</p>
+<form><div class="check-row"><label for="follow-material-balances-total">Your answer <span class="check-unit">(kg/h)</span></label><input id="follow-material-balances-total" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>10 - 7 = 3 kg/h</code>. Here input does not equal output, so the short form is unavailable.</p></details>
+</div>
+</section><section class="check" data-check="fraction">
+<p class="check-prompt">Feed A is <code>100 kg/h</code> at <code>20%</code> solute by mass; feed B is <code>50 kg/h</code> of pure water. Find the outlet solute mass fraction, as a percentage.</p>
+
+<form><div class="check-row"><label for="check-material-balances-fraction">Your answer <span class="check-unit">(%)</span></label><input id="check-material-balances-fraction" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Solute: <code>100 × 0.20 = 20 kg/h</code>. Total: <code>150 kg/h</code>. Fraction: <code>20/150 = 13.33%</code>. The solute flow did not change; the total it sits in grew.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Enter the outlet solute flow in <code>kg/h</code> for the same mixer.</p>
+<form><div class="check-row"><label for="follow-material-balances-fraction">Your answer <span class="check-unit">(kg/h)</span></label><input id="follow-material-balances-fraction" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>20 + 0 = 20 kg/h</code>, unchanged. Dilution moves the fraction and leaves the component flow alone.</p></details>
+</div>
+</section><section class="check" data-check="weighted">
+<p class="check-prompt">Feed A is <code>80 kg/h</code> at <code>15%</code> solute; feed B is <code>70 kg/h</code> of pure water. Find the outlet mass fraction, as a percentage.</p>
+
+<form><div class="check-row"><label for="check-material-balances-weighted">Your answer <span class="check-unit">(%)</span></label><input id="check-material-balances-weighted" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Solute in: <code>80 × 0.15 = 12 kg/h</code>. Total: <code>150 kg/h</code>. Fraction: <code>12/150 = 8.00%</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>If both feeds were <code>75 kg/h</code>, one at <code>15%</code> and one pure, what would the outlet fraction be, as a percentage?</p>
+<form><div class="check-row"><label for="follow-material-balances-weighted">Your answer <span class="check-unit">(%)</span></label><input id="follow-material-balances-weighted" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>75 × 0.15 = 11.25 kg/h</code> in <code>150 kg/h</code>, which is <code>7.5%</code>. With equal flows the unweighted average happens to be right — which is exactly the condition it needs.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/order-of-operations/">Order of operations</a> · <a href="/foundations/concepts/variables-and-expressions/">Variables and expressions</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

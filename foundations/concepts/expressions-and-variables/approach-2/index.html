@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Expressions and Variables | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/expressions-and-variables/">Expressions and variables</a> / Approach 2</p>
@@ -44,6 +44,55 @@
 <ol><li>Say, for any written string, whether it admits &quot;what value?&quot; or &quot;which values make it true?&quot;.</li><li>Translate a phrase whose grouping is carried by a word like &quot;total&quot;, &quot;sum&quot; or &quot;the whole of&quot;.</li><li>Substitute a negative value with the bracket that keeps its sign attached.</li><li>Multiply two quantities and report the unit that survives, and refuse an addition whose units disagree.</li></ol>
 <p>If any of these is still uncertain, the reference route lists the governing rule in one line; the written guide gives the reasoning behind it.</p>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/expressions-and-variables/approach-1/">Curriculum reference</a> — the rules behind these decisions, as lookup tables.</li><li><a href="/foundations/reading/basic-math/expressions-and-variables/">Written teaching guide</a> — the full explanation, worked slowly.</li><li><a href="/foundations/concepts/expressions-and-variables/">Concept hub</a> — prerequisites and what this leads to.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Leads to:</strong> <a href="/foundations/concepts/exponents/">Exponents</a> · <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/expressions-and-variables/approach-1/">Curriculum reference</a> — the rules behind these decisions, as lookup tables.</li><li><a href="/foundations/reading/basic-math/expressions-and-variables/">Written teaching guide</a> — the full explanation, worked slowly.</li><li><a href="/foundations/concepts/expressions-and-variables/">Concept hub</a> — prerequisites and what this leads to.</li></ul><section class="concept-checks" data-concept-checks="expressions-and-variables">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="classify">
+<p class="check-prompt">A print shop writes <code>pq + d</code> on a quote. What kind of object is it?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> An expression</label><label><input type="radio" name="answer" value="1"> An equation</label><label><input type="radio" name="answer" value="2"> An inequality</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>pq + d</code> is an expression: it has a value once <code>p</code>, <code>q</code> and <code>d</code> are assigned, and it claims nothing. &quot;Solve it&quot; is not a question it admits.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now decide: what kind of object is <code>pq + d = 31</code>?</p>
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> An equation</label><label><input type="radio" name="answer" value="1"> An expression</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>It is an equation. It claims the two sides agree, and that claim can be true or false depending on the assignment.</p></details>
+</div>
+</section><section class="check" data-check="translate">
+<p class="check-prompt">Write &quot;twice the total of the item cost <code>pq</code> and the delivery <code>d</code>&quot; and evaluate it at <code>p = 7</code>, <code>q = 4</code>, <code>d = 3</code>.</p>
+<p class="check-prereq">Needs a step you are unsure of? <a href="/foundations/concepts/order-of-operations/approach-1/">Order of operations</a></p>
+<form><div class="check-row"><label for="check-expressions-and-variables-translate">Your answer <span class="check-unit">(riyals)</span></label><input id="check-expressions-and-variables-translate" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>2(pq + d) = 2(28 + 3) = 62</code>. The words &quot;the total of ... and ...&quot; name one quantity, and &quot;twice&quot; applies to all of it.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>A different phrasing: &quot;the item cost, plus twice the delivery&quot;. Evaluate it at the same values.</p>
+<form><div class="check-row"><label for="follow-expressions-and-variables-translate">Your answer <span class="check-unit">(riyals)</span></label><input id="follow-expressions-and-variables-translate" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>pq + 2d = 28 + 6 = 34</code>. Here &quot;twice&quot; reaches only the delivery, because the words group it that way.</p></details>
+</div>
+</section><section class="check" data-check="substitute">
+<p class="check-prompt">Evaluate <code>2a² + b</code> at <code>a = -3</code> and <code>b = 5</code>.</p>
+
+<form><div class="check-row"><label for="check-expressions-and-variables-substitute">Your answer</label><input id="check-expressions-and-variables-substitute" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>2(-3)² + 5 = 2(9) + 5 = 23</code>. The bracket around <code>-3</code> keeps the sign inside the base.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now evaluate <code>b - a²</code> at the same values, <code>a = -3</code> and <code>b = 5</code>.</p>
+<form><div class="check-row"><label for="follow-expressions-and-variables-substitute">Your answer</label><input id="follow-expressions-and-variables-substitute" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>5 - (-3)² = 5 - 9 = -4</code>. The square is positive, and it is subtracted.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Leads to:</strong> <a href="/foundations/concepts/exponents/">Exponents</a> · <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

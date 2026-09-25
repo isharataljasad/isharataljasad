@@ -11,7 +11,7 @@
    "commonErrors": [
     {
      "value": 0.36,
-     "why": "جمعت القيم بإشاراتها بدل طرح جهد اختزال الأنود."
+     "why": "The values are added by their sign instead of subtracting the anode reduction voltage."
     }
    ]
   },
@@ -25,7 +25,7 @@
    "commonErrors": [
     {
      "value": 192.97,
-     "why": "الجهد الموجب يقابل ΔG سالبة للتفاعل المكتوب."
+     "why": "A positive voltage corresponds to a negative ΔG for the written reaction."
     }
    ]
   },
@@ -35,11 +35,11 @@
    "answer": 1.04084,
    "tolerance": 0.0002,
    "unit": "V",
-   "solution": "log10(100)=2، فنطرح 0.05916.",
+   "solution": "log10(100)=2, so we subtract 0.05916.",
    "commonErrors": [
     {
      "value": 1.15916,
-     "why": "Q الأكبر من واحد يخفض الجهد في الاتجاه المكتوب."
+     "why": "Q greater than one reduces the voltage in the written direction."
     }
    ]
   },
@@ -49,11 +49,11 @@
    "answer": 600,
    "tolerance": 0.001,
    "unit": "C",
-   "solution": "5 دقائق=300 s؛ q=2×300.",
+   "solution": "5 minutes=300 s; q=2×300.",
    "commonErrors": [
     {
      "value": 10,
-     "why": "لم تحول الدقائق إلى ثوان."
+     "why": "Didn't turn minutes into seconds."
     }
    ]
   },
@@ -63,11 +63,11 @@
    "answer": 1,
    "tolerance": 0.001,
    "unit": "mol",
-   "solution": "هذه 2 mol إلكترونات، فتنتج 1 mol Cu.",
+   "solution": "These are 2 mol electrons, producing 1 mol Cu.",
    "commonErrors": [
     {
      "value": 2,
-     "why": "نسيت إلكترونين لكل أيون نحاس."
+     "why": "You forgot two electrons for each copper ion."
     }
    ]
   },
@@ -76,12 +76,12 @@
    "version": "97defedebd73",
    "answer": 1,
    "tolerance": 0.001,
-   "unit": "اختيار عددي",
-   "solution": "نعم دائمًا؛ تتغير الإشارة مقارنة بالجلفانية لكن التعريف ثابت.",
+   "unit": "Numerical selection",
+   "solution": "Yes always; The sign changes compared to galvanism but the definition is constant.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "خلطت تعريف القطب بإشارته الكهربائية."
+     "why": "I mixed up the definition of an electrode with its electrical sign."
     }
    ]
   }

@@ -14,68 +14,68 @@
 
 /* حالات المحتوى. تظهر للطالب كما هي، دون تجميل. */
 export const statuses = {
-  ready: { label: 'متاح الآن', tone: 'ready' },
-  partial: { label: 'متاح جزئيًا', tone: 'partial' },
-  soon: { label: 'قيد التطوير', tone: 'soon' },
+  ready: { label: "Available now", tone: 'ready' },
+  partial: { label: "Partially available", tone: 'partial' },
+  soon: { label: "Under development", tone: 'soon' },
 };
 
 /* الأقسام السبعة. الترتيب هو ترتيب العرض في الصفحة الرئيسة. */
 export const sections = [
   {
     id: 'planner',
-    title: 'التخطيط',
-    line: 'الوقت، الأولويات، الصحة، العلاقات، الميزانية، والعادات.',
+    title: "Planning",
+    line: "Time, priorities, health, relationships, budget, and habits.",
     href: '/bayt/planner/',
     status: 'partial',
-    note: 'الأسبوع والمهام والعادات تعمل وتُحفظ على جهازك. الميزانية والعلاقات لم تُبنَ بعد.',
+    note: "Week, tasks and habits are running and saved on your device. Budget and relationships not yet built.",
   },
   {
     id: 'english',
-    title: 'الإنجليزية',
-    line: 'اللغة الأكاديمية، الكتابة والتقارير، والتحضير لـ IELTS Academic.',
+    title: "English",
+    line: "Academic language, writing and reports, and preparation for IELTS Academic.",
     href: '/bayt/english/',
     status: 'partial',
-    note: 'درس كتابة تقنية واحد مكتمل داخل بيت الفؤاد، وثلاثة مسارات دراسية سابقة. لا ضمان لأي درجة.',
+    note: "One technical writing lesson completed within Bayt Al-Fuad, and three previous courses of study. No guarantee of any grade.",
   },
   {
     id: 'math',
-    title: 'الرياضيات',
-    line: 'الأساسيات ثم التفاضل والتكامل، بشرح قبل السؤال.',
+    title: "Mathematics",
+    line: "The basics, then calculus, with an explanation before the question.",
     href: '/foundations/concepts/',
     status: 'partial',
-    note: 'أحد عشر فصلًا مكتوبًا من أصل 296 حلقة مفهرسة، وتسعة مواضيع في تفاضل وتكامل 101.',
+    note: "Eleven written chapters of the original 296 indexed episode, and nine topics in the 101. calculus.",
   },
   {
     id: 'physics',
-    title: 'الفيزياء',
-    line: 'القياس والحركة والقوى والطاقة.',
+    title: "Physics",
+    line: "Measurement, motion, forces and energy.",
     href: '/semester-1/physics/',
     status: 'partial',
-    note: 'ثمانية مواضيع بشرح وتمرين. لم تُراجع بعد بعمق مثل مواد الأساسيات.',
+    note: "Eight topics with explanation and exercises. It has not yet been reviewed as deeply as the Essentials materials.",
   },
   {
     id: 'chemistry',
-    title: 'الكيمياء',
-    line: 'الذرّة والروابط والمحاليل والاتزان.',
+    title: "Chemistry",
+    line: "Atoms, bonds, solutions, and equilibrium.",
     href: '/semester-1/chemistry/',
     status: 'partial',
-    note: 'تسعة مواضيع، وساحة تفاعلية للتركيب الذري.',
+    note: "Nine topics, and an interactive arena for atomic structure.",
   },
   {
     id: 'biology',
-    title: 'الأحياء',
-    line: 'فهرس مصادر ومسارات دراسة.',
+    title: "Biology",
+    line: "Index of sources and study paths.",
     href: '/biology/',
     status: 'soon',
-    note: 'فهرسة مصادر فقط. لا توجد دروس أصلية مكتوبة بعد.',
+    note: "Indexing sources only. There are no original lessons written yet.",
   },
   {
     id: 'future',
-    title: 'المستقبل',
-    line: 'التدريب، المهارات المهنية، المشروعات، وملف الإنجاز.',
+    title: "The future",
+    line: "Training, professional skills, projects, and portfolio.",
     href: '/bayt/portfolio/',
     status: 'partial',
-    note: 'ملف الإنجاز يعمل ويحفظ ما تنجزه. أدلة التدريب والمشروعات لم تُكتب بعد.',
+    note: "Achievement file runs and saves what you accomplish. Training and project manuals have not yet been written.",
   },
 ];
 
@@ -84,37 +84,37 @@ export const sections = [
 export const skills = [
   {
     id: 'SKILL-MATBAL',
-    title: 'موازنة المواد حول حدود نظام',
-    why: 'أول أداة حقيقية في الهندسة الكيميائية: ترسم حدودًا، وتحسب ما يدخل وما يخرج.',
+    title: "material balance around the boundaries of a system",
+    why: "The first real tool in chemical engineering: it draws boundaries, calculates what goes in and what goes out.",
     section: 'chemistry',
-    learn: { href: '/program/lessons/material-balances/', label: 'درس موازنة المواد', minutes: 25 },
-    evidence: 'حساب تركيز مخرج خلّاط بخطوات مشروحة.',
+    learn: { href: '/program/lessons/material-balances/', label: "material balance lesson", minutes: 25 },
+    evidence: "Calculating the concentration of the mixer outlet with explained steps.",
   },
   {
     id: 'SKILL-UNITS',
-    title: 'الوحدات والكسور الكتلية',
-    why: 'أكثر أخطاء الحسابات الهندسية سببها وحدة لم تُوحَّد قبل الجمع، أو نسبة مئوية ضُربت دون قسمتها على مئة.',
+    title: "Units and mass fractions",
+    why: "Most errors in engineering calculations are caused by a unit that was not standardized before addition, or a percentage that was multiplied without dividing it by a hundred.",
     section: 'math',
     /* كان هذا يشير إلى درس ترتيب العمليات، وهو لا يغطي الوحدات ولا الكسور
        الكتلية. كُتب درس أصلي يغطي المهارة فعلًا ويمهّد لموازنة المواد. */
-    learn: { href: '/bayt/math/units-and-mass-fractions/', label: 'درس الوحدات والكسور الكتلية', minutes: 20 },
-    evidence: 'تحويل وحدات بعامل تحويل، وحساب تدفق مكوّن من كسر كتلي.',
+    learn: { href: '/bayt/math/units-and-mass-fractions/', label: "Study mass units and fractions", minutes: 20 },
+    evidence: "Convert units with a conversion factor, and calculate a mass fraction flow.",
   },
   {
     id: 'SKILL-PROCESS-WRITING',
-    title: 'وصف عملية صناعية بالإنجليزية',
-    why: 'التقرير الذي لا يُفهم لا يُقرأ. وصف العملية هو أول ما يُطلب في أي تقرير مختبر أو تدريب.',
+    title: "Description of an industrial process in English",
+    why: "A report that is not understood is not read. A description of the process is the first thing requested in any laboratory or training report.",
     section: 'english',
-    learn: { href: '/bayt/english/process-description/', label: 'درس وصف العملية', minutes: 20 },
-    evidence: 'فقرة إنجليزية تصف عملية خلط، مع مراجعة ذاتية.',
+    learn: { href: '/bayt/english/process-description/', label: "Lesson describing the process", minutes: 20 },
+    evidence: "An English paragraph describing a mixing process, with self-review.",
   },
   {
     id: 'SKILL-GEOMETRY-READ',
-    title: 'قراءة رسم هندسي دون افتراضات',
-    why: 'الرسم نموذج لا دليل. تمييز المذكور عن الظاهر يمنع أخطاء كثيرة لاحقًا.',
+    title: "Read an engineering drawing without assumptions",
+    why: "Model drawing not guide. Distinguishing what is stated from what is apparent prevents many mistakes later.",
     section: 'math',
-    learn: { href: '/foundations/concepts/points-lines-and-planes/', label: 'النقاط والمستقيمات والمستويات', minutes: 30 },
-    evidence: 'تحديد ما يجوز استنتاجه من رسم وما لا يجوز.',
+    learn: { href: '/foundations/concepts/points-lines-and-planes/', label: "Points, lines and planes", minutes: 30 },
+    evidence: "Determine what is permissible to be inferred from a drawing and what is not permissible.",
   },
 ];
 
@@ -122,43 +122,43 @@ export const skills = [
 export const goals = [
   {
     id: 'GOAL-CE201-REPORT',
-    title: 'أنجز أول تقرير موازنة مواد',
-    audience: 'طالب هندسة كيميائية · الفصل الثالث',
-    summary: 'تتعلّم موازنة المواد، تحسب مثالًا، ثم تصف العملية بالإنجليزية كما يُطلب في التقرير.',
+    title: "Complete your first material balance report",
+    audience: "Chemical engineering student, third semester",
+    summary: "You learn to balance materials, calculate an example, and then describe the process in English as requested in the report.",
     course: 'CE201',
     skills: ['SKILL-UNITS', 'SKILL-MATBAL', 'SKILL-PROCESS-WRITING'],
-    outcome: 'تقرير واحد يجمع الحساب بوحداته وافتراضاته مع الوصف الإنجليزي، محفوظ وقابل للتعديل.',
+    outcome: "One report that combines the calculation with its units and assumptions with the English description, saved and editable.",
     status: 'ready',
-    report: { href: '/bayt/report/', label: 'افتح نموذج التقرير' },
+    report: { href: '/bayt/report/', label: "Open the report form" },
     weekPlan: [
-      { skill: 'SKILL-UNITS', day: 0, minutes: 20, title: 'ادرس الوحدات والكسور الكتلية' },
-      { skill: 'SKILL-MATBAL', day: 1, minutes: 25, title: 'ادرس درس موازنة المواد' },
-      { skill: 'SKILL-MATBAL', day: 2, minutes: 15, title: 'احسب مثال الخلّاط بنفسك' },
-      { skill: 'SKILL-PROCESS-WRITING', day: 3, minutes: 20, title: 'ادرس وصف العملية بالإنجليزية' },
-      { skill: 'SKILL-PROCESS-WRITING', day: 4, minutes: 30, title: 'اكتب التقرير كاملًا واحفظه' },
+      { skill: 'SKILL-UNITS', day: 0, minutes: 20, title: "Study mass units and fractions" },
+      { skill: 'SKILL-MATBAL', day: 1, minutes: 25, title: "Study the lesson on material balance" },
+      { skill: 'SKILL-MATBAL', day: 2, minutes: 15, title: "Calculate the mixer example yourself" },
+      { skill: 'SKILL-PROCESS-WRITING', day: 3, minutes: 20, title: "Study the description of the process in English" },
+      { skill: 'SKILL-PROCESS-WRITING', day: 4, minutes: 30, title: "Write the complete report and save it" },
     ],
   },
   {
     id: 'GOAL-IELTS-7',
-    title: 'التحضير لـ IELTS Academic بهدف 7',
-    audience: 'طالب جامعي يخطط لدراسات عليا',
-    summary: 'مسار طويل. المتاح الآن جزء الكتابة الأكاديمية فقط داخل بيت الفؤاد.',
+    title: "Preparing for IELTS Academic with the goal of 7",
+    audience: "A college student planning graduate studies",
+    summary: "Long path. Only the academic writing section is available now within Bayt Al-Fuad.",
     course: null,
     skills: ['SKILL-PROCESS-WRITING'],
-    outcome: 'نماذج كتابة مصحّحة ذاتيًا. الدرجة لا يضمنها أحد.',
+    outcome: "Self-corrected writing samples. The degree is not guaranteed by anyone.",
     status: 'partial',
     weekPlan: [
-      { skill: 'SKILL-PROCESS-WRITING', day: 1, minutes: 20, title: 'ادرس وصف العملية بالإنجليزية' },
+      { skill: 'SKILL-PROCESS-WRITING', day: 1, minutes: 20, title: "Study the description of the process in English" },
     ],
   },
   {
     id: 'GOAL-COOP',
-    title: 'الاستعداد للتدريب التعاوني',
-    audience: 'طالب يقترب من سنة التدريب',
-    summary: 'المهارات والملف المهني. لم تُكتب أدلة هذا المسار بعد.',
+    title: "Preparing for cooperative training",
+    audience: "A student approaching his training year",
+    summary: "Skills and professional profile. The evidence for this path has not yet been written.",
     course: 'CE490',
     skills: [],
-    outcome: 'ملف إنجاز قابل للعرض على جهة التدريب.',
+    outcome: "An achievement file that can be viewed by the training entity.",
     status: 'soon',
     weekPlan: [],
   },
@@ -166,13 +166,13 @@ export const goals = [
 
 /* عادات أسبوعية افتراضية يقترحها التخطيط. الطالب يضيف أو يحذف. */
 export const suggestedHabits = [
-  { id: 'HABIT-SLEEP', title: 'نوم منتظم قبل منتصف الليل', area: 'الصحة' },
-  { id: 'HABIT-MOVE', title: 'حركة 30 دقيقة', area: 'الصحة' },
-  { id: 'HABIT-REVIEW', title: 'مراجعة 20 دقيقة قبل النوم', area: 'الدراسة' },
-  { id: 'HABIT-CONTACT', title: 'تواصل مع الأهل', area: 'العلاقات' },
+  { id: 'HABIT-SLEEP', title: "Regular sleep before midnight", area: "Health" },
+  { id: 'HABIT-MOVE', title: "30 minutes of movement", area: "Health" },
+  { id: 'HABIT-REVIEW', title: "20-minute review before bed", area: "Study" },
+  { id: 'HABIT-CONTACT', title: "Communicate with parents", area: "Relationships" },
 ];
 
-export const days = ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'];
+export const days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 export const skillById = new Map(skills.map((s) => [s.id, s]));
 export const goalById = new Map(goals.map((g) => [g.id, g]));

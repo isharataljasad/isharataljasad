@@ -11,7 +11,7 @@
    "commonErrors": [
     {
      "value": 1.2566370614359172,
-     "why": "استعملت نصف القطر دون تربيعه أو فقدت عاملًا. اكتب 4πr² كاملًا."
+     "why": "You used the radius without squaring it or you lost a factor. Type 4πr² in full."
     }
    ]
   },
@@ -21,11 +21,11 @@
    "answer": 0.1909859317102744,
    "tolerance": 0.001,
    "unit": "m/s",
-   "solution": "نقسم التدفق الحجمي على πR².",
+   "solution": "We divide the volumetric flux by πR².",
    "commonErrors": [
     {
      "value": 0.6,
-     "why": "ساويت الحجم بالارتفاع دون مساحة القاعدة."
+     "why": "I equated the volume to the height without the base area."
     }
    ]
   },
@@ -35,11 +35,11 @@
    "answer": -0.3,
    "tolerance": 0.001,
    "unit": "m/s",
-   "solution": "y=8 ثم dy/dt=−6(0.4)/8.",
+   "solution": "y=8 then dy/dt=−6(0.4)/8.",
    "commonErrors": [
     {
      "value": 0.3,
-     "why": "هذه قيمة السرعة المطلقة، لكن المطلوب معدل تغير الارتفاع بإشارته."
+     "why": "This is the absolute speed value, but what is required is the rate of change of altitude with its sign."
     }
    ]
   },
@@ -49,11 +49,11 @@
    "answer": 0.15915494309189535,
    "tolerance": 0.001,
    "unit": "m/s",
-   "solution": "V=πh³/12، لذلك dV/dt=πh² dh/dt/4. عند h=2 نقسم على π.",
+   "solution": "V=πh³/12, so dV/dt=πh² dh/dt/4. when h=2 we divide by π.",
    "commonErrors": [
     {
      "value": 0.5,
-     "why": "أغفلت المساحة المتغيرة التي تظهر بعد الاشتقاق."
+     "why": "I ignored the variable space that appears after the derivation."
     }
    ]
   },
@@ -63,11 +63,11 @@
    "answer": 37.69911184307752,
    "tolerance": 0.02,
    "unit": "cm²/s",
-   "solution": "A=πr² فتكون dA/dt=2πr dr/dt=12π.",
+   "solution": "A=πr² becomes dA/dt=2πr dr/dt=12π.",
    "commonErrors": [
     {
      "value": 18.84955592153876,
-     "why": "نسيت معدل تغير نصف القطر أو عامل 2."
+     "why": "I forgot the rate of change of radius or 2. factor"
     }
    ]
   }

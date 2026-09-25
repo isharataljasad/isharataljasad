@@ -1,0 +1,614 @@
+{
+  "ma101.limits.direct": {
+    "englishHash": "31e89b04653a",
+    "compatibleVersion": "bcfe471ec183"
+  },
+  "ma101.limits.factor": {
+    "englishHash": "2b6160ee988e",
+    "compatibleVersion": "e437976e3dfa"
+  },
+  "ma101.limits.value-vs-limit": {
+    "englishHash": "5ea28d90f006",
+    "compatibleVersion": "d675c43dd870"
+  },
+  "ma101.limits.one-sided": {
+    "englishHash": "8e603d5d6e74",
+    "compatibleVersion": "5dad72b8713c"
+  },
+  "ma101.limits.conjugate": {
+    "englishHash": "3d764034a56c",
+    "compatibleVersion": "9780a8f70f1c"
+  },
+  "ma101.limits.trig-limit": {
+    "englishHash": "7bba23d29231",
+    "compatibleVersion": "8b6fbc6ca559"
+  },
+  "ma101.limits.infinite-limit": {
+    "englishHash": "7546a54001ef",
+    "compatibleVersion": "0d3a7e4a32da"
+  },
+  "ma101.limits.epsilon": {
+    "englishHash": "129799e094e5",
+    "compatibleVersion": "58ea978da66e"
+  },
+  "ma101.continuity.removable-value": {
+    "englishHash": "28551f545478",
+    "compatibleVersion": "1ba37636949c"
+  },
+  "ma101.continuity.jump-size": {
+    "englishHash": "5673f7c16566",
+    "compatibleVersion": "d6941a6c4031"
+  },
+  "ma101.continuity.infinite-point": {
+    "englishHash": "976c875b50ae",
+    "compatibleVersion": "3452ba9c1634"
+  },
+  "ma101.continuity.three-conditions": {
+    "englishHash": "673c6d200a22",
+    "compatibleVersion": "8e2c4c4c29fe"
+  },
+  "ma101.continuity.piecewise-constant": {
+    "englishHash": "873688e7c955",
+    "compatibleVersion": "5e03c8dafe86"
+  },
+  "ma101.derivative.from-definition": {
+    "englishHash": "28ecfed8b6d7",
+    "compatibleVersion": "2486e7cbeb19"
+  },
+  "ma101.derivative.average-rate": {
+    "englishHash": "48636666c560",
+    "compatibleVersion": "2fc85d616e8a"
+  },
+  "ma101.derivative.polynomial-point": {
+    "englishHash": "10cf56e5ae3a",
+    "compatibleVersion": "6f6c1f583225"
+  },
+  "ma101.derivative.velocity": {
+    "englishHash": "594f93955fba",
+    "compatibleVersion": "3a4d37918e39"
+  },
+  "ma101.derivative.reciprocal": {
+    "englishHash": "ad0219a98f47",
+    "compatibleVersion": "c5e2272cb937"
+  },
+  "ma101.rules.power": {
+    "englishHash": "0edfb56b69bc",
+    "compatibleVersion": "8357eeb76998"
+  },
+  "ma101.rules.product": {
+    "englishHash": "1cbbd69336c6",
+    "compatibleVersion": "1f5b23a37791"
+  },
+  "ma101.rules.quotient": {
+    "englishHash": "df013633cee3",
+    "compatibleVersion": "f21dbf479885"
+  },
+  "ma101.rules.chain": {
+    "englishHash": "bad52c0add95",
+    "compatibleVersion": "11841d86723e"
+  },
+  "ma101.rules.negative-exponent": {
+    "englishHash": "6548b4fd4822",
+    "compatibleVersion": "40199678d3e9"
+  },
+  "ma101.rules.trig-derivative": {
+    "englishHash": "25f685ee76dd",
+    "compatibleVersion": "11d52141e822"
+  },
+  "ma101.rules.implicit": {
+    "englishHash": "57abf244578f",
+    "compatibleVersion": "1caa0233b066"
+  },
+  "ma101.rules.log-derivative": {
+    "englishHash": "0d1577ea7014",
+    "compatibleVersion": "c63e315eec02"
+  },
+  "ma101.rules.second": {
+    "englishHash": "ab8a64221074",
+    "compatibleVersion": "9e7956b03fc2"
+  },
+  "ma101.rules.variable-power": {
+    "englishHash": "dabfe5a94351",
+    "compatibleVersion": "66e13e479a71"
+  },
+  "ma101.related-rates.sphere": {
+    "englishHash": "e09588186833",
+    "compatibleVersion": "755d0dc0a2dd"
+  },
+  "ma101.related-rates.cylinder": {
+    "englishHash": "10592a88f7fe",
+    "compatibleVersion": "7082bf636467"
+  },
+  "ma101.related-rates.ladder": {
+    "englishHash": "de6fb53090fe",
+    "compatibleVersion": "a83b50dde33c"
+  },
+  "ma101.related-rates.cone": {
+    "englishHash": "d4dc961e114d",
+    "compatibleVersion": "8709ef8854d1"
+  },
+  "ma101.related-rates.area": {
+    "englishHash": "91019db5f797",
+    "compatibleVersion": "d1f8ad24c3fc"
+  },
+  "ma101.approximation.root": {
+    "englishHash": "d29516d524c2",
+    "compatibleVersion": "6c02c53b030f"
+  },
+  "ma101.approximation.cube": {
+    "englishHash": "4dfa01977136",
+    "compatibleVersion": "c716eb67124d"
+  },
+  "ma101.approximation.relative": {
+    "englishHash": "3404c037e112",
+    "compatibleVersion": "cbf957545e60"
+  },
+  "ma101.approximation.reciprocal": {
+    "englishHash": "32b78cdcc846",
+    "compatibleVersion": "2e3f3cef9437"
+  },
+  "ma101.approximation.direction": {
+    "englishHash": "42a7761a734e",
+    "compatibleVersion": "1dbbe3d0f01b"
+  },
+  "ma101.mean-value.rolle": {
+    "englishHash": "5cb28959057f",
+    "compatibleVersion": "9e176896acd0"
+  },
+  "ma101.mean-value.mvt": {
+    "englishHash": "ffb9f14ff78a",
+    "compatibleVersion": "0852fb01ddd7"
+  },
+  "ma101.mean-value.invalid": {
+    "englishHash": "c23fe1e5d7e2",
+    "compatibleVersion": "cf7d93c27866"
+  },
+  "ma101.mean-value.motion": {
+    "englishHash": "5526f27a673c",
+    "compatibleVersion": "6bbe0d235517"
+  },
+  "ma101.mean-value.multiple": {
+    "englishHash": "48e1a99999ab",
+    "compatibleVersion": "5ff5910ea361"
+  },
+  "ma101.curve-shape.critical": {
+    "englishHash": "18d9c380c78f",
+    "compatibleVersion": "5d14d8d36288"
+  },
+  "ma101.curve-shape.minimum": {
+    "englishHash": "9719c64a6744",
+    "compatibleVersion": "ed0ca8b299ef"
+  },
+  "ma101.curve-shape.inflection": {
+    "englishHash": "85fdb650b5eb",
+    "compatibleVersion": "c315766147ec"
+  },
+  "ma101.curve-shape.absolute": {
+    "englishHash": "6e9c07eab222",
+    "compatibleVersion": "6e841a04ab72"
+  },
+  "ma101.curve-shape.concavity": {
+    "englishHash": "593058db14cb",
+    "compatibleVersion": "9025c8a2b8fd"
+  },
+  "ma101.optimization.max-area": {
+    "englishHash": "0873ff98d2f6",
+    "compatibleVersion": "b0114a9168d8"
+  },
+  "ma101.optimization.min-sum-squares": {
+    "englishHash": "ad964a6e3d77",
+    "compatibleVersion": "d20c05f5c5f1"
+  },
+  "ma101.optimization.box-cut": {
+    "englishHash": "a1ca0c9ef28f",
+    "compatibleVersion": "c65b81c24251"
+  },
+  "ma101.optimization.endpoint": {
+    "englishHash": "a636bf206bd1",
+    "compatibleVersion": "7176f2c97d01"
+  },
+  "ma101.optimization.fence-wall": {
+    "englishHash": "c1f2242a0685",
+    "compatibleVersion": "78f309a5104d"
+  },
+  "phy101.measurement.convert-speed": {
+    "englishHash": "c4b71dc85801",
+    "compatibleVersion": "9a377ada4e20"
+  },
+  "phy101.measurement.sig-figs": {
+    "englishHash": "5b62537f89fd",
+    "compatibleVersion": "194de6599631"
+  },
+  "phy101.measurement.dimensions": {
+    "englishHash": "59e4b3780caa",
+    "compatibleVersion": "8355fd59bbd7"
+  },
+  "phy101.measurement.prefix": {
+    "englishHash": "42051e2a42d4",
+    "compatibleVersion": "dbaa0511b5d9"
+  },
+  "phy101.measurement.consistency": {
+    "englishHash": "78d3c323335a",
+    "compatibleVersion": "69e3a7978775"
+  },
+  "phy101.measurement.addition-precision": {
+    "englishHash": "9ce484fe4312",
+    "compatibleVersion": "36a186f83a1b"
+  },
+  "phy101.motion.displacement": {
+    "englishHash": "9d80c950a4ca",
+    "compatibleVersion": "fafbc9ebc59c"
+  },
+  "phy101.motion.final-velocity": {
+    "englishHash": "b8df1a6cb88c",
+    "compatibleVersion": "b240c64d2f88"
+  },
+  "phy101.motion.stopping-distance": {
+    "englishHash": "bd5b5c4c9cd5",
+    "compatibleVersion": "9d3a94889c33"
+  },
+  "phy101.motion.area-under-graph": {
+    "englishHash": "cc51dda490ff",
+    "compatibleVersion": "d7cdab02b89a"
+  },
+  "phy101.motion.distance-from-rest": {
+    "englishHash": "4bb9a6cdadc7",
+    "compatibleVersion": "b2100e1e0055"
+  },
+  "phy101.motion.projectile": {
+    "englishHash": "e798c4567117",
+    "compatibleVersion": "68155dbe128a"
+  },
+  "phy101.forces.second-law": {
+    "englishHash": "c23b85126ce1",
+    "compatibleVersion": "77cb6febb9b4"
+  },
+  "phy101.forces.weight": {
+    "englishHash": "688b12f2e825",
+    "compatibleVersion": "af67c7104e7c"
+  },
+  "phy101.forces.elevator-normal": {
+    "englishHash": "08dc5e1f5208",
+    "compatibleVersion": "6b167692fdd7"
+  },
+  "phy101.forces.net-force": {
+    "englishHash": "100fe52cdb83",
+    "compatibleVersion": "3566c80975a7"
+  },
+  "phy101.forces.third-law": {
+    "englishHash": "cbbac94b2617",
+    "compatibleVersion": "731903444cd2"
+  },
+  "phy101.friction.kinetic-flat": {
+    "englishHash": "5dd5ec318f47",
+    "compatibleVersion": "3a6a63da5cdc"
+  },
+  "phy101.friction.normal-incline": {
+    "englishHash": "392cbe5efd24",
+    "compatibleVersion": "f1b49512bd1e"
+  },
+  "phy101.friction.parallel-incline": {
+    "englishHash": "fac55784fa11",
+    "compatibleVersion": "6aac85ef991b"
+  },
+  "phy101.friction.critical-angle": {
+    "englishHash": "5453179bd580",
+    "compatibleVersion": "2a155bf48644"
+  },
+  "phy101.friction.static-start": {
+    "englishHash": "b780ffd4740e",
+    "compatibleVersion": "8016b7b0d066"
+  },
+  "phy101.energy.work-angle": {
+    "englishHash": "3154275d2548",
+    "compatibleVersion": "0a328bcaedca"
+  },
+  "phy101.energy.kinetic": {
+    "englishHash": "0a693974b6af",
+    "compatibleVersion": "c06aa75306a4"
+  },
+  "phy101.energy.free-fall-speed": {
+    "englishHash": "b4859230bb7b",
+    "compatibleVersion": "fd9ad35b3240"
+  },
+  "phy101.energy.potential": {
+    "englishHash": "d7629bdf1cb2",
+    "compatibleVersion": "95865cc4d388"
+  },
+  "phy101.energy.power": {
+    "englishHash": "154a536d6c28",
+    "compatibleVersion": "ab35326f5ee6"
+  },
+  "phy101.energy.spring": {
+    "englishHash": "fe2e85e6fce7",
+    "compatibleVersion": "7f1ef43e4c39"
+  },
+  "phy101.momentum.momentum-basic": {
+    "englishHash": "909bda9e601c",
+    "compatibleVersion": "99a6cae4fe20"
+  },
+  "phy101.momentum.inelastic-rest": {
+    "englishHash": "094e685797f0",
+    "compatibleVersion": "36ccf2d02f4e"
+  },
+  "phy101.momentum.signed-collision": {
+    "englishHash": "cc906eb279e2",
+    "compatibleVersion": "e07dade21c23"
+  },
+  "phy101.momentum.impulse": {
+    "englishHash": "a5428b382ccf",
+    "compatibleVersion": "baa48dbfdf03"
+  },
+  "phy101.momentum.energy-lost": {
+    "englishHash": "9b9d84c7b6e4",
+    "compatibleVersion": "08751cf8a205"
+  },
+  "phy101.circular-motion.centripetal-accel": {
+    "englishHash": "58e76f743b1f",
+    "compatibleVersion": "75ca1a7c461b"
+  },
+  "phy101.circular-motion.centripetal-force": {
+    "englishHash": "ea842294a894",
+    "compatibleVersion": "1895a81ea51f"
+  },
+  "phy101.circular-motion.speed-from-period": {
+    "englishHash": "ab6e120b79ea",
+    "compatibleVersion": "9d40d3e4490a"
+  },
+  "phy101.circular-motion.max-turn-speed": {
+    "englishHash": "e6b998ed1a73",
+    "compatibleVersion": "b3c78fb3ad82"
+  },
+  "phy101.circular-motion.net-force-constant-speed": {
+    "englishHash": "cd4316d76501",
+    "compatibleVersion": "875ddb545358"
+  },
+  "phy101.lab-graphs.slope-two-points": {
+    "englishHash": "d6542c52d6db",
+    "compatibleVersion": "a5d31693d4de"
+  },
+  "phy101.lab-graphs.spring-constant": {
+    "englishHash": "b6a85f6a9281",
+    "compatibleVersion": "59043b8fc660"
+  },
+  "phy101.lab-graphs.linearise-pendulum": {
+    "englishHash": "bf5189bd7f59",
+    "compatibleVersion": "ea87ba1e6191"
+  },
+  "phy101.lab-graphs.interpolate": {
+    "englishHash": "16428b30123b",
+    "compatibleVersion": "490449f364c0"
+  },
+  "phy101.lab-graphs.intercept": {
+    "englishHash": "ad3a4d039df2",
+    "compatibleVersion": "84771eec7f16"
+  },
+  "phy101.lab-graphs.uncertainty": {
+    "englishHash": "f0bd0aac1007",
+    "compatibleVersion": "cf41d552755a"
+  },
+  "chemistry.atomic-structure.neutrons": {
+    "englishHash": "9ef06e3eb04f",
+    "compatibleVersion": "180c06b2338b"
+  },
+  "chemistry.atomic-structure.electrons-ion": {
+    "englishHash": "0836ed567efb",
+    "compatibleVersion": "3ec2341b2ec9"
+  },
+  "chemistry.atomic-structure.weighted-mass": {
+    "englishHash": "91c141ef1c97",
+    "compatibleVersion": "ed3f201f60df"
+  },
+  "chemistry.atomic-structure.charge-from-counts": {
+    "englishHash": "677e29c7f6a5",
+    "compatibleVersion": "a3ff6fd3e898"
+  },
+  "chemistry.atomic-structure.isotope-vs-ion": {
+    "englishHash": "a42081b005d0",
+    "compatibleVersion": "da1766820ff9"
+  },
+  "chemistry.atomic-structure.moles-to-atoms": {
+    "englishHash": "190cb1d299d6",
+    "compatibleVersion": "efc006239f17"
+  },
+  "chemistry.solutions.molarity-from-mass": {
+    "englishHash": "1fb052ed6cef",
+    "compatibleVersion": "ede5fdcb263b"
+  },
+  "chemistry.solutions.dilution-concentration": {
+    "englishHash": "12f9b05f3942",
+    "compatibleVersion": "38260c56ccfa"
+  },
+  "chemistry.solutions.moles-in-volume": {
+    "englishHash": "941ab1de488d",
+    "compatibleVersion": "cfa6d14bfaed"
+  },
+  "chemistry.solutions.mass-percent": {
+    "englishHash": "5a0a101d6f9e",
+    "compatibleVersion": "2a1dc437fb38"
+  },
+  "chemistry.solutions.stock-volume": {
+    "englishHash": "f7e51a815873",
+    "compatibleVersion": "0e5375792fe5"
+  },
+  "chemistry.solutions.freezing": {
+    "englishHash": "24948cdffdcf",
+    "compatibleVersion": "2b25d7ca81a5"
+  },
+  "chemistry.solutions.henry": {
+    "englishHash": "979138cf3333",
+    "compatibleVersion": "551d6eb3882f"
+  },
+  "chemistry.gases.to-kelvin": {
+    "englishHash": "34a65f13325a",
+    "compatibleVersion": "cea582b84644"
+  },
+  "chemistry.gases.ideal-volume": {
+    "englishHash": "b8f679e83638",
+    "compatibleVersion": "21de2f860fff"
+  },
+  "chemistry.gases.two-state": {
+    "englishHash": "420314b98717",
+    "compatibleVersion": "f844c788e43d"
+  },
+  "chemistry.gases.moles-from-pvt": {
+    "englishHash": "f18a1bc1795d",
+    "compatibleVersion": "c15aab020ac8"
+  },
+  "chemistry.gases.partial-pressure": {
+    "englishHash": "c0e59bceb37a",
+    "compatibleVersion": "55ff970645b7"
+  },
+  "chemistry.gases.graham": {
+    "englishHash": "c069c3cd3918",
+    "compatibleVersion": "55e775800b88"
+  },
+  "chemistry.periodic-table.zeff-na": {
+    "englishHash": "79e31e058f7e",
+    "compatibleVersion": "4fa8608f857c"
+  },
+  "chemistry.periodic-table.period": {
+    "englishHash": "53055481e580",
+    "compatibleVersion": "d92c295b974b"
+  },
+  "chemistry.periodic-table.valence": {
+    "englishHash": "8dc3dc279c0b",
+    "compatibleVersion": "776c63582e69"
+  },
+  "chemistry.periodic-table.compare-zeff": {
+    "englishHash": "61fb8680d715",
+    "compatibleVersion": "a6a3b2f06e67"
+  },
+  "chemistry.periodic-table.shielding": {
+    "englishHash": "80619d837cea",
+    "compatibleVersion": "5270b632cf91"
+  },
+  "chemistry.periodic-table.hund": {
+    "englishHash": "8805b6c7a152",
+    "compatibleVersion": "5a8c2bb6264d"
+  },
+  "chemistry.thermochemistry.heat-water": {
+    "englishHash": "fc03acc7d50a",
+    "compatibleVersion": "d6df1bb8c1b4"
+  },
+  "chemistry.thermochemistry.sign-convention": {
+    "englishHash": "22864098d2e3",
+    "compatibleVersion": "1144a68b1184"
+  },
+  "chemistry.thermochemistry.delta-t": {
+    "englishHash": "84425f933e59",
+    "compatibleVersion": "236f2552c374"
+  },
+  "chemistry.thermochemistry.hess": {
+    "englishHash": "29dd9ea2b193",
+    "compatibleVersion": "da69e3113e18"
+  },
+  "chemistry.thermochemistry.specific-heat": {
+    "englishHash": "9f9622a5061a",
+    "compatibleVersion": "85a04afe68b2"
+  },
+  "chemistry.thermochemistry.first-law": {
+    "englishHash": "a391f7acabbf",
+    "compatibleVersion": "deca67b5d414"
+  },
+  "chemistry.thermochemistry.formation": {
+    "englishHash": "dd651aa1f21a",
+    "compatibleVersion": "fd91bf1b293b"
+  },
+  "chemistry.quantum-theory.photon": {
+    "englishHash": "df0dd3482451",
+    "compatibleVersion": "5704ba357e82"
+  },
+  "chemistry.quantum-theory.transition": {
+    "englishHash": "36b1fbd51d73",
+    "compatibleVersion": "f8d268135fa1"
+  },
+  "chemistry.quantum-theory.orbitals": {
+    "englishHash": "162469fad1ac",
+    "compatibleVersion": "ca9b421d5f75"
+  },
+  "chemistry.quantum-theory.capacity": {
+    "englishHash": "2b3996ac658e",
+    "compatibleVersion": "e789f9b749be"
+  },
+  "chemistry.quantum-theory.matter": {
+    "englishHash": "e8fd07a0eb2a",
+    "compatibleVersion": "67a68702231b"
+  },
+  "chemistry.quantum-theory.photoelectric": {
+    "englishHash": "29ed9bfa5787",
+    "compatibleVersion": "1163578b4fcd"
+  },
+  "chemistry.bonding.count": {
+    "englishHash": "d2a1b96e6022",
+    "compatibleVersion": "956d98fd0546"
+  },
+  "chemistry.bonding.formal": {
+    "englishHash": "48b997fbcdb7",
+    "compatibleVersion": "57b89dc39136"
+  },
+  "chemistry.bonding.domains": {
+    "englishHash": "7389e0338b18",
+    "compatibleVersion": "add6e22d75d6"
+  },
+  "chemistry.bonding.polarity": {
+    "englishHash": "aeea3d464031",
+    "compatibleVersion": "7c67e8c7c2c3"
+  },
+  "chemistry.bonding.order": {
+    "englishHash": "0e78e65acd56",
+    "compatibleVersion": "b49e61ef4016"
+  },
+  "chemistry.bonding.boiling": {
+    "englishHash": "ecedbdcafd88",
+    "compatibleVersion": "d29aa0781b7d"
+  },
+  "chemistry.aqueous-reactions.moles": {
+    "englishHash": "67179fa00faf",
+    "compatibleVersion": "038764416317"
+  },
+  "chemistry.aqueous-reactions.precipitate": {
+    "englishHash": "dab6c95cb391",
+    "compatibleVersion": "43ad30bc65ee"
+  },
+  "chemistry.aqueous-reactions.spectators": {
+    "englishHash": "1e5e0cb596d3",
+    "compatibleVersion": "6030f3504ac4"
+  },
+  "chemistry.aqueous-reactions.neutralization": {
+    "englishHash": "53cb347951ef",
+    "compatibleVersion": "2df5f04af79b"
+  },
+  "chemistry.aqueous-reactions.redox": {
+    "englishHash": "878b50eb9221",
+    "compatibleVersion": "f3542af52dda"
+  },
+  "chemistry.aqueous-reactions.charge": {
+    "englishHash": "e413094d3f22",
+    "compatibleVersion": "6c7be97916c9"
+  },
+  "chemistry.electrochemistry.voltage": {
+    "englishHash": "f0b39099c424",
+    "compatibleVersion": "82197b45f4ba"
+  },
+  "chemistry.electrochemistry.gibbs": {
+    "englishHash": "b525602bcb17",
+    "compatibleVersion": "3213c4056d5f"
+  },
+  "chemistry.electrochemistry.nernst": {
+    "englishHash": "7270458f0b37",
+    "compatibleVersion": "76c7411d415f"
+  },
+  "chemistry.electrochemistry.charge": {
+    "englishHash": "209b91dd9997",
+    "compatibleVersion": "f2638c8836df"
+  },
+  "chemistry.electrochemistry.deposit": {
+    "englishHash": "655fc9882693",
+    "compatibleVersion": "62c64ddb4cf3"
+  },
+  "chemistry.electrochemistry.anode": {
+    "englishHash": "f567de34b076",
+    "compatibleVersion": "97defedebd73"
+  }
+}

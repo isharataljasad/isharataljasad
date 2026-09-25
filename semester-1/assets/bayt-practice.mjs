@@ -10,7 +10,7 @@ import { parseAnswer } from './practice.mjs';
 import { countNoun, nouns } from '/bayt/app/arabic-count.mjs';
 import {readProgress,saveProgress} from './progress-store.mjs';
 
-const unitText = (unit) => (unit && unit !== 'عدد' ? ` بوحدة ${unit}` : '');
+const unitText = (unit) => (unit && unit !== "Number" ? ` in ${unit}` : '');
 
 export async function initBaytPractice() {
   const sections = [...document.querySelectorAll('[data-bayt-check]')];
@@ -27,7 +27,7 @@ export async function initBaytPractice() {
   } catch {
     for (const section of sections) {
       section.querySelector('.bayt-feedback').textContent =
-        'تعذّر تحميل بيانات التدريب. الشرح والحلول المكتوبة أعلاه ما زالت متاحة.';
+        "Unable to load training data. The explanation and solutions written above are still available.";
     }
     return;
   }
@@ -49,10 +49,10 @@ export async function initBaytPractice() {
     const revealed = data.questions.filter((q) => bayt[q.id]?.revealed).length;
     const total = data.questions.length;
     /* عبارات صريحة: العدد إنجاز تمارين، لا شهادة إتقان. */
-    let line = `أجبتَ إجابة صحيحة عن ${solved} من ${countNoun(total, nouns.pattern)}.`;
-    if (revealed) line += ` كشفتَ الحل في ${revealed} منها قبل الوصول إليه.`;
-    line += ' هذا سجلّ تمرين على هذا المتصفح، وليس تقييمًا للإتقان ولا درجة جامعية.';
-    if (!saved) line += ' تعذّر حفظ التقدّم في هذا المتصفح.';
+    let line = `Correct answers: ${solved} of ${countNoun(total, nouns.pattern)}.`;
+    if (revealed) line += ` You revealed the solution in ${revealed} questions before answering correctly.`;
+    line += " This is a log of practice on this browser, not a proficiency assessment nor a degree.";
+    if (!saved) line += " Unable to save progress in this browser.";
     summary.textContent = line;
   };
 
@@ -71,7 +71,7 @@ export async function initBaytPractice() {
       const raw = section.querySelector('input').value;
       const value = parseAnswer(raw);
       if (value === null) {
-        feedback.textContent = `اكتب عددًا فقط${unitText(question.unit)}. الرموز والكلمات لا تُقرأ هنا.`;
+        feedback.textContent = `Just type a number${unitText(question.unit)}. Symbols and words are not read here.`;
         feedback.dataset.result = 'error';
         return;
       }
@@ -81,7 +81,7 @@ export async function initBaytPractice() {
       if (Math.abs(value - question.answer) <= question.tolerance) {
         entry.correct = true;
         feedback.dataset.result = 'correct';
-        feedback.textContent = 'صحيح. اشرح لنفسك سبب كل خطوة قبل أن تنتقل؛ الإجابة وحدها لا تثبت الفهم.';
+        feedback.textContent = "Correct. Explain why each step works before moving on; a correct answer alone does not establish understanding.";
         update();
         return;
       }
@@ -91,15 +91,15 @@ export async function initBaytPractice() {
       const known = question.commonErrors.find((e) => Math.abs(value - e.value) <= question.tolerance);
       feedback.dataset.result = 'retry';
       feedback.textContent = known
-        ? `ليست صحيحة. أحد أسباب الوصول إلى هذه القيمة: ${known.why}`
-        : 'ليست صحيحة، وليست من الأخطاء التي نعرف سببها. '
-          + 'راجع خطوات المثال المحلول أعلاه واحدة واحدة، وتحقق من الإشارات والأُسس.';
+        ? `Not correct. This value may result from the following approach: ${known.why}`
+        : "Not correct. This value does not match an anticipated wrong answer. "
+          + "Review the steps of the solved example above one by one, and check the sign and exponents.";
       update();
     });
 
     section.querySelector('.bayt-reveal').addEventListener('click', () => {
       if (!entry.correct) entry.revealed = true;
-      solution.textContent = `الإجابة: ${question.answer}. ${question.solution}`;
+      solution.textContent = `Answer: ${question.answer}. ${question.solution}`;
       solution.hidden = false;
       update();
     });
@@ -107,8 +107,8 @@ export async function initBaytPractice() {
     if (entry.correct || entry.attempts) {
       feedback.dataset.result = entry.correct ? 'correct' : 'retry';
       feedback.textContent = entry.correct
-        ? 'أجبتَ عن هذا النمط إجابة صحيحة في جلسة سابقة.'
-        : 'لديك محاولة سابقة على هذا النمط لم تصل بعد.';
+        ? "You answered this question correctly in a previous session."
+        : "Your previous attempt on this question still needs review.";
     }
   }
 

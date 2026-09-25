@@ -1,0 +1,80 @@
+{
+ "slug": "midpoints-and-congruence",
+ "checks": [
+  {
+   "id": "average",
+   "kind": "number",
+   "prompt": "A rail is marked at `-3` and `9` metres. Enter the coordinate halfway between them.",
+   "answer": 3,
+   "tolerance": 0.001,
+   "unit": "m",
+   "solution": "`(-3 + 9)/2 = 3`. It is six metres from each mark, and six is half of twelve.",
+   "responses": [
+    {
+     "value": 6,
+     "why": "consistent with computing the distance `12` and halving it. That is the length of each half, not a position on this rail: `6` is nine metres from `-3` and three from `9`."
+    },
+    {
+     "value": 12,
+     "why": "consistent with computing the distance between the marks rather than the point between them."
+    }
+   ],
+   "followUp": {
+    "prompt": "For the same two marks, enter the distance between them.",
+    "answer": 12,
+    "tolerance": 0.001,
+    "unit": "m",
+    "solution": "`|-3 - 9| = 12`. An absolute difference answers \"how far apart\"; an average answers \"where is the middle\"."
+   },
+   "version": 1
+  },
+  {
+   "id": "midpoint-x",
+   "kind": "number",
+   "prompt": "A beam runs from `A(-2, 5)` to `B(6, 1)`. Enter the `x` coordinate of its midpoint.",
+   "answer": 2,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`(-2 + 6)/2 = 2`. Each coordinate is averaged separately.",
+   "responses": [
+    {
+     "value": 4,
+     "why": "consistent with halving the horizontal distance `8` rather than averaging the two coordinates."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now enter the `y` coordinate of that midpoint.",
+    "answer": 3,
+    "tolerance": 0.001,
+    "solution": "`(5 + 1)/2 = 3`, so the sling point is `(2, 3)`. From `A` it is four across and two down, and from there to `B` is four across and two down again."
+   },
+   "version": 1
+  },
+  {
+   "id": "missing-end",
+   "kind": "number",
+   "prompt": "`M(2, 3)` is the midpoint of `AB` and `A(-2, 5)`. Enter the `x` coordinate of `B`.",
+   "answer": 6,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`(-2 + x)/2 = 2` gives `x = 6`. Nothing is halved here; an equation is solved.",
+   "responses": [
+    {
+     "value": 1,
+     "why": "consistent with halving the midpoint coordinate."
+    },
+    {
+     "value": 0,
+     "why": "consistent with averaging `M` with `A`, which lands on the quarter point of the beam — a real point on the drawing, and the wrong one."
+    }
+   ],
+   "followUp": {
+    "prompt": "Enter the `y` coordinate of `B`.",
+    "answer": 1,
+    "tolerance": 0.001,
+    "solution": "`(5 + y)/2 = 3` gives `y = 1`, so `B` is `(6, 1)`."
+   },
+   "version": 1
+  }
+ ]
+}

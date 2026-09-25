@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Exponents | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/exponents/">Exponents</a> / Approach 2</p>
@@ -39,6 +39,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Square a measured quantity and report the unit that results, distinguishing an area from a length.</li><li>Decide whether a coefficient is inside or outside the base, and say which physical situation each expression describes.</li><li>Keep a negative sign inside a base through a substitution, and predict the sign from the parity of the exponent.</li><li>State <code>a¹</code> and <code>a⁰</code>, give the reason <code>a⁰ = 1</code>, and say why that reason excludes <code>a = 0</code>.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/exponents/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/basic-math/exponents/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/exponents/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/expressions-and-variables/">Expressions and variables</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/order-of-operations/">Order of operations</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/exponents/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/basic-math/exponents/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/exponents/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="exponents">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="area">
+<p class="check-prompt">A square tile has side <code>s = 3 cm</code>. Give its area as a number in <code>cm²</code>.</p>
+
+<form><div class="check-row"><label for="check-exponents-area">Your answer <span class="check-unit">(cm²)</span></label><input id="check-exponents-area" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>(3 cm)² = 9 cm²</code>. Both the number and the unit are squared.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>The side is tripled. Give the new area in <code>cm²</code>.</p>
+<form><div class="check-row"><label for="follow-exponents-area">Your answer <span class="check-unit">(cm²)</span></label><input id="follow-exponents-area" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>(3s)² = (9 cm)² = 81 cm²</code>. Tripling a length multiplies area by nine, not by three.</p></details>
+</div>
+</section><section class="check" data-check="coefficient">
+<p class="check-prompt">A tile of side <code>s</code> has its side tripled. Which expression gives the new area?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> <code>(3s)²</code></label><label><input type="radio" name="answer" value="1"> <code>3s²</code></label><label><input type="radio" name="answer" value="2"> <code>3s</code></label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Tripling the side gives a new side <code>3s</code>, so the new area is <code>(3s)² = 9s²</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>At <code>s = 2</code>, evaluate <code>3s²</code>.</p>
+<form><div class="check-row"><label for="follow-exponents-coefficient">Your answer</label><input id="follow-exponents-coefficient" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>3 × 2² = 3 × 4 = 12</code>. The coefficient multiplies after the power is taken.</p></details>
+</div>
+</section><section class="check" data-check="negative-exponent">
+<p class="check-prompt">Evaluate <code>3/x²</code> at <code>x = 2</code>. Enter one numerical value.</p>
+
+<form><div class="check-row"><label for="check-exponents-negative-exponent">Your answer</label><input id="check-exponents-negative-exponent" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>3/2² = 3/4 = 0.75</code>. Rewrite as <code>3x⁻²</code> if that is clearer; the exponent acts on <code>x</code> alone.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now evaluate <code>(3/x)²</code> at <code>x = 2</code>, to see the difference a bracket makes.</p>
+<form><div class="check-row"><label for="follow-exponents-negative-exponent">Your answer</label><input id="follow-exponents-negative-exponent" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>(3/2)² = 1.5² = 2.25</code>. Here the bracket puts the whole quotient inside the base.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/expressions-and-variables/">Expressions and variables</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/order-of-operations/">Order of operations</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Order of Operations | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/order-of-operations/">Order of operations</a> / Approach 2</p>
@@ -40,6 +40,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Evaluate a four-level expression writing one full line per level, with nothing dropped.</li><li>Break a tie at level 3 or level 4 by position, and recognise the unwritten bracket implied by the wrong answer.</li><li>Identify the base of a power, and keep a negative sign inside it through a substitution.</li><li>Read a fraction bar as a group, and recognise a written form that convention cannot disambiguate.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/order-of-operations/approach-1/">Curriculum reference</a> — the levels and tie-breaks as lookup tables.</li><li><a href="/foundations/reading/basic-math/order-of-operations/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/order-of-operations/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/exponents/">Exponents</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/variables-and-expressions/">Variables and expressions</a> · <a href="/foundations/concepts/material-balances/">A first material balance</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/order-of-operations/approach-1/">Curriculum reference</a> — the levels and tie-breaks as lookup tables.</li><li><a href="/foundations/reading/basic-math/order-of-operations/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/order-of-operations/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="order-of-operations">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="levels">
+<p class="check-prompt">Evaluate <code>6 × (5 - 2)² ÷ 9</code>, settling one level at a time.</p>
+
+<form><div class="check-row"><label for="check-order-of-operations-levels">Your answer</label><input id="check-order-of-operations-levels" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>6 × 3² ÷ 9</code> → <code>6 × 9 ÷ 9</code> → <code>54 ÷ 9</code> → <code>6</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now evaluate <code>4 × (7 - 3)² ÷ 8</code>, one level at a time.</p>
+<form><div class="check-row"><label for="follow-order-of-operations-levels">Your answer</label><input id="follow-order-of-operations-levels" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>4 × 4² ÷ 8</code> → <code>4 × 16 ÷ 8</code> → <code>64 ÷ 8</code> → <code>8</code>.</p></details>
+</div>
+</section><section class="check" data-check="tie">
+<p class="check-prompt">Evaluate <code>54 ÷ 9 × 2</code>.</p>
+
+<form><div class="check-row"><label for="check-order-of-operations-tie">Your answer</label><input id="check-order-of-operations-tie" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Division and multiplication are tied at level 3, so the one written first goes first: <code>6 × 2 = 12</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Same rule, other level: evaluate <code>9 - 4 + 2</code>.</p>
+<form><div class="check-row"><label for="follow-order-of-operations-tie">Your answer</label><input id="follow-order-of-operations-tie" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p>Addition and subtraction are tied at level 4, so left to right: <code>5 + 2 = 7</code>. Answering <code>3</code> evaluates <code>9 - (4 + 2)</code>.</p></details>
+</div>
+</section><section class="check" data-check="base">
+<p class="check-prompt">Evaluate <code>5 - x²</code> at <code>x = -2</code>.</p>
+
+<form><div class="check-row"><label for="check-order-of-operations-base">Your answer</label><input id="check-order-of-operations-base" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>5 - (-2)² = 5 - 4 = 1</code>. The bracket keeps the minus inside the base.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now give <code>-4²</code> and <code>(-4)²</code> as a single sum: <code>-4² + (-4)²</code>.</p>
+<form><div class="check-row"><label for="follow-order-of-operations-base">Your answer</label><input id="follow-order-of-operations-base" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>-16 + 16 = 0</code>. The first has base <code>4</code>; the second has base <code>-4</code>.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/exponents/">Exponents</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/variables-and-expressions/">Variables and expressions</a> · <a href="/foundations/concepts/material-balances/">A first material balance</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

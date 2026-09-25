@@ -1,47 +1,47 @@
 <!doctype html>
-<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="نظّم أسبوعك: مهام وعادات تُحفظ على جهازك."><title>التخطيط · بيت الفؤاد</title>
+<html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Organize your week: tasks and habits saved on your device."><title>Planning · Bayt Al-Fuad</title>
 <link rel="stylesheet" href="/bayt/bayt.css"></head>
-<body><a class="skip" href="#main">تخطَّ إلى المحتوى</a>
-<header class="bayt-header"><a class="bayt-brand" href="/bayt/">بيت الفؤاد<span>مساحة الطالب الجامعي</span></a>
-<nav class="bayt-nav" aria-label="أقسام التطبيق"><a href="/bayt/">الرئيسة</a><a href="/bayt/journey/">رحلتي</a><a href="/bayt/planner/" aria-current="page">التخطيط</a><a href="/bayt/english/">الإنجليزية</a><a href="/bayt/portfolio/">ملف الإنجاز</a></nav></header>
-<main id="main" class="bayt-main"><header class="bayt-hero compact"><p class="eyebrow">التخطيط</p><h1>أسبوعك</h1>
-<p class="lead">كل أسبوع له تاريخه ومهامه وسجلّ عاداته. تنتقل بين الأسابيع دون أن يضيع ما مضى.</p></header>
-<nav class="week-bar" aria-label="التنقل بين الأسابيع">
-<button type="button" class="week-step" data-week-prev aria-label="الأسبوع السابق">→</button>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="bayt-header"><a class="bayt-brand" href="/bayt/">Bayt Al-Fuad<span>University student space</span></a>
+<nav class="bayt-nav" aria-label="Application sections"><a href="/bayt/">Home</a><a href="/bayt/journey/">My learning journey</a><a href="/bayt/planner/" aria-current="page">Planning</a><a href="/bayt/english/">English</a><a href="/bayt/portfolio/">Portfolio</a></nav></header>
+<main id="main" class="bayt-main"><header class="bayt-hero compact"><p class="eyebrow">Planning</p><h1>Your week</h1>
+<p class="lead">Each week has its own history, tasks, and record of customs. You move between weeks without losing what passed.</p></header>
+<nav class="week-bar" aria-label="Moving between weeks">
+<button type="button" class="week-step" data-week-prev aria-label="The previous week">→</button>
 <div class="week-current"><strong data-week-label></strong><span data-week-relative></span></div>
-<button type="button" class="week-step" data-week-next aria-label="الأسبوع التالي">←</button>
-<button type="button" class="button ghost week-today" data-week-today hidden>عُد إلى هذا الأسبوع</button>
+<button type="button" class="week-step" data-week-next aria-label="Next week">←</button>
+<button type="button" class="button ghost week-today" data-week-today hidden>Back to this week</button>
 </nav><p class="section-note" data-week-others role="status"></p>
 <div class="demo-bar" data-demo-bar hidden>
-<p><strong>لديك بيانات تجريبية.</strong> العناصر المعلّمة بـ«تجريبي» أضيفت لتجربة الواجهة، وليست من إدخالك.</p>
-<button type="button" class="button ghost" data-clear-demo>امسح البيانات التجريبية فقط</button></div>
-<p class="storage-warning" data-storage-warning hidden>تخزين المتصفح غير متاح الآن، لذلك لن يُحفظ ما تضيفه بعد إغلاق الصفحة.</p>
+<p><strong>You have experimental data.</strong> Items marked “experimental” were added to test the interface, and are not your input.</p>
+<button type="button" class="button ghost" data-clear-demo>Clear demo data only</button></div>
+<p class="storage-warning" data-storage-warning hidden>Browser storage is offline right now, so what you add won't be saved after you close the page.</p>
 
-<section class="planner-add" aria-labelledby="add-title"><h2 id="add-title">أضف مهمة</h2>
+<section class="planner-add" aria-labelledby="add-title"><h2 id="add-title">Add a task</h2>
 <form data-task-form class="row-form">
-<label>المهمة <input type="text" name="title" required maxlength="120" placeholder="مثال: مراجعة موازنة المواد"></label>
-<label>اليوم <select name="day"><option value="0">السبت</option><option value="1">الأحد</option><option value="2">الاثنين</option><option value="3">الثلاثاء</option><option value="4">الأربعاء</option><option value="5">الخميس</option><option value="6">الجمعة</option></select></label>
-<label>الدقائق <input type="number" name="minutes" min="5" max="240" step="5" value="30"></label>
-<button type="submit" class="button">أضف</button></form></section>
+<label>Task <input type="text" name="title" required maxlength="120" placeholder="Example: material balance review"></label>
+<label>Day <select name="day"><option value="0">Saturday</option><option value="1">Sunday</option><option value="2">Monday</option><option value="3">Tuesday</option><option value="4">Wednesday</option><option value="5">Thursday</option><option value="6">Friday</option></select></label>
+<label>Minutes <input type="number" name="minutes" min="5" max="240" step="5" value="30"></label>
+<button type="submit" class="button">Add</button></form></section>
 
-<section aria-labelledby="week-title"><h2 id="week-title">الأسبوع</h2>
+<section aria-labelledby="week-title"><h2 id="week-title">week</h2>
 <p class="planner-summary" data-summary role="status"></p>
-<div class="week-grid"><section class="day-column" data-day="0"><h3>السبت<span class="day-date" data-day-date="0"></span></h3><ul class="day-tasks" data-day-list="0"></ul></section><section class="day-column" data-day="1"><h3>الأحد<span class="day-date" data-day-date="1"></span></h3><ul class="day-tasks" data-day-list="1"></ul></section><section class="day-column" data-day="2"><h3>الاثنين<span class="day-date" data-day-date="2"></span></h3><ul class="day-tasks" data-day-list="2"></ul></section><section class="day-column" data-day="3"><h3>الثلاثاء<span class="day-date" data-day-date="3"></span></h3><ul class="day-tasks" data-day-list="3"></ul></section><section class="day-column" data-day="4"><h3>الأربعاء<span class="day-date" data-day-date="4"></span></h3><ul class="day-tasks" data-day-list="4"></ul></section><section class="day-column" data-day="5"><h3>الخميس<span class="day-date" data-day-date="5"></span></h3><ul class="day-tasks" data-day-list="5"></ul></section><section class="day-column" data-day="6"><h3>الجمعة<span class="day-date" data-day-date="6"></span></h3><ul class="day-tasks" data-day-list="6"></ul></section></div></section>
+<div class="week-grid"><section class="day-column" data-day="0"><h3>Saturday<span class="day-date" data-day-date="0"></span></h3><ul class="day-tasks" data-day-list="0"></ul></section><section class="day-column" data-day="1"><h3>Sunday<span class="day-date" data-day-date="1"></span></h3><ul class="day-tasks" data-day-list="1"></ul></section><section class="day-column" data-day="2"><h3>Monday<span class="day-date" data-day-date="2"></span></h3><ul class="day-tasks" data-day-list="2"></ul></section><section class="day-column" data-day="3"><h3>Tuesday<span class="day-date" data-day-date="3"></span></h3><ul class="day-tasks" data-day-list="3"></ul></section><section class="day-column" data-day="4"><h3>Wednesday<span class="day-date" data-day-date="4"></span></h3><ul class="day-tasks" data-day-list="4"></ul></section><section class="day-column" data-day="5"><h3>Thursday<span class="day-date" data-day-date="5"></span></h3><ul class="day-tasks" data-day-list="5"></ul></section><section class="day-column" data-day="6"><h3>Friday<span class="day-date" data-day-date="6"></span></h3><ul class="day-tasks" data-day-list="6"></ul></section></div></section>
 
-<section class="planner-add" aria-labelledby="habits-title"><h2 id="habits-title">العادات</h2>
-<p class="section-note">علّم اليوم الذي أتممت فيه العادة. هذا سجل شخصي، لا تقييم.</p>
+<section class="planner-add" aria-labelledby="habits-title"><h2 id="habits-title">Habits</h2>
+<p class="section-note">Mark the day you completed the habit. This is a personal record, not an evaluation.</p>
 <form data-habit-form class="row-form">
-<label>عادة <input type="text" name="title" list="habit-suggestions" required maxlength="80" placeholder="اكتب أو اختر"></label>
-<datalist id="habit-suggestions"><option value="نوم منتظم قبل منتصف الليل" data-area="الصحة">نوم منتظم قبل منتصف الليل · الصحة</option><option value="حركة 30 دقيقة" data-area="الصحة">حركة 30 دقيقة · الصحة</option><option value="مراجعة 20 دقيقة قبل النوم" data-area="الدراسة">مراجعة 20 دقيقة قبل النوم · الدراسة</option><option value="تواصل مع الأهل" data-area="العلاقات">تواصل مع الأهل · العلاقات</option></datalist>
-<label>المجال <input type="text" name="area" maxlength="40" placeholder="الصحة، الدراسة، العلاقات"></label>
-<button type="submit" class="button">أضف عادة</button></form>
+<label>Habit <input type="text" name="title" list="habit-suggestions" required maxlength="80" placeholder="Type or choose"></label>
+<datalist id="habit-suggestions"><option value="Regular sleep before midnight" data-area="Health">Regular sleep before midnight · Health</option><option value="30 minutes of movement" data-area="Health">30 minutes of movement · Health</option><option value="20-minute review before bed" data-area="Study">20-minute review before bed · Study</option><option value="Communicate with parents" data-area="Relationships">Communicate with parents · Relationships</option></datalist>
+<label>Domain <input type="text" name="area" maxlength="40" placeholder="Health, study, relationships"></label>
+<button type="submit" class="button">Add habit</button></form>
 <div class="habit-list" data-habit-list></div></section>
 
-<section class="honesty"><h2>قيد التطوير في التخطيط</h2>
-<ul><li>الميزانية لم تُبنَ بعد.</li><li>تتبّع العلاقات لم يُبنَ بعد.</li><li>لا تنبيهات ولا مزامنة بين الأجهزة.</li>
-<li>لا تكرار تلقائي لمهمة أسبوعية؛ تُضاف يدويًا في كل أسبوع.</li></ul></section></main>
-<footer class="bayt-footer"><p>نموذج تجريبي. كل ما تحفظه يبقى على جهازك ولا يُرسل إلى أي خادم.</p>
-<p>الكتابة التعليمية أصلية. الروابط الخارجية تشير إلى مصادرها الرسمية، ولا توجد شراكة مع أي ناشر.</p></footer>
+<section class="honesty"><h2>Under development in planning</h2>
+<ul><li>The budget has not yet been built.</li><li>Relationship tracking is not built yet.</li><li>No alerts and no syncing between devices.</li>
+<li>No automatic repetition of a weekly task; Added manually every week.</li></ul></section></main>
+<footer class="bayt-footer"><p>Experimental model. Everything you save stays on your device and is not sent to any server.</p>
+<p>Original educational writing. External links refer to their official sources, and there is no partnership with any publisher.</p></footer>
 <script type="module" src="/bayt/app/planner-page.mjs"></script>
 </body></html>

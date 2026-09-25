@@ -7,19 +7,19 @@
    "answer": 41800,
    "tolerance": 50,
    "unit": "J",
-   "solution": "‎ΔT = 75.0 − 25.0 = 50.0 °C‎، فـ ‎q = 200.0 × 4.18 × 50.0 = 41800 J‎.",
+   "solution": "ΔT = 75.0 − 25.0 = 50.0 °C, q = 200.0 × 4.18 × 50.0 = 41800 J.",
    "commonErrors": [
     {
      "value": 62700,
-     "why": "استعملتَ الحرارة النهائية ‎75.0‎ بدل الفرق. القانون يأخذ ‎ΔT‎، والتعويض بالقيمة النهائية يعني تسخينًا من صفر السيليزية وهو ليس المطلوب."
+     "why": "You used the final temperature 75.0 instead of the difference. The law takes ΔT, and substituting the final value means heating from zero Celsius, which is not what is desired."
     },
     {
      "value": 20900,
-     "why": "استعملتَ الحرارة الابتدائية ‎25.0‎ بدل الفرق."
+     "why": "You used the initial temperature 25.0 instead of the difference."
     },
     {
      "value": 836,
-     "why": "أهملتَ ‎ΔT‎ فحسبتَ ‎m c‎ وحدهما."
+     "why": "You neglected ΔT and counted m c alone."
     }
    ]
   },
@@ -29,19 +29,19 @@
    "answer": -50,
    "tolerance": 0.2,
    "unit": "kJ/mol",
-   "solution": "الإطلاق يعني أن النظام فقد طاقة، فالإشارة سالبة: ‎ΔH = −50.0 kJ/mol‎.",
+   "solution": "Release means the system has lost power, so the sign is negative : ΔH = −50.0 kJ/mol.",
    "commonErrors": [
     {
      "value": 50,
-     "why": "أهملتَ الإشارة. التفاعل الطارد للحرارة ‎ΔH‎ سالب لأن النظام فقد طاقة، حتى لو ارتفعت حرارة الماء حوله؛ فالماء محيط لا نظام."
+     "why": "You ignored the sign. The exothermic reaction ΔH is negative because the system has lost energy, Even if the temperature of the water around it rises; Water is part of the surroundings, not a system."
     },
     {
      "value": -50000,
-     "why": "حوّلتَ إلى الجول مع أن السؤال حدّد ‎kJ/mol‎. الإشارة صحيحة والوحدة خاطئة."
+     "why": "You converted to joules even though the question specified kJ/mol. The sign is correct and the unit is incorrect."
     },
     {
      "value": 0,
-     "why": "المحتوى الحراري لا ينعدم في تفاعل يطلق طاقة؛ انعدامه يعني ألّا فرق في الطاقة بين المتفاعلات والنواتج."
+     "why": "Enthalpy does not exist in a reaction that releases energy; Its absence means that there is no difference in energy between the reactants and products."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": -5.5,
    "tolerance": 0.05,
    "unit": "°C",
-   "solution": "‎ΔT = T_final − T_initial = 18.5 − 24.0 = −5.5 °C‎. والإشارة السالبة تعني أن المحلول فقد حرارة، فالعملية ماصة من منظور ما يذوب فيه.",
+   "solution": "‎ΔT = T_final − T_initial = 18.5 − 24.0 = −5.5 °C‎. A negative sign means that the solution has lost heat, so the process is absorbent from the perspective of what is dissolved in it.",
    "commonErrors": [
     {
      "value": 5.5,
-     "why": "عكستَ الطرح فحسبتَ الابتدائية ناقص النهائية. الترتيب المتفق عليه هو النهائية أولًا، وهو الذي يجعل الإشارة تدل على الاتجاه."
+     "why": "You reversed the subtraction and calculated the initial minus the final. The agreed upon order is final first, which makes the sign indicate the direction."
     },
     {
      "value": 42.5,
-     "why": "جمعتَ الحرارتين. الفرق طرحٌ لا جمع."
+     "why": "You collected the two temperatures. The difference is subtraction, not addition."
     },
     {
      "value": 18.5,
-     "why": "كتبتَ الحرارة النهائية بدل الفرق."
+     "why": "You wrote the final temperature instead of the difference."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": -120,
    "tolerance": 0.5,
    "unit": "kJ",
-   "solution": "‎ΔH = ΔH₁ + ΔH₂ = −200 + 80 = −120 kJ‎. والمحتوى الحراري دالة حالة، فمجموع الخطوات هو التغيّر الكلي مهما كان المسار.",
+   "solution": "‎ΔH = ΔH₁ + ΔH₂ = −200 + 80 = −120 kJ‎. The heat content is a state function, so the sum of the steps is the total change, regardless of the path.",
    "commonErrors": [
     {
      "value": 280,
-     "why": "جمعتَ المقدارين مهملًا الإشارتين. الخطوة الأولى تُطلق والثانية تمتصّ، فهما يتعارضان جزئيًّا ولا يتراكمان."
+     "why": "You added the two expressions, ignoring the signs. The first step releases and the second absorbs, they are partly opposed and not cumulative."
     },
     {
      "value": -280,
-     "why": "جعلتَ الخطوة الثانية سالبة أيضًا. إشارتها موجبة كما أُعطيت."
+     "why": "You also made the second step negative. Its sign is positive as given."
     },
     {
      "value": 120,
-     "why": "أصبتَ المقدار وأخطأتَ الإشارة. الطارد أكبر من الماص هنا، فالمحصّلة طاردة وإشارتها سالبة."
+     "why": "You got the amount right and you missed the sign. The repulsive is greater than the absorber here, so the resultant is repulsive and its sign is negative."
     }
    ]
   },
@@ -99,15 +99,15 @@
    "commonErrors": [
     {
      "value": 240,
-     "why": "حسبتَ ‎m ΔT‎ ولم تقسم ‎q‎ عليه."
+     "why": "You calculated m ΔT and did not divide q by it."
     },
     {
      "value": 0.48,
-     "why": "قلبتَ الكسر فحسبتَ ‎m ΔT / q‎."
+     "why": "You flipped the fraction and calculated m ΔT / q."
     },
     {
      "value": 10,
-     "why": "قسمتَ على الكتلة وحدها وأهملتَ ‎ΔT‎."
+     "why": "You divided by the mass alone and neglected ΔT."
     }
    ]
   },
@@ -117,11 +117,11 @@
    "answer": 70,
    "tolerance": 0.001,
    "unit": "J",
-   "solution": "q=+100 وw=−30.",
+   "solution": "q=+100 and w=−30.",
    "commonErrors": [
     {
      "value": 130,
-     "why": "العمل المبذول بواسطة النظام سالب في اتفاقية الكيمياء."
+     "why": "The work done by the system is negative in chemistry convention."
     }
    ]
   },
@@ -135,7 +135,7 @@
    "commonErrors": [
     {
      "value": -70,
-     "why": "نسيت معامل B وهو 2."
+     "why": "I forgot the parameter B which is 2."
     }
    ]
   }

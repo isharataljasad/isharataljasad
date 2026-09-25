@@ -1,0 +1,83 @@
+{
+ "slug": "order-of-operations",
+ "checks": [
+  {
+   "id": "levels",
+   "kind": "number",
+   "prompt": "Evaluate `6 × (5 - 2)² ÷ 9`, settling one level at a time.",
+   "answer": 6,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`6 × 3² ÷ 9` → `6 × 9 ÷ 9` → `54 ÷ 9` → `6`.",
+   "responses": [
+    {
+     "value": 29.6,
+     "why": "consistent with dropping the bracket, which demotes the subtraction from level 1 to last and leaves the power acting on `2` alone."
+    },
+    {
+     "value": 2,
+     "why": "consistent with omitting the square: `6 × 3 ÷ 9 = 2`. The grouped value must be squared first."
+    },
+    {
+     "value": 54,
+     "why": "consistent with stopping before the division."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now evaluate `4 × (7 - 3)² ÷ 8`, one level at a time.",
+    "answer": 8,
+    "tolerance": 0.001,
+    "solution": "`4 × 4² ÷ 8` → `4 × 16 ÷ 8` → `64 ÷ 8` → `8`."
+   },
+   "version": 1
+  },
+  {
+   "id": "tie",
+   "kind": "number",
+   "prompt": "Evaluate `54 ÷ 9 × 2`.",
+   "answer": 12,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "Division and multiplication are tied at level 3, so the one written first goes first: `6 × 2 = 12`.",
+   "responses": [
+    {
+     "value": 3,
+     "why": "consistent with evaluating `54 ÷ (9 × 2)` — a correct value for an expression that was not written."
+    }
+   ],
+   "followUp": {
+    "prompt": "Same rule, other level: evaluate `9 - 4 + 2`.",
+    "answer": 7,
+    "tolerance": 0.001,
+    "solution": "Addition and subtraction are tied at level 4, so left to right: `5 + 2 = 7`. Answering `3` evaluates `9 - (4 + 2)`."
+   },
+   "version": 1
+  },
+  {
+   "id": "base",
+   "kind": "number",
+   "prompt": "Evaluate `5 - x²` at `x = -2`.",
+   "answer": 1,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`5 - (-2)² = 5 - 4 = 1`. The bracket keeps the minus inside the base.",
+   "responses": [
+    {
+     "value": 9,
+     "why": "consistent with dropping the bracket, writing `5 - -2²`, and reading `-2²` as `-(2²) = -4`."
+    },
+    {
+     "value": -4,
+     "why": "consistent with evaluating `-2²` alone and not subtracting it from 5."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now give `-4²` and `(-4)²` as a single sum: `-4² + (-4)²`.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "`-16 + 16 = 0`. The first has base `4`; the second has base `-4`."
+   },
+   "version": 1
+  }
+ ]
+}

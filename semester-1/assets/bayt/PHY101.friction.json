@@ -7,19 +7,19 @@
    "answer": 19.6,
    "tolerance": 0.2,
    "unit": "N",
-   "solution": "‎N = mg = 8.0 × 9.8 = 78.4 N‎، فـ ‎f_k = 0.25 × 78.4 = 19.6 N‎.",
+   "solution": "N = mg = 8.0 × 9.8 = 78.4 N, f_k = 0.25 × 78.4 = 19.6 N.",
    "commonErrors": [
     {
      "value": 2,
-     "why": "ضربتَ المعامل في الكتلة مباشرة. الاحتكاك يعتمد على القوة العمودية بالنيوتن لا على الكتلة بالكيلوغرام، فلا بد من ضرب الكتلة في ‎g‎ أولًا."
+     "why": "You multiply the coefficient by the mass directly. Friction depends on the normal force in newtons, not on the mass in kilograms. The mass must be multiplied by g first."
     },
     {
      "value": 78.4,
-     "why": "كتبتَ القوة العمودية ولم تضربها في المعامل."
+     "why": "You wrote the normal force and did not multiply it by the coefficient."
     },
     {
      "value": 313.6,
-     "why": "قسمتَ على المعامل بدل الضرب فيه. المعامل أصغر من واحد، فالاحتكاك أصغر من القوة العمودية لا أكبر."
+     "why": "You divided by the coefficient instead of multiplying by it. The coefficient is smaller than one, so friction is smaller than the normal force, not larger."
     }
    ]
   },
@@ -33,15 +33,15 @@
    "commonErrors": [
     {
      "value": 49,
-     "why": "استعملتَ ‎mg‎ كاملًا. هذا يصحّ على سطح أفقي وحده؛ وعلى منحدر يحمل السطح المركّبة العمودية عليه فقط، وهي أصغر من الوزن."
+     "why": "You used the entire mg. This is true on a horizontal surface alone; On a slope, the surface carries only the vehicle perpendicular to it, which is smaller than the weight."
     },
     {
      "value": 24.5,
-     "why": "استعملتَ الجيب بدل جيب التمام فحسبتَ المركّبة الموازية للسطح. وللتحقق: عند ‎θ = 0‎ يجب أن تساوي ‎N‎ الوزنَ كاملًا، والجيب يعطي صفرًا."
+     "why": "You used sine instead of cosine and calculated the component parallel to the surface. To verify: at θ = 0, N must equal the full weight, and the sine gives zero."
     },
     {
      "value": 4.33,
-     "why": "أهملتَ ‎g‎ فحسبتَ ‎m cos θ‎، ووحدة ناتجك ليست نيوتن."
+     "why": "You neglected g and calculated m cos θ, and the unit of your result is not newtons."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 24.5,
    "tolerance": 0.2,
    "unit": "N",
-   "solution": "‎mg sin θ = 5.0 × 9.8 × 0.5 = 24.5 N‎، وهي التي تدفع الجسم إلى أسفل المنحدر.",
+   "solution": "mg sin θ = 5.0 × 9.8 × 0.5 = 24.5 N, which pushes the body down the slope.",
    "commonErrors": [
     {
      "value": 42.4,
-     "why": "استعملتَ جيب التمام فحسبتَ المركّبة العمودية على السطح. المركّبة الموازية تصاحبها دالة الجيب."
+     "why": "You used cosine and calculated the component perpendicular to the surface. The parallel component is accompanied by the sine function."
     },
     {
      "value": 49,
-     "why": "كتبتَ الوزن كاملًا دون تحليل. الوزن رأسي، والسطح مائل، فلا بد من تحليله على المحورين."
+     "why": "You wrote the entire weight without factoring. The weight is vertical, and the surface is inclined, so it must be factored on both axes."
     },
     {
      "value": 9.8,
-     "why": "كتبتَ تسارع الجاذبية بدل مركّبة القوة."
+     "why": "You wrote the gravitational acceleration instead of the force component."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "2a155bf48644",
    "answer": 45,
    "tolerance": 0.5,
-   "unit": "درجة",
-   "solution": "‎tan θ_c = μ_s = 1.0‎، والزاوية التي ظلّها واحد هي ‎45°‎. ولاحظ أن الكتلة لا تدخل الحساب إطلاقًا.",
+   "unit": "Degree",
+   "solution": "tan θ_c = μ_s = 1.0, and the angle with a tangent of one is 45°. Notice that the mass does not enter the calculation at all.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "كتبتَ قيمة المعامل. المعامل ظلُّ الزاوية لا الزاوية نفسها."
+     "why": "You wrote the value of the parameter. The parameter is the tangent of the angle, not the angle itself."
     },
     {
      "value": 90,
-     "why": "الميل القائم يعني سقوطًا حرًّا؛ وعنده لا يوجد سطح يلامس الجسم أصلًا فلا احتكاك."
+     "why": "Upright slope means free fall; There is no surface in contact with the body at all, so there is no friction."
     },
     {
      "value": 0,
-     "why": "عند الميل الصفري يكون السطح أفقيًّا ولا مركّبة تدفع الجسم، فلا انزلاق."
+     "why": "At zero slope, the surface is horizontal and no vehicle is pushing the body, so there is no sliding."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 98,
    "tolerance": 0.5,
    "unit": "N",
-   "solution": "‎N = 20 × 9.8 = 196 N‎، وأقصى احتكاك سكوني ‎0.50 × 196 = 98 N‎. فأي قوة تتجاوز ‎98 N‎ تبدأ الحركة.",
+   "solution": "N = 20 × 9.8 = 196 N, and maximum static friction 0.50 × 196 = 98 N. Any force exceeding 98 N starts motion.",
    "commonErrors": [
     {
      "value": 10,
-     "why": "ضربتَ المعامل في الكتلة. الاحتكاك يعتمد على القوة العمودية بالنيوتن، فاضرب الكتلة في ‎g‎ أولًا."
+     "why": "You multiply the modulus by the mass. Friction depends on the normal force in newtons, So multiply the mass by g first."
     },
     {
      "value": 196,
-     "why": "كتبتَ القوة العمودية ولم تضربها في المعامل."
+     "why": "You wrote the normal force and did not multiply it by the coefficient."
     },
     {
      "value": 392,
-     "why": "قسمتَ على المعامل بدل الضرب فيه."
+     "why": "You divided by the coefficient instead of multiplying by it."
     }
    ]
   }

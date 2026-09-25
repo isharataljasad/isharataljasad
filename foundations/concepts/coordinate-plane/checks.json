@@ -1,0 +1,86 @@
+{
+ "slug": "coordinate-plane",
+ "checks": [
+  {
+   "id": "axis-point",
+   "kind": "choice",
+   "prompt": "A survey peg sits at `(0, -7)`. Which quadrant is it in?",
+   "options": [
+    {
+     "label": "Neither, it is on an axis",
+     "correct": true
+    },
+    {
+     "label": "Quadrant III",
+     "why": "consistent with reading \"below the origin\" as quadrant III or IV. But `x = 0` puts the peg on the y-axis, and the quadrants are the open regions between the axes."
+    },
+    {
+     "label": "Quadrant IV",
+     "why": "consistent with the same reading. A zero coordinate always places a point on an axis, which belongs to no quadrant."
+    }
+   ],
+   "solution": "A point with a zero coordinate lies on a boundary, and a boundary is in no region. A question offering only III or IV has no correct option.",
+   "followUp": {
+    "prompt": "Peg `A` is at `(1, -2)`. Enter its quadrant number.",
+    "answer": 4,
+    "tolerance": 0.001,
+    "solution": "Positive `x` and negative `y` is quadrant IV."
+   },
+   "version": 1
+  },
+  {
+   "id": "on-the-line",
+   "kind": "number",
+   "prompt": "The line through `A(1, -2)` and `B(3, 2)` is `y = 2x - 4`. What `y` does it give at `x = 4`?",
+   "answer": 4,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`2(4) - 4 = 4`. So `C(4, 4)` lies on the line and `D(4, 3)` does not.",
+   "responses": [
+    {
+     "value": 3,
+     "why": "consistent with reading the value off a sketch, where `D(4, 3)` sits close enough to the line to look as though it belongs."
+    },
+    {
+     "value": 8,
+     "why": "consistent with computing `2x` and not subtracting the intercept."
+    }
+   ],
+   "followUp": {
+    "prompt": "Peg `D` is at `(4, 3)`. What is the vertical gap in metres to the line `y = 2x - 4` at the same x-coordinate?",
+    "answer": 1,
+    "tolerance": 0.001,
+    "unit": "m",
+    "solution": "At `x = 4`, the line has `y = 4`. The vertical gap is `|4 - 3| = 1 m`. This is not the shortest perpendicular distance to the line."
+   },
+   "version": 1
+  },
+  {
+   "id": "vertical",
+   "kind": "choice",
+   "prompt": "Two pegs sit at `(5, 1)` and `(5, 7)`. What is the slope of the line through them?",
+   "options": [
+    {
+     "label": "Undefined",
+     "correct": true
+    },
+    {
+     "label": "Zero",
+     "why": "consistent with confusing a vertical line with a horizontal one. Zero slope means no rise per unit of run, which describes a flat line."
+    },
+    {
+     "label": "Very large",
+     "why": "consistent with treating division by zero as producing a huge number. There is no run to divide by at all, so no value exists."
+    }
+   ],
+   "solution": "The run is `5 - 5 = 0`, so the slope is undefined and `y = mx + c` cannot describe the line. It is `x = 5`, and a third peg is tested by whether its `x` equals 5.",
+   "followUp": {
+    "prompt": "A different pair sits at `(2, 6)` and `(9, 6)`. Enter the slope of the line through them.",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "The rise is `6 - 6 = 0` and the run is `7`, so the slope is `0`. This is the horizontal case, where the slope exists and equals zero — the opposite situation to the vertical line above."
+   },
+   "version": 1
+  }
+ ]
+}

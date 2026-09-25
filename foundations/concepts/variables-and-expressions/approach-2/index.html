@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Variables and Expressions | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/variables-and-expressions/">Variables and expressions</a> / Approach 2</p>
@@ -37,6 +37,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Find the outer operation in a phrase and bracket its parts before writing anything.</li><li>Translate &quot;less than&quot; and &quot;subtracted from&quot; in the reversed order, and confirm with one test value.</li><li>Remove a bracket that follows a minus sign, changing every sign inside it.</li><li>Read an expression back in words, and state the input it forbids and whether that input means anything in the situation.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/variables-and-expressions/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/algebra/variables-and-expressions/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/variables-and-expressions/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/order-of-operations/">Order of operations</a></p><p><strong>Leads to:</strong> <a href="/foundations/models/functions-and-domain/">Functions and allowed inputs</a> · <a href="/foundations/concepts/material-balances/">A first material balance</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/variables-and-expressions/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/algebra/variables-and-expressions/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/variables-and-expressions/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="variables-and-expressions">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="less-than">
+<p class="check-prompt">Pages cost <code>nc</code> riyals. Evaluate &quot;nine riyals less than the cost of the pages&quot; at <code>n = 10</code>, <code>c = 2</code>.</p>
+
+<form><div class="check-row"><label for="check-variables-and-expressions-less-than">Your answer <span class="check-unit">(riyals)</span></label><input id="check-variables-and-expressions-less-than" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>nc - 9 = 20 - 9 = 11</code>. &quot;Less than&quot; reduces from the quantity named second, so the symbols reverse the word order.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Now evaluate &quot;the discount <code>d</code> subtracted from the setup charge <code>s</code>&quot; at <code>s = 15</code>, <code>d = 9</code>.</p>
+<form><div class="check-row"><label for="follow-variables-and-expressions-less-than">Your answer <span class="check-unit">(riyals)</span></label><input id="follow-variables-and-expressions-less-than" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>s - d = 15 - 9 = 6</code>. The same reversal: &quot;subtracted from&quot; reduces the quantity named second.</p></details>
+</div>
+</section><section class="check" data-check="bracket-minus">
+<p class="check-prompt">Evaluate <code>nc - (s - 9)</code> at <code>n = 10</code>, <code>c = 2</code>, <code>s = 15</code>.</p>
+
+<form><div class="check-row"><label for="check-variables-and-expressions-bracket-minus">Your answer <span class="check-unit">(riyals)</span></label><input id="check-variables-and-expressions-bracket-minus" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p>Evaluate the bracket first: <code>20 - (15 - 9) = 20 - 6 = 14</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>A new job has <code>n = 8</code>, <code>c = 3</code>, <code>s = 10</code>. Evaluate <code>nc - (s - 4)</code>.</p>
+<form><div class="check-row"><label for="follow-variables-and-expressions-bracket-minus">Your answer <span class="check-unit">(riyals)</span></label><input id="follow-variables-and-expressions-bracket-minus" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>24 - (10 - 4) = 24 - 6 = 18</code>. Removing the bracket gives <code>24 - 10 + 4</code>.</p></details>
+</div>
+</section><section class="check" data-check="read-back">
+<p class="check-prompt">Evaluate <code>(s + nc)/n</code> at <code>n = 10</code>, <code>c = 2</code>, <code>s = 15</code>.</p>
+
+<form><div class="check-row"><label for="check-variables-and-expressions-read-back">Your answer <span class="check-unit">(riyals per page)</span></label><input id="check-variables-and-expressions-read-back" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>(15 + 20)/10 = 3.5</code> riyals per page: the whole charge shared across the pages, higher than the <code>c = 2</code> printing cost because the setup is included.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>For which value of <code>n</code> is <code>(s + nc)/n</code> undefined?</p>
+<form><div class="check-row"><label for="follow-variables-and-expressions-read-back">Your answer</label><input id="follow-variables-and-expressions-read-back" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>n = 0</code>. A job with no pages still incurs the setup charge, so the total is not zero, but &quot;cost per page&quot; has nothing to divide by.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/order-of-operations/">Order of operations</a></p><p><strong>Leads to:</strong> <a href="/foundations/models/functions-and-domain/">Functions and allowed inputs</a> · <a href="/foundations/concepts/material-balances/">A first material balance</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

@@ -6,12 +6,12 @@
    "version": "6c02c53b030f",
    "answer": 3.01,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "f(9)=3، f′(9)=1/6، dx=0.06، فيكون L=3.01.",
+   "unit": "Number",
+   "solution": "f(9)=3, f′(9)=1/6, dx=0.06, L=3.01.",
    "commonErrors": [
     {
      "value": 3.06,
-     "why": "أضفت dx دون ضربه في ميل الجذر."
+     "why": "I added dx without multiplying it by the root slant."
     }
    ]
   },
@@ -20,12 +20,12 @@
    "version": "c716eb67124d",
    "answer": 0.12,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "f′(2)=12، إذن dy=12×0.01.",
+   "unit": "Number",
+   "solution": "f′(2)=12, then dy=12×0.01.",
    "commonErrors": [
     {
      "value": 8,
-     "why": "أعطيت قيمة الدالة بدل التغير."
+     "why": "The value of the function is given instead of the change."
     }
    ]
   },
@@ -35,11 +35,11 @@
    "answer": 3,
    "tolerance": 0.001,
    "unit": "%",
-   "solution": "لخطأ صغير، خطأ الحجم النسبي يقارب ثلاثة أمثال خطأ نصف القطر.",
+   "solution": "For a small error, the relative volume error is approximately three times the radius error.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "الحجم يتناسب مع r³ لا r."
+     "why": "volume fits r³ not r."
     }
    ]
   },
@@ -48,12 +48,12 @@
    "version": "2e3f3cef9437",
    "answer": 0.495,
    "tolerance": 0.001,
-   "unit": "عدد",
+   "unit": "Number",
    "solution": "L=1/2−(1/4)(0.02)=0.495.",
    "commonErrors": [
     {
      "value": 0.505,
-     "why": "مشتقة 1/x سالبة؛ زيادة المقام تخفض القيمة."
+     "why": "1/x derivative is negative; Increasing the denominator decreases the value."
     }
    ]
   },
@@ -62,12 +62,12 @@
    "version": "1dbbe3d0f01b",
    "answer": 0.01,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "القيمة 4.41 والتقريب 4.4؛ الفرق موجب لأن التقعر موجب.",
+   "unit": "Number",
+   "solution": "Value 4.41 and approximation 4.4; The difference is positive because the concavity is positive.",
    "commonErrors": [
     {
      "value": -0.01,
-     "why": "عكست ترتيب الطرح أو اتجاه التقعر."
+     "why": "The order of subtraction or the direction of concavity is reversed."
     }
    ]
   }

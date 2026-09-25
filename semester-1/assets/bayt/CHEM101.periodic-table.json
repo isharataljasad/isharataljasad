@@ -6,20 +6,20 @@
    "version": "4fa8608f857c",
    "answer": 1,
    "tolerance": 0.1,
-   "unit": "شحنة",
-   "solution": "إلكترونات الحجب هي الداخلية: ‎2 + 8 = 10‎. فـ ‎Z_eff ≈ 11 − 10 = 1‎.",
+   "unit": "charge",
+   "solution": "The blocking electrons are internal : 2 + 8 = 10. Z_eff ≈ 11 − 10 = 1.",
    "commonErrors": [
     {
      "value": 11,
-     "why": "كتبتَ الشحنة النووية كاملة. الإلكترون الخارجي لا يشعر بها كلها لأن الإلكترونات الداخلية تحجب جزءًا منها."
+     "why": "You wrote the entire nuclear charge. The outer electron does not feel all of it Because the internal electrons block part of it."
     },
     {
      "value": 10,
-     "why": "كتبتَ عدد إلكترونات الحجب. هي المطروح لا الناتج."
+     "why": "You wrote the number of blocking electrons. It is the subtract, not the result."
     },
     {
      "value": 21,
-     "why": "جمعتَ بدل الطرح. الحجب يُنقص الجذب الصافي ولا يزيده."
+     "why": "You added instead of subtracting. Blocking reduces net attraction, not increases it."
     }
    ]
   },
@@ -28,20 +28,20 @@
    "version": "d92c295b974b",
    "answer": 3,
    "tolerance": 0.1,
-   "unit": "رقم الدورة",
-   "solution": "التوزيع ‎2, 8, 6‎ فالمستويات المشغولة ثلاثة، والعنصر في الدورة الثالثة.",
+   "unit": "Course number",
+   "solution": "Distribution 2, 8, 6 There are three occupied levels, and the element is in the third cycle.",
    "commonErrors": [
     {
      "value": 16,
-     "why": "كتبتَ العدد الذري. الدورة رقم أعلى مستوى مشغول لا عدد الإلكترونات."
+     "why": "You wrote the atomic number. The period number is the highest occupied level, not the number of electrons."
     },
     {
      "value": 6,
-     "why": "كتبتَ عدد إلكترونات التكافؤ. هذا يحدّد المجموعة لا الدورة."
+     "why": "You wrote the number of valence electrons. This defines the group, not the course."
     },
     {
      "value": 2,
-     "why": "عددتَ المستويات الممتلئة تمامًا فقط. المستوى الثالث مشغول ولو لم يمتلئ، فيُعدّ."
+     "why": "You only counted completely filled levels. The third level is occupied, even if it is not full, it is counted."
     }
    ]
   },
@@ -50,20 +50,20 @@
    "version": "776c63582e69",
    "answer": 3,
    "tolerance": 0.1,
-   "unit": "إلكترون",
-   "solution": "التوزيع ‎2, 8, 3‎، فإلكترونات المستوى الأخير ثلاثة.",
+   "unit": "Electron",
+   "solution": "The distribution is 2, 8, 3, so there are three electrons in the last level.",
    "commonErrors": [
     {
      "value": 13,
-     "why": "كتبتَ العدد الذري كله. إلكترونات التكافؤ هي إلكترونات المستوى الأخير وحده."
+     "why": "You wrote the entire atomic number. Valence electrons are the electrons of the last level alone."
     },
     {
      "value": 10,
-     "why": "كتبتَ الإلكترونات الداخلية. هي المحجوبة لا المتكافئة."
+     "why": "You wrote inner electrons. It is the obscured, not the equal."
     },
     {
      "value": 8,
-     "why": "كتبتَ سعة المستوى لا ما شُغل منه فعلًا."
+     "why": "You wrote the capacity of the level, not what was actually occupied with it."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "a6a3b2f06e67",
    "answer": 6,
    "tolerance": 0.1,
-   "unit": "شحنة",
-   "solution": "‎Z_eff(Cl) = 17 − 10 = 7‎ و‎Z_eff(Na) = 11 − 10 = 1‎، والفرق ‎6‎. ولهذا ذرة الكلور أصغر وطاقة تأيّنها أكبر رغم أن إلكتروناتها أكثر.",
+   "unit": "charge",
+   "solution": "Z_eff(Cl) = 17 − 10 = 7 and Z_eff(Na) = 11 − 10 = 1, 6. difference This is why the chlorine atom is smaller and its ionization energy is greater, even though it has more electrons.",
    "commonErrors": [
     {
      "value": 28,
-     "why": "جمعتَ العددين الذريين. المطلوب فرق بين شحنتين فعّالتين لا مجموعهما."
+     "why": "You added the two atomic numbers. What is required is the difference between two effective charges, not their sum."
     },
     {
      "value": 7,
-     "why": "كتبتَ ‎Z_eff‎ للكلور وحده. المطلوب مقدار الزيادة، أي الفرق بين القيمتين."
+     "why": "You wrote Z_eff for chlorine alone. The amount of increase required, i.e. the difference between the two values."
     },
     {
      "value": 20,
-     "why": "طرحتَ إلكترونات الحجب مرتين، أو حسبتَ ‎17 − 11 + 10‎."
+     "why": "You subtracted the blocking electrons twice, or calculated 17 − 11 + 10."
     }
    ]
   },
@@ -94,20 +94,20 @@
    "version": "5270b632cf91",
    "answer": 10,
    "tolerance": 0.1,
-   "unit": "إلكترون",
-   "solution": "الحجب من المستويات الداخلية وحدها: ‎2 + 8 = 10‎. أما الخمسة في المستوى الأخير فهي إلكترونات التكافؤ ونهمل حجبها في هذا التقريب.",
+   "unit": "Electron",
+   "solution": "Blocking from internal levels alone: 2 + 8 = 10. The five in the last level are valence electrons, and we neglect to block them in this approximation.",
    "commonErrors": [
     {
      "value": 15,
-     "why": "عددتَ كل الإلكترونات. الإلكترون لا يحجب نفسه، وإلكترونات المستوى الأخير لا تُعدّ حجبًا في هذا التقريب."
+     "why": "You counted all the electrons. The electron does not obscure itself, The last level electrons are not blocking in this approximation."
     },
     {
      "value": 5,
-     "why": "عددتَ إلكترونات التكافؤ. هي المحجوبة لا الحاجبة."
+     "why": "You counted the valence electrons. She is the veiled one, not the veiled one."
     },
     {
      "value": 2,
-     "why": "عددتَ المستوى الأول وحده. الحجب يشمل كل المستويات الداخلية."
+     "why": "You counted the first level alone. Blocking includes all internal levels."
     }
    ]
   },
@@ -117,11 +117,11 @@
    "answer": 3,
    "tolerance": 0.001,
    "unit": "",
-   "solution": "تُشغل المدارات الثلاثة منفردة قبل الازدواج.",
+   "solution": "The three orbitals are occupied singly before the pairing.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "زاوجت إلكترونات قبل شغل المدارات المتساوية الطاقة منفردة."
+     "why": "Electrons are paired before occupying equal-energy orbitals individually."
     }
    ]
   }

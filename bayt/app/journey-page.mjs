@@ -13,8 +13,8 @@ for (const button of document.querySelectorAll('[data-add-goal]')) {
     const added = addWeekPlan(goal.weekPlan, { demo: false });
     setGoal(goalId);
     note.textContent = added
-      ? `أُضيفت ${countNoun(added, nouns.task)} إلى أسبوعك. افتح التخطيط لترتيبها.`
-      : 'مهام هذا الهدف موجودة في أسبوعك بالفعل.';
+      ? `Added ${countNoun(added, nouns.task)} To your week. Open the layout to arrange them.`
+      : "The tasks for this goal are already in your week.";
     note.classList.add('is-visible');
   });
 }
@@ -27,7 +27,7 @@ if (current) {
     const note = card.querySelector('[data-added-for]');
     const count = load().tasks.filter((t) => goalById.get(current)?.weekPlan.some((p) => p.title === t.title)).length;
     if (note && count) {
-      note.textContent = `هذا هدفك الحالي، و${countNoun(count, nouns.task)} من مهامه في أسبوعك.`;
+      note.textContent = `This is your current goal, and${countNoun(count, nouns.task)} One of his tasks in your week.`;
       note.classList.add('is-visible');
     }
     card.classList.add('is-current');

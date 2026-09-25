@@ -1,0 +1,106 @@
+{
+ "slug": "expressions-and-variables",
+ "checks": [
+  {
+   "id": "classify",
+   "kind": "choice",
+   "prompt": "A print shop writes `pq + d` on a quote. What kind of object is it?",
+   "options": [
+    {
+     "label": "An expression",
+     "correct": true
+    },
+    {
+     "label": "An equation",
+     "why": "An equation asserts that two sides agree, and needs an equals sign. This has none, so there is nothing to be true or false — only a value once the letters are assigned."
+    },
+    {
+     "label": "An inequality",
+     "why": "An inequality compares two sides with a comparison sign. None is present here."
+    }
+   ],
+   "solution": "`pq + d` is an expression: it has a value once `p`, `q` and `d` are assigned, and it claims nothing. \"Solve it\" is not a question it admits.",
+   "followUp": {
+    "prompt": "Now decide: what kind of object is `pq + d = 31`?",
+    "kind": "choice",
+    "options": [
+     {
+      "label": "An equation",
+      "correct": true
+     },
+     {
+      "label": "An expression",
+      "why": "The equals sign adds a claim that the two sides agree, which an expression does not make."
+     }
+    ],
+    "solution": "It is an equation. It claims the two sides agree, and that claim can be true or false depending on the assignment."
+   },
+   "version": 1
+  },
+  {
+   "id": "translate",
+   "kind": "number",
+   "prompt": "Write \"twice the total of the item cost `pq` and the delivery `d`\" and evaluate it at `p = 7`, `q = 4`, `d = 3`.",
+   "answer": 62,
+   "tolerance": 0.001,
+   "unit": "riyals",
+   "solution": "`2(pq + d) = 2(28 + 3) = 62`. The words \"the total of ... and ...\" name one quantity, and \"twice\" applies to all of it.",
+   "responses": [
+    {
+     "value": 59,
+     "why": "consistent with writing `2pq + d`, which doubles the item cost and leaves the delivery single."
+    },
+    {
+     "value": 31,
+     "why": "consistent with evaluating `pq + d` and not applying \"twice\" at all."
+    },
+    {
+     "value": 35,
+     "why": "consistent with reading `p(q + d)`, which multiplies a price by a sum of bottles and riyals — quantities that cannot be added."
+    }
+   ],
+   "followUp": {
+    "prompt": "A different phrasing: \"the item cost, plus twice the delivery\". Evaluate it at the same values.",
+    "answer": 34,
+    "tolerance": 0.001,
+    "unit": "riyals",
+    "solution": "`pq + 2d = 28 + 6 = 34`. Here \"twice\" reaches only the delivery, because the words group it that way."
+   },
+   "prerequisite": {
+    "label": "Order of operations",
+    "href": "/foundations/concepts/order-of-operations/approach-1/"
+   },
+   "version": 1
+  },
+  {
+   "id": "substitute",
+   "kind": "number",
+   "prompt": "Evaluate `2a² + b` at `a = -3` and `b = 5`.",
+   "answer": 23,
+   "tolerance": 0.001,
+   "unit": "",
+   "solution": "`2(-3)² + 5 = 2(9) + 5 = 23`. The bracket around `-3` keeps the sign inside the base.",
+   "responses": [
+    {
+     "value": -13,
+     "why": "consistent with dropping the bracket and reading `-3²` as `-(3²) = -9`, giving `2(-9) + 5`."
+    },
+    {
+     "value": 11,
+     "why": "consistent with replacing the square by the magnitude: `2 × 3 + 5 = 11`. Squaring gives 9, not 3."
+    },
+    {
+     "value": 41,
+     "why": "consistent with squaring the whole of `2a` rather than `a` alone."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now evaluate `b - a²` at the same values, `a = -3` and `b = 5`.",
+    "answer": -4,
+    "tolerance": 0.001,
+    "solution": "`5 - (-3)² = 5 - 9 = -4`. The square is positive, and it is subtracted."
+   },
+   "version": 1
+  }
+ ]
+}

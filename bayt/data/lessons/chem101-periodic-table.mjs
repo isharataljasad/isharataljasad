@@ -16,17 +16,17 @@ const cells = (() => {
 })();
 
 const figure = `<svg viewBox="0 0 480 250" role="img" aria-labelledby="fig-trend-title" class="bayt-svg">`
-  + `<title id="fig-trend-title">شبكة تمثّل الجدول الدوري عليها سهم أفقي وسهم رأسي يبيّنان اتجاهي نصف القطر وطاقة التأيّن</title>`
+  + `<title id="fig-trend-title">A grid representing the periodic table with a horizontal arrow and a vertical arrow showing the directions of radius and ionization energy</title>`
   + cells
   /* السهم الأفقي: عبر الدورة. */
   + `<line x1="80" y1="44" x2="350" y2="44" stroke="#c0392b" stroke-width="3"/>`
   + `<polyline points="342,37 354,44 342,51" fill="none" stroke="#c0392b" stroke-width="3"/>`
-  + `<text x="220" y="28" font-size="14" fill="#c0392b" text-anchor="middle">عبر الدورة: نصف القطر ينقص وطاقة التأيّن تزيد</text>`
+  + `<text x="220" y="28" font-size="14" fill="#c0392b" text-anchor="middle">Across a period: smaller radius, higher ionization energy</text>`
   /* السهم الرأسي: أسفل المجموعة. */
   + `<line x1="64" y1="60" x2="64" y2="170" stroke="#10766f" stroke-width="3"/>`
   + `<polyline points="57,162 64,174 71,162" fill="none" stroke="#10766f" stroke-width="3"/>`
-  + `<text x="240" y="206" font-size="14" fill="#10766f" text-anchor="middle">أسفل المجموعة: نصف القطر يزيد وطاقة التأيّن تنقص</text>`
-  + `<text x="240" y="232" font-size="13" fill="#566f7a" text-anchor="middle">والسبب في الحالتين واحد: الشحنة النووية الفعّالة</text>`
+  + `<text x="240" y="206" font-size="14" fill="#10766f" text-anchor="middle">Below the group: the radius increases and the ionization energy decreases</text>`
+  + `<text x="240" y="232" font-size="13" fill="#566f7a" text-anchor="middle">The reason in both cases is the same: the effective nuclear charge</text>`
   + `</svg>`;
 
 export default {
@@ -34,137 +34,132 @@ export default {
   topic: 'periodic-table',
 
   objectives: [
-    'تحدّد الدورة وعدد إلكترونات التكافؤ من العدد الذري.',
-    'تحسب الشحنة النووية الفعّالة تقريبًا من العدد الذري وعدد إلكترونات الحجب.',
-    'تقارن بين عنصرين في نصف القطر وطاقة التأيّن مستندًا إلى الشحنة النووية الفعّالة.',
+    "The period and number of valence electrons are determined from the atomic number.",
+    "The effective nuclear charge is approximately calculated from the atomic number and the number of blocking electrons.",
+    "Compares two elements in radius and ionization energy based on effective nuclear charge.",
   ],
 
   boundaries: [
-    'الشذوذ في التوزيع الإلكتروني لبعض العناصر الانتقالية ليس في هذا الدرس.',
-    'طاقات التأيّن المتتالية وتفسير القفزات فيها خارج النطاق هنا.',
-    'الخواص المغناطيسية وعلاقتها بالإلكترونات المفردة ليست هنا.',
-    'قواعد سليتر الدقيقة لحساب الشحنة الفعّالة خارج النطاق؛ نستعمل التقريب البسيط.',
+    "The anomalies in the electron configuration of some transition elements are not in this lesson.",
+    "Successive ionization energies and the interpretation of their jumps are beyond the scope here.",
+    "Magnetic properties and their relationship to single electrons are not here.",
+    "Slater's exact rules for calculating effective charge outside the range; We use simple approximation.",
   ],
 
   prerequisites: [
     {
-      title: 'العدد الذري وعدد الإلكترونات',
-      why: 'كل ما في هذا الدرس مبني على عدد الإلكترونات وترتيبها، ومصدرهما العدد الذري.',
-      recap: 'العدد الذري ‎Z‎ هو عدد البروتونات، ويساوي عدد الإلكترونات في الذرة المتعادلة. '
-        + 'فالكلور ‎Z = 17‎ فيه سبعة عشر إلكترونًا. '
-        + 'أما الأيون فعدد إلكتروناته ‎Z‎ ناقص الشحنة.',
+      title: "Atomic number and number of electrons",
+      why: "Everything in this lesson is based on the number and arrangement of electrons, which come from the atomic number.",
+      recap: "The atomic number Z is the number of protons, and is equal to the number of electrons in a neutral atom. "
+        + "Chlorine Z = 17 has seventeen electrons. "
+        + "As for the ion, its number of electrons is Z, with a minus charge.",
       href: '/semester-1/chemistry/atomic-structure/',
-      hrefLabel: 'درس تركيب الذرة',
+      hrefLabel: "Lesson on the structure of the atom",
     },
     {
-      title: 'ترتيب الإلكترونات في مستويات',
-      why: 'الدورة هي رقم المستوى الأخير، والمجموعة تحدّدها إلكترونات ذلك المستوى؛ '
-        + 'فمن لا يرتّب الإلكترونات لا يقرأ موقع العنصر.',
-      recap: 'المستوى الأول يسع إلكترونين، والثاني ثمانية، والثالث ثمانية في العناصر الأولى. '
-        + 'فالصوديوم ‎Z = 11‎ توزيعه ‎2, 8, 1‎: ثلاثة مستويات فهو في الدورة الثالثة، '
-        + 'وإلكترون واحد في الأخير فهو في المجموعة الأولى. '
-        + 'والكبريت ‎Z = 16‎ توزيعه ‎2, 8, 6‎: الدورة الثالثة وستة إلكترونات تكافؤ.',
+      title: "Arrangement of electrons in levels",
+      why: "The period is the number of the last level, and the group is determined by the electrons of that level; "
+        + "Whoever does not arrange the electrons does not read the location of the element.",
+      recap: "The first level holds two electrons, the second has eight, and the third has eight in the first elements. "
+        + "For sodium, Z = 11 and the shell arrangement is 2, 8, 1: three occupied shells place it in period 3, "
+        + "And one electron at the end, so it is in the first group. "
+        + "and sulfur, Z = 16, has the shell arrangement 2, 8, 6: period 3 with six valence electrons.",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'الدورة',
-        en: 'Period',
-        text: 'صف أفقي في الجدول، ورقمه هو رقم أعلى مستوى طاقة مشغول بالإلكترونات. '
-          + 'فكل عناصر الدورة الثالثة تملأ المستوى الثالث، وتشترك في عدد المستويات وتختلف في الشحنة النووية.',
+        term: "Period",
+        en: "Period",
+        text: "A period is a horizontal row of the periodic table. In the main-group examples used here, the period identifies the highest occupied principal shell. Moving across a period changes nuclear charge and valence-electron count.",
       },
       {
-        term: 'المجموعة',
+        term: "Group",
         en: 'Group',
-        text: 'عمود رأسي، وعناصره تتشابه في عدد إلكترونات التكافؤ ومن ثمّ في السلوك الكيميائي. '
-          + 'وهذا التشابه هو سبب ترتيب الجدول أصلًا: الكيمياء تحكمها إلكترونات التكافؤ.',
+        text: "A vertical column, and its elements are similar in the number of valence electrons and thus in chemical behavior. "
+          + "This similarity is why the table is arranged in the first place: chemistry is governed by valence electrons.",
       },
       {
-        term: 'الحجب',
+        term: "Blocking",
         en: 'Shielding',
-        text: 'حجب الإلكترونات الداخلية لجزء من جذب النواة عن إلكترونات التكافؤ. '
-          + 'فالإلكترون الخارجي لا يشعر بكل شحنة النواة، بل بما يتبقى منها بعد أن تحجبه الإلكترونات الداخلية.',
+        text: "The inner electrons shield part of the nucleus's attraction from the valence electrons. "
+          + "The outer electron does not feel all the charge of the nucleus, but rather what remains of it after the inner electrons block it.",
       },
       {
-        term: 'الشحنة النووية الفعّالة',
+        term: "Effective nuclear charge",
         en: 'Effective nuclear charge (Z_eff)',
-        text: 'الجذب الصافي الذي يشعر به إلكترون التكافؤ: ‎Z_eff ≈ Z − S‎ حيث ‎S‎ عدد إلكترونات الحجب. '
-          + 'وهي المفتاح الذي يفسّر اتجاهات الجدول كلها في هذا الدرس.',
+        text: "The net attraction felt by a valence electron is : Z_eff ≈ Z − S, where S is the number of blocking electrons. "
+          + "It is the key that explains all the table trends in this lesson.",
       },
       {
-        term: 'نصف القطر الذري',
+        term: "Atomic radius",
         en: 'Atomic radius',
-        text: 'نصف المسافة بين نواتَي ذرتين متلامستين. '
-          + 'ينقص كلما زادت ‎Z_eff‎ لأن الجذب يشدّ السحابة الإلكترونية إلى الداخل، '
-          + 'ويزيد كلما أُضيف مستوى جديد لأن الإلكترون الخارجي صار أبعد وأكثر احتجابًا.',
+        text: "Atomic radius describes atomic size using a stated convention, such as half the distance between two bonded identical atoms. Across a main-group period it generally decreases as effective nuclear attraction increases. Down a group it generally increases as additional shells are occupied.",
       },
       {
-        term: 'طاقة التأيّن',
+        term: "Ionization energy",
         en: 'Ionization energy',
-        text: 'الطاقة اللازمة لنزع أضعف إلكترون من ذرة في الحالة الغازية. '
-          + 'وتتّجه عكس نصف القطر: الإلكترون الأقرب والأشدّ جذبًا أصعب نزعًا. '
-          + 'فحيثما صغر نصف القطر كبرت طاقة التأيّن.',
+        text: "First ionization energy is the energy required to remove an electron from a gaseous ground-state atom. It generally increases across a main-group period and decreases down a group, with exceptions explained by electron configurations. Radius alone does not determine every comparison.",
       },
     ],
     relations: [
       {
         formula: 'Z_eff ≈ Z − S',
-        name: 'الشحنة الفعّالة',
-        note: 'تقريب بسيط: ‎S‎ عدد الإلكترونات الداخلية.',
+        name: "Effective charge",
+        note: "A simple approximation: S is the number of inner electrons.",
       },
       {
-        formula: 'عبر الدورة: Z_eff ↑ , radius ↓ , IE ↑',
-        name: 'الاتجاه الأفقي',
-        note: 'المستوى نفسه، والشحنة تزيد، فالجذب يزيد.',
+        formula: "Cross course: Z_eff ↑, radius ↓, IE ↑",
+        name: "Horizontal direction",
+        note: "The level is the same, the charge increases, so the attraction increases.",
       },
       {
-        formula: 'أسفل المجموعة: n ↑ , radius ↑ , IE ↓',
-        name: 'الاتجاه الرأسي',
-        note: 'مستوى جديد أبعد وحجب أكبر، فالجذب يضعف.',
+        formula: "Bottom group: n ↑, radius ↑, IE ↓",
+        name: "Vertical direction",
+        note: "A new level is further away and the blocking is greater, so the attraction weakens.",
       },
     ],
     derivation: {
-      title: 'لماذا تصغر الذرة كلما أضفنا إلكترونات عبر الدورة',
-      intro: 'نتيجة تبدو مقلوبة: نضيف إلكترونات فيصغر الحجم. والسبب أن الإضافة لا تقع وحدها.',
+      title: "Why does an atom get smaller as we add electrons through the cycle?",
+      intro: "The result appears to be inverted: we add electrons and the volume becomes smaller. The reason is that the addition does not occur alone.",
       steps: [
         {
-          do: 'انتقل من الصوديوم ‎Z = 11‎ إلى الكلور ‎Z = 17‎ في الدورة الثالثة.',
-          why: 'المقارنة داخل دورة واحدة تثبّت عدد المستويات وتعزل أثر الشحنة وحدها.',
+          do: "Go from sodium Z = 11 to chlorine Z = 17 in the third cycle.",
+          why: "Comparison within a single cycle fixes the number of levels and isolates the effect of charge alone.",
         },
         {
-          do: 'لاحظ أن الإلكترونات المضافة تدخل **المستوى نفسه**، لا مستوًى جديدًا.',
-          why: 'فلا يزداد البعد عن النواة بإضافة مستوى؛ وهذا هو الفرق عن النزول في المجموعة.',
+          do: "Note that the added electrons enter **the same level**, not a new level.",
+          why: "The distance from the nucleus does not increase by adding a level; This is the difference from going down in a group.",
         },
         {
-          do: 'وعدد الإلكترونات الداخلية بقي عشرة في الاثنين، فالحجب لم يتغيّر تقريبًا، '
-            + 'بينما زادت البروتونات ستة.',
-          why: 'إلكترونات المستوى نفسه تحجب بعضها ضعيفًا، فالزيادة في الشحنة تظهر صافيةً في ‎Z_eff‎.',
+          do: "The number of internal electrons remained ten in both, so the blocking remained almost unchanged. "
+            + "While the protons increased by six.",
+          why: "The electrons of the same level mask each other weakly, so the increase in charge appears net in Z_eff.",
         },
         {
-          do: 'فـ ‎Z_eff‎ ترتفع من ‎1‎ إلى ‎7‎، والجذب يشدّ السحابة إلى الداخل فيصغر نصف القطر.',
-          why: 'فالحجم لا تحدّده كثرة الإلكترونات بل شدّة الجذب عليها. '
-            + 'ولهذا تكون ذرة الكلور أصغر من ذرة الصوديوم رغم أنها تحوي إلكترونات أكثر.',
+          do: "Z_eff rises from 1 to 7, and gravity pulls the cloud inward, making the radius smaller.",
+          why: "volume is not determined by the number of electrons, but by the intensity of attraction on them. "
+            + "This is why the chlorine atom is smaller than the sodium atom, even though it contains more electrons.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'سهمان يفسّرهما سبب واحد',
+    title: "Two arrows explained by one reason",
     figure: {
       svg: figure,
-      caption: 'عبر الدورة ترتفع ‎Z_eff‎ فيصغر نصف القطر وترتفع طاقة التأيّن. '
-        + 'وأسفل المجموعة يُضاف مستوى ويزيد الحجب فيكبر نصف القطر وتنقص طاقة التأيّن.',
-      alt: 'شبكة مستطيلات تمثّل الجدول الدوري مبسّطًا، يتدرّج لونها فيغمق كلما اتجهنا يمينًا. '
-        + 'فوقها سهم أفقي أحمر يشير يمينًا وفوقه عبارة تقول إن نصف القطر ينقص وطاقة التأيّن تزيد عبر الدورة. '
-        + 'وعلى يسارها سهم رأسي أخضر يشير إلى أسفل، وتحت الشبكة عبارة تقول إن نصف القطر يزيد '
-        + 'وطاقة التأيّن تنقص أسفل المجموعة. وسطر أخير يذكر أن السبب في الحالتين هو الشحنة النووية الفعّالة.',
+      caption: "Throughout the cycle, Z_eff rises, the radius becomes smaller, and the ionization energy increases. "
+        + "Below the group, a level is added, the blocking increases, the radius increases, and the ionization energy decreases.",
+      alt: "A grid of rectangles representing the periodic table simplified, and its color gets darker as we move to the right. "
+        + "Above it is a red horizontal arrow pointing to the right, and above it is a statement saying that the radius decreases and the ionization energy increases throughout the period. "
+        + "To its left is a green vertical arrow pointing down, and under the grid is a phrase saying that the radius increases "
+        + "The ionization energy decreases down the group. A final line mentions that the reason in both cases is the effective nuclear charge.",
     },
     table: {
-      caption: 'أربعة عناصر: الموقع والشحنة الفعّالة والحجم',
-      head: ['العنصر', 'Z', 'التوزيع', 'الدورة', 'إلكترونات الحجب', 'Z_eff تقريبًا'],
+      caption: "Four elements: location, effective charge, and volume",
+      head: ["Item", 'Z', "Distribution", "Course", "Blocking electrons", "Z_eff approx"],
       rows: [
         ['Na', '11', '2, 8, 1', '3', '10', '1'],
         ['Mg', '12', '2, 8, 2', '3', '10', '2'],
@@ -172,57 +167,57 @@ export default {
         ['Cl', '17', '2, 8, 7', '3', '10', '7'],
       ],
     },
-    reading: 'اقرأ العمودين الأخيرين معًا: الحجب ثابت عند عشرة في الأربعة، و‎Z_eff‎ ترتفع من واحد إلى سبعة. '
-      + 'وهذا هو سبب صغر ذرة الكلور أمام الصوديوم رغم أن إلكتروناتها أكثر. '
-      + 'ولاحظ أن عدد إلكترونات التكافؤ يساوي ‎Z_eff‎ في هذا التقريب، وهذه مصادفة مفيدة للحفظ لا قاعدة عامة.',
+    reading: "Read the last two columns together: Blocking holds at ten at four, and Z_eff goes from one to seven. "
+      + "This is the reason why the chlorine atom is smaller than sodium, even though it has more electrons. "
+      + "Note that the number of valence electrons is equal to Z_eff in this approximation, and this is a coincidence that is useful for memorization and not a general rule.",
   },
 
   guided: {
-    start: 'ابدأ من العدد الذري ووزّع الإلكترونات: ‎2‎ ثم ‎8‎ ثم ‎8‎. '
-      + 'عدد المستويات المشغولة هو الدورة، وعدد إلكترونات المستوى الأخير هو إلكترونات التكافؤ. '
-      + 'ثم احسب ‎Z_eff = Z − S‎ حيث ‎S‎ هو مجموع الإلكترونات في المستويات الداخلية. '
-      + 'وبعدها صارت كل مقارنة سهلة: أكبر ‎Z_eff‎ في الدورة نفسها يعني ذرة أصغر وطاقة تأيّن أكبر.',
+    start: "Start from the atomic number and distribute the electrons : 2, then 8, then 8. "
+      + "The number of occupied levels is the period, and the number of electrons of the last level is the valence electrons. "
+      + "Then calculate Z_eff = Z − S where S is the sum of electrons in the internal levels. "
+      + "Then every comparison became easy: a larger Z_eff in the same cycle means a smaller atom and greater ionization energy.",
     workedExamples: [
       {
-        title: 'مثال 1 · موقع عنصر وشحنته الفعّالة',
-        task: 'لعنصر ‎Z = 16‎. حدّد دورته وعدد إلكترونات تكافئه وشحنته النووية الفعّالة تقريبًا.',
+        title: "Example 1 · The location of an item and its effective charge",
+        task: "For the element Z = 16., determine its period, number of valence electrons, and approximately its effective nuclear charge.",
         steps: [
           {
-            do: 'وزّع الإلكترونات: ‎2, 8, 6‎.',
-            why: 'المستوى الأول يسع اثنين والثاني ثمانية، فيبقى ستة للثالث. '
-              + 'والتوزيع هو مصدر كل ما بعده.',
+            do: "Distribute the electrons: 2, 8, 6.",
+            why: "The first level accommodates two, the second eight, leaving six for the third. "
+              + "Distribution is the source of everything that follows it.",
           },
           {
-            do: 'عدد المستويات المشغولة ثلاثة، فالعنصر في الدورة الثالثة.',
-            why: 'الدورة رقم أعلى مستوى مشغول، لا عدد الإلكترونات ولا العدد الذري.',
+            do: "The number of occupied levels is three, so the element is in the third cycle.",
+            why: "The period is the number of the highest level occupied, neither the number of electrons nor the atomic number.",
           },
           {
-            do: 'إلكترونات المستوى الأخير ستة، فهي إلكترونات التكافؤ.',
-            why: 'وهي التي تحدّد السلوك الكيميائي وموقع العنصر في المجموعة.',
+            do: "The last level has six electrons, so they are valence electrons.",
+            why: "It determines the chemical behavior and location of the element in the group.",
           },
           {
-            do: 'الحجب ‎S = 2 + 8 = 10‎، فـ ‎Z_eff ≈ 16 − 10 = 6‎.',
-            why: 'الإلكترونات الداخلية وحدها تُعدّ حجبًا؛ أما إلكترونات المستوى نفسه فتحجب ضعيفًا ونهملها.',
+            do: "Blocking S = 2 + 8 = 10, Z_eff ≈ 16 − 10 = 6.",
+            why: "Inner electrons alone are shielding; The electrons of the same level are weakly shielded and we neglect them.",
           },
         ],
         answer: 'Period 3, six valence electrons, Z_eff ≈ 6',
       },
       {
-        title: 'مثال 2 · مقارنة حجمين',
-        task: 'أيّهما أصغر: ذرة الصوديوم ‎Z = 11‎ أم ذرة الكلور ‎Z = 17‎؟ ولماذا؟',
+        title: "Example 2 · Comparing two sizes",
+        task: "Which is smaller: the sodium atom Z = 11 or the chlorine atom Z = 17? And why?",
         steps: [
           {
-            do: 'كلاهما في الدورة الثالثة، ولكل منهما عشرة إلكترونات داخلية.',
-            why: 'تثبيت الدورة يعزل أثر الشحنة؛ ولولا ذلك لاختلط أثر إضافة مستوى بأثر زيادة البروتونات.',
+            do: "They are both in the third period, and each has ten inner electrons.",
+            why: "Fixing the cycle isolates the effect of charge; Otherwise, the effect of adding a level would be mixed with the effect of increasing the protons.",
           },
           {
-            do: '‎Z_eff(Na) ≈ 1‎ و‎Z_eff(Cl) ≈ 7‎.',
-            why: 'الفرق سبعة أضعاف في الجذب الصافي، وهو فرق كبير لا يُهمَل.',
+            do: "Z_eff(Na) ≈ 1 and Z_eff(Cl) ≈ 7.",
+            why: "The difference is seven times in net attraction, which is a huge difference that cannot be neglected.",
           },
           {
-            do: 'فالكلور أصغر، لأن جذبًا أقوى يشدّ السحابة الإلكترونية إلى الداخل.',
-            why: 'وهذا رغم أن الكلور يحوي ستة إلكترونات أكثر؛ '
-              + 'فالحجم تحدّده شدة الجذب لا عدد الإلكترونات.',
+            do: "Chlorine is smaller because a stronger attraction pulls the electron cloud inward.",
+            why: "This is despite the fact that chlorine contains six more electrons; "
+              + "The volume is determined by the intensity of attraction, not the number of electrons.",
           },
         ],
         answer: 'Cl is smaller (Z_eff 7 vs 1)',
@@ -230,22 +225,22 @@ export default {
     ],
     skipped: [
       {
-        q: 'لماذا لا نعدّ إلكترونات المستوى نفسه ضمن الحجب؟',
-        a: 'لأنها تقع في المتوسط على البعد نفسه من النواة لا بين الإلكترون والنواة، '
-          + 'فحجبها ضعيف. والتقريب البسيط يهملها كليًّا. '
-          + 'وقواعد سليتر تعطيها وزنًا صغيرًا نحو ‎0.35‎ لكل إلكترون، وهي خارج حدود هذا الدرس.',
+        q: "Why don't we count the electrons of the same level among the blocking?",
+        a: "Because it is located on average at the same distance from the nucleus, not between the electron and the nucleus. "
+          + "Its blocking is weak. The simple approximation neglects it completely. "
+          + "Slater's rules give it a small weight of about 0.35 per electron, which is beyond the scope of this lesson.",
       },
       {
-        q: 'هل الأيون بحجم ذرته؟',
-        a: 'لا. الأيون الموجب أصغر من ذرته دائمًا: فقد إلكترونًا فقلّ التنافر وربما فُقد مستوى كامل. '
-          + 'والأيون السالب أكبر من ذرته: اكتسب إلكترونًا فزاد التنافر بينما بقيت البروتونات كما هي، '
-          + 'فتوزّع الجذب نفسه على إلكترونات أكثر.',
+        q: "Is the ion the volume of its atom?",
+        a: "No. A positive ion is always smaller than its atom: it has lost an electron, so the repulsion is reduced, and perhaps an entire level is lost. "
+          + "The negative ion is larger than its atom: it gained an electron, increasing the repulsion, while the protons remained the same. "
+          + "The same attraction is distributed among more electrons.",
       },
       {
-        q: 'هل الاتجاهات مطّردة بلا استثناء؟',
-        a: 'لا. توجد استثناءات معروفة في طاقة التأيّن، كأن تكون طاقة تأيّن الألومنيوم أقلّ من المغنيسيوم '
-          + 'رغم أنه بعده في الدورة. وسببها بنية المستويات الفرعية وليس الشحنة الفعّالة وحدها، '
-          + 'وتفصيلها خارج حدود هذا الدرس. فالاتجاه قاعدة عامة لا قانون بلا استثناء.',
+        q: "Are the trends consistent without exception?",
+        a: "No. There are known exceptions to the ionization energy, such as the ionization energy of aluminum being lower than that of magnesium "
+          + "Even though he is later in the course. It is caused by the structure of the sublevels and not the effective charge alone. "
+          + "Its details are beyond the scope of this lesson. The trend is a general rule, not a law without exception.",
       },
     ],
   },
@@ -253,90 +248,90 @@ export default {
   questionTypes: [
     {
       id: 'zeff-na',
-      family: 'النمط الأول · الشحنة النووية الفعّالة',
-      aim: 'تطرح إلكترونات الحجب من العدد الذري.',
+      family: "Type I: Effective nuclear charge",
+      aim: "Blocking electrons are subtracted from the atomic number.",
       objectives: [1],
-      prompt: 'الصوديوم عدده الذري ‎11‎ وتوزيعه ‎2, 8, 1‎. '
-        + 'ما شحنته النووية الفعّالة تقريبًا؟',
-      unit: 'شحنة',
+      prompt: "Sodium has an atomic number of 11 and a distribution of 2, 8, 1. "
+        + "What is approximately its effective nuclear charge?",
+      unit: "charge",
       answer: 1,
       tolerance: 0.1,
-      solution: 'إلكترونات الحجب هي الداخلية: ‎2 + 8 = 10‎. '
-        + 'فـ ‎Z_eff ≈ 11 − 10 = 1‎.',
+      solution: "The blocking electrons are internal : 2 + 8 = 10. "
+        + "Z_eff ≈ 11 − 10 = 1.",
       commonErrors: [
-        { value: 11, why: 'كتبتَ الشحنة النووية كاملة. الإلكترون الخارجي لا يشعر بها كلها '
-          + 'لأن الإلكترونات الداخلية تحجب جزءًا منها.' },
-        { value: 10, why: 'كتبتَ عدد إلكترونات الحجب. هي المطروح لا الناتج.' },
-        { value: 21, why: 'جمعتَ بدل الطرح. الحجب يُنقص الجذب الصافي ولا يزيده.' },
+        { value: 11, why: "You wrote the entire nuclear charge. The outer electron does not feel all of it "
+          + "Because the internal electrons block part of it." },
+        { value: 10, why: "You wrote the number of blocking electrons. It is the subtract, not the result." },
+        { value: 21, why: "You added instead of subtracting. Blocking reduces net attraction, not increases it." },
       ],
     },
     {
       id: 'period',
-      family: 'النمط الثاني · تحديد الدورة',
-      aim: 'تعدّ المستويات لا الإلكترونات.',
+      family: "The second type: Determine the course",
+      aim: "Count levels, not electrons.",
       objectives: [0],
-      prompt: 'عنصر عدده الذري ‎16‎. في أي دورة يقع؟',
-      unit: 'رقم الدورة',
+      prompt: "An element with atomic number 16. is in which period it occurs?",
+      unit: "Course number",
       answer: 3,
       tolerance: 0.1,
-      solution: 'التوزيع ‎2, 8, 6‎ فالمستويات المشغولة ثلاثة، والعنصر في الدورة الثالثة.',
+      solution: "Distribution 2, 8, 6 There are three occupied levels, and the element is in the third cycle.",
       commonErrors: [
-        { value: 16, why: 'كتبتَ العدد الذري. الدورة رقم أعلى مستوى مشغول لا عدد الإلكترونات.' },
-        { value: 6, why: 'كتبتَ عدد إلكترونات التكافؤ. هذا يحدّد المجموعة لا الدورة.' },
-        { value: 2, why: 'عددتَ المستويات الممتلئة تمامًا فقط. '
-          + 'المستوى الثالث مشغول ولو لم يمتلئ، فيُعدّ.' },
+        { value: 16, why: "You wrote the atomic number. The period number is the highest occupied level, not the number of electrons." },
+        { value: 6, why: "You wrote the number of valence electrons. This defines the group, not the course." },
+        { value: 2, why: "You only counted completely filled levels. "
+          + "The third level is occupied, even if it is not full, it is counted." },
       ],
     },
     {
       id: 'valence',
-      family: 'النمط الثالث · إلكترونات التكافؤ',
-      aim: 'تقرأ المستوى الأخير وحده.',
+      family: "The third type: valence electrons",
+      aim: "You read the last level alone.",
       objectives: [0],
-      prompt: 'عنصر عدده الذري ‎13‎. كم إلكترون تكافؤ فيه؟',
-      unit: 'إلكترون',
+      prompt: "An element with atomic number 13., how many valence electrons does it have?",
+      unit: "Electron",
       answer: 3,
       tolerance: 0.1,
-      solution: 'التوزيع ‎2, 8, 3‎، فإلكترونات المستوى الأخير ثلاثة.',
+      solution: "The distribution is 2, 8, 3, so there are three electrons in the last level.",
       commonErrors: [
-        { value: 13, why: 'كتبتَ العدد الذري كله. إلكترونات التكافؤ هي إلكترونات المستوى الأخير وحده.' },
-        { value: 10, why: 'كتبتَ الإلكترونات الداخلية. هي المحجوبة لا المتكافئة.' },
-        { value: 8, why: 'كتبتَ سعة المستوى لا ما شُغل منه فعلًا.' },
+        { value: 13, why: "You wrote the entire atomic number. Valence electrons are the electrons of the last level alone." },
+        { value: 10, why: "You wrote inner electrons. It is the obscured, not the equal." },
+        { value: 8, why: "You wrote the capacity of the level, not what was actually occupied with it." },
       ],
     },
     {
       id: 'compare-zeff',
-      family: 'النمط الرابع · مقارنة عنصرين',
-      aim: 'تعزل أثر الشحنة بتثبيت الدورة.',
+      family: "The fourth type: Comparing two items",
+      aim: "Isolate the effect of charge by stabilizing the cycle.",
       objectives: [1, 2],
-      prompt: 'الصوديوم ‎Z = 11‎ والكلور ‎Z = 17‎، وكلاهما في الدورة الثالثة وله عشرة إلكترونات داخلية. '
-        + 'كم تزيد الشحنة النووية الفعّالة للكلور عن الصوديوم؟',
-      unit: 'شحنة',
+      prompt: "Sodium Z = 11 and chlorine Z = 17, both in the third period and have ten inner electrons. "
+        + "How much greater is the effective nuclear charge of chlorine than that of sodium?",
+      unit: "charge",
       answer: 6,
       tolerance: 0.1,
-      solution: '‎Z_eff(Cl) = 17 − 10 = 7‎ و‎Z_eff(Na) = 11 − 10 = 1‎، والفرق ‎6‎. '
-        + 'ولهذا ذرة الكلور أصغر وطاقة تأيّنها أكبر رغم أن إلكتروناتها أكثر.',
+      solution: "Z_eff(Cl) = 17 − 10 = 7 and Z_eff(Na) = 11 − 10 = 1, 6. difference "
+        + "This is why the chlorine atom is smaller and its ionization energy is greater, even though it has more electrons.",
       commonErrors: [
-        { value: 28, why: 'جمعتَ العددين الذريين. المطلوب فرق بين شحنتين فعّالتين لا مجموعهما.' },
-        { value: 7, why: 'كتبتَ ‎Z_eff‎ للكلور وحده. المطلوب مقدار الزيادة، أي الفرق بين القيمتين.' },
-        { value: 20, why: 'طرحتَ إلكترونات الحجب مرتين، أو حسبتَ ‎17 − 11 + 10‎.' },
+        { value: 28, why: "You added the two atomic numbers. What is required is the difference between two effective charges, not their sum." },
+        { value: 7, why: "You wrote Z_eff for chlorine alone. The amount of increase required, i.e. the difference between the two values." },
+        { value: 20, why: "You subtracted the blocking electrons twice, or calculated 17 − 11 + 10." },
       ],
     },
     {
       id: 'shielding',
-      family: 'النمط الخامس · عدّ إلكترونات الحجب',
-      aim: 'تفصل الداخلية عن الخارجية.',
+      family: "Type 5: Counting the blocking electrons",
+      aim: "Separates the interior from the exterior.",
       objectives: [1],
-      prompt: 'عنصر عدده الذري ‎15‎ وتوزيعه ‎2, 8, 5‎. كم إلكترونًا يقوم بالحجب؟',
-      unit: 'إلكترون',
+      prompt: "An element with atomic number 15 and distribution 2, 8, 5. How many electrons does it block?",
+      unit: "Electron",
       answer: 10,
       tolerance: 0.1,
-      solution: 'الحجب من المستويات الداخلية وحدها: ‎2 + 8 = 10‎. '
-        + 'أما الخمسة في المستوى الأخير فهي إلكترونات التكافؤ ونهمل حجبها في هذا التقريب.',
+      solution: "Blocking from internal levels alone: 2 + 8 = 10. "
+        + "The five in the last level are valence electrons, and we neglect to block them in this approximation.",
       commonErrors: [
-        { value: 15, why: 'عددتَ كل الإلكترونات. الإلكترون لا يحجب نفسه، '
-          + 'وإلكترونات المستوى الأخير لا تُعدّ حجبًا في هذا التقريب.' },
-        { value: 5, why: 'عددتَ إلكترونات التكافؤ. هي المحجوبة لا الحاجبة.' },
-        { value: 2, why: 'عددتَ المستوى الأول وحده. الحجب يشمل كل المستويات الداخلية.' },
+        { value: 15, why: "You counted all the electrons. The electron does not obscure itself, "
+          + "The last level electrons are not blocking in this approximation." },
+        { value: 5, why: "You counted the valence electrons. She is the veiled one, not the veiled one." },
+        { value: 2, why: "You counted the first level alone. Blocking includes all internal levels." },
       ],
     },
   ],

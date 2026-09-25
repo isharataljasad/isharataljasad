@@ -191,18 +191,18 @@ await ok("the login page contains no hint, no recovery, no registration, no app 
 
 await ok("the login page carries the identity lines required by the brief", () => {
   const html = loginPage({ nonce: "n" });
-  for (const s of ["مختبر العلوم", "منصة المشروع · من الفهم إلى الاكتشاف",
-                   "هذه التجربة متاحة بدعوة", "كلمة المرور", "الدخول"]) {
+  for (const s of ["Science Lab", "From understanding to discovery",
+                   "invitation", "Password", "Sign in"]) {
     truthy(html.includes(s), `login page missing: ${s}`);
   }
-  truthy(html.includes('dir="rtl"') && html.includes('lang="ar"'), "not RTL Arabic");
+  truthy(html.includes('dir="ltr"') && html.includes('lang="en"'), "not LTR English");
   truthy(html.includes('name="robots"'), "login page is indexable");
 });
 
 await ok("the error state replaces the invitation line and is announced to assistive tech", () => {
   const html = loginPage({ nonce: "n", error: "كلمة المرور غير صحيحة." });
   truthy(html.includes('role="alert"'), "error not announced");
-  truthy(!html.includes("هذه التجربة متاحة بدعوة"), "both states rendered at once");
+  truthy(!html.includes("This experience is available by invitation"), "both states rendered at once");
 });
 
 await ok("the page is self-contained: no external asset request before login", () => {
@@ -262,7 +262,7 @@ await ok("a wrong password returns 401, sets no cookie, and says nothing specifi
   eq(res.status, 401);
   eq(res.headers.get("set-cookie"), null, "a cookie was issued on failure");
   const body = await res.text();
-  truthy(body.includes("كلمة المرور غير صحيحة."), "generic message missing");
+  truthy(body.includes("The password is incorrect."), "generic message missing");
   truthy(!body.includes(PASSWORD), "the password appears in the response");
 });
 

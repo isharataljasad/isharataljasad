@@ -31,14 +31,14 @@ for(const lesson of inv.lessons){
 assert.ok(inv.lessons.find(x=>x.n===3).arenas.includes('A1'));
 assert.ok(inv.lessons.find(x=>x.n===30).arenas.includes('A9'));
 assert.ok(inv.lessons.find(x=>x.n===31).arenas.includes('A9'));
-for(const label of ['Franklin Ow','Professor Goldwhite','مسار الكتب','PEARSON+','Exam DNA','Topic → Arena','/chemistry/atomic/','goldwhite-inventory.json']) assert.ok(html.includes(label),`missing ${label}`);
-assert.match(html,/<html lang="ar" dir="rtl">/);
+for(const label of ['Franklin Ow','Professor Goldwhite','Book Track','PEARSON+','Exam DNA','Topic → Arena','/chemistry/atomic/','goldwhite-inventory.json']) assert.ok(html.includes(label),`missing ${label}`);
+assert.match(html,/<html lang="en" dir="ltr">/);
 /* Root-absolute, not "./engine.js": trailingSlash:false serves this page at
    /chemistry/atomic, where a relative src resolves to /chemistry/engine.js. */
 assert.match(arena,/<script src="\/chemistry\/atomic\/engine\.js" defer><\/script>/);
 assert.equal(arena.includes('src="./engine.js"'),false,'relative script path breaks at the canonical URL');
-assert.ok(arena.includes('مسائل أصلية'));
-assert.ok(arena.includes('وليست'));
+assert.ok(arena.includes('original'));
+assert.ok(arena.includes('not'));
 assert.ok(!html.includes('.srt</a>')&&!arena.includes('.srt</a>'));
 new Function(engine);
 for(const term of ['navigator.clipboard.writeText','localStorage',"'remediate'","'passed'","'needs_review'"]) assert.ok(engine.includes(term),`missing ${term}`);

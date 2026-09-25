@@ -11,7 +11,7 @@
    "commonErrors": [
     {
      "value": 6,
-     "why": "استعملت mL كأنها L."
+     "why": "I used mL as if it were L."
     }
    ]
   },
@@ -21,11 +21,11 @@
    "answer": 0.003,
    "tolerance": 0.00001,
    "unit": "mol",
-   "solution": "النسبة 1:1؛ Ag⁺ يحدد المنتج.",
+   "solution": "Ratio 1:1; Ag⁺ Identifies the product.",
    "commonErrors": [
     {
      "value": 0.005,
-     "why": "اعتمدت المتفاعل الزائد."
+     "why": "Excess reactant adopted."
     }
    ]
   },
@@ -34,12 +34,12 @@
    "version": "6030f3504ac4",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "نوع",
-   "solution": "Na⁺ وNO3⁻ يظهران دون تغير.",
+   "unit": "Type",
+   "solution": "Na⁺ and NO3⁻ appear unchanged.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "كل الأيونات موجودة أولًا لكن Ag⁺ وCl⁻ يتغيران."
+     "why": "All ions are present first but Ag⁺ and Cl⁻ change."
     }
    ]
   },
@@ -53,7 +53,7 @@
    "commonErrors": [
     {
      "value": 12.5,
-     "why": "عكست نسبة التركيز؛ القاعدة الأقل تركيزًا تحتاج حجمًا أكبر."
+     "why": "Concentration ratio reversed; A less concentrated base requires a larger volume."
     }
    ]
   },
@@ -62,12 +62,12 @@
    "version": "f3542af52dda",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "إلكترون",
-   "solution": "التأكسد من 0 إلى +2 يعني فقد إلكترونين.",
+   "unit": "Electron",
+   "solution": "Oxidation from 0 to +2 means loss of two electrons.",
    "commonErrors": [
     {
      "value": -2,
-     "why": "عدد الإلكترونات موجب؛ اتجاه فقدها يمثله موضعها في المعادلة."
+     "why": "The number of electrons is positive; The direction of its loss is represented by its position in the equation."
     }
    ]
   },
@@ -76,12 +76,12 @@
    "version": "6c7be97916c9",
    "answer": 0,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "+2−2=0 مثل الراسب المتعادل.",
+   "unit": "Number",
+   "solution": "+2−2=0 as neutral precipitate.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "جمعت مقادير الشحنات وأهملت الإشارات."
+     "why": "I collected the amounts of the shipments and ignored the sign."
     }
    ]
   }

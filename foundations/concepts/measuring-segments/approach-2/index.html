@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Distinct problem types, a decision to make, feedback that names the specific mistake, and a changed case to retry."><title>Approach 2 · Measuring Segments | Yanbu Engineering Study</title>
-<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"></head>
+<link rel="stylesheet" href="/semester-1/assets/curriculum.css"><link rel="stylesheet" href="/foundations/reading/reading.css"><link rel="stylesheet" href="/foundations/concepts/concepts.css"><script type="module" src="/foundations/concepts/checks.mjs"></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="header"><a class="brand" href="/">YANBU <span>Engineering study</span></a><nav aria-label="Study areas"><a href="/semester-1/math/">Calculus I</a><a href="/semester-1/physics/">Physics</a><a href="/semester-1/chemistry/">Chemistry</a><a href="/foundations/" aria-current="page">Foundations</a><a href="/program/">Programme map</a></nav><span class="semester">CONCEPTS</span></header>
 <main id="main" class="page concepts-page"><p class="model-crumb"><a href="/foundations/">Foundations</a> / <a href="/foundations/concepts/">Concepts</a> / <a href="/foundations/concepts/measuring-segments/">Measuring segments</a> / Approach 2</p>
@@ -39,6 +39,55 @@
 <h2 id="what-to-be-able-to-do-before-moving-on">What to be able to do before moving on</h2>
 <ol><li>Compute a distance across negative coordinates, taking the absolute value only at the end.</li><li>Say which of a figure and a length an expression denotes, and which may be set equal to a measurement.</li><li>Test betweenness by addition, and state the stronger conclusion a failure gives you.</li><li>Solve for an unknown length, check by substitution, and say which phrase in the question licensed the method.</li></ol>
 <h2 id="move-between-routes">Move between routes</h2>
-<ul><li><a href="/foundations/concepts/measuring-segments/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/geometry/measuring-segments/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/measuring-segments/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/points-lines-and-planes/">Points, lines and planes</a> · <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/midpoints-and-congruence/">Midpoints and segment congruence</a></p></section></article></div></main>
+<ul><li><a href="/foundations/concepts/measuring-segments/approach-1/">Curriculum reference</a> — the rules as lookup tables.</li><li><a href="/foundations/reading/geometry/measuring-segments/">Written teaching guide</a> — the full explanation.</li><li><a href="/foundations/concepts/measuring-segments/">Concept hub</a> — prerequisites and what follows.</li></ul><section class="concept-checks" data-concept-checks="measuring-segments">
+<h2 id="check-yourself">Check yourself</h2>
+<p>Commit to an answer before checking. A wrong answer opens a different problem, not the same one again. Everything here is written out above as well, so the page works without scripting.</p>
+<section class="check" data-check="negative-coord">
+<p class="check-prompt">Stations <code>P</code> and <code>Q</code> sit at <code>-9 m</code> and <code>-3 m</code> on a pipe run. Find <code>PQ</code>.</p>
+
+<form><div class="check-row"><label for="check-measuring-segments-negative-coord">Your answer <span class="check-unit">(m)</span></label><input id="check-measuring-segments-negative-coord" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>|-9 - (-3)| = |-6| = 6</code> metres. Subtracting a negative adds.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Station <code>R</code> is at <code>4 m</code>. Find <code>QR</code>.</p>
+<form><div class="check-row"><label for="follow-measuring-segments-negative-coord">Your answer <span class="check-unit">(m)</span></label><input id="follow-measuring-segments-negative-coord" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>|-3 - 4| = |-7| = 7</code> metres. Reading <code>-3 - 4</code> as <code>-1</code> would give a one-metre weld gap instead of seven.</p></details>
+</div>
+</section><section class="check" data-check="betweenness">
+<p class="check-prompt">Three marks give <code>DE = 8</code>, <code>EF = 5</code>, <code>DF = 11</code>. Is <code>E</code> between <code>D</code> and <code>F</code>?</p>
+
+<form><div class="check-row"><fieldset class="check-options"><legend class="visually-hidden">Choose one</legend><label><input type="radio" name="answer" value="0"> No, and the three are not collinear at all</label><label><input type="radio" name="answer" value="1"> No, but they are still on one line</label><label><input type="radio" name="answer" value="2"> Yes</label></fieldset><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>8 + 5 = 13 ≠ 11</code>, so <code>E</code> is not between them. And since the two shorter lengths exceed the longest, the marks form a triangle.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Marks <code>A</code>, <code>B</code>, <code>C</code> lie in that order with <code>AC = 30</code> and <code>AB = 11</code>. Find <code>BC</code>.</p>
+<form><div class="check-row"><label for="follow-measuring-segments-betweenness">Your answer</label><input id="follow-measuring-segments-betweenness" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>BC = AC - AB = 30 - 11 = 19</code>, the same postulate rearranged.</p></details>
+</div>
+</section><section class="check" data-check="unknown">
+<p class="check-prompt"><code>P</code>, <code>Q</code>, <code>R</code> lie in that order with <code>PQ = 2x + 1</code>, <code>QR = x - 3</code>, <code>PR = 25</code>. Find <code>x</code>.</p>
+
+<form><div class="check-row"><label for="check-measuring-segments-unknown">Your answer</label><input id="check-measuring-segments-unknown" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<button class="text-button check-reveal" type="button">Show the worked answer</button>
+<div class="check-solution" hidden><p><code>(2x + 1) + (x - 3) = 25</code> gives <code>3x - 2 = 25</code>, so <code>x = 9</code>.</p></div>
+<div class="check-followup" hidden>
+<h4>A different problem, to test the repair</h4>
+<p>Using that <code>x</code>, find <code>QR</code>.</p>
+<form><div class="check-row"><label for="follow-measuring-segments-unknown">Your answer</label><input id="follow-measuring-segments-unknown" name="answer" type="text" inputmode="decimal" autocomplete="off" required><button type="submit">Check</button></div></form>
+<p class="check-feedback" role="status" aria-live="polite"></p>
+<details class="reading-answer"><summary>Worked answer</summary><p><code>QR = 9 - 3 = 6</code>, and <code>19 + 6 = 25</code> confirms the whole.</p></details>
+</div>
+</section>
+<p class="check-summary" data-check-summary role="status" aria-live="polite"></p>
+<p class="check-note">Attempts are stored on this browser only. Answering one question correctly records one correct answer; it is not a measure of mastery and not a university grade.</p>
+<noscript><p>Interactive checking needs JavaScript. The same decisions, with their worked answers, are written in the families above.</p></noscript>
+</section><section class="concept-related"><h2>Where this sits</h2><p><strong>Before this:</strong> <a href="/foundations/concepts/points-lines-and-planes/">Points, lines and planes</a> · <a href="/foundations/concepts/integers-and-the-number-line/">Integers and the number line</a></p><p><strong>Leads to:</strong> <a href="/foundations/concepts/midpoints-and-congruence/">Midpoints and segment congruence</a></p></section></article></div></main>
 <footer class="footer">Every concept keeps three routes. <a href="/foundations/concepts/">Browse all concepts</a> · <a href="/program/coverage/">Coverage ledger</a></footer>
-</body></html>
+<script type="module" src="/foundations/concepts/return-topic.mjs"></script></body></html>

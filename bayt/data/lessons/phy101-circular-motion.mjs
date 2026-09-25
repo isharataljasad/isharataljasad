@@ -12,7 +12,7 @@ const pair = (px, py, vx, vy, ax, ay) =>
   + `<circle cx="${ax}" cy="${ay}" r="4" fill="#c0392b"/>`;
 
 const figure = `<svg viewBox="0 0 440 260" role="img" aria-labelledby="fig-circ-title" class="bayt-svg">`
-  + `<title id="fig-circ-title">دائرة عليها ثلاث نقاط، عند كل نقطة سهم سرعة مماسي وسهم تسارع نحو المركز</title>`
+  + `<title id="fig-circ-title">A circle with three points, at each point a tangential velocity arrow and an acceleration arrow toward the center</title>`
   + `<circle cx="220" cy="130" r="80" fill="none" stroke="#284955" stroke-width="2" stroke-dasharray="6 5"/>`
   + `<circle cx="220" cy="130" r="4" fill="#284955"/>`
   + pair(220, 50, 172, 50, 220, 92)
@@ -20,7 +20,7 @@ const figure = `<svg viewBox="0 0 440 260" role="img" aria-labelledby="fig-circ-
   + pair(289, 170, 310, 134, 254, 150)
   + `<text x="160" y="42" font-size="16" fill="#10766f">v</text>`
   + `<text x="228" y="88" font-size="16" fill="#c0392b">a</text>`
-  + `<text x="220" y="248" font-size="14" fill="#566f7a" text-anchor="middle">السرعة مماسية وتتغيّر، والتسارع نحو المركز دائمًا</text>`
+  + `<text x="220" y="248" font-size="14" fill="#566f7a" text-anchor="middle">v: tangent; a: toward the centre</text>`
   + `</svg>`;
 
 export default {
@@ -28,198 +28,192 @@ export default {
   topic: 'circular-motion',
 
   objectives: [
-    'تحسب التسارع المركزي والقوة المركزية من السرعة ونصف القطر والكتلة.',
-    'تحدّد أي قوة حقيقية تؤدي دور القوة المركزية في موقف بعينه.',
-    'تربط الدورة الزمنية بالسرعة الخطية على مسار دائري.',
+    "Centripetal acceleration and centripetal force are calculated from velocity, radius, and mass.",
+    "Identify the real forces whose radial resultant provides the centripetal force.",
+    "Relate period to speed on a circular path.",
   ],
 
   boundaries: [
-    'الحركة الدائرية غير المنتظمة (تغيّر مقدار السرعة) ليست في هذا الدرس.',
-    'دوران الأجسام الصلبة والعزم والقصور الدوراني خارج النطاق.',
-    'المنحنيات المائلة (البنكنة) لا تُحسب هنا.',
-    'الحركة في أُطر دوّارة والقوى الوهمية تُذكر للتصحيح ولا تُحسب.',
+    "Irregular circular motion (change in speed) is not in this lesson.",
+    "Rotation of rigid bodies, torque and rotational inertia are out of range.",
+    "Oblique curves (banking) are not counted here.",
+    "Movement in rotating frames and imaginary forces are mentioned for correction and are not calculated.",
   ],
 
   prerequisites: [
     {
-      title: 'القوة المحصّلة ومخطط الجسم الحر',
-      why: 'القوة المركزية ليست قوة جديدة تُضاف، بل هي محصّلة القوى الحقيقية في اتجاه المركز.',
-      recap: 'ارسم الجسم وعليه القوى الحقيقية وحدها: الوزن، وقوة السطح، والاحتكاك، والشدّ. '
-        + 'ثم اجمعها في اتجاه المركز وساوِ المجموع بـ ‎mv²/r‎. '
-        + 'ولا ترسم سهمًا اسمه «القوة المركزية» بجانبها؛ هي نتيجة الجمع لا عنصر فيه.',
+      title: "Resultant force and free body diagram",
+      why: "The centripetal force is not a new force added, but rather the resultant of the real forces in the direction of the center.",
+      recap: "Draw the body with only the real forces on it: weight, surface force, friction, and tension. "
+        + "Then add them towards the center and equal the sum to mv²/r. "
+        + "Do not draw an arrow named “central force” next to it; It is the result of summation and has no element.",
       href: '/semester-1/physics/forces/',
-      hrefLabel: 'درس قوانين نيوتن',
+      hrefLabel: "Study Newton's laws",
     },
     {
-      title: 'التسارع تغيّرٌ في السرعة المتجهة',
-      why: 'الفكرة كلها قائمة على أن تغيّر الاتجاه تسارعٌ ولو ثبت المقدار.',
-      recap: 'التسارع ‎a = Δv/Δt‎ والسرعة متجهة، فتغيّرها يشمل تغيّر الاتجاه. '
-        + 'فجسم يدور بسرعة ثابتة المقدار متسارعٌ في كل لحظة لأن اتجاهه يتبدّل باستمرار. '
-        + 'وهذا لا يناقض ثبات المقدار، لأن التسارع عمودي على السرعة فلا يزيدها ولا ينقصها.',
+      title: "Acceleration is a change in velocity",
+      why: "The whole idea is based on the fact that a change in direction is an acceleration, even if the amount is fixed.",
+      recap: "Acceleration is a = Δv/Δt and velocity is a vector, so its change includes a change in direction. "
+        + "A body rotating at a constant speed is accelerating at every moment because its direction is constantly changing. "
+        + "This does not contradict the stability of the magnitude, because the acceleration is perpendicular to the speed and does not increase or decrease it.",
       href: '/semester-1/physics/motion/',
-      hrefLabel: 'المتجهات في درس الحركة',
+      hrefLabel: "Vectors in motion lesson",
     },
   ],
 
   reference: {
     definitions: [
       {
-        term: 'الحركة الدائرية المنتظمة',
+        term: "Uniform circular motion",
         en: 'Uniform circular motion',
-        text: 'حركة على مسار دائري بسرعة ثابتة **المقدار**. '
-          + 'وكلمة «منتظمة» تصف المقدار وحده؛ الاتجاه يتغيّر باستمرار، ولهذا الحركة متسارعة.',
+        text: "Motion on a circular path at constant speed. Velocity still changes because its direction changes, so acceleration is nonzero and points toward the centre.",
       },
       {
-        term: 'التسارع المركزي',
+        term: "Centripetal acceleration",
         en: 'Centripetal acceleration',
-        text: '‎a_c = v²/r‎، اتجاهه نحو مركز الدائرة دائمًا. '
-          + 'وهو عمودي على السرعة في كل لحظة، ولهذا يغيّر الاتجاه ولا يغيّر المقدار. '
-          + 'ولاحظ اعتماده على مربّع السرعة: مضاعفة السرعة تربّع التسارع أربع مرات.',
+        text: "The inward acceleration for uniform circular motion has magnitude a_c=v²/r. It is perpendicular to velocity. At fixed radius, doubling speed quadruples the acceleration.",
       },
       {
-        term: 'القوة المركزية',
+        term: "Centripetal force",
         en: 'Centripetal force',
-        text: 'محصّلة القوى في اتجاه المركز: ‎F_c = m v²/r‎. '
-          + '**ليست قوة من نوع جديد** ولا تُضاف إلى مخطط الجسم الحر؛ '
-          + 'بل هي الدور الذي تؤديه قوة حقيقية كالشدّ أو الاحتكاك أو الجاذبية أو قوة السطح.',
+        text: "The resultant force toward the center: F_c = m v²/r. "
+          + "**It is not a new kind of force** and is not added to the free-body diagram; "
+          + "Rather, it is the role played by a real force such as tension, friction, gravity, or surface force.",
       },
       {
-        term: 'الدورة الزمنية',
+        term: "Period (T)",
         en: 'Period (T)',
-        text: 'الزمن اللازم لدورة كاملة. '
-          + 'والمسافة في دورة واحدة هي محيط الدائرة ‎2πr‎، فالسرعة ‎v = 2πr/T‎.',
+        text: "The time required for a complete cycle. "
+          + "The distance in one revolution is the circumference of the circle 2πr, so the speed is v = 2πr/T.",
       },
       {
-        term: 'القوة الطاردة المركزية',
+        term: "Centrifugal force",
         en: 'Centrifugal force',
-        text: 'ليست قوة حقيقية في إطار ساكن، بل إحساسٌ ناشئ عن قصور الراكب الذاتي: '
-          + 'جسمه يميل للاستمرار في خط مستقيم بينما تنعطف السيارة تحته. '
-          + 'وتظهر كقوة وهمية إذا حسبتَ من داخل الإطار الدوّار، وهذا خارج نطاق هذا الدرس. '
-          + 'فلا تضعها في مخطط الجسم الحر.',
+        text: "Centrifugal force is an inertial force used in a rotating frame. It is not an additional interaction force in an inertial-frame free-body diagram. In this lesson, diagrams use an inertial frame and include only the real forces providing inward acceleration.",
       },
     ],
     relations: [
       {
         formula: 'a_c = v² / r',
-        name: 'التسارع المركزي',
-        note: 'نحو المركز؛ والسرعة مربّعة.',
+        name: "Centripetal acceleration",
+        note: "towards the center; And the speed is squared.",
       },
       {
         formula: 'F_c = m v² / r',
-        name: 'القوة المركزية',
-        note: 'دورٌ تؤديه قوة حقيقية، لا قوة إضافية.',
+        name: "Centripetal force",
+        note: "A role played by real power, not additional power.",
       },
       {
         formula: 'v = 2 π r / T',
-        name: 'السرعة من الدورة',
-        note: 'محيط الدائرة مقسومًا على زمن الدورة.',
+        name: "Speed of the cycle",
+        note: "Circumference of the circle divided by the cycle time.",
       },
       {
-        formula: 'v_max = √(μ_s g r)   على منحنى أفقي',
-        name: 'أقصى سرعة انعطاف',
-        note: 'مستقلة عن الكتلة، لأن الكتلة في الطرفين.',
+        formula: "v_max = √(μ_s g r) on a horizontal curve",
+        name: "Maximum cornering speed",
+        note: "Independent of mass, because mass is at both ends.",
       },
     ],
     derivation: {
-      title: 'كيف يكون الجسم متسارعًا وسرعته ثابتة',
-      intro: 'تناقض ظاهري يربك كثيرين: «ثابتة السرعة» و«متسارع» في جملة واحدة.',
+      title: "How is an object accelerating when its speed is constant?",
+      intro: "An apparent contradiction that confuses many people: “constant speed” and “accelerating” in the same sentence.",
       steps: [
         {
-          do: 'ارجع إلى التعريف: التسارع تغيّرٌ في السرعة **المتجهة** لا في مقدارها.',
-          why: 'المتجه له مقدار واتجاه، وتغيّر أيٍّ منهما تغيّرٌ فيه. '
-            + 'واللغة اليومية تقصد بالسرعة المقدار وحده، ومن هنا جاء الالتباس.',
+          do: "Refer to the definition: Acceleration is a change in **velocity**, not its magnitude.",
+          why: "A vector has magnitude and direction, and a change in either of them is a change in it. "
+            + "Everyday language means speed alone, and hence the confusion.",
         },
         {
-          do: 'تصوّر سهم السرعة عند نقطتين متقاربتين على الدائرة: طولهما واحد واتجاههما مختلف.',
-          why: 'فالفرق بينهما ليس صفرًا، والفرق هو ‎Δv‎، وهو ما يقيسه التسارع.',
+          do: "Visualize the velocity arrow at two close points on the circle: their length is the same and their direction is different.",
+          why: "The difference between them is not zero, the difference is Δv, which is what the acceleration measures.",
         },
         {
-          do: 'اطرح السهمين: الفرق يشير إلى داخل الدائرة، أي نحو المركز.',
-          why: 'ولهذا سُمّي التسارع مركزيًّا؛ الاتجاه نتيجة هندسية لا اصطلاح.',
+          do: "Subtract the two arrows: the difference points inside the circle, i.e. towards the center.",
+          why: "This is why the acceleration is called centripetal; Direction is a geometric result, not a convention.",
         },
         {
-          do: 'وبما أن التسارع عمودي على السرعة، فشغل القوة المركزية صفر.',
-          why: 'فلا تتغيّر الطاقة الحركية، فيبقى مقدار السرعة ثابتًا. '
-            + 'فالتناقض يزول تمامًا: التسارع يدير المتجه ولا يطيله. '
-            + 'وهذه هي النتيجة نفسها التي رأيتها في درس الطاقة من باب الشغل.',
+          do: "Since acceleration is perpendicular to velocity, the work of the centripetal force is zero.",
+          why: "The kinetic energy does not change, so the speed remains constant. "
+            + "The contradiction disappears completely: the acceleration rotates the vector and does not lengthen it. "
+            + "This is the same result that I saw in the energy lesson for work.",
         },
       ],
     },
   },
 
   visual: {
-    title: 'السرعة تدور، والتسارع يشير إلى المركز',
+    title: "Velocity is rotating, and acceleration is pointing to the center",
     figure: {
       svg: figure,
-      caption: 'عند كل نقطة: سهم أخضر مماسي هو السرعة، وسهم أحمر نحو المركز هو التسارع. '
-        + 'اتجاه الأخضر يتغيّر مع الموضع، والأحمر يشير إلى المركز دائمًا.',
-      alt: 'دائرة متقطعة في وسطها نقطة تمثّل المركز. وعلى محيطها ثلاث نقاط. '
-        + 'ومن كل نقطة يخرج سهمان: أخضر مماسٌّ للدائرة يمثّل السرعة، وأحمر متجه إلى المركز يمثّل التسارع. '
-        + 'اتجاه السهم الأخضر يختلف باختلاف الموضع، بينما يشير الأحمر إلى المركز في المواضع الثلاثة. '
-        + 'وتحت الرسم سطر يقول إن السرعة مماسية وتتغيّر والتسارع نحو المركز دائمًا.',
+      caption: "At each point: a green tangential arrow is velocity, and a red arrow toward the center is acceleration. "
+        + "The direction of green changes with position, and red always indicates the center.",
+      alt: "A dashed circle with a dot in the middle representing the center. There are three dots around it. "
+        + "From each point, two arrows emerge: a green one tangent to the circle, representing speed, and a red one pointing toward the center, representing acceleration. "
+        + "The direction of the green arrow varies with position, while the red indicates the center in the three positions. "
+        + "Under the drawing is a line that says that the velocity is tangential and changes, and the acceleration is always toward the center.",
     },
     table: {
-      caption: 'من يؤدي دور القوة المركزية في كل موقف',
-      head: ['الموقف', 'القوة الحقيقية', 'ملاحظة'],
+      caption: "Who plays the role of the central force in every situation?",
+      head: ["Attitude", "Real power", "Note"],
       rows: [
-        ['سيارة على منحنى أفقي', 'الاحتكاك السكوني', 'سكوني لأن الإطار لا ينزلق'],
-        ['كرة في نهاية خيط', 'شدّ الخيط', 'يختفي الدوران إن انقطع الخيط'],
-        ['قمر حول كوكب', 'الجاذبية', 'لا تلامس ولا خيط'],
-        ['راكب في أعلى حلقة', 'الوزن وقوة المقعد معًا', 'كلاهما إلى أسفل أي نحو المركز'],
-        ['ثوب في غسّالة تدور', 'قوة جدار الأسطوانة', 'الجدار يدفع الثوب إلى الداخل'],
+        ["Car on a horizontal curve", "Static friction", "Stay still because the tire doesn't slip"],
+        ["A ball at the limit of a string", "Tighten the thread", "The rotation disappears if the thread breaks"],
+        ["Moon around a planet", "Gravity", "No touching or flossing"],
+        ["Rider at the top of the ring", "Weight and seat force together", "Both are down, i.e. towards the centre"],
+        ["A dress in a washing machine that spins", "Cylinder wall force", "The wall pushes the dress inward"],
       ],
     },
-    reading: 'لا يوجد في العمود الثاني سطرٌ مكتوب فيه «القوة المركزية»، وهذا مقصود. '
-      + 'فهي دورٌ لا نوع: اسأل دائمًا «أي قوة حقيقية تشير إلى المركز هنا؟» '
-      + 'ثم ساوِ محصّلتها بـ ‎mv²/r‎. '
-      + 'واقرأ الصف الأخير: الثوب يبقى في الأسطوانة لأن الجدار يدفعه إلى الداخل، '
-      + 'لا لأن قوةً تدفعه إلى الخارج.',
+    reading: "There is no line in the second column that says “central power,” and this is intentional. "
+      + "It is a role, not a type: always ask, “What real power refers to the center here?” "
+      + "Then set its resultant equal to mv²/r. "
+      + "And read the last row: The garment remains in the cylinder because the wall pushes it inward. "
+      + "No, because a force pushes it out.",
   },
 
   guided: {
-    start: 'ارسم الجسم في اللحظة التي تدرسها، وحدّد أين المركز. '
-      + 'ثم اجعل الاتجاه الموجب نحو المركز، واجمع القوى الحقيقية على هذا المحور. '
-      + 'ثم اكتب ‎ΣF = mv²/r‎ وحُلّ. '
-      + 'ولا تُضف سهمًا باسم القوة المركزية، ولا تُضف قوة طاردة مركزية؛ '
-      + 'الأولى نتيجة الجمع والثانية غير موجودة في هذا الإطار.',
+    start: "Draw the body at the moment you are studying, and determine where the center is. "
+      + "Then make the positive direction toward the center, and collect the real forces on this axis. "
+      + "Then type ΣF = mv²/r and solve. "
+      + "Do not add an arrow in the name of centripetal force, nor add centrifugal force; "
+      + "The first is the result of addition, and the second does not exist in this context.",
     workedExamples: [
       {
-        title: 'مثال 1 · تسارع مركزي',
-        task: 'جسم يتحرك على دائرة نصف قطرها ‎25 m‎ بسرعة ثابتة ‎10 m/s‎. ما تسارعه المركزي؟',
+        title: "Example 1 · Centripetal acceleration",
+        task: "A body moving on a circle of radius 25 m with a constant speed 10 m/s., what is its centripetal acceleration?",
         steps: [
           {
-            do: 'عوّض في ‎a_c = v²/r = (10)²/25 = 100/25‎.',
-            why: 'السرعة تدخل مربّعة؛ وإدخالها بلا تربيع هو أكثر الأخطاء هنا.',
+            do: "Substitute in a_c = v²/r = (10)²/25 = 100/25.",
+            why: "Speed enters squared; Entering it without a square is the most common error here.",
           },
           {
-            do: 'الناتج ‎4.0 m/s²‎ نحو المركز.',
-            why: 'ذكر الاتجاه جزء من الجواب: التسارع هنا لا يغيّر المقدار بل الاتجاه.',
+            do: "Output 4.0 m/s² toward the center.",
+            why: "Mentioning direction is part of the answer: acceleration here does not change the magnitude but rather the direction.",
           },
         ],
         answer: 'a_c = 4.0 m/s² toward the centre',
       },
       {
-        title: 'مثال 2 · أقصى سرعة على منحنى أفقي',
-        task: 'سيارة تنعطف على منحنى أفقي نصف قطره ‎50 m‎، ومعامل الاحتكاك السكوني ‎0.40‎. '
-          + 'ما أقصى سرعة قبل الانزلاق؟ خذ ‎g = 9.8 m/s²‎.',
+        title: "Example 2 · Maximum speed on a horizontal curve",
+        task: "A car turns on a horizontal curve with radius 50 m, and coefficient of static friction 0.40. "
+          + "What is the maximum speed before sliding? Take g = 9.8 m/s².",
         steps: [
           {
-            do: 'القوة الوحيدة نحو المركز هي الاحتكاك السكوني، وأقصاها ‎μ_s N = μ_s mg‎.',
-            why: 'السطح أفقي فـ ‎N = mg‎. وهو احتكاك سكوني لا حركي لأن الإطار يتدحرج ولا ينزلق جانبيًّا.',
+            do: "The only force towards the center is static friction, the maximum being μ_s N = μ_s mg.",
+            why: "The surface is horizontal, so N = mg. is static friction, not kinetic, because the tire rolls and does not slide sideways.",
           },
           {
-            do: 'ساوِ: ‎μ_s m g = m v²/r‎.',
-            why: 'الطرف الأيسر أقصى ما يستطيع الاحتكاك تقديمه، والأيمن ما تتطلبه الحركة. '
-              + 'وتجاوز السرعة يجعل المطلوب أكبر من المتاح فينزلق.',
+            do: "Equal: μ_s m g = m v²/r.",
+            why: "The left end is the most that friction can provide, and the right is what movement requires. "
+              + "Exceeding the speed makes what is required greater than what is available and it slips.",
           },
           {
-            do: 'احذف ‎m‎ من الطرفين: ‎v² = μ_s g r = 0.40 × 9.8 × 50 = 196‎.',
-            why: 'الكتلة تختفي، فأقصى سرعة الانعطاف واحدة للشاحنة والسيارة الصغيرة على السطح نفسه. '
-              + 'وهذه نتيجة تفاجئ كثيرين.',
+            do: "Delete m from both sides : v² = μ_s g r = 0.40 × 9.8 × 50 = 196.",
+            why: "The mass disappears, so the maximum cornering speed is the same for the truck and the small car on the same surface. "
+              + "This is a result that surprises many.",
           },
           {
-            do: 'خذ الجذر: ‎v = 14 m/s‎.',
-            why: 'الناتج ‎196‎ هو ‎v²‎ ووحدته ‎m²/s²‎؛ والسؤال عن سرعة.',
+            do: "Take the root: v = 14 m/s.",
+            why: "The output of 196 is v² and its unit is m²/s²; The question is about speed.",
           },
         ],
         answer: 'v_max = 14 m/s',
@@ -227,24 +221,24 @@ export default {
     ],
     skipped: [
       {
-        q: 'لماذا أُدفَع إلى الخارج في المنعطف إن لم تكن هناك قوة طاردة؟',
-        a: 'لأنك لا تُدفَع إلى الخارج أصلًا؛ جسمك يميل للاستمرار في خط مستقيم بقصوره الذاتي، '
-          + 'والسيارة تنعطف تحتك. فتصطدم بالباب، فيدفعك الباب إلى **الداخل**، '
-          + 'وهذه هي القوة الحقيقية الوحيدة الأفقية عليك. '
-          + 'والإحساس بالاندفاع خارجًا حقيقي، لكن تفسيره قصور لا قوة.',
+        q: "Why am I pushed out into the corner if there is no repulsive force?",
+        a: "Because you are not being pushed out at all; Your body tends to continue in a straight line by its own inertia, "
+          + "The car turns under you. You collide with the door, and the door pushes you **inside**, "
+          + "This is the only real horizontal force over you. "
+          + "The feeling of being pushed out is real, but its interpretation is insufficiency, not force.",
       },
       {
-        q: 'إن كانت القوة المركزية مجرّد دور، فلماذا لها اسم خاص؟',
-        a: 'الاسم يصف الاتجاه لا المصدر، كما نقول «قوة رأسية». '
-          + 'وفائدته أنه يجمع مواقف مختلفة تحت معادلة واحدة: '
-          + 'أيًّا كان مصدر القوة، إن أشارت إلى المركز فمقدارها ‎mv²/r‎. '
-          + 'والخطأ أن يُظنّ الاسمُ نوعًا مستقلًّا فيُرسم سهمًا إضافيًّا.',
+        q: "If central power is just a role, why does it have a special name?",
+        a: "The name describes the direction, not the source, as we say “vertical force.” "
+          + "Its benefit is that it combines different positions under one equation: "
+          + "Whatever the source of the force, if it points to the center, its magnitude is mv²/r. "
+          + "The mistake is to think that the name is an independent type and draw an additional arrow.",
       },
       {
-        q: 'كيف يبقى الماء في الدلو المقلوب أعلى الدوران؟',
-        a: 'لأن الجاذبية عند تلك اللحظة تشير إلى مركز الدائرة، فتؤدي دور القوة المركزية. '
-          + 'فالماء «يسقط» فعلًا، لكنه يسقط على مسار منحنٍ يوافق مسار الدلو. '
-          + 'وإن بطؤت السرعة عن حدّ معيّن صارت الجاذبية أكبر مما يلزم للانحناء، فيغادر الماء الدلو.',
+        q: "How does the water stay in the upside down bucket on top of the spin?",
+        a: "Because gravity at that moment points to the center of the circle, so it plays the role of a central force. "
+          + "The water does \"fall\", but it falls along a curved path that matches the path of the bucket. "
+          + "If the speed slows below a certain limit, gravity becomes greater than necessary for the bending, and the water leaves the bucket.",
       },
     ],
   },
@@ -252,96 +246,96 @@ export default {
   questionTypes: [
     {
       id: 'centripetal-accel',
-      family: 'النمط الأول · التسارع المركزي',
-      aim: 'تربّع السرعة وتقسم على نصف القطر.',
+      family: "The first type: Centripetal acceleration",
+      aim: "Square the speed and divide by the radius.",
       objectives: [0],
-      prompt: 'جسم يدور على دائرة نصف قطرها ‎25 m‎ بسرعة ثابتة ‎10 m/s‎. ما تسارعه المركزي؟',
+      prompt: "A body rotating on a circle of radius 25 m at a constant speed 10 m/s., what is its centripetal acceleration?",
       unit: 'm/s²',
       answer: 4,
       tolerance: 0.05,
-      solution: '‎a_c = v²/r = 100/25 = 4.0 m/s²‎ نحو المركز.',
+      solution: "a_c = v²/r = 100/25 = 4.0 m/s² toward the center.",
       commonErrors: [
-        { value: 0.4, why: 'قسمتَ السرعة على نصف القطر بلا تربيع. '
-          + 'السرعة تدخل مربّعة، ووحدة ناتجك ‎1/s‎ لا ‎m/s²‎.' },
-        { value: 250, why: 'ضربتَ في نصف القطر بدل القسمة عليه. '
-          + 'كلما اتسعت الدائرة قلّ التسارع اللازم لتغيير الاتجاه.' },
-        { value: 2.5, why: 'قسمتَ نصف القطر على السرعة.' },
+        { value: 0.4, why: "You divide the speed by the radius without squaring it. "
+          + "The speed is entered squared, and your output unit is 1/s, not m/s²." },
+        { value: 250, why: "You multiplied by the radius instead of dividing by it. "
+          + "The wider the circle, the less acceleration needed to change direction." },
+        { value: 2.5, why: "You divide the radius by the speed." },
       ],
     },
     {
       id: 'centripetal-force',
-      family: 'النمط الثاني · القوة المركزية',
-      aim: 'تدخل الكتلة وتقسم على نصف القطر.',
+      family: "The second type: Central force",
+      aim: "Enter the mass and divide by the radius.",
       objectives: [1],
-      prompt: 'سيارة كتلتها ‎1200 kg‎ تنعطف بسرعة ‎20 m/s‎ على منحنى نصف قطره ‎50 m‎. '
-        + 'ما مقدار القوة المركزية اللازمة؟',
+      prompt: "A car of mass 1200 kg turns with speed 20 m/s on a curve of radius 50 m. "
+        + "How much centripetal force is needed?",
       unit: 'N',
       answer: 9600,
       tolerance: 20,
       solution: '‎F_c = m v²/r = 1200 × 400 / 50 = 9600 N‎، '
-        + 'ويوفّرها الاحتكاك السكوني بين الإطارات والطريق.',
+        + "It is provided by static friction between the tires and the road.",
       commonErrors: [
-        { value: 480, why: 'لم تربّع السرعة فحسبتَ ‎m v / r‎.' },
-        { value: 480000, why: 'حسبتَ ‎m v²‎ ولم تقسم على نصف القطر.' },
-        { value: 8, why: 'حسبتَ التسارع ‎v²/r‎ وأهملتَ الكتلة. '
-          + 'وحدة ناتجك ‎m/s²‎ والسؤال عن نيوتن.' },
+        { value: 480, why: "You didn't square the speed, you counted m v / r." },
+        { value: 480000, why: "You calculated m v² and did not divide by the radius." },
+        { value: 8, why: "You calculated the acceleration v²/r and neglected the mass. "
+          + "The unit of your output is m/s² and the question is about newtons." },
       ],
     },
     {
       id: 'speed-from-period',
-      family: 'النمط الثالث · السرعة من الدورة الزمنية',
-      aim: 'تستعمل محيط الدائرة لا نصف قطرها.',
+      family: "The third type is the speed of the time course",
+      aim: "Use the circumference of the circle, not the radius.",
       objectives: [2],
-      prompt: 'جسم يتم دورة كاملة على دائرة نصف قطرها ‎2.0 m‎ في ‎4.0 s‎. ما سرعته؟',
+      prompt: "A body makes a complete revolution on a circle of radius 2.0 m at 4.0 s. What is its speed?",
       unit: 'm/s',
       answer: 3.14,
       tolerance: 0.05,
       solution: '‎v = 2πr/T = 2π(2.0)/4.0 = 12.57/4.0 = 3.14 m/s‎.',
       commonErrors: [
-        { value: 12.57, why: 'حسبتَ المحيط ‎2πr‎ ولم تقسمه على زمن الدورة. '
-          + 'المحيط مسافة والسرعة مسافة على زمن.' },
-        { value: 0.5, why: 'قسمتَ نصف القطر على الزمن وأهملتَ ‎2π‎. '
-          + 'المسافة المقطوعة في دورة هي المحيط لا نصف القطر.' },
-        { value: 1.57, why: 'استعملتَ ‎πr/T‎ أي نصف المحيط. الدورة الكاملة محيط كامل.' },
+        { value: 12.57, why: "You calculated the circumference 2πr and did not divide it by the cycle time. "
+          + "Circumference is distance and speed is distance over time." },
+        { value: 0.5, why: "You divided the radius by time and neglected 2π. "
+          + "The distance traveled in a cycle is the circumference, not the radius." },
+        { value: 1.57, why: "You used πr/T, which means half the circumference. Full cycle full circumference." },
       ],
     },
     {
       id: 'max-turn-speed',
-      family: 'النمط الرابع · أقصى سرعة انعطاف',
-      aim: 'تساوي الاحتكاك بالمطلوب وتأخذ الجذر.',
+      family: "Fourth mode · Maximum cornering speed",
+      aim: "Friction equals the demand and takes the root.",
       objectives: [1],
-      prompt: 'منحنى أفقي نصف قطره ‎50 m‎ ومعامل الاحتكاك السكوني ‎0.40‎. '
-        + 'ما أقصى سرعة انعطاف؟ خذ ‎g = 9.8 m/s²‎.',
+      prompt: "Horizontal curve with radius 50 m and coefficient of static friction 0.40. "
+        + "What is the maximum cornering speed? Take g = 9.8 m/s².",
       unit: 'm/s',
       answer: 14,
       tolerance: 0.2,
-      solution: '‎μ_s m g = m v²/r‎، فتُحذف الكتلة ويبقى ‎v² = μ_s g r = 0.40 × 9.8 × 50 = 196‎، '
-        + 'و‎v = 14 m/s‎.',
+      solution: "μ_s m g = m v²/r, the mass is deleted and v² = μ_s g r = 0.40 × 9.8 × 50 = 196 remains, "
+        + "And v = 14 m/s.",
       commonErrors: [
-        { value: 196, why: 'نسيتَ الجذر التربيعي. ‎196‎ هي ‎v²‎ ووحدتها ‎m²/s²‎.' },
-        { value: 22.1, why: 'أهملتَ معامل الاحتكاك فحسبتَ ‎√(g r)‎. '
-          + 'الاحتكاك هو مصدر القوة المركزية هنا، فلا يُحذف.' },
-        { value: 1.98, why: 'أهملتَ نصف القطر فحسبتَ ‎√(μ_s g)‎.' },
+        { value: 196, why: "You forgot the square root. 196 is v² and its unit is m²/s²." },
+        { value: 22.1, why: "You neglected the coefficient of friction and calculated √(g r). "
+          + "Friction is the source of the centripetal force here, so it cannot be eliminated." },
+        { value: 1.98, why: "You neglected the radius and calculated √(μ_s g)." },
       ],
     },
     {
       id: 'net-force-constant-speed',
-      family: 'النمط الخامس · محصّلة القوى مع ثبات السرعة',
-      aim: 'تدرك أن ثبات المقدار لا يعني انعدام المحصّلة.',
+      family: "The fifth type is the resultant force with constant speed",
+      aim: "You realize that the stability of the amount does not mean the absence of the outcome.",
       objectives: [1],
-      prompt: 'جسم كتلته ‎2.0 kg‎ يدور بسرعة ثابتة المقدار ‎4.0 m/s‎ على دائرة نصف قطرها ‎8.0 m‎. '
-        + 'ما مقدار محصّلة القوى المؤثرة عليه؟',
+      prompt: "A body of mass 2.0 kg is rotating with a constant speed of 4.0 m/s on a circle of radius 8.0 m. "
+        + "What is the magnitude of the resultant forces acting on it?",
       unit: 'N',
       answer: 4,
       tolerance: 0.05,
-      solution: 'ثبات المقدار لا يعني انعدام التسارع: الاتجاه يتغيّر. '
-        + 'فالمحصّلة ‎m v²/r = 2.0 × 16 / 8.0 = 4.0 N‎ نحو المركز.',
+      solution: "Constant magnitude does not mean lack of acceleration: the direction changes. "
+        + "The resultant is m v²/r = 2.0 × 16 / 8.0 = 4.0 N toward the center.",
       commonErrors: [
-        { value: 0, why: 'ظننتَ أن ثبات السرعة يعني انعدام المحصّلة. '
-          + 'الثابت هو المقدار وحده، والاتجاه يتغيّر باستمرار، وهذا تسارع يتطلب قوة. '
-          + 'ولو انعدمت المحصّلة لسار الجسم في خط مستقيم.' },
-        { value: 32, why: 'حسبتَ ‎m v²‎ ولم تقسم على نصف القطر.' },
-        { value: 1, why: 'لم تربّع السرعة فحسبتَ ‎m v / r‎.' },
+        { value: 0, why: "You thought that constant speed meant zero outcome. "
+          + "The constant is the magnitude alone, and the direction is constantly changing, and this is acceleration that requires force. "
+          + "If the resultant did not exist, the body would move in a straight line." },
+        { value: 32, why: "You calculated m v² and did not divide by the radius." },
+        { value: 1, why: "You didn't square the speed, you counted m v / r." },
       ],
     },
   ],

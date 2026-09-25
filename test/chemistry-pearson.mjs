@@ -20,7 +20,7 @@ for(const id of scope.arena_targets.map(a=>a.id))assert.ok(html.includes(`id="pe
 assert.equal(books.books.length,7);
 assert.equal(franklin.lessons.length,24);
 assert.equal(goldwhite.lessons.length,35);
-for(const term of ['id="bookList"','id="franklin-list"','id="goldwhite-list"','id="pearson-status"','لا تزال ظاهرة','D.b.books.forEach','books.json','educator-inventory.json','goldwhite-inventory.json','pearson-inventory.json'])assert.ok(html.includes(term),`missing UI or independent loading ${term}`);
+for(const term of ['id="bookList"','id="franklin-list"','id="goldwhite-list"','id="pearson-status"','still visible','D.b.books.forEach','books.json','educator-inventory.json','goldwhite-inventory.json','pearson-inventory.json'])assert.ok(html.includes(term),`missing UI or independent loading ${term}`);
 assert.ok(!html.includes('جارٍ تحميل جرد Goldwhite')&&!html.includes('تحميل قائمة الكتب')&&!html.includes('بانتظار الجرد'));
 const code=html.match(/<script>([\s\S]*?)<\/script>/)?.[1];assert.ok(code,'missing Chemistry controller');new Function(code);
 assert.equal((html.match(/id="pearson-A\d"/g)||[]).length,9);

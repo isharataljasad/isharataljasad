@@ -41,10 +41,10 @@ function renderWeekBar() {
     /* «أسبوع واحد أخرى» غير سليم، فالوصف يُصاغ مع كل حالة على حدة. */
     const n = weeksWithTasks().filter((w) => w !== week).length;
     marker.textContent = !n ? ''
-      : n === 1 ? 'لديك مهام في أسبوع آخر.'
-        : n === 2 ? 'لديك مهام في أسبوعين آخرين.'
-          : n <= 10 ? `لديك مهام في ${n} أسابيع أخرى.`
-            : `لديك مهام في ${n} أسبوعًا آخر.`;
+      : n === 1 ? "You have assignments in another week."
+        : n === 2 ? "You have assignments in another two weeks."
+          : n <= 10 ? `You have tasks in ${n} More weeks.`
+            : `You have tasks in ${n} Another week.`;
   }
 }
 
@@ -59,7 +59,7 @@ function renderTasks() {
 
     const forDay = tasks.filter((t) => t.day === day);
     if (!forDay.length) {
-      list.append(el('li', { class: 'empty-day', text: 'لا مهام' }));
+      list.append(el('li', { class: 'empty-day', text: "No tasks" }));
       continue;
     }
     for (const task of forDay) {
@@ -67,18 +67,18 @@ function renderTasks() {
       box.checked = task.done;
       box.addEventListener('change', () => { toggleTask(task.id); render(); });
 
-      const remove = el('button', { type: 'button', class: 'icon-button', 'aria-label': `احذف: ${task.title}`, text: '×' });
+      const remove = el('button', { type: 'button', class: 'icon-button', 'aria-label': `Delete: ${task.title}`, text: '×' });
       remove.addEventListener('click', () => { removeTask(task.id); render(); });
 
       const skill = task.skill ? skillById.get(task.skill) : null;
       const foot = el('div', { class: 'task-foot' },
-        el('span', { class: 'task-meta', text: task.minutes ? `${task.minutes} دقيقة` : '' }),
-        skill ? el('a', { href: skill.learn.href, class: 'task-link', text: 'افتح الدرس ←' }) : null,
+        el('span', { class: 'task-meta', text: task.minutes ? `${task.minutes} Minute` : '' }),
+        skill ? el('a', { href: skill.learn.href, class: 'task-link', text: "Open lesson →" }) : null,
         task.demo ? demoTag() : null);
 
       /* تأجيل مهمة لم تُنجز أفضل من حذفها أو تركها في ماضٍ لا يُقرأ. */
       if (!task.done) {
-        const push = el('button', { type: 'button', class: 'link-button', text: 'أجّل للأسبوع القادم' });
+        const push = el('button', { type: 'button', class: 'link-button', text: "Postponed until next week" });
         push.addEventListener('click', () => { pushTaskToNextWeek(task.id); render(); });
         foot.append(push);
       }
@@ -94,12 +94,12 @@ function renderTasks() {
   if (summary) {
     if (!tasks.length) {
       summary.textContent = isCurrentWeek(week)
-        ? 'لا مهام هذا الأسبوع. أضف مهمة، أو ابدأ من هدف في صفحة رحلتي.'
-        : 'لا مهام في هذا الأسبوع.';
+        ? "No assignments this week. Add a task, or start from a goal on my Journey page."
+        : "No assignments this week.";
     } else if (done === tasks.length) {
-      summary.textContent = `أكملتَ ${countNoun(tasks.length, nouns.task)}. لم يتبقَّ شيء في هذا الأسبوع.`;
+      summary.textContent = `You completed ${countNoun(tasks.length, nouns.task)}. There's nothing left for this week.`;
     } else {
-      summary.textContent = `أكملتَ ${done} من ${countNoun(tasks.length, nouns.task)}. المتبقي نحو ${countNoun(minutes, nouns.minute)}.`;
+      summary.textContent = `You completed ${done} of ${countNoun(tasks.length, nouns.task)}. The remaining approx ${countNoun(minutes, nouns.minute)}.`;
     }
   }
 }
@@ -109,7 +109,7 @@ function renderHabits() {
   habitList.textContent = '';
   const { habits } = load();
   if (!habits.length) {
-    habitList.append(el('p', { class: 'section-note', text: 'لا عادات بعد.' }));
+    habitList.append(el('p', { class: 'section-note', text: "No habits yet." }));
     return;
   }
   for (const habit of habits) {
@@ -133,7 +133,7 @@ function renderHabits() {
       boxes.append(button);
     });
 
-    const remove = el('button', { type: 'button', class: 'icon-button', 'aria-label': `احذف العادة: ${habit.title}`, text: '×' });
+    const remove = el('button', { type: 'button', class: 'icon-button', 'aria-label': `Remove the habit: ${habit.title}`, text: '×' });
     remove.addEventListener('click', () => { removeHabit(habit.id); render(); });
 
     habitList.append(el('div', { class: 'habit' }, el('div', { class: 'habit-top' }, head, remove), boxes));

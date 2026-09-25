@@ -6,20 +6,20 @@
    "version": "8357eeb76998",
    "answer": 80,
    "tolerance": 0.01,
-   "unit": "عدد",
-   "solution": "‎f′(x) = 5x⁴‎، وعند ‎x = 2‎: ‎5 × 16 = 80‎.",
+   "unit": "Number",
+   "solution": "f′(x) = 5x⁴, and at x = 2: 5 × 16 = 80.",
    "commonErrors": [
     {
      "value": 32,
-     "why": "حسبتَ ‎f(2) = 2⁵ = 32‎، وهي قيمة الدالة لا مشتقتها."
+     "why": "You calculated f(2) = 2⁵ = 32, which is the value of the function, not its derivative."
     },
     {
      "value": 16,
-     "why": "أنقصتَ الأُسّ ونسيتَ إنزاله معاملًا. ‎2⁴ = 16‎ ثم يجب الضرب في 5."
+     "why": "You decreased the exponent and forgot to subtract it by a factor. 2⁴ = 16, then you must multiply by 5."
     },
     {
      "value": 10,
-     "why": "أنزلتَ الأُسّ وضربتَه في ‎x‎ دون رفعها للأُسّ الجديد: ‎5 × 2 = 10‎."
+     "why": "You lowered the power and multiplied it by x without raising it to the new power : 5 × 2 = 10."
     }
    ]
   },
@@ -28,20 +28,20 @@
    "version": "1f5b23a37791",
    "answer": 1,
    "tolerance": 0.01,
-   "unit": "عدد",
-   "solution": "‎f′ = 2x(x − 3) + (x² + 1)(1) = 3x² − 6x + 1‎. وعند ‎x = 2‎: ‎12 − 12 + 1 = 1‎.",
+   "unit": "Number",
+   "solution": "‎f′ = 2x(x − 3) + (x² + 1)(1) = 3x² − 6x + 1‎. And at x = 2: 12 − 12 + 1 = 1.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "ضربتَ المشتقتين: ‎2x × 1 = 4‎ عند ‎x = 2‎. قاعدة الجداء جمعُ حدّين لا حاصل ضرب مشتقتين؛ والمثال المضاد في الاشتقاق أعلاه يبيّن لماذا."
+     "why": "You multiply the two derivatives: 2x × 1 = 4 by x = 2. The product rule is the sum of two terms, not the product of two derivatives. The counterexample in the derivation above shows why."
     },
     {
      "value": -5,
-     "why": "حسبتَ ‎f(2) = 5 × (−1) = −5‎، وهي قيمة الدالة لا مشتقتها."
+     "why": "You calculated f(2) = 5 × (−1) = −5, which is the value of the function, not its derivative."
     },
     {
      "value": 13,
-     "why": "أخطأتَ في الإشارة داخل ‎2x(x − 3)‎ فجمعتَ 12 بدل طرحها."
+     "why": "You made a mistake in the sign inside 2x(x − 3) and added 12 instead of subtracting it."
     }
    ]
   },
@@ -50,20 +50,20 @@
    "version": "f21dbf479885",
    "answer": -0.5,
    "tolerance": 0.01,
-   "unit": "عدد",
-   "solution": "‎f′ = ((1)(x − 1) − (x + 1)(1))/(x − 1)² = −2/(x − 1)²‎. وعند ‎x = 3‎: ‎−2/4 = −0.5‎.",
+   "unit": "Number",
+   "solution": "‎f′ = ((1)(x − 1) − (x + 1)(1))/(x − 1)² = −2/(x − 1)²‎. And at x = 3: −2/4 = −0.5.",
    "commonErrors": [
     {
      "value": 0.5,
-     "why": "عكستَ ترتيب الطرح في البسط فكتبتَ ‎f g′ − f′ g‎. الترتيب الصحيح يبدأ بمشتقة البسط مضروبةً في المقام، والطرح ليس إبداليًا."
+     "why": "You reversed the order of subtraction in the numerator and wrote f g′ − f′ g. The correct order begins with the derivative of the numerator multiplied by the denominator, and subtraction is not commutative."
     },
     {
      "value": -1,
-     "why": "لم تربّع المقام فقسمتَ على ‎(3 − 1) = 2‎ بدل ‎4‎."
+     "why": "You did not square the denominator, so you divided by (3 − 1) = 2 instead of 4."
     },
     {
      "value": 2,
-     "why": "حسبتَ ‎f(3) = 4/2 = 2‎، وهي قيمة الدالة لا مشتقتها."
+     "why": "You calculated f(3) = 4/2 = 2, which is the value of the function, not its derivative."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "11841d86723e",
    "answer": 8,
    "tolerance": 0.01,
-   "unit": "عدد",
-   "solution": "‎f′ = 4(2x + 5)³ × 2 = 8(2x + 5)³‎. وعند ‎x = −2‎ يكون ‎2x + 5 = 1‎، فالناتج ‎8 × 1 = 8‎.",
+   "unit": "Number",
+   "solution": "‎f′ = 4(2x + 5)³ × 2 = 8(2x + 5)³‎. When x = −2 is 2x + 5 = 1, the result is 8 × 1 = 8.",
    "commonErrors": [
     {
      "value": 4,
-     "why": "أهملتَ مشتقة الداخل. ‎4(1)³ = 4‎، والصحيح ضربها في ‎g′ = 2‎. وهذا العامل هو الفرق كله بين قاعدة القوة وقاعدة السلسلة."
+     "why": "You neglected the inner derivative. 4(1)³ = 4, and it is correct to multiply it by g′ = 2. This factor is the whole difference between the power rule and the chain rule."
     },
     {
      "value": 1,
-     "why": "حسبتَ ‎f(−2) = 1⁴ = 1‎، وهي قيمة الدالة لا مشتقتها."
+     "why": "You calculated f(−2) = 1⁴ = 1, which is the value of the function, not its derivative."
     },
     {
      "value": 32,
-     "why": "ضربتَ في ‎2‎ مرتين، أو استعملتَ الأُسّ ‎4‎ دون إنقاصه إلى ‎3‎."
+     "why": "You multiplied by 2 twice, or used the exponent 4 without reducing it to 3."
     }
    ]
   },
@@ -94,20 +94,20 @@
    "version": "40199678d3e9",
    "answer": -6,
    "tolerance": 0.01,
-   "unit": "عدد",
-   "solution": "أعد الكتابة: ‎f(x) = 3x⁻²‎. فـ ‎f′ = 3(−2)x⁻³ = −6x⁻³ = −6/x³‎، وعند ‎x = 1‎ تساوي ‎−6‎.",
+   "unit": "Number",
+   "solution": "Rewrite: f(x) = 3x⁻². So f′ = 3(−2)x⁻³ = −6x⁻³ = −6/x³, and at x = 1 it equals −6.",
    "commonErrors": [
     {
      "value": 6,
-     "why": "أهملتَ الإشارة السالبة الناتجة عن إنزال الأُسّ ‎−2‎. الدالة ‎3/x²‎ متناقصة عند ‎x = 1‎، فمشتقتها سالبة حتمًا."
+     "why": "You neglected the negative sign resulting from lowering the exponent −2. The function 3/x² is decreasing at x = 1, so its derivative is inevitably negative."
     },
     {
      "value": 3,
-     "why": "حسبتَ ‎f(1) = 3‎، وهي قيمة الدالة لا مشتقتها."
+     "why": "You calculated f(1) = 3, which is the value of the function, not its derivative."
     },
     {
      "value": -2,
-     "why": "أهملتَ المعامل ‎3‎ فاشتققتَ ‎x⁻²‎ وحدها."
+     "why": "You neglected the parameter 3 and derived x⁻² alone."
     }
    ]
   },
@@ -121,7 +121,7 @@
    "commonErrors": [
     {
      "value": 1,
-     "why": "نسيت مشتقة الدالة الداخلية 3x."
+     "why": "I forgot the derivative of the internal function 3x."
     }
    ]
   },
@@ -131,11 +131,11 @@
    "answer": -0.75,
    "tolerance": 0.001,
    "unit": "",
-   "solution": "2x+2yy′=0 ثم −3/4.",
+   "solution": "2x+2yy′=0 then −3/4.",
    "commonErrors": [
     {
      "value": 0.75,
-     "why": "اشتقاق المعادلة يعطي طرح الحد 2x عند عزله."
+     "why": "Derivation of the equation gives the subtraction of the term 2x when isolated."
     }
    ]
   },
@@ -149,7 +149,7 @@
    "commonErrors": [
     {
      "value": 0.5,
-     "why": "نسيت مشتقة الداخل 2x."
+     "why": "Forgot the inside derivative 2x."
     }
    ]
   },
@@ -159,11 +159,11 @@
    "answer": 12,
    "tolerance": 0.001,
    "unit": "",
-   "solution": "s′=3t² ثم s″=6t.",
+   "solution": "s′=3t² then s″=6t.",
    "commonErrors": [
     {
      "value": 144,
-     "why": "ربعت قيمة المشتقة الأولى بدل اشتقاقها."
+     "why": "The value of the first derivative is quartered instead of differentiating it."
     }
    ]
   },
@@ -173,11 +173,11 @@
    "answer": 1,
    "tolerance": 0.001,
    "unit": "",
-   "solution": "xˣ(ln x+1) عند 1 يساوي 1.",
+   "solution": "xˣ(ln x+1) when 1 equals 1.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "استعملت مشتقة ثابت بدل تتبع الأس والأساس المتغيرين."
+     "why": "I used the derivative of a constant instead of tracking the variable exponent and base."
     }
    ]
   }

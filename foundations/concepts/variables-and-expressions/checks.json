@@ -1,0 +1,85 @@
+{
+ "slug": "variables-and-expressions",
+ "checks": [
+  {
+   "id": "less-than",
+   "kind": "number",
+   "prompt": "Pages cost `nc` riyals. Evaluate \"nine riyals less than the cost of the pages\" at `n = 10`, `c = 2`.",
+   "answer": 11,
+   "tolerance": 0.001,
+   "unit": "riyals",
+   "solution": "`nc - 9 = 20 - 9 = 11`. \"Less than\" reduces from the quantity named second, so the symbols reverse the word order.",
+   "responses": [
+    {
+     "value": -11,
+     "why": "consistent with writing `9 - nc`, following the order the words arrive in. A negative charge would mean the shop pays the customer."
+    },
+    {
+     "value": 20,
+     "why": "consistent with computing the page cost and not applying the reduction at all."
+    }
+   ],
+   "followUp": {
+    "prompt": "Now evaluate \"the discount `d` subtracted from the setup charge `s`\" at `s = 15`, `d = 9`.",
+    "answer": 6,
+    "tolerance": 0.001,
+    "unit": "riyals",
+    "solution": "`s - d = 15 - 9 = 6`. The same reversal: \"subtracted from\" reduces the quantity named second."
+   },
+   "version": 1
+  },
+  {
+   "id": "bracket-minus",
+   "kind": "number",
+   "prompt": "Evaluate `nc - (s - 9)` at `n = 10`, `c = 2`, `s = 15`.",
+   "answer": 14,
+   "tolerance": 0.001,
+   "unit": "riyals",
+   "solution": "Evaluate the bracket first: `20 - (15 - 9) = 20 - 6 = 14`.",
+   "responses": [
+    {
+     "value": -4,
+     "why": "consistent with deleting the bracket without changing the signs inside it, giving `nc - s - 9`. The minus in front applies to both terms."
+    },
+    {
+     "value": 26,
+     "why": "consistent with adding the bracketed quantity instead of subtracting it."
+    }
+   ],
+   "followUp": {
+    "prompt": "A new job has `n = 8`, `c = 3`, `s = 10`. Evaluate `nc - (s - 4)`.",
+    "answer": 18,
+    "tolerance": 0.001,
+    "unit": "riyals",
+    "solution": "`24 - (10 - 4) = 24 - 6 = 18`. Removing the bracket gives `24 - 10 + 4`."
+   },
+   "version": 1
+  },
+  {
+   "id": "read-back",
+   "kind": "number",
+   "prompt": "Evaluate `(s + nc)/n` at `n = 10`, `c = 2`, `s = 15`.",
+   "answer": 3.5,
+   "tolerance": 0.005,
+   "unit": "riyals per page",
+   "solution": "`(15 + 20)/10 = 3.5` riyals per page: the whole charge shared across the pages, higher than the `c = 2` printing cost because the setup is included.",
+   "responses": [
+    {
+     "value": 17,
+     "why": "consistent with losing the bracket and reading `s + nc/n`, which simplifies to `s + c` and is not a cost per page."
+    },
+    {
+     "value": 35,
+     "why": "consistent with computing the total charge and not dividing by the pages."
+    }
+   ],
+   "followUp": {
+    "prompt": "For which value of `n` is `(s + nc)/n` undefined?",
+    "answer": 0,
+    "tolerance": 0.001,
+    "solution": "`n = 0`. A job with no pages still incurs the setup charge, so the total is not zero, but \"cost per page\" has nothing to divide by."
+   },
+   "version": 1
+  }
+ ]
+}

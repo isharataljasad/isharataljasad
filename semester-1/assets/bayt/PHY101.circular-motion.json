@@ -7,19 +7,19 @@
    "answer": 4,
    "tolerance": 0.05,
    "unit": "m/s²",
-   "solution": "‎a_c = v²/r = 100/25 = 4.0 m/s²‎ نحو المركز.",
+   "solution": "a_c = v²/r = 100/25 = 4.0 m/s² toward the center.",
    "commonErrors": [
     {
      "value": 0.4,
-     "why": "قسمتَ السرعة على نصف القطر بلا تربيع. السرعة تدخل مربّعة، ووحدة ناتجك ‎1/s‎ لا ‎m/s²‎."
+     "why": "You divide the speed by the radius without squaring it. The speed is entered squared, and your output unit is 1/s, not m/s²."
     },
     {
      "value": 250,
-     "why": "ضربتَ في نصف القطر بدل القسمة عليه. كلما اتسعت الدائرة قلّ التسارع اللازم لتغيير الاتجاه."
+     "why": "You multiplied by the radius instead of dividing by it. The wider the circle, the less acceleration needed to change direction."
     },
     {
      "value": 2.5,
-     "why": "قسمتَ نصف القطر على السرعة."
+     "why": "You divide the radius by the speed."
     }
    ]
   },
@@ -29,19 +29,19 @@
    "answer": 9600,
    "tolerance": 20,
    "unit": "N",
-   "solution": "‎F_c = m v²/r = 1200 × 400 / 50 = 9600 N‎، ويوفّرها الاحتكاك السكوني بين الإطارات والطريق.",
+   "solution": "‎F_c = m v²/r = 1200 × 400 / 50 = 9600 N‎، It is provided by static friction between the tires and the road.",
    "commonErrors": [
     {
      "value": 480,
-     "why": "لم تربّع السرعة فحسبتَ ‎m v / r‎."
+     "why": "You didn't square the speed, you counted m v / r."
     },
     {
      "value": 480000,
-     "why": "حسبتَ ‎m v²‎ ولم تقسم على نصف القطر."
+     "why": "You calculated m v² and did not divide by the radius."
     },
     {
      "value": 8,
-     "why": "حسبتَ التسارع ‎v²/r‎ وأهملتَ الكتلة. وحدة ناتجك ‎m/s²‎ والسؤال عن نيوتن."
+     "why": "You calculated the acceleration v²/r and neglected the mass. The unit of your output is m/s² and the question is about newtons."
     }
    ]
   },
@@ -55,15 +55,15 @@
    "commonErrors": [
     {
      "value": 12.57,
-     "why": "حسبتَ المحيط ‎2πr‎ ولم تقسمه على زمن الدورة. المحيط مسافة والسرعة مسافة على زمن."
+     "why": "You calculated the circumference 2πr and did not divide it by the cycle time. Circumference is distance and speed is distance over time."
     },
     {
      "value": 0.5,
-     "why": "قسمتَ نصف القطر على الزمن وأهملتَ ‎2π‎. المسافة المقطوعة في دورة هي المحيط لا نصف القطر."
+     "why": "You divided the radius by time and neglected 2π. The distance traveled in a cycle is the circumference, not the radius."
     },
     {
      "value": 1.57,
-     "why": "استعملتَ ‎πr/T‎ أي نصف المحيط. الدورة الكاملة محيط كامل."
+     "why": "You used πr/T, which means half the circumference. Full cycle full circumference."
     }
    ]
   },
@@ -73,19 +73,19 @@
    "answer": 14,
    "tolerance": 0.2,
    "unit": "m/s",
-   "solution": "‎μ_s m g = m v²/r‎، فتُحذف الكتلة ويبقى ‎v² = μ_s g r = 0.40 × 9.8 × 50 = 196‎، و‎v = 14 m/s‎.",
+   "solution": "μ_s m g = m v²/r, the mass is deleted and v² = μ_s g r = 0.40 × 9.8 × 50 = 196 remains, And v = 14 m/s.",
    "commonErrors": [
     {
      "value": 196,
-     "why": "نسيتَ الجذر التربيعي. ‎196‎ هي ‎v²‎ ووحدتها ‎m²/s²‎."
+     "why": "You forgot the square root. 196 is v² and its unit is m²/s²."
     },
     {
      "value": 22.1,
-     "why": "أهملتَ معامل الاحتكاك فحسبتَ ‎√(g r)‎. الاحتكاك هو مصدر القوة المركزية هنا، فلا يُحذف."
+     "why": "You neglected the coefficient of friction and calculated √(g r). Friction is the source of the centripetal force here, so it cannot be eliminated."
     },
     {
      "value": 1.98,
-     "why": "أهملتَ نصف القطر فحسبتَ ‎√(μ_s g)‎."
+     "why": "You neglected the radius and calculated √(μ_s g)."
     }
    ]
   },
@@ -95,19 +95,19 @@
    "answer": 4,
    "tolerance": 0.05,
    "unit": "N",
-   "solution": "ثبات المقدار لا يعني انعدام التسارع: الاتجاه يتغيّر. فالمحصّلة ‎m v²/r = 2.0 × 16 / 8.0 = 4.0 N‎ نحو المركز.",
+   "solution": "Constant magnitude does not mean lack of acceleration: the direction changes. The resultant is m v²/r = 2.0 × 16 / 8.0 = 4.0 N toward the center.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "ظننتَ أن ثبات السرعة يعني انعدام المحصّلة. الثابت هو المقدار وحده، والاتجاه يتغيّر باستمرار، وهذا تسارع يتطلب قوة. ولو انعدمت المحصّلة لسار الجسم في خط مستقيم."
+     "why": "You thought that constant speed meant zero outcome. The constant is the magnitude alone, and the direction is constantly changing, and this is acceleration that requires force. If the resultant did not exist, the body would move in a straight line."
     },
     {
      "value": 32,
-     "why": "حسبتَ ‎m v²‎ ولم تقسم على نصف القطر."
+     "why": "You calculated m v² and did not divide by the radius."
     },
     {
      "value": 1,
-     "why": "لم تربّع السرعة فحسبتَ ‎m v / r‎."
+     "why": "You didn't square the speed, you counted m v / r."
     }
    ]
   }

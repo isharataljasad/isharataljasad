@@ -4,7 +4,7 @@ const root=new URL('../',import.meta.url);
 const html=readFileSync(new URL('chemistry/index.html',root),'utf8');
 const inv=JSON.parse(readFileSync(new URL('chemistry/educator-inventory.json',root),'utf8'));
 const scope=JSON.parse(readFileSync(new URL('chemistry/scope.json',root),'utf8'));
-for(const term of ['CHEM 101','General Chemistry I','الفصل الأول','Topic → Arena','Exam DNA','Franklin Ow','Professor Goldwhite','مسار الكتب','Educator','PEARSON+']) assert.ok(html.includes(term),`missing ${term}`);
+for(const term of ['CHEM 101','General Chemistry I','Semester 1','Topic → Arena','Exam DNA','Franklin Ow','Professor Goldwhite','Book Track','Educator','PEARSON+']) assert.ok(html.includes(term),`missing ${term}`);
 assert.equal(inv.source,'Educator.com — General Chemistry with Franklin Ow');
 assert.equal(scope.course_code,'CHEM 101');
 assert.equal(scope.arena_targets.length,9);

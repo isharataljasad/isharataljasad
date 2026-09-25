@@ -6,20 +6,20 @@
    "version": "180c06b2338b",
    "answer": 30,
    "tolerance": 0.01,
-   "unit": "نيوترون",
-   "solution": "النيوترونات ‎= A − Z = 56 − 26 = 30‎.",
+   "unit": "Neutron",
+   "solution": "Neutrons = A − Z = 56 − 26 = 30.",
    "commonErrors": [
     {
      "value": 26,
-     "why": "كتبتَ العدد الذري، وهو عدد البروتونات لا النيوترونات."
+     "why": "You wrote the atomic number, which is the number of protons, not neutrons."
     },
     {
      "value": 56,
-     "why": "كتبتَ العدد الكتلي، وهو مجموع البروتونات والنيوترونات معًا لا النيوترونات وحدها."
+     "why": "You wrote the mass number, which is the sum of the protons and neutrons together, not the neutrons alone."
     },
     {
      "value": 82,
-     "why": "جمعتَ العددين بدل طرحهما. العدد الكتلي يشمل البروتونات أصلًا، فالجمع يعدّها مرتين."
+     "why": "You added the two numbers instead of subtracting them. The mass number already includes protons, so addition counts them twice."
     }
    ]
   },
@@ -28,20 +28,20 @@
    "version": "3ec2341b2ec9",
    "answer": 18,
    "tolerance": 0.01,
-   "unit": "إلكترون",
-   "solution": "الإلكترونات ‎= Z − charge = 16 − (−2) = 18‎. الشحنة السالبة تعني اكتساب إلكترونين، فصارت الإلكترونات أكثر من البروتونات باثنين.",
+   "unit": "Electron",
+   "solution": "Electrons = Z − charge = 16 − (−2) = 18. A negative charge means gaining two electrons, so there are two more electrons than protons.",
    "commonErrors": [
     {
      "value": 14,
-     "why": "طرحتَ 2 بدل جمعها. الشحنة ‎−2‎ تعني اكتساب إلكترونين، والاكتساب يزيد لا ينقص."
+     "why": "You subtracted 2 instead of adding it. The charge −2 means the gain of two electrons, and the gain increases, not decreases."
     },
     {
      "value": 16,
-     "why": "أهملتَ الشحنة وعاملتَ الأيون معاملة الذرة المتعادلة."
+     "why": "You neglected the charge and treated the ion as a neutral atom."
     },
     {
      "value": 32,
-     "why": "كتبتَ العدد الكتلي. الإلكترونات لا علاقة لها بـ ‎A‎ إطلاقًا."
+     "why": "You wrote the mass number. Electrons have nothing to do with A at all."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 10.8,
    "tolerance": 0.02,
    "unit": "u",
-   "solution": "‎0.200 × 10.0 + 0.800 × 11.0 = 2.00 + 8.80 = 10.8 u‎. ولاحظ أن الناتج قريب من ‎11.0‎ لأن النظير الثاني هو الأوفر.",
+   "solution": "‎0.200 × 10.0 + 0.800 × 11.0 = 2.00 + 8.80 = 10.8 u‎. Note that the output is close to 11.0 because the second isotope is the most abundant.",
    "commonErrors": [
     {
      "value": 10.5,
-     "why": "أخذتَ المتوسط الحسابي ‎(10.0 + 11.0)/2‎ وأهملتَ الوفرة. النظيران غير متساويي الوجود، فلا يصحّ أن يتساويا في التأثير. والعلامة الكاشفة: الناتج يجب أن يميل نحو النظير الأوفر، وهو هنا ‎11.0‎."
+     "why": "You took the arithmetic mean (10.0 + 11.0)/2 and neglected abundance. The two counterparts are not equal in existence, so it is not valid for them to have equal influence. The revealing sign: the output should tend towards the more abundant isotope, which is 11.0. here"
     },
     {
      "value": 10.2,
-     "why": "عكستَ الوفرتين: أعطيتَ ‎80%‎ للنظير الخفيف و‎20%‎ للثقيل."
+     "why": "You reversed the two abundances: you gave 80% to the light isotope and 20% to the heavy isotope."
     },
     {
      "value": 21,
-     "why": "جمعتَ حاصلَي الضرب بعد استعمال النسب المئوية كما هي دون تحويلها إلى كسور عشرية."
+     "why": "You added the products after using the percentages as they were without converting them to decimals."
     }
    ]
   },
@@ -72,20 +72,20 @@
    "version": "a3ff6fd3e898",
    "answer": 2,
    "tolerance": 0.01,
-   "unit": "شحنة",
-   "solution": "الشحنة ‎= protons − electrons = 20 − 18 = +2‎. البروتونات أكثر، فالشحنة موجبة.",
+   "unit": "charge",
+   "solution": "charge = protons − electrons = 20 − 18 = +2. More protons, so the charge is positive.",
    "commonErrors": [
     {
      "value": -2,
-     "why": "عكستَ الإشارة. زيادة البروتونات تعطي شحنة موجبة؛ السالبة تأتي من زيادة الإلكترونات."
+     "why": "You reversed the sign. An increase in protons gives a positive charge; Negativity comes from excess electrons."
     },
     {
      "value": 38,
-     "why": "جمعتَ العددين. الشحنة فرق بين الموجب والسالب لا مجموعهما."
+     "why": "You added the two numbers. Charge is the difference between positive and negative, not the sum of them."
     },
     {
      "value": 18,
-     "why": "كتبتَ عدد الإلكترونات بدل الشحنة."
+     "why": "You wrote the number of electrons instead of the charge."
     }
    ]
   },
@@ -94,20 +94,20 @@
    "version": "da1766820ff9",
    "answer": 24,
    "tolerance": 0.01,
-   "unit": "نيوترون",
-   "solution": "ثبات ‎Z‎ وتغيّر ‎A‎ يعني أنهما نظيران، والفرق في النيوترونات وحدها. النيوترونات ‎= 44 − 20 = 24‎.",
+   "unit": "Neutron",
+   "solution": "The stability of Z and the variability of A means that they are isotopes, and the difference is in the neutrons alone. Neutrons = 44 − 20 = 24.",
    "commonErrors": [
     {
      "value": 20,
-     "why": "كتبتَ العدد الذري. هو ثابت بين النظيرين، وليس هو المطلوب."
+     "why": "You wrote the atomic number. It is fixed between the two counterparts, and is not what is required."
     },
     {
      "value": 4,
-     "why": "حسبتَ الفرق بين العددين الكتليين ‎44 − 40‎، وهو الزيادة في النيوترونات لا عددها الكلي."
+     "why": "You calculated the difference between the two mass numbers 44 − 40, which is the increase in neutrons Not their total number."
     },
     {
      "value": 44,
-     "why": "كتبتَ العدد الكتلي دون طرح البروتونات."
+     "why": "You wrote the mass number without subtracting the protons."
     }
    ]
   },
@@ -117,11 +117,11 @@
    "answer": 6,
    "tolerance": 0.001,
    "unit": "mol",
-   "solution": "لكل جزيء ذرتاH، فالنسبة2.",
+   "solution": "Every molecule has two atoms H, so the ratio is 2.",
    "commonErrors": [
     {
      "value": 3,
-     "why": "ساويت مولات الجزيئات بمولات ذرات الهيدروجين."
+     "why": "I equated the moles of molecules to the moles of hydrogen atoms."
     }
    ]
   }

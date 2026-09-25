@@ -6,12 +6,12 @@
    "version": "5d14d8d36288",
    "answer": 2,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "3x²−3=0 عند ±1.",
+   "unit": "Number",
+   "solution": "3x²−3=0 at ±1.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "أهملت الجذر السالب."
+     "why": "I neglected the negative root."
     }
    ]
   },
@@ -20,12 +20,12 @@
    "version": "ed0ca8b299ef",
    "answer": -2,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "عند x=1 تنتقل المشتقة من − إلى +، وقيمة الدالة −2.",
+   "unit": "Number",
+   "solution": "At x=1 the derivative from − goes to +, and the value of the function is −2.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "هذا موضع الصغرى وليس قيمتها."
+     "why": "This is the position of the smallest, not its value."
     }
    ]
   },
@@ -34,12 +34,12 @@
    "version": "c315766147ec",
    "answer": 0,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "f″=12x² لا تتغير إشارتها عند الصفر.",
+   "unit": "Number",
+   "solution": "f″=12x² does not change its sign at zero.",
    "commonErrors": [
     {
      "value": 1,
-     "why": "اعتبرت كل صفر للمشتقة الثانية انعطافًا."
+     "why": "Every zero of the second derivative was considered an inflection."
     }
    ]
   },
@@ -48,12 +48,12 @@
    "version": "6e841a04ab72",
    "answer": 9,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "نقارن f(−1)=1 وf(0)=0 وf(3)=9.",
+   "unit": "Number",
+   "solution": "We compare f(−1)=1, f(0)=0 and f(3)=9.",
    "commonErrors": [
     {
      "value": 0,
-     "why": "النقطة الحرجة صغرى؛ نسيت مقارنة الطرفين."
+     "why": "The critical point is small; I forgot to compare the two sides."
     }
    ]
   },
@@ -62,12 +62,12 @@
    "version": "9025c8a2b8fd",
    "answer": -12,
    "tolerance": 0.001,
-   "unit": "عدد",
-   "solution": "f″=6x، إذن −12، والتقعر لأسفل هناك.",
+   "unit": "Number",
+   "solution": "f″=6x, so −12, and concavity down there.",
    "commonErrors": [
     {
      "value": 9,
-     "why": "هذه f′(−2) وليست المشتقة الثانية."
+     "why": "This is f′(−2), not the second derivative."
     }
    ]
   }

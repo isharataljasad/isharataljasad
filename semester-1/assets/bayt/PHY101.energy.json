@@ -11,15 +11,15 @@
    "commonErrors": [
     {
      "value": 200,
-     "why": "أهملتَ ‎cos θ‎ فحسبتَ ‎F d‎ وحدها. وهذا يصح فقط حين تكون القوة في اتجاه الإزاحة تمامًا، أي ‎θ = 0‎."
+     "why": "You neglected cos θ and counted F d alone. This is only true when the force is exactly in the direction of the displacement, i.e. θ = 0."
     },
     {
      "value": 173,
-     "why": "استعملتَ ‎sin 60°‎ أو ‎cos 30°‎. القانون يأخذ جيب تمام الزاوية بين القوة والإزاحة، وهي ‎60°‎ هنا."
+     "why": "You used sin 60° or cos 30°. The formula takes the cosine of the angle between the force and the displacement, which is 60° here."
     },
     {
      "value": 0,
-     "why": "ظننتَ الشغل صفرًا. يكون صفرًا عند ‎90°‎ وحدها؛ وعند ‎60°‎ يبقى نصف القوة عاملًا في اتجاه الحركة."
+     "why": "You thought the job was zero. It is zero at 90° alone; At 60°, half the force remains in the direction of motion."
     }
    ]
   },
@@ -33,15 +33,15 @@
    "commonErrors": [
     {
      "value": 72,
-     "why": "أهملتَ عامل النصف فحسبتَ ‎m v²‎."
+     "why": "You neglected the half factor and calculated m v²."
     },
     {
      "value": 12,
-     "why": "لم تربّع السرعة فحسبتَ ‎m v‎، وهذا هو كمّ الحركة لا الطاقة الحركية، ووحدته ‎kg·m/s‎ لا ‎J‎."
+     "why": "You did not square the speed and calculated m v, and this is momentum, not kinetic energy. And his unit is kg·m/s not J."
     },
     {
      "value": 6,
-     "why": "حسبتَ ‎½ m v‎: أهملتَ التربيع وأبقيتَ النصف."
+     "why": "You calculated ½ m v:, neglected the square and kept the half."
     }
    ]
   },
@@ -51,19 +51,19 @@
    "answer": 19.8,
    "tolerance": 0.2,
    "unit": "m/s",
-   "solution": "‎mgh = ½mv²‎، فـ ‎v = √(2gh) = √(2 × 9.8 × 20) = √392 = 19.8 m/s‎.",
+   "solution": "mgh = ½mv², v = √(2gh) = √(2 × 9.8 × 20) = √392 = 19.8 m/s.",
    "commonErrors": [
     {
      "value": 392,
-     "why": "نسيتَ الجذر التربيعي. ‎392‎ هي ‎v²‎ ووحدتها ‎m²/s²‎، والسؤال عن سرعة وحدتها ‎m/s‎."
+     "why": "You forgot the square root. 392 is v² and its unit is m²/s². The question is about the speed of its unit m/s."
     },
     {
      "value": 196,
-     "why": "حسبتَ ‎gh‎ وأهملتَ العامل ‎2‎ والجذر معًا."
+     "why": "You calculated gh and neglected the factor 2 and the root together."
     },
     {
      "value": 9.8,
-     "why": "كتبتَ تسارع الجاذبية بدل السرعة."
+     "why": "You wrote gravitational acceleration instead of velocity."
     }
    ]
   },
@@ -77,15 +77,15 @@
    "commonErrors": [
     {
      "value": 6,
-     "why": "حسبتَ ‎m h‎ وأسقطتَ ‎g‎. وحدة ناتجك ‎kg·m‎ وهي ليست طاقة."
+     "why": "You calculated m h and dropped g. Your output unit is kg·m which is not power."
     },
     {
      "value": 29.4,
-     "why": "ضربتَ في النصف. عامل النصف في الطاقة الحركية لا في طاقة الوضع."
+     "why": "You hit it in half. The factor of half is in kinetic energy, not in potential energy."
     },
     {
      "value": 19.6,
-     "why": "أهملتَ الكتلة فحسبتَ ‎g h‎ وحدها."
+     "why": "You neglected the mass and counted g h alone."
     }
    ]
   },
@@ -99,15 +99,15 @@
    "commonErrors": [
     {
      "value": 2400,
-     "why": "ضربتَ الشغل في الزمن. القدرة معدل، والمعدل قسمة على الزمن لا ضرب فيه."
+     "why": "You multiplied the work by time. Power is a rate, and the rate is divided by time, not multiplied."
     },
     {
      "value": 600,
-     "why": "كتبتَ الشغل نفسه. الشغل بالجول والقدرة بالواط، والقدرة تصف سرعة بذل الشغل لا مقداره."
+     "why": "You wrote the work itself. Work in joules and power in watts, Power describes the speed at which work is done, not its amount."
     },
     {
      "value": 0.0067,
-     "why": "قلبتَ الكسر فقسمتَ الزمن على الشغل."
+     "why": "You flipped the fraction and divided the time by the work."
     }
    ]
   },
@@ -121,7 +121,7 @@
    "commonErrors": [
     {
      "value": 10,
-     "why": "نسيت تربيع الاستطالة."
+     "why": "You forgot to square the elongation."
     }
    ]
   }
