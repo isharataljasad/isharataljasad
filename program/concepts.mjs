@@ -151,7 +151,12 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: ['BM-INTEGER-01'],
     next: ['ALG-FUNCTION-01', 'GEO-INCIDENCE-01', 'TRIG-ANGLE-01'],
-    approaches: { 3: '/foundations/reading/geometry/coordinate-plane/' },
+    hub: '/foundations/concepts/coordinate-plane/',
+    approaches: {
+      1: '/foundations/concepts/coordinate-plane/approach-1/',
+      2: '/foundations/concepts/coordinate-plane/approach-2/',
+      3: '/foundations/reading/geometry/coordinate-plane/',
+    },
     evidence: 'Supplied Geometry episode 01.',
   },
   {
@@ -195,7 +200,12 @@ export const concepts = [
     courses: ['MA101', 'CE202'],
     prerequisites: ['GEO-INCIDENCE-01', 'BM-INTEGER-01'],
     next: ['GEO-MIDPOINT-01'],
-    approaches: { 3: '/foundations/reading/geometry/measuring-segments/' },
+    hub: '/foundations/concepts/measuring-segments/',
+    approaches: {
+      1: '/foundations/concepts/measuring-segments/approach-1/',
+      2: '/foundations/concepts/measuring-segments/approach-2/',
+      3: '/foundations/reading/geometry/measuring-segments/',
+    },
     evidence: 'Supplied Geometry episode 03, written to follow the naming chapter and to reuse absolute value from Basic Math 04.1.',
     verified: {
       on: '2026-09-21',
@@ -218,7 +228,12 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: ['GEO-SEGMENT-01'],
     next: ['GEO-ANGLE-01'],
-    approaches: { 3: '/foundations/reading/geometry/midpoints-and-congruence/' },
+    hub: '/foundations/concepts/midpoints-and-congruence/',
+    approaches: {
+      1: '/foundations/concepts/midpoints-and-congruence/approach-1/',
+      2: '/foundations/concepts/midpoints-and-congruence/approach-2/',
+      3: '/foundations/reading/geometry/midpoints-and-congruence/',
+    },
     evidence: 'Supplied Geometry episode 04. The averaging-versus-subtracting contrast was written because it is the error the previous chapter sets up.',
     verified: {
       on: '2026-09-21',
