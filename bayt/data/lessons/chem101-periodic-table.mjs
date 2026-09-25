@@ -25,7 +25,7 @@ const figure = `<svg viewBox="0 0 480 250" role="img" aria-labelledby="fig-trend
   /* السهم الرأسي: أسفل المجموعة. */
   + `<line x1="64" y1="60" x2="64" y2="170" stroke="#10766f" stroke-width="3"/>`
   + `<polyline points="57,162 64,174 71,162" fill="none" stroke="#10766f" stroke-width="3"/>`
-  + `<text x="240" y="206" font-size="14" fill="#10766f" text-anchor="middle">Below the group: the radius increases and the ionization energy decreases</text>`
+  + `<text x="240" y="206" font-size="14" fill="#10766f" text-anchor="middle">Down a group: larger radius, lower ionization energy</text>`
   + `<text x="240" y="232" font-size="13" fill="#566f7a" text-anchor="middle">The reason in both cases is the same: the effective nuclear charge</text>`
   + `</svg>`;
 

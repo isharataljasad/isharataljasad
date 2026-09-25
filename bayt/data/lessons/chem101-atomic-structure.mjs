@@ -17,14 +17,14 @@ const figure = `<svg viewBox="0 0 520 260" role="img" aria-labelledby="fig-atom-
   + `<line x1="256" y1="186" x2="274" y2="154" stroke="#566f7a" stroke-width="2"/>`
   + `<line x1="400" y1="64" x2="392" y2="90" stroke="#566f7a" stroke-width="2"/>`
   /* الوسوم اليسرى: حافتها اليمنى عند 250، فتمتد يسارًا بعيدًا عن الرمز. */
-  + `<text x="250" y="56" font-size="15" fill="#284955" text-anchor="start">Mass number</text>`
-  + `<text x="250" y="76" font-size="13" fill="#566f7a" text-anchor="start">+ protons neutrons</text>`
-  + `<text x="250" y="192" font-size="15" fill="#284955" text-anchor="start">Atomic number</text>`
-  + `<text x="250" y="212" font-size="13" fill="#566f7a" text-anchor="start">Protons alone</text>`
+  + `<text x="250" y="56" font-size="15" fill="#284955" text-anchor="end">Mass number</text>`
+  + `<text x="250" y="76" font-size="13" fill="#566f7a" text-anchor="end">Protons + neutrons</text>`
+  + `<text x="250" y="192" font-size="15" fill="#284955" text-anchor="end">Atomic number</text>`
+  + `<text x="250" y="212" font-size="13" fill="#566f7a" text-anchor="end">Protons</text>`
   /* الوسوم اليمنى: حافتها اليسرى عند 404، فتمتد يمينًا بعيدًا عن الشحنة. */
-  + `<text x="404" y="56" font-size="15" fill="#284955" text-anchor="end">Charge</text>`
-  + `<text x="404" y="76" font-size="13" fill="#566f7a" text-anchor="end">Electrons change</text>`
-  + `<text x="260" y="240" font-size="14" fill="#10766f" text-anchor="middle">17 a proton · 18 a neutron · 18 an electron</text>`
+  + `<text x="404" y="56" font-size="15" fill="#284955" text-anchor="start">Charge</text>`
+  + `<text x="404" y="76" font-size="13" fill="#566f7a" text-anchor="start">Electron change</text>`
+  + `<text x="260" y="240" font-size="14" fill="#10766f" text-anchor="middle">17 protons · 18 neutrons · 18 electrons</text>`
   + `</svg>`;
 
 export default {

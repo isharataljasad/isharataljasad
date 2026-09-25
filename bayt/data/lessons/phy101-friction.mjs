@@ -26,7 +26,7 @@ const figure = `<svg viewBox="0 0 480 250" role="img" aria-labelledby="fig-incli
   + `<line x1="238" y1="117" x2="288" y2="98" stroke="#c69748" stroke-width="3"/>`
   + `<polyline points="278,92 290,97 280,105" fill="none" stroke="#c69748" stroke-width="3"/>`
   + `<text x="296" y="94" font-size="16" fill="#c69748">f</text>`
-  + `<text x="240" y="226" font-size="14" fill="#566f7a" text-anchor="middle">The normal force is perpendicular to the inclined surface, not to the horizon</text>`
+  + `<text x="240" y="226" font-size="14" fill="#566f7a" text-anchor="middle">Normal force: perpendicular to the surface</text>`
   + `</svg>`;
 
 export default {

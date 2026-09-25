@@ -10,8 +10,8 @@ assert.equal(lessons.length,26); assert.equal(Object.keys(explorations).length,2
 for(const t of topics){
  const h=fs.readFileSync(new URL(`..${t.href}index.html`,import.meta.url),'utf8');
  const m=explorations[t.key]; assert.ok(m);
- const ref=h.indexOf('id="bayt-reference"'), guide=h.indexOf('id="bayt-guided"'), firstQuestion=h.indexOf('<form');
- assert.ok(ref>0 && guide>ref && firstQuestion>guide,`${t.key}: questions precede teaching`);
+ const ref=h.indexOf('id="definitions"'), guide=h.indexOf('id="worked"'), applications=h.indexOf('id="applications"');
+ assert.ok(ref>0 && guide>ref && applications>guide,`${t.key}: worked applications precede teaching`);
  for(const x of [m.min,m.start,m.max]){
   const r=evaluate(m,x); assert.ok(r.value===null||Number.isFinite(r.value));assert.ok(r.text);
  }

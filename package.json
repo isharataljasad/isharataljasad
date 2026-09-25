@@ -4,13 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:programme": "node tools/build-foundation-models.mjs && node tools/build-program.mjs && node tools/connect-program.mjs && node tools/build-semester-lessons.mjs && node tools/audit-semester1.mjs && node tools/build-semester-coverage.mjs && node tools/build-curriculum.mjs",
-    "build:curriculum": "node tools/build-foundation-reading.mjs && node tools/build-foundation-index.mjs && node tools/build-foundation-models.mjs && node tools/build-program.mjs && node tools/connect-program.mjs && node tools/build-bayt.mjs && node tools/build-semester-lessons.mjs && node tools/audit-semester1.mjs && node tools/build-semester-coverage.mjs && node tools/build-curriculum.mjs",
-    "build:bayt": "node tools/build-bayt.mjs",
+    "build:programme": "node tools/build-study.mjs",
+    "build:curriculum": "node tools/build-study.mjs",
+    "build:bayt": "node tools/build-study.mjs",
     "preview": "node tools/preview-server.mjs",
-    "test": "node test/science.mjs && node test/semester1.mjs && node test/foundations.mjs && node test/foundation-index.mjs && node test/foundation-models.mjs && node test/reading.mjs && node test/ma101.mjs && node test/phy101.mjs && node test/chemistry.mjs && node test/chemistry-goldwhite.mjs && node test/chemistry-books.mjs && node test/chemistry-pearson.mjs && node test/chemistry-csp.mjs && node test/chemistry-program.mjs && node test/biology-pearson.mjs && node test/gate.mjs && node test/program.mjs && node test/markdown.mjs && node test/curriculum.mjs && node test/foundation-treatments.mjs && node tools/check-foundation-treatments.mjs && node test/bayt.mjs && node test/routing.mjs && node test/bayt-lessons.mjs && node test/semester-completion.mjs && node test/concept-checks.mjs && node test/concept-runtime.mjs && node test/english-release.mjs",
-    "build:lessons": "node tools/build-semester-lessons.mjs && node tools/audit-semester1.mjs && node tools/build-semester-coverage.mjs",
-    "audit:semester1": "node tools/audit-semester1.mjs"
+    "test": "node test/study.mjs && node test/gate.mjs && node test/routing.mjs && node test/bayt-lessons.mjs && node test/semester-completion.mjs && node test/english-release.mjs && node test/science.mjs && node test/concept-checks.mjs && node test/concept-runtime.mjs && node test/foundation-models.mjs",
+    "build:lessons": "node tools/build-study.mjs",
+    "audit:semester1": "node tools/audit-semester1.mjs",
+    "build:study": "node tools/build-study.mjs"
   },
   "dependencies": {
     "@vercel/functions": "3.1.3"

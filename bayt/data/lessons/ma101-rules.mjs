@@ -16,7 +16,7 @@ const figure = `<svg viewBox="0 0 540 250" role="img" aria-labelledby="fig-rules
   + `<line x1="270" y1="58" x2="340" y2="140" stroke="#566f7a" stroke-width="2"/>`
   + `<line x1="270" y1="58" x2="475" y2="140" stroke="#566f7a" stroke-width="2"/>`
   + box(10, 140, 120, 62, '#c69748')
-  + `<text x="70" y="164" font-size="14" fill="#284955" text-anchor="middle">Addition or subtraction</text>`
+  + `<text x="70" y="164" font-size="14" fill="#284955" text-anchor="middle">Sum / difference</text>`
   + `<text x="70" y="188" font-size="13" fill="#566f7a" text-anchor="middle">Derive each term</text>`
   + box(145, 140, 120, 62, '#c69748')
   + `<text x="205" y="164" font-size="14" fill="#284955" text-anchor="middle">Hit</text>`

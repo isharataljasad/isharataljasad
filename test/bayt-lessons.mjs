@@ -70,20 +70,20 @@ for (const lesson of lessons) {
   const html = read(path.join(topic.href.slice(1), 'index.html'));
 
   ok(`${at}: الصفحة تحمل الأقسام الأربعة`, () => {
-    for (const id of ['bayt-reference', 'bayt-visual', 'bayt-guided', 'bayt-practice']) {
+    for (const id of ['definitions', 'visual', 'worked', 'applications']) {
       assert.ok(html.includes(`id="${id}"`), `${at}: القسم ${id} مفقود من الصفحة`);
     }
   });
 
   ok(`${at}: كل نمط سؤال له كتلة في الصفحة`, () => {
     for (const q of lesson.questionTypes) {
-      assert.ok(html.includes(`data-bayt-check="${q.id}"`), `${at}: النمط ${q.id} مفقود`);
+      assert.ok(html.includes(`data-worked-example="${q.id}"`), `${at}: النمط ${q.id} مفقود`);
     }
   });
 
   ok(`${at}: الرسم أصلي لا صورة ناشر`, () => {
-    const start = html.indexOf('id="bayt-visual"');
-    const end = html.indexOf('id="bayt-guided"');
+    const start = html.indexOf('id="visual"');
+    const end = html.indexOf('id="worked"');
     const block = html.slice(start, end);
     assert.ok(block.includes('<svg'), `${at}: لا رسم أصلي في القسم البصري`);
     assert.ok(!/<img[^>]*\/(educator|pearson|book)\//.test(block),
@@ -96,7 +96,7 @@ for (const lesson of lessons) {
   });
 
   ok(`${at}: الجدول يبلغه لوح المفاتيح ويحمل اسمًا`, () => {
-    const wrap = html.match(/<div class="bayt-table-wrap"[^>]*>/);
+    const wrap = html.match(/<div class="table-wrap"[^>]*>/);
     assert.ok(wrap, `${at}: لا جدول`);
     assert.ok(wrap[0].includes('tabindex="0"'), `${at}: الجدول لا يبلغه لوح المفاتيح`);
     assert.ok(wrap[0].includes('aria-label='), `${at}: الجدول بلا اسم`);
@@ -117,7 +117,7 @@ for (const lesson of lessons) {
     const opens = (html.match(/<!--bayt:start-->/g) || []).length;
     const closes = (html.match(/<!--bayt:end-->/g) || []).length;
     assert.equal(opens, closes, `${at}: علامات البناء غير متوازنة`);
-    assert.equal((html.match(/id="bayt-practice"/g) || []).length, 1,
+    assert.equal((html.match(/id="applications"/g) || []).length, 1,
       `${at}: قسم التدريب مكرّر`);
   });
 
@@ -130,7 +130,7 @@ for (const lesson of lessons) {
   });
 
   ok(`${at}: ورقة أنماط الدرس مرتبطة مرة واحدة`, () => {
-    assert.equal((html.match(/bayt-lesson\.css/g) || []).length, 1);
+    assert.equal((html.match(/study\.css/g) || []).length, 1);
   });
 
   /* المتطلب يُعالَج في مكانه؛ الرابط الاختياري يجب أن يشير إلى ملف موجود. */
