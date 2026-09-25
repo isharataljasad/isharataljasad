@@ -287,8 +287,15 @@ export const concepts = [
     courses: ['MA101'],
     prerequisites: [],
     next: ['BM-EXPONENT-01', 'BM-INTEGER-01'],
-    approaches: { 3: '/foundations/reading/basic-math/expressions-and-variables/' },
-    evidence: 'Supplied Basic Math episode 01.1.',
+    hub: '/foundations/concepts/expressions-and-variables/',
+    approaches: {
+      1: '/foundations/concepts/expressions-and-variables/approach-1/',
+      2: '/foundations/concepts/expressions-and-variables/approach-2/',
+      3: '/foundations/reading/basic-math/expressions-and-variables/',
+    },
+    evidence: 'Supplied Basic Math episode 01.1. Reference and practice routes written to close '
+      + 'the coverage gap: the written guide existed alone, so there was no route for a reader '
+      + 'who wanted a ruling rather than an explanation, and none that made the reader decide.',
   },
   {
     id: 'BM-INTEGER-01',
