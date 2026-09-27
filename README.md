@@ -1,48 +1,59 @@
 # Bayt Al-Fuad · Semester 1 study library
 
 The student entrance (`/`, `/bayt/`, `/semester-1/`) shows Mathematics, Physics
-and Chemistry only. The subjects have 26 topic guides (9 + 8 + 9) and three
-reading routes each — Book (reference & formulas), Pearson (methods & worked
-examples), Educator (concepts & explanations). Every route lists the Semester 1
-topics first; a Compare bar on each topic opens the same topic in the other
-routes or the full guide. There are no quizzes, answer fields, scores or
-progress requirements; every worked solution is visible.
+and Chemistry, each with one button. Each subject is one ordered sequence of
+lessons (10 + 9 + 12 = 31), and every lesson follows the same pattern: what it
+explains, background, the idea with a diagram, formulas with their meaning and
+conditions, a first worked example, a different case, more cases, common
+misunderstandings, then keep in mind and the next lesson. There are no quizzes,
+answer fields, scores or progress requirements; every worked solution is visible.
 
 ## Where things live
 
-- `tools/content/<course>/<topic>.mjs` — the teaching text of the 26 topics
-  (original English), with computed figures and a `checks` list of numerical claims.
-- `tools/content/support/` — relative motion, mole and formula calculations, chemical naming, and intermolecular forces: 18 additional worked examples, included in the guides and all three routes.
-- `tools/data/study-library.json` — the 333 original collection notes, placed by
-  `semester-1/curriculum.json` (topic resources) and `tools/data/route-plan.json`
-  (background / related / beyond Semester 1).
+- `tools/content/sequence.mjs` — the lesson order of each subject.
+- `tools/content/<course>/<lesson>.mjs` — lesson text (original English), with
+  computed figures and a `checks` list of numerical claims. Four lessons wrap the
+  sections in `tools/content/support/`.
 - `tools/build-study.mjs` — the only builder of student pages (all `build:*` scripts).
   Earlier builders are preserved but refuse to run (`tools/lib/legacy-guard.mjs`).
-- `docs/semester1-readiness-2026-09-27.md` — coverage map and remaining gaps.
+- `tools/data/study-library.json` — the 333 earlier collection notes (archive,
+  not deployed). `tools/make-ledger.mjs` builds the migration ledger
+  (`docs/migration-ledger.md`, `tools/data/migration-ledger.json`) from
+  `tools/data/ledger/*.py` via `tools/data/ledger-annotations.json`.
+- `docs/unified-learning-2026-09-27.md` — this design, the coverage map,
+  verification and open items; `docs/compatibility-map.md` — old links;
+  `docs/pilot-feedback-proposal.md` — feedback (not implemented).
 
 ## Maintain and verify
 
 - `npm ci --ignore-scripts`
-- `npm run build:study` rebuilds the 44 student pages (deterministic).
-- `npm test` — student flow, content completeness and 259 numerical checks, links
-  and anchors, deploy allow-list, reproducible build (`test/study.mjs`); access gate
-  (`test/gate.mjs`); deployed pages and CSP (`test/routing.mjs`).
+- `npm run build:study` rebuilds the 49 pages (deterministic); run
+  `node tools/make-ledger.mjs` first after changing the ledger annotations.
+- `npm test` — lessons, 296 numerical checks (all 259 of release aa7c04c traced),
+  ledger, old links, reading-only pages, links and anchors, deploy allow-list,
+  reproducible build and ledger (`test/study.mjs`); access gate (`test/gate.mjs`);
+  deployed pages and CSP (`test/routing.mjs`).
+- `npm run preview` serves the local review site with the `vercel.json`
+  redirects, headers and allow-list (without the production login);
+  `node test/browser.mjs` then checks every page in Chromium at desktop and phone
+  width and follows old bookmarks.
 - `npm run test:legacy` — tests of preserved, non-deployed earlier material.
-- `npm run preview` serves the local review site (without the production login).
 
 ## Deployment and scope
 
 Vercel serves the site through the Git-connected project and the unchanged
 password gate (`middleware.js`, `gate/`). `.vercelignore` is an allow-list: only
-the 44 study pages, their images, `semester-1/assets/study.css` and the gate are
-uploaded; earlier dashboards, planners, quiz pages, other subjects, notes and
-tools stay in the repository only. Old URLs redirect to `/` (`vercel.json`).
+the 49 pages, `semester-1/assets/study.css`, the old-link forwarder
+`semester-1/assets/old-links.js` and the gate are uploaded; earlier dashboards,
+planners, quiz pages, other subjects, notes and tools stay in the repository
+only. Old URLs redirect as listed in `docs/compatibility-map.md`.
 
-All route text is original study material written for this library in the style
-of each approach; it is not a reproduction of publisher textbooks, videos or
-courses. Pearson video links are external and may need an account. Chemistry
-Book notes are adapted from OpenStax Chemistry 2e (CC BY 4.0), credited on the page.
-The lecturer’s current outline decides assessed scope and order.
+All lesson text is original study material written for this library; it is not a
+reproduction of publisher textbooks, videos or courses. The Sources and credits
+page of each subject lists the open references, the OpenStax Chemistry 2e credit
+(CC BY 4.0) and optional external Pearson Channels videos, which may need an
+account and are not required. The lecturer’s current outline decides assessed
+scope and order.
 
 ## Historical project background
 

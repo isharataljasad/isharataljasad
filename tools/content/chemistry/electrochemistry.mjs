@@ -133,6 +133,19 @@ export default {
       result: 'E_{cell} ≈ 1.04 V.',
       meaning: 'As the cell discharges, Cu²⁺ is used up and the voltage falls gradually.',
     },
+    {
+      title: 'Balancing a redox equation in acidic solution',
+      problem: 'Permanganate oxidises iron(II) in acid: MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺. Balance the equation.',
+      steps: [
+        ['Oxidation half-reaction: Fe²⁺ → Fe³⁺ + e⁻.', 'Iron’s oxidation number rises from +2 to +3.'],
+        ['Reduction: MnO₄⁻ → Mn²⁺. Add 4 H₂O on the right to balance O, then 8 H⁺ on the left to balance H: MnO₄⁻ + 8H⁺ → Mn²⁺ + 4H₂O.', 'In acid, H₂O balances oxygen and H⁺ balances hydrogen.'],
+        ['Balance charge with electrons: left +7, right +2, so add 5 e⁻ on the left: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O.', 'Mn goes from +7 to +2: it gains 5 electrons.'],
+        ['Multiply the iron half-reaction by 5 and add: MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.', 'Electrons lost must equal electrons gained, so they cancel.'],
+        ['Check charge: left −1 + 8 + 10 = +17; right +2 + 15 = +17.', 'Atoms and charge both balance.'],
+      ],
+      result: 'MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O.',
+      meaning: 'This reaction is used to measure iron by titration: 1 mol of permanganate reacts with 5 mol of Fe²⁺. In basic solution the method differs (add OH⁻ to neutralise the H⁺).',
+    },
   ],
   mistakes: [
     ['Multiplying E° when a half-reaction is multiplied.', 'E° is intensive: it does not change with the coefficients.'],
@@ -146,6 +159,7 @@ export default {
     'The Nernst equation is shown at 25 °C; the general form uses RT/(nF) ln Q.',
   ],
   checks: [
+    ['redox charge L', -1 + 8 + 10, 17, 0], ['redox charge R', 2 + 15, 17, 0],
     ['E1', 0.5 + 0.2, 0.7, 1e-12], ['E2', 0.8 + 0.4, 1.2, 1e-12], ['Daniell', 0.34 + 0.76, 1.10, 1e-12], ['AgCu', 0.8 - 0.34, 0.46, 1e-12],
     ['dG', -2 * 96485 * 1.1 / 1000, -212, 0.5], ['Q', 2 * 1800, 3600, 0], ['ne', 3600 / 96485, 0.0373, 0.00005], ['mCu', 3600 / 96485 / 2 * 63.55, 1.19, 0.005],
     ['Nernst', 1.10 - 0.0592 / 2 * Math.log10(100), 1.04, 0.002],

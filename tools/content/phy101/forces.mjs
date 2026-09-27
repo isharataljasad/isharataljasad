@@ -137,6 +137,12 @@ export default {
       meaning: 'The scale measures the normal force, not the weight.',
     },
   ],
+  extra: [
+    { title: 'Torque and rotational equilibrium (check whether your outline includes it)', text: [
+      'A force can make an object turn. Its turning effect about a pivot is the **torque** τ = rF sin φ, where r is the distance from the pivot to where the force acts and φ is the angle between r and F. Only the perpendicular part of the force turns the object: a 10 N force at right angles to a 0.30 m wrench gives τ = 3.0 N·m, but the same force pushed along the wrench gives zero torque.',
+      'An object is in **static equilibrium** only when both the net force and the net torque are zero. Example: a light beam balances on a pivot with a 20 N load 2.0 m to the right and a 10 N load 4.0 m to the left. The clockwise torque 20 × 2.0 = 40 N·m equals the anticlockwise torque 10 × 4.0 = 40 N·m, so the beam does not turn; the pivot pushes up with 30 N so that the forces also balance.',
+    ] },
+  ],
   mistakes: [
     ['“A moving object needs a net force to keep moving.”', 'Constant velocity needs zero net force. Net force causes acceleration, not motion.'],
     ['Cancelling third-law pairs on one FBD.', 'The pair acts on two different objects. On one object’s diagram only one of them appears.'],
@@ -146,9 +152,10 @@ export default {
   ],
   scope: [
     'Friction and inclined planes are in the next topic; circular motion (net inward force) in its own topic.',
-    'Ropes and pulleys are ideal (massless, frictionless) unless stated. Rotational dynamics (torque) is beyond this topic.',
+    'Ropes and pulleys are ideal (massless, frictionless) unless stated. Only static torque balance appears (optional section); rotational dynamics is not treated.',
   ],
   checks: [
+    ['torque', 10 * 0.3, 3, 1e-12], ['beam', 20 * 2 - 10 * 4, 0, 0], ['pivot', 20 + 10, 30, 0],
     ['net', (20 - 8) / 4, 3, 0], ['ax', 20 * Math.cos(Math.PI / 6) / 5, 3.46, 0.005], ['N', 49 - 20 * Math.sin(Math.PI / 6), 39, 1e-9],
     ['atwood a', 2 * 9.8 / 8, 2.45, 1e-12], ['atwood T', 3 * (9.8 + 2.45), 36.75, 1e-9], ['sign T', 98 / (2 * 0.5), 98, 1e-9],
     ['10deg', 98 / (2 * Math.sin(10 * Math.PI / 180)), 282, 0.5], ['lift', 60 * 11.8, 708, 1e-9], ['lift down', 60 * 7.8, 468, 1e-9], ['rest', 60 * 9.8, 588, 1e-9],

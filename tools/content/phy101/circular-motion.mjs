@@ -138,6 +138,12 @@ export default {
       meaning: 'That large effective gravity is what separates particles quickly.',
     },
   ],
+  extra: [
+    { title: 'Angular kinematics with constant angular acceleration (check whether your outline includes it)', text: [
+      'A wheel speeding up or slowing down has an **angular acceleration** α = Δω/Δt (rad/s²). If α is constant, the rotational equations mirror the linear ones: ω = ω_{0} + αt and θ = ω_{0}t + {{1|2}}αt^{2}.',
+      'Example: a wheel starts at 2 rad/s and has α = 3 rad/s² for 4 s. Then ω = 2 + 3(4) = 14 rad/s and θ = 2(4) + {{1|2}}(3)(16) = 32 rad (about 5.1 turns). A point 0.50 m from the axle then moves at v = rω = 0.50 × 14 = 7 m/s. Every point on the wheel shares ω, but points farther out move faster.',
+    ] },
+  ],
   mistakes: [
     ['“Constant speed means no acceleration.”', 'The direction changes, so the velocity changes: a = v²/r inward.'],
     ['Adding a separate “centripetal force” to the free-body diagram.', 'mv²/r is the required net inward force, supplied by real forces.'],
@@ -146,9 +152,10 @@ export default {
     ['Using rpm directly as ω.', 'Convert: ω (rad/s) = rpm × 2π/60.'],
   ],
   scope: [
-    'Uniform circular motion and simple vertical circles. Rotational dynamics (torque, moment of inertia) and gravitation beyond the circular-orbit equation are covered in the collection notes and later courses.',
+    'Uniform circular motion and simple vertical circles. Angular kinematics is an optional section below; torque is an optional section of Newton laws and force diagrams. Rotational dynamics (moment of inertia) and gravitation beyond the circular-orbit equation are not covered.',
   ],
   checks: [
+    ['omega', 2 + 3 * 4, 14, 0], ['theta', 2 * 4 + 0.5 * 3 * 16, 32, 0], ['turns', 32 / (2 * Math.PI), 5.1, 0.01], ['v', 0.5 * 14, 7, 0],
     ['ac', 36 / 3, 12, 0], ['F', 2 * 16 / 4, 8, 0], ['vmax', Math.sqrt(0.8 * 9.8 * 50), 19.8, 0.05], ['wet', Math.sqrt(0.4 * 9.8 * 50), 14, 0.05],
     ['bank', Math.atan(400 / 980) * 180 / Math.PI, 22.2, 0.05], ['loop', Math.sqrt(98), 9.90, 0.005],
     ['omega', 3000 * 2 * Math.PI / 60, 314, 0.2], ['v', 314.16 * 0.1, 31.4, 0.05], ['a/g', (3000 * 2 * Math.PI / 60) ** 2 * 0.1 / 9.8, 1000, 10],

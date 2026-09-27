@@ -139,8 +139,8 @@ export default {
     ['Mixing up H₂O(l) and H₂O(g).', 'Their ΔH_f° values differ by 44 kJ/mol (the enthalpy of vaporisation).'],
   ],
   scope: [
-    'Entropy and Gibbs free energy are introduced in Electrochemistry (ΔG = −nFE) and developed in later courses.',
-    'Heat capacities are treated as constant; phase changes (heating curves) are in the related collection notes.',
+    'Gibbs energy appears only in Electrochemistry (ΔG° = −nFE°); entropy is not developed in these lessons. Check your outline.',
+    'Heat capacities are treated as constant. The energy of a phase change is shown in Intermolecular forces; full heating curves are not developed.',
   ],
   checks: [
     ['q', 50 * 2 * 3, 300, 1e-9], ['cal q', 100 * 4.184 * 6.7, 2803, 1], ['cal dH', -100 * 4.184 * 6.7 / 1000 / 0.05, -56, 0.1],

@@ -140,6 +140,12 @@ export default {
       meaning: 'Friction reduces the effect of the applied force; it does not depend on the size of the push.',
     },
   ],
+  extra: [
+    { title: 'Air resistance and terminal speed (check whether your outline includes it)', text: [
+      'A body moving through air or water feels a **drag** force opposite to its velocity, and drag grows with speed. A falling object therefore speeds up less and less: once drag equals the weight, the net force is zero and the speed stops increasing. That constant speed is the **terminal speed**.',
+      'In the simple linear model F_{drag} = bv, terminal speed satisfies mg = bv_{t}, so v_{t} = mg/b. For m = 1.0 kg and b = 2.0 N·s/m (with g = 9.8 m/s^{2}), v_{t} = 9.8/2.0 = 4.9 m/s. Many real objects follow a quadratic law (drag ∝ v²) instead; the model must match the situation.',
+    ] },
+  ],
   mistakes: [
     ['Always writing f = μN for static friction.', 'Static friction is ≤ μₛN. Use the equality only at the point of slipping.'],
     ['Taking N = mg on an incline.', 'On an incline N = mg cos θ (if no other perpendicular forces).'],
@@ -151,6 +157,7 @@ export default {
     'Coulomb’s friction model (constant μ) is an approximation. Rolling resistance, lubrication and air drag need other models.',
   ],
   checks: [
+    ['terminal', 1 * 9.8 / 2, 4.9, 1e-12],
     ['fk', 0.3 * 196, 58.8, 1e-9], ['a', (80 - 58.8) / 20, 1.06, 1e-9], ['fsmax', 0.5 * 196, 98, 1e-9],
     ['incline', 9.8 * (0.5 - 0.2 * Math.cos(th)), 3.20, 0.005], ['angle', Math.atan(0.4) * 180 / Math.PI, 21.8, 0.05],
     ['net', 30 - 12, 18, 0], ['frictionless', 9.8 * 0.5, 4.9, 1e-12],

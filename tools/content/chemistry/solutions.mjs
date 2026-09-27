@@ -25,7 +25,7 @@ export default {
   ],
   background: [
     { title: 'Moles and molar mass', text: 'n = m/M; M(NaCl) = 58.44 g/mol, M(glucose, C₆H₁₂O₆) = 180.16 g/mol.' },
-    { title: 'Intermolecular attractions', text: 'Hydrogen bonding, dipole–dipole and dispersion forces decide which substances mix (see Chemical bonding for polarity).' },
+    { title: 'Intermolecular attractions', text: 'Hydrogen bonding, dipole–dipole and dispersion forces decide which substances mix (see Intermolecular forces, phases and solubility).' },
   ],
   definitions: [
     ['Molarity c (M)', 'Moles of solute per litre of solution: c = n/V.'],
@@ -140,7 +140,7 @@ export default {
   ],
   scope: [
     'Colligative formulas are for dilute, near-ideal solutions; concentrated and non-ideal solutions need activity coefficients.',
-    'Solubility equilibria (Ksp) belong to the following course.',
+    'Solubility equilibria (K_{sp}) are not covered in these lessons; check your outline.',
   ],
   checks: [
     ['c', 0.3 / 0.5, 0.6, 1e-12], ['NaCl mol', 5.85 / 58.44, 0.1, 0.0005], ['NaCl c', 5.85 / 58.44 / 0.25, 0.4, 0.002],

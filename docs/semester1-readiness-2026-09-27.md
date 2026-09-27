@@ -1,5 +1,9 @@
 # Semester 1 study library — readiness review, 27 September 2026
 
+> **Superseded for the integrated design** on branch `claude/unified-learning`: see
+> `docs/unified-learning-2026-09-27.md`. The three-route structure described below
+> is the release at `aa7c04c`.
+
 Updated 27 September 2026 after integrating Claude's rewrite at `3a28052` and
 expanding four brief foundations. This map describes the current source and
 local build. The production password gate is preserved; this session has no

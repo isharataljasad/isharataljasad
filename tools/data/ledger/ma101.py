@@ -1,0 +1,98 @@
+# Ledger annotations for MA 101 notes: key -> (concept, decision, lesson or None, section or None, reason)
+C = "Concept taught in the lesson; the note's worked cases repeat lesson examples."
+A = {
+ # background -> functions lesson
+ 'book/lesson-01': ('functions.domain', 'rewrite', 'functions', 'examples', 'Rewritten into the new Functions lesson (domain with root and denominator).'),
+ 'pearson/lesson-01': ('functions.domain', 'rewrite', 'functions', 'examples', 'Rewritten into the Functions lesson; piecewise rule explained in the idea section.'),
+ 'educator/lesson-01': ('functions.domain', 'rewrite', 'functions', 'idea', 'Rewritten into the Functions lesson (vertical-line test, even/odd symmetry).'),
+ 'book/lesson-02': ('functions.transformations', 'rewrite', 'functions', 'more-examples', 'Rewritten into the Functions lesson; its parabola transformation is a worked case and the figure.'),
+ 'pearson/lesson-02': ('functions.composition', 'rewrite', 'functions', 'different-case', 'Rewritten into the Functions lesson (composition in both orders).'),
+ 'educator/lesson-02': ('functions.composition', 'rewrite', 'functions', 'different-case', 'Rewritten into the Functions lesson.'),
+ 'pearson/lesson-03': ('functions.exponent-rules', 'rewrite', 'functions', 'background', 'Exponent rules kept as background in the Functions lesson.'),
+ 'book/lesson-04': ('functions.inverse', 'rewrite', 'functions', 'more-examples', 'Rewritten into the Functions lesson (inverse with its domain).'),
+ 'book/lesson-05': ('functions.exp-log', 'rewrite', 'functions', 'more-examples', 'Rewritten into the Functions lesson (log equation with domain check).'),
+ 'pearson/lesson-04': ('functions.exp-log', 'rewrite', 'functions', 'more-examples', 'Same log equation as book/lesson-05; kept once in the Functions lesson.'),
+ 'book/lesson-03': ('functions.trig', 'rewrite', 'functions', 'more-examples', 'Rewritten into the Functions lesson (quadrant signs; sinusoid features).'),
+ 'pearson/lesson-05': ('functions.trig', 'rewrite', 'functions', 'more-examples', 'Quadrant-sign case kept once; principal range of arcsin in the formulas.'),
+ 'pearson/lesson-06': ('functions.sinusoid', 'rewrite', 'functions', 'more-examples', 'Amplitude/period/midline case kept once in the Functions lesson.'),
+ # limits
+ 'book/lesson-06': ('derivative.limit-of-average-rate', 'combine', 'derivative', None, 'The limit of an average rate is taught at the start of the Derivative lesson; integration aspect is beyond Semester 1.'),
+ 'book/lesson-07': ('limits.one-sided', 'combine', 'limits', 'more-examples', C),
+ 'pearson/lesson-07': ('limits.one-sided', 'combine', 'limits', 'more-examples', C),
+ 'educator/lesson-04': ('limits.one-sided', 'combine', 'limits', 'idea', C + ' Its table-of-values method is the lesson table.'),
+ 'book/lesson-08': ('limits.algebraic', 'combine', 'limits', 'examples', C),
+ 'educator/lesson-05': ('limits.algebraic', 'combine', 'limits', 'examples', C + ' Trigonometric and at-infinity cases are lesson examples.'),
+ 'pearson/lesson-08': ('continuity.repair-and-match', 'combine', 'continuity', 'examples', C),
+ 'book/lesson-10': ('limits.epsilon-delta', 'combine', 'limits', 'further', 'Linear epsilon–delta case taught in the optional section of the Limits lesson.'),
+ 'educator/lesson-06': ('limits.epsilon-delta', 'combine', 'limits', 'further', 'Same linear epsilon–delta case; kept once.'),
+ # continuity
+ 'book/lesson-09': ('continuity.ivt', 'combine', 'continuity', 'more-examples', C),
+ 'educator/lesson-07': ('continuity.ivt', 'combine', 'continuity', 'more-examples', C),
+ # derivative
+ 'book/lesson-11': ('derivative.definition-and-tangent', 'combine', 'derivative', 'examples', C),
+ 'pearson/lesson-09': ('derivative.definition-and-tangent', 'combine', 'derivative', 'examples', C),
+ 'educator/lesson-08': ('derivative.definition-and-tangent', 'combine', 'derivative', 'examples', C + ' The √x derivative is used in Linear approximation.'),
+ 'educator/lesson-16': ('derivative.definition-and-tangent', 'combine', 'derivative', 'more-examples', C),
+ 'educator/lesson-03': ('derivative.limit-of-average-rate', 'combine', 'derivative', 'idea', C),
+ 'book/lesson-12': ('derivative.differentiability', 'combine', 'derivative', 'more-examples', C + ' Sign of f′ is developed in Extrema and curve shape.'),
+ 'pearson/lesson-10': ('derivative.differentiability', 'combine', 'derivative', 'more-examples', C),
+ 'book/lesson-14': ('derivative.motion-distance', 'retain', 'derivative', 'more-examples', 'Distinct required case added to the Derivative lesson: turning time, displacement versus total distance.'),
+ 'pearson/lesson-14': ('derivative.motion-distance', 'retain', 'derivative', 'more-examples', 'Same case as book/lesson-14; the added lesson example uses it.'),
+ 'educator/lesson-12': ('derivative.motion-distance', 'combine', 'derivative', 'more-examples', 'Rates with units and velocity/acceleration are taught in Derivative and Rules.'),
+ # rules
+ 'book/lesson-13': ('rules.product-quotient', 'combine', 'rules', 'examples', C),
+ 'educator/lesson-09': ('rules.power', 'combine', 'rules', 'examples', C),
+ 'educator/lesson-10': ('rules.product-quotient', 'combine', 'rules', 'different-case', C),
+ 'educator/lesson-11': ('rules.product-quotient', 'combine', 'rules', 'more-examples', C),
+ 'pearson/lesson-12': ('rules.product-quotient', 'combine', 'rules', 'more-examples', C),
+ 'pearson/lesson-11': ('rules.higher', 'combine', 'rules', 'more-examples', C),
+ 'educator/lesson-18': ('rules.higher', 'combine', 'rules', 'more-examples', C + ' The derivative cycle of sin x is mentioned in the lesson.'),
+ 'book/lesson-15': ('rules.trig', 'combine', 'rules', 'more-examples', C),
+ 'pearson/lesson-13': ('rules.trig', 'combine', 'rules', 'more-examples', C),
+ 'educator/lesson-13': ('rules.trig', 'combine', 'rules', 'formulas', C),
+ 'book/lesson-16': ('rules.chain', 'combine', 'rules', 'different-case', C),
+ 'educator/lesson-14': ('rules.chain', 'combine', 'rules', 'different-case', C),
+ 'book/lesson-19': ('rules.exp-log', 'combine', 'rules', 'more-examples', C),
+ 'pearson/lesson-20': ('rules.exp-log', 'combine', 'rules', 'more-examples', C),
+ 'educator/lesson-19': ('rules.log-differentiation', 'retain', 'rules', 'more-examples', 'Logarithmic differentiation (xˣ) added to the Rules lesson as a worked case.'),
+ 'pearson/lesson-21': ('rules.log-differentiation', 'retain', 'rules', 'more-examples', 'Same case as educator/lesson-19; added once.'),
+ 'book/lesson-17': ('rules.inverse-functions', 'retain', 'rules', 'more-examples', 'General inverse-function derivative rule added to the Rules lesson with a worked case.'),
+ 'pearson/lesson-22': ('rules.inverse-trig', 'combine', 'rules', 'formulas', 'Inverse trigonometric derivatives are in the Rules formulas.'),
+ 'educator/lesson-15': ('rules.inverse-trig', 'combine', 'rules', 'formulas', 'Inverse trigonometric derivatives are in the Rules formulas.'),
+ # related rates (implicit differentiation lives in Rules)
+ 'book/lesson-18': ('rules.implicit', 'combine', 'rules', 'more-examples', C),
+ 'educator/lesson-17': ('rules.implicit', 'combine', 'rules', 'more-examples', C),
+ 'pearson/lesson-15': ('related-rates.geometry', 'combine', 'related-rates', 'examples', C),
+ 'book/lesson-20': ('related-rates.geometry', 'combine', 'related-rates', 'more-examples', C),
+ 'educator/lesson-21': ('related-rates.geometry', 'combine', 'related-rates', 'more-examples', C),
+ # approximation
+ 'book/lesson-21': ('approximation.linearisation', 'combine', 'approximation', 'examples', C),
+ 'pearson/lesson-16': ('approximation.linearisation', 'combine', 'approximation', 'examples', C),
+ 'educator/lesson-22': ('approximation.linearisation', 'combine', 'approximation', 'examples', C),
+ # mean value
+ 'book/lesson-23': ('mean-value.mvt-rolle', 'combine', 'mean-value', 'examples', C),
+ 'educator/lesson-24': ('mean-value.mvt-rolle', 'combine', 'mean-value', 'examples', C),
+ # curve shape
+ 'book/lesson-22': ('curve-shape.closed-interval', 'combine', 'curve-shape', 'different-case', C),
+ 'pearson/lesson-17': ('curve-shape.closed-interval', 'combine', 'curve-shape', 'different-case', C),
+ 'educator/lesson-23': ('curve-shape.closed-interval', 'combine', 'curve-shape', 'different-case', C),
+ 'book/lesson-24': ('curve-shape.derivative-tests', 'combine', 'curve-shape', 'more-examples', C),
+ 'pearson/lesson-18': ('curve-shape.derivative-tests', 'combine', 'curve-shape', 'more-examples', C),
+ 'educator/lesson-25': ('curve-shape.derivative-tests', 'combine', 'curve-shape', 'more-examples', C),
+ 'educator/lesson-27': ('curve-shape.sketching', 'combine', 'curve-shape', 'method', C),
+ 'educator/lesson-37': ('curve-shape.sketching', 'combine', 'curve-shape', 'idea', 'Reading f, f′ and f″ graphs is taught through the sign chart and figure.'),
+ 'book/lesson-25': ('curve-shape.asymptotes', 'combine', 'curve-shape', 'more-examples', C + ' Limits at infinity are also in the Limits lesson.'),
+ # optimization
+ 'book/lesson-26': ('optimization.constraint', 'combine', 'optimization', 'examples', C),
+ 'pearson/lesson-19': ('optimization.constraint', 'combine', 'optimization', 'examples', C),
+ 'educator/lesson-28': ('optimization.constraint', 'combine', 'optimization', 'different-case', C),
+ # related
+ 'book/lesson-27': ('rules.lhopital', 'rewrite', 'rules', 'further', 'Rewritten as an optional section of the Rules lesson; its place in MA 101 is unconfirmed.'),
+ 'educator/lesson-26': ('rules.lhopital', 'rewrite', 'rules', 'further', 'Same rule; one optional section.'),
+ 'book/lesson-28': ('approximation.newton', 'combine', 'approximation', 'further', 'Newton’s method is the optional section of Linear approximation; scope unconfirmed.'),
+ 'educator/lesson-29': ('approximation.newton', 'combine', 'approximation', 'further', 'Same method; kept once.'),
+ 'educator/lesson-20': ('hyperbolic', 'archive', None, None, 'Hyperbolic functions are not in the published MA 101 description; archived.'),
+}
+BEYOND = 'Integration and differential equations are not in the published MA 101 description; kept in the source archive.'
+for r, ids in {'book': range(29, 40), 'pearson': range(23, 30), 'educator': [30, 31, 32, 33, 34, 35, 36, 38, 39]}.items():
+    for i in ids: A[f'{r}/lesson-{i:02d}'] = ('integration', 'archive', None, None, BEYOND)

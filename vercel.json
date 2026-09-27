@@ -112,6 +112,21 @@
       "source": "/style.css",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/ma101",
+      "destination": "/semester-1/math",
+      "permanent": false
+    },
+    {
+      "source": "/phy101",
+      "destination": "/semester-1/physics",
+      "permanent": false
+    },
+    {
+      "source": "/chemistry",
+      "destination": "/semester-1/chemistry",
+      "permanent": false
     }
   ],
   "headers": [

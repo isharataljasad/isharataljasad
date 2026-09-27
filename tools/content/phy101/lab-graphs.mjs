@@ -63,7 +63,7 @@ export default {
     caption: 'Measured spring data used in the graph',
     head: ['extension x (m)', 'force F (N)', 'F/x (N/m)'],
     rows: data.map(([x, y]) => [String(x), y.toFixed(1), (y / x).toFixed(0)]),
-    note: 'The individual ratios scatter (190–210 N/m); the graph’s slope averages them. Reported: k = 200 ± 10 N/m.',
+    note: 'The individual ratios scatter (195–210 N/m); the graph’s slope averages them. Reported: k = 200 ± 10 N/m.',
   },
   method: {
     title: 'From data to a result',

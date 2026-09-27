@@ -152,7 +152,7 @@ export default {
   ],
   scope: [
     'Graphs of functions of one variable only.',
-    'Slant (oblique) asymptotes and detailed sketches of transcendental functions are treated in the collection notes; check your outline for the level required.',
+    'Slant (oblique) asymptotes and detailed sketches of transcendental functions are not covered; check your outline for the level required.',
   ],
   checks: [
     ['f(−1)', f(-1), 2, 0], ['f(1)', f(1), -2, 0], ['min x²−6x', 9 - 18, -9, 0],

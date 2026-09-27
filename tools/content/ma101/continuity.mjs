@@ -70,7 +70,7 @@ export default {
   formulas: [
     { name: 'Continuity test', f: 'lim_{x→a} f(x) = f(a)', when: 'All three parts must be checked: the value exists, the limit exists, and they are equal.' },
     { name: 'Continuity of combinations', f: 'f ± g,  f·g,  {{f|g}},  f(g(x)) are continuous', when: 'When f and g are continuous at the relevant points; the quotient needs g(a) ≠ 0; the composition needs g continuous at a and f continuous at g(a).' },
-    { name: 'Intermediate Value Theorem (IVT)', f: 'f continuous on [a, b] and N between f(a) and f(b)  ⇒  f(c) = N for some c in (a, b)', when: 'Continuity on the whole closed interval is essential. The theorem guarantees that c exists; it does not say where, or that there is only one.' },
+    { name: 'Intermediate Value Theorem (IVT)', f: 'f continuous on [a, b] and N strictly between f(a) and f(b)  ⇒  f(c) = N for some c in (a, b)', when: 'Continuity on the whole closed interval is essential. The theorem guarantees that c exists; it does not say where, or that there is only one.' },
   ],
   derivation: {
     title: 'Why the IVT needs continuity',
@@ -167,7 +167,7 @@ export default {
     ['“The limit exists, so f is continuous.”', 'The limit may differ from the value (a removable discontinuity), or the value may be missing.'],
     ['Using the wrong rule at the join of a piecewise function.', 'Read the inequality signs: with “x ≥ 1”, f(1) comes from the second rule, but the left-hand limit comes from the first.'],
     ['“The IVT tells us where the root is.”', 'It only guarantees that at least one root exists in the interval. Finding it needs further work (for example, repeated halving).'],
-    ['“1/x is discontinuous, so it is not a continuous function.”', '1/x is continuous at every point of its domain (x ≠ 0). It is discontinuous at 0, which is not in its domain. Always say where.'],
+    ['“1/x is discontinuous, so it is not a continuous function.”', '1/x is continuous at every point of its domain (all x ≠ 0). At x = 0 it is not defined, so its graph breaks there (textbooks call this an infinite discontinuity). Always say where continuity holds or fails.'],
   ],
   scope: [
     'Continuity is treated for functions of one real variable. Uniform continuity and ε–δ proofs of continuity are beyond this course level.',

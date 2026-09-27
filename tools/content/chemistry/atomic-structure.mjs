@@ -25,6 +25,7 @@ export default {
     'The atomic mass printed on the periodic table is a **weighted average** of the masses of the naturally occurring isotopes, weighted by their abundances. That is why chlorine’s atomic mass is 35.45 u even though no chlorine atom has that mass.',
   ],
   background: [
+    { title: 'Elements, compounds and mixtures', text: 'A **pure substance** has a fixed composition: an **element** contains one kind of atom (O₂, Fe); a **compound** contains two or more elements chemically joined in a fixed ratio (H₂O, NaCl). A **mixture** combines substances without fixing their ratio; it can be uniform (air, salt water) or not (sand in water) and is separated physically. A **physical change** (melting, dissolving) keeps the substances the same; a **chemical change** (burning, rusting) makes new substances. A uniform appearance does not prove a substance is pure: salt water looks like water.' },
     { title: 'Charges and signs', text: 'A proton has charge +1 (in units of e = 1.602 × 10^{−19} C), an electron −1. Net charge = (number of protons) − (number of electrons).' },
     { title: 'Weighted average', text: 'A weighted average multiplies each value by its fraction (abundance/100) and adds: Σ(fraction × value). The fractions must add to 1.' },
   ],
@@ -122,7 +123,7 @@ export default {
     ['“Isotopes are different elements.”', 'Isotopes have the same Z, so they are the same element with different masses.'],
   ],
   scope: [
-    'Nuclear reactions and radioactive decay are not part of this topic (see “Beyond Semester 1” in the collections).',
+    'Nuclear reactions and radioactive decay are not part of Semester 1 Chemistry.',
     'Electron arrangement in atoms is developed in “Quantum theory” and “Periodic table”.',
   ],
   checks: [

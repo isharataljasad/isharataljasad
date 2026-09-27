@@ -42,7 +42,7 @@ export default {
   ],
   formulas: [
     { name: 'Moles', f: 'n = {{m|M}};   n = cV', when: 'm in grams, M in g/mol; c in mol/L, V in litres.' },
-    { name: 'Mole ratio', f: 'n_{B} = n_{A} × {{coefficient of B|coefficient of A}}', when: 'Only from a balanced equation, and only for the limiting reactant.' },
+    { name: 'Mole ratio', f: 'n_{B} = n_{A} × {{coefficient of B|coefficient of A}}', when: 'Only from a balanced equation. To predict how much product forms, start from the limiting reactant.' },
     { name: 'Percent yield', f: '% yield = {{actual yield|theoretical yield}} × 100%', when: 'Theoretical yield computed from the limiting reactant.' },
     { name: 'Titration at equivalence', f: 'c_{A}V_{A} × {{b|a}} = c_{B}V_{B}   for  aA + bB → products', when: 'At the equivalence point. For a 1:1 reaction (HCl + NaOH), c_{A}V_{A} = c_{B}V_{B}.' },
     { name: 'Solubility guidelines (summary)', f: 'soluble: Na⁺, K⁺, NH₄⁺, NO₃⁻ compounds (all); most Cl⁻, Br⁻, I⁻ (except Ag⁺, Pb²⁺, Hg₂²⁺); most SO₄²⁻ (except Ba²⁺, Pb²⁺, Ca²⁺ slightly).  Insoluble: most CO₃²⁻, PO₄³⁻, OH⁻, S²⁻ (except with Group 1 and NH₄⁺)', when: 'Rules of thumb at room temperature; “insoluble” means very slightly soluble.' },
@@ -76,6 +76,18 @@ export default {
     ],
   },
   examples: [
+    {
+      title: 'Balancing an equation',
+      problem: 'Balance the combustion of propane: C₃H₈ + O₂ → CO₂ + H₂O.',
+      steps: [
+        ['Carbon: 3 on the left, so write 3 CO₂.', 'Balance elements that appear in only one substance on each side first.'],
+        ['Hydrogen: 8 on the left, so write 4 H₂O.', 'Each water molecule has 2 H.'],
+        ['Oxygen on the right: 3 × 2 + 4 × 1 = 10 atoms, so write 5 O₂ on the left.', 'Leave the free element (O₂) until last; it can be adjusted without upsetting the others.'],
+        ['Check: C 3 = 3; H 8 = 8; O 10 = 10.', 'Every element must balance.'],
+      ],
+      result: 'C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O.',
+      meaning: 'Only coefficients were changed. Changing a subscript (writing H₂O₂) would describe a different substance.',
+    },
     {
       title: 'Moles from a balanced equation',
       problem: 'For 2H₂ + O₂ → 2H₂O, how much water forms from 3 mol H₂ with excess O₂? How much O₂ is used?',
@@ -147,10 +159,11 @@ export default {
     ['Oxidation = gaining oxygen only.', 'Oxidation is loss of electrons (increase in oxidation number), whether or not oxygen is involved.'],
   ],
   scope: [
-    'Balancing redox equations by the half-reaction method in acidic and basic solution is in the collection notes and Electrochemistry.',
-    'Acid–base equilibria (pH of weak acids, buffers) belong to the next chemistry course.',
+    'Balancing redox equations by the half-reaction method is shown in Electrochemistry (acidic solution).',
+    'Acid–base equilibria (pH of weak acids, buffers) are not covered in this lesson; check your outline.',
   ],
   checks: [
+    ['propane O', 3 * 2 + 4, 10, 0], ['propane O2', 10 / 2, 5, 0],
     ['water', 3 * 2 / 2, 3, 0], ['O2', 1.5, 3 / 2, 0], ['water g', 3 * 18.02, 54.1, 0.05], ['AgCl', 0.12 * 143.32, 17.2, 0.05], ['Ag left', 0.2 - 0.12, 0.08, 1e-12],
     ['Ba mol', 0.1 * 0.05, 5e-3, 1e-15], ['BaSO4', 5e-3 * 233.4, 1.17, 0.005], ['NaOH', 0.15 * 0.0186, 2.79e-3, 1e-9], ['HCl', 0.15 * 0.0186 / 0.025, 0.112, 0.0005], ['yield', 10.2 / 12 * 100, 85, 1e-9],
     ['MnO4', 7 - 8, -1, 0], ['SO4', 6 - 8, -2, 0],

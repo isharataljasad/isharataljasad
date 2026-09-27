@@ -22,7 +22,7 @@ export default {
     'Think of walking along the graph of a function towards the input x = a. The limit asks: **what height are you heading towards?** It does not ask what happens exactly at x = a. The function may have a different value there, or no value at all, and the limit is unaffected.',
     'For example, f(x) = {{x^{2} − 9|x − 3}} cannot be evaluated at x = 3, because the denominator is zero. For every other input, the numerator factors as (x − 3)(x + 3), so f(x) = x + 3 whenever x ≠ 3. Near 3 the outputs are close to 6, so the limit is 6, even though f(3) does not exist. The graph is a straight line with a single hole.',
     'You approach a point from two sides. Coming from inputs smaller than a gives the **left-hand limit**; coming from larger inputs gives the **right-hand limit**. The (two-sided) limit exists only when both one-sided limits exist and agree.',
-    'When direct substitution produces the expression {{0|0}}, the calculation is not finished: {{0|0}} is not a number. It is a signal that the numerator and denominator share a factor that vanishes at the point. The task is to rewrite the expression, using algebra that is valid for inputs near a (but not at a), until substitution works.',
+    'When direct substitution produces the expression {{0|0}}, the calculation is not finished: {{0|0}} is not a number. Often it signals that the numerator and denominator share a factor that vanishes at the point; in other cases, such as {{sin x|x}} at 0, a known limit is needed instead. Either way, rewrite the expression, using steps that are valid for inputs near a (but not at a), until the limit can be read off.',
   ],
   background: [
     { title: 'Factoring', text: 'Difference of squares: a^{2} − b^{2} = (a − b)(a + b), so x^{2} − 9 = (x − 3)(x + 3). A quadratic x^{2} + bx + c factors as (x + p)(x + q) when p + q = b and pq = c; for example x^{2} − 5x + 6 = (x − 2)(x − 3).' },
@@ -172,7 +172,7 @@ export default {
   ],
   scope: [
     'The ε–δ definition is explained with a linear example; general ε–δ proofs belong to real analysis.',
-    'L’Hôpital’s rule is not used here. It needs derivatives and has its own conditions; check whether your lecturer includes it in MA 101.',
+    'L’Hôpital’s rule is not used here. It needs derivatives and has its own conditions; it appears as an optional section of Differentiation rules. Check whether your lecturer includes it in MA 101.',
   ],
   checks: [
     ['(x²−4)/(x−2) near 2', ((2.000001) ** 2 - 4) / (2.000001 - 2), 4, 1e-4],

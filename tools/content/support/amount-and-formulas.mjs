@@ -11,7 +11,7 @@ export default {
  ],
  symbols:[['m','sample mass','g'],['n_{amount}','amount of substance; often written n','mol'],['M','molar mass','g/mol'],['N','number of specified entities','count'],['N_{A}','Avogadro constant, exactly 6.02214076 × 10^{23}','mol^{−1}']],
  formulas:[
-  {name:'Mass to amount',f:'n_{amount} = {{m|M}};   m = n_{amount}M',when:'m and M must use the same mass unit. Here n means amount, not the neutron count used earlier in the atomic guide.'},
+  {name:'Mass to amount',f:'n_{amount} = {{m|M}};   m = n_{amount}M',when:'m and M must use the same mass unit. Here n means amount, not the neutron count in Atomic structure.'},
   {name:'Amount to entities',f:'N = n_{amount}N_{A};   n_{amount} = {{N|N_{A}}}',when:'Identify the entity. Formula subscripts give the number of atoms of each element per molecule or formula unit.'},
   {name:'Mass percentage',f:'mass % of element = {{mass of that element in one mole of compound|molar mass of compound}} × 100%',when:'Use all atoms of the element in the formula. Element percentages should sum to approximately 100%.'},
   {name:'Molecular formula multiplier',f:'k = {{measured molecular molar mass|empirical-formula molar mass}}',when:'k should be close to a positive whole number within the measurement precision. Multiply every empirical subscript by k.'},

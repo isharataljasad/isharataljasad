@@ -147,7 +147,7 @@ export default {
     ['Forgetting the ion charge when counting electrons.', 'Anions add electrons; cations subtract.'],
   ],
   scope: [
-    'Hybridisation and molecular orbital theory (bond order from orbital overlap) are in the related collection notes; check whether your outline includes them.',
+    'Hybridisation and molecular orbital theory (sigma and pi bonds, bond order) are not covered; check whether your outline includes them.',
     'Expanded octets (5 or 6 domains) are listed but not developed.',
   ],
   checks: [

@@ -136,6 +136,17 @@ export default {
       result: 'H₂ effuses 4.0 times as fast.',
       meaning: 'Rates depend on the square root of the mass ratio, not the ratio itself.',
     },
+    {
+      title: 'A gas collected over water',
+      problem: 'Hydrogen is collected over water at 25 °C. The total pressure is 755 mmHg and the volume is 250 mL. The vapour pressure of water at 25 °C is 23.8 mmHg. How many moles of H₂ were collected?',
+      steps: [
+        ['The collected gas is a mixture of H₂ and water vapour: P(H₂) = 755 − 23.8 = 731.2 mmHg.', 'Dalton’s law: subtract the water vapour’s partial pressure.'],
+        ['Convert: 731.2/760 = 0.9621 atm; V = 0.250 L; T = 298.15 K.', 'Units to match R = 0.08206 L·atm/(mol·K).'],
+        ['n = {{PV|RT}} = {{0.9621 × 0.250|0.08206 × 298.15}} = 9.83 × 10^{−3} mol.', 'Ideal gas law for the dry hydrogen.'],
+      ],
+      result: 'About 9.83 × 10^{−3} mol H₂.',
+      meaning: 'Using the total pressure would overestimate the hydrogen by about 3%.',
+    },
   ],
   mistakes: [
     ['Using °C in gas laws.', 'Always convert to kelvin.'],
@@ -149,6 +160,7 @@ export default {
     'Speed distributions (Maxwell–Boltzmann) are introduced by name; only the rms speed is calculated.',
   ],
   checks: [
+    ['over water', (755 - 23.8) / 760 * 0.25 / (0.08206 * 298.15), 9.83e-3, 0.005e-3],
     ['boyle', 2 * 3 / 1.5, 4, 1e-12], ['heat', 100 * 450 / 300, 150, 1e-9], ['n N2', 15 * 50 / (0.08206 * 298.15), 30.7, 0.05],
     ['m N2', 15 * 50 / (0.08206 * 298.15) * 28.02, 859, 1], ['M', 1.25 * 0.08206 * 273.15, 28.0, 0.05],
     ['CO2 V', 10 / 100.09 * 0.08206 * 298.15, 2.44, 0.005], ['PN2', 0.75 * 2, 1.5, 1e-12], ['graham', Math.sqrt(16), 4, 0],

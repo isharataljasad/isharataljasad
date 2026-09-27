@@ -126,6 +126,16 @@ export default {
       result: 'The skater moves backwards at 0.5 m/s.',
       meaning: 'Kinetic energy increased (from 0 to 157.5 J), supplied by the skater’s muscles. Momentum is still conserved.',
     },
+    {
+      title: 'Locating the centre of mass',
+      problem: 'A 2 kg mass is at x = 0 and a 1 kg mass is at x = 6 m. Find the centre of mass.',
+      steps: [
+        ['x_{cm} = {{m_{1}x_{1} + m_{2}x_{2}|m_{1} + m_{2}}} = {{2(0) + 1(6)|2 + 1}}.', 'Weight each position by its mass.'],
+        ['x_{cm} = {{6|3}} = 2 m.', 'Divide by the total mass.'],
+      ],
+      result: 'x_{cm} = 2 m, one third of the way from the heavier mass.',
+      meaning: 'The centre of mass lies closer to the larger mass; a plain average of the positions (3 m) is correct only for equal masses. In the recoil example, the centre of mass of skater and ball stays at rest.',
+    },
   ],
   mistakes: [
     ['Ignoring the signs of velocities.', 'Momentum is a vector. Opposite directions need opposite signs.'],
@@ -138,6 +148,7 @@ export default {
     'Variable-mass systems (rockets) are beyond this topic.',
   ],
   checks: [
+    ['xcm', (2 * 0 + 1 * 6) / 3, 2, 0],
     ['J1', 2 * (2 - 5), -6, 0], ['J2', 2 * (-2 - 5), -14, 0], ['F', -6 / 0.02, -300, 1e-9], ['F2', -6 / 0.1, -60, 1e-9],
     ['vf', 6 / 3, 2, 0], ['KE lost', 9 - 6, 3, 0], ['elastic v2', 2 * 1 / 2 * 4, 4, 0], ['recoil', -30 / 60, -0.5, 0],
     ['recoil KE', 0.5 * 3 * 100 + 0.5 * 60 * 0.25, 157.5, 1e-9],

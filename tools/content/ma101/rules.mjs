@@ -46,6 +46,7 @@ export default {
     { name: 'Trigonometric', f: '(sin x)′ = cos x;  (cos x)′ = −sin x;  (tan x)′ = sec^{2} x', when: 'x in radians; tan x needs cos x ≠ 0.' },
     { name: 'Exponential and logarithmic', f: '(e^{x})′ = e^{x};  (a^{x})′ = a^{x} ln a;  (ln x)′ = {{1|x}};  (ln|x|)′ = {{1|x}}', when: 'a > 0 constant; ln x needs x > 0, ln|x| needs x ≠ 0.' },
     { name: 'Chain-rule versions', f: '(u^{n})′ = nu^{n−1}u′;  (sin u)′ = cos u·u′;  (e^{u})′ = e^{u}u′;  (ln u)′ = {{u′|u}}', when: 'u is any differentiable inside function (ln u needs u > 0).' },
+    { name: 'Inverse functions', f: '(f^{−1})′(y) = {{1|f′(x)}}  where y = f(x)', when: 'f one-to-one and differentiable at x with f′(x) ≠ 0. Evaluate f′ at the ORIGINAL input x that matches y.' },
     { name: 'Inverse trigonometric', f: '(arcsin x)′ = {{1|√{1 − x^{2}}}};  (arctan x)′ = {{1|1 + x^{2}}}', when: 'arcsin: |x| < 1. arctan: all real x. Note arcsin x is the inverse function, not 1/sin x.' },
   ],
   derivation: {
@@ -170,6 +171,36 @@ export default {
       result: 'v(2) = 12 m/s, a(2) = 12 m/s^{2}.',
       meaning: 'Each differentiation divides the units by seconds: m, m/s, m/s^{2}.',
     },
+    {
+      title: 'Logarithmic differentiation',
+      problem: 'Differentiate y = x^{x} for x > 0.',
+      steps: [
+        ['Neither the power rule (constant exponent) nor the exponential rule (constant base) applies: both base and exponent vary.', 'Read the structure first.'],
+        ['Take natural logarithms: ln y = x ln x.', 'Valid because y > 0 for x > 0; the log turns the power into a product.'],
+        ['Differentiate both sides: {{y′|y}} = ln x + x·{{1|x}} = ln x + 1.', 'Chain rule on the left (y depends on x), product rule on the right.'],
+        ['Multiply by y: y′ = x^{x}(ln x + 1).', 'Replace y by x^{x}.'],
+      ],
+      result: 'y′ = x^{x}(ln x + 1); for example y′(1) = 1.',
+      meaning: 'The same method handles products of many factors and powers such as (x^{2} + 1)^{x}.',
+    },
+    {
+      title: 'The derivative of an inverse function',
+      problem: 'f(x) = x^{3} + x is one-to-one, with f(1) = 2. Find (f^{−1})′(2).',
+      steps: [
+        ['The inverse input 2 corresponds to the original input 1, because f(1) = 2.', 'Match the point on the original graph first.'],
+        ['f′(x) = 3x^{2} + 1, so f′(1) = 4.', 'Slope of f at the matching point.'],
+        ['(f^{−1})′(2) = {{1|f′(1)}} = {{1|4}}.', 'Inverse-function rule: reflecting the graph in y = x turns a slope m into 1/m.'],
+      ],
+      result: '(f^{−1})′(2) = 1/4.',
+      meaning: 'We found the slope of the inverse without a formula for f^{−1}. The rule needs f′ ≠ 0 at the matching point.',
+    },
+  ],
+  extra: [
+    { title: 'L’Hôpital’s rule (check whether your outline includes it)', text: [
+      'For a limit of a quotient that gives {{0|0}} or {{∞|∞}} on substitution, lim {{f(x)|g(x)}} = lim {{f′(x)|g′(x)}}, provided f and g are differentiable near the point, g′(x) ≠ 0 there (except possibly at the point), and the right-hand limit exists (or is ±∞).',
+      'Example: lim_{x→0} {{e^{x} − 1|x}} has the form {{0|0}}. Differentiate top and bottom separately: lim_{x→0} {{e^{x}|1}} = 1. Another: lim_{x→0} {{sin 5x|x}} = lim_{x→0} {{5 cos 5x|1}} = 5, the same answer as in the Limits lesson.',
+      'Check the form every time. For lim_{x→1} {{x + 1|x}} = 2, substitution already works; applying the rule anyway would give the wrong answer 1. This is not the quotient rule: the numerator and denominator are differentiated separately.',
+    ] },
   ],
   mistakes: [
     ['(fg)′ = f′g′.', 'The product rule has two terms: f′g + fg′. Check with x·x = x²: f′g′ = 1, but the true derivative is 2x.'],
@@ -182,7 +213,7 @@ export default {
   scope: [
     'Derivatives of hyperbolic functions are not included; check your outline.',
     'The rules assume each function is differentiable where it is used; at corners, cusps or outside the domain they do not apply.',
-    'Logarithmic differentiation (for example of x^{x}) is shown in the collection notes below; x^{x} is neither a power function nor an exponential with constant base.',
+    'Higher derivatives repeat the rules: e^{2x} has fourth derivative 16e^{2x}, and the derivatives of sin x repeat every four steps (cos x, −sin x, −cos x, sin x).',
   ],
   checks: [
     ['(2x+1)^2 at 1', 4 * 3, 12, 0],
@@ -194,5 +225,7 @@ export default {
     ['ln(1+x²) at 1', (Math.log(1 + 1.0000001 ** 2) - Math.log(2)) / 1e-7, 1, 1e-5],
     ['implicit slope', -3 / 4, -0.75, 0],
     ['s″(2)', 6 * 2, 12, 0],
+    ['x^x at 1', ((1.0000001) ** 1.0000001 - 1) / 1e-7, 1, 1e-5], ['inverse slope', 1 / (3 * 1 + 1), 0.25, 0],
+    ['lhopital', (Math.exp(1e-7) - 1) / 1e-7, 1, 1e-6], ['e2x 4th', 2 ** 4, 16, 0],
   ],
 };

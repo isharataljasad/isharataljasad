@@ -89,6 +89,29 @@ export default {
   },
   examples: [
     {
+      title: 'Displacement versus distance',
+      problem: 'A runner goes 40 m east and then 10 m west in 10 s. Find the displacement, the distance, the average velocity and the average speed.',
+      steps: [
+        ['Displacement = +40 + (−10) = +30 m (30 m east).', 'Signed sum of the moves, east positive.'],
+        ['Distance = 40 + 10 = 50 m.', 'Total path length, no signs.'],
+        ['Average velocity = 30 m / 10 s = 3 m/s east; average speed = 50 m / 10 s = 5 m/s.', 'Velocity uses displacement; speed uses distance.'],
+      ],
+      result: 'Displacement 30 m east, distance 50 m, average velocity 3 m/s east, average speed 5 m/s.',
+      meaning: 'After a round trip, average velocity is zero but average speed is not.',
+    },
+    {
+      title: 'Adding two vectors by components',
+      problem: 'Forces of 6 N due west and 8 N due north act on the same object. Find the resultant force (magnitude and direction).',
+      steps: [
+        ['Take east as +x and north as +y. Components: (−6, 0) N and (0, 8) N.', 'West is the negative x direction.'],
+        ['Add components: R = (−6 + 0, 0 + 8) = (−6, 8) N.', 'Vectors add component by component.'],
+        ['Magnitude: √{6^{2} + 8^{2}} = 10 N.', 'Pythagoras on the perpendicular components.'],
+        ['Direction: tan θ = 8/6, θ = 53.1° north of west.', 'The signs (−, +) put the resultant in the north-west quadrant.'],
+      ],
+      result: '10 N at 53.1° north of west.',
+      meaning: 'Adding the magnitudes (14 N) would be wrong: it is only correct when the vectors point the same way.',
+    },
+    {
       title: 'Speed after constant acceleration',
       problem: 'A cart starts from rest and accelerates at 3 m/s^{2} for 4 s. Find its final speed and the distance travelled.',
       steps: [
@@ -109,6 +132,17 @@ export default {
       ],
       result: '62.5 m.',
       meaning: 'Braking distance is proportional to v²: at double the speed (50 m/s) it would be four times as long, 250 m.',
+    },
+    {
+      title: 'Displacement from a velocity–time graph with a reversal',
+      problem: 'An object moves at +4 m/s for 3 s, then at −2 m/s for 2 s. Find its displacement and the distance travelled.',
+      steps: [
+        ['First stretch: area = 4 × 3 = +12 m (above the time axis).', 'Area under a v–t graph is displacement.'],
+        ['Second stretch: area = (−2) × 2 = −4 m (below the axis).', 'Area below the axis counts as negative displacement.'],
+        ['Displacement = 12 − 4 = 8 m; distance = 12 + 4 = 16 m.', 'Signed areas give displacement; their sizes add to distance.'],
+      ],
+      result: 'Displacement +8 m; distance 16 m.',
+      meaning: 'This is the graph version of the runner example at the start of the lesson: reversing direction makes distance larger than displacement.',
     },
     {
       title: 'Vertical throw',
@@ -153,10 +187,11 @@ export default {
     ['Mixing sin and cos in components.', 'cos goes with the side adjacent to the angle. Draw the triangle.'],
   ],
   scope: [
-    'Air resistance is neglected throughout; it is discussed qualitatively in the collection notes (terminal speed).',
+    'Air resistance is neglected throughout; terminal speed is an optional section of Friction and inclined surfaces.',
     'g is taken as 9.8 m/s²; use your course’s value (9.81 m/s²) if required — answers change slightly.',
   ],
   checks: [
+    ['resultant', Math.hypot(6, 8), 10, 1e-12], ['angle', Math.atan(8 / 6) * 180 / Math.PI, 53.1, 0.05], ['runner vel', 30 / 10, 3, 0], ['runner speed', 50 / 10, 5, 0], ['vt disp', 4 * 3 - 2 * 2, 8, 0], ['vt dist', 12 + 4, 16, 0],
     ['vx', vx, 17.32, 0.005], ['T', T, 2.04, 0.005], ['R', R, 35.3, 0.05], ['H', H, 5.10, 0.005],
     ['cart', 3 * 4, 12, 0], ['cart dist', 0.5 * 3 * 16, 24, 0], ['brake', 625 / 10, 62.5, 0],
     ['throw H', 225 / 19.6, 11.5, 0.05], ['throw t', 15 / 9.8, 1.53, 0.005],

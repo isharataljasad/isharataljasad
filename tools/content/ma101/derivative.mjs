@@ -23,7 +23,7 @@ export default {
   ],
   idea: [
     'Start with an **average rate of change**. Between x = a and x = a + h, the output changes by f(a + h) − f(a) while the input changes by h. Their ratio {{f(a + h) − f(a)|h}} is the slope of the **secant line** through the two points of the graph.',
-    'Now shrink the interval. As h → 0 the second point slides along the curve towards the first, and the secant line turns into the **tangent line**, the line that just touches the curve at x = a. The limit of the secant slopes is the derivative f′(a). We cannot simply put h = 0, because the quotient would become {{0|0}}; that is exactly why a limit is needed.',
+    'Now shrink the interval. As h → 0 the second point slides along the curve towards the first, and the secant lines approach a limiting line: the **tangent line** at x = a, the line through (a, f(a)) whose slope is the limit of the secant slopes. Close to a, the tangent follows the direction of the curve. It does not have to stay on one side of the curve or meet it only once: the tangent to y = x³ at the origin is the x-axis, and it crosses the curve there. The limit of the secant slopes is the derivative f′(a). We cannot simply put h = 0, because the quotient would become {{0|0}}; that is exactly why a limit is needed.',
     'The derivative has **units**: output units divided by input units. If s is position in metres and t is time in seconds, s′(t) is in m/s. If C is concentration in mmol/L and t is in minutes, C′(t) is in mmol/(L·min). The sign tells you the direction: f′(a) > 0 means f is increasing at a, f′(a) < 0 means it is decreasing.',
     'Doing this at every point gives a new function, the **derivative function** f′(x). A function is **differentiable** at a if this limit exists. A differentiable function is always continuous, but a continuous function need not be differentiable: |x| has a corner at 0, where the slope from the left is −1 and from the right is +1, so no single tangent slope exists.',
   ],
@@ -35,7 +35,7 @@ export default {
   definitions: [
     ['Average rate of change', 'Over [a, a + h]: {{f(a + h) − f(a)|h}}, the slope of the secant line through (a, f(a)) and (a + h, f(a + h)).'],
     ['Derivative at a point', 'f′(a) = lim_{h→0} {{f(a + h) − f(a)|h}}, provided the limit exists. It is the instantaneous rate of change of f at a and the slope of the tangent line there.'],
-    ['Tangent line', 'The line through (a, f(a)) with slope f′(a): y = f(a) + f′(a)(x − a).'],
+    ['Tangent line', 'The line through (a, f(a)) with slope f′(a): y = f(a) + f′(a)(x − a). It is defined by this slope, not by “touching once”: a tangent line may cross the curve, and may meet it again elsewhere.'],
     ['Derivative function', 'f′(x) = lim_{h→0} {{f(x + h) − f(x)|h}} for each x where the limit exists. Other notations: {{dy|dx}}, {{df|dx}}, y′.'],
     ['Differentiable', 'f is differentiable at a if f′(a) exists. Differentiability fails at corners, cusps, vertical tangents and discontinuities.'],
   ],
@@ -136,6 +136,19 @@ export default {
       result: '|x| is not differentiable at 0 (although it is continuous there).',
       meaning: 'The graph has a corner at the origin, so there is no single tangent line.',
     },
+    {
+      title: 'Velocity, a turning point, and total distance',
+      problem: 'A particle moves along a line with position s(t) = t^{2} − 4t (metres, t in seconds) for 0 ≤ t ≤ 5. Find its velocity, when it turns around, its displacement and the total distance travelled.',
+      steps: [
+        ['v(t) = s′(t) = 2t − 4 m/s.', 'Velocity is the rate of change of position.'],
+        ['v = 0 at t = 2 s; v < 0 before and v > 0 after.', 'The particle moves backwards, stops, then moves forwards: t = 2 s is a turning point.'],
+        ['Positions: s(0) = 0, s(2) = −4 m, s(5) = 25 − 20 = 5 m.', 'Evaluate at the start, the turning time and the end.'],
+        ['Displacement = s(5) − s(0) = 5 m.', 'Only the start and end positions matter.'],
+        ['Distance = |−4 − 0| + |5 − (−4)| = 4 + 9 = 13 m.', 'Add the lengths of each one-direction stretch.'],
+      ],
+      result: 'v(t) = 2t − 4; turns at t = 2 s; displacement 5 m; total distance 13 m.',
+      meaning: 'Displacement and distance differ whenever the motion reverses. Using s(5) − s(0) for distance misses the backward stretch.',
+    },
   ],
   mistakes: [
     ['Putting h = 0 immediately in the difference quotient.', 'That gives 0/0. Simplify and cancel h first, then take the limit.'],
@@ -154,5 +167,6 @@ export default {
     ['tangent at 2', 4 * 2 - 3, 5, 0],
     ['1/x derivative at 2', (1 / (2 + 1e-7) - 0.5) / 1e-7, -0.25, 1e-5],
     ['secant h=0.1', (1.21 - 1) / 0.1, 2.1, 1e-9],
+    ['turning s(2)', 4 - 8, -4, 0], ['s(5)', 25 - 20, 5, 0], ['distance', Math.abs(-4) + Math.abs(5 + 4), 13, 0],
   ],
 };
