@@ -25,7 +25,7 @@ export default {
   ],
   idea: [
     'Many physical quantities have a direction as well as a size. **Vectors** (displacement, velocity, acceleration, force) have magnitude and direction; **scalars** (distance, speed, time, mass, energy) have magnitude only. In one dimension the direction is shown by a sign after choosing a positive direction: +5 m/s means 5 m/s in the positive direction, −5 m/s means 5 m/s the other way.',
-    '**Displacement** Δx = x_{f} − x_{i} is the change in position, not the distance travelled: walk 3 m east and 3 m back and your displacement is 0 though you walked 6 m. **Velocity** is the rate of change of position, v = dx/dt; **acceleration** is the rate of change of velocity, a = dv/dt. Acceleration is not “speed”: a car braking while moving forward has negative acceleration (with forward positive), and a ball at the top of its flight has zero velocity but acceleration −9.8 m/s².',
+    '**Displacement** Δx = x_{f} − x_{i} is the change in position, not the distance travelled: walk 3 m east and 3 m back and your displacement is 0 though you walked 6 m. **Velocity** is the rate of change of position, v = dx/dt; **acceleration** is the rate of change of velocity, a = dv/dt. Acceleration is not “speed”: a car braking while moving forward has negative acceleration (with forward positive), and a ball thrown straight up has zero velocity at the top of its flight but acceleration −9.8 m/s².',
     'On graphs: the slope of a position–time graph is velocity; the slope of a velocity–time graph is acceleration; the area under a velocity–time graph is displacement.',
     'When acceleration is **constant**, the four “kinematic equations” below follow from these definitions. Choose the one that contains the unknown and three known quantities. Free fall near the Earth’s surface, neglecting air resistance, is constant acceleration with a = −g = −9.8 m/s² (taking up as positive).',
     'In two dimensions, resolve vectors into perpendicular components. For a projectile with no air resistance, the horizontal and vertical motions are **independent**: horizontally a_{x} = 0, so v_{x} is constant; vertically a_{y} = −g. The same time t links them. At the top of the path v_{y} = 0, but v_{x} and the acceleration g are unchanged.',
@@ -147,7 +147,7 @@ export default {
   mistakes: [
     ['Treating distance and displacement as the same.', 'Displacement is a signed vector change in position; distance is the total path length.'],
     ['Deceleration means negative acceleration.', 'An object slows down when a and v have opposite signs. Moving in the negative direction and speeding up also gives negative a.'],
-    ['“At the top, acceleration is zero.”', 'Velocity is zero at the top; acceleration is still g downward.'],
+    ['“At the top, acceleration is zero.”', 'For a vertical throw, velocity is zero at the top. For a projectile with horizontal motion, only the vertical velocity component is zero. Acceleration is still g downward in both cases.'],
     ['Using constant-acceleration equations when a changes.', 'Split the motion into stages of constant a, or use calculus.'],
     ['Using the range formula when launch and landing heights differ.', 'Solve the vertical equation for t instead.'],
     ['Mixing sin and cos in components.', 'cos goes with the side adjacent to the angle. Draw the triangle.'],

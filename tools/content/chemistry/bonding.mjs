@@ -32,7 +32,7 @@ export default {
     'A molecule is **polar** if its bond dipoles do not cancel. CO₂ has polar bonds, but it is linear and the two dipoles cancel, so the molecule is non-polar. Water is bent, so its dipoles add to a net dipole: water is polar. Shape and bond polarity must both be considered.',
   ],
   background: [
-    { title: 'Valence electrons from the periodic table', text: 'For main-group elements, the number of valence electrons equals the group’s last digit: H 1, C 4, N 5, O 6, F and Cl 7. Add one electron for each negative charge of an ion; subtract one for each positive charge.' },
+    { title: 'Valence electrons from the periodic table', text: 'For main-group elements, the number of valence electrons equals the group’s last digit: H 1, C 4, N 5, O 6, F and Cl 7. Helium is the exception: it has two valence electrons. Add one electron for each negative charge of an ion; subtract one for each positive charge.' },
     { title: 'Electronegativity', text: 'Increases across a period and up a group (F highest). Pauling values: H 2.20, C 2.55, N 3.04, O 3.44, F 3.98, Na 0.93, Cl 3.16.' },
   ],
   definitions: [

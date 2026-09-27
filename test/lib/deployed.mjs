@@ -21,6 +21,8 @@ export function deployedFiles(root) {
     git(['add', '-A'], tmp);
     return new Set(git(['ls-files'], tmp).split('\n').filter((f) => f && f !== '.gitignore'));
   } finally {
+    const resolved=path.resolve(tmp), base=path.resolve(os.tmpdir());
+    if(path.dirname(resolved)!==base || !path.basename(resolved).startsWith('deploy-'))throw new Error('Unsafe scratch-directory cleanup target');
     fs.rmSync(tmp, { recursive: true, force: true });
   }
 }

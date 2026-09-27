@@ -6,10 +6,12 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { deployedFiles } from './lib/deployed.mjs';
 import { md } from '../tools/content/markup.mjs';
+import { supportByTopic, supportingLessons } from '../tools/content/support/index.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -19,11 +21,18 @@ const plan = JSON.parse(read('tools/data/route-plan.json'));
 const ROUTES = ['book', 'pearson', 'educator'];
 let checks = 0;
 
+// Absolute-value bars must stay inside the numerator, not split a fraction.
+assert.equal(md('{{∣x − 5∣|x − 5}}'), '<span class="frac"><span class="num">∣x − 5∣</span><span class="vh"> / </span><span class="den">x − 5</span></span>');
+assert.throws(() => md('{{|x − 5||x − 5}}'), /Ambiguous fraction/);
+assert.throws(() => md('{{x|}}'), /Empty numerator or denominator/);
+assert.throws(() => md('{{ |x}}'), /Empty numerator or denominator/);
+assert.ok(md('{{1|{{x|y}}}}').includes('<span class="num">x</span>'), 'nested fractions still render');
+
 // ---------- teaching content ----------
 const content = {};
 for (const c of curriculum.courses) {
   for (const t of c.topics) {
-    const k = (await import(path.join(root, `tools/content/${c.id}/${t.id}.mjs`))).default;
+    const k = (await import(pathToFileURL(path.join(root, `tools/content/${c.id}/${t.id}.mjs`)).href)).default;
     const at = `${c.id}/${t.id}`;
     content[at] = k;
     assert.ok(k.summary?.length > 40, `${at}: summary`);
@@ -49,6 +58,14 @@ for (const c of curriculum.courses) {
       checks++;
     }
   }
+}
+
+assert.equal(supportingLessons.length,4,'four expanded foundational sections');
+for(const s of supportingLessons){
+ assert.ok(s.intro && s.ideas.length>=4 && s.formulas.length>=3 && s.symbols.length>=3,`${s.id}: explanation and conditions`);
+ assert.ok(s.examples.length>=4 && s.mistakes.length>=3 && s.sources.length>=1,`${s.id}: worked teaching material`);
+ for(const e of s.examples)assert.ok(e.steps.length>=2 && e.steps.every(([d,why])=>d&&why) && e.result && e.meaning,`${s.id}: a complete worked example`);
+ for(const [label,actual,expected,tol] of s.checks){assert.ok(Number.isFinite(actual)&&Math.abs(actual-expected)<=tol+1e-12,`${s.id}: ${label}: ${actual} vs ${expected}`);checks++;}
 }
 
 // ---------- page set ----------
@@ -108,7 +125,14 @@ assert.equal(routePages.reduce((n, p) => n + (html.get(p).match(/class="lesson (
 for (const c of curriculum.courses) for (const t of c.topics) {
   const p = t.href.slice(1) + 'index.html', h = html.get(p);
   for (const id of ['why', 'idea', 'background', 'definitions', 'formulas', 'visual', 'method', 'examples', 'mistakes', 'scope']) assert.ok(h.includes(`<section id="${id}" class="reading-section">`), `${p}: section ${id}`);
-  assert.equal((h.match(/class="worked-example"/g) || []).length, content[`${c.id}/${t.id}`].examples.length, `${p}: worked examples`);
+  const supports=supportByTopic[`${c.id}/${t.id}`]??[];
+  assert.equal((h.match(/class="worked-example"/g) || []).length, content[`${c.id}/${t.id}`].examples.length+supports.reduce((n,s)=>n+s.examples.length,0), `${p}: worked examples`);
+  for(const s of supports)for(const dest of [p,...ROUTES.map(r=>`${c.id}/${r}/index.html`)]){
+   const rendered=html.get(dest);
+   assert.ok(rendered.includes(`id="support-${s.id}"`),`${dest}: missing expanded foundation ${s.id}`);
+   assert.ok(rendered.includes(`href="#support-${s.id}"`),`${dest}: expanded foundation not in contents`);
+   for(const e of s.examples)assert.ok(rendered.includes(md(e.result)),`${dest}: missing visible result ${e.title}`);
+  }
   for (const r of ROUTES) assert.ok(h.includes(`href="/${c.id}/${r}/#topic-${t.id}"`), `${p}: compare → ${r}`);
 }
 

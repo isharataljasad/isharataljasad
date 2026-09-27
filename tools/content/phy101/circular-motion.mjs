@@ -57,7 +57,7 @@ export default {
     steps: [
       ['The change in velocity has magnitude |Δv| ≈ vΔθ.', 'For a small angle, the arc swept by the tip of the velocity arrow is v × Δθ.'],
       ['The angle turned is Δθ = {{vΔt|r}}.', 'Arc length travelled (vΔt) divided by radius.'],
-      ['a = {{|Δv||Δt}} = v{{Δθ|Δt}} = v·{{v|r}} = {{v^{2}|r}}.', 'Divide by Δt.'],
+      ['a = {{∣Δv∣|Δt}} = v{{Δθ|Δt}} = v·{{v|r}} = {{v^{2}|r}}.', 'Divide by Δt.'],
       ['Δv points towards the centre (perpendicular to v).', 'As Δt → 0 the change is at right angles to the velocity, i.e. inward.'],
     ],
     end: 'Check units: (m/s)²/m = m/s².',

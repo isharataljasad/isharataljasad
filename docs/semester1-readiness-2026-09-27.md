@@ -1,9 +1,10 @@
 # Semester 1 study library — readiness review, 27 September 2026
 
-Scope reviewed: the working tree of branch `claude/loving-hamilton-ra6b0r`
-(based on `33978a1`). Production (https://www.isharataljasad.com/) is behind the
-password gate; this review had no password, so **production content was not
-verified**. Everything below was verified on the local build and preview server.
+Updated 27 September 2026 after integrating Claude's rewrite at `3a28052` and
+expanding four brief foundations. This map describes the current source and
+local build. The production password gate is preserved; this session has no
+production password, so authenticated production content has not been checked.
+Deployment evidence is recorded separately from teaching-content coverage.
 
 ## Sources of scope
 
@@ -29,8 +30,8 @@ verified**. Everything below was verified on the local build and preview server.
   why it matters, the idea, background, definitions, a symbols/units table,
   formulas with conditions and limits, a derivation, a computed figure, a table,
   a method, 4–8 fully worked examples (every step has its reason; results and
-  interpretation visible), common misunderstandings, and scope. 232 numerical
-  claims are recomputed by `npm test`.
+  interpretation visible), common misunderstandings, and scope. 259 numerical
+  claims are recomputed by `npm test`, including 27 checks for the added foundations.
 - **Routes made substantial and distinct.** Each route page lists the Semester 1
   topics first, in order. Per topic: Book = definitions, symbols, formulas with
   conditions, derivation, an example; Pearson = method, key formulas, all worked
@@ -53,6 +54,28 @@ verified**. Everything below was verified on the local build and preview server.
   reproducible rebuild), `test/routing.mjs` (computed from `.vercelignore`),
   `test/gate.mjs` (unchanged, 42 checks). Two tests of the retired quiz page
   were removed; other legacy tests run with `npm run test:legacy`.
+
+## Foundation additions in this release
+
+Four sections in `tools/content/support/` now provide 18 additional fully worked
+examples, symbols, units, formula conditions, interpretation and common mistakes.
+Each is present in its full topic guide and in Book, Pearson and Educator, with
+its own contents link. References are linked at the end of each section.
+
+- Relative motion: named frames, vector velocity addition, train and overtaking
+  examples, river crossing with drift and upstream steering.
+- Amount and formulas: the mole, entity counts, molar mass, composition,
+  empirical and molecular formulas.
+- Chemical naming: charge balance, polyatomic ions, variable-charge metals,
+  molecular prefixes and the distinction between gaseous HCl and aqueous acid.
+- Intermolecular forces: London forces, polarity, hydrogen bonding, ion–dipole
+  interactions, boiling and vaporization, and qualified solubility predictions.
+
+The review also corrected vertical-throw/projectile wording, the helium valence
+exception, percentage-error terminology and five absolute-value fractions that
+were incorrectly parsed. The renderer now rejects ambiguous or empty fractions;
+regression checks protect their notation. These checks do not constitute a
+subject-specialist review of every statement.
 
 ## Coverage map
 
@@ -84,7 +107,7 @@ The eight-topic breakdown is a proposed order (description is broad).
 |---|---|---|
 | Units, conversion, dimensions, significant figures | Explained | `/semester-1/physics/measurement/` |
 | Vectors, 1D kinematics, free fall, projectiles | Explained | `/semester-1/physics/motion/` |
-| Relative motion | Brief | formula in Motion guide; notes in routes `#topic-motion` |
+| Relative motion | Explained | `/semester-1/physics/motion/#support-relative-motion`; all Physics routes at `#support-relative-motion` |
 | Newton’s laws, free-body diagrams, tension, apparent weight | Explained | `/semester-1/physics/forces/` |
 | Friction and inclines | Explained | `/semester-1/physics/friction/` |
 | Work, energy, power | Explained · Unconfirmed in PHY 101 | `/semester-1/physics/energy/` |
@@ -108,14 +131,35 @@ The eight-topic breakdown is a proposed order (description is broad).
 | Gases: gas laws, ideal gas, Dalton, KMT, Graham | Explained | `/semester-1/chemistry/gases/` |
 | Thermochemistry: first law, calorimetry, Hess, ΔH_f° | Explained | `/semester-1/chemistry/thermochemistry/` |
 | Electrochemistry: cells, E°, ΔG, Nernst, electrolysis | Explained | `/semester-1/chemistry/electrochemistry/` |
-| Mole, formulas, empirical formulas, naming | Brief (background notes; used in guides) | route pages `#background` |
-| Intermolecular forces, phases, hybridisation/MO, free energy | Brief · Unconfirmed | route pages `#related` |
+| Mole, formulas, empirical and molecular formulas | Explained | `/semester-1/chemistry/atomic-structure/#support-amount-and-formulas`; all Chemistry routes at the same anchor |
+| Writing formulas and naming compounds | Explained | `/semester-1/chemistry/bonding/#support-chemical-naming`; all Chemistry routes at the same anchor |
+| Intermolecular forces, basic phase changes and solubility | Explained as supporting foundations; assessed depth unconfirmed | `/semester-1/chemistry/bonding/#support-intermolecular-forces`; all Chemistry routes at the same anchor |
+| Detailed phase diagrams, hybridisation/MO, extended free-energy treatment | Brief · Unconfirmed | route pages `#related` and related topic explanations |
 | Kinetics, equilibrium, acids/bases, nuclear, organic | Not Semester 1 per description | route pages `#beyond` |
+
+## Verification for this release
+
+- `npm test` passed: 44 study pages, 259 numerical checks, all 333 original
+  collection notes placed once, internal links and anchors, the deployment
+  allow-list, reading-only controls and deterministic generation. All 42 access
+  gate checks passed; routing and content-security-policy checks passed.
+- Local Chromium: all 44 pages opened at 390 × 844. No page-wide horizontal
+  overflow, empty fraction terms, broken loaded images, answer controls or SVG
+  text outside its image bounds were detected. Wide tables scroll within their
+  containers. This automated geometry check does not establish every diagram's
+  scientific accuracy or guarantee that labels never overlap.
+- Visual review covered the 1440 × 1000 entrance and topic/route navigation,
+  mobile explanatory text, formulas, the relative-motion vector diagram, the
+  mole-conversion diagram and the hydrogen-bond diagram. The browser reported
+  no page errors or console messages during the local walkthrough.
+- In-app browser control could not start because of a Windows sandbox error;
+  a separate local Chromium session was used for the review.
 
 ## Remaining limitations
 
-1. Production not verified (no password in this session); the branch is pushed
-   but not merged or deployed to production.
+1. Authenticated production content has not been verified in this session
+   because no production password is available. Deployment success and local
+   verification must not be described as an authenticated production walkthrough.
 2. Lecturer outlines and PHY 101 laboratory list are still required to confirm
    order, depth, and whether Energy/Momentum/Circular motion are PHY 101 topics.
 3. The guides were checked by recomputation and by reading, not by a subject

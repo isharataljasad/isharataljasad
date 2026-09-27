@@ -12,7 +12,9 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { md, plain } from './content/markup.mjs';
+import { supportByTopic } from './content/support/index.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -40,7 +42,8 @@ for (const c of curriculum.courses) {
   for (const t of c.topics) {
     const file = `tools/content/${c.id}/${t.id}.mjs`;
     if (!fs.existsSync(path.join(root, file))) { if (process.env.STUDY_DRAFT) continue; throw new Error(`Missing study text: ${file}`); }
-    const content = (await import(path.join(root, file))).default;
+    const content = (await import(pathToFileURL(path.join(root, file)).href)).default;
+    content.support = supportByTopic[`${c.id}/${t.id}`] ?? [];
     topics.push({ ...t, content, anchor: `topic-${t.id}` });
   }
   courses.push({ ...c, ...meta[c.id], topics });
@@ -80,6 +83,9 @@ function table(t) {
 function example(w, level = 'h3') {
   return `<article class="worked-example"><${level}>${md(w.title)}</${level}><p class="problem"><strong>Problem.</strong> ${md(w.problem)}</p>${steps(w.steps)}<p class="result"><strong>Result:</strong> ${md(w.result)}</p>${w.meaning ? `<p class="meaning"><strong>What it means:</strong> ${md(w.meaning)}</p>` : ''}</article>`;
 }
+function supportBlock(k) {
+  return `<p class="large-text">${md(k.intro)}</p>${paras(k.ideas)}<h3>Symbols and units</h3>${table({caption:'Symbols used in this section',head:['Symbol','Meaning','Unit'],rows:k.symbols})}<h3>Formulas and conditions</h3>${B.formulas(k)}${k.figure?B.figure(k):''}${k.table?table(k.table):''}<h3>Worked examples for this background</h3>${k.examples.map(w=>example(w,'h4')).join('')}<h3>Common misunderstandings</h3>${B.mistakes(k)}<p class="scope-footer">References for these concepts: ${k.sources.map(s=>`<a href="${H(s.url)}" target="_blank" rel="noopener noreferrer">${H(s.title)}</a>`).join(' · ')}. The explanations and examples above are written for this library.</p>`;
+}
 const B = {
   why: (k) => paras(k.why),
   idea: (k) => paras(k.idea),
@@ -110,6 +116,7 @@ function guide(c, t) {
     ['visual', 'See it', B.figure(k) + B.table(k)],
     ['method', 'Method', B.method(k)],
     ['examples', 'Worked examples', `<p>Every example shows the full solution. Read the reason under each step: it explains why the step is allowed.</p>${B.examples(k, 'h3')}`],
+    ...k.support.map(s=>[`support-${s.id}`,s.title,supportBlock(s)]),
     ...(k.extra?.length ? [['further', 'Going further', B.extra(k)]] : []),
     ['mistakes', 'Common misunderstandings', B.mistakes(k)],
     ['scope', 'Scope & limits of this guide', B.scope(k)],
@@ -150,7 +157,7 @@ function routePage(c, r) {
   const data = library[c.id][r];
   const { groups } = placeUnits(c, r);
   const unitBlock = (list, heading) => list?.length ? `<div class="collection-units"><h3>${heading}</h3><p class="muted">Short study notes from the original ${e.name} collection for this topic.</p>${list.map((u) => u.html).join('')}</div>` : '';
-  const topics = c.topics.map((t) => `<section id="${t.anchor}" class="route-topic"><p class="eyebrow">${c.code} · TOPIC ${two(t.sequence)} OF ${c.topics.length}</p><h2>${H(t.title)}</h2><p class="lead">${md(t.content.summary)}</p>${compare(c, t, r)}${routeCore(r, t.content)}${unitBlock(groups.get(t.id), `More from the ${e.name} collection`)}</section>`).join('');
+  const topics = c.topics.map((t) => `<section id="${t.anchor}" class="route-topic"><p class="eyebrow">${c.code} · TOPIC ${two(t.sequence)} OF ${c.topics.length}</p><h2>${H(t.title)}</h2><p class="lead">${md(t.content.summary)}</p>${compare(c, t, r)}${routeCore(r, t.content)}${t.content.support.map(s=>`<section id="support-${s.id}" class="reading-section"><h2>${H(s.title)}</h2>${supportBlock(s)}</section>`).join('')}${unitBlock(groups.get(t.id), `More from the ${e.name} collection`)}</section>`).join('');
   const extraGroup = (g) => {
     const list = groups.get(g); if (!list?.length) return '';
     const [title, note] = plan.groups[c.id][g];
@@ -159,7 +166,7 @@ function routePage(c, r) {
       ? `<section id="beyond" class="route-extra beyond"><h2>${H(title)}</h2><details><summary>Show ${list.length} later-course notes</summary>${inner}</details></section>`
       : `<section id="${g}" class="route-extra"><h2>${H(title)}</h2>${inner}</section>`;
   };
-  const toc = `<div class="toc-group"><span class="eyebrow">SEMESTER 1 TOPICS</span>${c.topics.map((t) => `<a href="#${t.anchor}">${two(t.sequence)} ${H(t.title)}</a>`).join('')}</div><div class="toc-group"><span class="eyebrow">ALSO IN THIS COLLECTION</span>${['background', 'related', 'beyond'].filter((g) => groups.get(g)?.length).map((g) => `<a href="#${g}">${H(plan.groups[c.id][g][0].split(':')[0].split(' —')[0])}</a>`).join('')}<a href="#equation-review">Formula reference</a></div>`;
+  const toc = `<div class="toc-group"><span class="eyebrow">SEMESTER 1 TOPICS</span>${c.topics.map((t) => `<a href="#${t.anchor}">${two(t.sequence)} ${H(t.title)}</a>${t.content.support.map(s=>`<a class="toc-support" href="#support-${s.id}">${H(s.title)}</a>`).join('')}`).join('')}</div><div class="toc-group"><span class="eyebrow">ALSO IN THIS COLLECTION</span>${['background', 'related', 'beyond'].filter((g) => groups.get(g)?.length).map((g) => `<a href="#${g}">${H(plan.groups[c.id][g][0].split(':')[0].split(' —')[0])}</a>`).join('')}<a href="#equation-review">Formula reference</a></div>`;
   const credit = data.credit || '';
   const honesty = r === 'book' && c.id === 'chemistry'
     ? 'The topic explanations are original study text written for this library. The short collection notes are adapted from OpenStax Chemistry 2e (credited below).'

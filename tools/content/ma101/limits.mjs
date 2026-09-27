@@ -116,7 +116,7 @@ export default {
     },
     {
       title: 'One-sided limits that disagree',
-      problem: 'Let f(x) = {{|x − 5||x − 5}}. Find the one-sided limits at x = 5 and decide whether lim_{x→5} f(x) exists.',
+      problem: 'Let f(x) = {{∣x − 5∣|x − 5}}. Find the one-sided limits at x = 5 and decide whether lim_{x→5} f(x) exists.',
       steps: [
         ['For x > 5, x − 5 is positive, so |x − 5| = x − 5 and f(x) = 1.', 'The absolute value of a positive number is the number itself.'],
         ['For x < 5, x − 5 is negative, so |x − 5| = −(x − 5), which is positive. Then f(x) = {{−(x − 5)|x − 5}} = −1.', 'The absolute value of a negative number is its opposite, which is positive.'],

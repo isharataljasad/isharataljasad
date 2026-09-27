@@ -25,7 +25,7 @@ export default {
     'The **slope** m = {{Δy|Δx}} has units (y-unit)/(x-unit) and usually means something physical: the slope of position against time is velocity, of velocity against time is acceleration, of force against extension is the spring constant. Calculate it from two points **on the line**, far apart, not from two data points.',
     'The **intercept** b is the value of y when x = 0. A theory may predict it (often zero); a non-zero intercept can indicate a systematic error, like a zero offset in the instrument.',
     'Many laws are not linear, but can be made linear. For a falling object, d = {{1|2}}gt^{2}: plot d against t^{2} (not t) to get a straight line with slope g/2. For a pendulum, T = 2π√{L/g}: plot T^{2} against L, slope 4π^{2}/g. This is called **linearising** the data.',
-    'Every measurement has **uncertainty**. Random errors scatter the points and can be reduced by repeating and averaging; systematic errors shift all readings the same way and cannot be removed by averaging. Report results as value ± uncertainty with a unit, and compare with an accepted value by percentage difference.',
+    'Every measurement has **uncertainty**. Random errors scatter the points and can be reduced by repeating and averaging; systematic errors shift all readings the same way and cannot be removed by averaging. Report results as value ± uncertainty with a unit, and compare with an accepted value by percentage error.',
   ],
   background: [
     { title: 'Straight-line equation', text: 'y = mx + b; slope m = {{y_{2} − y_{1}|x_{2} − x_{1}}}; intercept b where the line meets the y-axis.' },
@@ -37,7 +37,7 @@ export default {
     ['Slope and intercept', 'Slope: rate of change of y with x, with units. Intercept: value of y when x = 0.'],
     ['Linearisation', 'Plotting transformed quantities (such as t² or T²) so that a non-linear law appears as a straight line.'],
     ['Random vs systematic error', 'Random: unpredictable scatter in both directions. Systematic: consistent bias in one direction (miscalibration, zero offset, reaction time).'],
-    ['Percentage difference', '{{|measured − accepted||accepted}} × 100%.'],
+    ['Percentage error', '{{∣measured − accepted∣|∣accepted∣}} × 100%, for a nonzero accepted value.'],
   ],
   symbols: [
     ['m', 'slope of the graph', 'y-unit ÷ x-unit'], ['b', 'intercept', 'y-unit'], ['k', 'spring constant (example slope)', 'N/m'], ['±δ', 'uncertainty of a value', 'same as the value'],
@@ -73,7 +73,7 @@ export default {
       'Plot the points carefully; add error bars if uncertainties are known.',
       'Draw the best-fit straight line (or use least squares).',
       'Find the slope from two distant points on the line; include units. Note the intercept.',
-      'Interpret: what physical quantity is the slope? Compare with the expected value (percentage difference) and discuss sources of error.',
+      'Interpret: what physical quantity is the slope? Compare with the expected value (percentage error) and discuss sources of error.',
     ],
   },
   examples: [
@@ -113,7 +113,7 @@ export default {
       steps: [
         ['d = {{1|2}}gt^{2}, so slope = g/2.', 'Linearised model.'],
         ['g = 2 × 4.85 = 9.70 m/s^{2}.', 'Solve for g.'],
-        ['Percentage difference = {{|9.70 − 9.81||9.81}} × 100% = 1.1%.', 'Compare with the accepted value.'],
+        ['Percentage error = {{∣9.70 − 9.81∣|9.81}} × 100% = 1.1%.', 'Compare with the accepted value.'],
       ],
       result: 'g ≈ 9.70 m/s^{2}, 1.1% below the accepted value.',
       meaning: 'A consistently low result may indicate a systematic error such as air resistance or a timing delay.',

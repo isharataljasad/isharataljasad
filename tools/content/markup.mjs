@@ -23,11 +23,19 @@ function group(s, i) {
 }
 
 function splitTop(s) {
-  let depth = 0;
+  let depth = 0, separator = -1;
   for (let i = 0; i < s.length; i++) {
     if (s[i] === '{') depth++;
     else if (s[i] === '}') depth--;
-    else if (s[i] === '|' && depth === 0) return [s.slice(0, i), s.slice(i + 1)];
+    else if (s[i] === '|' && depth === 0) {
+      if(separator !== -1)throw new Error(`Ambiguous fraction; use ∣ for absolute-value bars: {{${s}}}`);
+      separator = i;
+    }
+  }
+  if(separator!==-1){
+    const parts=[s.slice(0,separator),s.slice(separator+1)];
+    if(parts.some(p=>!p.trim()))throw new Error(`Empty numerator or denominator: {{${s}}}`);
+    return parts;
   }
   throw new Error(`Fraction without "|": {{${s}}}`);
 }

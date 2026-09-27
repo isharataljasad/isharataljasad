@@ -129,7 +129,7 @@ export default {
       title: 'Where a derivative does not exist',
       problem: 'Is f(x) = |x| differentiable at x = 0?',
       steps: [
-        ['{{f(0 + h) − f(0)|h}} = {{|h||h}}.', 'Write the difference quotient at 0.'],
+        ['{{f(0 + h) − f(0)|h}} = {{∣h∣|h}}.', 'Write the difference quotient at 0.'],
         ['For h > 0 this is 1; for h < 0 it is −1.', 'Use |h| = h for positive h and |h| = −h for negative h.'],
         ['The one-sided limits are 1 and −1, so the limit does not exist.', 'A derivative must have one value from both sides.'],
       ],

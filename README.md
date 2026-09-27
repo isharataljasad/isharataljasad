@@ -12,6 +12,7 @@ progress requirements; every worked solution is visible.
 
 - `tools/content/<course>/<topic>.mjs` — the teaching text of the 26 topics
   (original English), with computed figures and a `checks` list of numerical claims.
+- `tools/content/support/` — relative motion, mole and formula calculations, chemical naming, and intermolecular forces: 18 additional worked examples, included in the guides and all three routes.
 - `tools/data/study-library.json` — the 333 original collection notes, placed by
   `semester-1/curriculum.json` (topic resources) and `tools/data/route-plan.json`
   (background / related / beyond Semester 1).
@@ -23,7 +24,7 @@ progress requirements; every worked solution is visible.
 
 - `npm ci --ignore-scripts`
 - `npm run build:study` rebuilds the 44 student pages (deterministic).
-- `npm test` — student flow, content completeness and 232 numerical checks, links
+- `npm test` — student flow, content completeness and 259 numerical checks, links
   and anchors, deploy allow-list, reproducible build (`test/study.mjs`); access gate
   (`test/gate.mjs`); deployed pages and CSP (`test/routing.mjs`).
 - `npm run test:legacy` — tests of preserved, non-deployed earlier material.
