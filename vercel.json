@@ -35,12 +35,27 @@
     },
     {
       "source": "/english",
-      "destination": "/",
+      "destination": "/semester-1/english",
+      "permanent": false
+    },
+    {
+      "source": "/english/book",
+      "destination": "/semester-1/english/old-links/book",
+      "permanent": false
+    },
+    {
+      "source": "/english/pearson",
+      "destination": "/semester-1/english/old-links/pearson",
+      "permanent": false
+    },
+    {
+      "source": "/english/educator",
+      "destination": "/semester-1/english/old-links/educator",
       "permanent": false
     },
     {
       "source": "/english/:path*",
-      "destination": "/",
+      "destination": "/semester-1/english",
       "permanent": false
     },
     {

@@ -18,6 +18,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { md, plain } from './content/markup.mjs';
 import { sequence } from './content/sequence.mjs';
+import * as english from './content/english/index.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -51,15 +52,23 @@ for (const c of curriculum.courses) {
   lessons.forEach((l, i) => { l.n = i + 1; });
   courses.push({ ...c, ...meta[c.id], lessons });
 }
+// English is the fourth subject (owner's scope update, 27 September 2026). Its lessons come
+// from the supplied content pack and use a language layout instead of the science schema.
+const englishSubject = {
+  id: 'english', path: 'english', kind: 'english', name: 'English', code: 'ENGLISH FOR STUDY', title: english.manifest.title.split(' — ')[0],
+  glyph: 'Aa', color: 'english', summary: 'Clear sentences, reading for study, academic writing, and spoken explanation as written models.',
+  lessons: english.lessons.map((l, i) => ({ id: l.slug, eng: l.id, title: l.title, href: `/semester-1/english/${l.slug}/`, n: i + 1, content: { ...l, summary: l.purpose } })),
+};
+export const subjects = [...courses, englishSubject];
 const subjectUrl = (c) => `/semester-1/${c.path}/`;
 const sourcesUrl = (c) => `/semester-1/${c.path}/sources/`;
 
 // ---------- shell ----------
 function header(c) {
-  return `<a class="skip" href="#content">Skip to content</a><header class="site-header"><a class="brand" href="/">BAYT AL-FUAD<span>Semester 1 · Study library</span></a><nav aria-label="Subjects">${courses.map((x) => `<a href="${subjectUrl(x)}"${c?.id === x.id ? ' aria-current="page"' : ''}>${x.name}</a>`).join('')}</nav></header>`;
+  return `<a class="skip" href="#content">Skip to content</a><header class="site-header"><a class="brand" href="/">BAYT AL-FUAD<span>Semester 1 · Study library</span></a><nav aria-label="Subjects">${subjects.map((x) => `<a href="${subjectUrl(x)}"${c?.id === x.id ? ' aria-current="page"' : ''}>${x.name}</a>`).join('')}</nav></header>`;
 }
 function shell(title, body, c, { wide = false, script = '' } = {}) {
-  return `<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Semester 1 study material: Mathematics, Physics and Chemistry. Explanations, formulas, diagrams and fully worked examples."><title>${H(title)} | Bayt Al-Fuad</title><link rel="stylesheet" href="/semester-1/assets/study.css"><link rel="icon" href="data:,">${script}</head><body class="${c?.color ?? 'home'}">${header(c)}<main id="content" class="${wide ? 'reader' : 'page'}">${body}</main><footer class="site-footer"><a href="/">Semester 1</a><span>Understand the idea. Follow the formula. Read the worked example.</span></footer></body></html>`;
+  return `<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Semester 1 study material: Mathematics, Physics, Chemistry and English. Clear explanations and fully worked examples."><title>${H(title)} | Bayt Al-Fuad</title><link rel="stylesheet" href="/semester-1/assets/study.css"><link rel="icon" href="data:,">${script}</head><body class="${c?.color ?? 'home'}">${header(c)}<main id="content" class="${wide ? 'reader' : 'page'}">${body}</main><footer class="site-footer"><a href="/">Semester 1</a><span>Understand the idea. Read the worked example. Everything is open to read.</span></footer></body></html>`;
 }
 function breadcrumbs(c, label = '') {
   return `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Semester 1</a>${c ? `<span aria-hidden="true">/</span>${label ? `<a href="${subjectUrl(c)}">${c.name}</a><span aria-hidden="true">/</span><span>${H(label)}</span>` : `<span>${c.name}</span>`}` : ''}</nav>`;
@@ -102,22 +111,25 @@ export function lessonSections(c, l) {
 export const movedAnchors = { 'phy101/motion': [['support-relative-motion', 'relative-motion']], 'chemistry/atomic-structure': [['support-amount-and-formulas', 'moles-and-formulas']], 'chemistry/bonding': [['support-chemical-naming', 'chemical-naming'], ['support-intermolecular-forces', 'intermolecular-forces']] };
 
 function lessonPage(c, l) {
-  const S = lessonSections(c, l);
+  const S = c.kind === 'english' ? englishSections(c, l) : lessonSections(c, l);
+  const fmt = c.kind === 'english' ? H : md;
   const prev = c.lessons[l.n - 2], next = c.lessons[l.n];
   const moved = (movedAnchors[`${c.id}/${l.id}`] ?? []).map(([anchor, target]) => { const t = c.lessons.find((x) => x.id === target); return `<p class="moved-note" id="${anchor}">An older bookmark may point here. That section is now its own lesson: <a href="${t.href}">${H(t.title)}</a>.</p>`; }).join('');
-  const sources = `<p class="lesson-sources">${l.content.sources?.length ? `Further reading: ${l.content.sources.map((s) => `<a href="${H(s.url)}">${H(s.title)}</a>`).join(' · ')}. ` : 'Original study text. '}<a href="${sourcesUrl(c)}">Sources and credits</a>.</p>`;
-  const body = `<div class="reader-top">${breadcrumbs(c, l.title)}</div><div class="reader-layout"><aside class="contents"><details open><summary>In this lesson</summary><nav aria-label="Lesson sections">${S.map(([id, title]) => `<a href="#${id}">${title}</a>`).join('')}<div class="toc-group"><span class="eyebrow">${c.name.toUpperCase()} LESSONS</span>${c.lessons.map((x) => `<a href="${x.href}"${x.id === l.id ? ' aria-current="page"' : ''}>${two(x.n)} ${H(x.title)}</a>`).join('')}</div></nav></details></aside><article class="reading-body"><header class="reading-heading"><p class="eyebrow">${c.name.toUpperCase()} · LESSON ${two(l.n)} OF ${c.lessons.length}</p><h1>${H(l.title)}</h1><p class="lead">${md(l.content.summary)}</p><nav class="lesson-nav" aria-label="Lesson navigation">${prev ? `<a href="${prev.href}">← ${H(prev.title)}</a>` : ''}<a href="${subjectUrl(c)}">${c.name} contents</a>${next ? `<a href="${next.href}">${H(next.title)} →</a>` : ''}</nav></header>${S.map(([id, title, html]) => `<section id="${id}" class="reading-section"><h2>${title}</h2>${html}</section>`).join('')}${moved}${sources}<nav class="next-topic" aria-label="Previous and next lessons">${prev ? `<a href="${prev.href}">← ${H(prev.title)}</a>` : ''}${next ? `<a class="button" href="${next.href}">Next: ${H(next.title)} →</a>` : ''}<a href="${subjectUrl(c)}">${c.name} contents</a></nav></article></div>`;
+  const sources = c.kind === 'english' ? englishSourcesLine(c, l) : `<p class="lesson-sources">${l.content.sources?.length ? `Further reading: ${l.content.sources.map((s) => `<a href="${H(s.url)}">${H(s.title)}</a>`).join(' · ')}. ` : 'Original study text. '}<a href="${sourcesUrl(c)}">Sources and credits</a>.</p>`;
+  const body = `<div class="reader-top">${breadcrumbs(c, l.title)}</div><div class="reader-layout"><aside class="contents"><details open><summary>In this lesson</summary><nav aria-label="Lesson sections">${S.map(([id, title]) => `<a href="#${id}">${title}</a>`).join('')}<div class="toc-group"><span class="eyebrow">${c.name.toUpperCase()} LESSONS</span>${c.lessons.map((x) => `<a href="${x.href}"${x.id === l.id ? ' aria-current="page"' : ''}>${two(x.n)} ${H(x.title)}</a>`).join('')}</div></nav></details></aside><article class="reading-body"><header class="reading-heading"><p class="eyebrow">${c.name.toUpperCase()} · LESSON ${two(l.n)} OF ${c.lessons.length}</p><h1>${H(l.title)}</h1>${c.kind === 'english' ? '' : `<p class="lead">${fmt(l.content.summary)}</p>`}<nav class="lesson-nav" aria-label="Lesson navigation">${prev ? `<a href="${prev.href}">← ${H(prev.title)}</a>` : ''}<a href="${subjectUrl(c)}">${c.name} contents</a>${next ? `<a href="${next.href}">${H(next.title)} →</a>` : ''}</nav></header>${S.map(([id, title, html]) => `<section id="${id}" class="reading-section"><h2>${title}</h2>${html}</section>`).join('')}${moved}${sources}<nav class="next-topic" aria-label="Previous and next lessons">${prev ? `<a href="${prev.href}">← ${H(prev.title)}</a>` : ''}${next ? `<a class="button" href="${next.href}">Next: ${H(next.title)} →</a>` : ''}<a href="${subjectUrl(c)}">${c.name} contents</a></nav></article></div>`;
   return shell(`${l.title} · ${c.name}`, body, c, { wide: true });
 }
 
 // ---------- subject contents, sources, entrance ----------
 function subjectPage(c) {
+  if (c.kind === 'english') return englishSubjectPage(c);
   const rows = c.lessons.map((l) => `<li class="topic-row" id="topic-${l.id}"><span>${two(l.n)}</span><div><h3><a href="${l.href}">${H(l.title)}</a></h3><p>${md(l.content.summary)}</p></div></li>`).join('');
   const body = `${breadcrumbs(c)}<section class="subject-heading"><div><p class="eyebrow">SEMESTER 1 · ${c.code} · ${H(c.title)}</p><h1>${c.name}</h1><p class="lead">Read the lessons in order. Each lesson explains the idea, shows it in a diagram, gives the formulas with their conditions, and works through examples step by step.</p></div><div class="subject-symbol" aria-hidden="true">${c.glyph}</div></section><section class="topic-section" aria-labelledby="lessons-title"><h2 id="lessons-title">Lessons</h2><ol class="topic-list">${rows}</ol></section><p class="scope-footer">Lessons follow ${c.published}${c.id === 'phy101' ? ', which is broad (fundamentals, laws of motion and applications, laboratory work and graphing); the lesson breakdown is a proposed study order' : ', in a proposed study order'}. Your lecturer’s current outline decides what is assessed. <a href="${sourcesUrl(c)}">Sources and credits</a>.</p>`;
   return shell(c.name, body, c);
 }
 
 function sourcesPage(c) {
+  if (c.kind === 'english') return englishSourcesPage(c);
   const notes = ledger.notes.filter((n) => n.course === c.id);
   const videos = new Map();
   for (const n of notes) for (const v of n.external ?? []) {
@@ -133,7 +145,7 @@ function sourcesPage(c) {
   return shell(`Sources and credits · ${c.name}`, body, c);
 }
 
-const home = `<section class="home-hero"><div><p class="eyebrow">MATHEMATICS · PHYSICS · CHEMISTRY</p><h1>Semester 1.</h1><p class="lead">Choose a subject and read its lessons in order: the idea, a diagram, the formulas and fully worked examples.</p></div></section><section aria-labelledby="subjects-title"><h2 id="subjects-title" class="vh">Subjects</h2><div class="subject-grid">${courses.map((c) => `<article class="subject-card ${c.color}" data-subject="${c.id}"><div class="subject-art" aria-hidden="true">${c.glyph}</div><div class="subject-body"><p class="eyebrow">${c.code}</p><h2>${c.name}</h2><p>${c.summary}</p><a class="button" href="${subjectUrl(c)}">Open ${c.name} →</a></div></article>`).join('')}</div></section><p class="home-footnote">Everything is open to read. There are no tests.</p>`;
+const home = `<section class="home-hero"><div><p class="eyebrow">MATHEMATICS · PHYSICS · CHEMISTRY · ENGLISH</p><h1>Semester 1.</h1><p class="lead">Choose a subject and read its lessons in order. Every lesson explains the idea and works through complete examples.</p></div></section><section aria-labelledby="subjects-title"><h2 id="subjects-title" class="vh">Subjects</h2><div class="subject-grid">${subjects.map((c) => `<article class="subject-card ${c.color}" data-subject="${c.id}"><div class="subject-art" aria-hidden="true">${c.glyph}</div><div class="subject-body"><p class="eyebrow">${c.code}</p><h2>${c.name}</h2><p>${c.summary}</p><a class="button" href="${subjectUrl(c)}">Open ${c.name} →</a></div></article>`).join('')}</div></section><p class="home-footnote">Everything is open to read. There are no tests.</p>`;
 
 // ---------- compatibility pages for the retired Book / Pearson / Educator links ----------
 function compatPage(c, route) {
@@ -149,8 +161,68 @@ function compatPage(c, route) {
   return shell(`${c.name} lessons have moved`, body, c, { script: '<script src="/semester-1/assets/old-links.js" defer></script>' });
 }
 
+// ---------- English: language lessons ----------
+const sourceById = new Map(english.sourceRegistry.map((s) => [s.id, s]));
+const englishLesson = (c, engId) => c.lessons.find((l) => l.eng === engId);
+const paraText = (s) => s.split(/\n{2,}/).map((p) => `<p>${H(p).replace(/\n/g, '<br>')}</p>`).join('');
+const WRITTEN_MODEL_NOTE = 'Written strategy and model. No audio recording is available yet, so this lesson shows the method in writing; it does not yet teach listening or pronunciation through sound.';
+function englishExample(e, recording) {
+  const label = recording ? 'Model script (written; not yet recorded)' : 'Model text';
+  return `<article class="worked-example language-example"><h3>${H(e.title)}</h3><p class="problem"><strong>Situation.</strong> ${H(e.context)}</p><figure class="model-text"><figcaption>${label}</figcaption><blockquote>${paraText(e.model)}</blockquote></figure><h4>Why it works</h4><ul class="annotations">${e.annotations.map((a) => `<li>${H(a)}</li>`).join('')}</ul><p class="meaning"><strong>What it shows:</strong> ${H(e.meaning)}</p></article>`;
+}
+function englishTable(a) {
+  return `<div class="table-wrap" tabindex="0" role="region" aria-label="${H(a.title)}"><table><caption>${H(a.title)}</caption><thead><tr>${a.headers.map((x) => `<th scope="col">${H(x)}</th>`).join('')}</tr></thead><tbody>${a.rows.map((r) => `<tr>${r.map((x, i) => i ? `<td>${H(x)}</td>` : `<th scope="row">${H(x)}</th>`).join('')}</tr>`).join('')}</tbody></table></div><p class="table-note">${H(a.provenance)}</p>`;
+}
+/** Purpose → before this lesson → explanation (with any data shown before the models) →
+ *  language pattern → two fully visible worked examples → common mistakes → keep in mind. */
+export function englishSections(c, l) {
+  const k = l.content, recording = k.media_status === 'recording_required';
+  const next = c.lessons[l.n];
+  const pre = k.prerequisites.map((id) => englishLesson(c, id));
+  const S = [];
+  S.push(['why', 'What this lesson helps you do', `<p>${H(k.purpose)}</p>${recording ? `<p class="media-note"><strong>Written models only.</strong> ${WRITTEN_MODEL_NOTE}</p>` : ''}`]);
+  S.push(['background', 'Before this lesson', pre.length ? `<p>This lesson builds on:</p><ul class="prerequisites">${pre.map((p) => `<li><a href="${p.href}">${two(p.n)} ${H(p.title)}</a></li>`).join('')}</ul>` : '<p>No earlier lesson is needed. Start here.</p>']);
+  S.push(['idea', 'The explanation', `${k.explanation.map((p) => `<p>${H(p)}</p>`).join('')}${k.assets.filter((a) => a.kind === 'table').map(englishTable).join('')}`]);
+  const lp = k.language_pattern;
+  S.push(['pattern', 'Language pattern', `<dl class="language-pattern"><div><dt>Pattern</dt><dd>${H(lp.form)}</dd></div><div><dt>What it does</dt><dd>${H(lp.meaning)}</dd></div><div><dt>Limits</dt><dd>${H(lp.limits)}</dd></div></dl>`]);
+  S.push(['examples', 'A first worked example', englishExample(k.worked_examples[0], recording)]);
+  S.push(['second-example', 'A second worked example', englishExample(k.worked_examples[1], recording)]);
+  S.push(['mistakes', 'Common mistakes', `<ul class="mistakes language-mistakes">${k.common_mistakes.map((m) => `<li><p class="wrong"><strong>Draft (not correct):</strong> <span class="draft-text">${H(m.draft)}</span></p><p class="right"><strong>Revision:</strong> ${H(m.revision)}</p><p class="reason">${H(m.reason)}</p></li>`).join('')}</ul>`]);
+  S.push(['scope', 'Keep in mind', `<ul class="takeaways">${k.takeaways.map((t) => `<li>${H(t)}</li>`).join('')}</ul><p class="muted">${H(k.scope)}</p>${next ? `<p>Next: <a href="${next.href}">${H(next.title)}</a>. ${H(next.content.purpose)}</p>` : `<p>This is the last lesson in English. <a href="${subjectUrl(c)}">Back to the English contents</a>.</p>`}`]);
+  return S;
+}
+function englishSourcesLine(c, l) {
+  const refs = l.content.source_refs.map((id) => sourceById.get(id)).filter(Boolean);
+  return `<p class="lesson-sources">${H(l.content.authorship)} Aligned with: ${refs.map((s) => `<a href="${sourcesUrl(c)}#source-${s.id.toLowerCase()}">${H(s.title)}</a>`).join(' · ')}. <a href="${sourcesUrl(c)}">Sources and credits</a>.</p>`;
+}
+function englishSubjectPage(c) {
+  const lists = english.groups.map((g) => {
+    const ls = c.lessons.filter((l) => l.content.group === g.id);
+    return `<h3 class="group-title">${H(g.title)}</h3><ol class="topic-list" start="${ls[0].n}">${ls.map((l) => `<li class="topic-row" id="topic-${l.id}"><span>${two(l.n)}</span><div><h3><a href="${l.href}">${H(l.title)}</a></h3><p>${H(l.content.purpose)}${l.content.media_status === 'recording_required' ? ' <em class="tag">Written model; no audio yet</em>' : ''}</p></div></li>`).join('')}</ol>`;
+  }).join('');
+  const body = `${breadcrumbs(c)}<section class="subject-heading"><div><p class="eyebrow">SEMESTER 1 · ${H(c.title).toUpperCase()}</p><h1>${c.name}</h1><p class="lead">Read the lessons in order. Each lesson explains one skill, shows its language pattern, and works through two complete examples with notes on why they work.</p></div><div class="subject-symbol" aria-hidden="true">${c.glyph}</div></section><section class="topic-section" aria-labelledby="lessons-title"><h2 id="lessons-title">Lessons</h2>${lists}</section><p class="scope-footer">A foundation bridge towards academic work and IELTS skills for students who can already read simple English sentences. It is not an official syllabus, a CEFR placement or an IELTS score prediction, and it promises no particular grade. Lessons 16–20 are written strategies and models; their recordings have not been made. <a href="${sourcesUrl(c)}">Sources and credits</a>.</p>`;
+  return shell(c.name, body, c);
+}
+function englishSourcesPage(c) {
+  const used = new Map();
+  for (const l of c.lessons) for (const id of l.content.source_refs) { if (!used.has(id)) used.set(id, []); used.get(id).push(l); }
+  const items = english.sourceRegistry.map((s) => `<li id="source-${s.id.toLowerCase()}" class="source-item"><h3><a href="${H(s.url)}">${H(s.title)}</a></h3><p class="muted">${H(s.provider)} · checked ${H(s.checked_on)}</p><p><strong>How it is used:</strong> ${H(s.use)}</p><p><strong>What was available:</strong> ${H(s.access)}</p><p><strong>Limit:</strong> ${H(s.limit)}</p>${used.has(s.id) ? `<p class="muted">Lessons aligned with it: ${used.get(s.id).map((l) => `<a href="${l.href}">${two(l.n)}</a>`).join(', ')}</p>` : ''}</li>`).join('');
+  const body = `${breadcrumbs(c, 'Sources and credits')}<section class="subject-heading"><div><p class="eyebrow">ENGLISH</p><h1>Sources and credits</h1><p class="lead">What the English lessons are aligned with, and what was and was not available.</p></div></section><section class="reading-section"><h2>About the lessons</h2><p>All explanations, examples, dialogues and data in the English lessons are original teaching text. Data, names and situations in the examples are invented for teaching and are labelled as such. The references below show curriculum and method alignment only: no lesson reproduces a publisher’s book, course, audio, transcript, exercise or answer key, and no publisher has reviewed or endorsed this library.</p><p>The Official Cambridge Guide to IELTS was chosen by the owner as the main reference, but the full book and its licensed audio were not available. Pearson University Success and Educator.com public course outlines are complementary references. None of the lessons is an official IELTS preparation course, and no IELTS band, CEFR level, grade or examination result is claimed. The lessons have not yet been reviewed by an independent language teacher.</p><p>Five lessons (16–20) are written strategies and models. Recordings are needed before they can teach listening or pronunciation through sound.</p></section><section class="reading-section"><h2>References</h2><ul class="source-list">${items}</ul></section><p><a class="button" href="${subjectUrl(c)}">Back to English →</a></p>`;
+  return shell(`Sources and credits · ${c.name}`, body, c);
+}
+function englishCompatPage(c, route) {
+  const name = { book: 'Book', pearson: 'Pearson', educator: 'Educator' }[route];
+  const rows = c.lessons.map((l) => [`topic-${l.id}`, l.title, l.href, '']);
+  for (const r of english.legacy.filter((x) => x.route === route)) {
+    const t = r.targets.length ? englishLesson(c, r.targets[0]) : null;
+    rows.push([r.anchor, r.title, t ? t.href : subjectUrl(c), t ? (r.targets.length > 1 ? `also in ${r.targets.slice(1).map((id) => two(englishLesson(c, id).n)).join(', ')}` : '') : 'not part of the new English lessons']);
+  }
+  const body = `${breadcrumbs(c, 'Old link')}<section class="subject-heading"><div><p class="eyebrow">OLD LINK</p><h1>English lessons have moved</h1><p class="lead">The earlier ${name} English page has been replaced by one set of English lessons. Each part of the old page is listed below with the lesson that now covers it.</p><p><a class="button" href="${subjectUrl(c)}">Open the English lessons →</a></p></div></section><section class="reading-section"><h2>Where each part went</h2><ul class="compat-list">${rows.map(([id, title, href, note]) => `<li id="${H(id)}"><a href="${href}">${H(title)}</a>${note ? ` <span class="muted">(${H(note)})</span>` : ''}</li>`).join('')}</ul></section>`;
+  return shell('English lessons have moved', body, c, { script: '<script src="/semester-1/assets/old-links.js" defer></script>' });
+}
+
 // ---------- write ----------
-for (const p of ['index.html', 'bayt/index.html', 'semester-1/index.html']) write(p, shell('Semester 1 · Mathematics, Physics & Chemistry', home));
+for (const p of ['index.html', 'bayt/index.html', 'semester-1/index.html']) write(p, shell('Semester 1 · Mathematics, Physics, Chemistry & English', home));
 for (const c of courses) {
   write(`semester-1/${c.path}/index.html`, subjectPage(c));
   write(`semester-1/${c.path}/sources/index.html`, sourcesPage(c));
@@ -159,4 +231,13 @@ for (const c of courses) {
   // The old per-course hub is replaced by a redirect to the subject contents (vercel.json).
   fs.rmSync(path.join(root, `${c.id}/index.html`), { force: true });
 }
-console.log(`Built Semester 1: 3 subjects, ${courses.reduce((n, c) => n + c.lessons.length, 0)} lessons, 3 source pages, 9 old-link pages. No assessment interface.`);
+{
+  const c = englishSubject;
+  write(`semester-1/${c.path}/index.html`, subjectPage(c));
+  write(`semester-1/${c.path}/sources/index.html`, sourcesPage(c));
+  for (const l of c.lessons) write(`${l.href.slice(1)}index.html`, lessonPage(c, l));
+  // The earlier /english pages stay in the repository as historical source; their URLs
+  // redirect to these forwarding pages (vercel.json), which carry every old anchor.
+  for (const r of OLD_ROUTES) write(`semester-1/english/old-links/${r}/index.html`, englishCompatPage(c, r));
+}
+console.log(`Built Semester 1: ${subjects.length} subjects, ${subjects.reduce((n, c) => n + c.lessons.length, 0)} lessons, ${subjects.length} source pages, ${OLD_ROUTES.length * subjects.length} old-link pages. No assessment interface.`);

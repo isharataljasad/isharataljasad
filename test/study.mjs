@@ -13,6 +13,7 @@ import { createHash } from 'node:crypto';
 import { deployedFiles } from './lib/deployed.mjs';
 import { md } from '../tools/content/markup.mjs';
 import { sequence } from '../tools/content/sequence.mjs';
+import * as english from '../tools/content/english/index.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -96,24 +97,28 @@ assert.ok(!/just touches/i.test(JSON.stringify(derivative)), 'tangent is not des
 assert.ok(/limit(?:ing)? (?:line|of (?:the )?secant)/i.test(JSON.stringify(derivative)) && /may cross|can cross/i.test(JSON.stringify(derivative)), 'tangent is defined as the limit of secants and may cross the curve');
 
 // ---------- page set ----------
+// English, the fourth subject, follows its own reading order and language layout.
+const slug = (s) => s.toLowerCase().replace(/’/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const eng = english.lessons.map((l, i) => ({ ...l, n: i + 1, href: `/semester-1/english/${slug(l.title)}/` }));
+const engPage = (l) => l.href.slice(1) + 'index.html';
+const SUBJECT_IDS = [...courses.map((c) => c.id), 'english'];
+const subjectPath = (id) => id === 'english' ? 'english' : courses.find((c) => c.id === id).path;
 const home = ['index.html', 'bayt/index.html', 'semester-1/index.html'];
-const subjects = courses.map((c) => `semester-1/${c.path}/index.html`);
-const sources = courses.map((c) => `semester-1/${c.path}/sources/index.html`);
-const lessonPages = all.map((l) => l.href.slice(1) + 'index.html');
-const compat = courses.flatMap((c) => ROUTES.map((r) => `${c.id}/${r}/index.html`));
+const subjects = SUBJECT_IDS.map((id) => `semester-1/${subjectPath(id)}/index.html`);
+const sources = SUBJECT_IDS.map((id) => `semester-1/${subjectPath(id)}/sources/index.html`);
+const lessonPages = [...all.map((l) => l.href.slice(1) + 'index.html'), ...eng.map(engPage)];
+const compat = [...courses.flatMap((c) => ROUTES.map((r) => `${c.id}/${r}/index.html`)), ...ROUTES.map((r) => `semester-1/english/old-links/${r}/index.html`)];
 const pages = [...home, ...subjects, ...sources, ...lessonPages, ...compat];
-assert.equal(pages.length, 49);
+assert.equal(pages.length, 74);
 const html = new Map(pages.map((p) => [p, read(p)]));
 for (const c of courses) assert.ok(!fs.existsSync(path.join(root, `${c.id}/index.html`)), `${c.id}/index.html: the old subject hub is gone (redirected)`);
 
 for (const p of home) {
   const h = html.get(p);
   const cards = [...h.matchAll(/<article class="subject-card[^"]*" data-subject="([^"]+)">([\s\S]*?)<\/article>/g)];
-  assert.deepEqual(cards.map((m) => m[1]), courses.map((c) => c.id), `${p}: exactly three subjects`);
-  for (const [, id, card] of cards) {
-    const c = courses.find((x) => x.id === id);
-    assert.deepEqual([...card.matchAll(/href="([^"]+)"/g)].map((m) => m[1]), [`/semester-1/${c.path}/`], `${p}: one action for ${id}`);
-  }
+  assert.deepEqual(cards.map((m) => m[1]), SUBJECT_IDS, `${p}: exactly the four authorised subjects`);
+  for (const [, id, card] of cards) assert.deepEqual([...card.matchAll(/href="([^"]+)"/g)].map((m) => m[1]), [`/semester-1/${subjectPath(id)}/`], `${p}: one action for ${id}`);
+  assert.deepEqual([...h.match(/<nav aria-label="Subjects">([\s\S]*?)<\/nav>/)[1].matchAll(/href="([^"]+)"/g)].map((m) => m[1]), SUBJECT_IDS.map((id) => `/semester-1/${subjectPath(id)}/`), `${p}: subject navigation`);
   assert.ok(!/\b\d+\s+(?:lessons?|topics?|units?|notes?|examples?|checks?)\b/i.test(text(h)), `${p}: no totals on the entrance`);
 }
 const branding = /\b(?:Book|Pearson|Educator)\b|engine-card|route-topic|compare-bar|class="compare/;
@@ -145,7 +150,11 @@ for (const c of courses) c.lessons.forEach((l, i) => {
   assert.deepEqual([...nav.matchAll(/href="([^"]+)"/g)].map((m) => m[1]), [prev?.href, `/semester-1/${c.path}/`, next?.href].filter(Boolean), `${p}: previous / contents / next`);
   if (next) assert.ok(h.includes(`Next: <a href="${next.href}">`), `${p}: points to the next lesson`);
 });
-for (const p of [...home, ...subjects, ...lessonPages]) assert.ok(!branding.test(html.get(p)), `${p}: no route branding or compare bars on student pages`);
+const scienceStudentPages = [...home, ...subjects.filter((p) => !p.includes('/english/')), ...all.map((l) => l.href.slice(1) + 'index.html')];
+for (const p of scienceStudentPages) assert.ok(!branding.test(html.get(p)), `${p}: no route branding or compare bars on student pages`);
+// English lesson text may name publishers in its own disclaimers (“not recordings from Cambridge, Pearson or Educator”),
+// so on English pages the check is structural: no route choice, route labels or compare bars.
+for (const p of [subjects.find((x) => x.includes('/english/')), ...eng.map(engPage)]) assert.ok(!/engine-card|route-topic|compare-bar|class="compare|\b(?:Book|Pearson|Educator) (?:route|collection|version)\b/.test(html.get(p)), `${p}: no route choice on English pages`);
 
 // ---------- migration ledger ----------
 const units = [];
@@ -196,6 +205,127 @@ assert.match(read('semester-1/assets/old-links.js'), /location\.replace\(link\.g
 for (const [p, id, dest] of [['semester-1/physics/motion/index.html', 'support-relative-motion', '/semester-1/physics/relative-motion/'], ['semester-1/chemistry/atomic-structure/index.html', 'support-amount-and-formulas', '/semester-1/chemistry/moles-and-formulas/'], ['semester-1/chemistry/bonding/index.html', 'support-chemical-naming', '/semester-1/chemistry/chemical-naming/'], ['semester-1/chemistry/bonding/index.html', 'support-intermolecular-forces', '/semester-1/chemistry/intermolecular-forces/']])
   assert.match(html.get(p), new RegExp(`id="${id}"[^>]*>[^<]*<a href="${dest}"`), `${p}: #${id} points to ${dest}`);
 
+// ---------- English ----------
+{
+  const packDir = path.join(root, 'tools/content/english/pack');
+  // The supplied pack is kept exactly as delivered; corrections live in tools/content/english/index.mjs.
+  const sums = JSON.parse(fs.readFileSync(path.join(packDir, 'checksums.json'), 'utf8'));
+  for (const [f, sha] of Object.entries(sums)) assert.equal(createHash('sha256').update(fs.readFileSync(path.join(packDir, f))).digest('hex'), sha, `English pack file ${f} differs from the delivered version`);
+  const H = (s) => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+  const manifestIds = english.manifest.lessons.map((m) => m.id);
+  assert.deepEqual(eng.map((l) => l.id), manifestIds, 'English lessons follow the manifest order');
+  assert.equal(eng.length, 20);
+  assert.equal(eng.filter((l) => l.media_status === 'recording_required').length, 5);
+  for (const c of english.corrections) assert.ok(c.reason?.length > 40, 'every English correction is recorded with its reason');
+  const registry = new Map(english.sourceRegistry.map((s) => [s.id, s]));
+  const contents = html.get('semester-1/english/index.html');
+  const engSources = html.get('semester-1/english/sources/index.html');
+  let last = -1;
+  const strings = [];
+  const walk = (v) => { if (typeof v === 'string') strings.push(v); else if (v && typeof v === 'object') Object.values(v).forEach(walk); };
+  for (const l of eng) {
+    const p = engPage(l), h = html.get(p), at = `${l.id} ${p}`;
+    walk({ ...l, original: undefined });
+    // Contents: in order, each lesson once.
+    const pos = contents.indexOf(`<li class="topic-row" id="topic-${slug(l.title)}">`);
+    assert.ok(pos > last, `${at}: listed in order on the English contents`); last = pos;
+    // Prerequisites come earlier and link only to real lessons.
+    for (const pre of l.prerequisites) {
+      const target = eng.find((x) => x.id === pre);
+      assert.ok(target && target.n < l.n, `${at}: prerequisite ${pre} comes earlier`);
+      assert.ok(h.slice(h.indexOf('<section id="background"'), h.indexOf('<section id="idea"')).includes(`href="${target.href}"`), `${at}: links its prerequisite ${pre}`);
+    }
+    // The language layout, not the science schema.
+    const ids = [...h.matchAll(/<section id="([^"]+)" class="reading-section">/g)].map((m) => m[1]);
+    assert.deepEqual(ids, ['why', 'background', 'idea', 'pattern', 'examples', 'second-example', 'mistakes', 'scope'], `${at}: lesson pattern`);
+    assert.ok(h.includes('<h2>Language pattern</h2>') && !/Symbols, meanings and units|The formulas and what they mean|Conditions and limits/.test(h), `${at}: language headings, not formula headings`);
+    for (const x of [l.purpose, ...l.explanation, l.language_pattern.form, l.language_pattern.meaning, l.language_pattern.limits, ...l.takeaways, l.scope]) assert.ok(h.includes(H(x)), `${at}: text shown: ${x.slice(0, 40)}`);
+    // Two fully visible worked examples: model text marked as a quotation, with every annotation.
+    assert.equal(l.worked_examples.length, 2, `${at}: two worked examples`);
+    assert.equal((h.match(/<figure class="model-text">/g) || []).length, 2, `${at}: two model texts`);
+    for (const e of l.worked_examples) {
+      for (const para of e.model.split(/\n{2,}/)) assert.ok(h.includes(H(para).replace(/\n/g, '<br>')), `${at}: model of "${e.title}" is shown in full`);
+      for (const a of [e.context, e.meaning, ...e.annotations]) assert.ok(h.includes(H(a)), `${at}: "${e.title}": ${a.slice(0, 40)}`);
+    }
+    // Incorrect drafts are labelled and styled apart from explanations and models.
+    for (const m of l.common_mistakes) {
+      assert.ok(h.includes(`<strong>Draft (not correct):</strong> <span class="draft-text">${H(m.draft)}</span>`), `${at}: draft labelled as not correct`);
+      assert.ok(h.includes(H(m.revision)) && h.includes(H(m.reason)), `${at}: revision and reason shown`);
+    }
+    // Written models of listening and speaking are labelled honestly; there is no player.
+    const recording = l.media_status === 'recording_required';
+    assert.equal(h.includes('class="media-note"'), recording, `${at}: written-model notice only where recordings are missing`);
+    if (recording) assert.equal((h.match(/Model script \(written; not yet recorded\)/g) || []).length, 2, `${at}: model scripts labelled as not recorded`);
+    // Source alignment links to the English Sources and credits entries.
+    for (const id of l.source_refs) {
+      assert.ok(registry.has(id), `${at}: known source ${id}`);
+      assert.ok(h.includes(`href="/semester-1/english/sources/#source-${id.toLowerCase()}"`), `${at}: credits link for ${id}`);
+    }
+    // No placement, band, GPA or level claims.
+    assert.ok(!/\bband\s*(?:score\s*)?\d|\b(?:A1|A2|B1|B2|C1|C2)\b|\bGPA\b|IELTS [5-9]/.test(text(h)), `${at}: no level, band or grade claim`);
+  }
+  // Punctuation: curly apostrophes and quotation marks, no stray spaces, in every supplied string.
+  for (const s of strings) {
+    assert.ok(!/[A-Za-z]'[A-Za-z]|"/.test(s), `straight quote or apostrophe in English text: ${s.slice(0, 60)}`);
+    assert.ok(!/ [,.;:!?]| {2}|\s$|^\s/.test(s.replace(/\n/g, '')), `spacing problem in English text: ${s.slice(0, 60)}`);
+  }
+  // ENG-11: the data are shown before the model, and the model and later lessons agree with them.
+  const e11 = eng.find((l) => l.id === 'ENG-11'), h11 = html.get(engPage(e11));
+  assert.ok(h11.indexOf('<table>') > 0 && h11.indexOf('<table>') < h11.indexOf('<figure class="model-text">'), 'ENG-11: data table before its model description');
+  const [t] = e11.assets;
+  const [y15, y20, y25] = t.rows.map(([year, bus, walk, car]) => ({ year, bus, walk, car }));
+  for (const r of [y15, y20, y25]) assert.equal(r.bus + r.walk + r.car, 100, `${r.year} shares total 100%`);
+  for (const r of [y15, y20, y25]) for (const v of [r.year, r.bus, r.walk, r.car]) assert.ok(h11.includes(`<td>${v}</td>`) || h11.includes(`<th scope="row">${v}</th>`), `ENG-11 table shows ${v}`);
+  const m1 = e11.worked_examples[0].model;
+  const words = (s) => s.split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w)).length;
+  assert.ok(words(m1) >= 150, `Task 1 model has at least 150 words (${words(m1)})`);
+  assert.ok(e11.worked_examples[0].context.includes(`2015: bus ${y15.bus}, walking ${y15.walk}, car ${y15.car}. 2020: bus ${y20.bus}, walking ${y20.walk}, car ${y20.car}. 2025: bus ${y25.bus}, walking ${y25.walk}, car ${y25.car}.`), 'ENG-11 context repeats the table');
+  const claims = [
+    [y15.bus === y15.car && y15.bus === 40 && y15.walk === 20, 'In 2015, buses and cars each represented 40% of the sample, whereas walking accounted for the remaining 20%.'],
+    [y20.bus === 50, 'the bus share had risen to 50%'],
+    [y20.walk === y20.car && y20.walk === 25, 'Walking and car travel were then equal at 25% each.'],
+    [y25.bus === 55 && y25.bus > 50, 'the proportion reporting bus travel had reached 55%'],
+    [y25.walk === 30, 'walking had increased to 30%'],
+    [y25.car === 15 && y15.car - y25.car === 25, 'Car travel, in contrast, had declined to 15%, a fall of 25 percentage points from its initial level.'],
+    [y20.walk - y15.walk === 5 && y25.walk - y20.walk === 5, 'at five percentage points between each pair of surveys'],
+    [y25.bus - y20.bus < y20.bus - y15.bus, 'the growth in bus use slowed in the second interval'],
+    [y20.bus > Math.max(y20.walk, y20.car) && y25.bus > Math.max(y25.walk, y25.car), 'Bus travel was the largest category in the final two surveys'],
+    [y25.bus > 50, 'by 2025 it accounted for more than half of the responses'],
+    [y25.walk > y15.walk && y25.bus > y15.bus && y25.car < y15.car, 'Overall, bus use and walking became more common, while the proportion travelling mainly by car fell.'],
+  ];
+  for (const [ok, sentence] of claims) { assert.ok(m1.includes(sentence), `ENG-11 model states: ${sentence}`); assert.ok(ok, `ENG-11 data support: ${sentence}`); }
+  const pts = y25.bus - y15.bus, rel = (pts / y15.bus) * 100;
+  assert.equal(pts, 15); assert.equal(rel, 37.5);
+  assert.ok(e11.worked_examples[1].model.includes(`${pts} percentage points, equivalent to a ${rel}% increase`), 'ENG-11 relative change');
+  assert.ok(e11.explanation[1].includes('15 divided by 40, or 37.5%'), 'ENG-11 explanation arithmetic');
+  const e19 = eng.find((l) => l.id === 'ENG-19').worked_examples[0].model;
+  assert.ok(e19.includes(`from ${y15.bus}% in 2015 to ${y25.bus}% in 2025, a rise of ${pts} percentage points`) && e19.includes(`from ${y15.car}% to ${y25.car}%`), 'ENG-19 presentation matches the ENG-11 data');
+  assert.ok(eng.find((l) => l.id === 'ENG-20').worked_examples[0].model.includes('forty per cent / to fifty-five per cent. / That is an increase of fifteen percentage points'), 'ENG-20 spoken numbers match the data');
+  const e12 = eng.find((l) => l.id === 'ENG-12').worked_examples[0].model;
+  assert.ok(e12.includes('outlet flow of 150 kg/h') && e12.includes('20/150, or approximately 13.3%') && Math.abs((100 * 0.2) / (100 + 50) * 100 - 13.3) < 0.05, 'ENG-12 mixer arithmetic');
+  const m13 = eng.find((l) => l.id === 'ENG-13').worked_examples[0].model;
+  assert.ok(words(m13) >= 250, `Task 2 model has at least 250 words (${words(m13)})`);
+  // Sources and credits: every reference, with its limits, and no implied endorsement.
+  for (const s of english.sourceRegistry) {
+    assert.ok(engSources.includes(`<li id="source-${s.id.toLowerCase()}" class="source-item"><h3><a href="${H(s.url)}">${H(s.title)}</a></h3>`), `English sources list ${s.id}`);
+    assert.ok(engSources.includes(H(s.limit)), `English sources state the limit of ${s.id}`);
+  }
+  assert.match(text(engSources), /no publisher has reviewed or endorsed this library/);
+  assert.match(text(engSources), /the full book and its licensed audio were not available/);
+  // The 82 blocks of the earlier English pages are all accounted for on the forwarding pages.
+  assert.equal(english.legacy.length, 82);
+  assert.deepEqual(ROUTES.map((r) => english.legacy.filter((x) => x.route === r).length), [23, 28, 31]);
+  for (const r of ROUTES) {
+    const h = html.get(`semester-1/english/old-links/${r}/index.html`);
+    for (const l of eng) assert.ok(h.includes(`<li id="topic-${slug(l.title)}"><a href="${l.href}">`), `English ${r} old link: topic ${l.id}`);
+    for (const x of english.legacy.filter((y) => y.route === r)) {
+      for (const id of x.targets) assert.ok(manifestIds.includes(id), `${x.original}: target ${id} exists`);
+      const dest = x.targets.length ? eng.find((l) => l.id === x.targets[0]).href : '/semester-1/english/';
+      assert.ok(h.includes(`<li id="${x.anchor}"><a href="${dest}">`), `${x.original} forwards to ${dest}`);
+    }
+  }
+}
+
 // ---------- every page ----------
 const deployed = deployedFiles(root);
 const toFile = (url) => (url === '/' ? 'index.html' : url.endsWith('/') ? url.slice(1) + 'index.html' : url.slice(1));
@@ -207,7 +337,13 @@ for (const [p, h] of html) {
   // Reading only: no forms, inputs, buttons, embedded frames or assessment language.
   assert.ok(!/<(?:form|input|button|select|textarea|iframe)\b/i.test(h), `${p}: interactive UI`);
   if (!compat.includes(p)) assert.ok(!/<script\b/i.test(h), `${p}: scripts only on old-link pages`);
-  assert.ok(!/\b(?:quiz|your answer|check your answer|reveal (?:the )?answer|submit|score|grade[sd]?|unlock|test yourself|try it yourself|your progress|progress bar|mark as complete)\b/i.test(text(h)), `${p}: assessment language`);
+  // English lessons discuss grades and scores as subject matter (“the survey did not measure grades”,
+  // “not a score prediction”), so there the bare words are allowed but every assessment phrase is not.
+  const assessment = p.includes('semester-1/english/')
+    ? /\b(?:quiz|your answer|check your answer|reveal (?:the )?answers?|submit (?:your|an?) answer|your (?:score|grade|mark|band)|scored? out of|unlock|test yourself|try it yourself|your progress|progress bar|mark as complete|correct answer|choose the correct)\b/i
+    : /\b(?:quiz|your answer|check your answer|reveal (?:the )?answer|submit|score|grade[sd]?|unlock|test yourself|try it yourself|your progress|progress bar|mark as complete)\b/i;
+  assert.ok(!assessment.test(text(h)), `${p}: assessment language`);
+  assert.ok(!/<(?:audio|video|source|track)\b/i.test(h), `${p}: no media player`);
   assert.ok(!/data-question=|data-bayt-check=|class="answer"|Partially available|Under development/i.test(h), `${p}: old assessment markup`);
   // No unrendered markup and no leftover Arabic machine-translation artefacts in student text.
   assert.ok(!/\{\{|\}\}|\^\{|_\{|\*\*/.test(text(h)), `${p}: unrendered markup`);
@@ -233,10 +369,16 @@ for (const [p, h] of html) {
 // ---------- deployment allow-list ----------
 for (const f of ['middleware.js', 'gate/gate.js', 'gate/login-page.js', 'vercel.json', 'package.json', 'semester-1/assets/study.css', 'semester-1/assets/old-links.js']) assert.ok(deployed.has(f), `deploys ${f}`);
 for (const f of [...deployed]) assert.ok(html.has(f) || /^(?:middleware\.js|vercel\.json|package(?:-lock)?\.json|gate\/[\w-]+\.js|semester-1\/assets\/(?:study\.css|old-links\.js))$/.test(f), `unexpected deployed file ${f}`);
-for (const f of ['program/index.html', 'foundations/index.html', 'english/index.html', 'biology/index.html', 'bayt/planner/index.html', 'bayt/app/index.html', 'semester-1/coverage/index.html', 'semester-1/assets/bayt-practice.mjs', 'resources/claude-next.txt', 'data/project.json', 'docs/semester-architecture.md', 'docs/migration-ledger.md', 'tools/build-study.mjs', 'tools/data/study-library.json', 'tools/data/migration-ledger.json', '.env.example', 'chemistry/atomic/index.html', 'ma101/assets/app.js'])
+for (const f of ['program/index.html', 'foundations/index.html', 'english/index.html', 'english/book/index.html', 'english/pearson/index.html', 'english/educator/index.html', 'tools/content/english/pack/manifest.json', 'biology/index.html', 'bayt/planner/index.html', 'bayt/app/index.html', 'semester-1/coverage/index.html', 'semester-1/assets/bayt-practice.mjs', 'resources/claude-next.txt', 'data/project.json', 'docs/semester-architecture.md', 'docs/migration-ledger.md', 'tools/build-study.mjs', 'tools/data/study-library.json', 'tools/data/migration-ledger.json', '.env.example', 'chemistry/atomic/index.html', 'ma101/assets/app.js'])
   if (fs.existsSync(path.join(root, f))) assert.ok(!deployed.has(f), `must not deploy ${f}`);
 const vercel = JSON.parse(read('vercel.json'));
-for (const s of ['/program/:path*', '/foundations/:path*', '/english/:path*', '/biology/:path*', '/bayt/:path+', '/semester-1/coverage']) assert.ok(vercel.redirects.some((r) => r.source === s && r.destination === '/'), `old URL ${s} redirects to the entrance`);
+for (const s of ['/program/:path*', '/foundations/:path*', '/biology/:path*', '/bayt/:path+', '/semester-1/coverage']) assert.ok(vercel.redirects.some((r) => r.source === s && r.destination === '/'), `old URL ${s} redirects to the entrance`);
+// /english used to redirect home; it must now lead to the English lessons, and the old
+// route pages to their forwarding pages, before the catch-all /english/:path*.
+const rIdx = (src) => vercel.redirects.findIndex((r) => r.source === src);
+for (const [src, dest] of [['/english', '/semester-1/english'], ['/english/:path*', '/semester-1/english'], ...ROUTES.map((r) => [`/english/${r}`, `/semester-1/english/old-links/${r}`])]) assert.ok(rIdx(src) >= 0 && vercel.redirects[rIdx(src)].destination === dest && !vercel.redirects[rIdx(src)].permanent, `${src} → ${dest}`);
+for (const r of ROUTES) assert.ok(rIdx(`/english/${r}`) < rIdx('/english/:path*'), `/english/${r} is matched before the catch-all`);
+assert.ok(!vercel.redirects.some((r) => r.source.startsWith('/english') && r.destination === '/'), 'no English URL is sent back to the entrance');
 for (const c of courses) assert.ok(vercel.redirects.some((r) => r.source === `/${c.id}` && r.destination === `/semester-1/${c.path}` && !r.permanent), `old hub /${c.id} redirects to the ${c.id} contents`);
 const served = new Set(pages.map((p) => '/' + p.replace(/(?:^|\/)index\.html$/, '')).map((u) => u === '/' ? u : u.replace(/\/$/, '')));
 for (const r of vercel.redirects) {
@@ -260,4 +402,4 @@ execFileSync(process.execPath, ['tools/build-study.mjs'], { cwd: root });
 assert.deepEqual(hashes(), before, 'rebuilding the ledger and the pages changes them');
 
 const tally = Object.entries(ledger.notes.reduce((m, n) => ({ ...m, [n.decision]: (m[n.decision] ?? 0) + 1 }), {})).map(([k, v]) => `${k} ${v}`).join(', ');
-console.log(`Study release: ${pages.length} pages (3 entrances, 3 subject contents, 3 sources, ${all.length} lessons, ${compat.length} old-link pages); ${checks} numerical checks (all 259 of aa7c04c traced); ledger: 333 notes (${tally}), ${ledger.sections.length} sections; reading-only; links, anchors and deploy allow-list verified; reproducible build and ledger.`);
+console.log(`Study release: ${pages.length} pages (3 entrances, 4 subject contents, 4 sources, ${all.length} science and ${eng.length} English lessons, ${compat.length} old-link pages); English pack intact, ENG-11 data and models consistent, 82 earlier English blocks forwarded; ${checks} numerical checks (all 259 of aa7c04c traced); ledger: 333 notes (${tally}), ${ledger.sections.length} sections; reading-only; links, anchors and deploy allow-list verified; reproducible build and ledger.`);

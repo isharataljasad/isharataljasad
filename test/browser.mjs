@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { sequence } from '../tools/content/sequence.mjs';
+import * as english from '../tools/content/english/index.mjs';
 
 const require = createRequire(import.meta.url);
 let playwright;
@@ -31,6 +32,9 @@ for (const c of curriculum.courses) {
   for (const e of sequence[c.id]) pages.push(`/semester-1/${c.path}/${typeof e === 'string' ? e : e.id}`);
   for (const r of ['book', 'pearson', 'educator']) pages.push(`/${c.id}/${r}?stay`);
 }
+pages.push('/semester-1/english', '/semester-1/english/sources');
+for (const l of english.lessons) pages.push(`/semester-1/english/${l.slug}`);
+for (const r of ['book', 'pearson', 'educator']) pages.push(`/semester-1/english/old-links/${r}?stay`);
 
 const browser = await playwright.chromium.launch({ executablePath: fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined }).catch(() => playwright.chromium.launch());
 const issues = [];
@@ -107,6 +111,13 @@ const cases = [
   ['/semester-1/physics/motion/#support-relative-motion', '/semester-1/physics/motion#support-relative-motion'],
   ['/semester-1/chemistry/bonding#support-chemical-naming', '/semester-1/chemistry/bonding#support-chemical-naming'],
   ['/program/lessons', '/'],
+  ['/english', '/semester-1/english'],
+  ['/english/', '/semester-1/english'],
+  ['/english/index.html', '/semester-1/english'],
+  ['/english/pearson', '/semester-1/english'],
+  ['/english/book/#lesson-1', `/semester-1/english/${english.lessons.find((l) => l.id === 'ENG-17').slug}`],
+  ['/english/educator#lesson-1', `/semester-1/english/${english.lessons.find((l) => l.id === english.legacy.find((x) => x.route === 'educator' && x.anchor === 'lesson-1').targets[0]).slug}`],
+  ['/english/pearson/#lesson-24', '/semester-1/english'],
   ['/bayt/planner', '/'],
 ];
 for (const key of ['ma101/book/lesson-07', 'phy101/pearson/lesson-03', 'chemistry/educator/lesson-10', 'ma101/educator/lesson-30']) {

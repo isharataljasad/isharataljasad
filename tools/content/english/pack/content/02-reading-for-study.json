@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "publication_status": "editorial_candidate",
+  "lessons": [
+    {
+      "id": "ENG-06",
+      "title": "Read an assignment before collecting material",
+      "group": "02-reading-for-study",
+      "purpose": "Identify the requested action, evidence and boundaries of a university assignment.",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "explanation": [
+        "An assignment usually contains an action, a subject and limits. Describe asks for an organised account of features or events. Compare asks for similarities and differences on a common basis. Evaluate asks for a judgement supported by criteria and evidence. These general meanings help, but the lecturer’s rubric and instructions control what is required in a particular course.",
+        "Separate the topic from the task. A task about study spaces may require a recommendation, not an essay containing everything known about libraries. Record the audience, required format, length and source requirements. If a crucial requirement is unclear, ask for clarification before assuming it.",
+        "Turn the instructions into a short plan showing how each part will be addressed. This is planning the work, not predicting a grade. A polished paragraph can still miss the assignment if it performs the wrong action. Keep the required decision visible while reading and drafting."
+      ],
+      "language_pattern": {
+        "form": "Action + subject + criteria + evidence + deliverable + limits.",
+        "meaning": "Translate the instruction into a concrete plan.",
+        "limits": "The same command word can be used differently across courses; check the actual rubric."
+      },
+      "worked_examples": [
+        {
+          "title": "Compare on the same basis",
+          "context": "Invented instruction: Compare two campus study spaces in terms of noise and opening hours. Use observations from one week.",
+          "model": "The comparison will describe noise and opening hours for both spaces over the same week. One paragraph will compare noise; a second will compare opening hours. A short conclusion will state which differences matter for the specified use.",
+          "annotations": [
+            "Both places are compared against the same criteria.",
+            "The observation period is held constant.",
+            "The plan avoids unsupported claims about examination performance."
+          ],
+          "meaning": "A common basis makes the comparison fair and relevant."
+        },
+        {
+          "title": "Evaluate rather than merely describe",
+          "context": "Invented instruction: Evaluate whether a recorded introduction should supplement an in-person workshop, using access and opportunities for discussion as criteria.",
+          "model": "A recording can improve access for students who miss the introduction, but it offers fewer immediate opportunities for discussion. A combined format is therefore worth considering, provided that students can ask follow-up questions during the workshop.",
+          "annotations": [
+            "The response judges against the two named criteria.",
+            "It considers a benefit and a limitation.",
+            "The recommendation is conditional, rather than a universal claim."
+          ],
+          "meaning": "The judgement should later be supported by the evidence the assignment requires."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The title mentions libraries, so any information about libraries is relevant.",
+          "revision": "Select information that helps answer the requested comparison or judgement.",
+          "reason": "Relevance depends on the task, not only the subject."
+        },
+        {
+          "draft": "A high word count guarantees a strong response.",
+          "revision": "Cover the required parts clearly within the specified length.",
+          "reason": "Length is a constraint, not evidence of quality."
+        }
+      ],
+      "takeaways": [
+        "Find the action before researching.",
+        "Use the same criteria for comparable options.",
+        "Clarify important missing requirements."
+      ],
+      "source_refs": [
+        "PE-LEVEL",
+        "ED-COMP"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-07",
+      "title": "Read for structure before reading every detail",
+      "group": "02-reading-for-study",
+      "purpose": "Identify a passage’s main purpose and distinguish its central point from supporting detail.",
+      "prerequisites": [
+        "ENG-05"
+      ],
+      "explanation": [
+        "Begin with the title, headings and visible structure. They suggest how a text is organised, but they do not replace reading it. A first overview helps you decide whether a paragraph introduces a problem, gives an example, presents evidence or explains a limitation. Then read the relevant passages closely.",
+        "The main idea is broader than a single example but narrower than the entire subject. A text about university libraries may actually argue for different kinds of study space. “Libraries” is only a topic. “A library needs both quiet and collaborative areas” is a claim that the details can develop.",
+        "Skimming is a quick search for overall structure and emphasis; scanning locates a specific detail such as a date or term. Neither method means ignoring the surrounding sentence when deciding what the detail means. A heading can be provisional, and a number can belong to a comparison rather than the author’s main conclusion."
+      ],
+      "language_pattern": {
+        "form": "Topic → main claim → supporting detail → limitation.",
+        "meaning": "Give each part of the passage a role.",
+        "limits": "Not every paragraph puts its main idea in its first sentence."
+      },
+      "worked_examples": [
+        {
+          "title": "See how a passage develops",
+          "context": "Original training passage; the campus and events are invented.",
+          "model": "A campus library replaced one open study area with two smaller rooms. One room was reserved for silent work, while the other allowed group discussion. During the first month, staff received fewer complaints about conversations near individual study desks. However, some project groups found the discussion room too small. The experience suggests that separating activities can reduce conflict, but the size of each area still matters.",
+          "annotations": [
+            "The first two sentences describe the change.",
+            "The next two supply a reported benefit and a limitation.",
+            "The final sentence expresses a qualified conclusion.",
+            "The main idea concerns matching spaces to activities, not simply adding more rooms."
+          ],
+          "meaning": "An overview should preserve the limitation as well as the benefit."
+        },
+        {
+          "title": "Locate a detail and check its role",
+          "context": "A reader wants to know the observation period in the passage above.",
+          "model": "The passage reports staff feedback during the first month after the change.",
+          "annotations": [
+            "Scanning locates “first month”.",
+            "Close reading identifies what happened during that month: staff received feedback.",
+            "The passage does not provide a year-long evaluation."
+          ],
+          "meaning": "The detail must keep its original time boundary."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The passage proves that smaller rooms are always better.",
+          "revision": "The passage describes one change with a benefit and a size limitation.",
+          "reason": "The universal claim goes beyond the invented account."
+        },
+        {
+          "draft": "The heading alone gives the author’s full position.",
+          "revision": "Use the heading as a guide, then read the claims and qualifications.",
+          "reason": "A label cannot establish the complete argument."
+        }
+      ],
+      "takeaways": [
+        "Survey the structure, then read closely.",
+        "Distinguish topic, claim and example.",
+        "Carry limitations into your summary."
+      ],
+      "source_refs": [
+        "CB-TOC",
+        "ED-READ",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-08",
+      "title": "Separate stated evidence from an assumption",
+      "group": "02-reading-for-study",
+      "purpose": "Preserve quantities, conditions and uncertainty when interpreting a text.",
+      "prerequisites": [
+        "ENG-07"
+      ],
+      "explanation": [
+        "A statement can be directly supported, contradicted, or left unresolved by a passage. Absence of evidence for a statement is different from evidence that it is false. Read the exact claim, including words such as some, all, only and may. A small change in one of these words can turn a supported claim into an unsupported one.",
+        "Inference connects information in a text, but it should remain within what the text reasonably supports. If a notice says a room closes at six, it does not tell us why. An attractive explanation based on personal experience is still an assumption unless the passage supplies evidence for it.",
+        "For IELTS-specific question formats, follow the wording of the actual instructions: information questions and writer-view questions are not interchangeable labels. This lesson demonstrates the underlying reading distinction through fully explained examples; it does not ask you to submit answers or predict an examination score."
+      ],
+      "language_pattern": {
+        "form": "Exact claim → relevant evidence → supported, contradicted or unresolved interpretation.",
+        "meaning": "Compare meanings, including their scope.",
+        "limits": "An interpretation may be plausible without being established by the text."
+      },
+      "worked_examples": [
+        {
+          "title": "Preserve some rather than all",
+          "context": "Original notice: “Some evening workshops will move online in November. The daytime timetable will remain unchanged.”",
+          "model": "The notice supports a change to at least part of the evening programme. It contradicts a claim that the daytime timetable will change. It does not establish that all evening workshops will move online.",
+          "annotations": [
+            "Some limits the scope of the first statement.",
+            "Unchanged directly addresses the daytime timetable.",
+            "The notice gives no complete count of evening workshops."
+          ],
+          "meaning": "A statement about part of a group cannot automatically be expanded to the whole group."
+        },
+        {
+          "title": "Do not invent a reason",
+          "context": "Original notice: “The reading room will close at 18:00 on Thursday.”",
+          "model": "Thursday’s closing time is stated. A claim that repairs caused the early closure is unresolved because the notice gives no reason.",
+          "annotations": [
+            "The time is directly available.",
+            "“Because repairs are scheduled” would add information that is not present.",
+            "The reader must not treat an unstated cause as either confirmed or disproved."
+          ],
+          "meaning": "Accurate reading sometimes ends with “the text does not tell us”."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "No reason is given, so repairs definitely are not planned.",
+          "revision": "The reason is not stated.",
+          "reason": "Missing information does not prove its opposite."
+        },
+        {
+          "draft": "May improve means definitely improves.",
+          "revision": "May improve expresses a possibility.",
+          "reason": "The modal verb affects the strength of the claim."
+        }
+      ],
+      "takeaways": [
+        "Track words that limit scope.",
+        "Keep facts separate from plausible explanations.",
+        "Do not turn an unknown into a definite claim."
+      ],
+      "source_refs": [
+        "CB-TOC",
+        "ED-READ"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-09",
+      "title": "Paraphrase and summarise without changing the claim",
+      "group": "02-reading-for-study",
+      "purpose": "Restate a source accurately and distinguish a short summary from a close paraphrase.",
+      "prerequisites": [
+        "ENG-04",
+        "ENG-07",
+        "ENG-08"
+      ],
+      "explanation": [
+        "A paraphrase restates a particular idea in a new structure while preserving its meaning. A summary selects the main points of a longer passage and leaves out less important detail. Replacing individual words with synonyms is unreliable: it can retain the original structure too closely or change the meaning of a technical term.",
+        "Read until the idea is clear, note its essential meaning, then write without following the original sentence word by word. Compare your version with the source afterwards. Check who did what, which group was involved, the time period, numerical values and qualifications. Retain a necessary technical term when a synonym would be inaccurate.",
+        "Paraphrasing does not remove the need to acknowledge someone else’s ideas. Use the citation style required for real assignments and keep enough source information to locate the original. The passage below is an invented teaching example, not a research publication. Its label identifies that status rather than inventing an author or journal."
+      ],
+      "language_pattern": {
+        "form": "Source attribution + accurate restatement + original limits.",
+        "meaning": "Change the expression while preserving the claim.",
+        "limits": "Do not fabricate bibliographic details; a real citation must point to a real source."
+      },
+      "worked_examples": [
+        {
+          "title": "A close paraphrase",
+          "context": "Training passage A: “In a voluntary survey of 40 students, 26 preferred receiving written instructions before a workshop. The survey did not measure their performance.”",
+          "model": "Training passage A reports that 26 of 40 volunteers favoured getting instructions in writing before the workshop; it provides no measurement of how well they performed.",
+          "annotations": [
+            "The participant count and preference count are unchanged.",
+            "Volunteers preserves the sampling condition.",
+            "The final clause keeps the distinction between preference and performance."
+          ],
+          "meaning": "A preference survey cannot be rewritten as evidence that a method improves grades."
+        },
+        {
+          "title": "A shorter summary",
+          "context": "Summarise the same invented passage without every numerical detail.",
+          "model": "Most respondents preferred advance written instructions, but the survey did not assess performance.",
+          "annotations": [
+            "Most is supported because 26 is more than half of 40.",
+            "The details are compressed into the main finding.",
+            "The limitation remains because it affects the interpretation."
+          ],
+          "meaning": "A short summary can omit a number when the numerical detail is not essential to its purpose."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The study proved that written instructions made everyone perform better.",
+          "revision": "The survey reported a majority preference and did not measure performance.",
+          "reason": "The revision removes invented causation and an invented universal result."
+        },
+        {
+          "draft": "Changing a few words means the idea needs no citation.",
+          "revision": "Acknowledge borrowed ideas even when the wording is your own.",
+          "reason": "Expression and intellectual origin are separate matters."
+        }
+      ],
+      "takeaways": [
+        "Understand before rewriting.",
+        "Preserve qualifiers and numbers.",
+        "Cite genuine sources accurately."
+      ],
+      "source_refs": [
+        "CB-INTRO",
+        "ED-COMP",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-10",
+      "title": "Ask for clarification professionally",
+      "group": "02-reading-for-study",
+      "purpose": "Write a short message that gives context and makes a specific request.",
+      "prerequisites": [
+        "ENG-01",
+        "ENG-06"
+      ],
+      "explanation": [
+        "A useful academic message helps the recipient identify the situation quickly. Give a meaningful subject line, a suitable greeting, the relevant course or task, and one specific request. Explain what you have already checked when that prevents unnecessary back-and-forth. Politeness comes from respectful clarity, not from excessive apologising.",
+        "Distinguish clarification from an extension request. Clarification asks what an instruction means. An extension request asks to change an arrangement and may need a reason and a proposed date. Do not imply that permission has been granted merely because you asked. Course policies and the lecturer’s reply determine the outcome.",
+        "Keep confidential information out of a routine message unless it is necessary and the recipient is appropriate. The models below use invented names and circumstances. They are language examples, not messages that have been sent or promises that a request will be accepted."
+      ],
+      "language_pattern": {
+        "form": "Context → what you checked → precise request → brief thanks.",
+        "meaning": "Make it easy for the reader to answer the right question.",
+        "limits": "Adjust the greeting and level of formality to your institution’s conventions."
+      },
+      "worked_examples": [
+        {
+          "title": "Clarify a reference requirement",
+          "context": "A student is unsure whether the word count includes references.",
+          "model": "Subject: Clarification about the report word count\n\nDear Dr Rahman,\nI am preparing the report for Academic Skills. The instructions specify 800 words, but I could not find whether the reference list is included. Could you please confirm whether the 800-word limit applies to the main text only?\nThank you for your guidance.\nKind regards,\nLina",
+          "annotations": [
+            "The subject line identifies the issue.",
+            "The body states the relevant instruction and the missing detail.",
+            "The request has a clear, answerable focus."
+          ],
+          "meaning": "A specific request is easier to resolve than “I do not understand the report”."
+        },
+        {
+          "title": "Request rather than assume a change",
+          "context": "A student asks whether a meeting can move from Tuesday to Wednesday.",
+          "model": "Dear Dr Rahman,\nWould it be possible to move our Tuesday meeting to Wednesday afternoon? I have a timetable conflict on Tuesday. I understand if the original time must remain, and I will follow the arrangement you confirm.\nKind regards,\nLina",
+          "annotations": [
+            "Would it be possible introduces a request.",
+            "The reason is brief and relevant.",
+            "The final sentence recognises that the change is not yet agreed."
+          ],
+          "meaning": "The message preserves the distinction between proposing and confirming."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "You must explain everything to me now.",
+          "revision": "Could you clarify whether the report needs a separate conclusion?",
+          "reason": "The revised request is specific and respectful."
+        },
+        {
+          "draft": "I have changed our meeting to Wednesday.",
+          "revision": "Would Wednesday afternoon be possible?",
+          "reason": "A request should not be presented as an agreed change."
+        }
+      ],
+      "takeaways": [
+        "Provide enough context to identify the task.",
+        "Ask one precise question.",
+        "Do not assume approval before receiving it."
+      ],
+      "source_refs": [
+        "PE-LEVEL",
+        "ED-COMP"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    }
+  ]
+}

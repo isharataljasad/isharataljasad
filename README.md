@@ -1,11 +1,13 @@
 # Bayt Al-Fuad · Semester 1 study library
 
-The student entrance (`/`, `/bayt/`, `/semester-1/`) shows Mathematics, Physics
-and Chemistry, each with one button. Each subject is one ordered sequence of
-lessons (10 + 9 + 12 = 31), and every lesson follows the same pattern: what it
+The student entrance (`/`, `/bayt/`, `/semester-1/`) shows Mathematics, Physics,
+Chemistry and English, each with one button. Each subject is one ordered sequence
+of lessons (10 + 9 + 12 + 20 = 51). Science lessons follow one pattern: what it
 explains, background, the idea with a diagram, formulas with their meaning and
 conditions, a first worked example, a different case, more cases, common
-misunderstandings, then keep in mind and the next lesson. There are no quizzes,
+misunderstandings, then keep in mind and the next lesson. English lessons use a
+language layout: purpose, prerequisites, explanation, language pattern, two
+worked examples with annotations, common mistakes, keep in mind. There are no quizzes,
 answer fields, scores or progress requirements; every worked solution is visible.
 
 ## Where things live
@@ -14,6 +16,9 @@ answer fields, scores or progress requirements; every worked solution is visible
 - `tools/content/<course>/<lesson>.mjs` — lesson text (original English), with
   computed figures and a `checks` list of numerical claims. Four lessons wrap the
   sections in `tools/content/support/`.
+- `tools/content/english/pack/` — the owner's English content pack, unchanged (canonical
+  JSON, source registry, legacy inventory, audio production manifest);
+  `tools/content/english/index.mjs` loads it and applies recorded corrections.
 - `tools/build-study.mjs` — the only builder of student pages (all `build:*` scripts).
   Earlier builders are preserved but refuse to run (`tools/lib/legacy-guard.mjs`).
 - `tools/data/study-library.json` — the 333 earlier collection notes (archive,
@@ -27,7 +32,7 @@ answer fields, scores or progress requirements; every worked solution is visible
 ## Maintain and verify
 
 - `npm ci --ignore-scripts`
-- `npm run build:study` rebuilds the 49 pages (deterministic); run
+- `npm run build:study` rebuilds the 74 pages (deterministic); run
   `node tools/make-ledger.mjs` first after changing the ledger annotations.
 - `npm test` — lessons, 296 numerical checks (all 259 of release aa7c04c traced),
   ledger, old links, reading-only pages, links and anchors, deploy allow-list,
@@ -43,7 +48,7 @@ answer fields, scores or progress requirements; every worked solution is visible
 
 Vercel serves the site through the Git-connected project and the unchanged
 password gate (`middleware.js`, `gate/`). `.vercelignore` is an allow-list: only
-the 49 pages, `semester-1/assets/study.css`, the old-link forwarder
+the 74 pages, `semester-1/assets/study.css`, the old-link forwarder
 `semester-1/assets/old-links.js` and the gate are uploaded; earlier dashboards,
 planners, quiz pages, other subjects, notes and tools stay in the repository
 only. Old URLs redirect as listed in `docs/compatibility-map.md`.

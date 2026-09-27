@@ -1,0 +1,16 @@
+{
+  "audio-production-manifest.json": "ab904911dba2434d0b3ee8f7b4e2e361731f99111d6f6b9edcea1a415f5d19ee",
+  "CLAUDE_ADDENDUM_EN.txt": "afae66c0afa43ef06876ef6db7b42dc2c25831bd43a88e80cf578da920fdbbfb",
+  "legacy-inventory.csv": "c1b0a8f4055f0f130b92e8e15124292ae0a3a7104c313e3c33c9ffd0e9555d47",
+  "manifest.json": "68604617f9351d175f324c6d966fc8fbe50058ced1e3c1d84a47b63c15d03d1f",
+  "READING_COPY_EN.md": "67fc72269ddd8c946e4d912e867b32d75667cd697b8141620975be82bebe9488",
+  "source-registry.json": "415eefa023fe5c0857a62efee65c666b4c970462a1d0bd16e7a49144dc0480e2",
+  "SOURCE_STATUS_EN.md": "34f90ed6084a5f2ad2bc18774be6a2fbdfce8cca72acadd63b860458e8f6544f",
+  "START_HERE_AR.md": "10c4490eb8a3bf8a347f545f48b617d1f9ffe7d454fecef7b328e0b62f671467",
+  "verification.json": "883793b1dd3f4fe2d6d3f002a4e2a22f9024f9c6717c57f202438eb70db14232",
+  "VERIFICATION_EN.md": "8f168577e256ff66188679c5a15ef2e3f03e465e0ed06a4a53eeb11486dccfc8",
+  "content/01-language-foundations.json": "3790aa197cf4dc597acd8cc2d7cbb98591f81dd3e94783f84e5c67e64eb39a5c",
+  "content/02-reading-for-study.json": "84e8812fce7eb3b62038343fb20584d68cf7a622d8140383ed750f41a68e6946",
+  "content/03-academic-writing.json": "ce4afbece73db9677cfa1509fbd4fe07df67edf498d920e20acfc75f7958366d",
+  "content/04-listening-and-speaking.json": "a3c8b405d5eebb25d0a6137eb546e9900311c4f87e4487701e2dbc44ff9d8ac4"
+}

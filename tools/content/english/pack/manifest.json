@@ -1,0 +1,235 @@
+{
+  "title": "English for Study and Communication — foundation content package",
+  "version": "2026-09-27.1",
+  "owner": "Bayt Al-Fuad",
+  "status": "ready_for_integration_review_not_public_release",
+  "language": "en",
+  "main_book_confirmed_by_user": "The Official Cambridge Guide to IELTS",
+  "scope_change": "English becomes a fourth subject beside Mathematics, Physics and Chemistry; keep one integrated learning experience per subject.",
+  "audience": "Students who can already read simple English sentences. Foundation bridge toward academic work and IELTS skills; not an A1 course or a validated CEFR/IELTS level.",
+  "do_not_assume": [
+    "IELTS 7 entry level",
+    "guaranteed GPA or examination improvement",
+    "complete publisher course access",
+    "audio availability",
+    "full university syllabus alignment"
+  ],
+  "canonical_content_files": [
+    "content/01-language-foundations.json",
+    "content/02-reading-for-study.json",
+    "content/03-academic-writing.json",
+    "content/04-listening-and-speaking.json"
+  ],
+  "read_order": [
+    "START_HERE_AR.md",
+    "CLAUDE_ADDENDUM_EN.txt",
+    "manifest.json",
+    "SOURCE_STATUS_EN.md",
+    "the relevant canonical content group only"
+  ],
+  "counts": {
+    "written_lessons": 20,
+    "written_only_ready_for_editorial_integration": 15,
+    "written_models_requiring_recording_for_audio_use": 5,
+    "worked_examples": 40
+  },
+  "lessons": [
+    {
+      "id": "ENG-01",
+      "title": "Build a complete sentence",
+      "file": "content/01-language-foundations.json",
+      "prerequisites": [],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-02",
+      "title": "Choose tense and voice for your meaning",
+      "file": "content/01-language-foundations.json",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-03",
+      "title": "Keep subjects, articles and references clear",
+      "file": "content/01-language-foundations.json",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-04",
+      "title": "Choose precise vocabulary without exaggeration",
+      "file": "content/01-language-foundations.json",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-05",
+      "title": "Build a paragraph that develops one idea",
+      "file": "content/01-language-foundations.json",
+      "prerequisites": [
+        "ENG-01",
+        "ENG-04"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-06",
+      "title": "Read an assignment before collecting material",
+      "file": "content/02-reading-for-study.json",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-07",
+      "title": "Read for structure before reading every detail",
+      "file": "content/02-reading-for-study.json",
+      "prerequisites": [
+        "ENG-05"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-08",
+      "title": "Separate stated evidence from an assumption",
+      "file": "content/02-reading-for-study.json",
+      "prerequisites": [
+        "ENG-07"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-09",
+      "title": "Paraphrase and summarise without changing the claim",
+      "file": "content/02-reading-for-study.json",
+      "prerequisites": [
+        "ENG-04",
+        "ENG-07",
+        "ENG-08"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-10",
+      "title": "Ask for clarification professionally",
+      "file": "content/02-reading-for-study.json",
+      "prerequisites": [
+        "ENG-01",
+        "ENG-06"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-11",
+      "title": "Describe a chart with an overview and accurate comparisons",
+      "file": "content/03-academic-writing.json",
+      "prerequisites": [
+        "ENG-04",
+        "ENG-05",
+        "ENG-08"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-12",
+      "title": "Explain a process and report completed work",
+      "file": "content/03-academic-writing.json",
+      "prerequisites": [
+        "ENG-02",
+        "ENG-05",
+        "ENG-11"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-13",
+      "title": "Develop a position in a complete essay",
+      "file": "content/03-academic-writing.json",
+      "prerequisites": [
+        "ENG-05",
+        "ENG-06",
+        "ENG-09"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-14",
+      "title": "Use evidence without overstating it",
+      "file": "content/03-academic-writing.json",
+      "prerequisites": [
+        "ENG-08",
+        "ENG-09",
+        "ENG-13"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-15",
+      "title": "Revise meaning before polishing words",
+      "file": "content/03-academic-writing.json",
+      "prerequisites": [
+        "ENG-03",
+        "ENG-05",
+        "ENG-14"
+      ],
+      "media_status": "not_required"
+    },
+    {
+      "id": "ENG-16",
+      "title": "Follow a short explanation and organise notes",
+      "file": "content/04-listening-and-speaking.json",
+      "prerequisites": [
+        "ENG-07"
+      ],
+      "media_status": "recording_required"
+    },
+    {
+      "id": "ENG-17",
+      "title": "Track details when a speaker corrects information",
+      "file": "content/04-listening-and-speaking.json",
+      "prerequisites": [
+        "ENG-08",
+        "ENG-16"
+      ],
+      "media_status": "recording_required"
+    },
+    {
+      "id": "ENG-18",
+      "title": "Give a clear spoken explanation",
+      "file": "content/04-listening-and-speaking.json",
+      "prerequisites": [
+        "ENG-04",
+        "ENG-05"
+      ],
+      "media_status": "recording_required"
+    },
+    {
+      "id": "ENG-19",
+      "title": "Present a finding and handle its limits",
+      "file": "content/04-listening-and-speaking.json",
+      "prerequisites": [
+        "ENG-11",
+        "ENG-14",
+        "ENG-18"
+      ],
+      "media_status": "recording_required"
+    },
+    {
+      "id": "ENG-20",
+      "title": "Make spoken meaning easier to follow",
+      "file": "content/04-listening-and-speaking.json",
+      "prerequisites": [
+        "ENG-18",
+        "ENG-19"
+      ],
+      "media_status": "recording_required"
+    }
+  ]
+}

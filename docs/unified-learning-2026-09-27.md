@@ -1,5 +1,10 @@
 # Integrated Semester 1 lessons — candidate for review, 27 September 2026
 
+> **Update (same day): English added as the fourth subject** at the owner's request
+> (`tools/content/english/pack/CLAUDE_ADDENDUM_EN.txt`). See “English” below. The
+> figures further down describe the science subjects; the combined totals are
+> 74 pages and 51 lessons.
+
 Branch `claude/unified-learning`, based on `main` at `aa7c04c` (Codex's verified
 release, which includes Claude's `3a28052`). **Not deployed.** The password gate
 (`middleware.js`, `gate/`), the security headers and the production settings are
@@ -113,18 +118,64 @@ symbols, units, conditions and duplication. Corrections include:
   charge-balance diagram was added to Chemical naming, the only lesson that had
   no figure.
 
+## English (fourth subject)
+
+- **Source:** the owner's *English Foundation Content Pack 2026-09-27* is copied unchanged to
+  `tools/content/english/pack/`. `test/study.mjs` checks all 14 files against the
+  pack's own `checksums.json`. The JSON content is canonical.
+- **Integration:** 20 lessons at `/semester-1/english/<lesson>/` in the manifest order,
+  shown on one contents page under four skill headings. There is no Book, Pearson or
+  Educator choice. Each lesson follows a language layout, not the science schema:
+  what this lesson helps you do → before this lesson (links to prerequisite lessons)
+  → the explanation → **Language pattern** (pattern, what it does, limits) → two
+  fully visible worked examples → common mistakes → keep in mind.
+  - Model texts are shown as marked quotations, so explanations, models and incorrect
+    drafts look different. Drafts are labelled “Draft (not correct)”.
+  - The ENG-11 data table is shown before its model description.
+  - The complete Task 1 (175 words) and Task 2 (298 words) models are reading
+    examples, with no questions or grading.
+- **Audio:** lessons 16–20 are labelled “Written models only” and their scripts “Model
+  script (written; not yet recorded)”. There is no audio or video element anywhere.
+  `audio-production-manifest.json` is kept for a separate recording job.
+- **Claims:** no CEFR placement, IELTS band, GPA gain, publisher endorsement or
+  university alignment is stated. A test rejects band or level claims on English pages.
+- **Sources and credits:** `/semester-1/english/sources`. It lists the ten registry
+  sources, each with how it is used, what was available, its limit, and the lessons
+  aligned with it. It states that the full Official Guide and its audio were not
+  available and that no publisher has reviewed or endorsed the library.
+- **Editorial check:** all 20 lessons were read. I found one genuine problem.
+  Every lesson's scope line said “Foundational reading lesson”, including the
+  writing, listening and speaking lessons. It is corrected to “Foundation lesson”
+  in `tools/content/english/index.mjs`, which records the reason; the pack itself
+  is untouched. I also checked:
+  - ENG-11's travel data against every sentence of its model, and ENG-19 and ENG-20
+    against the same data;
+  - the ENG-12 mixer arithmetic;
+  - the Task 1 and Task 2 word counts;
+  - curly quotation marks and apostrophes, and spacing, in every supplied string.
+- **Old English URLs:** the old `/english` redirects sent students to the entrance.
+  They now go to the English lessons: `/english` and `/english/…` go to the English
+  contents, and `/english/book|pearson|educator` go to forwarding pages at
+  `/semester-1/english/old-links/<route>`. Those pages list the pack's 82 legacy
+  blocks: 23 Book, 28 Pearson and 31 Educator.
+  - Each block links to the first lesson that covers its overlap.
+  - Deferred blocks and old gate or quiz blocks go to the contents page, marked
+    “not part of the new English lessons”.
+  - The old `english/` HTML stays in the repository, is not deployed, and was not
+    modified.
+
 ## Verification — what was checked where
 
 **Local (this container), all passing:**
 
 | Check | Result |
 |---|---|
-| `npm test` → `test/study.mjs` | 49 pages (3 entrances, 3 contents, 3 sources, 31 lessons, 9 old-link pages); 296 numerical checks recomputed; **all 259 checks of aa7c04c traced** by label and value (`tools/data/numeric-checks-aa7c04c.json`); ledger complete (333 notes, valid destinations and anchors, archived text present); lesson pattern and order; one action per subject card and no totals; no route branding on student pages; old-link anchors follow the ledger; no forms, inputs, buttons or iframes; scripts only on old-link pages; links and anchors; deploy allow-list; rebuilding the pages and the ledger changes nothing. |
+| `npm test` → `test/study.mjs` | 74 pages, including the English checks above. Science: 49 pages (3 entrances, 3 contents, 3 sources, 31 lessons, 9 old-link pages); 296 numerical checks recomputed; **all 259 checks of aa7c04c traced** by label and value (`tools/data/numeric-checks-aa7c04c.json`); ledger complete (333 notes, valid destinations and anchors, archived text present); lesson pattern and order; one action per subject card and no totals; no route branding on student pages; old-link anchors follow the ledger; no forms, inputs, buttons or iframes; scripts only on old-link pages; links and anchors; deploy allow-list; rebuilding the pages and the ledger changes nothing. |
 | `npm test` → `test/gate.mjs` | 42 passed, 0 failed (gate unchanged). |
-| `npm test` → `test/routing.mjs` | 49 deployed pages; no clean-URL collisions; complete documents; keyboard-reachable tables; CSP hashes current. |
-| `node test/browser.mjs` (Chromium, preview server with `vercel.json` redirects, headers/CSP and the allow-list) | Every page at 1280 px and 390 px: no console or CSP errors, no horizontal overflow, no clipped or overlapping figure text, no body text under 13 px, the skip link is the first Tab stop, scrollable tables are focusable, fractions have both parts. Old-link pages are readable without JavaScript. 16 old bookmarks land correctly, including fragments. |
+| `npm test` → `test/routing.mjs` | 74 deployed pages; no clean-URL collisions; complete documents; keyboard-reachable tables; CSP hashes current. |
+| `node test/browser.mjs` (Chromium, preview server with `vercel.json` redirects, headers/CSP and the allow-list) | 134 page visits covering every page at 1280 px and 390 px: no console or CSP errors, no horizontal overflow, no clipped or overlapping figure text, no body text under 13 px, the skip link is the first Tab stop, scrollable tables are focusable, fractions have both parts. Old-link pages are readable without JavaScript. 23 old bookmarks land correctly, including fragments and the seven English cases. |
 
-Screenshots: `docs/review-2026-09-27/` (entrance desktop and phone, Physics
+Screenshots: `docs/review-2026-09-27/` (four-subject entrance on desktop and phone, English contents, ENG-11 table before model, ENG-10 message and ENG-17 dialogue on a phone, drafts and revisions, English sources; entrance desktop and phone, Physics
 contents, the Derivative lesson, a phone diagram and a worked example, the bonding
 formulas, the Chemistry sources page, and an old-link page without JavaScript).
 
@@ -149,6 +200,11 @@ password is available here.
    subject specialist or by students.
 4. The old-link forwarding depends on JavaScript for fragments. Without it,
    the list is shown instead.
+5. English: lessons 16–20 need recorded and reviewed audio before they can teach
+   listening or pronunciation. No independent language teacher has reviewed the
+   lessons. The starting level and any university course alignment are unconfirmed.
+   13 deferred and 9 old gate blocks of the earlier English pages are not covered
+   by the new lessons.
 
 ## Readiness recommendation
 

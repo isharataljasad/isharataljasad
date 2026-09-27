@@ -14,7 +14,9 @@ on a Vercel preview or in production.
 | `/ma101` | `/semester-1/math` |
 | `/phy101` | `/semester-1/physics` |
 | `/chemistry` | `/semester-1/chemistry` |
-| `/program…`, `/foundations…`, `/english…`, `/biology…`, `/bayt/…`, `/semester-1/coverage`, … | `/` (unchanged from aa7c04c) |
+| `/english`, `/english/…` (anything else under it) | `/semester-1/english` (before this change these went to `/`) |
+| `/english/book`, `/english/pearson`, `/english/educator` | `/semester-1/english/old-links/<route>`, which forwards `#lesson-N` to the lesson listed for that block in the pack's `legacy-inventory.csv` |
+| `/program…`, `/foundations…`, `/biology…`, `/bayt/…`, `/semester-1/coverage`, … | `/` (unchanged from aa7c04c) |
 
 A URL fragment such as `#topic-motion` is never sent to the server. Browsers
 keep it across a redirect, and the subject contents pages carry the same

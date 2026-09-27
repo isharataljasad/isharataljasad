@@ -16,7 +16,7 @@ const root = path.resolve(import.meta.dirname, '..');
 /* The deployed set is computed from .vercelignore itself (an allow-list). */
 import { deployedFiles } from './lib/deployed.mjs';
 const pages = [...deployedFiles(root)].filter((f) => f.endsWith('.html')).map((f) => path.join(root, f));
-assert.equal(pages.length, 49, `Expected the 49 Semester 1 pages (lessons, contents, sources, entrances and old-link pages), found ${pages.length}`);
+assert.equal(pages.length, 74, `Expected the 74 Semester 1 pages (lessons, contents, sources, entrances and old-link pages), found ${pages.length}`);
 
 const collisions = [];
 for (const file of pages) {

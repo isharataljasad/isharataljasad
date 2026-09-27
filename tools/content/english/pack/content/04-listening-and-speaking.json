@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "publication_status": "editorial_candidate",
+  "lessons": [
+    {
+      "id": "ENG-16",
+      "title": "Follow a short explanation and organise notes",
+      "group": "04-listening-and-speaking",
+      "purpose": "See how a speaker’s structure can become a concise set of meaningful notes.",
+      "prerequisites": [
+        "ENG-07"
+      ],
+      "explanation": [
+        "A spoken explanation often signals its organisation with expressions such as first, for example, however and to sum up. These signals help identify the role of information. A definition establishes meaning, an example illustrates it, and a limitation prevents overgeneralisation. Listen for those roles rather than trying to record every word.",
+        "Good notes preserve relationships. Separate the main point from its supporting example, and mark uncertainty or a limit when the speaker includes one. Abbreviations can save time, but they are useful only if you can understand them later. A neat page that misses the speaker’s contrast is less useful than brief notes that preserve it.",
+        "The original transcript below is a written walkthrough. No audio is included in this package. Reading it can demonstrate the note-taking method, but it cannot verify recognition of speech, accent, timing or pronunciation. A reviewed recording is needed before presenting this as a functioning listening lesson."
+      ],
+      "language_pattern": {
+        "form": "Main point → explanation → example → limit → summary.",
+        "meaning": "Organise notes by the speaker’s message, not by every spoken word.",
+        "limits": "Transcript comprehension and listening comprehension are different; this material has no scored listening task."
+      },
+      "worked_examples": [
+        {
+          "title": "Original mini-lecture script",
+          "context": "Recording script; invented instructional example, approximately one short classroom explanation.",
+          "model": "Today I want to explain why a diagram needs a useful caption. A picture can show where the parts are, but the reader may still need help understanding what the picture is meant to explain. For example, imagine two arrows entering a box and one arrow leaving it. Without labels, we do not know whether the arrows represent people, water or information. Labels identify the parts. A caption can then explain the relationship: two input streams combine into one output stream. However, a caption cannot repair an incorrect diagram. The arrows, labels and explanation must agree. To sum up, a useful figure needs both accurate visual information and words that direct attention to its meaning.",
+          "annotations": [
+            "Today… establishes the topic.",
+            "For example introduces the two-input diagram.",
+            "However marks a limitation: the caption does not fix an inaccurate drawing.",
+            "To sum up restates the combined requirement."
+          ],
+          "meaning": "The notes should preserve both the role of words and the need for an accurate diagram."
+        },
+        {
+          "title": "A completed set of notes",
+          "context": "Notes derived only from the original script above.",
+          "model": "Topic: captions that explain diagrams.\nMain point: a picture may need words to make its meaning clear.\nExample: 2 labelled input streams → box → 1 output stream.\nDistinction: labels name parts; caption explains the relationship.\nLimit: caption cannot fix an incorrect diagram.\nSummary: visual information and explanation must agree.",
+          "annotations": [
+            "The notes group information by purpose.",
+            "The abbreviated diagram keeps the relationship between inputs and output.",
+            "The limitation remains visible instead of being dropped to save space."
+          ],
+          "meaning": "A reader can reconstruct the main explanation without a word-for-word transcript."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "Copy every word and ignore the overall point.",
+          "revision": "Capture the main point, key support and limitations.",
+          "reason": "Notes should remain useful after the talk."
+        },
+        {
+          "draft": "The transcript was easy, so listening is fully mastered.",
+          "revision": "Use a reviewed recording to assess how the material is understood through sound.",
+          "reason": "Text alone does not establish a listening outcome."
+        }
+      ],
+      "takeaways": [
+        "Track the role of each part of the explanation.",
+        "Preserve contrasts and limits.",
+        "Audio remains to be recorded and reviewed."
+      ],
+      "source_refs": [
+        "CB-TOC",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "recording_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-17",
+      "title": "Track details when a speaker corrects information",
+      "group": "04-listening-and-speaking",
+      "purpose": "Distinguish an initial suggestion from the final agreed arrangement and keep units with numbers.",
+      "prerequisites": [
+        "ENG-08",
+        "ENG-16"
+      ],
+      "explanation": [
+        "Conversations can include suggestions, corrections and final decisions. A speaker may mention one room, reject it and agree on another. The first number you hear is not necessarily the answer to the practical question of where or when an event will happen. Follow the words that update the arrangement: actually, instead, let us change that, or we have now agreed.",
+        "Keep categories separate: a time is different from a duration, and a room number is different from a floor. In personal notes, include enough of the category to prevent confusion later. When an important number is unclear in real communication, repeat it back for confirmation rather than pretending to understand.",
+        "The examples below are original written dialogues with their interpretation already visible. A recording is still required for auditory learning. They are not recordings from Cambridge, Pearson or Educator, and they are not a simulated scored examination."
+      ],
+      "language_pattern": {
+        "form": "Initial information → correction or confirmation → final arrangement.",
+        "meaning": "Update the record when the speaker changes the decision.",
+        "limits": "The written examples do not demonstrate number recognition through sound."
+      },
+      "worked_examples": [
+        {
+          "title": "Follow a changed meeting arrangement",
+          "context": "Original dialogue between two fictional classmates.",
+          "model": "Nora: We planned to meet on Tuesday at 14:15 in Room 204.\nOmar: Room 204 is unavailable then. Could we use Room 206?\nNora: Yes, Room 206 is available. The time stays the same.\nOmar: Just to confirm: Tuesday, quarter past two in the afternoon, Room 206?\nNora: That is correct. We have the room for 45 minutes.",
+          "annotations": [
+            "Room 204 belongs to the initial plan.",
+            "Room 206 is the agreed replacement.",
+            "14:15 and quarter past two in the afternoon express the same time.",
+            "45 minutes is the duration, not another starting time."
+          ],
+          "meaning": "Completed note: Tuesday, 14:15, Room 206, duration 45 minutes."
+        },
+        {
+          "title": "Confirm a number instead of guessing",
+          "context": "Original dialogue; the initial uncertainty is explicitly resolved.",
+          "model": "Student: Is the registration fee fifteen or fifty riyals?\nAssistant: Fifteen riyals: one five.\nStudent: Thank you. I will note fifteen riyals.",
+          "annotations": [
+            "The student identifies the uncertainty directly.",
+            "One five confirms the digits.",
+            "The final note contains both the value and the currency."
+          ],
+          "meaning": "A brief confirmation can prevent a practical misunderstanding."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "Record Room 204 because it was mentioned first.",
+          "revision": "Record Room 206 because the speakers agree on it after the correction.",
+          "reason": "The final confirmed information controls the arrangement."
+        },
+        {
+          "draft": "Write 45 as the meeting time.",
+          "revision": "Write 14:15 as the start and 45 minutes as the duration.",
+          "reason": "The two numbers describe different quantities."
+        }
+      ],
+      "takeaways": [
+        "Follow corrections through to the final decision.",
+        "Keep times, durations and locations separate.",
+        "Confirm important uncertain details."
+      ],
+      "source_refs": [
+        "CB-TOC",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "recording_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-18",
+      "title": "Give a clear spoken explanation",
+      "group": "04-listening-and-speaking",
+      "purpose": "Develop a short spoken response with a main point, a reason and a concrete example.",
+      "prerequisites": [
+        "ENG-04",
+        "ENG-05"
+      ],
+      "explanation": [
+        "A useful spoken explanation gives the listener a clear starting point. State the main point, add a relevant reason and use an example if it helps. The pattern provides organisation; it does not require a memorised opening or the same number of sentences every time. A short direct response can be appropriate when the question is narrow.",
+        "Examples should make the idea more concrete. If you describe a preferred study location, name the feature that matters and show how it affects the situation. Avoid impressive vocabulary that you cannot use naturally or explain. A listener needs meaning more than a list of advanced words.",
+        "A written model cannot show whether a speaker is intelligible, fluent or appropriately paced. The models here are original scripts for later recording. They are not an IELTS speaking score, a complete long-turn performance, or evidence of a learner’s speaking level."
+      ],
+      "language_pattern": {
+        "form": "Main point → reason → example → relevant qualification.",
+        "meaning": "Give the listener enough development to follow the idea.",
+        "limits": "Adapt the length to the actual situation. Do not present an example as your own experience if it is not true."
+      },
+      "worked_examples": [
+        {
+          "title": "Explain a preference",
+          "context": "Fictional speaker describing a useful place to study.",
+          "model": "I usually prefer a quiet area of the library when I need to read something difficult. The main reason is that I can follow an argument without repeatedly losing my place. For example, when a chapter introduces several new terms, I like to keep a short list beside the text and connect each term to an example. A quiet space makes that routine easier for me. However, I would choose a discussion room for a group project, because explaining ideas to other people requires a different kind of space.",
+          "annotations": [
+            "The opening states a clear preference for a particular task.",
+            "The example shows what the speaker does.",
+            "The final contrast limits the preference to the relevant situation."
+          ],
+          "meaning": "The script models an organised explanation without pretending that one study space is best for every activity."
+        },
+        {
+          "title": "Explain a simple decision",
+          "context": "Fictional group deciding how to organise a presentation.",
+          "model": "We put the main finding before the background details. This helps the audience understand why the rest of the presentation matters. We still include the necessary context, but we introduce it after stating the question and our conclusion.",
+          "annotations": [
+            "The first sentence identifies the decision.",
+            "The second explains its intended communication purpose.",
+            "The final sentence prevents the misunderstanding that background should be removed entirely."
+          ],
+          "meaning": "An explanation becomes clearer when it states both the decision and its boundary."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "Use difficult words even if their meaning is uncertain.",
+          "revision": "Use precise words you can control.",
+          "reason": "Unfamiliar vocabulary can obscure the intended meaning."
+        },
+        {
+          "draft": "Memorise the model as a claim about your own life.",
+          "revision": "Use the structure while describing your real experience.",
+          "reason": "A model provides language, not a personal history."
+        }
+      ],
+      "takeaways": [
+        "State the point early.",
+        "Choose an example that develops it.",
+        "Speaking delivery still needs an audio model and review."
+      ],
+      "source_refs": [
+        "CB-INTRO",
+        "CB-SPEAK-SAMPLE",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "recording_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-19",
+      "title": "Present a finding and handle its limits",
+      "group": "04-listening-and-speaking",
+      "purpose": "Explain a small set of results to an audience and respond honestly when the evidence is incomplete.",
+      "prerequisites": [
+        "ENG-11",
+        "ENG-14",
+        "ENG-18"
+      ],
+      "explanation": [
+        "A short presentation can follow a clear line: what we examined, what the information shows, and what it means within its limits. Name the chart or table before discussing its details. Say the units aloud when needed, and highlight the comparison the audience should notice.",
+        "Use a slide or figure to support the message rather than to display a full script. A listener should not have to read a dense paragraph while listening to different words. Labels, a short title and the relevant data can be enough. Match every spoken claim to the visible figure.",
+        "When information is missing, separate what is known from what would need further investigation. Acknowledging a limit is more useful than improvising a confident but unsupported answer. The models below are complete demonstration statements, not an interactive oral test."
+      ],
+      "language_pattern": {
+        "form": "Purpose → key finding → supporting comparison → limitation → next information need.",
+        "meaning": "Make the evidence and its boundaries audible.",
+        "limits": "This package supplies text models, not recorded delivery or an assessment of speaking performance."
+      },
+      "worked_examples": [
+        {
+          "title": "Present the invented travel dataset",
+          "context": "Use the invented data in ENG-11; this is not a report of a real campus survey.",
+          "model": "This table compares the main travel modes reported in three invented campus surveys. I would like to highlight one pattern: the bus share rose while the car share fell. Bus travel increased from 40% in 2015 to 55% in 2025, a rise of 15 percentage points. Over the same period, the car share declined from 40% to 15%. Walking also became more common. These figures describe reported main travel mode. They do not tell us why the pattern changed or how many journeys each person made. To investigate those issues, we would need additional information about travel behaviour and the survey method.",
+          "annotations": [
+            "The opening states that the data are invented.",
+            "One main pattern guides the presentation.",
+            "The numbers match the table and their units are named.",
+            "The final sentences distinguish description from explanation."
+          ],
+          "meaning": "A clear presentation tells the audience both what the data show and what they do not show."
+        },
+        {
+          "title": "Handle a missing explanation",
+          "context": "Demonstration response when someone attributes the bus increase to lower fares, which the data do not report.",
+          "model": "Lower fares are one possible explanation, but we did not include fare data in this example. The table supports the change in reported travel mode, not its cause. We would need information about fares and other relevant changes before evaluating that explanation.",
+          "annotations": [
+            "Possible labels the explanation as a hypothesis.",
+            "The response returns to the evidence available.",
+            "The final sentence identifies an information need without pretending the question is settled."
+          ],
+          "meaning": "An honest limit can be explained clearly and professionally."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The audience can infer every unit from the slide.",
+          "revision": "Name the unit when introducing the quantity.",
+          "reason": "Listeners may not read the figure at the same pace as the speaker."
+        },
+        {
+          "draft": "A confident answer is better than admitting an unknown.",
+          "revision": "State the known result and the missing evidence.",
+          "reason": "Confidence does not replace evidence."
+        }
+      ],
+      "takeaways": [
+        "Guide attention to one main finding.",
+        "Make every number match the visual.",
+        "Explain uncertainty directly."
+      ],
+      "source_refs": [
+        "PE-LEVEL",
+        "ED-COMP"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "recording_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-20",
+      "title": "Make spoken meaning easier to follow",
+      "group": "04-listening-and-speaking",
+      "purpose": "Use meaningful groups, emphasis and brief repair phrases to support an understandable message.",
+      "prerequisites": [
+        "ENG-18",
+        "ENG-19"
+      ],
+      "explanation": [
+        "Speech becomes easier to follow when related words are grouped together. A short pause can separate the topic from the explanation or mark a contrast. Pausing after every word can break the meaning, while rushing through a long sentence can hide its structure. The slash marks below indicate possible meaning groups for a future recording; they are not punctuation to copy into formal prose.",
+        "Emphasis can show which information is new or being corrected. “Fifteen, not fifty” directs attention to the contrast. It does not mean every important word should be spoken loudly. The goal is intelligibility and meaning, not imitation of a supposedly superior accent. Pronunciation can vary across legitimate varieties of English.",
+        "A speaker can repair a message without abandoning it. “Let me rephrase that” introduces a clearer version; “I mean…” can correct an unintended word. When listening, asking for a word to be repeated is different from asking for the whole idea to be explained. Actual pronunciation and pacing need reviewed audio; written grouping is only preparation."
+      ],
+      "language_pattern": {
+        "form": "Meaning group / meaning group; clarification → corrected statement.",
+        "meaning": "Keep related words together and make corrections easy to follow.",
+        "limits": "Slashes and emphasis marks are instructional notation, not phonetic transcription or proof of correct pronunciation."
+      },
+      "worked_examples": [
+        {
+          "title": "Group an explanation",
+          "context": "Original script with suggested phrase boundaries for a recording.",
+          "model": "The bus share rose from forty per cent / to fifty-five per cent. / That is an increase of fifteen percentage points / across the period shown.",
+          "annotations": [
+            "The first group states the starting value and the next supplies the endpoint.",
+            "A sentence boundary separates the values from the interpretation.",
+            "The quantity “fifteen percentage points” stays together."
+          ],
+          "meaning": "The recording should use natural phrasing; the written grouping is a guide rather than a fixed rhythm."
+        },
+        {
+          "title": "Repair an incorrect word",
+          "context": "Original demonstration of a self-correction.",
+          "model": "The fee is fifty—sorry, I mean fifteen riyals. Let me say the digits: one five.",
+          "annotations": [
+            "The speaker explicitly corrects the earlier number.",
+            "I mean introduces the intended value.",
+            "The digit sequence provides a second clear confirmation."
+          ],
+          "meaning": "The listener should retain the corrected value rather than both conflicting numbers."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "Speak as quickly as possible to sound fluent.",
+          "revision": "Use a pace that keeps meaning and word boundaries understandable.",
+          "reason": "Speed alone is not fluency or intelligibility."
+        },
+        {
+          "draft": "Any pause means the speaker has failed.",
+          "revision": "Use natural pauses that support the message.",
+          "reason": "Speech contains useful planning and grouping pauses."
+        }
+      ],
+      "takeaways": [
+        "Group words by meaning.",
+        "Make a correction explicit.",
+        "Record and review audio before claiming a pronunciation lesson is complete."
+      ],
+      "source_refs": [
+        "CB-SPEAK-SAMPLE",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "recording_required",
+      "assets": []
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "publication_status": "editorial_candidate",
+  "lessons": [
+    {
+      "id": "ENG-01",
+      "title": "Build a complete sentence",
+      "group": "01-language-foundations",
+      "purpose": "Recognise the main message of a sentence and connect a reason without leaving an unfinished thought.",
+      "prerequisites": [],
+      "explanation": [
+        "A sentence tells the reader something complete. In an ordinary statement, find the subject and the verb that carries tense: in “The student checks the result”, student is the subject and checks is the present-tense verb. Words around this pair can add detail without changing the basic message. Instructions can omit an explicit subject: “Check the result” has an understood you.",
+        "A group beginning with because, although or if often depends on another clause. “Because the library closed” leaves the reader waiting for the consequence. “We studied at home because the library closed” gives both a complete statement and its reason. The connector expresses the relationship; it is not decoration.",
+        "Two complete statements need a suitable boundary. A full stop is often the clearest choice. A coordinating conjunction such as but can join them when the relationship matters. A comma by itself usually cannot join two independent clauses in formal academic writing. Long sentences are useful only when their parts remain clear."
+      ],
+      "language_pattern": {
+        "form": "Complete statement + because + reason; Although + situation, + complete statement.",
+        "meaning": "Attach the dependent information to the main message.",
+        "limits": "Some short utterances are natural in conversation. The examples here concern complete academic prose."
+      },
+      "worked_examples": [
+        {
+          "title": "Repair a fragment",
+          "context": "Draft: “Although the room was quiet.” The intended message is that the students still could not concentrate.",
+          "model": "Although the room was quiet, the students could not concentrate.",
+          "annotations": [
+            "The students could not concentrate is a complete statement.",
+            "Although introduces an unexpected contrast.",
+            "The opening dependent clause is followed by a comma."
+          ],
+          "meaning": "The sentence expresses a contrast; it does not claim that quietness caused the difficulty."
+        },
+        {
+          "title": "Separate two findings",
+          "context": "Draft: “The first trial ended the team recorded the result.”",
+          "model": "The first trial ended. The team recorded the result.",
+          "annotations": [
+            "Each statement has its own subject and verb.",
+            "A full stop marks the boundary without inventing a causal relationship.",
+            "“After the first trial ended, the team recorded the result” is also possible if the sequence is intended."
+          ],
+          "meaning": "Choose the connection that matches the meaning, rather than making every sentence longer."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "Because the instructions were unclear.",
+          "revision": "We requested clarification because the instructions were unclear.",
+          "reason": "The reason is now attached to a complete message."
+        },
+        {
+          "draft": "The result was unexpected, we repeated the measurement.",
+          "revision": "The result was unexpected, so we repeated the measurement.",
+          "reason": "So connects two complete clauses and makes the consequence explicit."
+        }
+      ],
+      "takeaways": [
+        "Find the main message before adding detail.",
+        "Use a connector for a real relationship.",
+        "A clear short sentence is preferable to an uncontrolled long one."
+      ],
+      "source_refs": [
+        "ED-GRAM",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-02",
+      "title": "Choose tense and voice for your meaning",
+      "group": "01-language-foundations",
+      "purpose": "Distinguish a general process from completed work and choose active or passive voice deliberately.",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "explanation": [
+        "Tense locates a statement in time or presents it as generally true. “The system records the temperature every minute” describes a routine. “The system recorded the temperature yesterday” describes completed work. A report can correctly contain several tenses because its sentences have different purposes. Consistency means a clear time relationship, not putting every verb in one tense.",
+        "Active voice names the doer before the action: “The team checked the sensor.” Passive voice makes the affected item the subject: “The sensor was checked.” Passive voice is useful when the item or procedure matters more than the doer. Active voice can be more direct when responsibility matters. Neither voice automatically makes a sentence more accurate or more academic.",
+        "Build an ordinary passive with a form of be and a past participle. Preserve time: is checked for a routine, was checked for a completed event. Some verbs do not normally take a passive because they have no object to promote: “The temperature rose”, not “The temperature was risen”. Follow any specific reporting conventions required by the course."
+      ],
+      "language_pattern": {
+        "form": "Routine: the team checks / the sensor is checked. Completed work: the team checked / the sensor was checked.",
+        "meaning": "Time and focus are separate choices.",
+        "limits": "Changing voice should preserve the underlying event. It can change emphasis or remove information about who acted."
+      },
+      "worked_examples": [
+        {
+          "title": "A general process",
+          "context": "A short guide explains how an ordinary water-filter system operates.",
+          "model": "Water enters the filter. The filter removes suspended particles. The filtered water is collected in a tank.",
+          "annotations": [
+            "Present tense describes the general sequence.",
+            "The second sentence uses active voice because the filter is a useful subject.",
+            "The third uses passive voice to keep attention on the water."
+          ],
+          "meaning": "Mixed voice is appropriate when each sentence remains clear."
+        },
+        {
+          "title": "A completed investigation",
+          "context": "A team describes what it actually did on Monday.",
+          "model": "We checked the balance before the trial. Each sample was weighed twice, and both readings were recorded.",
+          "annotations": [
+            "Checked, was weighed and were recorded all locate the actions in the completed investigation.",
+            "We makes responsibility clear in the first sentence.",
+            "Each sample is singular; both readings is plural."
+          ],
+          "meaning": "The passive does not require present tense. It follows the time of the event."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The students was asked to submit the report.",
+          "revision": "The students were asked to submit the report.",
+          "reason": "The auxiliary agrees with the plural subject."
+        },
+        {
+          "draft": "Passive voice is always more scientific.",
+          "revision": "Choose the voice that makes the action and responsibility clear.",
+          "reason": "Voice is a communication choice, not a quality score."
+        }
+      ],
+      "takeaways": [
+        "State a routine in present tense when appropriate.",
+        "Use past tense for completed procedures when appropriate.",
+        "Preserve meaning when changing voice."
+      ],
+      "source_refs": [
+        "ED-GRAM",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-03",
+      "title": "Keep subjects, articles and references clear",
+      "group": "01-language-foundations",
+      "purpose": "Make it clear what a sentence refers to and which noun controls its verb.",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "explanation": [
+        "The main noun of a subject controls ordinary subject–verb agreement. In “The effect of the changes is small”, effect is the head noun; changes is inside an of-phrase. Do not choose a plural verb just because the nearest noun is plural. In “The changes affect the result”, changes is the subject, so affect has no third-person singular s.",
+        "A or an introduces one non-specific singular countable item. The often identifies an item that the reader can recognise from the context. “We borrowed a meter. The meter was damaged” introduces the item and then refers back to it. General plural and uncountable nouns can appear without an article: “Students need feedback”; “Information is useful”. Article use has exceptions, so context matters.",
+        "Pronouns and words such as this should point to something clear. If two people or two results could be the intended reference, repeat the noun. “This difference” can be clearer than this alone because it names the kind of idea being discussed. Clarity matters more than avoiding all repetition."
+      ],
+      "language_pattern": {
+        "form": "A/an + one countable item on first introduction; the + identifiable item; main subject noun + agreeing verb.",
+        "meaning": "Articles identify the reference, while agreement links the subject and verb.",
+        "limits": "A/an depends on the next sound: an hour, a university. These are introductory patterns, not every article rule."
+      },
+      "worked_examples": [
+        {
+          "title": "Find the real subject",
+          "context": "Draft: “The quality of the two reports are different.” The writer is comparing the quality of one report with the other.",
+          "model": "The two reports differ in quality.",
+          "annotations": [
+            "The revision avoids an awkward singular subject and comparison.",
+            "Reports is plural, so differ is the appropriate form.",
+            "A simpler sentence can resolve both grammar and meaning problems."
+          ],
+          "meaning": "Do not repair agreement mechanically while leaving the comparison unclear."
+        },
+        {
+          "title": "Make a reference explicit",
+          "context": "Draft: “Maya sent Sara the revised chart after she corrected the labels.” Maya corrected them.",
+          "model": "After correcting the labels, Maya sent Sara the revised chart.",
+          "annotations": [
+            "The opening phrase describes the subject Maya.",
+            "The revised chart is identifiable in the shared context.",
+            "The ambiguity about who corrected the labels is removed."
+          ],
+          "meaning": "The revision preserves the intended sequence and identifies the actor."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "We received many useful informations.",
+          "revision": "We received a lot of useful information.",
+          "reason": "Information is normally uncountable in this meaning."
+        },
+        {
+          "draft": "A report was submitted. A report contained three charts.",
+          "revision": "A report was submitted. The report contained three charts.",
+          "reason": "The second sentence refers to the same report."
+        }
+      ],
+      "takeaways": [
+        "Find the head noun, not merely the nearest noun.",
+        "Use articles to help the reader identify the item.",
+        "Repeat a noun when a pronoun would be ambiguous."
+      ],
+      "source_refs": [
+        "ED-GRAM"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-04",
+      "title": "Choose precise vocabulary without exaggeration",
+      "group": "01-language-foundations",
+      "purpose": "Use appropriate word combinations and match the strength of a claim to the available evidence.",
+      "prerequisites": [
+        "ENG-01"
+      ],
+      "explanation": [
+        "Useful vocabulary is more than a list of advanced synonyms. Learn a word with its meaning, grammatical role and common partners: conduct a study, collect data, reach a conclusion. A familiar precise phrase is often more effective than an unusual word chosen to sound academic. A synonym can change meaning, register or the pattern of words around it.",
+        "Word families help the same idea fit different sentence positions: analyse is a verb, analysis is a noun, and analytical is an adjective. “The team analysed the readings” and “The analysis revealed a difference” organise the message differently. These examples use British spelling; American analyze is also standard. Follow the chosen house style consistently.",
+        "Certainty words change a claim. May suggests possibility; tends to describes a recurring pattern with possible exceptions. Shows is stronger than suggests in many contexts, while proves is usually too strong for a small observational example. Qualifying a claim should make its limits precise, not make every sentence vague."
+      ],
+      "language_pattern": {
+        "form": "The evidence suggests [limited claim] under [stated conditions].",
+        "meaning": "State what the evidence supports and the boundary around it.",
+        "limits": "Do not weaken a directly observed fact without reason. “Twenty students attended” can be stated directly when the count is known."
+      },
+      "worked_examples": [
+        {
+          "title": "Replace an inflated claim",
+          "context": "An invented survey asks 18 volunteers whether a quiet room helped them study; 12 say yes.",
+          "model": "In this small volunteer survey, 12 of 18 respondents said that the quiet room helped them study. The responses suggest that some students valued the space; they do not establish an improvement in grades.",
+          "annotations": [
+            "The first sentence reports the count and what was actually asked.",
+            "The second gives a limited interpretation.",
+            "Volunteer feedback is not a controlled measurement of attainment."
+          ],
+          "meaning": "Precise language separates reported experience from a demonstrated effect."
+        },
+        {
+          "title": "Choose a suitable word family",
+          "context": "Draft: “We did an analyse of the results and made a conclusion.”",
+          "model": "We analysed the results and reached a conclusion.",
+          "annotations": [
+            "Analysed is the main verb for the first action.",
+            "Reached a conclusion is a natural word combination.",
+            "“We conducted an analysis” is also grammatical, but longer."
+          ],
+          "meaning": "Choose the form that gives the sentence a clear structure."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The tiny study proves that the method works for everyone.",
+          "revision": "The study provides limited evidence about the participants observed.",
+          "reason": "The revision removes an unsupported universal claim."
+        },
+        {
+          "draft": "The data do an improvement.",
+          "revision": "The results show an improvement in the measured outcome.",
+          "reason": "The verb and noun now form a meaningful combination; the outcome still needs to be identified."
+        }
+      ],
+      "takeaways": [
+        "Learn vocabulary in meaningful combinations.",
+        "Choose grammatical form before choosing a synonym.",
+        "Match certainty to evidence."
+      ],
+      "source_refs": [
+        "PE-LEVEL",
+        "ED-COMP"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    },
+    {
+      "id": "ENG-05",
+      "title": "Build a paragraph that develops one idea",
+      "group": "01-language-foundations",
+      "purpose": "Connect a clear point, supporting detail and an explanation without relying on a chain of linking words.",
+      "prerequisites": [
+        "ENG-01",
+        "ENG-04"
+      ],
+      "explanation": [
+        "A paragraph gives the reader a manageable unit of meaning. A useful starting pattern is point, support and explanation. The point tells the reader what the paragraph is about. The support gives a reason, observation or example. The explanation shows why that detail matters. This is a flexible pattern, not a requirement that every paragraph contain exactly three sentences.",
+        "Cohesion comes from connections between ideas: consistent key terms, clear reference and an order the reader can follow. First, moreover and therefore cannot repair an illogical sequence. Therefore signals a conclusion or consequence; however signals contrast. Use them only when the relationship is present.",
+        "A paragraph can begin from information the reader already knows and then add something new. In “The library offers silent rooms. These rooms provide…”, the reference is easy to follow. Avoid changing the topic halfway through unless the new point develops the same purpose. Start a new paragraph when the focus genuinely changes."
+      ],
+      "language_pattern": {
+        "form": "Point → relevant support → explanation of why it matters.",
+        "meaning": "Develop the claim rather than merely repeat it.",
+        "limits": "An invented illustration must not be presented as real research evidence."
+      },
+      "worked_examples": [
+        {
+          "title": "Develop a practical claim",
+          "context": "Explain why a student group agreed on a shared file-naming system. This is an invented scenario.",
+          "model": "A shared file-naming system made the group’s work easier to manage. Each draft began with the date and ended with the writer’s initials, so members could identify the latest contribution without opening every document. This reduced confusion about which version to discuss during meetings.",
+          "annotations": [
+            "The opening sentence states one point.",
+            "The middle sentence supplies a concrete method.",
+            "The final sentence explains the practical consequence within the scenario."
+          ],
+          "meaning": "The example shows what the system did; it does not claim a measured time saving."
+        },
+        {
+          "title": "Replace a misleading connector",
+          "context": "Draft: “The library is close to the bus stop. Therefore, it has comfortable chairs.”",
+          "model": "The library is close to the bus stop. It also has comfortable chairs.",
+          "annotations": [
+            "The location does not explain the chairs.",
+            "Also adds a second feature without claiming cause.",
+            "If the paragraph concerns accessibility alone, the chair sentence may belong elsewhere."
+          ],
+          "meaning": "Choose both the connector and the detail according to the paragraph’s purpose."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "draft": "The room is useful. It is very useful. It is helpful.",
+          "revision": "The room is useful because students can discuss projects without disturbing silent study areas.",
+          "reason": "A reason develops the point; synonyms merely repeat it."
+        },
+        {
+          "draft": "However, the deadline is Friday.",
+          "revision": "The deadline is Friday.",
+          "reason": "However needs a relevant contrast in the surrounding context."
+        }
+      ],
+      "takeaways": [
+        "Develop one main focus per paragraph.",
+        "Support a point with a specific relevant detail.",
+        "A connector should name a real relationship."
+      ],
+      "source_refs": [
+        "ED-COMP",
+        "PE-LEVEL"
+      ],
+      "authorship": "Original Bayt Al-Fuad teaching text and invented examples; not publisher lesson text.",
+      "scope": "Foundational reading lesson; not an official syllabus, accredited CEFR placement, or score prediction.",
+      "media_status": "not_required",
+      "assets": []
+    }
+  ]
+}
