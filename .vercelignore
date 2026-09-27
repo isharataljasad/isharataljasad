@@ -13,6 +13,12 @@
 !/package-lock.json
 !/vercel.json
 
+# The feedback endpoint and the lesson list it validates against.
+!/api
+/api/*
+!/api/feedback.js
+!/api/_lib
+
 !/bayt
 /bayt/*
 !/bayt/index.html
@@ -28,6 +34,7 @@
 /semester-1/assets/*
 !/semester-1/assets/study.css
 !/semester-1/assets/old-links.js
+!/semester-1/assets/feedback.js
 
 !/ma101
 /ma101/*

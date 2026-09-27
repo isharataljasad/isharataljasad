@@ -9,6 +9,7 @@ import { join, extname, normalize, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { deployedFiles } from '../test/lib/deployed.mjs';
+import { handle as feedback } from '../api/feedback.js';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const PORT = Number(process.env.PORT || 4178);
@@ -50,6 +51,17 @@ createServer(async (request, response) => {
   catch { response.writeHead(400).end('Bad request'); return; }
   const query = new URL(request.url, 'http://localhost').search;
   if (pathname.length > 1 && pathname.endsWith('/')) { response.writeHead(308, { location: pathname.slice(0, -1) + query }).end(); return; }
+  // The feedback function, as Vercel would run it. Storage comes from this process's
+  // environment (KV_REST_API_URL / KV_REST_API_TOKEN); without it the endpoint fails closed.
+  if (pathname === '/api/feedback') {
+    let body = ''; for await (const chunk of request) body += chunk;
+    const init = { method: request.method, headers: request.headers };
+    if (!['GET', 'HEAD'].includes(request.method)) init.body = body;
+    const res = await feedback(new Request(`http://127.0.0.1:${PORT}${request.url}`, init));
+    response.writeHead(res.status, { ...headers, ...Object.fromEntries(res.headers) });
+    response.end(Buffer.from(await res.arrayBuffer()));
+    return;
+  }
   const to = redirectFor(pathname);
   if (to) { response.writeHead(307, { location: to }).end(); return; }
   // Block traversal: the resolved path must stay inside ROOT.

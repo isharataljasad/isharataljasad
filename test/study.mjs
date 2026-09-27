@@ -335,8 +335,22 @@ for (const [p, h] of html) {
   assert.equal((h.match(/<h1[ >]/g) || []).length, 1, `${p}: one h1`);
   assert.ok(h.includes('<a class="skip" href="#content">') && h.includes('<main id="content"'), `${p}: skip link`);
   // Reading only: no forms, inputs, buttons, embedded frames or assessment language.
-  assert.ok(!/<(?:form|input|button|select|textarea|iframe)\b/i.test(h), `${p}: interactive UI`);
-  if (!compat.includes(p)) assert.ok(!/<script\b/i.test(h), `${p}: scripts only on old-link pages`);
+  // The only interactive element is the optional lesson feedback form: exactly one, collapsed,
+  // on lesson pages only, with no score, answer or personal fields. Everything else is reading.
+  const isLesson = lessonPages.includes(p);
+  const feedback = h.match(/<details class="feedback" id="feedback">[\s\S]*?<\/details>/g) || [];
+  assert.equal(feedback.length, isLesson ? 1 : 0, `${p}: feedback form only on lesson pages`);
+  if (isLesson) {
+    const f = feedback[0];
+    assert.ok(!/<details[^>]* open/.test(f), `${p}: feedback starts collapsed`);
+    assert.deepEqual([...f.matchAll(/<(input|select|textarea|button)\b[^>]*?(?:name="([^"]+)"|type="(submit)")/g)].map((m) => m[2] || m[3]).filter((v, i, a) => a.indexOf(v) === i), ['subject', 'lesson', 'category', 'section', 'comment', 'submit'], `${p}: feedback fields`);
+    assert.ok(!/\b(?:score|grade|mark|answer|correct|quiz)\b/i.test(f.replace(/<[^>]+>/g, ' ').replace('nothing here is marked', '')), `${p}: feedback is not assessment`);
+  }
+  const rest = feedback.length ? h.replace(feedback[0], '') : h;
+  assert.ok(!/<(?:form|input|button|select|textarea|iframe)\b/i.test(rest), `${p}: interactive UI`);
+  const scripts = [...h.matchAll(/<script\b[^>]*>/g)].map((m) => m[0]);
+  const allowedScript = compat.includes(p) ? '<script src="/semester-1/assets/old-links.js" defer>' : isLesson ? '<script src="/semester-1/assets/feedback.js" defer>' : null;
+  assert.deepEqual(scripts, allowedScript ? [allowedScript] : [], `${p}: scripts`);
   // English lessons discuss grades and scores as subject matter (“the survey did not measure grades”,
   // “not a score prediction”), so there the bare words are allowed but every assessment phrase is not.
   const assessment = p.includes('semester-1/english/')
@@ -368,7 +382,7 @@ for (const [p, h] of html) {
 
 // ---------- deployment allow-list ----------
 for (const f of ['middleware.js', 'gate/gate.js', 'gate/login-page.js', 'vercel.json', 'package.json', 'semester-1/assets/study.css', 'semester-1/assets/old-links.js']) assert.ok(deployed.has(f), `deploys ${f}`);
-for (const f of [...deployed]) assert.ok(html.has(f) || /^(?:middleware\.js|vercel\.json|package(?:-lock)?\.json|gate\/[\w-]+\.js|semester-1\/assets\/(?:study\.css|old-links\.js))$/.test(f), `unexpected deployed file ${f}`);
+for (const f of [...deployed]) assert.ok(html.has(f) || /^(?:middleware\.js|vercel\.json|package(?:-lock)?\.json|gate\/[\w-]+\.js|semester-1\/assets\/(?:study\.css|old-links\.js|feedback\.js)|api\/feedback\.js|api\/_lib\/lessons\.js)$/.test(f), `unexpected deployed file ${f}`);
 for (const f of ['program/index.html', 'foundations/index.html', 'english/index.html', 'english/book/index.html', 'english/pearson/index.html', 'english/educator/index.html', 'tools/content/english/pack/manifest.json', 'biology/index.html', 'bayt/planner/index.html', 'bayt/app/index.html', 'semester-1/coverage/index.html', 'semester-1/assets/bayt-practice.mjs', 'resources/claude-next.txt', 'data/project.json', 'docs/semester-architecture.md', 'docs/migration-ledger.md', 'tools/build-study.mjs', 'tools/data/study-library.json', 'tools/data/migration-ledger.json', '.env.example', 'chemistry/atomic/index.html', 'ma101/assets/app.js'])
   if (fs.existsSync(path.join(root, f))) assert.ok(!deployed.has(f), `must not deploy ${f}`);
 const vercel = JSON.parse(read('vercel.json'));
@@ -394,7 +408,8 @@ for (const f of fs.readdirSync(path.join(root, 'tools'))) {
   const src = read(`tools/${f}`);
   if (/writeFileSync|write\(|open\([^)]*['"]w/.test(src)) assert.ok(src.startsWith("import './lib/legacy-guard.mjs';") || src.includes("ALLOW_LEGACY_BUILD"), `legacy writer tools/${f} must be guarded`);
 }
-const generated = [...pages, 'tools/data/migration-ledger.json', 'docs/migration-ledger.md'];
+const generated = [...pages, 'tools/data/migration-ledger.json', 'docs/migration-ledger.md', 'api/_lib/lessons.js'];
+for (const f of ['api/feedback.js', 'api/_lib/lessons.js', 'semester-1/assets/feedback.js']) assert.ok(deployed.has(f), `deploys ${f}`);
 // Git may check text out with CRLF on Windows; generators always write LF.
 const hashes = () => Object.fromEntries(generated.map((p) => [p, createHash('sha256').update(read(p).replace(/\r\n/g, '\n')).digest('hex')]));
 const before = hashes();

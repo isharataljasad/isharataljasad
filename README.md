@@ -34,15 +34,21 @@ answer fields, scores or progress requirements; every worked solution is visible
 - `npm ci --ignore-scripts`
 - `npm run build:study` rebuilds the 74 pages (deterministic); run
   `node tools/make-ledger.mjs` first after changing the ledger annotations.
-- `npm test` — lessons, 296 numerical checks (all 259 of release aa7c04c traced),
+- `npm test` — feedback endpoint behaviour (`test/feedback.mjs`); lessons, 296 numerical checks (all 259 of release aa7c04c traced),
   ledger, old links, reading-only pages, links and anchors, deploy allow-list,
   reproducible build and ledger (`test/study.mjs`); access gate (`test/gate.mjs`);
   deployed pages and CSP (`test/routing.mjs`).
 - `npm run preview` serves the local review site with the `vercel.json`
   redirects, headers and allow-list (without the production login);
-  `node test/browser.mjs` then checks every page in Chromium at desktop and phone
+  `node test/browser.mjs` (which starts its own preview) checks every page, card alignment at six widths and 200% zoom, text contrast and the feedback flow, and in Chromium at desktop and phone
   width and follows old bookmarks.
 - `npm run test:legacy` — tests of preserved, non-deployed earlier material.
+
+## Lesson feedback
+
+An optional feedback form ends every lesson and posts to `/api/feedback`, which
+stores comments in Upstash Redis once the owner connects it. See `docs/feedback.md`
+for setup, and for how to read and delete comments.
 
 ## Deployment and scope
 
