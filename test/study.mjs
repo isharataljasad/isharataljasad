@@ -395,7 +395,8 @@ for (const f of fs.readdirSync(path.join(root, 'tools'))) {
   if (/writeFileSync|write\(|open\([^)]*['"]w/.test(src)) assert.ok(src.startsWith("import './lib/legacy-guard.mjs';") || src.includes("ALLOW_LEGACY_BUILD"), `legacy writer tools/${f} must be guarded`);
 }
 const generated = [...pages, 'tools/data/migration-ledger.json', 'docs/migration-ledger.md'];
-const hashes = () => Object.fromEntries(generated.map((p) => [p, createHash('sha256').update(read(p)).digest('hex')]));
+// Git may check text out with CRLF on Windows; generators always write LF.
+const hashes = () => Object.fromEntries(generated.map((p) => [p, createHash('sha256').update(read(p).replace(/\r\n/g, '\n')).digest('hex')]));
 const before = hashes();
 execFileSync(process.execPath, ['tools/make-ledger.mjs'], { cwd: root });
 execFileSync(process.execPath, ['tools/build-study.mjs'], { cwd: root });

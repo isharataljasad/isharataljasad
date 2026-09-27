@@ -6,6 +6,7 @@
  * Run: node tools/make-ledger.mjs  (deterministic; npm test checks it is current). */
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 const root = path.resolve(import.meta.dirname, '..');
 const J = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const library = J('tools/data/study-library.json'), curriculum = J('semester-1/curriculum.json'), plan = J('tools/data/route-plan.json');
@@ -43,7 +44,7 @@ const guideParts = [['why', 'Why it matters', 'why'], ['idea', 'The idea', 'idea
 const supportMoves = { 'phy101/motion': ['relative-motion'], 'chemistry/atomic-structure': ['amount-and-formulas'], 'chemistry/bonding': ['chemical-naming', 'intermolecular-forces'] };
 const supportLesson = { 'relative-motion': 'relative-motion', 'amount-and-formulas': 'moles-and-formulas', 'chemical-naming': 'chemical-naming', 'intermolecular-forces': 'intermolecular-forces' };
 for (const c of curriculum.courses) for (const t of c.topics) {
-  const k = (await import(path.join(root, `tools/content/${c.id}/${t.id}.mjs`))).default;
+  const k = (await import(pathToFileURL(path.join(root, `tools/content/${c.id}/${t.id}.mjs`)).href)).default;
   for (const [id, title, dest] of guideParts) {
     if (id === 'further' && !k.extra?.length) continue;
     const extraNote = id === 'examples' ? ` (${k.examples.length} examples: the first under “A first worked example”, the second under “A different case”, the rest under “More worked cases”)` : '';

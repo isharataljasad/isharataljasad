@@ -212,3 +212,32 @@ Ready for Codex's review as a release candidate. All local tests and browser
 checks pass. The gate, headers and deployment exclusions are unchanged apart
 from the documented allow-list and redirect changes. Before release, check the
 redirects and one old fragment link on a Vercel preview behind the gate.
+
+## Review fixes and hosted status (28 September 2026)
+
+Applied Codex's `four-subject-review-fixes-20260928.patch` to `141f820`. It applied
+cleanly and none of its changes were already present:
+
+- `tools/make-ledger.mjs`: `pathToFileURL` for the dynamic module imports (Windows).
+- `test/study.mjs`: normalise CRLF to LF before comparing generated-file hashes.
+- `test/browser.mjs`: fail (exit 1) when Playwright is unavailable. It loads
+  `BROWSER_STORAGE_STATE`, an absolute path outside the repository, into every
+  browser context, and stops with an explicit error at a login or password gate.
+
+Added to `test/browser.mjs`, at 1280 px and 390 px:
+
+- A click-through journey for each of the four subjects: entrance → subject →
+  first lesson → next lesson, using the page's own links.
+- ENG-11: its table is visible above the model, and the table cells equal the data.
+- ENG-11 and ENG-13: the rendered model text equals the supplied text exactly.
+
+Hosted preview: Vercel Deployment Protection sends every path to `vercel.com/login`
+before the site's own password gate is reached. The harness, run against the
+preview for `141f820`, stopped there with its access-gate error. Authenticated
+lesson pages, hosted redirects and fragments, the site gate and logout remain
+**unverified** until someone with legitimate access supplies an exported
+browser state for the exact preview origin.
+
+Owner decision still needed: a pilot feedback channel. An existing external
+channel the owner already uses is enough for a small pilot. No form or mailbox
+has been added.

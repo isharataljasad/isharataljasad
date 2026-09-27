@@ -3,6 +3,9 @@
  * and the CSP. Needs Playwright with Chromium, so it is not part of `npm test`:
  *
  *   node tools/preview-server.mjs &   node test/browser.mjs [http://127.0.0.1:4178]
+ * For a gated hosted preview, set BROWSER_STORAGE_STATE to an absolute path outside
+ * this repository containing Playwright state exported after legitimate login.
+ * The state must belong to the exact preview origin. Never commit or share it.
  *
  * Checks every page at desktop (1280 px) and phone (390 px) width: console and CSP
  * errors, horizontal page overflow, figure text clipped by or overlapping inside its
@@ -19,10 +22,17 @@ import * as english from '../tools/content/english/index.mjs';
 const require = createRequire(import.meta.url);
 let playwright;
 for (const p of ['playwright', '/opt/node22/lib/node_modules/playwright']) { try { playwright = require(p); break; } catch { /* next */ } }
-if (!playwright) { console.log('Playwright is not installed; browser checks skipped.'); process.exit(0); }
+if (!playwright) { console.error('Browser verification failed: Playwright is unavailable. Configure the browser runtime and rerun; no checks were executed.'); process.exit(1); }
 
 const BASE = (process.argv[2] ?? 'http://127.0.0.1:4178').replace(/\/$/, '');
 const root = path.resolve(import.meta.dirname, '..');
+const stateFile = process.env.BROWSER_STORAGE_STATE;
+if (stateFile) {
+  assert.ok(path.isAbsolute(stateFile), 'BROWSER_STORAGE_STATE must be an absolute path outside the repository');
+  const relative = path.relative(fs.realpathSync(root), fs.realpathSync(stateFile));
+  assert.ok(path.isAbsolute(relative) || relative === '..' || relative.startsWith('..' + path.sep), 'Keep authenticated browser state outside the repository');
+}
+const authenticated = stateFile ? { storageState: stateFile } : {};
 const curriculum = JSON.parse(fs.readFileSync(path.join(root, 'semester-1/curriculum.json'), 'utf8'));
 const ledger = JSON.parse(fs.readFileSync(path.join(root, 'tools/data/migration-ledger.json'), 'utf8'));
 
@@ -40,7 +50,7 @@ const browser = await playwright.chromium.launch({ executablePath: fs.existsSync
 const issues = [];
 let visits = 0;
 for (const width of [1280, 390]) {
-  const context = await browser.newContext({ viewport: { width, height: 900 }, javaScriptEnabled: true });
+  const context = await browser.newContext({ ...authenticated, viewport: { width, height: 900 }, javaScriptEnabled: true });
   const page = await context.newPage();
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
@@ -51,6 +61,10 @@ for (const width of [1280, 390]) {
     errors.length = 0;
     const res = await page.goto(BASE + u, { waitUntil: 'load' });
     visits++;
+    if (new URL(page.url()).pathname === '/login' || await page.locator('input[type="password"]').count()) {
+      await browser.close();
+      throw new Error('Browser verification stopped at an access gate. Supply legitimate authenticated state for this exact origin; hosted lesson checks have not passed.');
+    }
     if (res.status() !== 200) { issues.push(`${width} ${u}: HTTP ${res.status()}`); continue; }
     const found = await page.evaluate(() => {
       const out = [];
@@ -84,7 +98,7 @@ for (const width of [1280, 390]) {
 
 // Old-link pages remain readable without JavaScript.
 {
-  const context = await browser.newContext({ viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
+  const context = await browser.newContext({ ...authenticated, viewport: { width: 390, height: 900 }, javaScriptEnabled: false });
   const page = await context.newPage();
   for (const u of pages.filter((x) => x.endsWith('?stay'))) {
     const res = await page.goto(BASE + u.replace('?stay', ''), { waitUntil: 'load' });
@@ -126,7 +140,7 @@ for (const key of ['ma101/book/lesson-07', 'phy101/pearson/lesson-03', 'chemistr
   const dest = n.decision === 'archive' ? null : n.destination.replace(/\/(#|$)/, '$1');
   cases.push([`/${course}/${route}/#${id}`, dest]);
 }
-const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+const context = await browser.newContext({ ...authenticated, viewport: { width: 1280, height: 900 } });
 const page = await context.newPage();
 const results = [];
 for (const [from, expected] of cases) {
@@ -141,10 +155,49 @@ for (const [from, expected] of cases) {
   if (!ok) issues.push(`old link ${from} landed on ${landed}, expected ${expected ?? 'a subject page'}`);
   if (!targetVisible) issues.push(`old link ${from}: target ${at.hash} is not in view`);
 }
+
+// A student's journey by clicking, at desktop and phone width: entrance → subject → first
+// lesson → next lesson, for every subject; then the English data table and full models.
+const journeys = [];
+for (const width of [1280, 390]) {
+  const ctx = await browser.newContext({ ...authenticated, viewport: { width, height: 900 } });
+  const tab = await ctx.newPage();
+  const subjects = [...curriculum.courses.map((c) => [c.path, sequence[c.id]]), ['english', english.lessons.map((l) => l.slug)]];
+  for (const [subjectPath, order] of subjects) {
+    const id = (e) => typeof e === 'string' ? e : e.id ?? e;
+    await tab.goto(BASE + '/', { waitUntil: 'load' });
+    await Promise.all([tab.waitForURL(`**/semester-1/${subjectPath}`), tab.locator(`.subject-card a.button[href="/semester-1/${subjectPath}/"]`).click()]);
+    await Promise.all([tab.waitForURL(`**/semester-1/${subjectPath}/${id(order[0])}`), tab.locator('.topic-list a').first().click()]);
+    await Promise.all([tab.waitForURL(`**/semester-1/${subjectPath}/${id(order[1])}`), tab.locator('.next-topic a.button').click()]);
+    const h1 = await tab.locator('h1').innerText();
+    journeys.push(`${width}px ${subjectPath}: entrance → contents → ${id(order[0])} → ${id(order[1])} ("${h1}")`);
+  }
+  // ENG-11: the table is visible and above the model; the model is shown in full.
+  const e11 = english.lessons.find((l) => l.id === 'ENG-11');
+  await tab.goto(`${BASE}/semester-1/english/${e11.slug}`, { waitUntil: 'load' });
+  const layout = await tab.evaluate(() => {
+    const table = document.querySelector('#idea table'), model = document.querySelector('#examples .model-text blockquote');
+    const r = (el) => el.getBoundingClientRect();
+    return { tableTop: r(table).top, tableH: r(table).height, modelTop: r(model).top, modelH: r(model).height, cells: [...table.querySelectorAll('tbody tr')].map((tr) => [...tr.children].map((c) => c.innerText.trim())), model: model.innerText };
+  });
+  if (!(layout.tableH > 0 && layout.tableTop < layout.modelTop && layout.modelH > 0)) issues.push(`${width}px ENG-11: table is not shown above its model`);
+  if (JSON.stringify(layout.cells) !== JSON.stringify(e11.assets[0].rows.map((r) => r.map(String)))) issues.push(`${width}px ENG-11: table cells differ from the data`);
+  const norm = (t) => t.replace(/\s+/g, ' ').trim();
+  const words = (t) => t.split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w)).length;
+  if (norm(layout.model) !== norm(e11.worked_examples[0].model)) issues.push(`${width}px ENG-11: the rendered model differs from the supplied text`);
+  const e13 = english.lessons.find((l) => l.id === 'ENG-13');
+  await tab.goto(`${BASE}/semester-1/english/${e13.slug}`, { waitUntil: 'load' });
+  const essay = await tab.evaluate(() => document.querySelector('#examples .model-text blockquote').innerText);
+  if (norm(essay) !== norm(e13.worked_examples[0].model)) issues.push(`${width}px ENG-13: the rendered essay differs from the supplied text`);
+  journeys.push(`${width}px ENG-11 table (3 rows, matches data) above its model, rendered identical to the supplied text; ENG-13 essay rendered in full (${words(essay)} words)`);
+  await ctx.close();
+}
+
 await context.close();
 await browser.close();
 
 console.log(results.join('\n'));
+console.log(journeys.join('\n'));
 if (issues.length) console.log('\n' + issues.join('\n'));
 assert.equal(issues.length, 0, `${issues.length} browser issues`);
-console.log(`\nBrowser: ${visits} page visits at 1280 px and 390 px (plus old-link pages without JavaScript), ${cases.length} old bookmarks followed; no console or CSP errors, overflow, clipped figure text or keyboard problems.`);
+console.log(`\nBrowser: ${visits} page visits at 1280 px and 390 px (plus old-link pages without JavaScript), ${cases.length} old bookmarks followed, ${journeys.length} click-through journeys and model checks; no console or CSP errors, overflow, clipped figure text or keyboard problems.`);
