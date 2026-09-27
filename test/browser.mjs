@@ -227,7 +227,8 @@ const alignmentAt = async (tab) => tab.evaluate(async () => {
 const overflowAt = async (tab) => tab.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
 const expectedColumns = (w) => (w > 1180 ? 4 : w > 760 ? 2 : 1);
 const representative = ['/semester-1/math/derivative', '/semester-1/physics/motion', '/semester-1/chemistry/bonding', `/semester-1/english/${english.lessons.find((l) => l.id === 'ENG-11').slug}`];
-for (const [label, width, scale] of [['1440px', 1440, 1], ['1280px', 1280, 1], ['1024px', 1024, 1], ['768px', 768, 1], ['390px', 390, 1], ['320px', 320, 1], ['1280px at 200% zoom (640 CSS px)', 640, 2]]) {
+// This narrow high-density viewport checks reflow; it does not drive the browser's zoom control.
+for (const [label, width, scale] of [['1440px', 1440, 1], ['1280px', 1280, 1], ['1024px', 1024, 1], ['768px', 768, 1], ['390px', 390, 1], ['320px', 320, 1], ['640 CSS px reflow (2x device scale; not a browser zoom test)', 640, 2]]) {
   const ctx = await browser.newContext({ ...authenticated, viewport: { width, height: 900 }, deviceScaleFactor: scale });
   const tab = await ctx.newPage();
   await tab.goto(BASE + '/', { waitUntil: 'load' });

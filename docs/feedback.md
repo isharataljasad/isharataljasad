@@ -27,13 +27,18 @@ No IP address, cookie, user agent or account is stored. Short-lived helper keys
 also exist and expire by themselves:
 
 - `…:rate:<minute>`, which caps comments at 30 a minute for the whole site;
-- `…:recent:<hash>`, which ignores the same comment sent twice within 10 minutes.
+- `…:recent:v2:<hash>`, a 10-minute reservation for the complete submission
+  (subject, lesson, section, category and comment). It carries the proposed record
+  and id so a retry can finish an interrupted write. A reservation alone never
+  counts as received: success requires an acknowledged durable record write or
+  a read-back of that exact record. Changing section or category is a new submission.
 
 There is no endpoint that lists or reads feedback. `GET /api/feedback` returns 405.
 
 ## Setup still needed (owner action)
 
-The code is ready, but **no storage is connected yet**. Until it is, the endpoint
+The implementation passes local tests, but **no real storage connection or hosted
+submission has been verified yet**. Until storage is configured, the endpoint
 answers “Feedback storage is not set up yet”, and the form says the comment was
 not sent. Recommended setup, using Upstash Redis through the Vercel Marketplace
 (it has a free plan; check the current plan limits before relying on them):
@@ -59,9 +64,10 @@ have no access to it.
 
 1. Vercel dashboard → project → **Storage** → the Redis database → **Open in
    Upstash**. Or go to console.upstash.com directly.
-2. Open **Data Browser** and search for `feedback:production:*`. Each key is one
-   comment; open it to read the JSON. The ids start with a time code, so sorting by
-   key roughly follows arrival order.
+2. Open **Data Browser** and search for `feedback:production:*`. Skip helper keys
+   containing `:rate:` or `:recent:`; these are counters/reservations, not confirmed
+   submissions. Open the remaining record keys to read the JSON. Use `receivedAt`
+   inside each record for its receipt time.
 3. To remove a comment, delete its key there. To export, copy the values, or use the
    console's CLI tab with `KEYS feedback:production:*` and `GET <key>`.
 

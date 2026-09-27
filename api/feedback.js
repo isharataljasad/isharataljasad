@@ -100,16 +100,31 @@ export async function handle(request, deps = {}) {
     const minute = Math.floor(now().getTime() / 60000);
     const [count] = await redis(cfg, [['INCR', `${scope}:rate:${minute}`], ['EXPIRE', `${scope}:rate:${minute}`, '120']], fetchImpl);
     if (Number(count) > RATE_PER_MINUTE) return json(429, { ok: false, error: 'Many comments are arriving at once. Please try again in a minute.' });
-    const dedupeKey = `${scope}:recent:${await sha256(`${value.subject}|${value.lesson}|${value.comment}`)}`;
-    const [fresh] = await redis(cfg, [['SET', dedupeKey, '1', 'NX', 'EX', String(DUPLICATE_WINDOW_SECONDS)]], fetchImpl);
-    if (fresh !== 'OK') return json(200, { ok: true, duplicate: true, message: 'This comment was already received.' });
-    const record = { id: newId(), receivedAt: now().toISOString(), ...value };
-    const [stored] = await redis(cfg, [['SET', `${scope}:${record.id}`, JSON.stringify(record), 'NX']], fetchImpl);
-    if (stored !== 'OK') {
-      await redis(cfg, [['DEL', dedupeKey]], fetchImpl).catch(() => {});
-      return json(503, { ok: false, error: 'The comment could not be stored.' });
+    // A short-lived reservation is NOT proof of persistence. Keep the complete
+    // proposed record so a retry can finish an interrupted write using the same
+    // id. Concurrent requests converge on that id; success requires an acknowledged
+    // record write or a read-back of that exact durable record. Include section
+    // and category so a corrected submission is not discarded as a duplicate.
+    const dedupeKey = `${scope}:recent:v2:${await sha256(JSON.stringify(value))}`;
+    let record = { id: newId(), receivedAt: now().toISOString(), ...value };
+    const [fresh] = await redis(cfg, [['SET', dedupeKey, JSON.stringify(record), 'NX', 'EX', String(DUPLICATE_WINDOW_SECONDS)]], fetchImpl);
+    if (fresh !== 'OK') {
+      const [reserved] = await redis(cfg, [['GET', dedupeKey]], fetchImpl);
+      const previous = JSON.parse(reserved);
+      if (!previous || typeof previous.id !== 'string' || !/^[A-Za-z0-9-]{1,80}$/.test(previous.id)
+          || typeof previous.receivedAt !== 'string' || !Number.isFinite(Date.parse(previous.receivedAt))
+          || JSON.stringify(validate(previous).value) !== JSON.stringify(value)) {
+        throw new Error('Invalid or expired feedback reservation');
+      }
+      record = { id: previous.id, receivedAt: previous.receivedAt, ...value };
     }
-    return json(201, { ok: true, id: record.id });
+    const recordKey = `${scope}:${record.id}`, encoded = JSON.stringify(record);
+    const [stored] = await redis(cfg, [['SET', recordKey, encoded, 'NX']], fetchImpl);
+    if (stored === 'OK') return json(201, { ok: true, id: record.id });
+    // An existing key (or ambiguous SET response) alone is also insufficient.
+    const [existing] = await redis(cfg, [['GET', recordKey]], fetchImpl);
+    if (existing !== encoded) throw new Error('Feedback record could not be confirmed');
+    return json(200, { ok: true, id: record.id, duplicate: true, message: 'This comment was already received.' });
   } catch {
     return json(503, { ok: false, error: 'The comment could not be stored.' });
   }

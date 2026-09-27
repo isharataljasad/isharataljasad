@@ -121,6 +121,84 @@ await ok('the same comment twice within ten minutes is stored once', async () =>
   assert.equal((await handle(req(good), deps)).status, 201);
   assert.equal(store.records('feedback:production:').length, 2);
 });
+await ok('a failed record write after reservation can be retried without a false success', async () => {
+  const { deps, store } = setup();
+  const transport = deps.fetch;
+  let fail = true;
+  deps.fetch = async (url, init) => {
+    const writesRecord = JSON.parse(init.body).some(([cmd, key]) => cmd === 'SET' && !/:rate:|:recent:/.test(key));
+    if (fail && writesRecord) { fail = false; return new Response('unavailable', { status: 503 }); }
+    return transport(url, init);
+  };
+  assert.equal((await handle(req(good), deps)).status, 503);
+  assert.equal(store.records('feedback:production:').length, 0);
+  const retry = await read(await handle(req(good), deps));
+  assert.equal(retry.status, 201); assert.equal(retry.body.ok, true);
+  assert.deepEqual(store.records('feedback:production:'), [{ id: retry.body.id, receivedAt: '2026-09-28T10:00:00.000Z', ...good }]);
+});
+await ok('a retry after a lost storage acknowledgement confirms the existing record exactly once', async () => {
+  const { deps, store } = setup();
+  const transport = deps.fetch;
+  let loseReply = true;
+  deps.fetch = async (url, init) => {
+    const result = await transport(url, init);
+    if (loseReply && JSON.parse(init.body).some(([cmd, key]) => cmd === 'SET' && !/:rate:|:recent:/.test(key))) {
+      loseReply = false; throw new Error('Connection lost after storage committed');
+    }
+    return result;
+  };
+  assert.equal((await handle(req(good), deps)).status, 503);
+  assert.equal(store.records('feedback:production:').length, 1);
+  const retry = await read(await handle(req(good), deps));
+  assert.equal(retry.status, 200); assert.equal(retry.body.duplicate, true);
+  assert.equal(store.records('feedback:production:').length, 1);
+  assert.equal(store.records('feedback:production:')[0].id, retry.body.id);
+});
+await ok('a concurrent retry never succeeds merely because another request reserved the comment', async () => {
+  const { deps, store } = setup();
+  const transport = deps.fetch;
+  let entered, release, hold = true;
+  const enteredWrite = new Promise(resolve => { entered = resolve; });
+  const resumeWrite = new Promise(resolve => { release = resolve; });
+  deps.fetch = async (url, init) => {
+    if (hold && JSON.parse(init.body).some(([cmd, key]) => cmd === 'SET' && !/:rate:|:recent:/.test(key))) {
+      hold = false; entered(); await resumeWrite;
+    }
+    return transport(url, init);
+  };
+  const first = handle(req(good), deps);
+  await enteredWrite;
+  try {
+    const retry = await read(await handle(req(good), deps));
+    assert.equal(retry.body.ok, true);
+    assert.equal(store.records('feedback:production:').length, 1, 'success must already have a durable record');
+  } finally { release(); }
+  assert.equal((await first).status, 200);
+  assert.equal(store.records('feedback:production:').length, 1);
+});
+await ok('changing the section or category preserves distinct feedback with the same comment', async () => {
+  const { deps, store } = setup();
+  for (const note of [good, { ...good, section: null }, { ...good, category: 'Other' }]) {
+    assert.equal((await handle(req(note), deps)).status, 201);
+  }
+  assert.equal(store.records('feedback:production:').length, 3);
+});
+await ok('an expired reservation or an unrelated colliding record never produces success', async () => {
+  const { deps, store } = setup();
+  await handle(req(good), deps);
+  store.run(['SET', 'feedback:production:id1', JSON.stringify({ comment: 'unrelated existing record' })]);
+  const collision = await read(await handle(req(good), deps));
+  assert.equal(collision.status, 503); assert.equal(collision.body.ok, false);
+  const transport = deps.fetch;
+  deps.fetch = async (url, init) => {
+    if (JSON.parse(init.body).some(([cmd, key]) => cmd === 'GET' && key.includes(':recent:'))) {
+      store.run(['DEL', ...[...store.data.keys()].filter(k => k.includes(':recent:'))]);
+    }
+    return transport(url, init);
+  };
+  const expired = await read(await handle(req(good), deps));
+  assert.equal(expired.status, 503); assert.equal(expired.body.ok, false);
+});
 await ok(`more than ${RATE_PER_MINUTE} comments in a minute are refused, and the limit resets`, async () => {
   const { deps, store, tick } = setup();
   for (let i = 0; i < RATE_PER_MINUTE; i++) assert.equal((await handle(req({ ...good, comment: `note ${i}` }), deps)).status, 201);
