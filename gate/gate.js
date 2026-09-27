@@ -152,10 +152,25 @@ export const clearCookie = () =>
 export const LOGIN_PATH = "/login";
 export const LOGOUT_PATH = "/logout";
 
+/* ---- public reading routes (owner-approved, 28 September 2026) -----------
+   The Semester 1 reading library is public: the entrance, the four subjects
+   (Mathematics, Physics, Chemistry, English), the old course URLs that forward
+   into them, and the POST-only feedback endpoint (it cannot read or list
+   feedback). Every other path stays behind the password. Only files on the
+   deployment allow-list (.vercelignore) exist at all. */
+export const PUBLIC_EXACT = new Set(["/", "/index.html", "/bayt", "/bayt/", "/bayt/index.html", "/api/feedback"]);
+export const PUBLIC_PREFIXES = ["/semester-1", "/ma101", "/phy101", "/chemistry", "/english"];
+export function isPublic(pathname) {
+  if (PUBLIC_EXACT.has(pathname)) return true;
+  if (pathname.includes("..") || pathname.includes("\\")) return false;
+  return PUBLIC_PREFIXES.some(p => pathname === p || pathname.startsWith(p + "/"));
+}
+
 export function classify(pathname) {
   if (pathname === LOGIN_PATH) return "login";
   if (pathname === LOGOUT_PATH) return "logout";
   if (pathname.startsWith("/_vercel/")) return "infra";
+  if (isPublic(pathname)) return "public";
   return "protected";
 }
 

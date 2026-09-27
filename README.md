@@ -52,8 +52,11 @@ for setup, and for how to read and delete comments.
 
 ## Deployment and scope
 
-Vercel serves the site through the Git-connected project and the unchanged
-password gate (`middleware.js`, `gate/`). `.vercelignore` is an allow-list: only
+Vercel serves the site through the Git-connected project and the password gate
+(`middleware.js`, `gate/`). Owner-approved on 28 September 2026: the entrance, the
+four subjects, the old course URLs that forward into them and the POST-only
+feedback endpoint are public (`isPublic` in `gate/gate.js`); every other path still
+requires the password, and `test/gate.mjs` checks both sides. `.vercelignore` is an allow-list: only
 the 74 pages, `semester-1/assets/study.css`, the old-link forwarder
 `semester-1/assets/old-links.js` and the gate are uploaded; earlier dashboards,
 planners, quiz pages, other subjects, notes and tools stay in the repository

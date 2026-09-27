@@ -77,7 +77,9 @@ const clientIp = request =>
 export default async function middleware(request) {
   const url = new URL(request.url);
   const kind = classify(url.pathname);
-  if (kind === "infra") return next();
+  /* Public reading routes (gate/gate.js isPublic) need no session and do not
+     depend on the gate's secrets; everything else is decided below. */
+  if (kind === "infra" || kind === "public") return next();
 
   const HASH = process.env.FOAAD_ACCESS_PASSWORD_HASH;
   const SECRET = process.env.FOAAD_SESSION_SECRET;

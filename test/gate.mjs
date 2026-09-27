@@ -139,12 +139,23 @@ await ok("the cookie parser is not fooled by a lookalike name", () => {
 /* ------------------------------------------------------------------ */
 group("GATE · PATH CLASSIFICATION");
 
-await ok("only /login and /logout are outside the protection", () => {
+/* Owner-approved public reading routes (28 September 2026): the entrance, the four
+   subjects, old course URLs that forward into them, and the POST-only feedback
+   endpoint. Everything else — including lookalike prefixes — stays protected. */
+await ok("only the approved reading routes, /login and /logout are outside the protection", () => {
   eq(classify("/login"), "login");
   eq(classify("/logout"), "logout");
   eq(classify("/_vercel/insights/script.js"), "infra");
-  for (const p of ["/", "/index.html", "/style.css", "/js/app.js", "/js/corpus.js",
-                   "/fonts/amiri-quran-ar.woff2", "/test/cards.json", "/anything"]) {
+  for (const p of ["/", "/index.html", "/bayt", "/bayt/", "/api/feedback", "/semester-1", "/semester-1/",
+                   "/semester-1/physics/motion", "/semester-1/assets/study.css", "/semester-1/english/old-links/book",
+                   "/ma101", "/ma101/book", "/phy101/pearson", "/chemistry/educator", "/english", "/english/book"]) {
+    eq(classify(p), "public", `${p} should be public`);
+  }
+  for (const p of ["/style.css", "/js/app.js", "/js/corpus.js", "/fonts/amiri-quran-ar.woff2", "/test/cards.json",
+                   "/anything", "/program", "/program/lessons", "/foundations", "/biology", "/data/project.json",
+                   "/tools/build-study.mjs", "/tools/data/study-library.json", "/docs/feedback.md", "/api/other",
+                   "/api/feedback/list", "/api", "/bayt/planner", "/resources/claude-next.txt", "/semester-1x",
+                   "/ma1010", "/english-old", "/semester-1/../data/project.json", "/gate/gate.js", "/middleware.js"]) {
     eq(classify(p), "protected", `${p} is not protected`);
   }
 });
@@ -226,18 +237,43 @@ const form = pw => {
   return req("/login", { method: "POST", body: fd });
 };
 const cookieFrom = res => (res.headers.get("set-cookie") || "").split(";")[0];
+const PRIVATE = "/program"; // any path outside the public reading routes
 const isPassThrough = res => res.headers.has("x-middleware-next") || res.status === 200;
 
-await ok("an anonymous visitor gets no application HTML — only a redirect to the gate", async () => {
-  const res = await middleware(req("/"));
+await ok("an anonymous visitor reaches the public reading routes without a session", async () => {
+  for (const p of ["/", "/semester-1/math", "/semester-1/english/build-a-complete-sentence", "/semester-1/assets/study.css", "/semester-1/assets/feedback.js", "/ma101/book", "/english"]) {
+    const res = await middleware(req(p));
+    truthy(isPassThrough(res) && !res.headers.has("location"), `${p} was not served publicly (status ${res.status})`);
+    truthy(!(res.headers.get("set-cookie") || ""), `${p} set a cookie`);
+  }
+});
+
+await ok("an anonymous POST reaches the feedback endpoint, and nowhere else", async () => {
+  const fb = await middleware(req("/api/feedback", { method: "POST", body: "{}" }));
+  truthy(isPassThrough(fb), `feedback POST was blocked (${fb.status})`);
+  for (const p of ["/api/other", "/program", "/data/project.json"]) {
+    eq((await middleware(req(p, { method: "POST", body: "{}" }))).status, 401, `${p} accepted an anonymous POST`);
+  }
+});
+
+await ok("public reading routes stay available when the gate itself is misconfigured, private ones close", async () => {
+  const hash = process.env.FOAAD_ACCESS_PASSWORD_HASH;
+  delete process.env.FOAAD_ACCESS_PASSWORD_HASH;
+  truthy(isPassThrough(await middleware(req("/semester-1/physics"))), "a public page closed");
+  eq((await middleware(req(PRIVATE))).status, 503, "a private page fell open");
+  process.env.FOAAD_ACCESS_PASSWORD_HASH = hash;
+});
+
+await ok("an anonymous visitor gets no private application HTML — only a redirect to the gate", async () => {
+  const res = await middleware(req(PRIVATE));
   eq(res.status, 303);
   eq(res.headers.get("location"), "https://www.isharataljasad.com/login");
   eq(await res.text(), "", "a body was returned to an anonymous visitor");
 });
 
 await ok("every application asset is refused anonymously, not just the page", async () => {
-  for (const p of ["/index.html", "/style.css", "/js/app.js", "/js/corpus.js", "/js/store.js",
-                   "/fonts/amiri-quran-ar.woff2"]) {
+  for (const p of ["/style.css", "/js/app.js", "/js/corpus.js", "/js/store.js",
+                   "/fonts/amiri-quran-ar.woff2", "/data/project.json", "/tools/data/study-library.json"]) {
     const res = await middleware(req(p));
     truthy(res.status === 303 && !res.headers.has("x-middleware-next"), `${p} was served anonymously`);
   }
@@ -300,7 +336,7 @@ await ok("a forged or expired cookie does not pass", async () => {
   const forged = await signToken("attacker-secret");
   const stale = await signToken(SECRET, { ttl: 60, now: Date.now() - 7200e3 });
   for (const t of [forged, stale, "1.9999999999.AAAA", "garbage"]) {
-    const res = await middleware(req("/", { headers: { cookie: `${COOKIE}=${t}` } }));
+    const res = await middleware(req(PRIVATE, { headers: { cookie: `${COOKIE}=${t}` } }));
     eq(res.status, 303, `a bad cookie (${t.slice(0, 12)}…) was accepted`);
   }
 });
@@ -310,7 +346,7 @@ await ok("logout clears the cookie and the cleared session no longer opens the a
   const out = await middleware(req("/logout", { headers: { cookie: cookieFrom(login) } }));
   eq(out.status, 303);
   truthy((out.headers.get("set-cookie") || "").includes("Max-Age=0"), "cookie not cleared");
-  const after = await middleware(req("/", { headers: { cookie: `${COOKIE}=` } }));
+  const after = await middleware(req(PRIVATE, { headers: { cookie: `${COOKIE}=` } }));
   eq(after.status, 303);
 });
 
@@ -344,12 +380,12 @@ await ok("the inline style is nonced, and the nonce changes on every response", 
 await ok("a deployment with no secret configured closes the door instead of opening it", async () => {
   const hash = process.env.FOAAD_ACCESS_PASSWORD_HASH, sec = process.env.FOAAD_SESSION_SECRET;
   delete process.env.FOAAD_ACCESS_PASSWORD_HASH;
-  const a = await middleware(req("/"));
+  const a = await middleware(req(PRIVATE));
   eq(a.status, 503, "missing password hash fell open");
   truthy(!a.headers.has("x-middleware-next"), "request was passed through unprotected");
   process.env.FOAAD_ACCESS_PASSWORD_HASH = hash;
   delete process.env.FOAAD_SESSION_SECRET;
-  eq((await middleware(req("/"))).status, 503, "missing session secret fell open");
+  eq((await middleware(req(PRIVATE))).status, 503, "missing session secret fell open");
   process.env.FOAAD_SESSION_SECRET = sec;
 });
 
@@ -357,7 +393,7 @@ await ok("no secret or password ever reaches a response body or header", async (
   const responses = [
     await middleware(req("/login")),
     await middleware(form("wrong")),
-    await middleware(req("/"))
+    await middleware(req(PRIVATE))
   ];
   for (const r of responses) {
     const dump = JSON.stringify([...r.headers]) + await r.text();
