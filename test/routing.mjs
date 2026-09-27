@@ -13,21 +13,10 @@ import { createHash } from 'node:crypto';
 
 const root = path.resolve(import.meta.dirname, '..');
 
-/* Kept in step with .vercelignore plus paths Vercel never serves. */
-const NOT_DEPLOYED = new Set(['node_modules', '.git', '.github', '.claude', 'test', 'security', 'docs', 'source', 'tools']);
-
-function walk(dir, out = []) {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (NOT_DEPLOYED.has(entry.name)) continue;
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) walk(full, out);
-    else if (entry.name.endsWith('.html')) out.push(full);
-  }
-  return out;
-}
-
-const pages = walk(root);
-assert.ok(pages.length > 100, `Expected the published site, found ${pages.length} pages`);
+/* The deployed set is computed from .vercelignore itself (an allow-list). */
+import { deployedFiles } from './lib/deployed.mjs';
+const pages = [...deployedFiles(root)].filter((f) => f.endsWith('.html')).map((f) => path.join(root, f));
+assert.equal(pages.length, 44, `Expected the 44 Semester 1 study pages, found ${pages.length}`);
 
 const collisions = [];
 for (const file of pages) {

@@ -1,6 +1,58 @@
-test/
-security/
-docs/
-source/
-tools/
-.claude/
+# Allow-list deployment (gitignore syntax). Only the focused Semester 1 study
+# library, its assets and the access gate are uploaded. Everything else stays in
+# the repository as preserved source/backup but is never served: earlier
+# dashboards, quiz and planner pages, other subjects, audits and notes.
+# test/deploy.mjs checks this list against the student pages and their links.
+/*
+!/index.html
+!/middleware.js
+!/gate
+!/package.json
+!/package-lock.json
+!/vercel.json
+
+!/bayt
+/bayt/*
+!/bayt/index.html
+
+!/semester-1
+/semester-1/*
+!/semester-1/index.html
+!/semester-1/math
+!/semester-1/physics
+!/semester-1/chemistry
+!/semester-1/assets
+/semester-1/assets/*
+!/semester-1/assets/study.css
+
+!/ma101
+/ma101/*
+!/ma101/index.html
+!/ma101/book
+!/ma101/pearson
+!/ma101/educator
+!/ma101/assets
+
+!/phy101
+/phy101/*
+!/phy101/index.html
+!/phy101/book
+!/phy101/pearson
+!/phy101/educator
+!/phy101/assets
+
+!/chemistry
+/chemistry/*
+!/chemistry/index.html
+!/chemistry/book
+!/chemistry/pearson
+!/chemistry/educator
+!/chemistry/assets
+
+# Scripts and styles of the earlier collection pages are not used by the reading pages.
+/ma101/assets/*.js
+/ma101/assets/*.css
+/phy101/assets/*.js
+/phy101/assets/*.css
+/chemistry/assets/*.js
+/chemistry/assets/*.css

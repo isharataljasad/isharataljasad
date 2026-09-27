@@ -1,3 +1,4 @@
+import './lib/legacy-guard.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {lessons} from '../bayt/data/lessons/index.mjs';

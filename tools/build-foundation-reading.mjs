@@ -1,3 +1,4 @@
+import './lib/legacy-guard.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { esc, slug, makeInline, renderMarkdown as render } from './lib/markdown.mjs';

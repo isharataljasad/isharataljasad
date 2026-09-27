@@ -17,6 +17,11 @@ BAYT_GUARD — اقرأ قبل إعادة التشغيل.
 
 وبدون العَلَم يتوقف البناء، حمايةً من محو الدروس بلا قصد.
 """
+
+import os as _os, sys as _sys
+if _os.environ.get('ALLOW_LEGACY_BUILD') != '1':
+    _sys.exit('Preserved legacy builder: it would overwrite the Semester 1 study library. Use `npm run build:study`.')
+
 import sys
 
 if '--i-will-rebuild-lessons' not in sys.argv:

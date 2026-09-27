@@ -1,3 +1,4 @@
+import './lib/legacy-guard.mjs';
 /* ==========================================================================
    tools/build-curriculum.mjs
 

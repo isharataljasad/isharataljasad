@@ -1,0 +1,35 @@
+{
+  "_note": "Places every original collection unit that semester-1/curriculum.json does not already map to a topic. A topic id attaches the unit to that Semester 1 topic; 'background' = needed earlier knowledge; 'related' = plausibly Semester 1 but not named in the published course description (confirm with the lecturer's outline); 'beyond' = not in the published Semester 1 description. The build fails if any unit is unplaced.",
+  "groups": {
+    "ma101": {
+      "background": ["Background: functions and graphs", "Review material the Semester 1 topics rely on: domains, function families, trigonometric, exponential and logarithmic functions."],
+      "related": ["Related methods — check your lecturer’s outline", "Standard Calculus I methods that the published MA 101 description does not name explicitly (for example L’Hôpital’s rule and Newton’s method). Read them if your outline includes them."],
+      "beyond": ["Beyond Semester 1: integration and differential equations", "Not in the published MA 101 description. Kept for later reference; you do not need these for Semester 1 unless your lecturer adds them."]
+    },
+    "phy101": {
+      "background": ["Background: calculus connection", "How derivatives and accumulation connect to motion. Useful if your physics course uses calculus."],
+      "related": ["Related mechanics — check your lecturer’s outline", "Mechanics topics often taught in a first physics course but not named in the published PHY 101 description."],
+      "beyond": ["Beyond Semester 1: rotation, gravitation, fluids, waves, heat, electricity and modern physics", "Not in the published PHY 101 description (fundamentals, laws of motion and their applications, laboratory work and graphing). Kept for later courses."]
+    },
+    "chemistry": {
+      "background": ["Background: matter, measurement, formulas and moles", "The quantitative foundation that reactions in solution, solutions and gases rely on: classification, measurement, unit conversion, formulas and the mole."],
+      "related": ["Related topics — check your lecturer’s outline", "Topics connected to the published CHEM 101 list (intermolecular forces, phases, free energy) that may or may not be assessed in your section."],
+      "beyond": ["Beyond Semester 1: kinetics, equilibrium, acids and bases, nuclear, organic and coordination chemistry", "Not in the published CHEM 101 description. Typically part of the following chemistry course."]
+    }
+  },
+  "ma101": {
+    "book": {"lesson-01":"background","lesson-02":"background","lesson-03":"background","lesson-04":"background","lesson-05":"background","lesson-06":"limits","lesson-10":"limits","lesson-14":"derivative","lesson-17":"rules","lesson-27":"related","lesson-28":"related","lesson-29":"beyond","lesson-30":"beyond","lesson-31":"beyond","lesson-32":"beyond","lesson-33":"beyond","lesson-34":"beyond","lesson-35":"beyond","lesson-36":"beyond","lesson-37":"beyond","lesson-38":"beyond","lesson-39":"beyond"},
+    "pearson": {"lesson-01":"background","lesson-02":"background","lesson-03":"background","lesson-04":"background","lesson-05":"background","lesson-06":"background","lesson-14":"derivative","lesson-21":"rules","lesson-22":"rules","lesson-23":"beyond","lesson-24":"beyond","lesson-25":"beyond","lesson-26":"beyond","lesson-27":"beyond","lesson-28":"beyond","lesson-29":"beyond"},
+    "educator": {"lesson-01":"background","lesson-02":"background","lesson-03":"derivative","lesson-06":"limits","lesson-15":"rules","lesson-16":"derivative","lesson-18":"rules","lesson-20":"related","lesson-26":"related","lesson-29":"related","lesson-30":"beyond","lesson-31":"beyond","lesson-32":"beyond","lesson-33":"beyond","lesson-34":"beyond","lesson-35":"beyond","lesson-36":"beyond","lesson-37":"curve-shape","lesson-38":"beyond","lesson-39":"beyond"}
+  },
+  "phy101": {
+    "book": {"lesson-06":"motion","lesson-10":"related","lesson-16":"beyond","lesson-18":"beyond","lesson-19":"beyond","lesson-20":"beyond","lesson-21":"related","lesson-22":"beyond","lesson-23":"beyond","lesson-24":"beyond","lesson-25":"beyond","lesson-26":"beyond","lesson-27":"beyond","lesson-28":"beyond","lesson-29":"beyond","lesson-30":"beyond","lesson-31":"beyond","lesson-32":"beyond","lesson-33":"beyond","lesson-34":"beyond","lesson-35":"beyond"},
+    "pearson": {"lesson-04":"motion","lesson-07":"motion","lesson-09":"motion","lesson-15":"forces","lesson-21":"energy","lesson-27":"momentum","lesson-28":"background"},
+    "educator": {"lesson-12":"related","lesson-14":"beyond","lesson-17":"related","lesson-18":"beyond","lesson-19":"beyond","lesson-20":"beyond","lesson-21":"beyond","lesson-22":"beyond","lesson-23":"beyond","lesson-24":"beyond","lesson-25":"beyond","lesson-26":"beyond","lesson-27":"beyond","lesson-28":"beyond","lesson-29":"beyond","lesson-30":"beyond","lesson-31":"beyond","lesson-32":"beyond","lesson-33":"beyond","lesson-34":"beyond","lesson-35":"beyond","lesson-36":"beyond","lesson-37":"beyond"}
+  },
+  "chemistry": {
+    "book": {"lesson-01":"background","lesson-02":"background","lesson-03":"background","lesson-05":"background","lesson-06":"background","lesson-07":"background","lesson-21":"related","lesson-23":"beyond","lesson-24":"beyond","lesson-25":"beyond","lesson-26":"beyond","lesson-27":"beyond","lesson-28":"beyond","lesson-29":"beyond","lesson-30":"beyond","lesson-31":"beyond","lesson-32":"related"},
+    "pearson": {"lesson-01":"background","lesson-02":"background","lesson-04":"background","lesson-05":"background","lesson-06":"background","lesson-12":"aqueous-reactions","lesson-14":"aqueous-reactions","lesson-25":"related","lesson-26":"related","lesson-29":"beyond","lesson-30":"beyond","lesson-31":"beyond","lesson-32":"beyond","lesson-33":"beyond","lesson-34":"beyond","lesson-35":"beyond","lesson-36":"beyond","lesson-37":"beyond","lesson-38":"beyond","lesson-39":"beyond","lesson-40":"related","lesson-44":"beyond","lesson-45":"beyond","lesson-46":"beyond"},
+    "educator": {"lesson-01":"background","lesson-02":"background","lesson-05":"background","lesson-06":"background","lesson-07":"background","lesson-21":"related","lesson-24":"related","lesson-25":"related","lesson-26":"related","lesson-29":"related","lesson-32":"beyond","lesson-33":"beyond","lesson-34":"beyond","lesson-35":"beyond","lesson-36":"beyond","lesson-37":"beyond","lesson-38":"beyond","lesson-39":"beyond","lesson-40":"beyond","lesson-43":"beyond","lesson-44":"beyond","lesson-45":"beyond","lesson-46":"beyond"}
+  }
+}
