@@ -1,6 +1,6 @@
 > **Superseded (28 September 2026):** the owner chose an on-site feedback form. It is
 > implemented (`api/feedback.js`, `semester-1/assets/feedback.js`); setup and owner
-> retrieval are in `docs/feedback.md`. Storage still has to be connected by the owner.
+> retrieval are in `docs/feedback.md`. Storage is connected (see `docs/feedback.md`).
 
 # Pilot feedback: proposal (not implemented)
 

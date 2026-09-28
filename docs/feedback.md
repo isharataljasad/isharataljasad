@@ -35,27 +35,27 @@ also exist and expire by themselves:
 
 There is no endpoint that lists or reads feedback. `GET /api/feedback` returns 405.
 
-## Setup still needed (owner action)
+## Storage status
 
-The implementation passes local tests, but **no real storage connection or hosted
-submission has been verified yet**. Until storage is configured, the endpoint
-answers “Feedback storage is not set up yet”, and the form says the comment was
-not sent. Recommended setup, using Upstash Redis through the Vercel Marketplace
-(it has a free plan; check the current plan limits before relying on them):
+Connected on 28 September 2026 by the owner: Upstash for Redis database
+`bayt-alfuad-feedback` (Free plan, eviction disabled, region iad1), created through
+Vercel and connected to the **isharataljasad** project for both Preview and
+Production (prefix `KV`, so `KV_REST_API_URL` / `KV_REST_API_TOKEN`, marked
+Sensitive). Records stay apart by key prefix: `feedback:preview:` and
+`feedback:production:`.
 
-1. In the Vercel dashboard, open the **isharataljasad** project, then **Storage**
-   (or **Integrations → Marketplace**). Add **Upstash for Redis** and create a
-   database.
-2. Connect it to the project. Vercel adds the environment variables
-   `KV_REST_API_URL` and `KV_REST_API_TOKEN`. `UPSTASH_REDIS_REST_URL` and
-   `UPSTASH_REDIS_REST_TOKEN` are also accepted.
-3. Keep preview and production apart. Either connect a second database for the
-   **Preview** environment only, or rely on the `feedback:preview:` and
-   `feedback:production:` key prefixes. A separate database is cleaner.
-4. Redeploy so the functions see the new variables. A deployment built before the
-   variables existed does not have them.
+Owner-observed evidence: after a fresh preview redeploy of `f718b1b`, a marked test
+note sent from English → *Build a complete sentence* showed “Thank you. Your
+feedback was received.” The durable record `feedback:preview:mukh04b0-4da67561`
+(subject `english`, lesson `build-a-complete-sentence`, category `Other`, no TTL)
+was then read back in the Upstash Data Browser. Production persistence is
+checked separately after release.
 
-Never paste the token into the repository, a chat or a handoff file.
+If the database is ever disconnected, the endpoint answers “Feedback storage is
+not set up yet”, and the form says the comment was not sent. To reconnect, add
+Upstash for Redis to the project again under **Storage**, connect it to Preview and
+Production, and redeploy; a deployment built before the variables existed does not
+have them. Never paste the token into the repository, a chat or a handoff file.
 
 ## Reading and deleting feedback (owner only)
 
@@ -73,7 +73,8 @@ have no access to it.
 
 ## Verifying after setup
 
-Send one note that starts with `[verification]` from a preview lesson, find it in
-the Data Browser under `feedback:preview:`, then delete only that key.
+Send one clearly marked note from a lesson, find its exact key in the Data Browser
+(`feedback:preview:<id>` or `feedback:production:<id>`), then delete only that key.
+Never flush the database or delete a whole namespace.
 `node test/browser.mjs` runs the same flow locally against an in-memory stand-in
 for the storage API. That stand-in is a test double, not a destination.
