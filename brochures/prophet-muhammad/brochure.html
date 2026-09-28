@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>الرسول محمد ﷺ — خير قدوة لنا</title>
+<style>
+@font-face{font-family:'Tajawal';src:url(fonts/Tajawal-Regular.ttf);font-weight:400}
+@font-face{font-family:'Tajawal';src:url(fonts/Tajawal-Medium.ttf);font-weight:500}
+@font-face{font-family:'Tajawal';src:url(fonts/Tajawal-Bold.ttf);font-weight:700}
+@font-face{font-family:'Tajawal';src:url(fonts/Tajawal-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:'Amiri';src:url(fonts/Amiri-Regular.ttf);font-weight:400}
+@font-face{font-family:'Amiri';src:url(fonts/Amiri-Bold.ttf);font-weight:700}
+
+@page{size:297mm 210mm;margin:0}
+
+:root{
+  --g-dark:#1d4d36;
+  --g:#2e6a4c;
+  --g-mid:#5f9275;
+  --g-light:#e3eee2;
+  --g-soft:#cfe1cf;
+  --beige:#f8f2e4;
+  --beige-2:#efe4cb;
+  --gold:#b58d3d;
+  --gold-l:#dcc58f;
+  --ink:#24332b;
+  --white:#fffdf8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{
+  font-family:'Tajawal','Amiri',sans-serif;
+  color:var(--ink);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+
+/* ---------- sheet & panels (3 × 99mm) ---------- */
+.sheet{
+  width:297mm;height:210mm;position:relative;overflow:hidden;
+  display:grid;grid-template-columns:99mm 99mm 99mm;
+  direction:ltr;                 /* panels placed physically: left | middle | right */
+  background:#fff;
+  break-after:page;page-break-after:always;
+}
+.sheet:last-of-type{break-after:auto;page-break-after:auto}
+.panel{direction:rtl;height:210mm;padding:8mm 7mm;position:relative}
+.card{
+  height:100%;border-radius:4mm;position:relative;overflow:hidden;
+  background:var(--beige);
+  border:.45mm solid var(--gold-l);
+  padding:7mm 6mm 6mm;
+  display:flex;flex-direction:column;align-items:stretch;
+}
+.card::after{ /* thin inner gold hairline */
+  content:"";position:absolute;inset:1.6mm;border-radius:3mm;
+  border:.2mm solid rgba(181,141,61,.45);pointer-events:none;
+}
+
+/* fold & trim guides — only in the outer page margin, never over text */
+.fold{position:absolute;left:0;width:0;height:5mm;border-left:.25mm dashed #b9b9b9}
+.fold.t{top:0}.fold.b{bottom:0}
+
+/* ---------- common pieces ---------- */
+.band{height:5mm;width:100%;display:block;flex:none}
+.h{
+  margin:3mm 0 1mm;text-align:center;
+  font-weight:800;font-size:17.5pt;line-height:1.35;color:var(--g-dark);
+  display:flex;align-items:center;justify-content:center;gap:2.4mm;
+}
+.h .s{width:3.6mm;height:3.6mm;flex:none;color:var(--gold)}
+.rule{display:flex;align-items:center;justify-content:center;gap:1.6mm;margin:0 0 4mm}
+.rule i{display:block;height:.35mm;width:16mm;background:linear-gradient(90deg,transparent,var(--gold))}
+.rule i:last-child{background:linear-gradient(270deg,transparent,var(--gold))}
+.rule b{width:1.8mm;height:1.8mm;background:var(--gold);transform:rotate(45deg)}
+
+p.txt{
+  margin:0;font-size:12.6pt;line-height:1.95;text-align:center;font-weight:500;
+  background:var(--white);border-radius:3mm;padding:4mm 4.5mm;
+  border:.3mm solid var(--beige-2);
+}
+.verse{
+  margin-top:auto;text-align:center;
+  background:var(--g-light);border:.45mm solid var(--gold-l);border-radius:3.5mm;
+  padding:4.5mm 3mm 3.4mm;position:relative;
+}
+.verse::before,.verse::after{
+  content:"";position:absolute;top:-2mm;width:4mm;height:4mm;background:var(--gold);
+  transform:rotate(45deg);border:.8mm solid var(--g-light);
+}
+.verse::before{right:50%;margin-right:-2mm}
+.verse::after{display:none}
+.verse q{
+  quotes:none;display:block;font-family:'Amiri',serif;font-weight:700;
+  font-size:19pt;line-height:1.8;color:var(--g-dark);
+}
+.verse cite{
+  display:inline-block;margin-top:1.2mm;font-style:normal;font-size:10.5pt;font-weight:700;
+  color:var(--gold);letter-spacing:0;
+}
+
+/* 8-point star bullet made of two squares */
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2.1mm}
+.list li{
+  position:relative;padding:1.7mm 9.5mm 1.5mm 3mm;
+  background:var(--white);border-radius:2.4mm;border:.3mm solid var(--beige-2);
+  font-size:12.8pt;font-weight:700;line-height:1.45;color:var(--ink);
+}
+.list li::before,.list li::after{
+  content:"";position:absolute;right:3.2mm;top:50%;width:2.9mm;height:2.9mm;margin-top:-1.45mm;
+  background:var(--gold);
+}
+.list li::after{transform:rotate(45deg)}
+.list.tight{gap:2mm}
+.list li.nw{white-space:nowrap;font-size:11.5pt;padding-left:1.5mm}
+.traits .list{gap:3.2mm}
+.traits .list li{font-size:13.5pt;padding:2.2mm 10mm 2mm 3mm}
+.list.tight li{font-size:12pt;padding:1.25mm 9.5mm 1.05mm 3mm}
+.list.tight li::before,.list.tight li::after{background:var(--g-mid)}
+
+/* ---------- outside: cover ---------- */
+.cover .card{
+  background:linear-gradient(170deg,#24593f 0%,var(--g-dark) 55%,#173f2c 100%);
+  border-color:var(--gold);color:#fff;padding:8mm 6mm 6mm;align-items:center;text-align:center;
+}
+.cover .card::after{border-color:rgba(220,197,143,.55)}
+.cover .pattern{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.cover .inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;height:100%;width:100%}
+.medal{width:40mm;height:40mm;margin-top:8mm;flex:none}
+.cover h1{
+  margin:6mm 0 0;font-family:'Amiri',serif;font-weight:700;font-size:35pt;line-height:1.35;
+  color:#fff;
+}
+.cover h1 .saw{color:var(--gold-l)}
+.ribbon{
+  margin-top:3mm;display:inline-block;background:var(--gold-l);color:var(--g-dark);
+  font-weight:800;font-size:17pt;line-height:1.3;padding:1.6mm 7mm 1mm;border-radius:10mm;
+}
+.tagline{
+  margin:6mm 2mm 0;font-size:13pt;line-height:1.8;font-weight:500;color:#eaf1e7;
+}
+.tagline::before,.tagline::after{content:"";display:block;width:22mm;height:.3mm;margin:2.2mm auto;background:rgba(220,197,143,.7)}
+.info{
+  margin-top:auto;width:100%;background:var(--beige);color:var(--ink);
+  border-radius:3mm;border:.45mm solid var(--gold-l);padding:3mm 4mm 2.4mm;text-align:right;
+}
+.info .row{display:flex;gap:1.6mm;font-size:11.3pt;line-height:1.95;align-items:baseline}
+.info .row+.row{border-top:.25mm dotted #cdbf9d}
+.info .k{font-weight:800;color:var(--g-dark);white-space:nowrap}
+.info .v{font-weight:700}
+
+/* ---------- outside: back cover ---------- */
+.back .card{text-align:center}
+.back p.txt{text-align:center;font-size:13pt;line-height:2.05;margin-top:1mm}
+.bigstar{width:20mm;height:20mm;margin:auto;display:block;flex:none}
+.salawat{
+  margin-top:auto;position:relative;padding:7mm 3mm 6mm;border-radius:4mm;
+  background:var(--g-dark);color:#fff;border:.5mm solid var(--gold);
+}
+.salawat::after{content:"";position:absolute;inset:1.3mm;border:.25mm solid rgba(220,197,143,.6);border-radius:3mm}
+.salawat .c{
+  font-family:'Amiri',serif;font-weight:700;font-size:21pt;line-height:1.95;color:#fff;
+}
+.salawat .c .saw{color:var(--gold-l)}
+
+/* ---------- outside: intro flap ---------- */
+.intro p.txt{margin-top:1mm}
+.intro .crest{width:34mm;height:23mm;margin:auto;display:block;flex:none}
+
+/* ---------- inside: middle ---------- */
+.msg p.txt{font-size:13pt;line-height:2.05}
+.mosque{width:64mm;height:37mm;margin:auto;display:block;flex:none}
+.highlight{
+  margin-top:auto;text-align:center;background:var(--g-dark);color:#fff;border-radius:3.5mm;
+  padding:5mm 4mm 4.3mm;border:.5mm solid var(--gold);position:relative;
+}
+.highlight::after{content:"";position:absolute;inset:1.2mm;border:.25mm solid rgba(220,197,143,.6);border-radius:2.6mm}
+.highlight span{display:block;font-size:14.5pt;font-weight:800;line-height:1.75}
+.highlight .gold{color:var(--gold-l)}
+
+/* ---------- inside: love box ---------- */
+.love{
+  margin-top:auto;background:var(--g-light);border:.45mm solid var(--gold-l);border-radius:3.5mm;
+  padding:2.6mm 4mm 3mm;text-align:center;
+}
+.love h3{
+  margin:0 0 1mm;font-size:13.5pt;font-weight:800;color:var(--g-dark);
+  display:flex;align-items:center;justify-content:center;gap:2mm;
+}
+.love h3 .s{width:3mm;height:3mm;color:var(--gold)}
+.love p{margin:0;font-size:11.6pt;line-height:1.85;font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- shared SVG definitions -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star8" viewBox="-12 -12 24 24">
+      <rect x="-8.2" y="-8.2" width="16.4" height="16.4" fill="currentColor"/>
+      <rect x="-8.2" y="-8.2" width="16.4" height="16.4" fill="currentColor" transform="rotate(45)"/>
+    </symbol>
+    <symbol id="star8o" viewBox="-12 -12 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.1">
+        <rect x="-8" y="-8" width="16" height="16"/>
+        <rect x="-8" y="-8" width="16" height="16" transform="rotate(45)"/>
+      </g>
+      <circle r="3" fill="currentColor"/>
+    </symbol>
+    <symbol id="crescent" viewBox="0 0 40 40">
+      <path d="M19.03 4.04A16 16 0 1 0 35.53 23.84A13 13 0 1 1 19.03 4.04Z" fill="currentColor"/>
+    </symbol>
+    <!-- repeating strip of small stars -->
+    <pattern id="stripGold" width="9" height="9" patternUnits="userSpaceOnUse">
+      <g transform="translate(4.5 4.5)" fill="#c9a55c">
+        <rect x="-2.3" y="-2.3" width="4.6" height="4.6"/>
+        <rect x="-2.3" y="-2.3" width="4.6" height="4.6" transform="rotate(45)"/>
+      </g>
+      <rect x="0" y="4.2" width="9" height=".6" fill="#dcc58f"/>
+    </pattern>
+    <!-- light lattice for the cover -->
+    <pattern id="lattice" width="22" height="22" patternUnits="userSpaceOnUse">
+      <g transform="translate(11 11)" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width=".7">
+        <rect x="-6" y="-6" width="12" height="12"/>
+        <rect x="-6" y="-6" width="12" height="12" transform="rotate(45)"/>
+      </g>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- =====================================================================
+     الوجه الخارجي  (يسار: مدخل المطوية | وسط: الغلاف الخلفي | يمين: الغلاف الأمامي)
+     ===================================================================== -->
+<section class="sheet outside">
+
+  <!-- اللوحة اليسرى — مدخل المطوية -->
+  <div class="panel intro">
+    <div class="card">
+      <svg class="band" viewBox="0 0 90 9" preserveAspectRatio="xMidYMid slice"><rect width="90" height="9" fill="url(#stripGold)"/></svg>
+      <h2 class="h"><svg class="s"><use href="#star8"/></svg>من هو الرسول ﷺ؟<svg class="s"><use href="#star8"/></svg></h2>
+      <div class="rule"><i></i><b></b><i></i></div>
+      <p class="txt">هو محمد بن عبدالله بن عبدالمطلب ﷺ، خاتم الأنبياء والمرسلين. وُلِدَ في مكة المكرمة، وأرسله الله تعالى رحمةً للعالمين، وداعيًا إلى توحيد الله وعبادته وحده.</p>
+      <svg class="crest" viewBox="0 0 60 40" aria-hidden="true">
+        <g color="#b58d3d"><use href="#crescent" x="14" y="4" width="30" height="30"/></g>
+        <g color="#2e6a4c"><use href="#star8" x="36" y="8" width="9" height="9"/></g>
+      </svg>
+      <div class="verse">
+        <q>﴿وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ﴾</q>
+        <cite>سورة الأنبياء: 107</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- اللوحة الوسطى — الغلاف الخلفي -->
+  <div class="panel back">
+    <div class="card">
+      <svg class="band" viewBox="0 0 90 9" preserveAspectRatio="xMidYMid slice"><rect width="90" height="9" fill="url(#stripGold)"/></svg>
+      <h2 class="h"><svg class="s"><use href="#star8"/></svg>ماذا تعلمت؟<svg class="s"><use href="#star8"/></svg></h2>
+      <div class="rule"><i></i><b></b><i></i></div>
+      <p class="txt">كان النبي محمد ﷺ أعظم قدوة في الأخلاق والرحمة والعبادة، فعلينا أن نتعلم سيرته، ونقتدي به في حياتنا، ونكثر من الصلاة والسلام عليه.</p>
+      <svg class="bigstar" viewBox="-12 -12 24 24" aria-hidden="true" color="#b58d3d"><use href="#star8o" x="-12" y="-12" width="24" height="24"/></svg>
+      <div class="salawat">
+        <div class="c">اللَّهُمَّ صَلِّ وَسَلِّمْ<br>عَلَى نَبِيِّنَا مُحَمَّدٍ <span class="saw">ﷺ</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- اللوحة اليمنى — الغلاف الأمامي -->
+  <div class="panel cover">
+    <div class="card">
+      <svg class="pattern" aria-hidden="true"><rect width="100%" height="100%" fill="url(#lattice)"/></svg>
+      <div class="inner">
+        <svg class="band" viewBox="0 0 90 9" preserveAspectRatio="xMidYMid slice"><rect width="90" height="9" fill="url(#stripGold)"/></svg>
+        <!-- شعار رمزي: هلال ونجمة داخل دائرة -->
+        <svg class="medal" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="47" fill="none" stroke="#dcc58f" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="42" fill="#f8f2e4" fill-opacity=".08" stroke="#dcc58f" stroke-width=".5" stroke-dasharray="1.5 2.2"/>
+          <g color="#dcc58f"><use href="#crescent" x="22" y="22" width="52" height="52"/></g>
+          <g color="#ffffff"><use href="#star8" x="60" y="30" width="13" height="13"/></g>
+        </svg>
+        <h1>الرسول محمد <span class="saw">ﷺ</span></h1>
+        <div class="ribbon">خير قدوة لنا</div>
+        <div class="tagline">رحمةٌ للعالمين،<br>وقدوةٌ في الأخلاق والعبادة</div>
+        <div class="info">
+          <div class="row"><span class="k">إعداد الطالب:</span><span class="v">أسامة الثبيتي</span></div>
+          <div class="row"><span class="k">الصف:</span><span class="v">السادس الابتدائي</span></div>
+          <div class="row"><span class="k">معلم المادة:</span><span class="v">عبدالناصر الزاهراني</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="fold t" style="left:99mm"></span><span class="fold b" style="left:99mm"></span>
+  <span class="fold t" style="left:198mm"></span><span class="fold b" style="left:198mm"></span>
+</section>
+
+<!-- =====================================================================
+     الوجه الداخلي  (يسار: كيف نقتدي | وسط: رسالة الرسول | يمين: صفات الرسول)
+     ===================================================================== -->
+<section class="sheet inside">
+
+  <!-- اللوحة اليسرى — كيف نقتدي بالرسول ﷺ؟ -->
+  <div class="panel follow">
+    <div class="card">
+      <svg class="band" viewBox="0 0 90 9" preserveAspectRatio="xMidYMid slice"><rect width="90" height="9" fill="url(#stripGold)"/></svg>
+      <h2 class="h" style="font-size:16pt"><svg class="s"><use href="#star8"/></svg>كيف نقتدي بالرسول ﷺ؟<svg class="s"><use href="#star8"/></svg></h2>
+      <div class="rule" style="margin-bottom:3mm"><i></i><b></b><i></i></div>
+      <ul class="list tight">
+        <li>نحافظ على الصلاة.</li>
+        <li>نصدق في كلامنا.</li>
+        <li>نبر والدينا.</li>
+        <li>نحترم معلمينا.</li>
+        <li>نرحم الصغير ونوقر الكبير.</li>
+        <li>نساعد المحتاج.</li>
+        <li>نحسن إلى الجيران والأصدقاء.</li>
+        <li>نبتعد عن الكذب والأذى.</li>
+        <li class="nw">نكثر من الصلاة والسلام عليه ﷺ.</li>
+      </ul>
+      <div class="love">
+        <h3><svg class="s"><use href="#star8"/></svg>محبة الرسول ﷺ<svg class="s"><use href="#star8"/></svg></h3>
+        <p>محبة الرسول ﷺ تكون باتباع سنته، وطاعته، والاقتداء بأخلاقه وأعماله.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- اللوحة الوسطى — رسالة الرسول ﷺ -->
+  <div class="panel msg">
+    <div class="card">
+      <svg class="band" viewBox="0 0 90 9" preserveAspectRatio="xMidYMid slice"><rect width="90" height="9" fill="url(#stripGold)"/></svg>
+      <h2 class="h"><svg class="s"><use href="#star8"/></svg>رسالة الرسول ﷺ<svg class="s"><use href="#star8"/></svg></h2>
+      <div class="rule"><i></i><b></b><i></i></div>
+      <p class="txt">دعا الرسول ﷺ الناس إلى عبادة الله وحده، وترك الشرك، وإقامة الصلاة، والصدق، وبر الوالدين، وصلة الرحم، ومساعدة المحتاج، وحسن معاملة الناس.</p>
+      <!-- المسجد النبوي بشكل رمزي مبسّط -->
+      <svg class="mosque" viewBox="0 0 120 70" aria-hidden="true">
+        <g fill="#2e6a4c">
+          <rect x="9" y="20" width="7" height="46" rx="1"/>
+          <path d="M8 20 L12.5 6 L17 20Z"/>
+          <rect x="7" y="30" width="11" height="2.4" rx="1"/>
+          <rect x="104" y="20" width="7" height="46" rx="1"/>
+          <path d="M103 20 L107.5 6 L112 20Z"/>
+          <rect x="102" y="30" width="11" height="2.4" rx="1"/>
+          <rect x="22" y="44" width="76" height="22" rx="1.5"/>
+          <rect x="44" y="36" width="32" height="9"/>
+        </g>
+        <path d="M42 37 C42 22 52 15 60 9 C68 15 78 22 78 37Z" fill="#3f8a60"/>
+        <path d="M60 9 L60 3" stroke="#b58d3d" stroke-width="1.2"/>
+        <circle cx="60" cy="2.6" r="1.4" fill="#b58d3d"/>
+        <g fill="#f8f2e4">
+          <path d="M31 66 V56 a4 4 0 0 1 8 0 V66Z"/>
+          <path d="M55 66 V54 a5 5 0 0 1 10 0 V66Z"/>
+          <path d="M81 66 V56 a4 4 0 0 1 8 0 V66Z"/>
+        </g>
+        <rect x="4" y="66" width="112" height="1.4" fill="#b58d3d"/>
+      </svg>
+      <div class="highlight">
+        <span>كانت رسالته ﷺ</span>
+        <span class="gold">رحمةً وهدايةً وأخلاقًا.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- اللوحة اليمنى — من صفات الرسول ﷺ -->
+  <div class="panel traits">
+    <div class="card">
+      <svg class="band" viewBox="0 0 90 9" preserveAspectRatio="xMidYMid slice"><rect width="90" height="9" fill="url(#stripGold)"/></svg>
+      <h2 class="h"><svg class="s"><use href="#star8"/></svg>من صفات الرسول ﷺ<svg class="s"><use href="#star8"/></svg></h2>
+      <div class="rule"><i></i><b></b><i></i></div>
+      <ul class="list">
+        <li>الصدق والأمانة</li>
+        <li>الرحمة</li>
+        <li>الصبر والحِلم</li>
+        <li>التواضع</li>
+        <li>العفو والتسامح</li>
+        <li>الكرم والإحسان</li>
+        <li>الوفاء بالعهود</li>
+      </ul>
+      <div class="verse">
+        <q>﴿وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ﴾</q>
+        <cite>سورة القلم: 4</cite>
+      </div>
+    </div>
+  </div>
+
+  <span class="fold t" style="left:99mm"></span><span class="fold b" style="left:99mm"></span>
+  <span class="fold t" style="left:198mm"></span><span class="fold b" style="left:198mm"></span>
+</section>
+
+</body>
+</html>
