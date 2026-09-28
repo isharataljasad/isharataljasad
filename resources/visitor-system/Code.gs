@@ -1,27 +1,32 @@
 /* نظام تسجيل الزائرات — Google Apps Script (ملف واحد).
  *
- * التشغيل لأول مرة: شغّلي الدالة setup مرة واحدة، فتُنشئ ملف Google Sheets
- * «سجل الزائرات» في Drive الخاص بكِ (لا يُشارك مع أحد). بعد ذلك انشري المشروع
- * كتطبيق ويب (Execute as: Me — Who has access: Anyone).
+ * الوظائف العامة (بلا شرطة سفلية) هي فقط ما تستدعيه صفحة الزائرات:
+ *   doGet, register, leaveStart, leaveReserve, leaveFinish.
+ * كل ما عداها خاص (ينتهي اسمه بـ _) فلا يمكن استدعاؤه من المتصفح عبر
+ * google.script.run. لا توجد وظيفة إدارة عامة: السجل يُنشأ تلقائيًا في Drive
+ * المالكة عند أول تسجيل، والإدارة تعدّل السجل وتحذف منه مباشرة في Google Sheets.
  *
- * الزائرة ترى صفحة التسجيل وصفحة المغادرة فقط، ولا يُعرض لها أي سجل.
- * التسجيل يُكتب في ورقة «السجل»، والمغادرة تُربط بالزيارة نفسها برقمها (م):
- * إما عبر رابط المغادرة الخاص الذي يظهر بعد التسجيل، أو برقم الهوية + الجوال
- * (تُختار أحدث زيارة لها لم تُسجَّل مغادرتها بعد). */
+ * الزائرة لا ترى أي سجل. المغادرة تُربط بالزيارة نفسها برقمها (م) مع التحقق من
+ * وقت وصولها، إما عبر رابط المغادرة الخاص الذي يظهر بعد التسجيل (صالح 3 أيام)،
+ * أو برقم الهوية + الجوال (أحدث زيارة لها لم تُسجَّل مغادرتها).
+ *
+ * وقت المغادرة يأخذه الخادم لحظة ضغط «تسجيل المغادرة» (leaveReserve) ويحفظه عنده؛
+ * الصفحة تكتب هذا الوقت نفسه تحت التوقيع، و leaveFinish يحفظ الوقت المحفوظ لدى
+ * الخادم لا أي وقت من المتصفح. إن فشل الحفظ تُعاد الخلية فارغة وتبقى الزيارة
+ * مفتوحة لإعادة المحاولة. */
 
 const SCHOOL = 'ب/٩٦ صفوف عليا+ صعوبات التعلم+ م/٤٥';
 const TZ = 'Asia/Riyadh';
 const SHEET = 'السجل';
-const HEAD_ROW = 3, FIRST_ROW = 4, COLS = 8;
+const HEAD_ROW = 3, FIRST_ROW = 4, COLS = 8, SIG_COL = 8;
 const HEADERS = ['م', 'التاريخ والوقت', 'اسم الزائرة الثلاثي', 'رقم الهوية / الإقامة',
   'سبب الزيارة', 'جهة العمل / الصفة', 'رقم الجوال', 'التوقيع ووقت المغادرة'];
 const WIDTHS = [45, 135, 220, 140, 210, 170, 115, 240];
+const TOKEN_DAYS = 3, RESERVE_MINUTES = 5;
 const PROPS = PropertiesService.getScriptProperties();
 
-/* ---------- إعداد السجل (مرة واحدة) ---------- */
-function setup() {
-  const existing = PROPS.getProperty('sheetId');
-  if (existing) { Logger.log('السجل موجود مسبقًا: ' + SpreadsheetApp.openById(existing).getUrl()); return; }
+/* ---------- إنشاء السجل (تلقائيًا عند أول تسجيل، تحت القفل) ---------- */
+function createSheet_() {
   const ss = SpreadsheetApp.create('سجل الزائرات — ' + SCHOOL);
   ss.setSpreadsheetTimeZone(TZ);
   const sh = ss.getSheets()[0];
@@ -50,10 +55,10 @@ function setup() {
   formatDataRows_(sh, FIRST_ROW, sh.getMaxRows() - FIRST_ROW + 1);
   sh.setFrozenRows(HEAD_ROW);
   sh.getRange(HEAD_ROW, 1, sh.getMaxRows() - HEAD_ROW + 1, COLS).createFilter();
-
+  SpreadsheetApp.flush();
   PROPS.setProperty('sheetId', ss.getId());
-  PROPS.setProperty('counter', '0');
   Logger.log('تم إنشاء السجل: ' + ss.getUrl());
+  return sh;
 }
 
 function formatDataRows_(sh, row, n) {
@@ -61,7 +66,7 @@ function formatDataRows_(sh, row, n) {
   r.setFontFamily('Arial').setFontSize(11).setVerticalAlignment('middle').setWrap(true)
     .setHorizontalAlignment('right')
     .setBorder(true, true, true, true, true, true, '#000000', SpreadsheetApp.BorderStyle.SOLID);
-  [1, 2, 4, 7].forEach(c => sh.getRange(row, c, n, 1).setHorizontalAlignment('center'));
+  [1, 2, 4, 7, SIG_COL].forEach(c => sh.getRange(row, c, n, 1).setHorizontalAlignment('center'));
   sh.getRange(row, 1, n, 1).setNumberFormat('0').setFontWeight('bold');
   sh.getRange(row, 2, n, 1).setNumberFormat('dd/mm/yyyy hh:mm');
   sh.getRange(row, 4, n, 1).setNumberFormat('@');
@@ -69,10 +74,16 @@ function formatDataRows_(sh, row, n) {
   sh.setRowHeights(row, n, 36);
 }
 
-function sheet_() {
+/* create=true فقط داخل register تحت القفل. */
+function sheet_(create) {
   const id = PROPS.getProperty('sheetId');
-  if (!id) throw new Error('النظام غير مُعدّ بعد.');
-  return SpreadsheetApp.openById(id).getSheetByName(SHEET);
+  if (!id) {
+    if (create) return createSheet_();
+    throw new Error('لا توجد زيارات مسجلة بعد.');
+  }
+  const sh = SpreadsheetApp.openById(id).getSheetByName(SHEET);
+  if (!sh) throw new Error('ورقة «' + SHEET + '» غير موجودة في ملف السجل. أعيدي اسمها كما كان.');
+  return sh;
 }
 
 /* ---------- الصفحة ---------- */
@@ -116,6 +127,24 @@ function mobile_(s) {
   return v;
 }
 function fmt_(d) { return Utilities.formatDate(d, TZ, 'dd/MM/yyyy HH:mm'); }
+function withLock_(fn) {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(20000)) throw new Error('النظام مشغول، حاولي بعد لحظات.');
+  try { return fn(); } finally { lock.releaseLock(); }
+}
+function lastNum_(sh) {
+  const last = sh.getLastRow();
+  if (last < FIRST_ROW) return 0;
+  return sh.getRange(FIRST_ROW, 1, last - FIRST_ROW + 1, 1).getValues()
+    .reduce((m, v) => Math.max(m, Number(v[0]) || 0), 0);
+}
+function pruneTokens_() {
+  const all = PROPS.getProperties(), limit = Date.now() - TOKEN_DAYS * 86400000;
+  Object.keys(all).forEach(k => {
+    if (k.indexOf('t_') !== 0 && k.indexOf('r_') !== 0) return;
+    try { if (JSON.parse(all[k]).a < limit) PROPS.deleteProperty(k); } catch (e) { PROPS.deleteProperty(k); }
+  });
+}
 
 /* ---------- تسجيل الزيارة ---------- */
 function register(f) {
@@ -126,133 +155,111 @@ function register(f) {
     name, id: idNo_(f.id), reason: text_(f.reason, 200, 'سبب الزيارة'),
     work: text_(f.work, 100, 'جهة العمل / الصفة'), mobile: mobile_(f.mobile),
   };
-  const lock = LockService.getScriptLock();
-  lock.waitLock(20000);
-  try {
-    const sh = sheet_();
-    const num = Number(PROPS.getProperty('counter') || 0) + 1;
-    let row = Math.max(sh.getLastRow() + 1, FIRST_ROW);
+  return withLock_(() => {
+    const sh = sheet_(true);
+    // الرقم التالي من السجل نفسه، فحذف صفوف الاختبار يدويًا يعيد الترقيم تلقائيًا.
+    const num = lastNum_(sh) + 1;
+    const row = Math.max(sh.getLastRow() + 1, FIRST_ROW);
     if (row > sh.getMaxRows()) {
       sh.insertRowsAfter(sh.getMaxRows(), 200);
       formatDataRows_(sh, row, sh.getMaxRows() - row + 1);
     }
-    const now = new Date();
-    sh.getRange(row, 1, 1, 7).setValues([[num, now, d.name, d.id, d.reason, d.work, d.mobile]]);
+    sh.getRange(row, 1, 1, 7).setValues([[num, new Date(), d.name, d.id, d.reason, d.work, d.mobile]]);
     SpreadsheetApp.flush();
     const back = sh.getRange(row, 1, 1, 7).getValues()[0];
-    if (Number(back[0]) !== num || String(back[3]) !== d.id || String(back[6]) !== d.mobile) {
+    if (Number(back[0]) !== num || !(back[1] instanceof Date) || String(back[3]) !== d.id || String(back[6]) !== d.mobile) {
+      sh.getRange(row, 1, 1, COLS).clearContent();
       throw new Error('تعذّر حفظ الزيارة، حاولي مرة أخرى.');
     }
-    PROPS.setProperty('counter', String(num));
+    pruneTokens_();
     const token = Utilities.getUuid().replace(/-/g, '');
-    PROPS.setProperty('t_' + token, String(num));
-    return { ok: true, time: fmt_(now), token };
-  } finally {
-    lock.releaseLock();
-  }
+    PROPS.setProperty('t_' + token, JSON.stringify({ n: num, a: back[1].getTime() }));
+    return { ok: true, time: fmt_(back[1]), token };
+  });
 }
 
 /* ---------- المغادرة ---------- */
-function findRow_(sh, num) {
+function rows_(sh) {
   const last = sh.getLastRow();
-  if (last < FIRST_ROW) return 0;
-  const nums = sh.getRange(FIRST_ROW, 1, last - FIRST_ROW + 1, 1).getValues();
-  for (let i = 0; i < nums.length; i++) if (Number(nums[i][0]) === num) return FIRST_ROW + i;
-  return 0;
+  return last < FIRST_ROW ? [] : sh.getRange(FIRST_ROW, 1, last - FIRST_ROW + 1, 7).getValues();
 }
 function isOpen_(sh, row) {
-  const cell = sh.getRange(row, 8);
+  const cell = sh.getRange(row, SIG_COL);
   return cell.getValue() === '' && !cell.getNote();
 }
-/* يحدد الزيارة المقصودة: برمز الرابط الخاص، أو برقم الهوية + الجوال. */
+/* يحدد الزيارة: بالرابط الخاص (رقم + وقت وصول مطابق) أو برقم الهوية + الجوال. */
 function resolve_(sh, key) {
   key = key || {};
+  const vals = rows_(sh);
   if (key.v) {
-    const num = Number(PROPS.getProperty('t_' + String(key.v)) || 0);
-    const row = num ? findRow_(sh, num) : 0;
-    if (!row) throw new Error('رابط المغادرة غير صالح. استخدمي رقم الهوية والجوال.');
-    if (!isOpen_(sh, row)) throw new Error('سُجّلت مغادرة هذه الزيارة مسبقًا. شكرًا لكِ.');
-    return { num, row };
+    let t = null;
+    try { t = JSON.parse(PROPS.getProperty('t_' + String(key.v)) || 'null'); } catch (e) { t = null; }
+    const i = t ? vals.findIndex(v => Number(v[0]) === t.n && v[1] instanceof Date && Math.abs(v[1].getTime() - t.a) < 2000) : -1;
+    if (i < 0) throw new Error('رابط المغادرة غير صالح أو انتهت مدته. استخدمي رقم الهوية والجوال.');
+    if (!isOpen_(sh, FIRST_ROW + i)) throw new Error('سُجّلت مغادرة هذه الزيارة مسبقًا. شكرًا لكِ.');
+    return { num: t.n, row: FIRST_ROW + i };
   }
   const id = idNo_(key.id), mobile = mobile_(key.mobile);
-  const last = sh.getLastRow();
-  if (last >= FIRST_ROW) {
-    const vals = sh.getRange(FIRST_ROW, 1, last - FIRST_ROW + 1, 7).getValues();
-    let best = null;
-    vals.forEach((v, i) => {
-      if (String(v[3]) === id && String(v[6]) === mobile && isOpen_(sh, FIRST_ROW + i)) {
-        if (!best || Number(v[0]) > best.num) best = { num: Number(v[0]), row: FIRST_ROW + i };
-      }
-    });
-    if (best) return best;
-  }
-  throw new Error('لم نجد زيارة مفتوحة بهذه البيانات. تأكدي من رقم الهوية والجوال.');
+  let best = null;
+  vals.forEach((v, i) => {
+    if (String(v[3]) === id && String(v[6]) === mobile && isOpen_(sh, FIRST_ROW + i)) {
+      if (!best || Number(v[0]) > best.num) best = { num: Number(v[0]), row: FIRST_ROW + i };
+    }
+  });
+  if (!best) throw new Error('لم نجد زيارة مفتوحة بهذه البيانات. تأكدي من رقم الهوية والجوال.');
+  return best;
 }
 
+/* فتح صفحة التوقيع: يتحقق من الزيارة فقط، ولا يأخذ وقتًا. */
 function leaveStart(key) {
-  const sh = sheet_();
-  const r = resolve_(sh, key);
-  const now = new Date();
-  return { ok: true, num: r.num, time: fmt_(now), stamp: now.getTime() };
+  const r = resolve_(sheet_(false), key);
+  return { ok: true, num: r.num };
 }
 
-function leaveFinish(key, num, dataUrl, stamp) {
+/* عند ضغط «تسجيل المغادرة»: الخادم يأخذ الوقت ويحفظه عنده مع رمز حجز. */
+function leaveReserve(key, num) {
+  return withLock_(() => {
+    const r = resolve_(sheet_(false), key);
+    if (r.num !== Number(num)) throw new Error('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
+    const now = new Date(), nonce = Utilities.getUuid().replace(/-/g, '');
+    PROPS.setProperty('r_' + r.num, JSON.stringify({ a: now.getTime(), k: nonce }));
+    return { ok: true, time: fmt_(now), nonce };
+  });
+}
+
+/* حفظ التوقيع بالوقت المحجوز لدى الخادم؛ عند أي فشل تُعاد الخلية فارغة. */
+function leaveFinish(key, num, dataUrl, nonce) {
   if (typeof dataUrl !== 'string' || dataUrl.indexOf('data:image/png;base64,') !== 0 || dataUrl.length > 500000) {
     throw new Error('التوقيع غير صالح، أعيدي المحاولة.');
   }
-  stamp = Number(stamp);
-  const age = Date.now() - stamp;
-  if (!(age >= -60000 && age <= 20 * 60000)) throw new Error('انتهت مهلة الصفحة، أعيدي تسجيل المغادرة.');
-  const lock = LockService.getScriptLock();
-  lock.waitLock(20000);
-  try {
-    const sh = sheet_();
+  return withLock_(() => {
+    const sh = sheet_(false);
     const r = resolve_(sh, key);
     if (r.num !== Number(num)) throw new Error('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
-    const t = fmt_(new Date(stamp));
-    const cell = sh.getRange(r.row, 8);
+    let res = null;
+    try { res = JSON.parse(PROPS.getProperty('r_' + r.num) || 'null'); } catch (e) { res = null; }
+    if (!res || res.k !== String(nonce) || Date.now() - res.a > RESERVE_MINUTES * 60000) {
+      throw new Error('انتهت مهلة التأكيد، اضغطي «تسجيل المغادرة» مرة أخرى.');
+    }
+    const t = fmt_(new Date(res.a));
+    const cell = sh.getRange(r.row, SIG_COL);
     try {
       const img = SpreadsheetApp.newCellImage().setSourceUrl(dataUrl)
         .setAltTextTitle('توقيع الزائرة').setAltTextDescription('غادرت: ' + t).build();
       cell.setValue(img);
+      cell.setNote('وقت المغادرة: ' + t);
+      sh.setRowHeight(r.row, 80);
+      SpreadsheetApp.flush();
+      const v = cell.getValue();
+      if (!v || typeof v.getContentUrl !== 'function' && typeof v.getUrl !== 'function') throw new Error('no image');
     } catch (err) {
-      // احتياط: صورة فوق الخلية مع كتابة الوقت نصًا.
-      const blob = Utilities.newBlob(Utilities.base64Decode(dataUrl.split(',')[1]), 'image/png', 'signature.png');
-      cell.setValue('غادرت: ' + t).setVerticalAlignment('bottom');
-      sh.insertImage(blob, 8, r.row, 20, 2).setWidth(200).setHeight(52);
+      cell.clearContent(); cell.clearNote(); SpreadsheetApp.flush();
+      console.error('leaveFinish: ' + err);
+      throw new Error('تعذّر حفظ التوقيع، ولم تُسجَّل المغادرة. حاولي مرة أخرى.');
     }
-    cell.setNote('وقت المغادرة: ' + t);
-    sh.setRowHeight(r.row, 80);
-    SpreadsheetApp.flush();
-    if (isOpen_(sh, r.row)) throw new Error('تعذّر حفظ المغادرة، حاولي مرة أخرى.');
+    PROPS.deleteProperty('r_' + r.num);
     return { ok: true, time: t };
-  } finally {
-    lock.releaseLock();
-  }
-}
-
-/* ---------- للإدارة: حذف زيارات الاختبار فقط (الاسم يحتوي «اختبار») ---------- */
-function deleteTestVisits() {
-  const sh = sheet_();
-  const last = sh.getLastRow();
-  const removed = [];
-  if (last >= FIRST_ROW) {
-    const vals = sh.getRange(FIRST_ROW, 1, last - FIRST_ROW + 1, 3).getValues();
-    for (let i = vals.length - 1; i >= 0; i--) {
-      if (String(vals[i][2]).indexOf('اختبار') !== -1) {
-        const row = FIRST_ROW + i;
-        sh.getImages().forEach(im => { if (im.getAnchorCell().getRow() === row) im.remove(); });
-        sh.deleteRow(row);
-        removed.push(Number(vals[i][0]));
-      }
-    }
-  }
-  const all = PROPS.getProperties();
-  Object.keys(all).forEach(k => { if (k.indexOf('t_') === 0 && removed.indexOf(Number(all[k])) !== -1) PROPS.deleteProperty(k); });
-  const rest = sh.getLastRow() >= FIRST_ROW ? sh.getRange(FIRST_ROW, 1, sh.getLastRow() - FIRST_ROW + 1, 1).getValues().map(v => Number(v[0]) || 0) : [];
-  PROPS.setProperty('counter', String(rest.length ? Math.max.apply(null, rest) : 0));
-  formatDataRows_(sh, Math.max(sh.getLastRow() + 1, FIRST_ROW), Math.max(sh.getMaxRows() - Math.max(sh.getLastRow(), HEAD_ROW), 1));
-  Logger.log('حُذفت زيارات الاختبار: ' + (removed.length ? removed.join('، ') : 'لا يوجد'));
+  });
 }
 
 /* ---------- واجهة الجوال ---------- */
@@ -318,7 +325,7 @@ canvas{width:100%;aspect-ratio:3/1;border:1px dashed #B8914A;border-radius:10px;
 
 <section id="sign" class="card" hidden>
 <h1>التوقيع عند المغادرة</h1>
-<div>وقت المغادرة: <bdi id="signTime" dir="ltr" style="font-weight:700"></bdi></div>
+<div class="note">يُسجَّل وقت المغادرة تلقائيًا لحظة الضغط على «تسجيل المغادرة».</div>
 <label>وقّعي بإصبعكِ داخل المربع</label>
 <canvas id="pad" width="600" height="200"></canvas>
 <button class="alt" id="clearBtn" type="button">مسح التوقيع</button>
@@ -340,7 +347,7 @@ canvas{width:100%;aspect-ratio:3/1;border:1px dashed #B8914A;border-radius:10px;
 </div>
 <script>
 var URL = '__URL__', MODE = '__MODE__', TOKEN = '__TOKEN__';
-var KEY = null, NUM = 0, STAMP = 0, TIME = '';
+var KEY = null, NUM = 0;
 function $(id) { return document.getElementById(id); }
 function show(id) { ['reg','done','out1','sign','left','fail'].forEach(function (x) { $(x).hidden = x !== id; }); window.scrollTo(0, 0); }
 function msg(e) { return String((e && e.message) || e || 'حدث خطأ، حاولي مرة أخرى.').replace(/^(Error|Exception):\s*/, ''); }
@@ -361,8 +368,7 @@ $('regForm').addEventListener('submit', function (ev) {
 
 function start(key, onErr) {
   google.script.run.withSuccessHandler(function (r) {
-    KEY = key; NUM = r.num; STAMP = r.stamp; TIME = r.time;
-    $('signTime').textContent = r.time; show('sign'); fit();
+    KEY = key; NUM = r.num; show('sign'); fit();
   }).withFailureHandler(onErr).leaveStart(key);
 }
 $('outForm').addEventListener('submit', function (ev) {
@@ -382,18 +388,21 @@ $('clearBtn').onclick = function () { ctx.clearRect(0, 0, pad.width, pad.height)
 
 $('signBtn').onclick = function () {
   if (inked < 8) { $('signErr').textContent = 'وقّعي داخل المربع أولًا.'; return; }
-  var out = document.createElement('canvas'); out.width = 600; out.height = 250;
-  var o = out.getContext('2d');
-  o.fillStyle = '#fff'; o.fillRect(0, 0, 600, 250);
-  o.drawImage(pad, 0, 0, 600, 200);
-  o.fillStyle = '#111'; o.font = 'bold 26px Arial, sans-serif'; o.textAlign = 'center'; o.direction = 'rtl';
-  o.fillText('غادرت: \u2066' + TIME + '\u2069', 300, 236);
-  var b = $('signBtn'); b.disabled = true; b.textContent = 'جارٍ الحفظ…'; $('signErr').textContent = '';
-  google.script.run.withSuccessHandler(function (r) {
-    $('leftTime').textContent = r.time; show('left');
-  }).withFailureHandler(function (e) {
-    b.disabled = false; b.textContent = 'تسجيل المغادرة'; $('signErr').textContent = msg(e);
-  }).leaveFinish(KEY, NUM, out.toDataURL('image/png'), STAMP);
+  var b = $('signBtn');
+  function fail(e) { b.disabled = false; b.textContent = 'تسجيل المغادرة'; $('signErr').textContent = msg(e); }
+  b.disabled = true; b.textContent = 'جارٍ الحفظ…'; $('signErr').textContent = '';
+  /* الوقت يأتي من الخادم (leaveReserve) ويُكتب تحت التوقيع كما هو، ثم يحفظه الخادم نفسه. */
+  google.script.run.withSuccessHandler(function (res) {
+    var out = document.createElement('canvas'); out.width = 600; out.height = 250;
+    var o = out.getContext('2d');
+    o.fillStyle = '#fff'; o.fillRect(0, 0, 600, 250);
+    o.drawImage(pad, 0, 0, 600, 200);
+    o.fillStyle = '#111'; o.font = 'bold 26px Arial, sans-serif'; o.textAlign = 'center'; o.direction = 'rtl';
+    o.fillText('غادرت: \u2066' + res.time + '\u2069', 300, 236);
+    google.script.run.withSuccessHandler(function (r) {
+      $('leftTime').textContent = r.time; show('left');
+    }).withFailureHandler(fail).leaveFinish(KEY, NUM, out.toDataURL('image/png'), res.nonce);
+  }).withFailureHandler(fail).leaveReserve(KEY, NUM);
 };
 
 if (MODE === 'out' && TOKEN) {
