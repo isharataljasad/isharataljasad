@@ -107,7 +107,20 @@ function doGet(e) {
  * عبر fetch مع credentials: 'omit'، فلا تصل أي حسابات Google مسجّلة في المتصفح
  * إلى Apps Script، ولا يحدث توجيه /u/1/. الرد دائمًا JSON: {ok, result} أو {ok:false, error}.
  * رسائل الخطأ الموجهة للزائرة فقط تُرسل كما هي؛ أي خطأ داخلي يُستبدل برسالة عامة. */
-const API = { register: 1, leaveStart: 1, leaveReserve: 2, leaveFinish: 4 };
+const API = { register: 2, leaveStart: 1, leaveReserve: 2, leaveFinish: 4 };
+const CACHE = CacheService.getScriptCache();
+
+/* إعادة المحاولة الآمنة: قد يُنفَّذ الطلب ثم يضيع الرد في الطريق (رأينا 404 عابرًا من
+ * script.googleusercontent.com). الصفحة تعيد إرسال الطلب نفسه، والخادم يعيد النتيجة
+ * المحفوظة بدل تنفيذها مرتين: التسجيل برمز الطلب rid، والمغادرة برمز الحجز nonce. */
+function cached_(key) {
+  const v = key && CACHE.get(key);
+  return v ? JSON.parse(v) : null;
+}
+function remember_(key, result) {
+  if (key) CACHE.put(key, JSON.stringify(result), 1800);
+  return result;
+}
 
 function doPost(e) {
   let out;
@@ -176,8 +189,9 @@ function pruneTokens_() {
 }
 
 /* ---------- تسجيل الزيارة ---------- */
-function register(f) {
+function register(f, rid) {
   f = f || {};
+  const ridKey = /^[a-f0-9]{32}$/.test(String(rid || '')) ? 'rq_' + rid : '';
   const name = text_(f.name, 80, 'الاسم الثلاثي');
   if (name.split(' ').length < 3) throw fail_('اكتبي الاسم الثلاثي كاملًا.');
   const d = {
@@ -185,6 +199,8 @@ function register(f) {
     work: text_(f.work, 100, 'جهة العمل / الصفة'), mobile: mobile_(f.mobile),
   };
   return withLock_(() => {
+    const again = cached_(ridKey);
+    if (again) return again;
     const sh = sheet_(true);
     // الرقم التالي من السجل نفسه، فحذف صفوف الاختبار يدويًا يعيد الترقيم تلقائيًا.
     const num = lastNum_(sh) + 1;
@@ -203,7 +219,7 @@ function register(f) {
     pruneTokens_();
     const token = Utilities.getUuid().replace(/-/g, '');
     PROPS.setProperty('t_' + token, JSON.stringify({ n: num, a: back[1].getTime() }));
-    return { ok: true, time: fmt_(back[1]), token };
+    return remember_(ridKey, { ok: true, time: fmt_(back[1]), token });
   });
 }
 
@@ -261,7 +277,10 @@ function leaveFinish(key, num, dataUrl, nonce) {
   if (typeof dataUrl !== 'string' || dataUrl.indexOf('data:image/png;base64,') !== 0 || dataUrl.length > 500000) {
     throw fail_('التوقيع غير صالح، أعيدي المحاولة.');
   }
+  const doneKey = /^[a-f0-9]{32}$/.test(String(nonce || '')) ? 'lf_' + nonce : '';
   return withLock_(() => {
+    const again = cached_(doneKey);
+    if (again) return again;
     const sh = sheet_(false);
     const r = resolve_(sh, key);
     if (r.num !== Number(num)) throw fail_('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
@@ -287,7 +306,7 @@ function leaveFinish(key, num, dataUrl, nonce) {
       throw fail_('تعذّر حفظ التوقيع، ولم تُسجَّل المغادرة. حاولي مرة أخرى.');
     }
     PROPS.deleteProperty('r_' + r.num);
-    return { ok: true, time: t };
+    return remember_(doneKey, { ok: true, time: t });
   });
 }
 

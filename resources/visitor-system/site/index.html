@@ -93,30 +93,47 @@ var params = new URLSearchParams(location.search);
 var MODE = params.get('p') === 'out' ? 'out' : 'reg';
 var TOKEN = /^[a-f0-9]{32}$/.test(params.get('v') || '') ? params.get('v') : '';
 var HERE = location.origin + location.pathname;
-var KEY = null, NUM = 0;
+var KEY = null, NUM = 0, REG_ID = '';
 function $(id) { return document.getElementById(id); }
 function show(id) { ['reg','done','out1','sign','left','fail'].forEach(function (x) { $(x).hidden = x !== id; }); window.scrollTo(0, 0); }
 function msg(e) { return String((e && e.message) || e || 'حدث خطأ، حاولي مرة أخرى.'); }
-function call(action, args) {
-  var ctl = new AbortController(), t = setTimeout(function () { ctl.abort(); }, 60000);
+function rid() {
+  var a = new Uint8Array(16); crypto.getRandomValues(a);
+  return Array.prototype.map.call(a, function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+}
+function once(action, args) {
+  var ctl = new AbortController(), t = setTimeout(function () { ctl.abort(); }, 45000);
   return fetch(API, {
     method: 'POST', body: JSON.stringify({ action: action, args: args }),
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     credentials: 'omit', cache: 'no-store', redirect: 'follow', referrerPolicy: 'no-referrer', signal: ctl.signal
   }).then(function (r) {
-    if (!r.ok) throw new Error('تعذّر الاتصال بالخادم، حاولي مرة أخرى.');
+    clearTimeout(t);
+    if (!r.ok) { var e = new Error('تعذّر الاتصال بالخادم، حاولي مرة أخرى.'); e.retry = true; throw e; }
     return r.json();
-  }, function () { throw new Error('تعذّر الاتصال، تأكدي من الإنترنت وحاولي مرة أخرى.'); })
-  .then(function (j) { clearTimeout(t); if (!j || !j.ok) throw new Error((j && j.error) || 'حدث خطأ، حاولي مرة أخرى.'); return j.result; },
-        function (e) { clearTimeout(t); throw e; });
+  }, function () { clearTimeout(t); var e = new Error('تعذّر الاتصال، تأكدي من الإنترنت وحاولي مرة أخرى.'); e.retry = true; throw e; });
+}
+/* يعيد المحاولة تلقائيًا عند خلل الشبكة فقط (لا عند رفض الخادم للبيانات).
+   التسجيل والمغادرة يحملان رمزًا ثابتًا، فالخادم لا ينفذهما مرتين. */
+function call(action, args, tries) {
+  tries = tries || 1;
+  return once(action, args).then(function (j) {
+    if (!j || !j.ok) throw new Error((j && j.error) || 'حدث خطأ، حاولي مرة أخرى.');
+    return j.result;
+  }, function (e) {
+    if (!e.retry || tries >= 4) throw e;
+    return new Promise(function (ok) { setTimeout(ok, 1200 * tries); }).then(function () { return call(action, args, tries + 1); });
+  });
 }
 $('toOut').href = HERE + '?p=out';
+$('regForm').addEventListener('input', function () { REG_ID = ''; });
 $('failOut').href = HERE + '?p=out';
 
 $('regForm').addEventListener('submit', function (ev) {
   ev.preventDefault();
   var b = $('regBtn'); b.disabled = true; b.textContent = 'جارٍ التسجيل…'; $('regErr').textContent = '';
-  call('register', [{ name: $('name').value, id: $('id').value, reason: $('reason').value, work: $('work').value, mobile: $('mobile').value }])
+  if (!REG_ID) REG_ID = rid();
+  call('register', [{ name: $('name').value, id: $('id').value, reason: $('reason').value, work: $('work').value, mobile: $('mobile').value }, REG_ID])
     .then(function (r) {
       $('doneTime').textContent = r.time;
       $('doneOut').href = HERE + '?p=out&v=' + r.token;
