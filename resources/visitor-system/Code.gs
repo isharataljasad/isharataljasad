@@ -1,7 +1,9 @@
 /* نظام تسجيل الزائرات — Google Apps Script (ملف واحد).
  *
- * الوظائف العامة (بلا شرطة سفلية) هي فقط ما تستدعيه صفحة الزائرات:
- *   doGet, register, leaveStart, leaveReserve, leaveFinish.
+ * الوظائف العامة (بلا شرطة سفلية) هي فقط ما تستدعيه صفحات الزائرات:
+ *   doGet  — الصفحة القديمة داخل Google (تعمل في المتصفح غير المسجّل فقط).
+ *   doPost — واجهة JSON للصفحة الخارجية index.html (تعمل مع أي متصفح).
+ *   register, leaveStart, leaveReserve, leaveFinish — منطق التسجيل والمغادرة.
  * كل ما عداها خاص (ينتهي اسمه بـ _) فلا يمكن استدعاؤه من المتصفح عبر
  * google.script.run. لا توجد وظيفة إدارة عامة: السجل يُنشأ تلقائيًا في Drive
  * المالكة عند أول تسجيل، والإدارة تعدّل السجل وتحذف منه مباشرة في Google Sheets.
@@ -79,10 +81,10 @@ function sheet_(create) {
   const id = PROPS.getProperty('sheetId');
   if (!id) {
     if (create) return createSheet_();
-    throw new Error('لا توجد زيارات مسجلة بعد.');
+    throw fail_('لا توجد زيارات مسجلة بعد.');
   }
   const sh = SpreadsheetApp.openById(id).getSheetByName(SHEET);
-  if (!sh) throw new Error('ورقة «' + SHEET + '» غير موجودة في ملف السجل. أعيدي اسمها كما كان.');
+  if (!sh) throw fail_('ورقة «' + SHEET + '» غير موجودة في ملف السجل. أعيدي اسمها كما كان.');
   return sh;
 }
 
@@ -100,6 +102,33 @@ function doGet(e) {
     .addMetaTag('viewport', 'width=device-width, initial-scale=1');
 }
 
+/* ---------- واجهة JSON للصفحة الخارجية (بلا ملفات تعريف ارتباط) ----------
+ * الصفحة المستضافة خارج Google ترسل POST بنص JSON: {"action": "...", "args": [...]}
+ * عبر fetch مع credentials: 'omit'، فلا تصل أي حسابات Google مسجّلة في المتصفح
+ * إلى Apps Script، ولا يحدث توجيه /u/1/. الرد دائمًا JSON: {ok, result} أو {ok:false, error}.
+ * رسائل الخطأ الموجهة للزائرة فقط تُرسل كما هي؛ أي خطأ داخلي يُستبدل برسالة عامة. */
+const API = { register: 1, leaveStart: 1, leaveReserve: 2, leaveFinish: 4 };
+
+function doPost(e) {
+  let out;
+  try {
+    const body = (e && e.postData && e.postData.contents) || '';
+    if (body.length > 600000) throw fail_('الطلب أكبر من المسموح.');
+    const req = JSON.parse(body || '{}');
+    const n = Object.prototype.hasOwnProperty.call(API, req.action) ? API[req.action] : 0;
+    if (!n || !Array.isArray(req.args) || req.args.length > n) throw fail_('طلب غير معروف.');
+    const fn = { register, leaveStart, leaveReserve, leaveFinish }[req.action];
+    out = { ok: true, result: fn.apply(null, req.args) };
+  } catch (err) {
+    if (!(err && err.user)) console.error('doPost: ' + (err && err.stack || err));
+    out = { ok: false, error: err && err.user ? err.message : 'حدث خطأ غير متوقع، حاولي مرة أخرى.' };
+  }
+  return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
+}
+
+/* خطأ موجه للزائرة (رسالته آمنة للعرض). */
+function fail_(msg) { const e = new Error(msg); e.user = true; return e; }
+
 /* ---------- تنظيف المدخلات ---------- */
 function digits_(s) {
   return String(s == null ? '' : s)
@@ -110,26 +139,26 @@ function digits_(s) {
 function text_(s, max, label) {
   s = String(s == null ? '' : s).replace(/[\u0000-\u001F\u007F]/g, ' ').replace(/\s+/g, ' ').trim()
     .replace(/^[=+\-@]+/, '').trim();
-  if (!s) throw new Error('اكتبي ' + label + '.');
-  if (s.length > max) throw new Error(label + ' أطول من المسموح.');
+  if (!s) throw fail_('اكتبي ' + label + '.');
+  if (s.length > max) throw fail_(label + ' أطول من المسموح.');
   return s;
 }
 function idNo_(s) {
   const v = digits_(s);
-  if (!/^[12]\d{9}$/.test(v)) throw new Error('رقم الهوية / الإقامة يتكون من 10 أرقام ويبدأ بـ 1 أو 2.');
+  if (!/^[12]\d{9}$/.test(v)) throw fail_('رقم الهوية / الإقامة يتكون من 10 أرقام ويبدأ بـ 1 أو 2.');
   return v;
 }
 function mobile_(s) {
   let v = digits_(s).replace(/^\+/, '').replace(/^00/, '');
   if (/^9665\d{8}$/.test(v)) v = '0' + v.slice(3);
   if (/^5\d{8}$/.test(v)) v = '0' + v;
-  if (!/^05\d{8}$/.test(v)) throw new Error('رقم الجوال يتكون من 10 أرقام ويبدأ بـ 05.');
+  if (!/^05\d{8}$/.test(v)) throw fail_('رقم الجوال يتكون من 10 أرقام ويبدأ بـ 05.');
   return v;
 }
 function fmt_(d) { return Utilities.formatDate(d, TZ, 'dd/MM/yyyy HH:mm'); }
 function withLock_(fn) {
   const lock = LockService.getScriptLock();
-  if (!lock.tryLock(20000)) throw new Error('النظام مشغول، حاولي بعد لحظات.');
+  if (!lock.tryLock(20000)) throw fail_('النظام مشغول، حاولي بعد لحظات.');
   try { return fn(); } finally { lock.releaseLock(); }
 }
 function lastNum_(sh) {
@@ -150,7 +179,7 @@ function pruneTokens_() {
 function register(f) {
   f = f || {};
   const name = text_(f.name, 80, 'الاسم الثلاثي');
-  if (name.split(' ').length < 3) throw new Error('اكتبي الاسم الثلاثي كاملًا.');
+  if (name.split(' ').length < 3) throw fail_('اكتبي الاسم الثلاثي كاملًا.');
   const d = {
     name, id: idNo_(f.id), reason: text_(f.reason, 200, 'سبب الزيارة'),
     work: text_(f.work, 100, 'جهة العمل / الصفة'), mobile: mobile_(f.mobile),
@@ -169,7 +198,7 @@ function register(f) {
     const back = sh.getRange(row, 1, 1, 7).getValues()[0];
     if (Number(back[0]) !== num || !(back[1] instanceof Date) || String(back[3]) !== d.id || String(back[6]) !== d.mobile) {
       sh.getRange(row, 1, 1, COLS).clearContent();
-      throw new Error('تعذّر حفظ الزيارة، حاولي مرة أخرى.');
+      throw fail_('تعذّر حفظ الزيارة، حاولي مرة أخرى.');
     }
     pruneTokens_();
     const token = Utilities.getUuid().replace(/-/g, '');
@@ -195,8 +224,8 @@ function resolve_(sh, key) {
     let t = null;
     try { t = JSON.parse(PROPS.getProperty('t_' + String(key.v)) || 'null'); } catch (e) { t = null; }
     const i = t ? vals.findIndex(v => Number(v[0]) === t.n && v[1] instanceof Date && Math.abs(v[1].getTime() - t.a) < 2000) : -1;
-    if (i < 0) throw new Error('رابط المغادرة غير صالح أو انتهت مدته. استخدمي رقم الهوية والجوال.');
-    if (!isOpen_(sh, FIRST_ROW + i)) throw new Error('سُجّلت مغادرة هذه الزيارة مسبقًا. شكرًا لكِ.');
+    if (i < 0) throw fail_('رابط المغادرة غير صالح أو انتهت مدته. استخدمي رقم الهوية والجوال.');
+    if (!isOpen_(sh, FIRST_ROW + i)) throw fail_('سُجّلت مغادرة هذه الزيارة مسبقًا. شكرًا لكِ.');
     return { num: t.n, row: FIRST_ROW + i };
   }
   const id = idNo_(key.id), mobile = mobile_(key.mobile);
@@ -206,7 +235,7 @@ function resolve_(sh, key) {
       if (!best || Number(v[0]) > best.num) best = { num: Number(v[0]), row: FIRST_ROW + i };
     }
   });
-  if (!best) throw new Error('لم نجد زيارة مفتوحة بهذه البيانات. تأكدي من رقم الهوية والجوال.');
+  if (!best) throw fail_('لم نجد زيارة مفتوحة بهذه البيانات. تأكدي من رقم الهوية والجوال.');
   return best;
 }
 
@@ -220,7 +249,7 @@ function leaveStart(key) {
 function leaveReserve(key, num) {
   return withLock_(() => {
     const r = resolve_(sheet_(false), key);
-    if (r.num !== Number(num)) throw new Error('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
+    if (r.num !== Number(num)) throw fail_('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
     const now = new Date(), nonce = Utilities.getUuid().replace(/-/g, '');
     PROPS.setProperty('r_' + r.num, JSON.stringify({ a: now.getTime(), k: nonce }));
     return { ok: true, time: fmt_(now), nonce };
@@ -230,16 +259,16 @@ function leaveReserve(key, num) {
 /* حفظ التوقيع بالوقت المحجوز لدى الخادم؛ عند أي فشل تُعاد الخلية فارغة. */
 function leaveFinish(key, num, dataUrl, nonce) {
   if (typeof dataUrl !== 'string' || dataUrl.indexOf('data:image/png;base64,') !== 0 || dataUrl.length > 500000) {
-    throw new Error('التوقيع غير صالح، أعيدي المحاولة.');
+    throw fail_('التوقيع غير صالح، أعيدي المحاولة.');
   }
   return withLock_(() => {
     const sh = sheet_(false);
     const r = resolve_(sh, key);
-    if (r.num !== Number(num)) throw new Error('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
+    if (r.num !== Number(num)) throw fail_('تغيّرت بيانات الزيارة، أعيدي المحاولة.');
     let res = null;
     try { res = JSON.parse(PROPS.getProperty('r_' + r.num) || 'null'); } catch (e) { res = null; }
     if (!res || res.k !== String(nonce) || Date.now() - res.a > RESERVE_MINUTES * 60000) {
-      throw new Error('انتهت مهلة التأكيد، اضغطي «تسجيل المغادرة» مرة أخرى.');
+      throw fail_('انتهت مهلة التأكيد، اضغطي «تسجيل المغادرة» مرة أخرى.');
     }
     const t = fmt_(new Date(res.a));
     const cell = sh.getRange(r.row, SIG_COL);
@@ -255,7 +284,7 @@ function leaveFinish(key, num, dataUrl, nonce) {
     } catch (err) {
       cell.clearContent(); cell.clearNote(); SpreadsheetApp.flush();
       console.error('leaveFinish: ' + err);
-      throw new Error('تعذّر حفظ التوقيع، ولم تُسجَّل المغادرة. حاولي مرة أخرى.');
+      throw fail_('تعذّر حفظ التوقيع، ولم تُسجَّل المغادرة. حاولي مرة أخرى.');
     }
     PROPS.deleteProperty('r_' + r.num);
     return { ok: true, time: t };
