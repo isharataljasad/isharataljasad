@@ -4,9 +4,10 @@
  *   doGet  — الصفحة القديمة داخل Google (تعمل في المتصفح غير المسجّل فقط).
  *   doPost — واجهة JSON للصفحة الخارجية index.html (تعمل مع أي متصفح).
  *   register, leaveStart, leaveReserve, leaveFinish — منطق التسجيل والمغادرة.
+ *   cancel — تلغي الزائرة تسجيلها برمز رابطها الخاص خلال 60 دقيقة (ويُستخدم لحذف بيانات الاختبار).
  * كل ما عداها خاص (ينتهي اسمه بـ _) فلا يمكن استدعاؤه من المتصفح عبر
  * google.script.run. لا توجد وظيفة إدارة عامة: السجل يُنشأ تلقائيًا في Drive
- * المالكة عند أول تسجيل، والإدارة تعدّل السجل وتحذف منه مباشرة في Google Sheets.
+ * ملف السجل المركزي LOG_ID يُجهَّز تلقائيًا عند أول تسجيل، والإدارة تعدّل السجل وتحذف منه مباشرة في Google Sheets.
  *
  * الزائرة لا ترى أي سجل. المغادرة تُربط بالزيارة نفسها برقمها (م) مع التحقق من
  * وقت وصولها، إما عبر رابط المغادرة الخاص الذي يظهر بعد التسجيل (صالح 3 أيام)،
@@ -19,7 +20,8 @@
 
 const SCHOOL = 'ب/٩٦ صفوف عليا+ صعوبات التعلم+ م/٤٥';
 const TZ = 'Asia/Riyadh';
-const SHEET = 'السجل';
+const LOG_ID = '1JobWOg6-EFer3VQdO6-p97eQEyT6DUrNnDgdJZZJIi4'; // «سجل الزائرات للمدرسة» — الوكيلة محررة عليه
+const SHEET = 'سجل الزائرات';
 const HEAD_ROW = 3, FIRST_ROW = 4, COLS = 8, SIG_COL = 8;
 const HEADERS = ['م', 'التاريخ والوقت', 'اسم الزائرة الثلاثي', 'رقم الهوية / الإقامة',
   'سبب الزيارة', 'جهة العمل / الصفة', 'رقم الجوال', 'التوقيع ووقت المغادرة'];
@@ -27,12 +29,21 @@ const WIDTHS = [45, 135, 220, 140, 210, 170, 115, 240];
 const TOKEN_DAYS = 3, RESERVE_MINUTES = 5;
 const PROPS = PropertiesService.getScriptProperties();
 
-/* ---------- إنشاء السجل (تلقائيًا عند أول تسجيل، تحت القفل) ---------- */
-function createSheet_() {
-  const ss = SpreadsheetApp.create('سجل الزائرات — ' + SCHOOL);
+/* ---------- تجهيز ملف السجل المركزي (تلقائيًا عند أول تسجيل، تحت القفل) ----------
+ * يعمل على الملف LOG_ID نفسه ولا ينشئ نسخة جديدة. لا يمسح ورقة فيها بيانات زيارات:
+ * يُسمح بالتجهيز فقط إن كانت الورقة فارغة أو فيها صف عناوين واحد. */
+function isPrepared_(sh) {
+  return sh.getRange(1, 1).getValue() === 'سجل الزائرات للمدرسة' && sh.getRange(HEAD_ROW, 1).getValue() === 'م';
+}
+function prepareSheet_(ss) {
+  let sh = ss.getSheetByName(SHEET) || ss.getSheets()[0];
+  if (sh.getLastRow() > 1) throw new Error('ورقة السجل فيها بيانات غير معروفة؛ لن تُمسح.');
   ss.setSpreadsheetTimeZone(TZ);
-  const sh = ss.getSheets()[0];
   sh.setName(SHEET);
+  if (sh.getFilter()) sh.getFilter().remove();
+  sh.setFrozenRows(0);
+  sh.getRange(1, 1, sh.getMaxRows(), sh.getMaxColumns()).breakApart().clear();
+  if (sh.getMaxColumns() > COLS) sh.deleteColumns(COLS + 1, sh.getMaxColumns() - COLS);
   sh.setRightToLeft(true);
   sh.getRange(1, 1, sh.getMaxRows(), COLS).setFontFamily('Arial').setFontSize(11)
     .setVerticalAlignment('middle').setWrap(true);
@@ -58,8 +69,6 @@ function createSheet_() {
   sh.setFrozenRows(HEAD_ROW);
   sh.getRange(HEAD_ROW, 1, sh.getMaxRows() - HEAD_ROW + 1, COLS).createFilter();
   SpreadsheetApp.flush();
-  PROPS.setProperty('sheetId', ss.getId());
-  Logger.log('تم إنشاء السجل: ' + ss.getUrl());
   return sh;
 }
 
@@ -76,16 +85,13 @@ function formatDataRows_(sh, row, n) {
   sh.setRowHeights(row, n, 36);
 }
 
-/* create=true فقط داخل register تحت القفل. */
-function sheet_(create) {
-  const id = PROPS.getProperty('sheetId');
-  if (!id) {
-    if (create) return createSheet_();
-    throw fail_('لا توجد زيارات مسجلة بعد.');
-  }
-  const sh = SpreadsheetApp.openById(id).getSheetByName(SHEET);
-  if (!sh) throw fail_('ورقة «' + SHEET + '» غير موجودة في ملف السجل. أعيدي اسمها كما كان.');
-  return sh;
+/* prepare=true فقط داخل register تحت القفل. */
+function sheet_(prepare) {
+  const ss = SpreadsheetApp.openById(LOG_ID);
+  const sh = ss.getSheetByName(SHEET);
+  if (sh && isPrepared_(sh)) return sh;
+  if (prepare) return prepareSheet_(ss);
+  throw fail_('لا توجد زيارات مسجلة بعد.');
 }
 
 /* ---------- الصفحة ---------- */
@@ -107,7 +113,7 @@ function doGet(e) {
  * عبر fetch مع credentials: 'omit'، فلا تصل أي حسابات Google مسجّلة في المتصفح
  * إلى Apps Script، ولا يحدث توجيه /u/1/. الرد دائمًا JSON: {ok, result} أو {ok:false, error}.
  * رسائل الخطأ الموجهة للزائرة فقط تُرسل كما هي؛ أي خطأ داخلي يُستبدل برسالة عامة. */
-const API = { register: 2, leaveStart: 1, leaveReserve: 2, leaveFinish: 4 };
+const API = { register: 2, leaveStart: 1, leaveReserve: 2, leaveFinish: 4, cancel: 1 };
 const CACHE = CacheService.getScriptCache();
 
 /* إعادة المحاولة الآمنة: قد يُنفَّذ الطلب ثم يضيع الرد في الطريق (رأينا 404 عابرًا من
@@ -130,7 +136,7 @@ function doPost(e) {
     const req = JSON.parse(body || '{}');
     const n = Object.prototype.hasOwnProperty.call(API, req.action) ? API[req.action] : 0;
     if (!n || !Array.isArray(req.args) || req.args.length > n) throw fail_('طلب غير معروف.');
-    const fn = { register, leaveStart, leaveReserve, leaveFinish }[req.action];
+    const fn = { register, leaveStart, leaveReserve, leaveFinish, cancel }[req.action];
     out = { ok: true, result: fn.apply(null, req.args) };
   } catch (err) {
     if (!(err && err.user)) console.error('doPost: ' + (err && err.stack || err));
@@ -253,6 +259,25 @@ function resolve_(sh, key) {
   });
   if (!best) throw fail_('لم نجد زيارة مفتوحة بهذه البيانات. تأكدي من رقم الهوية والجوال.');
   return best;
+}
+
+/* إلغاء تسجيل بالرمز الخاص الذي لا يملكه إلا من سجّل، خلال 60 دقيقة من الوصول: يحذف الصف كاملًا. */
+function cancel(v) {
+  return withLock_(() => {
+    const sh = sheet_(false);
+    let t = null;
+    try { t = JSON.parse(PROPS.getProperty('t_' + String(v)) || 'null'); } catch (e) { t = null; }
+    if (!t || Date.now() - t.a > 60 * 60000) throw fail_('لا يمكن إلغاء هذا التسجيل.');
+    const i = rows_(sh).findIndex(r => Number(r[0]) === t.n && r[1] instanceof Date && Math.abs(r[1].getTime() - t.a) < 2000);
+    if (i < 0) throw fail_('لا يمكن إلغاء هذا التسجيل.');
+    sh.deleteRow(FIRST_ROW + i);
+    sh.insertRowAfter(sh.getMaxRows());
+    formatDataRows_(sh, sh.getMaxRows(), 1);
+    PROPS.deleteProperty('t_' + String(v));
+    PROPS.deleteProperty('r_' + t.n);
+    SpreadsheetApp.flush();
+    return { ok: true, cancelled: t.n };
+  });
 }
 
 /* فتح صفحة التوقيع: يتحقق من الزيارة فقط، ولا يأخذ وقتًا. */
