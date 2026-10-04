@@ -1,16 +1,6 @@
 {
-    "//":  "PREPARED, NOT ACTIVE. Library redirects from isharataljasad.com to Bayt Al-Fuad (Corner 03). Copy into vercel.json \"redirects\" only after the destination pages are live and reachable without the pre-launch password, and the owner approves the move. Keep them temporary (permanent: false) until the move is confirmed. /api/feedback and the gate (/login) are deliberately not redirected. Fragments such as #lesson-07 survive the redirect and are resolved by old-links.js at the destination.",
+    "//":  "PREPARED, NOT ACTIVE. Academic-route redirects only from isharataljasad.com to Bayt Al-Fuad (Corner 03). The root /, /bayt and health routes are deliberately not redirected. Copy into vercel.json \"redirects\" only after the destination pages are live and reachable without the pre-launch password, and the owner approves the move. Keep them temporary (permanent: false) until the move is confirmed. /api/feedback and the gate (/login) are deliberately not redirected. Fragments such as #lesson-07 survive the redirect and are resolved by old-links.js at the destination.",
     "redirects":  [
-                      {
-                          "source":  "/",
-                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1",
-                          "permanent":  false
-                      },
-                      {
-                          "source":  "/bayt",
-                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1",
-                          "permanent":  false
-                      },
                       {
                           "source":  "/semester-1",
                           "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1",
