@@ -1,0 +1,110 @@
+{
+    "//":  "PREPARED, NOT ACTIVE. Library redirects from isharataljasad.com to Bayt Al-Fuad (Corner 03). Copy into vercel.json \"redirects\" only after the destination pages are live and reachable without the pre-launch password, and the owner approves the move. Keep them temporary (permanent: false) until the move is confirmed. /api/feedback and the gate (/login) are deliberately not redirected. Fragments such as #lesson-07 survive the redirect and are resolved by old-links.js at the destination.",
+    "redirects":  [
+                      {
+                          "source":  "/",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/bayt",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/semester-1",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/semester-1/:path*",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/:path*",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/ma101",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/math",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/ma101/book",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/math/old-links/book",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/ma101/pearson",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/math/old-links/pearson",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/ma101/educator",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/math/old-links/educator",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/phy101",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/physics",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/phy101/book",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/physics/old-links/book",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/phy101/pearson",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/physics/old-links/pearson",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/phy101/educator",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/physics/old-links/educator",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/chemistry",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/chemistry",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/chemistry/book",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/chemistry/old-links/book",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/chemistry/pearson",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/chemistry/old-links/pearson",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/chemistry/educator",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/chemistry/old-links/educator",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/english",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/english",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/english/book",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/english/old-links/book",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/english/pearson",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/english/old-links/pearson",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/english/educator",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/english/old-links/educator",
+                          "permanent":  false
+                      },
+                      {
+                          "source":  "/english/:path*",
+                          "destination":  "https://baytalfuad.com/ilm-sinaa/student/semester-1/english",
+                          "permanent":  false
+                      }
+                  ]
+}
