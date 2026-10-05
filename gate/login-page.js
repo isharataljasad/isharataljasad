@@ -65,7 +65,7 @@ button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
            autocomplete="current-password" spellcheck="false" dir="ltr">
     <button type="submit">دخول</button>
   </form>
-  <p class="foot"><a href="/">العودة إلى الصفحة الرئيسية</a></p>
+  <p class="foot"><a href="https://baytalfuad.com/">العودة إلى بيت الفؤاد</a></p>
 </main>
 </body>
 </html>`;
