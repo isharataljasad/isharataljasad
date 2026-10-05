@@ -1,3 +1,21 @@
+# Site entrance (root) — a Bayt Al-Fuad front, in preparation
+
+`/` and `/bayt` are a hand-authored Arabic RTL entrance (`index.html`, mirrored to
+`bayt/index.html`) styled by `site/site.css`, with self-hosted IBM Plex Sans Arabic
+and Amiri (OFL, `site/fonts/`) and the approved Bayt Al-Fuad mark copied unchanged
+(`site/bayt-mark.svg`). It states what is available now, how a lesson in the unified
+method is built, for whom, where to start and the limits; it sells nothing and shows
+nothing unfinished as ready. Identity, tokens, states and acceptance evidence:
+`docs/identity-2026-10-05.md`. The study library is
+no longer built onto `/` (`tools/build-study.mjs` writes only `/semester-1/`), and all
+academic URLs keep forwarding to baytalfuad.com/ilm-sinaa.
+
+- `node test/home.mjs` — structure, honesty, links, deploy/gate/CSP, colour contrast.
+- `npm run check:launch` (`tools/check-launch.mjs`) — the entrance is complete (no draft,
+  pending or disabled placeholders), `/` is indexable, every other path and the login
+  page stay noindex. CI runs it on every push; the Vercel build (`vercel-build`) runs it
+  for production deployments only, so previews stay possible.
+
 # Bayt Al-Fuad · Semester 1 study library
 
 The student entrance (`/`, `/bayt/`, `/semester-1/`) shows Mathematics, Physics,
@@ -40,8 +58,10 @@ answer fields, scores or progress requirements; every worked solution is visible
   deployed pages and CSP (`test/routing.mjs`).
 - `npm run preview` serves the local review site with the `vercel.json`
   redirects, headers and allow-list (without the production login);
-  `node test/browser.mjs` (which starts its own preview) checks every page, card alignment at six widths and 200% zoom, text contrast and the feedback flow, and in Chromium at desktop and phone
-  width and follows old bookmarks.
+  `node test/browser.mjs` (which starts its own preview, or takes a base URL) checks the
+  current visitor journey in Chromium: the entrance at 1280/390/320 px, keyboard and
+  focus, fonts, every academic redirect to Bayt Al-Fuad, the search policy and the login
+  page. The lessons themselves are checked in the Bayt Al-Fuad repository.
 - `npm run test:legacy` — tests of preserved, non-deployed earlier material.
 
 ## Lesson feedback

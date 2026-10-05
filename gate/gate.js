@@ -159,7 +159,8 @@ export const LOGOUT_PATH = "/logout";
    feedback). Every other path stays behind the password. Only files on the
    deployment allow-list (.vercelignore) exist at all. */
 export const PUBLIC_EXACT = new Set(["/", "/index.html", "/bayt", "/bayt/", "/bayt/index.html", "/api/feedback"]);
-export const PUBLIC_PREFIXES = ["/semester-1", "/ma101", "/phy101", "/chemistry", "/english"];
+/* /site holds only the entrance stylesheet, its self-hosted fonts and the house mark. */
+export const PUBLIC_PREFIXES = ["/site", "/semester-1", "/ma101", "/phy101", "/chemistry", "/english"];
 export function isPublic(pathname) {
   if (PUBLIC_EXACT.has(pathname)) return true;
   if (pathname.includes("..") || pathname.includes("\\")) return false;

@@ -148,14 +148,15 @@ await ok("only the approved reading routes, /login and /logout are outside the p
   eq(classify("/_vercel/insights/script.js"), "infra");
   for (const p of ["/", "/index.html", "/bayt", "/bayt/", "/api/feedback", "/semester-1", "/semester-1/",
                    "/semester-1/physics/motion", "/semester-1/assets/study.css", "/semester-1/english/old-links/book",
-                   "/ma101", "/ma101/book", "/phy101/pearson", "/chemistry/educator", "/english", "/english/book"]) {
+                   "/ma101", "/ma101/book", "/phy101/pearson", "/chemistry/educator", "/english", "/english/book",
+                   "/site/site.css", "/site/bayt-mark.svg", "/site/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2"]) {
     eq(classify(p), "public", `${p} should be public`);
   }
   for (const p of ["/style.css", "/js/app.js", "/js/corpus.js", "/fonts/amiri-quran-ar.woff2", "/test/cards.json",
                    "/anything", "/program", "/program/lessons", "/foundations", "/biology", "/data/project.json",
                    "/tools/build-study.mjs", "/tools/data/study-library.json", "/docs/feedback.md", "/api/other",
                    "/api/feedback/list", "/api", "/bayt/planner", "/resources/claude-next.txt", "/semester-1x",
-                   "/ma1010", "/english-old", "/semester-1/../data/project.json", "/gate/gate.js", "/middleware.js"]) {
+                   "/ma1010", "/english-old", "/site-old", "/sites/x", "/semester-1/../data/project.json", "/gate/gate.js", "/middleware.js"]) {
     eq(classify(p), "protected", `${p} is not protected`);
   }
 });
@@ -202,18 +203,19 @@ await ok("the login page contains no hint, no recovery, no registration, no app 
 
 await ok("the login page carries the identity lines required by the brief", () => {
   const html = loginPage({ nonce: "n" });
-  for (const s of ["Science Lab", "From understanding to discovery",
-                   "invitation", "Password", "Sign in"]) {
+  for (const s of ["بيت الفؤاد", "كلمة المرور", "دخول", 'href="/"']) {
     truthy(html.includes(s), `login page missing: ${s}`);
   }
-  truthy(html.includes('dir="ltr"') && html.includes('lang="en"'), "not LTR English");
+  truthy(!/Science Lab|Three sources/.test(html), "login page still carries the retired Science Lab identity");
+  truthy(html.includes('dir="rtl"') && html.includes('lang="ar"'), "not Arabic RTL");
+  truthy(/<input[^>]+dir="ltr"/.test(html), "password field must stay LTR");
   truthy(html.includes('name="robots"'), "login page is indexable");
 });
 
 await ok("the error state replaces the invitation line and is announced to assistive tech", () => {
   const html = loginPage({ nonce: "n", error: "كلمة المرور غير صحيحة." });
   truthy(html.includes('role="alert"'), "error not announced");
-  truthy(!html.includes("This experience is available by invitation"), "both states rendered at once");
+  truthy(!html.includes("هذا القسم خاص"), "both states rendered at once");
 });
 
 await ok("the page is self-contained: no external asset request before login", () => {
@@ -298,7 +300,7 @@ await ok("a wrong password returns 401, sets no cookie, and says nothing specifi
   eq(res.status, 401);
   eq(res.headers.get("set-cookie"), null, "a cookie was issued on failure");
   const body = await res.text();
-  truthy(body.includes("The password is incorrect."), "generic message missing");
+  truthy(body.includes("كلمة المرور غير صحيحة."), "generic message missing");
   truthy(!body.includes(PASSWORD), "the password appears in the response");
 });
 
