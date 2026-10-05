@@ -1,71 +1,12 @@
-# Allow-list deployment (gitignore syntax). Only the focused Semester 1 study
-# library, its assets and the access gate are uploaded. Everything else stays in
-# the repository as preserved source/backup but is never served: earlier
-# dashboards, quiz and planner pages, other subjects, audits and notes.
-# The old /ma101, /phy101 and /chemistry book|pearson|educator pages are kept
-# only as small link-forwarding pages for earlier bookmarks (see
-# docs/compatibility-map.md). test/routing.mjs and test/study.mjs check this list.
 /*
 !/index.html
+!/tadabbur
+!/assets
 !/middleware.js
 !/gate
 !/package.json
 !/package-lock.json
 !/vercel.json
-
-# The specialised entrance's own stylesheet, self-hosted fonts and the Bayt Al-Fuad mark.
-!/site
-/site/*
-!/site/site.css
-!/site/bayt-mark.svg
-!/site/fonts
-/site/fonts/*
-!/site/fonts/*.woff2
-!/site/fonts/OFL-*.txt
-
-# The launch check, run by the production build (package.json vercel-build).
-!/tools
-/tools/*
-!/tools/check-launch.mjs
-
-# The feedback endpoint and the lesson list it validates against.
-!/api
-/api/*
-!/api/feedback.js
-!/api/_lib
-
-!/bayt
-/bayt/*
-!/bayt/index.html
-
-!/semester-1
-/semester-1/*
-!/semester-1/index.html
-!/semester-1/math
-!/semester-1/physics
-!/semester-1/chemistry
-!/semester-1/english
-!/semester-1/assets
-/semester-1/assets/*
-!/semester-1/assets/study.css
-!/semester-1/assets/old-links.js
-!/semester-1/assets/feedback.js
-
-!/ma101
-/ma101/*
-!/ma101/book
-!/ma101/pearson
-!/ma101/educator
-
-!/phy101
-/phy101/*
-!/phy101/book
-!/phy101/pearson
-!/phy101/educator
-
-!/chemistry
-/chemistry/*
-!/chemistry/book
-!/chemistry/pearson
-!/chemistry/educator
-
+/tadabbur/*.md
+/tadabbur/VERSION
+!/test

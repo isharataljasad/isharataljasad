@@ -1,19 +1,11 @@
 {
-  "name": "science-discovery-hub",
+  "name": "bayt-tadabbur",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:programme": "node tools/build-study.mjs",
-    "build:curriculum": "node tools/build-study.mjs",
-    "build:bayt": "node tools/build-study.mjs",
-    "preview": "node tools/preview-server.mjs",
-    "test": "node test/study.mjs && node test/home.mjs && node test/feedback.mjs && node test/gate.mjs && node test/routing.mjs",
-    "build:lessons": "node tools/build-study.mjs",
-    "build:study": "node tools/build-study.mjs",
-    "test:legacy": "node test/english-release.mjs && node test/science.mjs && node test/concept-checks.mjs && node test/concept-runtime.mjs && node test/foundation-models.mjs",
-    "check:launch": "node tools/check-launch.mjs",
-    "vercel-build": "node tools/check-launch.mjs --if-production"
+    "test": "node test/migration.mjs",
+    "vercel-build": "node test/migration.mjs"
   },
   "dependencies": {
     "@vercel/functions": "3.1.3"

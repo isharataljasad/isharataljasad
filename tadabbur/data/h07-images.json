@@ -1,0 +1,1480 @@
+{
+  "version": "R04",
+  "count": 156,
+  "cardCount": 40,
+  "range": "آل عمران ٩٢–١٧٠",
+  "groups": [
+    {
+      "id": "H07-00-INTRO",
+      "label": "مقدمة الحزب",
+      "start": 1,
+      "count": 5
+    },
+    {
+      "id": "H07-ST01",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "start": 6,
+      "count": 25
+    },
+    {
+      "id": "H07-ST02",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "start": 31,
+      "count": 13
+    },
+    {
+      "id": "H07-ST03",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "start": 44,
+      "count": 15
+    },
+    {
+      "id": "H07-ST04",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "start": 59,
+      "count": 17
+    },
+    {
+      "id": "H07-ST05",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "start": 76,
+      "count": 14
+    },
+    {
+      "id": "H07-ST06",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "start": 90,
+      "count": 16
+    },
+    {
+      "id": "H07-ST07",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "start": 106,
+      "count": 20
+    },
+    {
+      "id": "H07-ST08",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "start": 126,
+      "count": 15
+    },
+    {
+      "id": "H07-ST09",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "start": 141,
+      "count": 11
+    },
+    {
+      "id": "H07-SUMMARY",
+      "label": "خلاصة المسار التدبري",
+      "start": 152,
+      "count": 5
+    }
+  ],
+  "pages": [
+    {
+      "src": "/tadabbur/images/H07/H07-00-INTRO/H07-COVER-01.png",
+      "group": "H07-00-INTRO",
+      "title": "مقدمة الحزب",
+      "label": "مقدمة الحزب",
+      "stationPage": "1/5",
+      "card": "H07-COVER",
+      "sha256": "fe65c2f553365cf6c3482624640828f0c22c0f89e8fa925e2e4754f1422ebb82"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-00-INTRO/H07-DESC-01.png",
+      "group": "H07-00-INTRO",
+      "title": "وصف الحزب",
+      "label": "مقدمة الحزب",
+      "stationPage": "2/5",
+      "card": "H07-DESC",
+      "sha256": "9d3ba026c43cc5e6bafb5659476b9f48fc65ad94ef4e464d85b1668a4af23c6d"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-00-INTRO/H07-MAP-01.png",
+      "group": "H07-00-INTRO",
+      "title": "خريطة المحطات",
+      "label": "مقدمة الحزب",
+      "stationPage": "3/5",
+      "card": "H07-MAP",
+      "sha256": "6e3d3813e219f33f7f17cbbd0e3ca97df28325cf349bd15a93b0c59ac5f72357"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-00-INTRO/H07-MAP-02.png",
+      "group": "H07-00-INTRO",
+      "title": "خريطة المحطات",
+      "label": "مقدمة الحزب",
+      "stationPage": "4/5",
+      "card": "H07-MAP",
+      "sha256": "352927df865b9dc9d7f20944a63756bb83124593abee57bed0ebb3a46a99e209"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-00-INTRO/H07-MAP-03.png",
+      "group": "H07-00-INTRO",
+      "title": "خريطة المحطات",
+      "label": "مقدمة الحزب",
+      "stationPage": "5/5",
+      "card": "H07-MAP",
+      "sha256": "a0200ef41474539285b92fd3c95f311eb56ae99f78e11be5c16ede82e903467b"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-ST01-OPEN-01.png",
+      "group": "H07-ST01",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "1/25",
+      "card": "H07-ST01-OPEN",
+      "sha256": "f6eb4754bbd77a19c1b9a380bf6932c5db34235312d4e34e94be62182e6a9d59"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C001-01.png",
+      "group": "H07-ST01",
+      "title": "البرّ يُنال بما تحبّ",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "2/25",
+      "card": "H07-C001",
+      "sha256": "4bbf4bea85d482c9270eeaab68af03dfd87e749bdc99cf02f8bc452254155a4f"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C001-02.png",
+      "group": "H07-ST01",
+      "title": "البرّ يُنال بما تحبّ",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "3/25",
+      "card": "H07-C001",
+      "sha256": "d035c022e6e6d8462c2b608c155517bb5f273f0fe1dd6bc27e9a3be9f9c8fd8b"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C002-01.png",
+      "group": "H07-ST01",
+      "title": "الحجّة من الكتاب نفسه",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "4/25",
+      "card": "H07-C002",
+      "sha256": "1c90a283d5d4b6c1610b3afbe85b35aeefadfd5b56795b836b55b79350c10b11"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C002-02.png",
+      "group": "H07-ST01",
+      "title": "الحجّة من الكتاب نفسه",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "5/25",
+      "card": "H07-C002",
+      "sha256": "646d4d0c65f5d75e2aaac2eb19cc9628f5f323bc0f0f52d63845ade6757dfd91"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C002-03.png",
+      "group": "H07-ST01",
+      "title": "الحجّة من الكتاب نفسه",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "6/25",
+      "card": "H07-C002",
+      "sha256": "dd69b1d45b1aaee6d268c981c60c3dcec8f8fdb6030aa3a4f5b7d85060c514d1"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C002-04.png",
+      "group": "H07-ST01",
+      "title": "الحجّة من الكتاب نفسه",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "7/25",
+      "card": "H07-C002",
+      "sha256": "63758abe26d6a6658229388c21233dd86bfd2eec285f7e1786badca932ac939c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-01.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "8/25",
+      "card": "H07-C003",
+      "sha256": "5096ca6cb093f6af78423d5aa73aec0d21e14d0cda4f14b218894ee930c9ca7c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-02.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "9/25",
+      "card": "H07-C003",
+      "sha256": "9c9fb8a45db3b9f8c33fbe23d85378a608f083cf82585879d39a39a0535dd5c4"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-03.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "10/25",
+      "card": "H07-C003",
+      "sha256": "479592da5392ab68b7de9a8b1ce6608c84e02e00bf97307acc6648d8ad9d05ae"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-04.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "11/25",
+      "card": "H07-C003",
+      "sha256": "52d933330f1021297d5033c64904280b3088efc09a05a025cb2c374ad45451fb"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-05.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "12/25",
+      "card": "H07-C003",
+      "sha256": "fece08ea4c3992c8a2950d91fe51c752f29ccc03ff5878f28fdb3c836fd119e9"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-06.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "13/25",
+      "card": "H07-C003",
+      "sha256": "ba1d528a760444b6a39167993353972f1dccb24d5890d16f0136cf089efb98ce"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-07.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "14/25",
+      "card": "H07-C003",
+      "sha256": "3a9d113afe72af8783d3a0dc6f97f1e1dcec035e8e6d96a481712bc3272ae4d3"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-08.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "15/25",
+      "card": "H07-C003",
+      "sha256": "198f5ecf567faa37948ceae931287eab4a4ef12ceb587146323571296d4e2dc8"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-09.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "16/25",
+      "card": "H07-C003",
+      "sha256": "68b6134ddaf4de681c42705dd48dfd4a6b768403bb3953d647343effaa31cd36"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-10.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "17/25",
+      "card": "H07-C003",
+      "sha256": "ca17b5a34cf3746296b9f1486b7bc706173b79f482123f77690d04319193e9b9"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-11.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "18/25",
+      "card": "H07-C003",
+      "sha256": "0f4356cf241afc1f8eca88e3c6bd98bc038c4d24dcc0f274de5a1e3032e276a9"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-12.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "19/25",
+      "card": "H07-C003",
+      "sha256": "a0f0703b5dc8f4bf989eed15f4fee4edc7fd03d2daac03d03d88a78e12756e1e"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C003-13.png",
+      "group": "H07-ST01",
+      "title": "بيتٌ يهدي، وفريضةٌ بقدر الاستطاعة",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "20/25",
+      "card": "H07-C003",
+      "sha256": "4ef3069f747e322ba2173c75ffbc3442b3024a8e005c1761732d8dd8ea47de3c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C004-01.png",
+      "group": "H07-ST01",
+      "title": "لمن أُسلِم زمام التوجيه؟",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "21/25",
+      "card": "H07-C004",
+      "sha256": "42591060e75f234c5177f16c4accd760581e0a20c953d9b6bb1360fb330ebe35"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C004-02.png",
+      "group": "H07-ST01",
+      "title": "لمن أُسلِم زمام التوجيه؟",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "22/25",
+      "card": "H07-C004",
+      "sha256": "f56fd5eaafa21d6871879b64cc45e7c3043edd4a5209177fa27c37a633888260"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C004-03.png",
+      "group": "H07-ST01",
+      "title": "لمن أُسلِم زمام التوجيه؟",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "23/25",
+      "card": "H07-C004",
+      "sha256": "dc742b74259e578b30cdd66388174a74d1a5567f7d317bf29e009d6f94df0f70"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C005-01.png",
+      "group": "H07-ST01",
+      "title": "الاعتصام طريقٌ إلى الصراط",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "24/25",
+      "card": "H07-C005",
+      "sha256": "4a2f1d6a34ff22d35f3cdec819e317e7249e3e1a2d1f0fd447cf60825ba46e0c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST01/H07-C005-02.png",
+      "group": "H07-ST01",
+      "title": "الاعتصام طريقٌ إلى الصراط",
+      "label": "المحطة ١ من ٩ · آل عمران ٩٢–١٠١",
+      "stationPage": "25/25",
+      "card": "H07-C005",
+      "sha256": "795edd38f6d6f20dad7d548d3ce47981f808f0cae09472ac05e1d23c048c4790"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-ST02-OPEN-01.png",
+      "group": "H07-ST02",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "1/13",
+      "card": "H07-ST02-OPEN",
+      "sha256": "c012ac1e2f74a4902e78b1730d1ecd9952f29e4c2466a61c669b5f0c78fe85b0"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C006-01.png",
+      "group": "H07-ST02",
+      "title": "تقوى إلى الخاتمة، وحبلٌ يجمع",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "2/13",
+      "card": "H07-C006",
+      "sha256": "2e0ffc0789306d350604f1bee86fdccba1128d5190ea18188725481df42c35c3"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C006-02.png",
+      "group": "H07-ST02",
+      "title": "تقوى إلى الخاتمة، وحبلٌ يجمع",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "3/13",
+      "card": "H07-C006",
+      "sha256": "4288c5e428a65aed68d4d9350ef2c0d51694304ee8554b9cf1874343c4470074"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C006-03.png",
+      "group": "H07-ST02",
+      "title": "تقوى إلى الخاتمة، وحبلٌ يجمع",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "4/13",
+      "card": "H07-C006",
+      "sha256": "079a43156fef351b02df3f4b8d9786f82845150054bca31dbf2c69eaadc4fa4a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C006-04.png",
+      "group": "H07-ST02",
+      "title": "تقوى إلى الخاتمة، وحبلٌ يجمع",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "5/13",
+      "card": "H07-C006",
+      "sha256": "ee603e445f52e2c6cb4a69c5f73e0ea005c44a7a8776d96e0e7ddd3b2831319a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C007-01.png",
+      "group": "H07-ST02",
+      "title": "أمّةٌ تدعو، وحذرٌ من التفرّق بعد البيّنة",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "6/13",
+      "card": "H07-C007",
+      "sha256": "e1a0b6dc71ed4d1781f89be1b7d62423b32ef2f6280ce5bcc1f5c354da7534a4"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C007-02.png",
+      "group": "H07-ST02",
+      "title": "أمّةٌ تدعو، وحذرٌ من التفرّق بعد البيّنة",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "7/13",
+      "card": "H07-C007",
+      "sha256": "fd667aad1f7cf417f43acd996ebc824d67c40e675323167b4ec785cd1e58e631"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C007-03.png",
+      "group": "H07-ST02",
+      "title": "أمّةٌ تدعو، وحذرٌ من التفرّق بعد البيّنة",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "8/13",
+      "card": "H07-C007",
+      "sha256": "3bb9c024100e6e923a3ac18a1fcdc0c9fddeecc0864c1bf246b5b6372d12f1ee"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C008-01.png",
+      "group": "H07-ST02",
+      "title": "يومٌ تظهر فيه الحقائق",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "9/13",
+      "card": "H07-C008",
+      "sha256": "1eadcaea416c67416cfbd39ceb5a4d80cfeea0027252babf81c25ffcae65f268"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C008-02.png",
+      "group": "H07-ST02",
+      "title": "يومٌ تظهر فيه الحقائق",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "10/13",
+      "card": "H07-C008",
+      "sha256": "3d178c4321df35022fa49d34cf39230bbdf510cfcd87d03056ba514a9ab72871"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C008-03.png",
+      "group": "H07-ST02",
+      "title": "يومٌ تظهر فيه الحقائق",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "11/13",
+      "card": "H07-C008",
+      "sha256": "6ca484c964fe60168e40545e2fcba45f6788d1f125fa71e493cbd0bc01797cd9"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C008-04.png",
+      "group": "H07-ST02",
+      "title": "يومٌ تظهر فيه الحقائق",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "12/13",
+      "card": "H07-C008",
+      "sha256": "f20afb271ab283c766be5a95646000f4ce60342aae451a6df5b701cbe6647cbc"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST02/H07-C009-01.png",
+      "group": "H07-ST02",
+      "title": "إليه تُرجَع الأمور",
+      "label": "المحطة ٢ من ٩ · آل عمران ١٠٢–١٠٩",
+      "stationPage": "13/13",
+      "card": "H07-C009",
+      "sha256": "8913ce05d7a64a12ef78ec7a69ed16ada903b58512e077374963aa103b21a4f5"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-ST03-OPEN-01.png",
+      "group": "H07-ST03",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "1/15",
+      "card": "H07-ST03-OPEN",
+      "sha256": "47d3fca1f48f1d9ed0842e12f0c9cfabdaeac068fa2aaf756f7b75208d1452a1"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C010-01.png",
+      "group": "H07-ST03",
+      "title": "خيريّةٌ مقرونة بأوصاف",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "2/15",
+      "card": "H07-C010",
+      "sha256": "604a17f3a061fd9bf256d9bfe65156b1ac6c990c2627a3332e3032109da17e43"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C010-02.png",
+      "group": "H07-ST03",
+      "title": "خيريّةٌ مقرونة بأوصاف",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "3/15",
+      "card": "H07-C010",
+      "sha256": "050dd06fe397d4acaf3d673ba4915a0aede5b82fa65882b0ecc7b6440781d38c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C010-03.png",
+      "group": "H07-ST03",
+      "title": "خيريّةٌ مقرونة بأوصاف",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "4/15",
+      "card": "H07-C010",
+      "sha256": "86c16f47fb724d7012bbcd9264bf070bc079e9d0bfa166b505bbba1b05c67f19"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C010-04.png",
+      "group": "H07-ST03",
+      "title": "خيريّةٌ مقرونة بأوصاف",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "5/15",
+      "card": "H07-C010",
+      "sha256": "fe05ed9c58678fe39d44303923e7d81d07f81c9ab3ff05e2be666d794b924dae"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C011-01.png",
+      "group": "H07-ST03",
+      "title": "ليسوا سواءً",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "6/15",
+      "card": "H07-C011",
+      "sha256": "dfd4c7d620ea7c84abeccc3f9d738aef455ccaf3132e5fd4afce29bc40617837"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C011-02.png",
+      "group": "H07-ST03",
+      "title": "ليسوا سواءً",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "7/15",
+      "card": "H07-C011",
+      "sha256": "c0f3b961d6d74fffbf64c3766c6d2ebb95a7e3759a363741690e3b0471a93675"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C011-03.png",
+      "group": "H07-ST03",
+      "title": "ليسوا سواءً",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "8/15",
+      "card": "H07-C011",
+      "sha256": "7ed32c9c853447cc254a95c4728b0c8df22215f29876e6a171048267c74f1aef"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C012-01.png",
+      "group": "H07-ST03",
+      "title": "ريحٌ فيها صِرّ",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "9/15",
+      "card": "H07-C012",
+      "sha256": "7da33b5937d24d533e0a2b162cee33ff5e58a15b9595516db707d7c13856ee11"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C012-02.png",
+      "group": "H07-ST03",
+      "title": "ريحٌ فيها صِرّ",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "10/15",
+      "card": "H07-C012",
+      "sha256": "4066424fa09c1ac482c60ce1cdfaf31b9dfdec469cc08f1de6bbdcf00d789b06"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C012-03.png",
+      "group": "H07-ST03",
+      "title": "ريحٌ فيها صِرّ",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "11/15",
+      "card": "H07-C012",
+      "sha256": "3c6ed5bffec58633c9ac66051cb1ec6590a7a3edd898be2fdb8f4e4150509e2f"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C013-01.png",
+      "group": "H07-ST03",
+      "title": "لمن تفتح سرّك؟",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "12/15",
+      "card": "H07-C013",
+      "sha256": "4975b858ca3c9e4f15f5aac593af90db9e28252d6198f3e6a40d1050215fde8b"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C013-02.png",
+      "group": "H07-ST03",
+      "title": "لمن تفتح سرّك؟",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "13/15",
+      "card": "H07-C013",
+      "sha256": "bd627eccd22efd8771376547dd5611b836bba1bae9f899c68a8a9b4368dab539"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C013-03.png",
+      "group": "H07-ST03",
+      "title": "لمن تفتح سرّك؟",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "14/15",
+      "card": "H07-C013",
+      "sha256": "b4bb982a281b9706ed9d83da3ffc2bd34148ff83477596a2d3d52ef3a0aab25a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST03/H07-C013-04.png",
+      "group": "H07-ST03",
+      "title": "لمن تفتح سرّك؟",
+      "label": "المحطة ٣ من ٩ · آل عمران ١١٠–١٢٠",
+      "stationPage": "15/15",
+      "card": "H07-C013",
+      "sha256": "4b99b5400cfcf971240cc3c06cd2278e2eca652930cad97cf1a9d327f6d59976"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-ST04-OPEN-01.png",
+      "group": "H07-ST04",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "1/17",
+      "card": "H07-ST04-OPEN",
+      "sha256": "2357a1dedda74712d56189ad393988b0aa0c75271cda68f0284142d921f3be69"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C014-01.png",
+      "group": "H07-ST04",
+      "title": "تذكّر النعمة عند المكروه",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "2/17",
+      "card": "H07-C014",
+      "sha256": "915e4968aa8cc5b2e8976887c37a7bb4498c04b1560a953b24aa52e23820ad7e"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C014-02.png",
+      "group": "H07-ST04",
+      "title": "تذكّر النعمة عند المكروه",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "3/17",
+      "card": "H07-C014",
+      "sha256": "3e45ea4dfdb40b2f6fdb7cb107d3e48908be61c04308d52cd83142635cd03ee7"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C014-03.png",
+      "group": "H07-ST04",
+      "title": "تذكّر النعمة عند المكروه",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "4/17",
+      "card": "H07-C014",
+      "sha256": "942ed9b87013040902688019c3b084adb463eb842cace8f3a71a425bd3e74d2f"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C014-04.png",
+      "group": "H07-ST04",
+      "title": "تذكّر النعمة عند المكروه",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "5/17",
+      "card": "H07-C014",
+      "sha256": "03fb64c0da32a3dd98d6da10606e13c3e43aa9463d8bbf57f7e799f67732dd84"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C015-01.png",
+      "group": "H07-ST04",
+      "title": "همٌّ لم يتمّ، وولايةٌ حفظت",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "6/17",
+      "card": "H07-C015",
+      "sha256": "fba25905f08fff1931a1fe457ed8354c9da7a513d87898847c8908a7283ebefd"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C015-02.png",
+      "group": "H07-ST04",
+      "title": "همٌّ لم يتمّ، وولايةٌ حفظت",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "7/17",
+      "card": "H07-C015",
+      "sha256": "d8b896bd9a42f444ad66c926f4b8c555b5689d5ebca46fa729b5f414ec91662e"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C016-01.png",
+      "group": "H07-ST04",
+      "title": "الإمداد بشرى، والنصر من عند الله",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "8/17",
+      "card": "H07-C016",
+      "sha256": "98eefefccb0729406291a63ee651e1532da16acd2ca3b6181d799198bb98f4a2"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C016-02.png",
+      "group": "H07-ST04",
+      "title": "الإمداد بشرى، والنصر من عند الله",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "9/17",
+      "card": "H07-C016",
+      "sha256": "8cf2261dcbf766009d9b5fa4df8fe8a2d931aed2299fc2113ce55590036256a5"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C016-03.png",
+      "group": "H07-ST04",
+      "title": "الإمداد بشرى، والنصر من عند الله",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "10/17",
+      "card": "H07-C016",
+      "sha256": "fd0bb26afa52fe20d3afc91237961f91a2c7b25c7296a9958652a6f633d2846a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C016-04.png",
+      "group": "H07-ST04",
+      "title": "الإمداد بشرى، والنصر من عند الله",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "11/17",
+      "card": "H07-C016",
+      "sha256": "6db2a95d7cf51910de465bea39dde0679fa2bdb30762732b13487948f61c8dcc"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C017-01.png",
+      "group": "H07-ST04",
+      "title": "صورٌ للنصر",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "12/17",
+      "card": "H07-C017",
+      "sha256": "d867dee0f9ecd3b65a527124fe0d2edb22d99d26c02788893325e48c2d5c8c9c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C017-02.png",
+      "group": "H07-ST04",
+      "title": "صورٌ للنصر",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "13/17",
+      "card": "H07-C017",
+      "sha256": "6d4645e4242e7d33673a49f0cada34439fcc898961dd9b3e980e17b4c7827e92"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C018-01.png",
+      "group": "H07-ST04",
+      "title": "ليس لك من الأمر شيء",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "14/17",
+      "card": "H07-C018",
+      "sha256": "febf5c08f9f009a8408c89e87e74d7ac144b71ce2753719f4c16dca1400b7b15"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C018-02.png",
+      "group": "H07-ST04",
+      "title": "ليس لك من الأمر شيء",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "15/17",
+      "card": "H07-C018",
+      "sha256": "20a8f7997e4144cc9a1f0b3b21efee332cc82ac726f0dead12006eb37e3e7072"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C018-03.png",
+      "group": "H07-ST04",
+      "title": "ليس لك من الأمر شيء",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "16/17",
+      "card": "H07-C018",
+      "sha256": "df14641365df1c9c20294e92ad87c8f644475270dfd43c838fa4bcc107d08fce"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST04/H07-C018-04.png",
+      "group": "H07-ST04",
+      "title": "ليس لك من الأمر شيء",
+      "label": "المحطة ٤ من ٩ · آل عمران ١٢١–١٢٩",
+      "stationPage": "17/17",
+      "card": "H07-C018",
+      "sha256": "0630c0f58b4928df8fb2102c91f15de9fe48fa925c500fb52c77e15ef37a13d5"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-ST05-OPEN-01.png",
+      "group": "H07-ST05",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "1/14",
+      "card": "H07-ST05-OPEN",
+      "sha256": "bd763771546d989bfbae77ff8ac621a9b99f29cc79d97729e306d6cd2fff4fbd"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C019-01.png",
+      "group": "H07-ST05",
+      "title": "من خصال التقوى: ترك الظلم في المال",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "2/14",
+      "card": "H07-C019",
+      "sha256": "f74fcb45aa114dbc0a24b1821fa7a187ed07a9a658eda4a6b8bff8f843798f74"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C019-02.png",
+      "group": "H07-ST05",
+      "title": "من خصال التقوى: ترك الظلم في المال",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "3/14",
+      "card": "H07-C019",
+      "sha256": "940ee6ace09b8cc666095a854a7f16c2270d8e21cc70c2bd9c55466fd6afeb95"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C019-03.png",
+      "group": "H07-ST05",
+      "title": "من خصال التقوى: ترك الظلم في المال",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "4/14",
+      "card": "H07-C019",
+      "sha256": "d834d7356df21e8c0c30405539d9f241a4c765541b02ba2c8fb0de7b7a693c90"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C019-04.png",
+      "group": "H07-ST05",
+      "title": "من خصال التقوى: ترك الظلم في المال",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "5/14",
+      "card": "H07-C019",
+      "sha256": "be6e78ed723ff6d8eee82eb9fe0cc35d29629fa93a1e7098671d290305d0028a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C019-05.png",
+      "group": "H07-ST05",
+      "title": "من خصال التقوى: ترك الظلم في المال",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "6/14",
+      "card": "H07-C019",
+      "sha256": "6d986654f2ac4f4b34ccb7d5c619fb5cab2e0b51d1df896d1560e3daf139eb22"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C020-01.png",
+      "group": "H07-ST05",
+      "title": "سارِعوا… وهذه صفات المتقين",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "7/14",
+      "card": "H07-C020",
+      "sha256": "a28068322680ef15836c9df19b58128577f839a7b476060d082e246dd59bbc9d"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C020-02.png",
+      "group": "H07-ST05",
+      "title": "سارِعوا… وهذه صفات المتقين",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "8/14",
+      "card": "H07-C020",
+      "sha256": "9d87ab7e87fc719979cf0a37f6492a6cae54e55f0ceb4c770373043bab2e09bb"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C020-03.png",
+      "group": "H07-ST05",
+      "title": "سارِعوا… وهذه صفات المتقين",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "9/14",
+      "card": "H07-C020",
+      "sha256": "9636602b05a0275c3f61b7898b8b875854a2a3a95aa02ed0e1b9ad41b0f91f81"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C020-04.png",
+      "group": "H07-ST05",
+      "title": "سارِعوا… وهذه صفات المتقين",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "10/14",
+      "card": "H07-C020",
+      "sha256": "11c8f1072292ceb1a97c539c112d24668002851ae0160d80efb92a1e99b922d9"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C020-05.png",
+      "group": "H07-ST05",
+      "title": "سارِعوا… وهذه صفات المتقين",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "11/14",
+      "card": "H07-C020",
+      "sha256": "f2edac604079a757d903176d22a3c439f91fb0ce4f8cd2bdea838f287a98ee07"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C021-01.png",
+      "group": "H07-ST05",
+      "title": "سُنَنٌ خلت من قبلكم",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "12/14",
+      "card": "H07-C021",
+      "sha256": "01480b39e0da937b427f50f08d83b096b416fca0e716ec3268759e78e401bdac"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C021-02.png",
+      "group": "H07-ST05",
+      "title": "سُنَنٌ خلت من قبلكم",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "13/14",
+      "card": "H07-C021",
+      "sha256": "f1284e60b92564c2fed0960691be030d571b8311f24bb8dca07c59b488f7792f"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST05/H07-C021-03.png",
+      "group": "H07-ST05",
+      "title": "سُنَنٌ خلت من قبلكم",
+      "label": "المحطة ٥ من ٩ · آل عمران ١٣٠–١٣٨",
+      "stationPage": "14/14",
+      "card": "H07-C021",
+      "sha256": "ee8e183f73d1df9fe78eb3a858302a52162978479f4671d2df8079785c694918"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-ST06-OPEN-01.png",
+      "group": "H07-ST06",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "1/16",
+      "card": "H07-ST06-OPEN",
+      "sha256": "dff00426f6b3ca94e6a812c311108b9c24cf26f593395d6ab483abcfaf8c063c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C022-01.png",
+      "group": "H07-ST06",
+      "title": "لا تهنوا ولا تحزنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "2/16",
+      "card": "H07-C022",
+      "sha256": "5450d19cfd503d0adc897c74bc7706744195bcfda4d4321bcec005dc3263b08a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C022-02.png",
+      "group": "H07-ST06",
+      "title": "لا تهنوا ولا تحزنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "3/16",
+      "card": "H07-C022",
+      "sha256": "a1ed83e91ddcbd32d955bc4efc33006a70aa051c950e280909370bee6e1138d7"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C022-03.png",
+      "group": "H07-ST06",
+      "title": "لا تهنوا ولا تحزنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "4/16",
+      "card": "H07-C022",
+      "sha256": "1488a7d73dfe71094edc632e1bf3c36fa5cf71c1ed284e60ccaf21eb35846e1d"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C022-04.png",
+      "group": "H07-ST06",
+      "title": "لا تهنوا ولا تحزنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "5/16",
+      "card": "H07-C022",
+      "sha256": "dd8a308b82ebcfd40fdd2679331c3ad2db51bb1dc1e26516c0f2be5b244ffbc5"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C023-01.png",
+      "group": "H07-ST06",
+      "title": "التمحيص والطريق إلى الجنة",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "6/16",
+      "card": "H07-C023",
+      "sha256": "634d307cbf8dabaaef8e18d247d764092073be5e8286ab4f4174631eed6ab19c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C023-02.png",
+      "group": "H07-ST06",
+      "title": "التمحيص والطريق إلى الجنة",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "7/16",
+      "card": "H07-C023",
+      "sha256": "d6990f9d394b02363a76170e3737450a5e12f904322946194bff3a58248cdf81"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C023-03.png",
+      "group": "H07-ST06",
+      "title": "التمحيص والطريق إلى الجنة",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "8/16",
+      "card": "H07-C023",
+      "sha256": "b8e9a285f2bc58542e7fda2606b9f124e4c60be1ca064824257d9b42170effd0"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C023-04.png",
+      "group": "H07-ST06",
+      "title": "التمحيص والطريق إلى الجنة",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "9/16",
+      "card": "H07-C023",
+      "sha256": "fa1fe1ca51b640558b6f515ba576001ee758e376395e7e18fa634012bb84f0f3"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C024-01.png",
+      "group": "H07-ST06",
+      "title": "ثباتٌ لا يتعلّق بشخص",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "10/16",
+      "card": "H07-C024",
+      "sha256": "9a1b80d7b2b39752acfbae8788bfb23bf5b2d35dfd6a48d09fc16eae44fa20db"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C024-02.png",
+      "group": "H07-ST06",
+      "title": "ثباتٌ لا يتعلّق بشخص",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "11/16",
+      "card": "H07-C024",
+      "sha256": "54c530a7f2cbec906179fe2b9881b7fb39fb0e09b6ff1d936777a47197c33801"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C024-03.png",
+      "group": "H07-ST06",
+      "title": "ثباتٌ لا يتعلّق بشخص",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "12/16",
+      "card": "H07-C024",
+      "sha256": "6db436a32eac24123304bf7264b499ca3214a6c0735413f18c9b2da707d03dfd"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C024-04.png",
+      "group": "H07-ST06",
+      "title": "ثباتٌ لا يتعلّق بشخص",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "13/16",
+      "card": "H07-C024",
+      "sha256": "7aa1b0f493c83d2acba5eb955a15b83736b865a0944b437d2d7b16787096e15b"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C025-01.png",
+      "group": "H07-ST06",
+      "title": "ربّيّون لم يهنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "14/16",
+      "card": "H07-C025",
+      "sha256": "0799802734e8840677ade182caff63b86de7b912c1cdbbbb04069ab39ba3ff60"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C025-02.png",
+      "group": "H07-ST06",
+      "title": "ربّيّون لم يهنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "15/16",
+      "card": "H07-C025",
+      "sha256": "6c0591dab81f4cff169c7c4a0db6548730bbdfbfc8188e16e8e8cde25449b576"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST06/H07-C025-03.png",
+      "group": "H07-ST06",
+      "title": "ربّيّون لم يهنوا",
+      "label": "المحطة ٦ من ٩ · آل عمران ١٣٩–١٤٨",
+      "stationPage": "16/16",
+      "card": "H07-C025",
+      "sha256": "114cade9e029935e37f3ca0166142de6cbd1493bf1ec3a76cded3c86392fce2c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-ST07-OPEN-01.png",
+      "group": "H07-ST07",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "1/20",
+      "card": "H07-ST07-OPEN",
+      "sha256": "a5e91e5864acf475625cca52b2d4ec5c66b9be9dc7b424580b47f57bc81773de"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C026-01.png",
+      "group": "H07-ST07",
+      "title": "بل الله مولاكم",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "2/20",
+      "card": "H07-C026",
+      "sha256": "aa3fefcc083d34be962a4f7d0a8d88c85de20a7a8caa85ca9cfc585712b5dc0b"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C026-02.png",
+      "group": "H07-ST07",
+      "title": "بل الله مولاكم",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "3/20",
+      "card": "H07-C026",
+      "sha256": "92d9561b377abb682d631e5584780e71e6d573bea45c3257bce55ddbe7d482ad"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C026-03.png",
+      "group": "H07-ST07",
+      "title": "بل الله مولاكم",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "4/20",
+      "card": "H07-C026",
+      "sha256": "d291f316f094e5adc29feff28e3706f73eeeeac92f411d9f01972f48aed14879"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C027-01.png",
+      "group": "H07-ST07",
+      "title": "صدق الوعد، وموضع الخلل",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "5/20",
+      "card": "H07-C027",
+      "sha256": "a297714c245179ca69355df666bb03f0051b7d2d1079fa47df667c74ef0f4293"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C027-02.png",
+      "group": "H07-ST07",
+      "title": "صدق الوعد، وموضع الخلل",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "6/20",
+      "card": "H07-C027",
+      "sha256": "4ca70204920f19a1943cb98274267c215c614b8651210e6a306c559228e16f66"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C027-03.png",
+      "group": "H07-ST07",
+      "title": "صدق الوعد، وموضع الخلل",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "7/20",
+      "card": "H07-C027",
+      "sha256": "1a7410c675b77fe387daa063e43280178079995efc57b9986a0b2ec1610c952e"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C028-01.png",
+      "group": "H07-ST07",
+      "title": "غمٌّ بغمّ… لكيلا تحزنوا",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "8/20",
+      "card": "H07-C028",
+      "sha256": "396d37f44900773ddd8142c93c6ef1c087357c994b8497d99db0d1ddcdd8c367"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C028-02.png",
+      "group": "H07-ST07",
+      "title": "غمٌّ بغمّ… لكيلا تحزنوا",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "9/20",
+      "card": "H07-C028",
+      "sha256": "bf81367b61a81ba36a0ef650d54e4e1bbe391ff23f961a8a7a82d7d42709c375"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C028-03.png",
+      "group": "H07-ST07",
+      "title": "غمٌّ بغمّ… لكيلا تحزنوا",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "10/20",
+      "card": "H07-C028",
+      "sha256": "751b962750cc467d58f3de77e4ef3b4a4cb3ca941ed0230cb119b9775e41b41d"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C029-01.png",
+      "group": "H07-ST07",
+      "title": "أمنةٌ نعاسًا، وظنٌّ بغير الحق",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "11/20",
+      "card": "H07-C029",
+      "sha256": "6ba9d5c9c9e8399877af02323c460a1edd9234c541420531437fb5310f63c106"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C029-02.png",
+      "group": "H07-ST07",
+      "title": "أمنةٌ نعاسًا، وظنٌّ بغير الحق",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "12/20",
+      "card": "H07-C029",
+      "sha256": "ed64d113250a407ec80f8daf4e96885382e6bbba54220f8ae5f5a0243532e3cc"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C029-03.png",
+      "group": "H07-ST07",
+      "title": "أمنةٌ نعاسًا، وظنٌّ بغير الحق",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "13/20",
+      "card": "H07-C029",
+      "sha256": "a6067b3474ae62cddf4fb25e556cdd0b9820304854063e481b850175da6fa2f7"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C029-04.png",
+      "group": "H07-ST07",
+      "title": "أمنةٌ نعاسًا، وظنٌّ بغير الحق",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "14/20",
+      "card": "H07-C029",
+      "sha256": "ff3513942642ecdc9b6a6e59632ac3a79b429d6016228f9f653636a3c7f2a4ef"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C030-01.png",
+      "group": "H07-ST07",
+      "title": "مدخل الشيطان",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "15/20",
+      "card": "H07-C030",
+      "sha256": "a10a2b69d80498367f0e730275f46fcd32974585889c1b460390a0fc0e102028"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C030-02.png",
+      "group": "H07-ST07",
+      "title": "مدخل الشيطان",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "16/20",
+      "card": "H07-C030",
+      "sha256": "9138adf8a2a59d0c2051cb577a8b458c9c0e832f87c02c3b5b2e800107aab94c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C031-01.png",
+      "group": "H07-ST07",
+      "title": "حسرة «لو»",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "17/20",
+      "card": "H07-C031",
+      "sha256": "2fb9395ab4e7a6739c1bee0788695e158355344aec701524936446fc28ecda10"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C031-02.png",
+      "group": "H07-ST07",
+      "title": "حسرة «لو»",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "18/20",
+      "card": "H07-C031",
+      "sha256": "f6261a41f36902dedce42622d803f2060e4e869b00f7c60e12103545f7ae60f4"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C031-03.png",
+      "group": "H07-ST07",
+      "title": "حسرة «لو»",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "19/20",
+      "card": "H07-C031",
+      "sha256": "435c30c6f931e629da396dda120ef8af16e69cabcd4a4e84e8baf959e45d6dfb"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST07/H07-C032-01.png",
+      "group": "H07-ST07",
+      "title": "المرجع واحد",
+      "label": "المحطة ٧ من ٩ · آل عمران ١٤٩–١٥٨",
+      "stationPage": "20/20",
+      "card": "H07-C032",
+      "sha256": "8d485284818f52dbeac60e9a79135a0a2d80444c83251fe25a48cf1119a14a12"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-ST08-OPEN-01.png",
+      "group": "H07-ST08",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "1/15",
+      "card": "H07-ST08-OPEN",
+      "sha256": "35c05786e76284e8c9f1ac9b0aae6651148e0c563d7d3dea086c94399583f08a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C033-01.png",
+      "group": "H07-ST08",
+      "title": "لينٌ من رحمة الله",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "2/15",
+      "card": "H07-C033",
+      "sha256": "a4948462b95ea9ed71484184b5794beaea77d1942b06b4b06769f850661644a0"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C033-02.png",
+      "group": "H07-ST08",
+      "title": "لينٌ من رحمة الله",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "3/15",
+      "card": "H07-C033",
+      "sha256": "5de0c8138048e86f45acefee1c5ece3c87f90b75b1e8a84a510cd19671bce70c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C033-03.png",
+      "group": "H07-ST08",
+      "title": "لينٌ من رحمة الله",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "4/15",
+      "card": "H07-C033",
+      "sha256": "96cc0ff3b8c20bd35158b253c7a73651521e4ae10abd31243df2ef3a932b3639"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C033-04.png",
+      "group": "H07-ST08",
+      "title": "لينٌ من رحمة الله",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "5/15",
+      "card": "H07-C033",
+      "sha256": "2b9a2656dfb360ec1ac32563e94e41cea5aff637cfca8757d350c74d7d01fb04"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C034-01.png",
+      "group": "H07-ST08",
+      "title": "النصر والخذلان بيد الله",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "6/15",
+      "card": "H07-C034",
+      "sha256": "710bca00c022202117be08590bd5ef6de353f0c47a0812f2fa89549388156560"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C034-02.png",
+      "group": "H07-ST08",
+      "title": "النصر والخذلان بيد الله",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "7/15",
+      "card": "H07-C034",
+      "sha256": "932bfa5e22a265374b074555e791e62d5d454451c99e28f1c119253c1d9d380a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C035-01.png",
+      "group": "H07-ST08",
+      "title": "الأمانة تُحمَل إلى يوم القيامة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "8/15",
+      "card": "H07-C035",
+      "sha256": "779404bdf25ee204493812c43512ec357932ae23ad4fe4e4a03511a4b1743ab4"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C035-02.png",
+      "group": "H07-ST08",
+      "title": "الأمانة تُحمَل إلى يوم القيامة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "9/15",
+      "card": "H07-C035",
+      "sha256": "ab1765a5478f7412c660901880a4bca1b61b14c61acf857c40feed74eb07dec7"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C035-03.png",
+      "group": "H07-ST08",
+      "title": "الأمانة تُحمَل إلى يوم القيامة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "10/15",
+      "card": "H07-C035",
+      "sha256": "1eb5a2579815434cb7aca52cbac6c5ba1f3c5d442f4813514a3fe088c36ce5d2"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C036-01.png",
+      "group": "H07-ST08",
+      "title": "لا يستويان",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "11/15",
+      "card": "H07-C036",
+      "sha256": "5ab5f4705fcecde0a6f28a169b051e1d2f9e6fc01c22078493582b74ffe6aa9c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C036-02.png",
+      "group": "H07-ST08",
+      "title": "لا يستويان",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "12/15",
+      "card": "H07-C036",
+      "sha256": "a3feaf86db5aaf7eff0c961d2012294523b9d9db89bb3e87b371cfbb3a31bb01"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C037-01.png",
+      "group": "H07-ST08",
+      "title": "أعظم المنّة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "13/15",
+      "card": "H07-C037",
+      "sha256": "300c3d3aa46e98b746f020bd17e3c1564417a53f50ac5986ab70226912cc98f9"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C037-02.png",
+      "group": "H07-ST08",
+      "title": "أعظم المنّة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "14/15",
+      "card": "H07-C037",
+      "sha256": "c8902fc3dc2b8fff8ddcc667cd0973fdb8b7f6c32aa8767e95559280f9473223"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST08/H07-C037-03.png",
+      "group": "H07-ST08",
+      "title": "أعظم المنّة",
+      "label": "المحطة ٨ من ٩ · آل عمران ١٥٩–١٦٤",
+      "stationPage": "15/15",
+      "card": "H07-C037",
+      "sha256": "f252985a346e7e6499893689b3820154b05d365c700ce7393b0955137ff3fc68"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-ST09-OPEN-01.png",
+      "group": "H07-ST09",
+      "title": "افتتاحية المحطة + سؤال المحطة",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "1/11",
+      "card": "H07-ST09-OPEN",
+      "sha256": "50b6352e3fdbe4bd30738618aad4e75fb7e75055809adc2c23a85a9b32ffbddc"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C038-01.png",
+      "group": "H07-ST09",
+      "title": "قل هو من عند أنفسكم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "2/11",
+      "card": "H07-C038",
+      "sha256": "4511278c2dfa303158696db33a41f116d7004d97286727640a3bb86861414bc3"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C038-02.png",
+      "group": "H07-ST09",
+      "title": "قل هو من عند أنفسكم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "3/11",
+      "card": "H07-C038",
+      "sha256": "daab374781594b55c16c2d3412042030291844853da4bd7fa24774577df68e6d"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C039-01.png",
+      "group": "H07-ST09",
+      "title": "ما أصابكم فبإذن الله… وليعلم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "4/11",
+      "card": "H07-C039",
+      "sha256": "e4064f94fa9e09d667705d22449ea3074690fe140831f07796f31bd77d9a259a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C039-02.png",
+      "group": "H07-ST09",
+      "title": "ما أصابكم فبإذن الله… وليعلم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "5/11",
+      "card": "H07-C039",
+      "sha256": "abe2cd2193962c59cdc70877c3d90fc75f9b58116763262058c21e0c1ca03707"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C039-03.png",
+      "group": "H07-ST09",
+      "title": "ما أصابكم فبإذن الله… وليعلم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "6/11",
+      "card": "H07-C039",
+      "sha256": "96ddcff14daa169f78ca98b3f28e218a9656d7bc9bb87751afc1c563bb97dcfd"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C039-04.png",
+      "group": "H07-ST09",
+      "title": "ما أصابكم فبإذن الله… وليعلم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "7/11",
+      "card": "H07-C039",
+      "sha256": "69a170c81d1e491c5d9bbec9d868831a404c6aeaff7968b7334c1169b5def23d"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C040-01.png",
+      "group": "H07-ST09",
+      "title": "أحياءٌ عند ربهم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "8/11",
+      "card": "H07-C040",
+      "sha256": "c0699d213fc204ceea1d2ebb053a426106e5f260008588d780b815537d5484f2"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C040-02.png",
+      "group": "H07-ST09",
+      "title": "أحياءٌ عند ربهم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "9/11",
+      "card": "H07-C040",
+      "sha256": "43df29e6f7929f194b085f97506a4a5e1dfbf66904871e094182b5d145e52495"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C040-03.png",
+      "group": "H07-ST09",
+      "title": "أحياءٌ عند ربهم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "10/11",
+      "card": "H07-C040",
+      "sha256": "402eb8a3086f111d274cc5c9ce8d68607af4424a2bfc2a87e7ae46db85a0e5ce"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-ST09/H07-C040-04.png",
+      "group": "H07-ST09",
+      "title": "أحياءٌ عند ربهم",
+      "label": "المحطة ٩ من ٩ · آل عمران ١٦٥–١٧٠",
+      "stationPage": "11/11",
+      "card": "H07-C040",
+      "sha256": "8cf9ea135083e2328ba23434e3d05b399562e7e5ba1c46982bbb479e5564a15c"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-SUMMARY/H07-S01-01.png",
+      "group": "H07-SUMMARY",
+      "title": "خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "1/5",
+      "card": "H07-S01",
+      "sha256": "7b83ac87c37686a5209f012aad9467c0ce30821995de6f732083364d02fda8eb"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-SUMMARY/H07-S02-01.png",
+      "group": "H07-SUMMARY",
+      "title": "خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "2/5",
+      "card": "H07-S02",
+      "sha256": "a41c405660122d1b57fb8e1b995cd82ee7833f640651bdacff7123ee5e15406a"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-SUMMARY/H07-S03-01.png",
+      "group": "H07-SUMMARY",
+      "title": "خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "3/5",
+      "card": "H07-S03",
+      "sha256": "fdf808199330bd8c8a6202b94d4420fc5262845c35d21d4e51e6913b842d94a6"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-SUMMARY/H07-S04-01.png",
+      "group": "H07-SUMMARY",
+      "title": "خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "4/5",
+      "card": "H07-S04",
+      "sha256": "427798bdd36593296886ec6cca71abc27bc4a51389b5a9402adac3c75fee1b15"
+    },
+    {
+      "src": "/tadabbur/images/H07/H07-SUMMARY/H07-S05-01.png",
+      "group": "H07-SUMMARY",
+      "title": "خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "5/5",
+      "card": "H07-S05",
+      "sha256": "ee7918c072aa3cf044b1ea328ad03abd0bc946c2bd14d88fe03a6f2ab1625576"
+    }
+  ]
+}

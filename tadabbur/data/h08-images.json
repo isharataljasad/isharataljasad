@@ -1,0 +1,1343 @@
+{
+  "version": "FINAL (R03)",
+  "count": 142,
+  "cardCount": 33,
+  "stationCount": 7,
+  "range": "آل عمران ١٧١ – النساء ٢٣",
+  "groups": [
+    {
+      "id": "H08-00-INTRO",
+      "label": "مقدمة الحزب",
+      "start": 1,
+      "count": 5
+    },
+    {
+      "id": "H08-ST01",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "start": 6,
+      "count": 10
+    },
+    {
+      "id": "H08-ST02",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "start": 16,
+      "count": 12
+    },
+    {
+      "id": "H08-ST03",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "start": 28,
+      "count": 17
+    },
+    {
+      "id": "H08-ST04",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "start": 45,
+      "count": 18
+    },
+    {
+      "id": "H08-ST05",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "start": 63,
+      "count": 18
+    },
+    {
+      "id": "H08-ST06",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "start": 81,
+      "count": 37
+    },
+    {
+      "id": "H08-ST07",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "start": 118,
+      "count": 20
+    },
+    {
+      "id": "H08-SUMMARY",
+      "label": "خلاصة المسار التدبري",
+      "start": 138,
+      "count": 5
+    }
+  ],
+  "pages": [
+    {
+      "src": "/tadabbur/images/H08/H08-00-INTRO/H08-COVER-01.png",
+      "group": "H08-00-INTRO",
+      "title": "الغلاف",
+      "label": "مقدمة الحزب",
+      "stationPage": "1/5",
+      "card": "H08-COVER",
+      "sha256": "c41eda8b791ec1911faccfbb270fcb2603e05cb8471a50bab65426beb340769a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-00-INTRO/H08-DESC-01.png",
+      "group": "H08-00-INTRO",
+      "title": "وصف الحزب",
+      "label": "مقدمة الحزب",
+      "stationPage": "2/5",
+      "card": "H08-DESC",
+      "sha256": "c681317a480096dec71aee7187d45fb38e5546cda9a261aa7f6449c1325e240c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-00-INTRO/H08-MAP-01.png",
+      "group": "H08-00-INTRO",
+      "title": "خريطة المحطات",
+      "label": "مقدمة الحزب",
+      "stationPage": "3/5",
+      "card": "H08-MAP",
+      "sha256": "183b086b738d64f1d98f2836f1f96f81b2fc40faec7be984ecdd9bde1fefc8bd"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-00-INTRO/H08-MAP-02.png",
+      "group": "H08-00-INTRO",
+      "title": "خريطة المحطات",
+      "label": "مقدمة الحزب",
+      "stationPage": "4/5",
+      "card": "H08-MAP",
+      "sha256": "dc81dc29f46b891a6c513f8acc4ebfabd7be6ee5d04218bd111905ace3ff5cf2"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-00-INTRO/H08-MAP-03.png",
+      "group": "H08-00-INTRO",
+      "title": "خريطة المحطات",
+      "label": "مقدمة الحزب",
+      "stationPage": "5/5",
+      "card": "H08-MAP",
+      "sha256": "29e9b05b98446f45077b2df822594ff8b74c0777626f47cc7875cbf7562f0595"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-ST01-OPEN-01.png",
+      "group": "H08-ST01",
+      "title": "الاستجابة بعد القرح: حسبنا الله",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "1/10",
+      "card": "H08-ST01-OPEN",
+      "sha256": "cae5f540e2e23c0b185eb437559d5c81f06ba559f64585ae34bc54dc8d36932f"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C001-01.png",
+      "group": "H08-ST01",
+      "title": "نعمةٌ وفضل، وأجرٌ لا يضيع",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "2/10",
+      "card": "H08-C001",
+      "sha256": "0677099a8d5de8d227572a5ccffc303ef7c09d3d3ea7c68fb38d3456e4ceb406"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C001-02.png",
+      "group": "H08-ST01",
+      "title": "نعمةٌ وفضل، وأجرٌ لا يضيع",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "3/10",
+      "card": "H08-C001",
+      "sha256": "19c844748c2df822e869341dbffaab3b94b333ac2f8976f9415c132f3c616018"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C001-03.png",
+      "group": "H08-ST01",
+      "title": "نعمةٌ وفضل، وأجرٌ لا يضيع",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "4/10",
+      "card": "H08-C001",
+      "sha256": "5abd830ea3cd06b5356afbb70133fefb08c3ff4d5e8697962c4bbf1dded080f0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C001-04.png",
+      "group": "H08-ST01",
+      "title": "نعمةٌ وفضل، وأجرٌ لا يضيع",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "5/10",
+      "card": "H08-C001",
+      "sha256": "51e8cbd22c7f486d1e0f3935fd6419e33b3b1126e11a2e6c1ceae858057a3c2b"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C002-01.png",
+      "group": "H08-ST01",
+      "title": "استجابةٌ مع الجراح، وحسبنا الله",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "6/10",
+      "card": "H08-C002",
+      "sha256": "593c3f6d9cee52242a7171650739a8094da187963a1d5374e1da171c317e78d7"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C002-02.png",
+      "group": "H08-ST01",
+      "title": "استجابةٌ مع الجراح، وحسبنا الله",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "7/10",
+      "card": "H08-C002",
+      "sha256": "9084bdb480e4e5f0e19b19ca418834d55f38c899e2047cba5258a46313a3d5f5"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C003-01.png",
+      "group": "H08-ST01",
+      "title": "لا تخافوهم، وخافون",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "8/10",
+      "card": "H08-C003",
+      "sha256": "20919570078ec6bca0cd5d7feba64f96253585bece5997eda462dc5365c899d9"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C003-02.png",
+      "group": "H08-ST01",
+      "title": "لا تخافوهم، وخافون",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "9/10",
+      "card": "H08-C003",
+      "sha256": "9448e07e573b1141a9f78aa2c06c7affa802e1c7d134eb75a3141890b36a9aff"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST01/H08-C003-03.png",
+      "group": "H08-ST01",
+      "title": "لا تخافوهم، وخافون",
+      "label": "المحطة ١ من ٧ · الاستجابة بعد القرح: حسبنا الله · آل عمران ١٧١–١٧٥",
+      "stationPage": "10/10",
+      "card": "H08-C003",
+      "sha256": "7aa822a9da9119417b3ad15be573613ba1b795de57d32afa20af223aa5a3234c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-ST02-OPEN-01.png",
+      "group": "H08-ST02",
+      "title": "الإملاء والتمييز وفضلٌ يُسأل عنه",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "1/12",
+      "card": "H08-ST02-OPEN",
+      "sha256": "6c8c38b86bb176b91bb7b44c2e806621a0c9ec9bbca3c644654a0425f94576bd"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C004-01.png",
+      "group": "H08-ST02",
+      "title": "لن يضروا الله شيئا",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "2/12",
+      "card": "H08-C004",
+      "sha256": "4b4b43da6d6011f0e04eab29af745c92e4501fc595e41f752245531048516c3d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C004-02.png",
+      "group": "H08-ST02",
+      "title": "لن يضروا الله شيئا",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "3/12",
+      "card": "H08-C004",
+      "sha256": "11711da209550147093f2ed56cfe4612633f3c6edf6bdf96bbbc58cbccbac0ab"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C004-03.png",
+      "group": "H08-ST02",
+      "title": "لن يضروا الله شيئا",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "4/12",
+      "card": "H08-C004",
+      "sha256": "3bfffb101a7ae472122874ac3ae770b7c60a3f65009a7fd7842b2bda0c1dc13d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C005-01.png",
+      "group": "H08-ST02",
+      "title": "الإمهال ليس رضًا",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "5/12",
+      "card": "H08-C005",
+      "sha256": "365396e7d0eff39313f1867b9031dc6b3adb43d883358b360924e2c40867c482"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C005-02.png",
+      "group": "H08-ST02",
+      "title": "الإمهال ليس رضًا",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "6/12",
+      "card": "H08-C005",
+      "sha256": "1b2efadaadd0b5af8d7dcd40a84bf3f5e4b8dfb95f54fed74d14b97b1449a3ca"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C006-01.png",
+      "group": "H08-ST02",
+      "title": "حتى يميز الخبيث من الطيب",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "7/12",
+      "card": "H08-C006",
+      "sha256": "6b38e2652e90c88729703b41d792789f8d1ba72773e55c1d728707d56613298a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C006-02.png",
+      "group": "H08-ST02",
+      "title": "حتى يميز الخبيث من الطيب",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "8/12",
+      "card": "H08-C006",
+      "sha256": "a94587a3dc591c7860b96eac014d194b6d3f0ee272294fd369e7463c122dd543"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C007-01.png",
+      "group": "H08-ST02",
+      "title": "فضلٌ مؤتمَن يرجع إلى مالكه",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "9/12",
+      "card": "H08-C007",
+      "sha256": "282b023bd12b3a92ff822747ef3c2bc260d5c9424b213ba938b815a0f891d0da"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C007-02.png",
+      "group": "H08-ST02",
+      "title": "فضلٌ مؤتمَن يرجع إلى مالكه",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "10/12",
+      "card": "H08-C007",
+      "sha256": "f77999f6c04a1feae8ccbd06da098fe07ef0a675762ed7c36ad2362cba856c55"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C007-03.png",
+      "group": "H08-ST02",
+      "title": "فضلٌ مؤتمَن يرجع إلى مالكه",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "11/12",
+      "card": "H08-C007",
+      "sha256": "6ee8ceb461f17c581eb68421b7f46f02007400baa7a4444fc258e27c2cc595aa"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST02/H08-C007-04.png",
+      "group": "H08-ST02",
+      "title": "فضلٌ مؤتمَن يرجع إلى مالكه",
+      "label": "المحطة ٢ من ٧ · الإملاء والتمييز وفضلٌ يُسأل عنه · آل عمران ١٧٦–١٨٠",
+      "stationPage": "12/12",
+      "card": "H08-C007",
+      "sha256": "b522cebee0007332466b91eb30a758d2f032fb74ab99c29300d601da522f2dee"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-ST03-OPEN-01.png",
+      "group": "H08-ST03",
+      "title": "الصبر على الأذى وأمانة البيان",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "1/17",
+      "card": "H08-ST03-OPEN",
+      "sha256": "c4b275895292bd6aac9feef36f67f09257e5be19c4e73208df9bb1ff9bbcca45"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C008-01.png",
+      "group": "H08-ST03",
+      "title": "لقد سمع الله",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "2/17",
+      "card": "H08-C008",
+      "sha256": "5d470c14c5e578b9514346ef51dea3b3e30e8cdf48c0a62712f5c124d65d2aa7"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C008-02.png",
+      "group": "H08-ST03",
+      "title": "لقد سمع الله",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "3/17",
+      "card": "H08-C008",
+      "sha256": "69635f3f3265116a33f2c8b9118081e069ccd9257c9b86cf445ec35b481984a4"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C008-03.png",
+      "group": "H08-ST03",
+      "title": "لقد سمع الله",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "4/17",
+      "card": "H08-C008",
+      "sha256": "403b130e8d9d2e722e317518469858303fbc6b4d1d62f4f08248def800e4a4b9"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C009-01.png",
+      "group": "H08-ST03",
+      "title": "شروطٌ على الحق لا يُراد اتباعه",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "5/17",
+      "card": "H08-C009",
+      "sha256": "90fec418db50d63f13012d59b013718b7fc8980194d30e0bcb2461c30a1383e6"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C009-02.png",
+      "group": "H08-ST03",
+      "title": "شروطٌ على الحق لا يُراد اتباعه",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "6/17",
+      "card": "H08-C009",
+      "sha256": "8e458b67eef0cdf382726c91dd6742a55548dfc20de09261cba9cf25ef55ab09"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C009-03.png",
+      "group": "H08-ST03",
+      "title": "شروطٌ على الحق لا يُراد اتباعه",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "7/17",
+      "card": "H08-C009",
+      "sha256": "bebe0933bb564ca4fda3eccddcce04ca191242d3fd8c3ee1244c7553b66bd2b0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C010-01.png",
+      "group": "H08-ST03",
+      "title": "كل نفس ذائقة الموت",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "8/17",
+      "card": "H08-C010",
+      "sha256": "8f62d924fea487426222fe0d0b1da3977c47ef09c47947c57e0dc214f2b60e85"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C010-02.png",
+      "group": "H08-ST03",
+      "title": "كل نفس ذائقة الموت",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "9/17",
+      "card": "H08-C010",
+      "sha256": "4a902717c7c10666dd366e0f4bab0416e58235f8d82f359df0ee0e5b764334bc"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C010-03.png",
+      "group": "H08-ST03",
+      "title": "كل نفس ذائقة الموت",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "10/17",
+      "card": "H08-C010",
+      "sha256": "25eea4c658c64914eb14f139fe8ccf0b63b952bb61aa3579e3d35970740e0482"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C011-01.png",
+      "group": "H08-ST03",
+      "title": "لتُبلَوُنّ… وإن تصبروا وتتقوا",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "11/17",
+      "card": "H08-C011",
+      "sha256": "be8e137475fa3c902a3f0c1319777e5a67707626956800619b82a4da318d1e10"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C011-02.png",
+      "group": "H08-ST03",
+      "title": "لتُبلَوُنّ… وإن تصبروا وتتقوا",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "12/17",
+      "card": "H08-C011",
+      "sha256": "45f44e14b4570467916284826ba688bc4d9b437679503c9f86b6334cf7825306"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C011-03.png",
+      "group": "H08-ST03",
+      "title": "لتُبلَوُنّ… وإن تصبروا وتتقوا",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "13/17",
+      "card": "H08-C011",
+      "sha256": "c02e6b90a6eaab8c4a54c07ca29042219a7deeafbb7bdeb33af90088fcbc7a10"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C012-01.png",
+      "group": "H08-ST03",
+      "title": "أمانة البيان، وحمدٌ بلا فعل",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "14/17",
+      "card": "H08-C012",
+      "sha256": "48cbcbf52e3cbf23f83177bf9130773d3ac2682608b6a4bcdbd7dbcde3e806f0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C012-02.png",
+      "group": "H08-ST03",
+      "title": "أمانة البيان، وحمدٌ بلا فعل",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "15/17",
+      "card": "H08-C012",
+      "sha256": "27937cdf02c3e14f388685798f30ba9083f8d566986d0b32e3f40e01118db876"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C012-03.png",
+      "group": "H08-ST03",
+      "title": "أمانة البيان، وحمدٌ بلا فعل",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "16/17",
+      "card": "H08-C012",
+      "sha256": "6985c9d8813645fdeb885ed8790c40b9d666a4917675fc150a9a7b77b4b55afb"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST03/H08-C012-04.png",
+      "group": "H08-ST03",
+      "title": "أمانة البيان، وحمدٌ بلا فعل",
+      "label": "المحطة ٣ من ٧ · الصبر على الأذى وأمانة البيان · آل عمران ١٨١–١٨٨",
+      "stationPage": "17/17",
+      "card": "H08-C012",
+      "sha256": "ad753f0cba9d81a8fac3e18c5644d6f2a6036a9c7f1c369a722cfded4d3d6f00"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-ST04-OPEN-01.png",
+      "group": "H08-ST04",
+      "title": "أولو الألباب: من التفكر إلى الفلاح",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "1/18",
+      "card": "H08-ST04-OPEN",
+      "sha256": "2f9267646c5241b9653594b4d2806a090d6280ab04218acff16735f07357b415"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C013-01.png",
+      "group": "H08-ST04",
+      "title": "ولله ملك السماوات والأرض",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "2/18",
+      "card": "H08-C013",
+      "sha256": "061172117d0140e769e8aedadd29f409d0d9855477fd0c8e14eebb1eebc96914"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C013-02.png",
+      "group": "H08-ST04",
+      "title": "ولله ملك السماوات والأرض",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "3/18",
+      "card": "H08-C013",
+      "sha256": "96c080d5e2f15ba0231207dd1eaee855bc81bb85c669e9a587d1eca17922b9a0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C014-01.png",
+      "group": "H08-ST04",
+      "title": "من التفكر إلى الدعاء",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "4/18",
+      "card": "H08-C014",
+      "sha256": "0ec13e45396580baa93be78fb5eeed2457c601bd13a97a6856729ae3800e8b23"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C014-02.png",
+      "group": "H08-ST04",
+      "title": "من التفكر إلى الدعاء",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "5/18",
+      "card": "H08-C014",
+      "sha256": "705e85c86e653b251dd266517d362fc3e1baab6a61306c0fbffa754b680cac0e"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C014-03.png",
+      "group": "H08-ST04",
+      "title": "من التفكر إلى الدعاء",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "6/18",
+      "card": "H08-C014",
+      "sha256": "e493587462b7b71817a258d9c381c84d3d09fa1d5283e6eccf2cd2628c74cd58"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C014-04.png",
+      "group": "H08-ST04",
+      "title": "من التفكر إلى الدعاء",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "7/18",
+      "card": "H08-C014",
+      "sha256": "da38afb13b014a5d4771372e374d2d296aefb0cb932c090e8b9cd3dbfa1d9e6b"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C014-05.png",
+      "group": "H08-ST04",
+      "title": "من التفكر إلى الدعاء",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "8/18",
+      "card": "H08-C014",
+      "sha256": "38ae55ce490ce7417f45571038c5d4182895eb1524dcfc30e0a907ab9ff8f840"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C015-01.png",
+      "group": "H08-ST04",
+      "title": "لا أضيع عمل عامل منكم",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "9/18",
+      "card": "H08-C015",
+      "sha256": "478b1d34f6044eb05744981cd000803b3eaa50f3f38165e9b7defa4d6790422c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C015-02.png",
+      "group": "H08-ST04",
+      "title": "لا أضيع عمل عامل منكم",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "10/18",
+      "card": "H08-C015",
+      "sha256": "b2a19d350c9bc4d794ba23cc82dedb19b5e7271ff69ad8761019bb7008a5b863"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C015-03.png",
+      "group": "H08-ST04",
+      "title": "لا أضيع عمل عامل منكم",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "11/18",
+      "card": "H08-C015",
+      "sha256": "0b474357c9995467379898d283947d70ad3d0586ce69c7e5d5ab7f41a35d566a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C016-01.png",
+      "group": "H08-ST04",
+      "title": "لا يغرّنّك تقلّبهم",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "12/18",
+      "card": "H08-C016",
+      "sha256": "eed49ca0eed57ea63e73e8051a73fb90740d5437ad5aaea599938a2a38ee9487"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C016-02.png",
+      "group": "H08-ST04",
+      "title": "لا يغرّنّك تقلّبهم",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "13/18",
+      "card": "H08-C016",
+      "sha256": "7784918e2cc33ff73d67d4f28a0ad1353c22306b8bdb23e38f2ff4c983dd0c1e"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C016-03.png",
+      "group": "H08-ST04",
+      "title": "لا يغرّنّك تقلّبهم",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "14/18",
+      "card": "H08-C016",
+      "sha256": "19685763ec86e1a32fb609ff5aedc0ed701a7b2238b94ddf948720b1204c1835"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C017-01.png",
+      "group": "H08-ST04",
+      "title": "إيمانٌ خاشع، وصبرٌ يوصل إلى الفلاح",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "15/18",
+      "card": "H08-C017",
+      "sha256": "29c881419ea7eaeaea60c2d7505be04fa98b50367378d624d8689f3faa1ce4a6"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C017-02.png",
+      "group": "H08-ST04",
+      "title": "إيمانٌ خاشع، وصبرٌ يوصل إلى الفلاح",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "16/18",
+      "card": "H08-C017",
+      "sha256": "c55c4ceb8f437a4b562bf11d48b372bae7d43614a8fa52e594593e6c1cde92f7"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C017-03.png",
+      "group": "H08-ST04",
+      "title": "إيمانٌ خاشع، وصبرٌ يوصل إلى الفلاح",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "17/18",
+      "card": "H08-C017",
+      "sha256": "1e2b7a86d8240190a43457bcbd6df6aface30578bb86f5dc893a20782477620c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST04/H08-C017-04.png",
+      "group": "H08-ST04",
+      "title": "إيمانٌ خاشع، وصبرٌ يوصل إلى الفلاح",
+      "label": "المحطة ٤ من ٧ · أولو الألباب: من التفكر إلى الفلاح · آل عمران ١٨٩–٢٠٠",
+      "stationPage": "18/18",
+      "card": "H08-C017",
+      "sha256": "f9f24e7de31a07b710019ecdbeb90bf8e37c88d3b6ffd513203897f0b292ec7b"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-ST05-OPEN-01.png",
+      "group": "H08-ST05",
+      "title": "التقوى والرحم وحقوق الضعفاء",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "1/18",
+      "card": "H08-ST05-OPEN",
+      "sha256": "c2b893e85050a4d77ba8e1e88884e0bfd62b60d5c7679dc9c890259a6ba1e3c1"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C018-01.png",
+      "group": "H08-ST05",
+      "title": "اتقوا ربكم… والأرحام",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "2/18",
+      "card": "H08-C018",
+      "sha256": "88b3c1f56176aabf4455e9fb6fb87538c8091417e7ed8bd59095cfd09715e09e"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C018-02.png",
+      "group": "H08-ST05",
+      "title": "اتقوا ربكم… والأرحام",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "3/18",
+      "card": "H08-C018",
+      "sha256": "591b0522f8fa7c8cec58aa640e4d82482d64f75b0b80e39cea7b3dac2c8e56eb"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C018-03.png",
+      "group": "H08-ST05",
+      "title": "اتقوا ربكم… والأرحام",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "4/18",
+      "card": "H08-C018",
+      "sha256": "3af9c5b9bce1e09dfef8b28c701f5b1a8ae32b49f381a9a372739e8a0f279a8a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C018-04.png",
+      "group": "H08-ST05",
+      "title": "اتقوا ربكم… والأرحام",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "5/18",
+      "card": "H08-C018",
+      "sha256": "d7ab5b7d89b5c7ef1b9e3780595ef751ac94dd280a5ba60ede38fc51631afca9"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C019-01.png",
+      "group": "H08-ST05",
+      "title": "مال اليتيم أمانة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "6/18",
+      "card": "H08-C019",
+      "sha256": "33ee2659858fdd34770fb02f6789bb8722f19370c9a551db2860f7ff38adcd47"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C019-02.png",
+      "group": "H08-ST05",
+      "title": "مال اليتيم أمانة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "7/18",
+      "card": "H08-C019",
+      "sha256": "50e82c87492c70b250639646ab6549aa444de6efd05640aad3812e7039004d10"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C019-03.png",
+      "group": "H08-ST05",
+      "title": "مال اليتيم أمانة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "8/18",
+      "card": "H08-C019",
+      "sha256": "8c03264abd74805e34d2da6bfa512f9b57fdeddedeb82a978d56732e8f1fcc76"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C020-01.png",
+      "group": "H08-ST05",
+      "title": "العدل قبل العدد، والصداق نِحلة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "9/18",
+      "card": "H08-C020",
+      "sha256": "e907d8413d41b32e05055d2732947e1117e37173d2a02f68e7c7bb4e823217d3"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C020-02.png",
+      "group": "H08-ST05",
+      "title": "العدل قبل العدد، والصداق نِحلة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "10/18",
+      "card": "H08-C020",
+      "sha256": "6448c608c0b1d3137d5f639da53825d69d430af5f41cb629ee441b4b5105a434"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C020-03.png",
+      "group": "H08-ST05",
+      "title": "العدل قبل العدد، والصداق نِحلة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "11/18",
+      "card": "H08-C020",
+      "sha256": "ab06e1442c7b96e0f33d33bdee659f79d142faf7df71646ddc90d30423934dab"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C020-04.png",
+      "group": "H08-ST05",
+      "title": "العدل قبل العدد، والصداق نِحلة",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "12/18",
+      "card": "H08-C020",
+      "sha256": "b343c9805bebfa09553cc4e780d6dadeaf5ddebcbac2e44f565b988fd9bf1aa5"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C021-01.png",
+      "group": "H08-ST05",
+      "title": "حفظ المال مع القول المعروف",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "13/18",
+      "card": "H08-C021",
+      "sha256": "1744b341c69b54813e2ca36fc5b46a903461adece7d78c54806ab2ebeaa8c079"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C021-02.png",
+      "group": "H08-ST05",
+      "title": "حفظ المال مع القول المعروف",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "14/18",
+      "card": "H08-C021",
+      "sha256": "bffef3fb182ba256dfd4302e4fed469c2e1878e9a6c0d528fed90487c26deeab"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C021-03.png",
+      "group": "H08-ST05",
+      "title": "حفظ المال مع القول المعروف",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "15/18",
+      "card": "H08-C021",
+      "sha256": "d18e9370d0fac22059bcc9a8fd47c2d3776d9f957590fc9dadb6904ed263dd6c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C022-01.png",
+      "group": "H08-ST05",
+      "title": "اختبارٌ قبل التسليم، وعفّةٌ في الولاية",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "16/18",
+      "card": "H08-C022",
+      "sha256": "1f722ea003b63bfd3cd43bd95f282e7dd8c123a6e029b4e099d8cbfa9980a9f6"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C022-02.png",
+      "group": "H08-ST05",
+      "title": "اختبارٌ قبل التسليم، وعفّةٌ في الولاية",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "17/18",
+      "card": "H08-C022",
+      "sha256": "687191612502d5e0ad1a2ef70d61e105e67657b8ec825520df769f89c3c49a0d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST05/H08-C022-03.png",
+      "group": "H08-ST05",
+      "title": "اختبارٌ قبل التسليم، وعفّةٌ في الولاية",
+      "label": "المحطة ٥ من ٧ · التقوى والرحم وحقوق الضعفاء · النساء ١–٦",
+      "stationPage": "18/18",
+      "card": "H08-C022",
+      "sha256": "f9dedf88db4223ea0c17cc29841f27e1972d18d891753acf42b8f0383a0b77a8"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-ST06-OPEN-01.png",
+      "group": "H08-ST06",
+      "title": "المواريث: فريضة من الله وحدوده",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "1/37",
+      "card": "H08-ST06-OPEN",
+      "sha256": "1a2abd1d8c7d098f4151efaf1685c6b74059690060fa5aa4b4a6baca55aa7678"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C023-01.png",
+      "group": "H08-ST06",
+      "title": "نصيبٌ مفروض للرجال والنساء",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "2/37",
+      "card": "H08-C023",
+      "sha256": "391f4baca15bc9ba41780c45c79a4693ea70a69f6c40fc331fcbaced2e28708d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C023-02.png",
+      "group": "H08-ST06",
+      "title": "نصيبٌ مفروض للرجال والنساء",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "3/37",
+      "card": "H08-C023",
+      "sha256": "0ed6ab5a87afec4cb2781a5c6396bf285cee044ac1b9de134e6a16a40e88260d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C023-03.png",
+      "group": "H08-ST06",
+      "title": "نصيبٌ مفروض للرجال والنساء",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "4/37",
+      "card": "H08-C023",
+      "sha256": "57b1f4bc5afb87c217a1b69d2c265086c5701d6211056adaa85e1f9ddc869b1e"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C024-01.png",
+      "group": "H08-ST06",
+      "title": "جبر الخواطر عند القسمة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "5/37",
+      "card": "H08-C024",
+      "sha256": "48cde7aa650bdad70dfa86749d0025e115bcbb9a342efd284312887860a6eb04"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C024-02.png",
+      "group": "H08-ST06",
+      "title": "جبر الخواطر عند القسمة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "6/37",
+      "card": "H08-C024",
+      "sha256": "5aa9248192c2f6ec626b2bf4997d96dccbeef9a58abd46227043cebccb31199b"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C024-03.png",
+      "group": "H08-ST06",
+      "title": "جبر الخواطر عند القسمة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "7/37",
+      "card": "H08-C024",
+      "sha256": "91003150d05efaccc38a9ffba9b1379a209c0bbf065dc0e19a4fab118742f247"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C025-01.png",
+      "group": "H08-ST06",
+      "title": "اخشَ على ذرية غيرك كما تخشى على ذريتك",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "8/37",
+      "card": "H08-C025",
+      "sha256": "a71cdc64fe06529259ba860cdea4a3787fe5f5ffa4b390613a859af6eaa186d6"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C025-02.png",
+      "group": "H08-ST06",
+      "title": "اخشَ على ذرية غيرك كما تخشى على ذريتك",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "9/37",
+      "card": "H08-C025",
+      "sha256": "05b8c4db2f4ce1f8f77d1d9fec2bc25f2804eb503c1d37d600cd70516245d996"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C025-03.png",
+      "group": "H08-ST06",
+      "title": "اخشَ على ذرية غيرك كما تخشى على ذريتك",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "10/37",
+      "card": "H08-C025",
+      "sha256": "c44b8392870c4f7f7fb03f7e2f397f2d962a2656871d94fb3372a5e3b5405d6c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-01.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "11/37",
+      "card": "H08-C026",
+      "sha256": "6fc79d8cd22977b077c26d583ca20c697881e5c2a4dc56ee1f8b75dfa54e3bf4"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-02.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "12/37",
+      "card": "H08-C026",
+      "sha256": "c5a0bb7920f6a65456baf878077c0f1ea61de9d22f27040368a5f0d1a71545d0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-03.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "13/37",
+      "card": "H08-C026",
+      "sha256": "01cd1949a471cc4e1963abcb79911d854695715bdf349c9aa5c27f82628bee08"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-04.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "14/37",
+      "card": "H08-C026",
+      "sha256": "cefec826a5580a79eaf1698aae93e192db20ffe312ef197a08ae53cd06607978"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-05.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "15/37",
+      "card": "H08-C026",
+      "sha256": "b514272a76c60b97520b12519811e1ff6eda1eaf40d02147c1b9f81b78db59f0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-06.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "16/37",
+      "card": "H08-C026",
+      "sha256": "c19bab5cae47f6688505126d75e8ec3285a08914ab592eb50f3ea1a62da333dc"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-07.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "17/37",
+      "card": "H08-C026",
+      "sha256": "ada99f84e47b751626a13ec728f831045845da26348ccda111b47e25e97129c0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-08.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "18/37",
+      "card": "H08-C026",
+      "sha256": "1bddd353eeb2cc6fbf6da07d926ff96c839709be70b88f316bcb396b09454a69"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-09.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "19/37",
+      "card": "H08-C026",
+      "sha256": "4bf27d5edb41954f6fbcf98e3d23805a1a4201fbb5f700f3d80a31b86145cd80"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C026-10.png",
+      "group": "H08-ST06",
+      "title": "يوصيكم الله في أولادكم",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "20/37",
+      "card": "H08-C026",
+      "sha256": "e22d66162cd365ee47ba8b094240e2ad0936b862740a38f77a8d45fd79e5237a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-01.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "21/37",
+      "card": "H08-C027",
+      "sha256": "d5bf620d431c4beac8e28d281cdba38bb111c53b74f5f0af22c876e1f1488cc2"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-02.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "22/37",
+      "card": "H08-C027",
+      "sha256": "a2b9956b564efb188c5698c02afe605404e26f00f9f90f3ebc64f4fec484b093"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-03.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "23/37",
+      "card": "H08-C027",
+      "sha256": "c387506a75b29dd88148b8231c28a954c04bc8d830e71fff353e8ee8935411af"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-04.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "24/37",
+      "card": "H08-C027",
+      "sha256": "50ead49c3708b8fb6c85f003a0101cab69456047f4704252875021df26e83d99"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-05.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "25/37",
+      "card": "H08-C027",
+      "sha256": "ea693f30fee5f4c7f967e5a5eae6fcc5585e672c1c9bcdbc22723152c18aeba3"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-06.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "26/37",
+      "card": "H08-C027",
+      "sha256": "878ac06b0639985f1bd136966856ed8fa7cd76f79ccbfbde7185d5c849111d5b"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-07.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "27/37",
+      "card": "H08-C027",
+      "sha256": "214b5a424daa2d15038e22ddcbaf918f9682846ea0c071ba86c9f1f0370dc78a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-08.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "28/37",
+      "card": "H08-C027",
+      "sha256": "052b615f16f787720f177815cb0b0f0f03b108ad2872be74084cac3cf5eecc6c"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-09.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "29/37",
+      "card": "H08-C027",
+      "sha256": "ffd935032ebd4bcf4e9c0a6fc6dca9cbdc34d099c958eef297efacaff1be2ac1"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-10.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "30/37",
+      "card": "H08-C027",
+      "sha256": "6a5fcdc42a9a808bc782f776c9fb775b7f8573439bc6ff846c91e93e068f8aed"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-11.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "31/37",
+      "card": "H08-C027",
+      "sha256": "f786cd1c7bc9f419ca79a96b8e97aacd367848e1fd10436f6f7fab7d84dd2a39"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-12.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "32/37",
+      "card": "H08-C027",
+      "sha256": "a60c41e4f43a0114c60874e03cecdcb4450c707274fd01833031b32ce17c3514"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-13.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "33/37",
+      "card": "H08-C027",
+      "sha256": "aab900535bcb8c183eaa863a37b06e0e2a74269cb3ed5d247ed9446709f4abae"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C027-14.png",
+      "group": "H08-ST06",
+      "title": "فرائض محكمة، ووصيةٌ غير مضارّة",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "34/37",
+      "card": "H08-C027",
+      "sha256": "f657b5c51399e7b20f00228cb2366110d5a02a0248da763e3a31c6c99eecbc58"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C028-01.png",
+      "group": "H08-ST06",
+      "title": "تلك حدود الله",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "35/37",
+      "card": "H08-C028",
+      "sha256": "bc7eee9bfea94af51772564d3f3465ffa59b089e1c487862678606c337d98c90"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C028-02.png",
+      "group": "H08-ST06",
+      "title": "تلك حدود الله",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "36/37",
+      "card": "H08-C028",
+      "sha256": "345ef5d0b329e70314298f0533d289f64cf103e2a973b91e538d5b0b42a6f4df"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST06/H08-C028-03.png",
+      "group": "H08-ST06",
+      "title": "تلك حدود الله",
+      "label": "المحطة ٦ من ٧ · المواريث: فريضة من الله وحدوده · النساء ٧–١٤",
+      "stationPage": "37/37",
+      "card": "H08-C028",
+      "sha256": "9aa920557d3df5ac7a54aa52d76679f14a5b3adc75d8253fb45446e49c2bfecc"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-ST07-OPEN-01.png",
+      "group": "H08-ST07",
+      "title": "صيانة الأسرة: من التوبة إلى العشرة بالمعروف",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "1/20",
+      "card": "H08-ST07-OPEN",
+      "sha256": "1f4d5802fe5e821318cf2bed220488dc33a9417461866c3f85b15244262bfd52"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C029-01.png",
+      "group": "H08-ST07",
+      "title": "تشديدٌ في الإثبات، وبابٌ للتوبة",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "2/20",
+      "card": "H08-C029",
+      "sha256": "e535b39dee5c871222da4683a1d9e0a8238f6c3ddac784ea88cd989088ec9311"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C029-02.png",
+      "group": "H08-ST07",
+      "title": "تشديدٌ في الإثبات، وبابٌ للتوبة",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "3/20",
+      "card": "H08-C029",
+      "sha256": "bc00654e1b782e236a9209dc80386cd1efa29205b9a8b5e305259e2f84399995"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C029-03.png",
+      "group": "H08-ST07",
+      "title": "تشديدٌ في الإثبات، وبابٌ للتوبة",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "4/20",
+      "card": "H08-C029",
+      "sha256": "43e7efcb43b8caa5f663ddec0ff91ca1a5b8dfbc50decc36e5bd867210832fb1"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C029-04.png",
+      "group": "H08-ST07",
+      "title": "تشديدٌ في الإثبات، وبابٌ للتوبة",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "5/20",
+      "card": "H08-C029",
+      "sha256": "aa117067bc373af71b3a3441552496b3dae379e2a11d8ad35075cd3d1fae4bfa"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C030-01.png",
+      "group": "H08-ST07",
+      "title": "التوبة من قريب",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "6/20",
+      "card": "H08-C030",
+      "sha256": "e9136469aee3e405e3b8c4db51ecba3a0572305d0809ca4a7f8ba1104c93f215"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C030-02.png",
+      "group": "H08-ST07",
+      "title": "التوبة من قريب",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "7/20",
+      "card": "H08-C030",
+      "sha256": "d266f82a348653c378657398e9bb73674657050e0b5ad760cd87af2f3bf49cf7"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C030-03.png",
+      "group": "H08-ST07",
+      "title": "التوبة من قريب",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "8/20",
+      "card": "H08-C030",
+      "sha256": "7bb572ab97466dff1d2c926fd81e0a401ee184a646c55f91d8b49d5d9764eeb9"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C030-04.png",
+      "group": "H08-ST07",
+      "title": "التوبة من قريب",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "9/20",
+      "card": "H08-C030",
+      "sha256": "46f113800ea10039434b5e22265eba339d7a826b834d7061386ade194656c5ba"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C031-01.png",
+      "group": "H08-ST07",
+      "title": "وعاشروهن بالمعروف",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "10/20",
+      "card": "H08-C031",
+      "sha256": "a30602957348d08997b3293ff7c9bae6df9fd03fdc4298599a2b0721d6f4d12f"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C031-02.png",
+      "group": "H08-ST07",
+      "title": "وعاشروهن بالمعروف",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "11/20",
+      "card": "H08-C031",
+      "sha256": "73eb34afe65955df17d12210068463d7e49035fab75f4a35a0aefa9aa8e5d543"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C031-03.png",
+      "group": "H08-ST07",
+      "title": "وعاشروهن بالمعروف",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "12/20",
+      "card": "H08-C031",
+      "sha256": "4bf3c29a56c774cd9e0a70a51c3f9b70ca622728b764baec57210f18e2057c3d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C031-04.png",
+      "group": "H08-ST07",
+      "title": "وعاشروهن بالمعروف",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "13/20",
+      "card": "H08-C031",
+      "sha256": "d941b1d8ab2abdb5b7a6c9252625d3bf4683bc001232f20391474ae3351d5b26"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C031-05.png",
+      "group": "H08-ST07",
+      "title": "وعاشروهن بالمعروف",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "14/20",
+      "card": "H08-C031",
+      "sha256": "92eb959cbdaaf6c7cd808ec7b0bca8958a827cbf8c9cf0862c0c3bbd996a27ff"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C032-01.png",
+      "group": "H08-ST07",
+      "title": "ولا تنكحوا ما نكح آباؤكم",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "15/20",
+      "card": "H08-C032",
+      "sha256": "2b3abce9788e0e9f09885a42fbb3285324d95ca04eff75e6e35f9e529f4d7bf0"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C032-02.png",
+      "group": "H08-ST07",
+      "title": "ولا تنكحوا ما نكح آباؤكم",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "16/20",
+      "card": "H08-C032",
+      "sha256": "99c054a2a7d2233e0d9b40a5c6dc64c8258e9ec0bdcb525408ba049d92ab9267"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C033-01.png",
+      "group": "H08-ST07",
+      "title": "حُرِّمت عليكم",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "17/20",
+      "card": "H08-C033",
+      "sha256": "c80dc7788ea1cd7d43e485aad3a2a698579ea90cb3f3379c3a4064593f5382a3"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C033-02.png",
+      "group": "H08-ST07",
+      "title": "حُرِّمت عليكم",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "18/20",
+      "card": "H08-C033",
+      "sha256": "f0db02897d6f4cf032d29940baf7d2414dd08a2fec3d6ce14cb4994a835f6636"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C033-03.png",
+      "group": "H08-ST07",
+      "title": "حُرِّمت عليكم",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "19/20",
+      "card": "H08-C033",
+      "sha256": "58ded39946dd9886a56f27178f33970162e0f22542496c2c54f9939fd32b6d50"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-ST07/H08-C033-04.png",
+      "group": "H08-ST07",
+      "title": "حُرِّمت عليكم",
+      "label": "المحطة ٧ من ٧ · صيانة الأسرة: من التوبة إلى العشرة بالمعروف · النساء ١٥–٢٣",
+      "stationPage": "20/20",
+      "card": "H08-C033",
+      "sha256": "b9f1a3ca2d4e24daf49d601224fc644c0dd32296584c895deda2215336e079c4"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-SUMMARY/H08-S01-01.png",
+      "group": "H08-SUMMARY",
+      "title": "شريحة خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "1/5",
+      "card": "H08-S01",
+      "sha256": "2f1d2894d732cdbc4c3c34685c1b76ecb6865470238fe7a52a541af3bab10514"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-SUMMARY/H08-S02-01.png",
+      "group": "H08-SUMMARY",
+      "title": "شريحة خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "2/5",
+      "card": "H08-S02",
+      "sha256": "8ae7956ac21a743550b8a53d3fe78d88024954505ce35bbfc3d66a4faaf4408a"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-SUMMARY/H08-S03-01.png",
+      "group": "H08-SUMMARY",
+      "title": "شريحة خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "3/5",
+      "card": "H08-S03",
+      "sha256": "14acccea0c6b7d0be5f076ca8a80d3ad979c17f42ee726372fe36d16a83f38a6"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-SUMMARY/H08-S04-01.png",
+      "group": "H08-SUMMARY",
+      "title": "شريحة خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "4/5",
+      "card": "H08-S04",
+      "sha256": "cbb44bc59876e9b393a4d7ccf8fae8fd387ef3e06f8c38ba6328fb09af65722d"
+    },
+    {
+      "src": "/tadabbur/images/H08/H08-SUMMARY/H08-S05-01.png",
+      "group": "H08-SUMMARY",
+      "title": "شريحة خلاصة",
+      "label": "خلاصة المسار التدبري",
+      "stationPage": "5/5",
+      "card": "H08-S05",
+      "sha256": "2db564a03020502b4ffdd4fe01d4211d08fe9dcd308be246c1eed9c4bf1f2d6d"
+    }
+  ]
+}

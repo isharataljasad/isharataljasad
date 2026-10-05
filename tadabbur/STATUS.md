@@ -1,0 +1,3 @@
+Prepared for production merge: internal Bayt Al Fuad Tadabbur path with H01-H06 (325 cards), local user journal, and regression tests.
+
+Fixed a production regression where the page rendered unstyled and stuck on "جارٍ تجهيز مسار التدبر…" when visited as `/tadabbur` (no trailing slash) — the site's `vercel.json` (`trailingSlash: false`) 308-redirects `/tadabbur/` to `/tadabbur`, and the page's relative `./style.css`, `./app.js`, and `./data/corpus-*.b64` references resolved against `/` instead of `/tadabbur/` once on that URL. All local asset references are now root-absolute (`/tadabbur/...`), verified in a headless browser against both `/tadabbur` and `/tadabbur/`, and locked in by an automated regression test.
