@@ -203,18 +203,19 @@ await ok("the login page contains no hint, no recovery, no registration, no app 
 
 await ok("the login page carries the identity lines required by the brief", () => {
   const html = loginPage({ nonce: "n" });
-  for (const s of ["Science Lab", "From understanding to discovery",
-                   "invitation", "Password", "Sign in"]) {
+  for (const s of ["بيت الفؤاد", "كلمة المرور", "دخول", 'href="/"']) {
     truthy(html.includes(s), `login page missing: ${s}`);
   }
-  truthy(html.includes('dir="ltr"') && html.includes('lang="en"'), "not LTR English");
+  truthy(!/Science Lab|Three sources/.test(html), "login page still carries the retired Science Lab identity");
+  truthy(html.includes('dir="rtl"') && html.includes('lang="ar"'), "not Arabic RTL");
+  truthy(/<input[^>]+dir="ltr"/.test(html), "password field must stay LTR");
   truthy(html.includes('name="robots"'), "login page is indexable");
 });
 
 await ok("the error state replaces the invitation line and is announced to assistive tech", () => {
   const html = loginPage({ nonce: "n", error: "كلمة المرور غير صحيحة." });
   truthy(html.includes('role="alert"'), "error not announced");
-  truthy(!html.includes("This experience is available by invitation"), "both states rendered at once");
+  truthy(!html.includes("هذا القسم خاص"), "both states rendered at once");
 });
 
 await ok("the page is self-contained: no external asset request before login", () => {
@@ -299,7 +300,7 @@ await ok("a wrong password returns 401, sets no cookie, and says nothing specifi
   eq(res.status, 401);
   eq(res.headers.get("set-cookie"), null, "a cookie was issued on failure");
   const body = await res.text();
-  truthy(body.includes("The password is incorrect."), "generic message missing");
+  truthy(body.includes("كلمة المرور غير صحيحة."), "generic message missing");
   truthy(!body.includes(PASSWORD), "the password appears in the response");
 });
 

@@ -16,6 +16,9 @@ const PORT = Number(process.env.PORT || 4178);
 const vercel = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
 const deployed = deployedFiles(ROOT);
 const headers = Object.fromEntries(vercel.headers.find((h) => h.source === '/(.*)').headers.map((h) => [h.key, h.value]));
+// '/(.+)' matches every path except the entrance '/' (search-engine policy).
+const nonRoot = Object.fromEntries((vercel.headers.find((h) => h.source === '/(.+)')?.headers ?? []).map((h) => [h.key, h.value]));
+const headersFor = (pathname) => (pathname === '/' ? headers : { ...headers, ...nonRoot });
 function redirectFor(pathname) {
   for (const r of vercel.redirects) {
     const [prefix, param] = r.source.split('/:');
@@ -85,7 +88,7 @@ createServer(async (request, response) => {
   }
 
   response.writeHead(200, {
-    ...headers,
+    ...headersFor(pathname),
     'content-type': TYPES[extname(file)] || 'application/octet-stream',
     'cache-control': 'no-store'
   });

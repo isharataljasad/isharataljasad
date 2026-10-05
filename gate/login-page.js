@@ -14,16 +14,16 @@ const esc = s => String(s).replace(/[&<>"']/g, c =>
 export function loginPage({ nonce, error = "", status = 200 }) {
   const msg = error
     ? `<p class="err" role="alert">${esc(error)}</p>`
-    : `<p class="invite">This experience is available by invitation. Enter your password to continue.</p>`;
+    : `<p class="invite">هذا القسم خاص. أدخل كلمة المرور للمتابعة.</p>`;
 
   return `<!doctype html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#F4F1EA">
 <meta name="robots" content="noindex,nofollow">
-<title>Science Lab · Sign in</title>
+<title>الدخول · بيت الفؤاد</title>
 <style nonce="${nonce}">
 :root{--page:#F4F1EA;--surface:#FBFAF6;--line:#DCD6CA;--line-strong:#8E8778;--text:#1F2933;
 --muted:#56606B;--primary:#233A52;--primary-hover:#2F4B68;--danger:#8A3428}
@@ -31,6 +31,7 @@ export function loginPage({ nonce, error = "", status = 200 }) {
 html,body{height:100%}
 body{margin:0;background:var(--page);color:var(--text);
 font-family:"Segoe UI","Noto Sans Arabic","Geeza Pro","Tahoma",system-ui,sans-serif;
+-webkit-text-size-adjust:100%;
 display:flex;align-items:center;justify-content:center;padding:24px;line-height:1.8}
 .card{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--line);
 border-radius:10px;padding:32px 28px}
@@ -47,22 +48,24 @@ button{width:100%;margin-top:16px;padding:13px 14px;font-size:1.05rem;font-famil
 font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:8px;cursor:pointer}
 button:hover{background:var(--primary-hover)}
 button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
-.foot{margin:22px 0 0;font-size:.82rem;color:var(--muted);text-align:center}
+.foot{margin:22px 0 0;font-size:.9rem;color:var(--muted);text-align:center}
+.foot a{color:var(--primary)}
+.foot a:focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:2px}
 </style>
 </head>
 <body>
 <main class="card">
   <svg class="mark" viewBox="0 0 512 512" width="44" height="44" aria-hidden="true" focusable="false"> <defs>  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">   <stop offset="0" stop-color="#F0D08A"/>   <stop offset="0.5" stop-color="#B8883F"/>   <stop offset="1" stop-color="#6F4C1F"/>  </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="#050912"/> <circle cx="256" cy="256" r="174" fill="#08101D" stroke="url(#g)" stroke-width="5"/> <path d="M256 106 399 210 344 378H168L113 210Z" fill="none" stroke="url(#g)" stroke-width="6" opacity=".55"/> <circle cx="256" cy="256" r="62" fill="#0B1322" stroke="url(#g)" stroke-width="5"/> <circle cx="256" cy="256" r="12" fill="#F0CF85"/> <circle cx="256" cy="106" r="9" fill="#D8AF5D"/> <circle cx="399" cy="210" r="9" fill="#D8AF5D"/> <circle cx="344" cy="378" r="9" fill="#D8AF5D"/> <circle cx="168" cy="378" r="9" fill="#D8AF5D"/> <circle cx="113" cy="210" r="9" fill="#D8AF5D"/></svg>
-  <h1>Science Lab</h1>
-  <p class="sub">Project platform · From understanding to discovery</p>
+  <h1>بيت الفؤاد</h1>
+  <p class="sub">دخول إلى قسم خاص</p>
   ${msg}
   <form method="POST" action="/login" autocomplete="off" accept-charset="UTF-8">
-    <label for="pw">Password</label>
+    <label for="pw">كلمة المرور</label>
     <input id="pw" name="password" type="password" required autofocus maxlength="256"
            autocomplete="current-password" spellcheck="false" dir="ltr">
-    <button type="submit">Sign in</button>
+    <button type="submit">دخول</button>
   </form>
-  <p class="foot">Three sources · A clear path · Experiential learning</p>
+  <p class="foot"><a href="/">العودة إلى الصفحة الرئيسية</a></p>
 </main>
 </body>
 </html>`;

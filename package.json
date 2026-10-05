@@ -12,7 +12,8 @@
     "build:lessons": "node tools/build-study.mjs",
     "build:study": "node tools/build-study.mjs",
     "test:legacy": "node test/english-release.mjs && node test/science.mjs && node test/concept-checks.mjs && node test/concept-runtime.mjs && node test/foundation-models.mjs",
-    "check:launch": "node test/home.mjs --launch"
+    "check:launch": "node tools/check-launch.mjs",
+    "vercel-build": "node tools/check-launch.mjs --if-production"
   },
   "dependencies": {
     "@vercel/functions": "3.1.3"

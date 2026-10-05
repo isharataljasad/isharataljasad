@@ -11,9 +11,10 @@ no longer built onto `/` (`tools/build-study.mjs` writes only `/semester-1/`), a
 academic URLs keep forwarding to baytalfuad.com/ilm-sinaa.
 
 - `node test/home.mjs` — structure, honesty, links, deploy/gate/CSP, colour contrast.
-- `npm run check:launch` — fails while any `data-draft` slot (material not yet approved
-  by the owner) remains on the entrance. It must pass before this entrance is merged to
-  production, because `/` is public.
+- `npm run check:launch` (`tools/check-launch.mjs`) — the entrance is complete (no draft,
+  pending or disabled placeholders), `/` is indexable, every other path and the login
+  page stay noindex. CI runs it on every push; the Vercel build (`vercel-build`) runs it
+  for production deployments only, so previews stay possible.
 
 # Bayt Al-Fuad · Semester 1 study library
 
@@ -57,8 +58,10 @@ answer fields, scores or progress requirements; every worked solution is visible
   deployed pages and CSP (`test/routing.mjs`).
 - `npm run preview` serves the local review site with the `vercel.json`
   redirects, headers and allow-list (without the production login);
-  `node test/browser.mjs` (which starts its own preview) checks every page, card alignment at six widths and 200% zoom, text contrast and the feedback flow, and in Chromium at desktop and phone
-  width and follows old bookmarks.
+  `node test/browser.mjs` (which starts its own preview, or takes a base URL) checks the
+  current visitor journey in Chromium: the entrance at 1280/390/320 px, keyboard and
+  focus, fonts, every academic redirect to Bayt Al-Fuad, the search policy and the login
+  page. The lessons themselves are checked in the Bayt Al-Fuad repository.
 - `npm run test:legacy` — tests of preserved, non-deployed earlier material.
 
 ## Lesson feedback

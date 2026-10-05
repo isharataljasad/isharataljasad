@@ -23,6 +23,11 @@
 !/site/fonts/*.woff2
 !/site/fonts/OFL-*.txt
 
+# The launch check, run by the production build (package.json vercel-build).
+!/tools
+/tools/*
+!/tools/check-launch.mjs
+
 # The feedback endpoint and the lesson list it validates against.
 !/api
 /api/*

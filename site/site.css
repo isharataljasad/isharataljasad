@@ -208,3 +208,4 @@ img, svg { max-width: 100%; height: auto; }
 .notice--alert .label { color: var(--danger-ink); }
 
 @media (max-width: 56rem) { .method { grid-template-columns: 1fr; } }
+.access-note { margin: var(--s3) 0 0; font-size: .9375rem; color: var(--muted); max-width: var(--measure); }
