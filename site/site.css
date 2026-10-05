@@ -1,7 +1,7 @@
-/* واجهة متخصصة من بيت الفؤاد — الورقة المشتركة
+/* واجهة من بيت الفؤاد — الورقة المشتركة. التوثيق الكامل: docs/identity-2026-10-05.md
    اتجاه بصري واحد: ورق عاجي دافئ قليل التشبع، حبر داكن غير أسود، لون رئيسي واحد
-   (كحلي بيت الفؤاد بعد خفض تشبعه)، ولون مساعد واحد (أخضر مريمي) يميّز الواجهة
-   المتخصصة. لا توهج، لا ظلال مضيئة، لا تدرجات، لا حركة إلا تغيّر لون قصير عند التفاعل.
+   (كحلي بيت الفؤاد بعد تفتيحه وخفض تشبعه)، ولون مساعد واحد (أخضر مريمي) لحالة
+   «متاح» وعلامات الواجهة، غير مربوط بركن قبل أن يُحسم نوع الخدمة. لا توهج، لا ظلال مضيئة، لا تدرجات، لا حركة إلا تغيّر لون قصير عند التفاعل.
    الخطوط مستضافة ذاتيًا (CSP: font-src 'self'):
    IBM Plex Sans Arabic للنص والعناوين الفرعية — الخط نفسه في بوابة بيت الفؤاد.
    Amiri (عريض) لاسم البيت والعنوان الرئيسي فقط — الخط نفسه لاسم البيت في البوابة.
@@ -21,7 +21,8 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Amiri House"; font-style: normal; font-weight: 700; font-display: swap;
   src: url("/site/fonts/amiri-arabic-700-normal.woff2") format("woff2");
-  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200E, U+FB50-FDFF, U+FE70-FEFC; }
+  /* مقتطع إلى الحروف العربية الأساسية والأرقام (40 KB بدل 100 KB)؛ ما سواها يعود إلى Plex */
+  unicode-range: U+060C, U+061B, U+061F, U+0621-063A, U+0640-0655, U+0660-0669, U+066B-066C, U+0670, U+200C-200F; }
 
 :root {
   /* السطوح */
@@ -38,13 +39,18 @@
   --primary-hover: #2F4B68;
   --primary-active: #1A2C3F;
   --primary-tint: #E4E9EE;
-  /* اللون المساعد — يميّز الواجهة المتخصصة عن البوابة الأم */
+  /* اللون المساعد — يميّز الواجهة عن البوابة الأم، ويحمل حالة «متاح» */
   --accent: #3F6457;
   --accent-tint: #E3EBE6;
   /* النحاسي — الأثر الوحيد من ذهب البيت: خطوط رفيعة وأرقام، لا حدود متكررة */
   --bronze: #8A6630;
   --bronze-tint: #F2EADC;
   --focus: #233A52;
+  /* الحالات: «قيد الإعداد» نحاسي داكن، والخطأ أحمر طوبي هادئ */
+  --pending-ink: #6E5126;
+  --danger: #9B3B2E;
+  --danger-ink: #8A3428;
+  --danger-tint: #F7E9E4;
 
   --font: "Plex Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
   --font-house: "Amiri House", "Plex Arabic", serif;
@@ -113,12 +119,29 @@ img, svg { max-width: 100%; height: auto; }
 .section-head p { grid-column: 2; margin: var(--s2) 0 0; color: var(--muted); max-width: var(--measure); }
 .section--quiet { background: var(--sunken); border-top: 0; }
 
+.three-col { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); align-items: start; }
+.card-status { margin-bottom: var(--s3); }
 .two-col { display: grid; gap: var(--s5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
 
 /* البطاقة: تُستعمل عند الحاجة فقط — خلفية مرفوعة وحد رفيع، بلا ظل ولا زخرفة */
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
 .card h3 { margin-bottom: var(--s2); }
 .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+/* المنهج: مسار الدرس خط ونقاط — لغة الشعار (نقاط وخطوط تنظّم الفهم) لتسلسل حقيقي */
+.method { display: grid; gap: var(--s6); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+.lesson-path { list-style: none; margin: 0; padding: 0; counter-reset: part; position: relative; }
+.lesson-path::before { content: ""; position: absolute; inset-inline-start: .6875rem; top: .9rem; bottom: .9rem; width: 2px; background: var(--line); }
+.lesson-path li { counter-increment: part; position: relative; margin: 0; padding-inline-start: 2.5rem; padding-block: .45rem; display: grid; }
+.lesson-path li::before { content: ""; position: absolute; inset-inline-start: .3125rem; top: 1.05rem; width: .875rem; height: .875rem; border-radius: 50%; background: var(--page); border: 2px solid var(--primary); }
+.lesson-path li:first-child::before, .lesson-path li:last-child::before { background: var(--primary); }
+.lesson-path b { font-weight: 600; }
+.lesson-path span { color: var(--muted); font-size: .9688rem; }
+.strands { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s5); }
+.strand-list { margin: var(--s4) 0 0; display: grid; gap: var(--s4); }
+.strand-list > div { border-inline-start: 2px solid var(--accent); padding-inline-start: var(--s4); }
+.strand-list dt { font-weight: 600; }
+.strand-list dd { margin: 0; color: var(--muted); }
 
 /* قائمة الحدود: سطر لكل حد، بعلامة هادئة */
 .limits { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s3); }
@@ -152,16 +175,16 @@ img, svg { max-width: 100%; height: auto; }
 .notice strong { font-weight: 600; }
 .notice .label { font-size: .875rem; font-weight: 600; color: var(--accent); white-space: nowrap; }
 .notice--pending { border-inline-start-color: var(--bronze); background: var(--bronze-tint); }
-.notice--pending .label { color: #6E5126; }
+.notice--pending .label { color: var(--pending-ink); }
 
 /* شارة الحالة: تمنع عرض جزء غير مكتمل كخدمة جاهزة */
 .status { display: inline-block; font-size: .8125rem; font-weight: 600; line-height: 1.6; padding: 0 var(--s2); border-radius: 999px; border: 1px solid currentColor; }
 .status--ready { color: var(--accent); }
-.status--pending { color: #6E5126; }
+.status--pending { color: var(--pending-ink); }
 
 /* خانة مادة غير معتمدة بعد — مرئية في المعاينة، ويمنع اختبار الإطلاق وجودها */
 .draft-slot { border: 1px dashed var(--line-strong); background: transparent; border-radius: var(--radius); padding: var(--s4) var(--s5); color: var(--muted); }
-.draft-slot strong { color: #6E5126; font-weight: 600; }
+.draft-slot strong { color: var(--pending-ink); font-weight: 600; }
 
 /* ---------- الهاتف ---------- */
 @media (max-width: 40rem) {
@@ -172,12 +195,16 @@ img, svg { max-width: 100%; height: auto; }
   .notice { grid-template-columns: 1fr; gap: var(--s1); padding: var(--s4); }
   .site-header .wrap { min-height: 0; }
   .actions .button { flex: 1 1 100%; }
+  .method { grid-template-columns: 1fr; }
+  .strands { padding: var(--s4); }
   .card { padding: var(--s4); }
 }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media print { .site-header nav, .actions, .skip { display: none; } body { background: #fff; } }
 .notice--spaced { margin-top: var(--s6); }
-/* تنبيه السلامة: لون تحذيري صريح لكنه غير صارخ — الخطر لا يُخفى باسم الهدوء */
-.notice--alert { border-inline-start-color: #9B3B2E; background: #F7E9E4; }
-.notice--alert .label { color: #8A3428; }
+/* الخطأ والتنبيه الحرج: لون تحذيري صريح غير صارخ — الخطر لا يُخفى باسم الهدوء */
+.notice--alert { border-inline-start-color: var(--danger); background: var(--danger-tint); }
+.notice--alert .label { color: var(--danger-ink); }
+
+@media (max-width: 56rem) { .method { grid-template-columns: 1fr; } }

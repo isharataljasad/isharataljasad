@@ -23,16 +23,21 @@ ok((home.match(/<h1[ >]/g) || []).length === 1, 'one h1');
 ok(home.includes('<a class="skip" href="#content">') && home.includes('<main id="content">'), 'skip link');
 ok(read('bayt/index.html') === home, '/bayt serves the same entrance');
 
-// ---------- the four questions, in order ----------
+// ---------- the four owner questions, plus how a lesson is built (the unified method) ----------
 const h2 = [...home.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map((m) => m[1]);
-assert.deepEqual(h2, ['ما الذي يقدمه الموقع الآن؟', 'لمن يفيد؟', 'من أين أبدأ؟', 'حدود الخدمة والمحتوى']); n++;
+assert.deepEqual(h2, ['ما الذي يقدمه الموقع الآن؟', 'كيف يُبنى الدرس في هذا المنهج', 'لمن يفيد؟', 'من أين أبدأ؟', 'حدود الخدمة والمحتوى']); n++;
 
 // ---------- honesty: nothing sold, nothing promised, nothing unfinished shown as ready ----------
 const t = text(home);
-ok(!/﷼|ريال|SAR|\$|USD|سعر|أسعار|اشترك الآن|ادفع|بوابة دفع|checkout|pricing/i.test(t.replace(/لا اشتراكات ولا مدفوعات/g, '')), 'no prices, payment or sign-up calls');
+ok(!/﷼|ريال|SAR|\$|USD|سعر|أسعار|اشترك الآن|ادفع|بوابة دفع|checkout|pricing/i.test(t.replace(/لا اشتراكات ولا مدفوعات|ولا توجد اشتراكات أو أسعار أو حسابات/g, '')), 'no prices, payment or sign-up calls');
 ok(!/<form|<input|<button|<iframe/i.test(home), 'no forms, inputs or embeds');
 ok(!/يشفي|علاج مضمون|نتائج مضمونة|مضمون|الأفضل في|الأول في (?:العالم|المنطقة|المملكة)/.test(t), 'no health or commercial promises');
-ok(t.includes('لا توجد خدمة صحية مفتوحة هنا بعد'), 'states plainly that no service is open yet');
+ok(t.includes('هذه الواجهة لا تقدّم خدمة مدفوعة بعد'), 'states plainly that no paid service exists yet');
+ok(t.includes('بكلمة مرور'), 'does not present the password-protected Bayt library as open to everyone');
+ok(!/(?<!ت)صحي|سريري|تشخيص|علاج|جرعة|طبيب|MasarCare/.test(t), 'no health or clinical function is claimed for the educational method');
+ok(!/Book Foundation|Pearson Foundation|Educator Foundation|Pearson|Educator/.test(t), 'internal model names and publishers are not the visitor-facing identity');
+// The lesson path is the real section order of a Semester 1 science lesson (README, unified-learning doc).
+assert.deepEqual([...home.matchAll(/<li><b>([^<]+)<\/b>/g)].map((m) => m[1]), ['ما الذي يشرحه الدرس', 'قبل أن تبدأ', 'الفكرة', 'القوانين', 'مثال محلول كامل', 'حالة مختلفة', 'أخطاء شائعة', 'تذكّر']); n++;
 for (const [, card] of home.matchAll(/<article class="card">([\s\S]*?)<\/article>/g)) {
   const ready = card.includes('status--ready'), pending = card.includes('status--pending') || card.includes('draft-slot');
   ok(ready !== pending, 'every service card is marked either ready or pending, never both or neither');
@@ -84,8 +89,8 @@ const pairs = [
   ['secondary button (hover)', v.primary, v['primary-tint'], 4.5], ['disabled button', v.muted, v.sunken, 4.5],
   ['kicker and ready badge', v.accent, v.page, 4.5], ['ready badge on card', v.accent, v.surface, 4.5],
   ['info notice text', v.ink, v['accent-tint'], 7], ['info notice label', v.accent, v['accent-tint'], 4.5],
-  ['pending label', '#6E5126', v['bronze-tint'], 4.5], ['pending badge on card', '#6E5126', v.surface, 4.5],
-  ['alert notice text', v.ink, '#F7E9E4', 7], ['alert notice label', '#8A3428', '#F7E9E4', 4.5],
+  ['pending label', v['pending-ink'], v['bronze-tint'], 4.5], ['pending badge on card', v['pending-ink'], v.surface, 4.5],
+  ['error notice text', v.ink, v['danger-tint'], 7], ['error notice label', v['danger-ink'], v['danger-tint'], 4.5], ['error border', v.danger, v.page, 3],
   ['section numbers', v.bronze, v.page, 4.5], ['section numbers on quiet band', v.bronze, v.sunken, 3],
   ['control borders', v['line-strong'], v.page, 3], ['focus ring', v.focus, v.page, 3],
 ];

@@ -1,10 +1,12 @@
-# Specialised entrance (site root) — Bayt Al-Fuad, pillar 01
+# Site entrance (root) — a Bayt Al-Fuad front, in preparation
 
 `/` and `/bayt` are a hand-authored Arabic RTL entrance (`index.html`, mirrored to
 `bayt/index.html`) styled by `site/site.css`, with self-hosted IBM Plex Sans Arabic
 and Amiri (OFL, `site/fonts/`) and the approved Bayt Al-Fuad mark copied unchanged
-(`site/bayt-mark.svg`). It states what is available now, for whom, where to start and
-the limits; it sells nothing and shows nothing unfinished as ready. The study library is
+(`site/bayt-mark.svg`). It states what is available now, how a lesson in the unified
+method is built, for whom, where to start and the limits; it sells nothing and shows
+nothing unfinished as ready. Identity, tokens, states and acceptance evidence:
+`docs/identity-2026-10-05.md`. The study library is
 no longer built onto `/` (`tools/build-study.mjs` writes only `/semester-1/`), and all
 academic URLs keep forwarding to baytalfuad.com/ilm-sinaa.
 
