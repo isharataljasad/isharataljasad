@@ -390,12 +390,29 @@ for (const s of ['/program/:path*', '/foundations/:path*', '/biology/:path*', '/
 // /english used to redirect home; it must now lead to the English lessons, and the old
 // route pages to their forwarding pages, before the catch-all /english/:path*.
 const rIdx = (src) => vercel.redirects.findIndex((r) => r.source === src);
-for (const [src, dest] of [['/english', '/semester-1/english'], ['/english/:path*', '/semester-1/english'], ...ROUTES.map((r) => [`/english/${r}`, `/semester-1/english/old-links/${r}`])]) assert.ok(rIdx(src) >= 0 && vercel.redirects[rIdx(src)].destination === dest && !vercel.redirects[rIdx(src)].permanent, `${src} → ${dest}`);
+const libraryHome = 'https://baytalfuad.com/ilm-sinaa/student/semester-1';
+const migratedDestination = (local) => local.replace('/semester-1', libraryHome);
+for (const [src, dest] of [['/english', '/semester-1/english'], ['/english/:path*', '/semester-1/english'], ...ROUTES.map((r) => [`/english/${r}`, `/semester-1/english/old-links/${r}`])]) assert.ok(rIdx(src) >= 0 && vercel.redirects[rIdx(src)].destination === migratedDestination(dest) && !vercel.redirects[rIdx(src)].permanent, `${src} → ${migratedDestination(dest)}`);
 for (const r of ROUTES) assert.ok(rIdx(`/english/${r}`) < rIdx('/english/:path*'), `/english/${r} is matched before the catch-all`);
 assert.ok(!vercel.redirects.some((r) => r.source.startsWith('/english') && r.destination === '/'), 'no English URL is sent back to the entrance');
-for (const c of courses) assert.ok(vercel.redirects.some((r) => r.source === `/${c.id}` && r.destination === `/semester-1/${c.path}` && !r.permanent), `old hub /${c.id} redirects to the ${c.id} contents`);
+for (const c of courses) assert.ok(vercel.redirects.some((r) => r.source === `/${c.id}` && r.destination === `${libraryHome}/${c.path}` && !r.permanent), `old hub /${c.id} redirects to the ${c.id} contents in Bayt Al-Fuad`);
 const served = new Set(pages.map((p) => '/' + p.replace(/(?:^|\/)index\.html$/, '')).map((u) => u === '/' ? u : u.replace(/\/$/, '')));
+// The owner authorized moving academic pages, while preserving the source site's
+// entrance, assets and feedback service. Explicit routes avoid asset redirects.
+for (const source of [...served].filter((p) => p.startsWith('/semester-1'))) {
+  assert.ok(vercel.redirects.some((r) => r.source === source && r.destination === migratedDestination(source) && !r.permanent), `published academic page ${source} must move to its corresponding destination`);
+}
+assert.ok(!vercel.redirects.some((r) => r.source === '/semester-1/:path*'), 'no catch-all that would redirect source assets');
+for (const untouched of ['/', '/bayt', '/api/feedback', '/login', '/semester-1/assets/study.css', '/semester-1/assets/feedback.js', '/semester-1/assets/old-links.js']) {
+  assert.ok(!vercel.redirects.some((r) => r.source === untouched), `${untouched} is preserved on the source site`);
+}
 for (const r of vercel.redirects) {
+  if (r.destination.startsWith('https://')) {
+    assert.ok(/^\/(semester-1|ma101|phy101|chemistry|english)(\/|$)/.test(r.source), `external redirect ${r.source} must be academic`);
+    assert.ok(r.destination === libraryHome || r.destination.startsWith(libraryHome + '/'), `external redirect ${r.source} stays in the Bayt library`);
+    assert.equal(r.permanent, false, `migration ${r.source} remains reversible`);
+    continue;
+  }
   const [prefix, param] = r.source.split('/:');
   assert.ok(param ? ![...served].some((u) => u.startsWith(prefix + '/')) : !served.has(r.source), `redirect ${r.source} shadows a study page`);
 }
