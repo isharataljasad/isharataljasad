@@ -13,6 +13,16 @@
 !/package-lock.json
 !/vercel.json
 
+# The specialised entrance's own stylesheet, self-hosted fonts and the Bayt Al-Fuad mark.
+!/site
+/site/*
+!/site/site.css
+!/site/bayt-mark.svg
+!/site/fonts
+/site/fonts/*
+!/site/fonts/*.woff2
+!/site/fonts/OFL-*.txt
+
 # The feedback endpoint and the lesson list it validates against.
 !/api
 /api/*

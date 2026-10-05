@@ -1,3 +1,18 @@
+# Specialised entrance (site root) — Bayt Al-Fuad, pillar 01
+
+`/` and `/bayt` are a hand-authored Arabic RTL entrance (`index.html`, mirrored to
+`bayt/index.html`) styled by `site/site.css`, with self-hosted IBM Plex Sans Arabic
+and Amiri (OFL, `site/fonts/`) and the approved Bayt Al-Fuad mark copied unchanged
+(`site/bayt-mark.svg`). It states what is available now, for whom, where to start and
+the limits; it sells nothing and shows nothing unfinished as ready. The study library is
+no longer built onto `/` (`tools/build-study.mjs` writes only `/semester-1/`), and all
+academic URLs keep forwarding to baytalfuad.com/ilm-sinaa.
+
+- `node test/home.mjs` — structure, honesty, links, deploy/gate/CSP, colour contrast.
+- `npm run check:launch` — fails while any `data-draft` slot (material not yet approved
+  by the owner) remains on the entrance. It must pass before this entrance is merged to
+  production, because `/` is public.
+
 # Bayt Al-Fuad · Semester 1 study library
 
 The student entrance (`/`, `/bayt/`, `/semester-1/`) shows Mathematics, Physics,

@@ -148,14 +148,15 @@ await ok("only the approved reading routes, /login and /logout are outside the p
   eq(classify("/_vercel/insights/script.js"), "infra");
   for (const p of ["/", "/index.html", "/bayt", "/bayt/", "/api/feedback", "/semester-1", "/semester-1/",
                    "/semester-1/physics/motion", "/semester-1/assets/study.css", "/semester-1/english/old-links/book",
-                   "/ma101", "/ma101/book", "/phy101/pearson", "/chemistry/educator", "/english", "/english/book"]) {
+                   "/ma101", "/ma101/book", "/phy101/pearson", "/chemistry/educator", "/english", "/english/book",
+                   "/site/site.css", "/site/bayt-mark.svg", "/site/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2"]) {
     eq(classify(p), "public", `${p} should be public`);
   }
   for (const p of ["/style.css", "/js/app.js", "/js/corpus.js", "/fonts/amiri-quran-ar.woff2", "/test/cards.json",
                    "/anything", "/program", "/program/lessons", "/foundations", "/biology", "/data/project.json",
                    "/tools/build-study.mjs", "/tools/data/study-library.json", "/docs/feedback.md", "/api/other",
                    "/api/feedback/list", "/api", "/bayt/planner", "/resources/claude-next.txt", "/semester-1x",
-                   "/ma1010", "/english-old", "/semester-1/../data/project.json", "/gate/gate.js", "/middleware.js"]) {
+                   "/ma1010", "/english-old", "/site-old", "/sites/x", "/semester-1/../data/project.json", "/gate/gate.js", "/middleware.js"]) {
     eq(classify(p), "protected", `${p} is not protected`);
   }
 });

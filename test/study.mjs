@@ -103,13 +103,15 @@ const eng = english.lessons.map((l, i) => ({ ...l, n: i + 1, href: `/semester-1/
 const engPage = (l) => l.href.slice(1) + 'index.html';
 const SUBJECT_IDS = [...courses.map((c) => c.id), 'english'];
 const subjectPath = (id) => id === 'english' ? 'english' : courses.find((c) => c.id === id).path;
-const home = ['index.html', 'bayt/index.html', 'semester-1/index.html'];
+// The site root and /bayt are the specialised Arabic entrance (checked in test/home.mjs);
+// the library entrance kept here is /semester-1, which forwards to Bayt Al-Fuad.
+const home = ['semester-1/index.html'];
 const subjects = SUBJECT_IDS.map((id) => `semester-1/${subjectPath(id)}/index.html`);
 const sources = SUBJECT_IDS.map((id) => `semester-1/${subjectPath(id)}/sources/index.html`);
 const lessonPages = [...all.map((l) => l.href.slice(1) + 'index.html'), ...eng.map(engPage)];
 const compat = [...courses.flatMap((c) => ROUTES.map((r) => `${c.id}/${r}/index.html`)), ...ROUTES.map((r) => `semester-1/english/old-links/${r}/index.html`)];
 const pages = [...home, ...subjects, ...sources, ...lessonPages, ...compat];
-assert.equal(pages.length, 74);
+assert.equal(pages.length, 72);
 const html = new Map(pages.map((p) => [p, read(p)]));
 for (const c of courses) assert.ok(!fs.existsSync(path.join(root, `${c.id}/index.html`)), `${c.id}/index.html: the old subject hub is gone (redirected)`);
 
@@ -375,14 +377,15 @@ for (const [p, h] of html) {
     const target = url ? toFile(url) : p;
     assert.ok(fs.existsSync(path.join(root, target)), `${p}: missing ${raw}`);
     assert.ok(deployed.has(target), `${p}: links to something that is not deployed: ${raw}`);
-    if (target.endsWith('.html')) assert.ok(html.has(target), `${p}: link leaves the Semester 1 flow: ${raw}`);
+    // '/' is the site entrance (test/home.mjs); the library's own pages keep linking to it.
+    if (target.endsWith('.html') && target !== 'index.html') assert.ok(html.has(target), `${p}: link leaves the Semester 1 flow: ${raw}`);
     if (anchor) assert.ok((html.get(target) ?? read(target)).includes(`id="${anchor}"`), `${p}: missing anchor ${raw}`);
   }
 }
 
 // ---------- deployment allow-list ----------
 for (const f of ['middleware.js', 'gate/gate.js', 'gate/login-page.js', 'vercel.json', 'package.json', 'semester-1/assets/study.css', 'semester-1/assets/old-links.js']) assert.ok(deployed.has(f), `deploys ${f}`);
-for (const f of [...deployed]) assert.ok(html.has(f) || /^(?:middleware\.js|vercel\.json|package(?:-lock)?\.json|gate\/[\w-]+\.js|semester-1\/assets\/(?:study\.css|old-links\.js|feedback\.js)|api\/feedback\.js|api\/_lib\/lessons\.js)$/.test(f), `unexpected deployed file ${f}`);
+for (const f of [...deployed]) assert.ok(html.has(f) || /^(?:middleware\.js|vercel\.json|package(?:-lock)?\.json|gate\/[\w-]+\.js|semester-1\/assets\/(?:study\.css|old-links\.js|feedback\.js)|api\/feedback\.js|api\/_lib\/lessons\.js|index\.html|bayt\/index\.html|site\/(?:site\.css|bayt-mark\.svg|fonts\/[\w-]+\.(?:woff2|txt)))$/.test(f), `unexpected deployed file ${f}`);
 for (const f of ['program/index.html', 'foundations/index.html', 'english/index.html', 'english/book/index.html', 'english/pearson/index.html', 'english/educator/index.html', 'tools/content/english/pack/manifest.json', 'biology/index.html', 'bayt/planner/index.html', 'bayt/app/index.html', 'semester-1/coverage/index.html', 'semester-1/assets/bayt-practice.mjs', 'resources/claude-next.txt', 'data/project.json', 'docs/semester-architecture.md', 'docs/migration-ledger.md', 'tools/build-study.mjs', 'tools/data/study-library.json', 'tools/data/migration-ledger.json', '.env.example', 'chemistry/atomic/index.html', 'ma101/assets/app.js'])
   if (fs.existsSync(path.join(root, f))) assert.ok(!deployed.has(f), `must not deploy ${f}`);
 const vercel = JSON.parse(read('vercel.json'));
@@ -435,4 +438,4 @@ execFileSync(process.execPath, ['tools/build-study.mjs'], { cwd: root });
 assert.deepEqual(hashes(), before, 'rebuilding the ledger and the pages changes them');
 
 const tally = Object.entries(ledger.notes.reduce((m, n) => ({ ...m, [n.decision]: (m[n.decision] ?? 0) + 1 }), {})).map(([k, v]) => `${k} ${v}`).join(', ');
-console.log(`Study release: ${pages.length} pages (3 entrances, 4 subject contents, 4 sources, ${all.length} science and ${eng.length} English lessons, ${compat.length} old-link pages); English pack intact, ENG-11 data and models consistent, 82 earlier English blocks forwarded; ${checks} numerical checks (all 259 of aa7c04c traced); ledger: 333 notes (${tally}), ${ledger.sections.length} sections; reading-only; links, anchors and deploy allow-list verified; reproducible build and ledger.`);
+console.log(`Study release: ${pages.length} pages (1 library entrance, 4 subject contents, 4 sources, ${all.length} science and ${eng.length} English lessons, ${compat.length} old-link pages); English pack intact, ENG-11 data and models consistent, 82 earlier English blocks forwarded; ${checks} numerical checks (all 259 of aa7c04c traced); ledger: 333 notes (${tally}), ${ledger.sections.length} sections; reading-only; links, anchors and deploy allow-list verified; reproducible build and ledger.`);
