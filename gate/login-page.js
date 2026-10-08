@@ -4,8 +4,7 @@
    Self-contained on purpose: no <link>, no font file, no script. Nothing from
    the application is fetchable until a valid session cookie exists, so the
    gate has no asset-shaped holes. The visual identity follows site/site.css
-   (calm ivory page, Bayt navy action); the approved Bayt Al-Fuad mark is
-   inlined as SVG, unchanged, so it needs no image request.
+   (unified Bayt Al-Fuad identity v1: warm charcoal, ivory text, the Quran path's blue action); the current pentagon mark is inlined as SVG, so it needs no image request.
    ========================================================================== */
 
 const esc = s => String(s).replace(/[&<>"']/g, c =>
@@ -21,31 +20,30 @@ export function loginPage({ nonce, error = "", status = 200 }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F4F1EA">
+<meta name="theme-color" content="#1B1A18">
 <meta name="robots" content="noindex,nofollow">
 <title>الدخول · بيت الفؤاد</title>
 <style nonce="${nonce}">
-:root{--page:#F4F1EA;--surface:#FBFAF6;--line:#DCD6CA;--line-strong:#8E8778;--text:#1F2933;
---muted:#56606B;--primary:#233A52;--primary-hover:#2F4B68;--danger:#8A3428}
+:root{color-scheme:dark;--page:#1B1A18;--surface:#282521;--line:#413B34;--line-strong:#7A7266;--text:#F2EBDD;--muted:#ABA192;--primary:#8DB4CE;--primary-hover:#A8C8DD;--on-primary:#1B1A18;--danger:#F0A08A;--field:#211F1C}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--page);color:var(--text);
-font-family:"Segoe UI","Noto Sans Arabic","Geeza Pro","Tahoma",system-ui,sans-serif;
+font-family:"IBM Plex Sans Arabic","Segoe UI","Noto Sans Arabic","Geeza Pro","Tahoma",system-ui,sans-serif;
 -webkit-text-size-adjust:100%;
 display:flex;align-items:center;justify-content:center;padding:24px;line-height:1.8}
 .card{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--line);
-border-radius:10px;padding:32px 28px}
-.mark{display:block;width:44px;height:44px;border-radius:10px;margin-bottom:18px}
+border-radius:14px;padding:32px 28px}
+.mark{display:block;width:52px;height:52px;margin-bottom:18px}
 h1{font-size:1.35rem;margin:0 0 4px;font-weight:700;letter-spacing:0}
 .sub{margin:0 0 20px;color:var(--muted);font-size:.95rem}
 .invite{margin:0 0 20px;font-size:.95rem}
 .err{margin:0 0 20px;font-size:.95rem;color:var(--danger);font-weight:600}
 label{display:block;font-size:.9rem;margin-bottom:8px;color:var(--muted)}
 input{width:100%;padding:13px 14px;font-size:1.05rem;font-family:inherit;
-border:1px solid var(--line-strong);border-radius:8px;background:#fff;color:var(--text)}
+border:1px solid var(--line-strong);border-radius:10px;background:var(--field);color:var(--text)}
 input:focus-visible{outline:3px solid var(--primary);outline-offset:2px;border-color:var(--primary)}
 button{width:100%;margin-top:16px;padding:13px 14px;font-size:1.05rem;font-family:inherit;
-font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:8px;cursor:pointer}
+font-weight:700;color:var(--on-primary);background:var(--primary);border:0;border-radius:999px;cursor:pointer}
 button:hover{background:var(--primary-hover)}
 button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 .foot{margin:22px 0 0;font-size:.9rem;color:var(--muted);text-align:center}
@@ -55,7 +53,7 @@ button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 </head>
 <body>
 <main class="card">
-  <svg class="mark" viewBox="0 0 512 512" width="44" height="44" aria-hidden="true" focusable="false"> <defs>  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">   <stop offset="0" stop-color="#F0D08A"/>   <stop offset="0.5" stop-color="#B8883F"/>   <stop offset="1" stop-color="#6F4C1F"/>  </linearGradient> </defs> <rect width="512" height="512" rx="128" fill="#050912"/> <circle cx="256" cy="256" r="174" fill="#08101D" stroke="url(#g)" stroke-width="5"/> <path d="M256 106 399 210 344 378H168L113 210Z" fill="none" stroke="url(#g)" stroke-width="6" opacity=".55"/> <circle cx="256" cy="256" r="62" fill="#0B1322" stroke="url(#g)" stroke-width="5"/> <circle cx="256" cy="256" r="12" fill="#F0CF85"/> <circle cx="256" cy="106" r="9" fill="#D8AF5D"/> <circle cx="399" cy="210" r="9" fill="#D8AF5D"/> <circle cx="344" cy="378" r="9" fill="#D8AF5D"/> <circle cx="168" cy="378" r="9" fill="#D8AF5D"/> <circle cx="113" cy="210" r="9" fill="#D8AF5D"/></svg>
+  <svg class="mark" viewBox="0 0 512 512" width="52" height="52" aria-hidden="true" focusable="false"><g fill="none" stroke="#F2EBDD" stroke-linecap="round" stroke-linejoin="round"><circle cx="256" cy="268" r="222" stroke-width="7"/><path d="M212 395.82 L163.13 395.82 L105.73 219.18 L256 110 L406.27 219.18 L348.87 395.82 L300 395.82" stroke-width="28"/></g><g fill="#F2EBDD"><circle cx="256" cy="46" r="25"/><circle cx="467.13" cy="199.4" r="25"/><circle cx="386.49" cy="447.6" r="25"/><circle cx="125.51" cy="447.6" r="25"/><circle cx="44.87" cy="199.4" r="25"/></g><circle cx="256" cy="278" r="54" fill="#D97757"/></svg>
   <h1>بيت الفؤاد</h1>
   <p class="sub">دخول إلى قسم خاص</p>
   ${msg}
