@@ -65,3 +65,58 @@ dialog{border:1px solid var(--line);border-radius:20px;background:var(--panel);c
 :where(a,button,select,textarea,summary):focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.001ms!important;scroll-behavior:auto!important}.hizb-card:hover,.hizb-card:focus-visible{transform:none}}
 @media (max-width:900px){.topbar{min-height:78px;padding:12px 18px}.brand-copy small{font-size:.72em}.mark{width:44px;height:44px}.menu-btn{display:block}.shell{display:block;padding:24px 16px 70px}.side-nav{position:fixed;inset:78px 0 auto auto;width:min(86vw,320px);height:calc(100dvh - 78px);padding:20px;background:#0b1712;border-left:1px solid var(--line);z-index:30;transform:translateX(105%);visibility:hidden;transition:transform .2s ease,visibility .2s;overflow:auto}.side-nav.is-open{transform:none;visibility:visible}.content{max-width:none}.view-head{display:block}.progress{margin-top:18px}.hizb-grid{grid-template-columns:1fr}.card{padding:24px 18px}.verse{font-size:1.35em}.site-footer{display:block;padding-inline:16px}.site-footer span{display:block}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:1/-1}}
+
+/* ==== bf-identity v1: start ==== */
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Plex Arabic";src:url(/assets/fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* Shared tokens. Warm charcoal, stone surfaces, ivory text, clay accent; one accent per path:
+   جسدي (MasarCare) sage · علمي (Semester 1) ochre · نفسي (Quran & Tadabbur) blue. All text pairs ≥ 4.5:1. */
+:root{
+  --bf-bg:#1B1A18;--bf-raised:#211F1C;--bf-surface:#282521;--bf-surface-2:#312D28;--bf-surface-3:#3A352F;
+  --bf-line:#413B34;--bf-line-soft:#302C27;
+  --bf-text:#F2EBDD;--bf-text-2:#D8CFBF;--bf-muted:#ABA192;--bf-faint:#938979;
+  --bf-clay:#D97757;--bf-clay-strong:#E8906F;
+  --bf-jasad:#93B98F;--bf-jasad-strong:#A9CBA5;--bf-jasad-soft:#25302A;
+  --bf-ilm:#D6A452;--bf-ilm-strong:#E5B96E;--bf-ilm-soft:#30291C;
+  --bf-nafs:#8DB4CE;--bf-nafs-strong:#A8C8DD;--bf-nafs-soft:#222C33;
+  --bf-ok:#93B98F;--bf-warn:#D6A452;--bf-danger:#F0A08A;--bf-danger-soft:#3B241E;
+  --bf-font:"Plex Arabic","IBM Plex Sans Arabic","IBM Plex Sans","Segoe UI",Tahoma,Arial,sans-serif;
+  --bf-quran:"Amiri Quran","Amiri","Noto Naskh Arabic","Traditional Arabic",serif;
+  --bf-math:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,serif;
+  --bf-fs-sm:.9375rem;--bf-fs-base:1.0625rem;--bf-fs-lg:1.1875rem;
+  --bf-fs-h3:1.3125rem;--bf-fs-h2:clamp(1.5rem,1.1rem + 1.4vw,2.125rem);--bf-fs-h1:clamp(1.875rem,1.2rem + 2.6vw,3rem);
+  --bf-lh:1.85;--bf-lh-head:1.4;--bf-radius:14px;--bf-radius-s:10px;--bf-header-h:72px;
+}
+html{scroll-padding-top:calc(var(--bf-header-h) + 16px)}
+
+/* نفسي — مسار القرآن والتدبر. Quranic text keeps its own typeface (Amiri Quran). */
+@media screen{
+  :root{--bg:var(--bf-bg);--panel:var(--bf-surface);--panel-2:var(--bf-surface-2);--line:var(--bf-line);
+    --text:var(--bf-text);--muted:var(--bf-muted);--mint:var(--bf-nafs);--mint-2:var(--bf-nafs-strong);
+    --gold:#D9BF8C;--danger:var(--bf-danger);--shadow:0 18px 55px rgba(0,0,0,.28)}
+  body{background:radial-gradient(circle at 70% 0%,rgba(141,180,206,.06),transparent 38%),var(--bf-bg)}
+  .topbar{background:var(--bf-bg);backdrop-filter:none;border-bottom-color:var(--bf-line-soft)}
+  .side-nav{background:var(--bf-raised)}
+  .nav:hover,.nav:focus-visible,.tool-btn:hover,.tool-btn:focus-visible{background:rgba(141,180,206,.08)}
+  .nav.is-active{background:var(--bf-nafs-soft)}
+  .loading-card,.empty,.error-card{background:var(--bf-raised)}
+  .bar{background:var(--bf-surface-2)}
+  .card{background:linear-gradient(180deg,var(--bf-surface),var(--bf-raised))}
+  .saadi-details{border-color:rgba(141,180,206,.2);background:var(--bf-raised)}
+  .note-box textarea{background:var(--bf-raised)}
+  .btn.primary,.skip-link:focus{color:var(--bf-bg)}
+  .hizb-card:hover,.hizb-card:focus-visible{border-color:rgba(141,180,206,.6)}
+  .hizb-card.current{background:linear-gradient(180deg,rgba(141,180,206,.09),var(--panel))}
+  .pill{border-color:rgba(141,180,206,.25)}
+  .toast{background:var(--bf-text);color:var(--bf-bg)}
+}
+body{font-family:var(--bf-font)}
+h1,h2,h3{letter-spacing:0;line-height:var(--bf-lh-head)}
+/* ==== bf-identity v1: end ==== */
