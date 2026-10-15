@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node test/migration.mjs && node test/regressions.mjs",
-    "vercel-build": "node test/migration.mjs && node test/regressions.mjs"
+    "test": "node test/migration.mjs && node test/regressions.mjs && node test/h09.mjs",
+    "vercel-build": "node test/migration.mjs && node test/regressions.mjs && node test/h09.mjs"
   },
   "dependencies": {
     "@vercel/functions": "3.1.3"
