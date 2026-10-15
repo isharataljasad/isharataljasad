@@ -142,5 +142,10 @@ export default async function middleware(request) {
 
   /* Authenticated: hand the request to the static file layer untouched, but
      make sure no shared cache ever stores a protected response. */
-  return next({ headers: { "cache-control": "private, max-age=0, must-revalidate" } });
+  /* Approved hizb images never change once published, so the signed-in browser may keep them for a week
+     (still private: no shared cache). Everything else is revalidated on every visit. */
+  const cacheControl = url.pathname.startsWith("/tadabbur/images/")
+    ? "private, max-age=604800"
+    : "private, max-age=0, must-revalidate";
+  return next({ headers: { "cache-control": cacheControl } });
 }

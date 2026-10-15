@@ -6,9 +6,14 @@ const HIZBS = [
   {id:"H05", title:"الحزب الخامس", range:"من البقرة 253 إلى آل عمران 14", count:55},
   {id:"H06", title:"الحزب السادس", range:"آل عمران 15–91", count:85},
   {id:"H07", title:"الحزب السابع", range:"آل عمران 92–170", count:40, images:true, stations:9, pages:156, rangeAr:"آل عمران ٩٢–١٧٠"},
-  {id:"H08", title:"الحزب الثامن", range:"آل عمران 171 – النساء 23", count:33, images:true, stations:7, pages:142, rangeAr:"آل عمران ١٧١ – النساء ٢٣"}
+  {id:"H08", title:"الحزب الثامن", range:"آل عمران 171 – النساء 23", count:33, images:true, stations:7, pages:142, rangeAr:"آل عمران ١٧١ – النساء ٢٣"},
+  {id:"H09", title:"الحزب التاسع", range:"النساء 24–87", count:41, images:true, stations:8, pages:167, rangeAr:"النساء ٢٤–٨٧", isNew:true}
 ];
 const TOTAL = HIZBS.reduce((n,h)=>n+h.count,0);
+const HIZB_WORDS = ["","حزب واحد","حزبان","ثلاثة أحزاب","أربعة أحزاب","خمسة أحزاب","ستة أحزاب","سبعة أحزاب","ثمانية أحزاب","تسعة أحزاب","عشرة أحزاب"];
+// Arabic counted noun: 3–10 take the plural (٣ صور), 11+ the singular (١٦٧ صورة).
+function imagesWord(n,ar){const k=Number(n);if(k===1)return "صورة واحدة";if(k===2)return "صورتان";return `${ar(k)} ${(k%100>=3&&k%100<=10)?"صور":"صورة"}`;}
+const HIZB_ID_RE =new RegExp(`^(?:${HIZBS.map(h=>h.id).join("|")})-[0-9]{2,3}$`);
 const STORAGE_KEY = "baytalfuad.tadabbur.v1";
 let corpusPromise = null;
 
@@ -59,8 +64,11 @@ async function loadHizb(id){
 }
 async function getCard(id,index){const cards=await loadHizb(id);return cards[index-1];}
 function remember(id){state.recent=[id,...state.recent.filter(x=>x!==id)].slice(0,30);saveState();}
-function setView(view){state.view=view;saveState();setActiveNav(view);closeMenu();render();}
-async function goToCard(hizb,index){const h=meta(hizb);state.hizb=hizb;state.card=Math.max(1,Math.min(h.count,Number(index)||1));state.view="encounter";saveState();setActiveNav("encounter");closeMenu();await render();}
+function setView(view){state.view=view;saveState();setActiveNav(view);closeMenu();syncUrl();render();}
+// Shareable address for the current reading position (image hizbs: ?hizb=H09&page=12). replaceState keeps the
+// phone's back button for leaving the site instead of stepping through every image.
+function syncUrl(){const h=meta(state.hizb);const q=new URLSearchParams();if(state.view==="encounter"&&h.images){q.set("hizb",h.id);q.set("page",String(state[`${h.id.toLowerCase()}Page`]||1));}const next=q.toString()?`${location.pathname}?${q}`:location.pathname;if(next!==location.pathname+location.search)history.replaceState(null,"",next);}
+async function goToCard(hizb,index){const h=meta(hizb);state.hizb=hizb;state.card=Math.max(1,Math.min(h.count,Number(index)||1));state.view="encounter";saveState();setActiveNav("encounter");closeMenu();await render();app.focus({preventScroll:true});window.scrollTo({top:0});}
 
 function renderError(err){app.innerHTML=`<section class="error-card"><strong>تعذر فتح محتوى التدبر.</strong><div>${esc(err.message || "خطأ غير معروف")}</div><button class="btn primary" id="retryBtn" type="button">إعادة المحاولة</button></section>`;document.getElementById("retryBtn")?.addEventListener("click",()=>{corpusPromise=null;render();});}
 
@@ -114,32 +122,46 @@ async function renderImageHizb(h){
   const manifest=imageManifests[h.id];
   const pages=manifest.pages;
   const pageKey=`${key}Page`;
-  const pageNumber=Math.max(1,Math.min(pages.length,Number(state[pageKey])||1));
+  const pageNumber=Math.max(1,Math.min(pages.length,Math.trunc(Number(state[pageKey]))||1));
   state[pageKey]=pageNumber;saveState();
   const page=pages[pageNumber-1];
   const group=manifest.groups.find(g=>g.id===page.group);
+  const groupIndex=manifest.groups.indexOf(group);
   const ar=n=>Number(n).toLocaleString('ar-SA',{useGrouping:false});
-  const controls=()=>`<div class="actions ${key}-paging img-paging"><button class="btn ${key}-prev" type="button" ${pageNumber===1?'disabled':''}>السابق</button><span aria-live="polite">الصورة ${ar(pageNumber)} من ${ar(pages.length)}</span><button class="btn primary ${key}-next" type="button" ${pageNumber===pages.length?'disabled':''}>التالي</button></div>`;
-  app.innerHTML=`<section class="view-head"><div><p class="eyebrow">${esc(h.title)} · ${esc(h.rangeAr)}</p><h1>اللقاء</h1><p>${ar(h.stations)} محطات · ${ar(h.count)} بطاقة · ${ar(pages.length)} صورة</p></div></section>
+  const fileName=page.src.split('/').pop();
+  syncUrl();
+  const controls=pos=>`<nav class="actions ${key}-paging img-paging" aria-label="التنقل بين الصور (${pos})"><button class="btn ${key}-prev" type="button" ${pageNumber===1?'disabled':''} aria-label="الصورة السابقة">السابق</button><span class="img-counter">الصورة ${ar(pageNumber)} من ${ar(pages.length)}</span><button class="btn primary ${key}-next" type="button" ${pageNumber===pages.length?'disabled':''} aria-label="الصورة التالية">التالي</button></nav>`;
+  const prevGroup=manifest.groups[groupIndex-1], nextGroup=manifest.groups[groupIndex+1];
+  app.innerHTML=`<section class="view-head"><div><p class="eyebrow">${esc(h.title)} · ${esc(h.rangeAr)}</p><h1>اللقاء</h1><p>${ar(h.stations)} محطات · ${ar(h.count)} بطاقة · ${imagesWord(pages.length,ar)}</p></div><button class="btn secondary back-index" type="button">↩ فهرس الأحزاب</button></section>
     <section class="${key}-controls img-controls" aria-label="التنقل في ${esc(h.title)}">
-      <label for="${key}Group">المحطة أو القسم</label><select id="${key}Group">${manifest.groups.map(g=>`<option value="${g.start}" ${g.id===group.id?'selected':''}>${esc(g.label)} (${ar(g.count)} صورة)</option>`).join('')}</select>
+      <label for="${key}Group">المحطة أو القسم</label><select id="${key}Group">${manifest.groups.map(g=>`<option value="${g.start}" ${g.id===group.id?'selected':''}>${esc(g.label)} (${imagesWord(g.count,ar)})</option>`).join('')}</select>
       <label for="${key}Page">الصورة داخل القسم</label><select id="${key}Page">${pages.slice(group.start-1,group.start-1+group.count).map((p,i)=>`<option value="${group.start+i}" ${group.start+i===pageNumber?'selected':''}>${ar(i+1)} · ${esc(p.title)}</option>`).join('')}</select>
-    </section>${controls()}
-    <figure class="${key}-figure img-figure"><a href="${esc(page.src)}" target="_blank" rel="noopener" aria-label="فتح الصورة بحجمها الأصلي للتكبير"><img class="${key}-image img-page" src="${esc(page.src)}" width="1080" height="1920" alt="${esc(page.label)} — ${esc(page.title)} — الصورة ${esc(page.stationPage)}"></a><figcaption>${esc(page.title)} · <a href="${esc(page.src)}" target="_blank" rel="noopener">فتح بالحجم الأصلي</a></figcaption></figure>
-    <p id="${key}ImageError" class="error-card" hidden>تعذر تحميل الصورة. <button class="btn" id="${key}ImageRetry" type="button">إعادة المحاولة</button></p>${controls()}`;
-  const jump=async value=>{state[pageKey]=Number(value);saveState();await render();app.scrollIntoView({block:'start'});};
+    </section>
+    <p class="img-where" aria-live="polite">${esc(group.label)} · الصورة ${ar(page.stationPage.split('/')[0])} من ${ar(page.stationPage.split('/')[1])}</p>${controls('أعلى')}
+    <figure class="${key}-figure img-figure"><a class="img-zoom" href="${esc(page.src)}" target="_blank" rel="noopener" aria-label="فتح الصورة بحجمها الأصلي للتكبير"><img class="${key}-image img-page" src="${esc(page.src)}" width="1080" height="1920" decoding="async" fetchpriority="high" alt="${esc(page.label)} — ${esc(page.title)} — الصورة ${esc(page.stationPage)}"></a><figcaption><span>${esc(page.title)}</span><span class="img-links"><a href="${esc(page.src)}" target="_blank" rel="noopener">فتح بالحجم الأصلي</a><a href="${esc(page.src)}" download="${esc(fileName)}">تنزيل الصورة</a></span></figcaption></figure>
+    <p id="${key}ImageError" class="error-card" hidden>تعذر تحميل الصورة. <button class="btn" id="${key}ImageRetry" type="button">إعادة المحاولة</button></p>${controls('أسفل')}
+    <div class="station-jump">${prevGroup?`<button class="btn secondary group-jump" data-start="${prevGroup.start}" type="button">→ ${esc(prevGroup.label.split(' · ')[0])}</button>`:'<span></span>'}${nextGroup?`<button class="btn secondary group-jump" data-start="${nextGroup.start}" type="button">${esc(nextGroup.label.split(' · ')[0])} ←</button>`:''}</div>`;
+  const jump=async value=>{state[pageKey]=Math.max(1,Math.min(pages.length,Number(value)));saveState();await render();document.querySelector('.img-where')?.scrollIntoView({block:'start'});};
   document.getElementById(`${key}Group`).addEventListener('change',e=>jump(e.target.value));
   document.getElementById(`${key}Page`).addEventListener('change',e=>jump(e.target.value));
   document.querySelectorAll(`.${key}-prev`).forEach(b=>b.addEventListener('click',()=>jump(pageNumber-1)));
   document.querySelectorAll(`.${key}-next`).forEach(b=>b.addEventListener('click',()=>jump(pageNumber+1)));
+  document.querySelectorAll('.group-jump').forEach(b=>b.addEventListener('click',()=>jump(b.dataset.start)));
+  document.querySelector('.back-index').addEventListener('click',()=>setView('hizbs'));
+  imageKeys=e=>{if((e.target instanceof Element&&e.target.closest('input,select,textarea'))||e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowLeft'&&pageNumber<pages.length){e.preventDefault();jump(pageNumber+1);}if(e.key==='ArrowRight'&&pageNumber>1){e.preventDefault();jump(pageNumber-1);}};
   const img=document.querySelector(`.${key}-image`);
   img.addEventListener('error',()=>{document.getElementById(`${key}ImageError`).hidden=false;});
   document.getElementById(`${key}ImageRetry`).addEventListener('click',()=>render());
+  // Warm the browser cache for the neighbouring pages so "التالي" shows the next image immediately.
+  for(const n of [pageNumber+1,pageNumber-1]){const p=pages[n-1];if(p){const pre=new Image();pre.decoding='async';pre.src=p.src;}}
 }
+// Keyboard paging in RTL reading order: ← next, → previous (only while an image hizb is shown).
+let imageKeys=null;
+document.addEventListener('keydown',e=>{if(imageKeys&&state.view==='encounter'&&meta(state.hizb).images)imageKeys(e);});
 
 
-function renderHizbs(){app.innerHTML=`<section class="view-head"><div><p class="eyebrow">${TOTAL} بطاقة · ثمانية أحزاب</p><h1>الأحزاب</h1><p>المحتوى محفوظ داخل بيت الفؤاد نفسه ولا يعتمد على موقع خارجي أو قاعدة بيانات خارجية.</p></div></section><div class="hizb-grid">${HIZBS.map(h=>`<button class="hizb-card ${h.id===state.hizb?"current":""}" data-hizb="${h.id}" type="button"><strong>${h.title}</strong><span>${h.range}</span><small>${h.count} بطاقة${h.images?` · ${Number(h.stations).toLocaleString("ar-SA")} محطات · ${Number(h.pages).toLocaleString("ar-SA",{useGrouping:false})} صورة`:""}</small></button>`).join("")}</div>`;document.querySelectorAll(".hizb-card").forEach(b=>b.addEventListener("click",()=>goToCard(b.dataset.hizb,b.dataset.hizb===state.hizb?state.card:1)));}
-async function render(){setActiveNav(state.view);document.body.dataset.scale=state.scale;scaleSel.value=state.scale;try{if(state.view==="encounter")return await renderEncounter();if(state.view==="written")return await renderWritten();if(state.view==="chosen")return await renderChosen();if(state.view==="return")return await renderReturn();return renderHizbs();}catch(err){renderError(err);}}
+function renderHizbs(){app.innerHTML=`<section class="view-head"><div><p class="eyebrow">${Number(TOTAL).toLocaleString("ar-SA",{useGrouping:false})} بطاقة · ${HIZB_WORDS[HIZBS.length]||HIZBS.length+" أحزاب"}</p><h1>الأحزاب</h1><p>المحتوى محفوظ داخل بيت الفؤاد نفسه ولا يعتمد على موقع خارجي أو قاعدة بيانات خارجية.</p></div></section><div class="hizb-grid">${HIZBS.map(h=>`<button class="hizb-card ${h.id===state.hizb?"current":""}" data-hizb="${h.id}" type="button" aria-current="${h.id===state.hizb?"true":"false"}"><strong>${h.title}${h.isNew?' <em class="new-badge">جديد</em>':""}</strong><span>${h.range}</span><small>${Number(h.count).toLocaleString("ar-SA")} بطاقة${h.images?` · ${Number(h.stations).toLocaleString("ar-SA")} محطات · ${Number(h.pages).toLocaleString("ar-SA",{useGrouping:false})} صورة`:""}</small></button>`).join("")}</div>`;document.querySelectorAll(".hizb-card").forEach(b=>b.addEventListener("click",()=>goToCard(b.dataset.hizb,b.dataset.hizb===state.hizb?state.card:1)));}
+async function render(){setActiveNav(state.view);syncUrl();document.body.dataset.scale=state.scale;scaleSel.value=state.scale;try{if(state.view==="encounter")return await renderEncounter();if(state.view==="written")return await renderWritten();if(state.view==="chosen")return await renderChosen();if(state.view==="return")return await renderReturn();return renderHizbs();}catch(err){renderError(err);}}
 
 document.querySelectorAll(".nav[data-view]").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
 menuBtn.addEventListener("click",()=>{const open=sideNav.classList.toggle("is-open");menuBtn.setAttribute("aria-expanded",String(open));});
@@ -149,7 +171,8 @@ document.getElementById("exportBtn").addEventListener("click",()=>{const payload
 document.getElementById("eraseBtn").addEventListener("click",()=>confirmDlg.showModal());
 confirmDlg.addEventListener("close",()=>{if(confirmDlg.returnValue==="confirm"){localStorage.removeItem(STORAGE_KEY);state={...defaultState};corpusPromise=null;render();toast("تم مسح السجل المحلي");}});
 window.addEventListener("hashchange",()=>closeMenu());
-{const q=new URLSearchParams(location.search).get("hizb");if(q&&HIZBS.some(h=>h.id===q&&h.images)){state.hizb=q;state.view="encounter";}}
+// Deep links: ?hizb=H09 (optionally &page=N for image hizbs, &card=N for text hizbs).
+{const p=new URLSearchParams(location.search);const q=p.get("hizb");const h=HIZBS.find(x=>x.id===q);if(h){state.hizb=h.id;state.view="encounter";if(h.images&&p.get("page"))state[`${h.id.toLowerCase()}Page`]=Math.max(1,Number(p.get("page"))||1);if(!h.images)state.card=Math.max(1,Math.min(h.count,Number(p.get("card"))||(state.hizb===h.id?state.card:1)));saveState();}}
 render();
 
 // Never drop either side of a note: when the same card already has a different
@@ -157,4 +180,4 @@ render();
 const IMPORT_MARK="\n\n— من السجل المستورد —\n";
 function mergeImportedNotes(local,imported){const notes={...local};let kept=0;for(const [k,v] of Object.entries(imported)){if(!v.trim())continue;const cur=notes[k];if(!cur||!cur.trim()){notes[k]=v;continue;}if(cur===v||cur.includes(v))continue;notes[k]=cur+IMPORT_MARK+v;kept++;}return {notes,kept};}
 // Import the existing export without changing or uploading the visitor's record.
-document.getElementById("importRecord").addEventListener("change",async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>2000000)throw Error("الملف كبير جدًا");const j=JSON.parse(await f.text());if(j.version!==1||!j.notes||typeof j.notes!=="object"||Array.isArray(j.notes)||!Array.isArray(j.chosen)||!Array.isArray(j.recent))throw Error("ملف سجل غير صالح");const valid=id=>/^H0[1-8]-[0-9]{2,3}$/.test(id);for(const [k,v]of Object.entries(j.notes))if(!valid(k)||typeof v!=="string")throw Error("ملاحظة غير صالحة");if(!j.chosen.every(valid)||!j.recent.every(valid))throw Error("بطاقة غير صالحة");const merged=mergeImportedNotes(state.notes,j.notes);state.notes=merged.notes;state.chosen=[...new Set([...state.chosen,...j.chosen])];state.recent=[...new Set([...state.recent,...j.recent])].slice(0,30);saveState();await render();toast(merged.kept?`تم استيراد سجلك؛ ${merged.kept} ملاحظة كانت مكتوبة هنا أيضًا فحُفظت النسختان معًا`:"تم استيراد سجلك على هذا الجهاز");}catch(err){toast(err.message||"تعذر استيراد السجل");}finally{e.target.value="";}});
+document.getElementById("importRecord").addEventListener("change",async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>2000000)throw Error("الملف كبير جدًا");const j=JSON.parse(await f.text());if(j.version!==1||!j.notes||typeof j.notes!=="object"||Array.isArray(j.notes)||!Array.isArray(j.chosen)||!Array.isArray(j.recent))throw Error("ملف سجل غير صالح");const valid=id=>HIZB_ID_RE.test(id);for(const [k,v]of Object.entries(j.notes))if(!valid(k)||typeof v!=="string")throw Error("ملاحظة غير صالحة");if(!j.chosen.every(valid)||!j.recent.every(valid))throw Error("بطاقة غير صالحة");const merged=mergeImportedNotes(state.notes,j.notes);state.notes=merged.notes;state.chosen=[...new Set([...state.chosen,...j.chosen])];state.recent=[...new Set([...state.recent,...j.recent])].slice(0,30);saveState();await render();toast(merged.kept?`تم استيراد سجلك؛ ${merged.kept} ملاحظة كانت مكتوبة هنا أيضًا فحُفظت النسختان معًا`:"تم استيراد سجلك على هذا الجهاز");}catch(err){toast(err.message||"تعذر استيراد السجل");}finally{e.target.value="";}});
