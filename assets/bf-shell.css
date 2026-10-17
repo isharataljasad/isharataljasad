@@ -1,0 +1,159 @@
+/* بيت الفؤاد — الشريط الموحّد والطباعة المشتركة (bfs v1).
+   يُولَّد لكل مستودع من _unify/src؛ يختلف فقط مسار الخطوط (fonts/). */
+
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"BFS Plex Arabic";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/ibm-plex-sans-arabic-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --bfs-font:"BFS Plex Arabic","IBM Plex Sans Arabic","Plex Arabic","IBM Plex Sans","Segoe UI",Tahoma,Arial,sans-serif;
+  --bfs-bg:#1B1A18;--bfs-surface:#262320;--bfs-surface-2:#312D28;--bfs-line:#3A352F;--bfs-line-strong:#5A5249;
+  --bfs-text:#F2EBDD;--bfs-text-2:#D8CFBF;--bfs-muted:#ABA192;--bfs-accent:#D97757;--bfs-accent-strong:#E8906F;--bfs-on-accent:#1B1A18;
+  --bfs-focus:#E8906F;--bfs-shadow:0 18px 48px rgba(0,0,0,.42);
+  --bfs-bar-h:56px;
+}
+:root[data-theme="light"]{
+  --bfs-bg:#FBF8F2;--bfs-surface:#FFFFFF;--bfs-surface-2:#F2ECE2;--bfs-line:#E3D9C9;--bfs-line-strong:#C9BCA8;
+  --bfs-text:#211F1C;--bfs-text-2:#3E3933;--bfs-muted:#625A4F;--bfs-accent:#B4553A;--bfs-accent-strong:#9A4630;--bfs-on-accent:#FFFFFF;
+  --bfs-focus:#B4553A;--bfs-shadow:0 18px 48px rgba(60,40,20,.16);
+}
+
+/* ---------- layout contract ---------- */
+html.bfs-on{padding-top:var(--bfs-bar-h)!important;scroll-padding-top:calc(var(--bfs-bar-h) + 16px)!important}
+html.bfs-on [data-bfs-legacy]{display:none!important}
+html.bfs-on footer [data-bfs-dup]{display:none!important}
+
+/* ---------- bar ---------- */
+.bfs-bar{position:fixed;top:0;inset-inline:0;z-index:2147483000;background:var(--bfs-bg);color:var(--bfs-text);border-bottom:1px solid var(--bfs-line);
+  font-family:var(--bfs-font);font-size:1rem;line-height:1.4;font-weight:500;-webkit-font-smoothing:antialiased;text-align:start;
+  box-shadow:inset 0 -2px 0 -1px color-mix(in srgb,var(--bfs-path,#D97757) 55%,transparent)}
+.bfs-bar[hidden]{display:none!important}
+.bfs-bar *,.bfs-menu *{box-sizing:border-box;font-family:var(--bfs-font);letter-spacing:0;text-transform:none}
+.bfs-bar a,.bfs-menu a{text-decoration:none!important;color:inherit}
+.bfs-menu a:hover,.bfs-bar a:hover{text-decoration:none!important}
+.bfs-bar li,.bfs-menu li{margin:0;padding:0;list-style:none}
+.bfs-bar li::before,.bfs-menu li::before{content:none}
+.bfs-in{display:flex;align-items:center;gap:14px;min-height:56px;max-width:1440px;margin:0 auto;padding:6px max(20px,env(safe-area-inset-right)) 6px max(20px,env(safe-area-inset-left));overflow:hidden}
+.bfs-bar a,.bfs-bar button{color:inherit;font:inherit;text-decoration:none}
+.bfs-bar :focus-visible,.bfs-menu :focus-visible{outline:2px solid var(--bfs-focus);outline-offset:2px;border-radius:8px}
+
+.bfs-brand{display:inline-flex;align-items:center;gap:10px;flex:0 0 auto;font-weight:700;font-size:1.0625rem;letter-spacing:0;white-space:nowrap;padding:4px 2px;border-radius:10px}
+.bfs-logo{width:32px;height:32px;flex:0 0 auto;color:var(--bfs-text)}
+.bfs-logo-core{fill:var(--bfs-accent)}
+.bfs-brand:hover .bfs-logo{color:var(--bfs-accent-strong)}
+
+.bfs-crumb{display:flex;align-items:center;gap:8px;min-width:0;flex:0 1 auto;font-size:.9375rem;white-space:nowrap}
+.bfs-crumb-top{display:inline-flex;align-items:center;gap:8px;min-width:0}
+.bfs-crumb-home{display:none}
+.bfs-sep{color:var(--bfs-line-strong);font-weight:400}
+.bfs-path{display:inline-flex;align-items:center;gap:7px;color:var(--bfs-text-2)!important;font-weight:600;padding:4px 6px;border-radius:8px}
+.bfs-path:hover{background:var(--bfs-surface-2);color:var(--bfs-text)!important}
+.bfs-dot{width:8px;height:8px;border-radius:50%;background:var(--bfs-path,#D97757);flex:0 0 auto}
+.bfs-page{color:var(--bfs-muted);font-weight:500;overflow:hidden;text-overflow:ellipsis;min-width:6ch;max-width:34ch;unicode-bidi:isolate}
+.bfs-no-page .bfs-page,.bfs-no-page .bfs-sep-page{display:none}
+.bfs-bar[data-section="home"] .bfs-sep-page{display:none}
+.bfs-bar[data-section="home"] .bfs-crumb .bfs-crumb-top{display:none}
+
+.bfs-nav{flex:1 1 0;min-width:0;overflow:hidden;display:flex;justify-content:flex-start}
+.bfs-nav[hidden]{display:none}
+.bfs-nav-list{display:flex;align-items:center;gap:2px;margin:0;padding:0;list-style:none;white-space:nowrap}
+.bfs-nav-list li[hidden]{display:none}
+.bfs-item{display:inline-flex;align-items:center;min-height:40px;padding:6px 12px;border-radius:9px;border:0;background:transparent;color:var(--bfs-text-2);cursor:pointer;font-size:.9375rem;font-weight:500;text-align:start}
+.bfs-item:hover{background:var(--bfs-surface-2);color:var(--bfs-text)}
+.bfs-item[aria-current]{color:var(--bfs-text);background:var(--bfs-surface-2);box-shadow:inset 0 -2px 0 var(--bfs-path,#D97757)}
+.bfs-item[aria-pressed="true"]{color:var(--bfs-text);background:var(--bfs-surface-2)}
+
+.bfs-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-inline-start:auto}
+.bfs-nav:not([hidden]) + .bfs-actions{margin-inline-start:4px}
+.bfs-icon-btn,.bfs-menu-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;min-width:40px;padding:0 10px;border-radius:10px;border:1px solid var(--bfs-line);background:var(--bfs-surface);color:var(--bfs-text);cursor:pointer;font-size:.9375rem;font-weight:600}
+.bfs-icon-btn[hidden]{display:none}
+.bfs-icon-btn:hover,.bfs-menu-btn:hover,.bfs-menu-btn[aria-expanded="true"]{border-color:var(--bfs-line-strong);background:var(--bfs-surface-2)}
+.bfs-menu-btn{padding:0 12px}
+.bfs-ico{width:20px;height:20px;flex:0 0 auto}
+bayt-global-search[data-variant="bar"]{display:inline-flex}
+
+/* ---------- menu ---------- */
+.bfs-menu{position:fixed;z-index:2147483001;top:calc(var(--bfs-bar-h) + 6px);inset-inline-end:max(16px,calc((100vw - 1440px)/2 + 16px));width:min(400px,calc(100vw - 24px));
+  max-height:calc(100dvh - var(--bfs-bar-h) - 18px);overflow:auto;overscroll-behavior:contain;padding:10px;border-radius:16px;border:1px solid var(--bfs-line);
+  background:var(--bfs-surface);color:var(--bfs-text);box-shadow:var(--bfs-shadow);font-family:var(--bfs-font);font-size:1rem;line-height:1.5;text-align:start}
+.bfs-menu[hidden]{display:none!important}
+.bfs-menu nav{display:grid;gap:4px}
+.bfs-m-sec{padding:6px 4px 8px}
+.bfs-m-sec + .bfs-m-sec{border-top:1px solid var(--bfs-line);padding-top:12px}
+.bfs-m-sec[hidden]{display:none}
+.bfs-m-h{margin:0 8px 6px;padding:0;border:0;font-size:.8125rem;font-weight:600;color:var(--bfs-muted);letter-spacing:0;line-height:1.5;text-align:start}
+.bfs-m-list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.bfs-m-list .bfs-item{display:flex;width:100%;min-height:44px;font-size:1rem;padding:8px 12px;color:var(--bfs-text)}
+.bfs-m-list .bfs-item[aria-current]{box-shadow:inset -3px 0 0 var(--bfs-path,#D97757)}
+.bfs-m-sys{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.bfs-m-sys-a{display:flex;align-items:center;gap:10px;min-height:52px;padding:8px 10px;border-radius:10px;color:var(--bfs-text);text-decoration:none}
+.bfs-m-sys-a:hover{background:var(--bfs-surface-2)}
+.bfs-m-sys-a[aria-current]{background:var(--bfs-surface-2)}
+.bfs-m-sys-t{display:grid;line-height:1.35}
+.bfs-m-sys-t strong{font-weight:600;font-size:.9375rem}
+.bfs-m-sys-t small{font-size:.8125rem;color:var(--bfs-muted)}
+.bfs-narrow-only{display:none}
+
+/* ---------- phone and narrow ---------- */
+@media (max-width:999px){
+  .bfs-narrow-only{display:block}
+}
+@media (max-width:720px){
+  :root{--bfs-bar-h:52px}
+  .bfs-in{gap:10px;min-height:52px;padding:4px max(12px,env(safe-area-inset-right)) 4px max(12px,env(safe-area-inset-left))}
+  .bfs-brand-name{display:none}
+  .bfs-logo{width:30px;height:30px}
+  .bfs-crumb{flex:1 1 auto;display:grid;gap:0;line-height:1.3}
+  .bfs-crumb-top{font-size:.75rem;color:var(--bfs-muted);gap:5px}
+  .bfs-crumb-home{display:inline;font-weight:600;color:var(--bfs-text-2)}
+  .bfs-bar[data-section="home"] .bfs-crumb .bfs-crumb-top{display:inline-flex}
+  .bfs-path{padding:0;font-weight:500;gap:5px;color:var(--bfs-muted)!important}
+  .bfs-path:hover{background:none}
+  .bfs-dot{width:6px;height:6px}
+  .bfs-sep-page{display:none}
+  .bfs-page{font-size:.9375rem;font-weight:600;color:var(--bfs-text);max-width:none;min-width:0}
+  .bfs-no-page .bfs-crumb-top{font-size:.9375rem;color:var(--bfs-text)}
+  .bfs-no-page .bfs-path{color:var(--bfs-text)!important;font-weight:600}
+  .bfs-menu-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .bfs-menu-btn{padding:0;width:40px}
+  .bfs-actions{gap:6px}
+  .bfs-menu{inset-inline:8px;width:auto;top:calc(var(--bfs-bar-h) + 4px)}
+}
+@media (max-width:360px){.bfs-m-sys{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:no-preference){
+  .bfs-menu:not([hidden]){animation:bfs-in .14s ease-out}
+  @keyframes bfs-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+}
+@media (forced-colors:active){.bfs-bar{border-bottom:1px solid CanvasText}.bfs-item[aria-current]{outline:2px solid Highlight}}
+@media print{.bfs-bar,.bfs-menu{display:none!important}html.bfs-on{padding-top:0!important}}
+
+/* ---------- shared typography ---------- */
+@media screen{
+  html.bfs-on body{font-family:var(--bfs-font);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;font-kerning:normal}
+  html.bfs-on body :is(button,input,select,textarea){font-family:inherit}
+  html.bfs-on main :is(h1,h2,h3,h4){font-family:var(--bfs-font);letter-spacing:0;text-wrap:balance}
+  html.bfs-on main h1{font-size:min(calc(1.45em + 1.5vw),2.75em);line-height:1.3;font-weight:700}
+  html.bfs-on main h2{line-height:1.45;font-weight:700}
+  html.bfs-on main h3,html.bfs-on main h4{line-height:1.5;font-weight:600}
+  html.bfs-on main :is(p,li,dd,blockquote){line-height:1.85}
+  html.bfs-on main :is(p,li,dd,blockquote):lang(en){line-height:1.65}
+  html.bfs-on main p{text-wrap:pretty}
+  html.bfs-on main :is(button,.button,.btn){font-weight:600;letter-spacing:0}
+}
+
+/* ---------- per-site seams ---------- */
+/* Tadabbur: the side menu opens under the shared bar, not under the old 78px bar. */
+@media (max-width:900px){
+  html[data-bfs="ishara"].bfs-on .side-nav{inset:var(--bfs-bar-h) 0 auto auto;height:calc(100dvh - var(--bfs-bar-h))}
+}
+html[data-bfs="ishara"].bfs-on .side-nav{top:calc(var(--bfs-bar-h) + 28px)}
+@media (max-width:900px){html[data-bfs="ishara"].bfs-on .side-nav{top:var(--bfs-bar-h)}}
+html[data-bfs="ishara"].bfs-on .shell{padding-top:clamp(24px,4vw,44px)}
+/* MasarCare: table headers stay under the bar. */
+html[data-bfs="masar"].bfs-on th{top:var(--bfs-bar-h)}
