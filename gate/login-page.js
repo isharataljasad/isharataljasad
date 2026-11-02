@@ -20,44 +20,45 @@ export function loginPage({ nonce, error = "", status = 200 }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#1B1A18">
+<meta name="theme-color" content="#F7F8F5">
 <meta name="robots" content="noindex,nofollow">
 <title>الدخول · بيت الفؤاد</title>
 <style nonce="${nonce}">
-:root{color-scheme:dark;--page:#1B1A18;--surface:#282521;--line:#413B34;--line-strong:#7A7266;--text:#F2EBDD;--muted:#ABA192;--primary:#8DB4CE;--primary-hover:#A8C8DD;--on-primary:#1B1A18;--danger:#F0A08A;--field:#211F1C}
+/* القيم مطابقة لـ baytalfuad/ds/bf-tokens.css (bf-ds v2): الصفحة تُعرض قبل الدخول ولا تحمّل ملفات الموقع. */
+:root{color-scheme:light;--page:#F7F8F5;--surface:#FFFFFF;--line:#DCE4E2;--line-strong:#A9B8B5;--text:#17383F;--muted:#52636B;--primary:#176B64;--primary-hover:#10544E;--on-primary:#F7F8F5;--danger:#B42318;--field:#FFFFFF}
 *{box-sizing:border-box}
 html,body{min-height:100%}
 body{margin:0;background:var(--page);color:var(--text);
-font-family:"IBM Plex Sans Arabic","Segoe UI","Noto Sans Arabic","Geeza Pro","Tahoma",system-ui,sans-serif;
+font-family:"IBM Plex Sans Arabic","Inter","Segoe UI","Noto Sans Arabic","Geeza Pro","Tahoma",system-ui,sans-serif;
 -webkit-text-size-adjust:100%;line-height:1.8}
-.bfs-bar{position:sticky;top:0;z-index:10;background:var(--page);border-bottom:1px solid #3A352F;box-shadow:inset 0 -2px 0 -1px rgba(141,180,206,.55)}
+.bfs-bar{position:sticky;top:0;z-index:10;background:var(--page);border-bottom:1px solid #DCE4E2;box-shadow:inset 0 -2px 0 -1px rgba(164,93,72,.55)}
 .bfs-in{display:flex;align-items:center;gap:14px;min-height:56px;max-width:1440px;margin:0 auto;padding:6px 20px;line-height:1.4}
 .bfs-bar a{color:inherit;text-decoration:none}
-.bfs-brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.0625rem;white-space:nowrap}
+.bfs-brand{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1.0625rem;white-space:nowrap}
 .bfs-brand svg{width:32px;height:32px}
 .bfs-crumb{display:flex;align-items:center;gap:8px;min-width:0;font-size:.9375rem;white-space:nowrap}
-.bfs-sep{color:#5A5249}
-.bfs-path{display:inline-flex;align-items:center;gap:7px;color:#D8CFBF;font-weight:600}
+.bfs-sep{color:#A9B8B5}
+.bfs-path{display:inline-flex;align-items:center;gap:7px;color:#17383F;font-weight:600}
 .bfs-dot{width:8px;height:8px;border-radius:50%;background:var(--primary)}
 .bfs-page{color:var(--muted)}
 .bfs-actions{display:flex;gap:8px;margin-inline-start:auto}
-.bfs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;min-width:40px;padding:0 12px;border-radius:10px;border:1px solid #3A352F;background:#262320;color:var(--text);font-size:.9375rem;font-weight:600;cursor:pointer;list-style:none}
+.bfs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;min-width:40px;padding:0 12px;border-radius:10px;border:1px solid #DCE4E2;background:#FFFFFF;color:var(--text);font-size:.9375rem;font-weight:600;cursor:pointer;list-style:none}
 .bfs-btn::-webkit-details-marker{display:none}
 .bfs-btn svg{width:20px;height:20px}
-.bfs-btn:focus-visible,.bfs-bar a:focus-visible{outline:2px solid #E8906F;outline-offset:2px}
+.bfs-btn:focus-visible,.bfs-bar a:focus-visible{outline:2px solid #10544E;outline-offset:2px}
 details.bfs-more{position:relative}
-.bfs-menu{position:absolute;inset-inline-end:0;top:calc(100% + 6px);width:min(360px,calc(100vw - 24px));padding:10px;border-radius:16px;border:1px solid #3A352F;background:#262320;box-shadow:0 18px 48px rgba(0,0,0,.42)}
+.bfs-menu{position:absolute;inset-inline-end:0;top:calc(100% + 6px);width:min(360px,calc(100vw - 24px));padding:10px;border-radius:16px;border:1px solid #DCE4E2;background:#FFFFFF;box-shadow:0 18px 48px rgba(23,56,63,.12)}
 .bfs-menu h2{margin:4px 8px 6px;font-size:.8125rem;font-weight:600;color:var(--muted)}
 .bfs-menu ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px}
 .bfs-menu a{display:grid;min-height:52px;padding:8px 10px;border-radius:10px;line-height:1.35}
-.bfs-menu a:hover{background:#312D28}
+.bfs-menu a:hover{background:#EFF3F1}
 .bfs-menu small{font-size:.8125rem;color:var(--muted)}
 @media (max-width:720px){.bfs-in{gap:10px;padding:4px 12px;min-height:52px}.bfs-brand span,.bfs-sep-page,.bfs-lbl{display:none}.bfs-crumb{display:grid;gap:0;line-height:1.3}.bfs-crumb-top{font-size:.75rem;color:var(--muted)}.bfs-page{font-size:.9375rem;font-weight:600;color:var(--text)}.bfs-btn{padding:0;width:40px}.bfs-menu{position:fixed;inset-inline:8px;top:58px;width:auto}}
 .wrap{display:flex;justify-content:center;padding:clamp(24px,8vh,72px) 20px 40px}
 .card{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--line);
 border-radius:14px;padding:32px 28px}
 .mark{display:block;width:52px;height:52px;margin-bottom:18px}
-h1{font-size:1.35rem;margin:0 0 4px;font-weight:700;letter-spacing:0}
+h1{font-size:1.35rem;margin:0 0 4px;font-weight:600;letter-spacing:0}
 .sub{margin:0 0 20px;color:var(--muted);font-size:.95rem}
 .invite{margin:0 0 20px;font-size:.95rem}
 .err{margin:0 0 20px;font-size:.95rem;color:var(--danger);font-weight:600}
@@ -66,7 +67,7 @@ input{width:100%;padding:13px 14px;font-size:1.05rem;font-family:inherit;
 border:1px solid var(--line-strong);border-radius:10px;background:var(--field);color:var(--text)}
 input:focus-visible{outline:3px solid var(--primary);outline-offset:2px;border-color:var(--primary)}
 button{width:100%;margin-top:16px;padding:13px 14px;font-size:1.05rem;font-family:inherit;
-font-weight:700;color:var(--on-primary);background:var(--primary);border:0;border-radius:999px;cursor:pointer}
+font-weight:600;color:var(--on-primary);background:var(--primary);border:0;border-radius:999px;cursor:pointer}
 button:hover{background:var(--primary-hover)}
 button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 .foot{margin:22px 0 0;font-size:.9rem;color:var(--muted);text-align:center}
@@ -76,7 +77,7 @@ button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 </head>
 <body>
 <header class="bfs-bar"><div class="bfs-in">
-  <a class="bfs-brand" href="https://baytalfuad.com/" aria-label="بيت الفؤاد — الرئيسية"><svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><g fill="none" stroke="#F2EBDD" stroke-linecap="round" stroke-linejoin="round"><circle cx="256" cy="268" r="222" stroke-width="9"/><path d="M212 395.82 L163.13 395.82 L105.73 219.18 L256 110 L406.27 219.18 L348.87 395.82 L300 395.82" stroke-width="30"/></g><g fill="#F2EBDD"><circle cx="256" cy="46" r="27"/><circle cx="467.13" cy="199.4" r="27"/><circle cx="386.49" cy="447.6" r="27"/><circle cx="125.51" cy="447.6" r="27"/><circle cx="44.87" cy="199.4" r="27"/></g><circle cx="256" cy="278" r="58" fill="#D97757"/></svg><span>بيت الفؤاد</span></a>
+  <a class="bfs-brand" href="https://baytalfuad.com/" aria-label="بيت الفؤاد — الرئيسية"><svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><g fill="none" stroke="#17383F" stroke-linecap="round" stroke-linejoin="round"><circle cx="256" cy="268" r="222" stroke-width="9"/><path d="M212 395.82 L163.13 395.82 L105.73 219.18 L256 110 L406.27 219.18 L348.87 395.82 L300 395.82" stroke-width="30"/></g><g fill="#17383F"><circle cx="256" cy="46" r="27"/><circle cx="467.13" cy="199.4" r="27"/><circle cx="386.49" cy="447.6" r="27"/><circle cx="125.51" cy="447.6" r="27"/><circle cx="44.87" cy="199.4" r="27"/></g><circle cx="256" cy="278" r="58" fill="#B88946"/></svg><span>بيت الفؤاد</span></a>
   <nav class="bfs-crumb" aria-label="موقعك في بيت الفؤاد"><span class="bfs-crumb-top"><span class="bfs-path"><span class="bfs-dot" aria-hidden="true"></span>القرآن والتدبر</span></span><span class="bfs-sep bfs-sep-page" aria-hidden="true">/</span><span class="bfs-page" aria-current="page">الدخول</span></nav>
   <div class="bfs-actions">
     <a class="bfs-btn" href="https://baytalfuad.com/#bf-search" aria-label="بحث في بيت الفؤاد ومسار كير"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><span class="bfs-lbl">بحث</span></a>
@@ -94,7 +95,7 @@ button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 </div></header>
 <div class="wrap">
 <main class="card">
-  <svg class="mark" viewBox="0 0 512 512" width="52" height="52" aria-hidden="true" focusable="false"><g fill="none" stroke="#F2EBDD" stroke-linecap="round" stroke-linejoin="round"><circle cx="256" cy="268" r="222" stroke-width="7"/><path d="M212 395.82 L163.13 395.82 L105.73 219.18 L256 110 L406.27 219.18 L348.87 395.82 L300 395.82" stroke-width="28"/></g><g fill="#F2EBDD"><circle cx="256" cy="46" r="25"/><circle cx="467.13" cy="199.4" r="25"/><circle cx="386.49" cy="447.6" r="25"/><circle cx="125.51" cy="447.6" r="25"/><circle cx="44.87" cy="199.4" r="25"/></g><circle cx="256" cy="278" r="54" fill="#D97757"/></svg>
+  <svg class="mark" viewBox="0 0 512 512" width="52" height="52" aria-hidden="true" focusable="false"><g fill="none" stroke="#17383F" stroke-linecap="round" stroke-linejoin="round"><circle cx="256" cy="268" r="222" stroke-width="7"/><path d="M212 395.82 L163.13 395.82 L105.73 219.18 L256 110 L406.27 219.18 L348.87 395.82 L300 395.82" stroke-width="28"/></g><g fill="#17383F"><circle cx="256" cy="46" r="25"/><circle cx="467.13" cy="199.4" r="25"/><circle cx="386.49" cy="447.6" r="25"/><circle cx="125.51" cy="447.6" r="25"/><circle cx="44.87" cy="199.4" r="25"/></g><circle cx="256" cy="278" r="54" fill="#B88946"/></svg>
   <h1>بيت الفؤاد</h1>
   <p class="sub">دخول إلى قسم خاص</p>
   ${msg}
