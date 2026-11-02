@@ -1,4 +1,4 @@
-/* بيت الفؤاد — الشريط الموحّد (bfs v1).
+/* بيت الفؤاد — الشريط الموحّد (bfs v2).
    ملف واحد متطابق في المستودعات الثلاثة (baytalfuad و masarcare-health و isharataljasad).
    يبني الشريط العلوي الثابت: الشعار، ثم المسار، ثم الصفحة الحالية، ثم تنقّل المسار والبحث والقائمة.
    لا يغيّر المحتوى: يُخفي الترويسة القديمة ويُبقي أزرارها حيّة، فكل زر في الشريط يضغط زرها الأصلي.
@@ -9,9 +9,9 @@
   const me = document.currentScript;
   const BASE = new URL('.', (me && me.src) || new URL('/shell/bf-shell.js', location.href));
   const host = location.hostname;
-  const SITE = (me && me.dataset.bfSite) || (/masarcare\.health$/.test(host) ? 'masar' : /isharataljasad\.com$/.test(host) ? 'ishara' : 'bayt');
+  const SITE = (me && me.dataset.bfSite) || (/masarcare\.health$/.test(host) ? 'masar' : /isharataljasad\.com$/.test(host) ? 'ishara' : /^sakan\./.test(host) ? 'sakan' : 'bayt');
 
-  let ORIGINS = { bayt: 'https://baytalfuad.com', masar: 'https://www.masarcare.health', ishara: 'https://www.isharataljasad.com' };
+  let ORIGINS = { bayt: 'https://baytalfuad.com', masar: 'https://www.masarcare.health', ishara: 'https://www.isharataljasad.com', sakan: 'https://sakan.baytalfuad.com' };
   // Local testing only: sessionStorage may point the three origins at localhost servers.
   try {
     const o = JSON.parse(sessionStorage.getItem('bfs-origins') || 'null');
@@ -23,31 +23,35 @@
   const local = (u) => (u.startsWith(here + '/') ? u.slice(here.length) : u);
   const B = ORIGINS.bayt;
 
+  // الأركان الخمسة: الاسم والرابط ولون الركن (من /ds/bf-tokens.css). المصدر: portal/arkan.mjs.
   const SECTIONS = {
-    home: { label: '', root: B + '/', accent: '#D97757' },
-    sleep: { label: 'ركن النوم', root: B + '/sleep', accent: '#A99BD0' },
-    movement: { label: 'الحركة', root: B + '/movement/', accent: '#D99A73' },
-    semester: { label: 'الفصل الأول', root: B + '/ilm-sinaa/student/semester-1/', accent: '#D6A452' },
-    ilm: { label: 'العلم والعمل', root: B + '/ilm-sinaa/', accent: '#D6A452' },
-    masar: { label: 'مسار كير', root: ORIGINS.masar + '/', accent: '#93B98F' },
-    ishara: { label: 'القرآن والتدبر', root: ORIGINS.ishara + '/', accent: '#8DB4CE' },
+    home: { label: '', root: B + '/', accent: '#176B64' },
+    food: { label: 'الغذاء والصحة', root: B + '/food', accent: '#9A571B' },
+    sleep: { label: 'النوم', root: B + '/sleep', accent: '#62559B' },
+    movement: { label: 'الحركة والتمارين', root: B + '/movement', accent: '#176B64' },
+    connection: { label: 'الصلة والسكن', root: B + '/connection', accent: '#A45D48' },
+    work: { label: 'العلم والعمل', root: B + '/ilm-sinaa', accent: '#5D743E' },
+    my: { label: 'لوحتي', root: B + '/my', accent: '#176B64' },
   };
   const SYSTEM = [
-    { key: 'home', label: 'الرئيسية', sub: 'بيت الفؤاد', href: B + '/' },
-    { key: 'masar', label: 'الغذاء والجسد', sub: 'مسار كير', href: ORIGINS.masar + '/' },
-    { key: 'sleep', label: 'النوم', sub: 'ركن النوم', href: B + '/sleep' },
-    { key: 'movement', label: 'الحركة', sub: 'قوّتها', href: B + '/movement/' },
-    { key: 'semester', label: 'العلم والعمل', sub: 'الفصل الأول', href: B + '/ilm-sinaa/student/semester-1/' },
-    { key: 'ishara', label: 'الصلة', sub: 'القرآن والتدبر', href: ORIGINS.ishara + '/' },
+    { key: 'home', label: 'الرئيسية', sub: 'الأركان الخمسة', href: B + '/' },
+    { key: 'food', label: 'الغذاء والصحة', sub: 'برنامج ٩٠ يومًا والإشارات', href: B + '/food' },
+    { key: 'sleep', label: 'النوم', sub: 'برنامج ثمانية أسابيع', href: B + '/sleep' },
+    { key: 'movement', label: 'الحركة والتمارين', sub: 'سلم القوة والمخطط', href: B + '/movement' },
+    { key: 'connection', label: 'الصلة والسكن', sub: 'التدبر والبيت والعلاقات', href: B + '/connection' },
+    { key: 'work', label: 'العلم والعمل', sub: 'السنة الأولى والمواقف', href: B + '/ilm-sinaa' },
+    { key: 'my', label: 'لوحتي', sub: 'خطتي وبياناتي', href: B + '/my' },
   ];
-
   function sectionKey() {
-    if (SITE !== 'bayt') return SITE;
+    if (SITE === 'masar') return 'food';
+    if (SITE === 'ishara' || SITE === 'sakan') return 'connection';
     const p = location.pathname;
     if (/^\/sleep(\/|$)/.test(p)) return 'sleep';
     if (/^\/movement(\/|$)/.test(p)) return 'movement';
-    if (/^\/ilm-sinaa\/student\/semester-1(\/|$)/.test(p)) return 'semester';
-    if (/^\/ilm-sinaa(\/|$)/.test(p)) return 'ilm';
+    if (/^\/(ilm-sinaa|student-os)(\/|$)/.test(p)) return 'work';
+    if (/^\/food(\/|$)/.test(p)) return 'food';
+    if (/^\/connection(\/|$)/.test(p)) return 'connection';
+    if (/^\/(my|data)(\/|$)/.test(p)) return 'my';
     return 'home';
   }
   const SKEY = sectionKey();
@@ -223,7 +227,7 @@
 
     menuNav = h('ul', { class: 'bfs-m-list' });
     menuTools = h('ul', { class: 'bfs-m-list' });
-    const sys = h('ul', { class: 'bfs-m-sys' }, SYSTEM.map((x) => h('li', {}, h('a', { href: local(x.href), class: 'bfs-m-sys-a', 'data-key': x.key, ...(x.key === SKEY || (x.key === 'semester' && SKEY === 'ilm') ? { 'aria-current': 'true' } : {}) },
+    const sys = h('ul', { class: 'bfs-m-sys' }, SYSTEM.map((x) => h('li', {}, h('a', { href: local(x.href), class: 'bfs-m-sys-a', 'data-key': x.key, ...(x.key === SKEY ? { 'aria-current': 'true' } : {}) },
       h('span', { class: 'bfs-dot', 'aria-hidden': 'true', style: `--bfs-path:${(SECTIONS[x.key] || SECTIONS.home).accent}` }),
       h('span', { class: 'bfs-m-sys-t' }, h('strong', { text: x.label }), h('small', { text: x.sub }))))));
     menu = h('div', { class: 'bfs-menu', id: 'bfs-menu', dir: 'rtl', lang: 'ar', hidden: true },
@@ -285,7 +289,7 @@
     menuNav.closest('section').hidden = !model.nav.length;
     menuTools.closest('section').hidden = !tools.length;
     const theme = model.tools.find((x) => x.kind === 'theme');
-    themeBtn.hidden = !theme;
+    themeBtn.hidden = true; // مظهر واحد فاتح في bf-ds v2
     if (theme) { const el = theme.get(); const l = clean(el && (el.getAttribute('aria-label') || el.getAttribute('title') || el.textContent)) || 'تبديل المظهر'; themeBtn.setAttribute('aria-label', l); themeBtn.title = l; }
     const p = pageLabel();
     crumbPage.textContent = p;
