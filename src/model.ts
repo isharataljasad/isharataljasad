@@ -44,15 +44,15 @@ export function parseJourney(raw: unknown): Journey {
   if (!d.implemented && d.step>5) d.step=5;
   return d;
 }
-export const stepTitles = ['','نتعارف أولًا','هدفي المهني','المهمة التعليمية','خطة التطبيق','بطاقة التطبيق','وصف التنفيذ','أدلتي من الصف','استجابة الطلاب','النجاح والتحديات','من التجربة إلى المفهوم','أراجع هدفي','خطوتي القادمة','مراجعة اكتمال تقريري','تقريري النهائي'];
-export const stations = [{title:'هدفي المهني',subtitle:'أحدد وجهتي',from:1,to:2}, {title:'أخطط لتطبيقي',subtitle:'أحوّل الفكرة إلى ممارسة',from:3,to:5}, {title:'أوثّق تجربتي',subtitle:'أجمع ما يستحق التأمل',from:6,to:8}, {title:'أتأمل وأطوّر',subtitle:'أتعلم وأخطو للأمام',from:9,to:14}];
+export const stepTitles = ['','نتعارف أولًا','هدفي المهني','أصمّم سلم تقديري','خطة التطبيق','بطاقة التطبيق','وصف التنفيذ','أدلتي من الصف','استجابة الطلاب','النجاح والتحديات','من التجربة إلى المفهوم','أراجع هدفي','خطوتي القادمة','مراجعة اكتمال تقريري','تقريري النهائي'];
+export const stations = [{title:'هدفي المهني',subtitle:'أحدد وجهتي',from:1,to:2}, {title:'أصمّم سلم تقديري',subtitle:'أبني معايير واضحة',from:3,to:5}, {title:'أوثّق تجربتي',subtitle:'أجمع ما يستحق التأمل',from:6,to:8}, {title:'أتأمل وأطوّر',subtitle:'أتعلم وأخطو للأمام',from:9,to:14}];
 export const stationIndex = (step: number) => Math.max(0,stations.findIndex(s=>step>=s.from&&step<=s.to));
 export function stepErrors(d: Journey, step: number): string[] {
   const missing: string[]=[];
   const need=(key: TextKey,label:string)=>{ if(!d[key].trim()) missing.push(label); };
   if(step===1) {need('name','اسم المعلم');need('school','المدرسة');need('subject','المادة الدراسية');need('stage','المرحلة الدراسية');need('grade','الصف الدراسي');}
   if(step===2) {need('goal','الهدف الشخصي');need('rationale','مبررات اختيار الهدف');}
-  if(step===3) {need('taskTitle','عنوان المهمة');need('taskDescription','وصف المهمة');need('taskType','نوع المهمة');if(d.taskType==='أخرى')need('otherTask','توضيح ارتباط المهمة بالاستقصاء أو المشروع');}
+  if(step===3) {need('taskDescription','وصف المهمة');need('tool','نوع التقويم');}
   if(step===4) {need('tool','أداة التقويم');need('plan','خطة استخدام الأداة');}
   if(step===5&&!d.implemented) missing.push('الإقرار بتنفيذ المهمة فعليًا قبل توثيق النتائج');
   if(step===6) need('execution','وصف التنفيذ الفعلي');
