@@ -1,1 +1,86 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="#17324d"/><meta name="description" content="رحلة مهنية للمعلم من التخطيط للتطبيق الصفي إلى توثيق الأدلة والتأمل وتطوير الممارسة."/><title>رحلة المعلم | من التخطيط إلى التأمل</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صوتك | تصويت مباشر</title>
+<style>
+:root{font-family:Tahoma,Arial,sans-serif;color:#172b35;background:#f3f5f1}*{box-sizing:border-box}body{margin:0}main{max-width:760px;margin:auto;padding:48px 22px}header{display:flex;justify-content:space-between;align-items:center;color:#406457}.brand{font-weight:bold;font-size:24px}.badge{font-size:13px;background:#e0eade;padding:9px 13px;border-radius:30px}article{margin-top:44px;background:white;border:1px solid #dce4d9;border-radius:24px;padding:32px;box-shadow:0 15px 50px #24412208}.eyebrow{font-size:13px;color:#718273}h1{font-size:32px;line-height:1.6;margin:10px 0 22px}button{font:inherit;cursor:pointer}.option{display:block;width:100%;text-align:right;border:1px solid #dce4d9;background:#fff;border-radius:14px;padding:18px;margin:12px 0;color:inherit}.option:hover:not(:disabled){border-color:#36765b;background:#f3f8f2}.option:disabled{cursor:default}.option.selected{border:2px solid #36765b;background:#f0f7ef}.row{display:flex;justify-content:space-between;gap:15px}.track{height:8px;background:#e9eee6;border-radius:9px;margin-top:14px;overflow:hidden}.fill{height:100%;width:0;background:#508b67;border-radius:9px;transition:width .4s}footer{margin-top:24px;color:#6a7e70;font-size:13px;line-height:1.8}.status{line-height:1.8;color:#56705d;min-height:28px}a{color:#27624c}.controls{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px}.error{color:#9b3939}@media(max-width:520px){main{padding:24px 16px}article{padding:22px;margin-top:28px}h1{font-size:26px}}
+</style>
+</head><body><main><header><span class="brand">صوتك.</span><span class="badge" id="connection">جارٍ الاتصال</span></header>
+<article><div class="eyebrow" id="mode">مساحة لكل رأي</div><h1 id="question"></h1><div id="options"></div><p id="status" class="status" role="status" aria-live="polite"></p><div class="row"><span>إجمالي الأصوات</span><strong id="total">—</strong></div></article>
+<div class="controls"><a href="?view=results">عرض النتائج على الشاشة</a><a href="?">صفحة المشاركين</a><button id="share" type="button">نسخ رابط التصويت</button></div>
+<footer>تُحدَّث النتائج تلقائيًا عند وصول الأصوات. يُحفظ صوت واحد لكل هوية متصفح؛ استخدام متصفح آخر أو مسح بياناته قد يتيح التصويت مجددًا.</footer></main>
+<script>// Replace these values with the Firebase web app configuration.
+window.VOTE_CONFIG = {
+  firebase: { apiKey: 'AIzaSyBZBSYxOe5qcDnvnCY1nXIUWs0hwwEyxdE', authDomain: 'class-live-vote.firebaseapp.com', databaseURL: 'https://class-live-vote-default-rtdb.firebaseio.com', projectId: 'class-live-vote', appId: '1:989578171142:web:71318e9d8320cf59ffc487' },
+  pollId: 'class-poll',
+  question: 'ما رأيك؟',
+  options: [ { id: 'a', label: 'الخيار الأول' }, { id: 'b', label: 'الخيار الثاني' }, { id: 'c', label: 'الخيار الثالث' } ]
+};
+</script><script type="module">import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js';
+import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js';
+import { getDatabase, ref, onValue, runTransaction } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js';
+const cfg = window.VOTE_CONFIG;
+const el = id => document.getElementById(id);
+const resultsOnly = new URLSearchParams(location.search).get('view') === 'results';
+const buttons = new Map();
+let uid, db, votes = {}, submitting = false, ready = false, online = false;
+el('question').textContent = cfg.question;
+if (resultsOnly) el('mode').textContent = 'النتائج المباشرة';
+function render() {
+  const entries = Object.values(votes);
+  const total = entries.length;
+  const selected = uid && votes[uid]?.choice;
+  el('total').textContent = total.toLocaleString('ar');
+  for (const option of cfg.options) {
+    const ui = buttons.get(option.id);
+    const count = entries.filter(v => v.choice === option.id).length;
+    const percent = total ? Math.round(count / total * 100) : 0;
+    ui.count.textContent = `${count.toLocaleString('ar')} · ${percent.toLocaleString('ar')}٪`;
+    ui.fill.style.width = `${percent}%`;
+    ui.button.classList.toggle('selected', selected === option.id);
+    ui.button.disabled = resultsOnly || !ready || !online || submitting || !!selected;
+  }
+  if (selected) el('status').textContent = 'تم تسجيل صوتك. شكرًا لمشاركتك.';
+}
+for (const option of cfg.options) {
+  const button = document.createElement('button'); button.className = 'option'; button.disabled = true;
+  const row = document.createElement('div'); row.className = 'row';
+  const label = document.createElement('span'); label.textContent = option.label;
+  const count = document.createElement('span');
+  const track = document.createElement('div'); track.className = 'track';
+  const fill = document.createElement('div'); fill.className = 'fill';
+  row.append(label, count); track.append(fill); button.append(row, track); el('options').append(button);
+  buttons.set(option.id, { button, count, fill });
+  button.addEventListener('click', async () => {
+    if (!ready || !online || submitting || votes[uid]) return;
+    submitting = true; el('status').textContent = 'جارٍ تسجيل صوتك…'; render();
+    try {
+      await runTransaction(ref(db, `polls/${cfg.pollId}/votes/${uid}`), current => current === null ? { choice: option.id } : undefined, { applyLocally: false });
+      el('status').textContent = 'تم تسجيل صوتك. شكرًا لمشاركتك.';
+    } catch { el('status').textContent = 'تعذّر تسجيل الصوت. تحقق من الاتصال وإعدادات التصويت.'; }
+    finally { submitting = false; render(); }
+  });
+}
+el('share').onclick = async () => {
+  try { const url = new URL(location.href); url.search = ''; url.hash = ''; await navigator.clipboard.writeText(url.href); el('status').textContent = 'تم نسخ رابط التصويت.'; }
+  catch { el('status').textContent = 'يمكنك نسخ رابط الصفحة من شريط العنوان.'; }
+};
+function fail(message) { ready = false; el('connection').textContent = 'غير متصل'; el('status').textContent = message; el('status').classList.add('error'); render(); }
+if (!cfg.firebase.apiKey || !cfg.firebase.databaseURL) {
+  fail('الصفحة جاهزة للتخصيص. يلزم ربط مشروع Firebase قبل استقبال الأصوات.');
+} else {
+  try {
+    const app = initializeApp(cfg.firebase); db = getDatabase(app);
+    uid = (await signInAnonymously(getAuth(app))).user.uid;
+    onValue(ref(db, '.info/connected'), snapshot => { online = snapshot.val() === true; el('connection').textContent = online ? 'متصل مباشرة' : 'انقطع الاتصال'; render(); });
+    onValue(ref(db, `polls/${cfg.pollId}/votes`), snapshot => {
+      votes = snapshot.val() || {}; ready = true;
+      el('status').textContent = resultsOnly ? 'تصل الأصوات هنا تلقائيًا.' : 'اختر إجابة واحدة للمشاركة.';
+      render();
+    }, () => fail('تعذّر قراءة النتائج. تحقق من قواعد قاعدة البيانات.'));
+  } catch { fail('تعذّر الاتصال. تحقق من إعدادات Firebase وتفعيل الدخول المجهول.'); }
+}
+</script>
+</body></html>
+
+
