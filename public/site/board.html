@@ -416,7 +416,7 @@ function tips(root){
 /* ---------- التنقل بين العروض ---------- */
 function show(v){
   view=v;store.set('view',v);
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));
+  document.querySelectorAll('.tab').forEach(t=>{const active=t.dataset.v===v;t.classList.toggle('on',active);t.setAttribute('aria-selected',String(active))});
   ['pre','post','cmp'].forEach(k=>$('v-'+k).classList.toggle('on',k===v));
   if(v==='cmp')paintCmp();else paintLive(v);
   requestAnimationFrame(()=>L.draw($('v-'+v)));
@@ -502,4 +502,3 @@ if(document.fonts)document.fonts.ready.then(()=>L.draw(document));
 </script>
 </body>
 </html>
-

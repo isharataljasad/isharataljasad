@@ -271,7 +271,7 @@ async function live(cfg){
   let uid=user.uid; const R=p=>fb.ref(db,p==='.info/connected'?p:'lxd/'+p);
   const sub=(p,cb,err)=>fb.onValue(R(p),s=>cb(s.val()),e=>{if(err)err(e);else console.warn(p,e)});
   return {
-    mode:'live',uid,
+    mode:'live',get uid(){return uid},
     onConn:cb=>sub('.info/connected',v=>cb(!!v)),
     onLive:(cb,err)=>sub('live',v=>cb(v||null),err),
     vote:(act,o)=>fb.set(R('votes/'+act+'/'+uid),{o,t:fb.serverTimestamp()}),
@@ -288,8 +288,7 @@ async function live(cfg){
     onVotes:(act,cb,err)=>sub('votes/'+act,v=>cb(v||{}),err),
     onHere:(cb,err)=>sub('here',v=>cb(v?Object.keys(v).length:0),err),
     setLive:(act,open)=>fb.set(R('live'),{act,open,at:fb.serverTimestamp()}),
-    clear:async()=>{const snapshot=await fb.get(R('votes'));const patch={votes:null,live:{act:'none',open:false,at:fb.serverTimestamp()}};if(snapshot.exists())patch['archives/'+Date.now()]=snapshot.val();await fb.update(R(''),patch)}
+    clear:async()=>{await fb.set(R('live'),{act:'none',open:false,at:fb.serverTimestamp()});const snapshot=await fb.get(R('votes'));const patch={votes:null,live:{act:'none',open:false,at:fb.serverTimestamp()}};if(snapshot.exists())patch['archives/'+Date.now()]=snapshot.val();await fb.update(R(''),patch)}
   };
 }
 })();
-
