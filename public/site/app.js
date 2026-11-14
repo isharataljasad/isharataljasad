@@ -277,14 +277,14 @@ async function live(cfg){
     vote:(act,o)=>fb.set(R('votes/'+act+'/'+uid),{o,t:fb.serverTimestamp()}),
     onMine:(act,cb)=>sub('votes/'+act+'/'+uid,v=>cb(v&&v.o||null)),
     here(){const r=R('here/'+uid);sub('.info/connected',v=>{if(v)fb.onDisconnect(r).remove().then(()=>fb.set(r,true)).catch(()=>{})})},
-    admin:async interactive=>{
-      if(interactive){
-        const provider=new fb.GoogleAuthProvider();
-        const result=await fb.signInWithPopup(auth,provider);
+    admin:async credentials=>{
+      if(credentials){
+        const result=await fb.signInWithEmailAndPassword(auth,credentials.email,credentials.password);
         uid=result.user.uid;
       }
       try{await fb.get(R('access'));return true}catch(e){return false}
     },
+    logout:async()=>{await fb.signOut(auth);location.reload()},
     onVotes:(act,cb,err)=>sub('votes/'+act,v=>cb(v||{}),err),
     onHere:(cb,err)=>sub('here',v=>cb(v?Object.keys(v).length:0),err),
     setLive:(act,open)=>fb.set(R('live'),{act,open,at:fb.serverTimestamp()}),

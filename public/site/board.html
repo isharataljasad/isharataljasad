@@ -181,7 +181,8 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .lcard{width:520px;padding:30px 34px 28px}
 .lcard h3{font-family:var(--f-d);font-size:28px;margin:0 0 6px;display:flex;align-items:center;gap:10px}
 .lcard p{margin:0;font-size:16.5px;line-height:1.75;color:var(--ink2)}
-.lcard form{display:flex;gap:10px;margin-top:18px}
+.lcard form{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .lcard input{flex:1;height:48px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;padding:0 14px;font:500 17px var(--f-b);background:#fff}
 .lcard button{height:48px;padding:0 22px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:var(--ink);color:#fff;font-size:16px;font-weight:600}
 .lcard .err{min-height:24px;margin-top:10px;font-size:15px;color:#C2253B;font-weight:600}
@@ -238,8 +239,8 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 <div class="login" id="login" role="dialog" aria-label="الدخول إلى لوحة المقدّمة">
   <div class="lcard sk" data-sk="box">
     <h3 id="lt-h"></h3>
-    <p>دخول لوحة المقدّمة متاح لحساب Google المالك فقط. المشاركون لا يحتاجون إلى تسجيل دخول.</p>
-    <form id="lform"><button type="submit">الدخول بحساب Google المالك</button></form>
+    <p>أدخل بريد حساب الإدارة وكلمة المرور. المشاركون لا يحتاجون إلى تسجيل دخول.</p>
+    <form id="lform" style="flex-wrap:wrap"><label for="lemail" class="sr-only">البريد الإلكتروني</label><input id="lemail" type="email" autocomplete="username" required placeholder="البريد الإلكتروني" dir="ltr"><label for="lpass" class="sr-only">كلمة المرور</label><input id="lpass" type="password" autocomplete="current-password" required placeholder="كلمة المرور"><button type="submit">دخول</button></form>
     <div class="err" id="lerr" role="alert"></div>
   </div>
 </div>
@@ -445,13 +446,14 @@ function menu(){
    <div class="mgrid"><div class="mqr sk" data-sk="box">${L.qrSVG(partURL,240)}<em>${L.esc(partURL)}</em><button data-copy>${L.ic('copy')} نسخ رابط المشاركين</button></div>
     <div class="mtools">
      <div class="grp"><span>أرسلي رابط المشاركين في دردشة المحاضرة، ولا ترسلي رابط هذه اللوحة.</span></div>
-     <div class="grp"><span>قبل المحاضرة</span><div class="row">${demo?`<button data-demo>${L.ic('flask')} إضافة أصوات تجريبية</button>`:''}<button class="warn" data-clear>${L.ic('trash')} بدء جلسة جديدة</button></div></div>
+     <div class="grp"><span>قبل المحاضرة</span><div class="row">${demo?`<button data-demo>${L.ic('flask')} إضافة أصوات تجريبية</button>`:''}<button class="warn" data-clear>${L.ic('trash')} بدء جلسة جديدة</button>${demo?'':'<button data-logout>تسجيل الخروج</button>'}</div></div>
      <div class="grp"><span>الاختصارات</span><div class="keys"><kbd>1</kbd><span>التصويت الأول</span><kbd>2</kbd><span>التصويت الثاني</span><kbd>3</kbd><span>المقارنة، والسهمان للتبديل بين طريقتيها</span><kbd>Q</kbd><span>رمز الدخول بحجم كبير</span><kbd>F</kbd><span>ملء الشاشة</span><kbd>Esc</kbd><span>إغلاق هذه النافذة</span></div></div>
     </div></div>`;
   m.classList.add('on');L.draw(m);
   m.querySelector('[data-x]').onclick=()=>m.classList.remove('on');
   m.querySelector('[data-copy]').onclick=()=>{(navigator.clipboard?navigator.clipboard.writeText(partURL):Promise.reject()).then(()=>toast('نُسخ رابط المشاركين')).catch(()=>toast(partURL))};
   const sd=m.querySelector('[data-demo]');if(sd)sd.onclick=()=>{S.seed();toast('أُضيفت أصوات تجريبية إلى التصويتين')};
+  const logout=m.querySelector('[data-logout]');if(logout)logout.onclick=()=>S.logout().catch(()=>toast('تعذّر تسجيل الخروج'));
   const cl=m.querySelector('[data-clear]');cl.onclick=()=>{if(!cl.classList.contains('arm')){cl.classList.add('arm');cl.lastChild.textContent=' اضغطي مرة أخرى للتأكيد';setTimeout(()=>{if(cl.isConnected){cl.classList.remove('arm');cl.lastChild.textContent=' بدء جلسة جديدة'}},4000);return}
     S.clear().then(()=>{drawn={pre:0,post:0};['pre','post'].forEach(r=>$('v-'+r).querySelector('[data-cr]').innerHTML='');toast('حُفظت الجلسة السابقة وبدأت جلسة جديدة');m.classList.remove('on')}).catch(()=>toast('تعذّر المسح'))};
 }
@@ -490,9 +492,10 @@ L.connect().then(async s=>{
     e.preventDefault();$('lerr').textContent='';
     const button=$('lform').querySelector('button');button.disabled=true;
     try{
-      if(await S.admin(true)){lg.classList.remove('on');start();toast('مرحبًا بك في لوحة المقدّمة')}
-      else $('lerr').textContent='هذا الحساب غير مخوّل بإدارة التصويت. استخدم حساب Google المالك.';
-    }catch(error){$('lerr').textContent=error.code==='auth/unauthorized-domain'?'يلزم اعتماد نطاق الموقع في إعدادات Firebase.':'تعذّر تسجيل الدخول. أعد المحاولة واسمح بنافذة Google.'}
+      const credentials={email:$('lemail').value.trim(),password:$('lpass').value};
+      if(await S.admin(credentials)){$('lpass').value='';lg.classList.remove('on');start();toast('مرحبًا بك في لوحة المقدّمة')}
+      else $('lerr').textContent='هذا الحساب غير مخوّل بإدارة التصويت.';
+    }catch(error){$('lerr').textContent=error.code==='auth/too-many-requests'?'محاولات كثيرة. انتظر قليلًا ثم حاول مجددًا.':'تعذّر الدخول. تحقق من البريد وكلمة المرور واتصالك بالإنترنت.'}
     finally{button.disabled=false}
   };
 }).catch(e=>{console.error(e);toast('تعذّر الاتصال بقاعدة البيانات. راجعي إعدادات config.js');
