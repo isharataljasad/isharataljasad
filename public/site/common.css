@@ -1,0 +1,151 @@
+/* الهوية نفسها في العرض: الخطوط والألوان والشخصية */
+@font-face{font-family:"Plex Ar";font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Plex Ar";font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Plex Ar";font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Plex Ar";font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:"Plex Ar";font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-200B,U+200F-206F}
+@font-face{font-family:"Plex Ar";font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-200B,U+200F-206F}
+@font-face{font-family:"Plex Ar";font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-200B,U+200F-206F}
+@font-face{font-family:"Kufi";font-weight:700;font-display:swap;src:url(fonts/noto-kufi-arabic-arabic-700-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+:root{
+  --paper:#FAF9F5;--dot:#DCD9CF;--ink:#1F2430;--ink2:#3B4150;--mut:#6E7280;
+  --yel:#FFD84D;--mint:#7FE0C2;--pink:#FF9FB4;--sky:#8FB9FF;--pen:#2F5BEA;--before:#8A90A2;
+  --f-d:"Kufi","Plex Ar",sans-serif;--f-b:"Plex Ar",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.75,.2,1);
+}
+*{box-sizing:border-box}
+bdi{unicode-bidi:isolate}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+svg.ic{width:1em;height:1em;stroke-width:1.8;flex:none}
+.sk{position:relative;isolation:isolate}
+svg.rough{position:absolute;pointer-events:none;overflow:visible;z-index:-1}
+.mk{position:relative;display:inline-block;isolation:isolate;padding:0 .12em}
+.kick{display:inline-flex;align-items:center;gap:10px;font-size:16px;color:var(--mut);margin:0}
+.kick i{width:30px;height:3px;border-radius:2px;background:var(--ink);transform:rotate(-4deg)}
+.lt{width:40px;height:40px;border:2.4px solid var(--ink);border-radius:52% 46% 50% 48%;background:#fff;font-family:var(--f-d);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;flex:none;transition:background-color .3s}
+svg.dgs{display:block;width:100%;height:100%;overflow:visible}
+.demo-tag{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#8A5A00;background:#FFF5C9;border:1.6px dashed #C9A227;border-radius:999px;padding:2px 10px 3px}
+/* stick figure (the learner) */
+.fig{overflow:visible;filter:url(#boil)}
+.fig .ln{stroke:var(--ink);stroke-width:3.3;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.fig .fill{fill:#fff}
+.fig .dotf{fill:var(--ink)}
+.fig .fln{stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.fig .vein{stroke:#E5484D;stroke-width:2.8;stroke-linecap:round;fill:none}
+.fig .props,.fig .pen,.fig .qm,.fig .xmarks,.fig .tie,.fig .speed,.fig .dust{display:none}
+.fig.tie-on .tie{display:inline}
+.fig.sit .props.write,.fig.sit .pen{display:inline}
+.fig.scratch .qm{display:inline;animation:qb 1.6s ease-in-out infinite}
+@keyframes qb{50%{transform:translateY(-4px)}}
+.fig.cross .xmarks{display:inline}
+.fig g.p{transform-box:view-box;transition:transform .6s var(--ease)}
+.fig .aL{transform:rotate(var(--aL,9deg))}.fig .fL{transform:rotate(var(--fL,4deg))}
+.fig .aR{transform:rotate(var(--aR,-9deg))}.fig .fR{transform:rotate(var(--fR,-4deg))}
+.fig .lL{transform:rotate(var(--lL,4deg))}.fig .sL{transform:rotate(var(--sL,0deg))}
+.fig .lR{transform:rotate(var(--lR,-4deg))}.fig .sR{transform:rotate(var(--sR,0deg))}
+.fig .hd{transform:rotate(var(--hd,0deg))}
+.fig.flipx{transform:scaleX(-1)}
+.fig .marks{opacity:0;transition:opacity .3s}
+.fig.wave{--aR:-110deg;--fR:-55deg;--aL:9deg}
+.fig.wave .fR{animation:wave .9s ease-in-out infinite alternate}
+@keyframes wave{from{transform:rotate(-35deg)}to{transform:rotate(-75deg)}}
+.fig.raise{--aR:-135deg;--fR:-35deg;--aL:35deg;--fL:-67deg;--hd:-4deg}
+.fig.raise .aR{animation:raise 1.6s ease-in-out infinite}
+@keyframes raise{50%{transform:rotate(-142deg)}}
+.fig.think{--aR:-45deg;--fR:-162deg;--aL:30deg;--fL:-120deg;--hd:6deg}
+.fig.think .hd{animation:nod 3.2s ease-in-out infinite}
+@keyframes nod{50%{transform:rotate(11deg)}}
+.fig.point{--aR:-82deg;--fR:-4deg;--aL:35deg;--fL:-67deg;--hd:4deg}
+.fig.point .aR{animation:jab 1.4s ease-in-out infinite}
+@keyframes jab{50%{transform:rotate(-89deg)}}
+.fig.scratch{--aR:-140deg;--fR:-57deg;--aL:35deg;--fL:-67deg;--hd:5deg}
+.fig.scratch .fR{animation:scr .35s ease-in-out infinite alternate}
+@keyframes scr{from{transform:rotate(-50deg)}to{transform:rotate(-64deg)}}
+.fig.angry{--aL:35deg;--fL:-67deg;--aR:-35deg;--fR:67deg;--lL:9deg;--lR:-9deg;--hd:-3deg}
+.fig.angry .body{animation:stomp .5s ease-in-out infinite alternate}
+@keyframes stomp{to{transform:translateY(-3px)}}
+.fig.shock{--aL:125deg;--fL:35deg;--aR:-125deg;--fR:-35deg;--lL:5deg;--lR:-5deg;--hd:-4deg}
+.fig.shock .body{animation:jolt 1.8s ease-in-out infinite}
+@keyframes jolt{0%,70%,100%{transform:none}75%{transform:translateY(-6px)}80%{transform:translateY(0)}}
+.fig.scared{--aL:22deg;--fL:-140deg;--aR:-22deg;--fR:140deg;--lL:6deg;--sL:-10deg;--lR:-6deg;--sR:10deg;--hd:-6deg}
+.fig.scared .body{animation:shiver .12s linear infinite alternate}
+@keyframes shiver{from{transform:translateX(-1.2px)}to{transform:translateX(1.2px)}}
+.fig.cross{--aL:20deg;--fL:-115deg;--aR:-20deg;--fR:115deg;--lL:6deg;--lR:-6deg}
+.fig.sit{--lL:-85deg;--sL:85deg;--lR:-78deg;--sR:80deg;--aL:-35deg;--fL:-35deg;--aR:-50deg;--fR:0deg;--hd:10deg}
+.fig.sit .fR{animation:scribble .45s ease-in-out infinite alternate}
+@keyframes scribble{from{transform:rotate(4deg)}to{transform:rotate(-8deg)}}
+.fig.walk .marks{opacity:1}
+.fig.walk .lL{animation:legA .9s ease-in-out infinite}
+.fig.walk .lR{animation:legA .9s ease-in-out infinite reverse}
+.fig.walk .sL{animation:shin .9s ease-in-out infinite}
+.fig.walk .sR{animation:shin .9s ease-in-out infinite .45s}
+.fig.walk .aL{animation:armA .9s ease-in-out infinite reverse}
+.fig.walk .aR{animation:armA .9s ease-in-out infinite}
+.fig.walk .body{animation:bob .45s ease-in-out infinite alternate}
+@keyframes legA{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(22deg)}}
+@keyframes shin{0%,100%{transform:rotate(0deg)}25%{transform:rotate(30deg)}50%{transform:rotate(6deg)}}
+@keyframes armA{0%,100%{transform:rotate(-24deg)}50%{transform:rotate(24deg)}}
+@keyframes bob{to{transform:translateY(-4px)}}
+/* jump between points */
+.walker .hop{width:100%;height:100%}
+.fig.crouch{--lL:-34deg;--sL:62deg;--lR:-26deg;--sR:56deg;--aL:30deg;--fL:-20deg;--aR:-30deg;--fR:20deg}
+.fig.crouch .body{transform-box:view-box;transform-origin:74px 292px;transform:translateY(14px) scaleY(.94);transition:transform .14s}
+.fig.air{--lL:-48deg;--sL:78deg;--lR:-20deg;--sR:64deg;--aL:112deg;--fL:24deg;--aR:-112deg;--fR:-24deg;--hd:-6deg}
+.fig.air .speed{display:inline;opacity:.7}
+/* run and skid */
+.fig.run .speed{display:inline;animation:spd .25s linear infinite alternate}
+@keyframes spd{from{opacity:.4}to{opacity:1}}
+.fig.run .body{transform-box:view-box;transform-origin:74px 292px;animation:rB .34s ease-in-out infinite}
+@keyframes rB{0%,100%{transform:rotate(13deg)}50%{transform:rotate(13deg) translateY(-8px)}}
+.fig.run .lL{animation:rL .34s linear infinite}.fig.run .lR{animation:rL .34s linear infinite -.17s}
+.fig.run .sL{animation:rS .34s linear infinite}.fig.run .sR{animation:rS .34s linear infinite -.17s}
+.fig.run .aR{animation:rA .34s linear infinite}.fig.run .aL{animation:rA .34s linear infinite -.17s}
+.fig.run .fL,.fig.run .fR{transform:rotate(-95deg)}
+@keyframes rL{0%,100%{transform:rotate(38deg)}50%{transform:rotate(-52deg)}}
+@keyframes rS{0%{transform:rotate(12deg)}25%{transform:rotate(85deg)}50%{transform:rotate(18deg)}75%{transform:rotate(4deg)}100%{transform:rotate(12deg)}}
+@keyframes rA{0%,100%{transform:rotate(45deg)}50%{transform:rotate(-62deg)}}
+.fig.skid{--lR:-40deg;--sR:0deg;--lL:20deg;--sL:42deg;--aR:-128deg;--fR:-25deg;--aL:118deg;--fL:25deg}
+.fig.skid .body{transform-box:view-box;transform-origin:74px 292px;transform:rotate(-15deg);transition:transform .15s}
+.fig.skid .dust{display:inline;fill:#C9C5BA;animation:puff .45s ease-out forwards}
+@keyframes puff{from{opacity:1;transform:scale(.6)}to{opacity:0;transform:scale(1.4) translateY(-8px)}}
+.fig.skid .dust{transform-box:fill-box;transform-origin:center}
+/* goofy step-by-step walk: big knee lifts, stiff arms, bouncing body */
+.fig.goof .marks{opacity:1}
+.fig.goof .lL{animation:gL 1s linear infinite}
+.fig.goof .lR{animation:gL 1s linear infinite -.5s}
+.fig.goof .sL{animation:gS 1s linear infinite}
+.fig.goof .sR{animation:gS 1s linear infinite -.5s}
+.fig.goof .aR{animation:gA 1s linear infinite}
+.fig.goof .aL{animation:gA 1s linear infinite -.5s}
+.fig.goof .fL,.fig.goof .fR{transform:rotate(-12deg)}
+.fig.goof .body{animation:gB 1s ease-in-out infinite}
+.fig.goof .hd{animation:gH 1s ease-in-out infinite}
+@keyframes gL{0%{transform:rotate(8deg)}20%{transform:rotate(-64deg)}40%{transform:rotate(-14deg)}50%{transform:rotate(-4deg)}75%{transform:rotate(12deg)}100%{transform:rotate(8deg)}}
+@keyframes gS{0%{transform:rotate(0deg)}20%{transform:rotate(82deg)}40%{transform:rotate(8deg)}50%,100%{transform:rotate(0deg)}}
+@keyframes gA{0%{transform:rotate(12deg)}20%{transform:rotate(-58deg)}50%{transform:rotate(0deg)}70%{transform:rotate(38deg)}100%{transform:rotate(12deg)}}
+@keyframes gB{0%{transform:translateY(0)}20%{transform:translateY(-11px) rotate(-3deg)}42%{transform:translateY(3px)}50%{transform:translateY(0)}70%{transform:translateY(-11px) rotate(3deg)}92%{transform:translateY(3px)}100%{transform:translateY(0)}}
+@keyframes gH{0%,50%,100%{transform:rotate(0deg)}20%{transform:rotate(-9deg)}70%{transform:rotate(9deg)}}
+/* pre-vote: stacked options + undecided learner */
+.vq1{font-family:var(--f-d);font-weight:700;font-size:33px;line-height:1.55;margin:8px 0 0;white-space:nowrap}
+.vote .vlead{margin-top:4px}
+.vlist{position:absolute;top:246px;right:76px;width:660px;display:grid;gap:10px}
+.vr{display:grid;grid-template-columns:42px minmax(0,1fr) 150px;align-items:center;gap:18px;height:68px;padding:0 16px 0 14px;transition:transform .45s var(--ease)}
+.vr .lt{width:40px;height:40px;border:2.4px solid var(--ink);border-radius:52% 46% 50% 48%;background:#fff;font-family:var(--f-d);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background-color .35s}
+.vtx b{display:block;font-family:var(--f-d);font-weight:700;font-size:21px;line-height:1.35}
+.vtx span{display:block;font-size:16.5px;line-height:1.5;color:var(--ink2)}
+.dg3{display:block;width:150px;height:67px}
+.dg3 svg{width:150px;height:67px;overflow:visible}
+.vr.hov{transform:translateX(-10px)}
+.vr.hov .lt{background:var(--yel)}
+.vgl{position:absolute;left:190px;top:598px;width:260px;height:40px}
+.vfig2{position:absolute;left:250px;top:316px;width:140px;height:300px}
+.vfig2 .fig{width:140px;height:300px}
+.fig.ponder{--aL:140deg;--fL:57deg;--aR:var(--pa,-90deg);--fR:-8deg;--hd:var(--ph,0deg)}
+.fig.ponder .qm{display:inline;animation:qb 1.6s ease-in-out infinite}
+.fig.ponder .body{transform-box:view-box;transform-origin:74px 292px;animation:sway 2.8s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+.fig.ponder .fL{animation:scrL .38s ease-in-out infinite alternate}
+@keyframes scrL{from{transform:rotate(50deg)}to{transform:rotate(66deg)}}
+/* أدوات الشخصية التي لا نحتاجها هنا */
+.fig .nprops,.fig .clip,.fig .pdrop,.fig .pen2,.fig .qx{display:none}

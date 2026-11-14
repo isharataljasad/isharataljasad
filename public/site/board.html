@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>لوحة المقدّمة: التصويت والمقارنة</title>
+<link rel="stylesheet" href="common.css">
+<style>
+html,body{margin:0;height:100%;overflow:hidden}
+body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;align-items:center;justify-content:center}
+#fit{width:1280px;height:720px;flex:none}
+.stage{position:relative;width:1280px;height:720px;overflow:hidden;background-color:var(--paper);
+  background-image:radial-gradient(var(--dot) 1.1px,transparent 1.4px);background-size:26px 26px;background-position:13px 13px;box-shadow:0 30px 80px rgba(40,36,24,.18)}
+
+/* الشريط العلوي كما في العرض */
+.top{position:absolute;top:0;right:0;left:0;height:64px;display:flex;align-items:center;gap:18px;padding:0 34px;z-index:4}
+.brand{font-family:var(--f-d);font-weight:700;font-size:16px;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:30px}
+.tabs{flex:1;display:flex;justify-content:flex-end;gap:6px}
+.tab{position:relative;height:40px;padding:0 12px;border:0;background:none;font-size:15.5px;color:var(--mut);display:flex;align-items:center;gap:8px}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--ink);font-weight:600;background:linear-gradient(transparent 58%,rgba(255,216,77,.85) 58%,rgba(255,216,77,.85) 88%,transparent 88%) no-repeat 50% 0/100% 100%}
+.tab .live{display:none;width:9px;height:9px;border-radius:50%;background:#0E8F74;box-shadow:0 0 0 3px rgba(14,143,116,.18);animation:blink 1.6s ease-in-out infinite}
+.tab.isopen .live{display:inline-block}
+.tab kbd{font:600 11px var(--f-b);color:#A1A4AE;border:1.4px solid #D3D0C6;border-radius:5px;padding:0 4px;line-height:15px}
+@keyframes blink{50%{opacity:.35}}
+
+/* الشريط السفلي: الحالة والتحكم */
+.foot{position:absolute;bottom:14px;right:34px;left:34px;height:46px;display:flex;align-items:center;justify-content:space-between;z-index:4}
+.where{display:flex;align-items:center;gap:18px;font-size:15px;color:var(--mut)}
+.where b{font-weight:600;color:var(--ink2)}
+.lv{display:flex;align-items:center;gap:8px}
+.lv i{width:10px;height:10px;border-radius:50%;background:#B9BBC3}
+.lv.open i{background:#0E8F74;box-shadow:0 0 0 3px rgba(14,143,116,.18);animation:blink 1.6s ease-in-out infinite}
+.hc{display:flex;align-items:center;gap:6px}
+.hc svg.ic{font-size:18px}
+.ctl{display:flex;gap:8px}
+.ctl button{height:40px;min-width:42px;padding:0 13px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;display:flex;align-items:center;justify-content:center;gap:7px;font-size:15px;font-weight:600;transition:transform .2s}
+.ctl button svg.ic{font-size:17px}
+.ctl button:not(:disabled):hover{transform:rotate(-3deg) translateY(-2px)}
+.ctl button.go{background:var(--ink);color:#fff}
+.ctl button.cur{background:var(--yel);color:var(--ink)}
+.ctl button:disabled{opacity:.38;cursor:default}
+.ctl button.cur:disabled{opacity:1}
+.ctl .ico{padding:0;width:42px}
+.ctl .dot{width:9px;height:9px;border-radius:50%;background:#0E8F74;animation:blink 1.6s ease-in-out infinite}
+
+.view{position:absolute;inset:0;padding:96px 76px 80px;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s .45s}
+.view.on{opacity:1;visibility:visible;transition:opacity .5s var(--ease) .05s,visibility 0s}
+.h{font-family:var(--f-d);font-weight:700;font-size:44px;line-height:1.5;margin:6px 0 0}
+
+/* عرض التصويت المباشر */
+.lhead{display:flex;align-items:flex-start;gap:30px}
+.lhead .tx{flex:1;min-width:0}
+.lq{font-family:var(--f-d);font-weight:700;font-size:31px;line-height:1.6;margin:8px 0 0;text-wrap:balance}
+.llead{font-size:19px;color:var(--ink2);margin:4px 0 0}
+.qr2{display:flex;align-items:center;gap:16px;padding:12px 16px;width:330px;flex:none;margin-top:4px}
+.qr2 .qb{width:104px;height:104px;flex:none;display:flex;align-items:center;justify-content:center}
+.qr2 b{display:flex;align-items:center;gap:6px;font-size:18px}
+.qr2 span{display:block;font-size:15px;line-height:1.6;color:var(--ink2);margin-top:4px}
+.qr2 em{display:block;font-style:normal;font-size:13.5px;color:var(--mut);margin-top:4px;direction:ltr;text-align:right;word-break:break-all}
+.lrow{position:absolute;top:300px;right:76px;left:76px;height:322px;display:flex;gap:30px}
+.count{width:280px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:18px 18px 20px;height:236px}
+.count small{font-size:17px;color:var(--mut);font-weight:600}
+.count .num{font-family:var(--f-b);font-weight:700;font-size:112px;line-height:1.05;font-variant-numeric:tabular-nums}
+.count .num.bump{animation:bump .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{40%{transform:scale(1.14)}}
+.stt{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 6px;font-size:15.5px;font-weight:600;margin-top:6px}
+.stt i{width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.stt.open i{background:#0E8F74;animation:blink 1.6s ease-in-out infinite}
+.reveal{position:absolute;right:0;top:254px;width:280px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.reveal button{height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.reveal button svg.ic{font-size:18px}
+.reveal small{font-size:13.5px;color:var(--mut)}
+.arena{position:relative;flex:1;min-width:0}
+.arena .lfig{position:absolute;left:0;bottom:16px;width:112px;height:240px}
+.arena .lfig .fig{width:112px;height:240px}
+.crowd{position:absolute;left:126px;bottom:16px;width:692px;height:260px;overflow:visible}
+.crowd .mf{transform-box:fill-box;transform-origin:50% 100%}
+.crowd .mf.pop{animation:pop .6s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{0%{opacity:0;transform:translateY(-30px) scale(.4)}100%{opacity:1;transform:none}}
+.crowd .bob{animation:mfBob 2.4s ease-in-out infinite;animation-delay:var(--md)}
+@keyframes mfBob{0%,100%{transform:none}50%{transform:translateY(-3px)}}
+.agl{position:absolute;left:0;right:0;bottom:4px;height:20px;overflow:visible}
+.more{position:absolute;left:126px;top:0;font-size:16px;font-weight:600;color:var(--ink2)}
+.empty{position:absolute;left:126px;right:0;top:110px;text-align:center;font-size:19px;color:var(--mut);margin:0}
+.bars{position:absolute;inset:0 0 0 0;display:none;flex-direction:column;justify-content:center;gap:12px;padding-left:126px}
+.arena.shown .bars{display:flex}
+.arena.shown .crowd,.arena.shown .more,.arena.shown .empty{display:none}
+.br{display:grid;grid-template-columns:40px 110px minmax(0,1fr) 120px;align-items:center;gap:14px;height:48px}
+.br b{font-family:var(--f-d);font-weight:700;font-size:19px}
+.br .tk{position:relative;height:30px}
+.br .tk svg{position:absolute;inset:-6px;overflow:visible}
+.br .vl{font-size:17px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.br .vl b{font-family:var(--f-b);font-size:19px;color:var(--ink)}
+
+/* المقارنة */
+.chead{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.cstats{margin:2px 0 0;font-size:17px;color:var(--mut)}
+.cstats b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.seg{display:flex;gap:6px;margin-top:30px}
+.seg button{height:42px;padding:0 16px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+.seg button[aria-selected="true"]{background:var(--yel)}
+.seg kbd{font:600 11px var(--f-b);color:#8E9099;border:1.4px solid #C9C6BC;border-radius:5px;padding:0 4px;line-height:15px;background:#fff}
+.panel{position:absolute;top:256px;right:76px;left:76px;height:384px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
+.view.on .panel.on{opacity:1;visibility:visible;transition:opacity .45s var(--ease),visibility 0s}
+.legend{display:flex;align-items:center;gap:22px;height:26px;font-size:15px;color:var(--ink2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend .note{margin-inline-start:auto;color:var(--mut);font-size:14px}
+.axis{display:grid;grid-template-columns:300px 588px 200px;gap:20px;height:24px;margin-top:6px}
+.axis svg{grid-column:2;overflow:visible}
+.drow{display:grid;grid-template-columns:300px 588px 200px;gap:20px;align-items:center;height:62px}
+.dlab{display:flex;align-items:center;gap:12px;min-width:0}
+.dlab b{display:inline-block;font-family:var(--f-d);font-weight:700;font-size:20px;line-height:1.35}
+.dlab small{display:block;font-size:14px;line-height:1.5;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dtr{overflow:visible;display:block}
+.dtr .hit{cursor:default}
+.dnum{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.dv{display:flex;align-items:center;gap:8px;font-size:19px;font-variant-numeric:tabular-nums}
+.dv .b4{color:var(--mut);font-weight:500}
+.dv b{font-weight:700}
+.dv svg.ic{font-size:17px;color:var(--mut)}
+.dc{font-size:13.5px;color:var(--mut)}
+.dd{display:inline-flex;align-items:center;margin-inline-start:6px;padding:0 9px 1px;border-radius:999px;font-size:14px;font-weight:700;border:1.6px solid var(--ink);background:#fff;color:var(--ink)}
+.dd.up{background:#E4EEFF}.dd.dn{background:#F2F0EA}
+.pempty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:6px;text-align:center}
+.pempty .fig{width:84px;height:180px}
+.pempty p{margin:0;font-size:19px;color:var(--ink2)}
+.pempty small{font-size:15px;color:var(--mut)}
+
+.flowp{display:flex;gap:28px;height:100%}
+.fside{width:300px;flex:none;display:flex;flex-direction:column;gap:12px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fs{padding:12px 16px 14px;display:flex;flex-direction:column;align-items:flex-start}
+.fs small{font-size:15px;font-weight:600;color:var(--ink2)}
+.fs b{font-family:var(--f-b);font-weight:700;font-size:54px;line-height:1.1;font-variant-numeric:tabular-nums}
+.fcap{margin:-2px 2px 0;font-size:14.5px;color:var(--mut)}
+.fmv{padding:12px 16px 14px}
+.fmv small{font-size:15px;font-weight:600;color:var(--ink2)}
+.fmv ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:9px}
+.fmv li{display:flex;align-items:center;gap:7px;font-size:16.5px;font-weight:600}
+.fmv li .lt{width:28px;height:28px;font-size:13px;border-width:2px}
+.fmv li svg.ic{font-size:15px;color:var(--mut)}
+.fmv li em{margin-inline-start:auto;font-style:normal;font-family:var(--f-b);font-weight:700;font-size:17px;min-width:30px;text-align:center;padding:0 6px;border-radius:8px;background:#E4EEFF}
+.fmv p{margin:8px 0 0;font-size:15.5px;color:var(--mut)}
+.fnote{margin:0 2px;font-size:13.5px;line-height:1.6;color:var(--mut)}
+.sank{flex:1;min-width:0;position:relative}
+.sank svg{display:block;overflow:visible}
+.sank .band{transition:opacity .2s}
+.sank.hov .band{opacity:.25}
+.sank.hov .band.hl{opacity:1}
+
+.tip{position:absolute;z-index:7;pointer-events:none;background:var(--ink);color:#fff;border-radius:10px;padding:7px 12px 8px;font-size:14.5px;line-height:1.6;white-space:nowrap;opacity:0;transform:translate(-50%,calc(-100% - 12px));transition:opacity .12s}
+.tip.on{opacity:1}
+
+/* الطبقات العائمة */
+.ov{position:absolute;inset:0;background:rgba(250,249,245,.97);z-index:8;display:none;padding:44px 64px}
+.ov.on{display:block}
+.ov h4{font-family:var(--f-d);font-size:26px;margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.ov .close{position:absolute;top:26px;left:34px;width:44px;height:44px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}
+.mgrid{display:grid;grid-template-columns:360px 1fr;gap:40px}
+.mqr{padding:20px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.mqr em{font-style:normal;direction:ltr;font-size:14.5px;color:var(--ink2);word-break:break-all;text-align:center}
+.mqr button,.mtools button{height:42px;padding:0 16px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.mtools{display:flex;flex-direction:column;gap:22px}
+.mtools .grp>span{display:block;font-size:15px;color:var(--mut);margin-bottom:10px}
+.mtools .row{display:flex;flex-wrap:wrap;gap:10px}
+.mtools button.warn.arm{background:#FFE3EA}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px;color:var(--ink2)}
+.keys kbd{font:600 13px var(--f-b);border:1.6px solid #C9C6BC;border-radius:6px;padding:1px 7px;background:#fff;text-align:center;color:var(--ink)}
+.bigqr{display:none;position:absolute;inset:0;z-index:8;background:rgba(250,249,245,.97);align-items:center;justify-content:center;gap:60px}
+.bigqr.on{display:flex}
+.bigqr .card{padding:26px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.bigqr .card em{font-style:normal;direction:ltr;font-size:20px;font-weight:600}
+.bigqr .tx h3{font-family:var(--f-d);font-size:42px;line-height:1.5;margin:0}
+.bigqr .tx p{font-size:22px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.bigqr .fig{width:120px;height:257px}
+.login{display:none;position:absolute;inset:0;z-index:9;background:rgba(250,249,245,.98);align-items:center;justify-content:center}
+.login.on{display:flex}
+.lcard{width:520px;padding:30px 34px 28px}
+.lcard h3{font-family:var(--f-d);font-size:28px;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+.lcard p{margin:0;font-size:16.5px;line-height:1.75;color:var(--ink2)}
+.lcard form{display:flex;gap:10px;margin-top:18px}
+.lcard input{flex:1;height:48px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;padding:0 14px;font:500 17px var(--f-b);background:#fff}
+.lcard button{height:48px;padding:0 22px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:var(--ink);color:#fff;font-size:16px;font-weight:600}
+.lcard .err{min-height:24px;margin-top:10px;font-size:15px;color:#C2253B;font-weight:600}
+.toast{position:absolute;top:70px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:12px;padding:10px 18px;font-size:16px;z-index:10;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:1}
+.dtag{position:absolute;top:18px;left:34px;z-index:5}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01s!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="fit"><div class="stage" id="stage">
+<header class="top">
+  <span class="brand"><svg viewBox="0 0 26 30" aria-hidden="true"><circle cx="13" cy="9" r="7" fill="#fff" stroke="#1F2430" stroke-width="2.4"/><path d="M13 16v8M13 24l-5 5M13 24l5 5M13 19l-6 3M13 19l6-3" stroke="#1F2430" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>تصميم تجربة التعلم</span>
+  <nav class="tabs" role="tablist" aria-label="عروض اللوحة">
+    <button class="tab" data-v="pre" role="tab"><i class="live"></i>التصويت الأول<kbd>1</kbd></button>
+    <button class="tab" data-v="post" role="tab"><i class="live"></i>التصويت الثاني<kbd>2</kbd></button>
+    <button class="tab" data-v="cmp" role="tab">المقارنة<kbd>3</kbd></button>
+  </nav>
+</header>
+
+<section class="view live" id="v-pre" data-r="pre"></section>
+<section class="view live" id="v-post" data-r="post"></section>
+
+<section class="view cmp" id="v-cmp">
+  <div class="chead">
+    <div><p class="kick"><i></i>المقارنة</p><h2 class="h">هل تغيّرت آراؤنا؟</h2><p class="cstats" id="cstats"></p></div>
+    <div class="seg" role="tablist" aria-label="طريقة المقارنة">
+      <button role="tab" data-s="dist" aria-selected="true">كيف تغيّر التوزيع؟</button>
+      <button role="tab" data-s="flow" aria-selected="false">من أين إلى أين؟</button>
+    </div>
+  </div>
+  <div class="panel on" id="p-dist"></div>
+  <div class="panel" id="p-flow"></div>
+</section>
+
+<div class="tip" id="tip" role="tooltip"></div>
+
+<footer class="foot">
+  <div class="where">
+    <span class="lv" id="lv"><i></i><span>لا يوجد تصويت مفتوح</span></span>
+    <span class="hc" id="hc"></span>
+  </div>
+  <div class="ctl">
+    <button id="b-pre" title="فتح التصويت الأول للمشاركين"></button>
+    <button id="b-post" title="فتح التصويت الثاني للمشاركين"></button>
+    <button id="b-close" title="إغلاق التصويت المفتوح"></button>
+    <button id="b-qr" class="ico" aria-label="رمز الدخول بحجم كبير" title="رمز الدخول بحجم كبير (Q)"></button>
+    <button id="b-menu" class="ico" aria-label="الرابط والأدوات" title="الرابط والأدوات"></button>
+  </div>
+</footer>
+
+<div class="ov" id="menu" role="dialog" aria-label="الرابط والأدوات"></div>
+<div class="bigqr" id="bigqr" role="dialog" aria-label="رمز الدخول"></div>
+<div class="login" id="login" role="dialog" aria-label="الدخول إلى لوحة المقدّمة">
+  <div class="lcard sk" data-sk="box">
+    <h3 id="lt-h"></h3>
+    <p>دخول لوحة المقدّمة متاح لحساب Google المالك فقط. المشاركون لا يحتاجون إلى تسجيل دخول.</p>
+    <form id="lform"><button type="submit">الدخول بحساب Google المالك</button></form>
+    <div class="err" id="lerr" role="alert"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+</div></div>
+
+<script src="config.js"></script>
+<script src="lib/rough.js"></script>
+<script src="lib/qrcode.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+const L=LXD,R=L.ACT.rounds,O=L.ACT.opts,NS=L.NS;
+L.boil();
+const $=id=>document.getElementById(id);
+const stage=$('stage'),fit=$('fit'),tip=$('tip');
+let sc=1;
+function rs(){sc=Math.min(innerWidth/1280,innerHeight/720)*.985;fit.style.transform='scale('+sc+')'}
+addEventListener('resize',rs);rs();
+
+const store={get(k,d){try{const v=localStorage.getItem('lxd-board:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('lxd-board:'+k,JSON.stringify(v))}catch(e){}}};
+let S=null,live=null,votes={pre:{},post:{}},here=0,view=store.get('view','pre'),seg=store.get('seg','dist'),shown=store.get('shown',{pre:false,post:false}),drawn={pre:0,post:0};
+const partURL=new URL('./',location.href).href;
+const shortURL=partURL.replace(/^https?:\/\//,'').replace(/\/$/,'');
+
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3400)}
+
+/* ---------- الأزرار والقوائم ---------- */
+$('b-pre').innerHTML=L.ic('play')+'فتح الأول';
+$('b-post').innerHTML=L.ic('play')+'فتح الثاني';
+$('b-close').innerHTML=L.ic('stop')+'إغلاق';
+$('b-qr').innerHTML=L.ic('qr');
+$('b-menu').innerHTML=L.ic('dots');
+$('hc').innerHTML=L.ic('users')+'<span>في الصفحة الآن: <b id="hn">0</b></span>';
+$('lt-h').innerHTML=L.ic('lock')+'لوحة المقدّمة';
+
+/* ---------- عرض التصويت المباشر ---------- */
+function buildLive(r){
+  const rd=R[r],el=$('v-'+r);
+  el.innerHTML=`<div class="lhead"><div class="tx"><p class="kick"><i></i>${rd.tab} · ${rd.when}</p><h2 class="lq">${rd.q}</h2><p class="llead">${rd.lead}</p></div>
+    <div class="qr2 sk" data-sk="box"><div class="qb">${L.qrSVG(partURL,104)}</div><div><b>${L.ic('phone')} شارك برأيك</b><span>امسح الرمز، أو افتح الرابط المرسل في الدردشة</span><em>${L.esc(shortURL)}</em></div></div></div>
+    <div class="lrow">
+      <div style="position:relative;width:280px;flex:none">
+        <div class="count sk" data-sk="box"><small>عدد الأصوات</small><b class="num" data-n>0</b><span class="stt sk" data-sk="dash" data-st><i></i><span>لم يُفتح بعد</span></span></div>
+        <div class="reveal"><button type="button" data-rv></button><small data-rvn></small></div>
+      </div>
+      <div class="arena" data-ar>
+        <div class="lfig">${L.figSVG('ponder','puzzled')}</div>
+        <svg class="crowd" data-cr viewBox="0 0 700 260" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"></svg>
+        <span class="more" data-more></span>
+        <p class="empty" data-empty>ستظهر هنا شخصية صغيرة مع كل صوت يصل.</p>
+        <div class="bars" data-bars></div>
+        <svg class="agl" viewBox="0 0 818 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 120 6, 260 15, 400 10 S 660 6, 814 11" fill="none" stroke="#1F2430" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+      </div>
+    </div>`;
+  el.querySelector('[data-rv]').onclick=()=>{shown[r]=!shown[r];store.set('shown',shown);paintLive(r)};
+}
+function paintLive(r){
+  const el=$('v-'+r),rd=R[r],v=votes[r],t=L.tally(v),isOpen=live&&live.act===rd.id&&live.open;
+  const num=el.querySelector('[data-n]');if(num.textContent!==String(t.n)){num.textContent=t.n;num.classList.remove('bump');void num.offsetWidth;num.classList.add('bump')}
+  const st=el.querySelector('[data-st]');const stTxt=isOpen?'التصويت مفتوح':t.n?'أُغلق التصويت':'لم يُفتح بعد';
+  st.classList.toggle('open',isOpen);const spec=isOpen?'pill:mint':t.n?'box':'dash';if(st.dataset.sk!==spec)L.restyle(st,spec);st.lastChild.textContent=stTxt;
+  const ar=el.querySelector('[data-ar]');ar.classList.toggle('shown',!!shown[r]);
+  el.querySelector('[data-rv]').innerHTML=shown[r]?L.ic('eyeoff')+'إخفاء النتائج':L.ic('eye')+'إظهار النتائج';
+  el.querySelector('[data-rvn]').textContent=shown[r]?'النتائج ظاهرة الآن على الشاشة':'النتائج مخفية حتى المقارنة';
+  const fig=el.querySelector('.lfig .fig');if(fig){const pose=isOpen?(t.n?'think':'ponder'):t.n?'raise':'wave',face=isOpen?(t.n?'think':'puzzled'):'happy';if(!fig.classList.contains(pose))L.setPose(fig,pose,face)}
+  el.querySelector('[data-empty]').style.display=t.n?'none':'';
+  crowd(el,r,v);
+  if(shown[r])bars(el,t);
+}
+function crowd(el,r,v){
+  const svg=el.querySelector('[data-cr]'),list=Object.entries(v||{}).filter(([,x])=>x&&x.o).sort((a,b)=>(a[1].t||0)-(b[1].t||0));
+  const cols=20,rows=3,cap=cols*rows,n=Math.min(list.length,cap);
+  if(n<drawn[r]){svg.innerHTML='';drawn[r]=0}
+  let h='';
+  for(let j=drawn[r];j<n;j++){const row=Math.floor(j/cols),col=j%cols,x=684-col*34-(row%2)*17,y=232-row*80,tt=((j*37)%9-4)*1.6,up=(j*7)%5===0;
+    h+=`<g class="mf pop" style="animation-delay:${Math.min(j-drawn[r],8)*.06}s"><g class="bob" style="--md:${(j%7)*.3}s">${L.mini(x,y,tt,up)}</g></g>`}
+  if(h)svg.insertAdjacentHTML('beforeend',h);drawn[r]=n;
+  el.querySelector('[data-more]').textContent=list.length>cap?`و${list.length-cap} غيرهم`:'';
+}
+function bars(el,t){
+  const box=el.querySelector('[data-bars]'),mx=Math.max(...O.map(o=>L.pct(t.c[o.k],t.n)),1),dom=Math.min(100,Math.max(50,Math.ceil(mx/10)*10));
+  box.innerHTML=O.map(o=>{const p=L.pct(t.c[o.k],t.n);return `<div class="br"><span class="lt">${o.l}</span><b>${o.name}</b><span class="tk" data-p="${p}" data-dom="${dom}"></span><span class="vl"><b><bdi dir="ltr">${p}%</bdi></b> · ${t.c[o.k]}</span></div>`}).join('');
+  const rc=L.rough();if(!rc)return;
+  box.querySelectorAll('.tk').forEach((tk,ix)=>{const w=tk.offsetWidth||400,p=+tk.dataset.p,dom=+tk.dataset.dom,bw=Math.max(p?6:0,w*p/dom);
+    const s=document.createElementNS(NS,'svg');s.setAttribute('width',w+12);s.setAttribute('height',42);
+    const g=rc.svg(s);s.appendChild(g.line(w+6,4,w+6,38,{...L.base,strokeWidth:1.6,roughness:.6,seed:ix+3}));
+    if(bw)s.appendChild(g.rectangle(w+6-bw,9,bw,24,{...L.base,seed:ix+5,fill:L.C.yel,fillStyle:'hachure',hachureGap:3.4,fillWeight:2.4,roughness:1.2}));
+    tk.appendChild(s)});
+}
+
+/* ---------- المقارنة ---------- */
+const TW=588,TP=14;
+function paintCmp(){
+  const a=L.tally(votes.pre),b=L.tally(votes.post),f=L.flows(votes.pre,votes.post);
+  $('cstats').innerHTML=`صوّت قبل: <b>${a.n}</b> · صوّت بعد: <b>${b.n}</b> · صوّت في المرتين: <b>${f.paired}</b>`;
+  dist(a,b);flow(f);
+}
+function dist(a,b){
+  const P=$('p-dist');
+  if(!a.n||!b.n){P.innerHTML=empty(!a.n&&!b.n?'لا توجد أصوات بعد':!a.n?'لا توجد أصوات في التصويت الأول':'لم يصل بعد أي صوت في التصويت الثاني','تظهر المقارنة حين تصل أصوات في المرتين.');L.draw(P);return}
+  const rows=O.map(o=>{const p1=L.pct(a.c[o.k],a.n),p2=L.pct(b.c[o.k],b.n);return {o,p1,p2,c1:a.c[o.k],c2:b.c[o.k],d:p2-p1}});
+  const mx=Math.max(...rows.map(r=>Math.max(r.p1,r.p2))),dom=Math.min(100,Math.max(50,Math.ceil((mx+4)/10)*10)),step=dom<=50?10:20;
+  const X=v=>TW-TP-(v/dom)*(TW-2*TP);
+  const big=rows.reduce((m,r)=>Math.abs(r.d)>Math.abs(m.d)?r:m,rows[0]);
+  let ax='';for(let v=0;v<=dom;v+=step)ax+=`<text x="${X(v)}" y="16" text-anchor="middle" font-size="13" fill="#6E7280" font-family="Plex Ar,sans-serif" direction="ltr">${v}%</text>`;
+  const grid=()=>{let g='';for(let v=0;v<=dom;v+=step)g+=`<line x1="${X(v)}" y1="4" x2="${X(v)}" y2="58" stroke="${v?'#E6E3DA':'#C9C6BC'}" stroke-width="1"/>`;return g};
+  P.innerHTML=`<div class="legend"><span><svg width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="#fff" stroke="#8A90A2" stroke-width="2.6"/></svg>التصويت الأول (قبل)</span>
+    <span><svg width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#2F5BEA"/></svg>التصويت الثاني (بعد)</span>
+    <span class="note">النسبة من عدد المصوّتين في كل مرة</span></div>
+    <div class="axis"><svg width="${TW}" height="24" aria-hidden="true">${ax}</svg></div>
+    ${rows.map(r=>{const x1=X(r.p1),x2=X(r.p2),dir=Math.sign(x2-x1),hi=r===big&&r.d!==0;
+      const xt=x2-dir*13,arrow=Math.abs(x2-x1)>26?`<path d="M${x1+dir*11} 31 L${xt} 31 M${xt} 31 l${-dir*8} -6 M${xt} 31 l${-dir*8} 6" stroke="#2F5BEA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`:'';
+      return `<div class="drow"><div class="dlab"><span class="lt">${r.o.l}</span><span style="min-width:0"><b class="${hi?'mk':''}" ${hi?'data-sk="mark:yel"':''}>${r.o.name}</b><small>${r.o.ds}</small></span></div>
+      <svg class="dtr" width="${TW}" height="62" viewBox="0 0 ${TW} 62" role="img" aria-label="${r.o.name}: قبل ${r.p1}٪، بعد ${r.p2}٪">${grid()}<line x1="${TP}" y1="31" x2="${TW-TP}" y2="31" stroke="#E6E3DA" stroke-width="1"/>${arrow}
+        <circle class="hit" cx="${x1}" cy="31" r="16" fill="transparent" data-tip="قبل: ${r.p1}% (${r.c1} من ${a.n})"/><circle cx="${x1}" cy="31" r="8" fill="#fff" stroke="#8A90A2" stroke-width="2.6" pointer-events="none"/>
+        <circle class="hit" cx="${x2}" cy="31" r="16" fill="transparent" data-tip="بعد: ${r.p2}% (${r.c2} من ${b.n})"/><circle cx="${x2}" cy="31" r="9" fill="#2F5BEA" stroke="#FAF9F5" stroke-width="2" pointer-events="none"/></svg>
+      <div class="dnum"><div class="dv"><span class="b4"><bdi dir="ltr">${r.p1}%</bdi></span>${L.ic('arrowL')}<b><bdi dir="ltr">${r.p2}%</bdi></b><span class="dd ${r.d>0?'up':r.d<0?'dn':''}">${r.d===0?'دون تغيير':`<bdi dir="ltr">${r.d>0?'+':'−'}${Math.abs(r.d)}</bdi>&nbsp;نقطة`}</span></div><div class="dc">الأصوات: ${r.c1} ${L.ic('arrowL')} ${r.c2}</div></div></div>`}).join('')}`;
+  L.draw(P);tips(P);
+}
+function flow(f){
+  const P=$('p-flow');
+  if(!f.paired){P.innerHTML=empty('لا يوجد بعد من صوّت في المرتين','يظهر التحوّل لمن صوّت في التصويتين من الجهاز نفسه.');L.draw(P);return}
+  const W=800,H=384,top=40,bot=H-4,gap=14,nw=24,xb=596,xa=180;
+  const cB={},cA={};O.forEach(o=>{cB[o.k]=0;cA[o.k]=0});
+  O.forEach(a=>O.forEach(b=>{const n=f.M[a.k][b.k];cB[a.k]+=n;cA[b.k]+=n}));
+  const u=(bot-top-gap*(O.length-1))/f.paired;
+  const nodes=(cnt)=>{let y=top;const m={};O.forEach(o=>{const h=cnt[o.k]*u;m[o.k]={y,h};y+=h+gap});return m};
+  const NB=nodes(cB),NA=nodes(cA);
+  const offB={},offA={};O.forEach(o=>{offB[o.k]=NB[o.k].y;offA[o.k]=NA[o.k].y});
+  let bands='',bandsTop='';
+  O.forEach(a=>O.forEach(b=>{const n=f.M[a.k][b.k];if(!n)return;const t=n*u,y1=offB[a.k],y2=offA[b.k];offB[a.k]+=t;offA[b.k]+=t;
+    const x1=xb,x2=xa+nw,xm=(x1+x2)/2,stay=a.k===b.k;
+    const d=`M${x1} ${y1} C${xm} ${y1} ${xm} ${y2} ${x2} ${y2} L${x2} ${y2+t} C${xm} ${y2+t} ${xm} ${y1+t} ${x1} ${y1+t} Z`;
+    const tipT=stay?`ثبت على «${L.opt(a.k).name}»: ${n}`:`من «${L.opt(a.k).name}» إلى «${L.opt(b.k).name}»: ${n}`;
+    const p=`<path class="band" d="${d}" fill="${stay?'#CFCBC0':'#2F5BEA'}" fill-opacity="${stay?.6:.42}" data-tip="${tipT}"/>`;
+    if(stay)bands+=p;else bandsTop+=p}));
+  /* أماكن الأسماء بلا تداخل */
+  const place=(N)=>{const ys=O.map(o=>({k:o.k,y:N[o.k].y+N[o.k].h/2}));for(let i=1;i<ys.length;i++)if(ys[i].y-ys[i-1].y<44)ys[i].y=ys[i-1].y+44;
+    const over=ys[ys.length-1].y-(H-18);if(over>0)for(let i=ys.length-1;i>=0;i--){ys[i].y-=over;if(i&&ys[i].y-ys[i-1].y>=44)break}
+    for(let i=ys.length-2;i>=0;i--)if(ys[i+1].y-ys[i].y<44)ys[i].y=ys[i+1].y-44;const m={};ys.forEach(v=>m[v.k]=v.y);return m};
+  const LB=place(NB),LA=place(NA);
+  const lab=(o,x,y,cnt,side)=>`<g transform="translate(${x} ${y})"><circle cx="${side>0?16:-16}" cy="0" r="15" fill="${cnt?'#fff':'#F2F0EA'}" stroke="#1F2430" stroke-width="2.2"/><text x="${side>0?16:-16}" y="5" text-anchor="middle" font-size="14" font-weight="700" font-family="Kufi,Plex Ar,sans-serif" fill="#1F2430">${o.l}</text>
+     <text x="${side>0?40:-40}" y="6" text-anchor="${side>0?'end':'start'}" direction="rtl" font-size="17" font-weight="700" font-family="Kufi,Plex Ar,sans-serif" fill="${cnt?'#1F2430':'#9A9DA8'}">${o.name} <tspan font-family="Plex Ar,sans-serif" font-weight="600" fill="#6E7280">${cnt}</tspan></text></g>`;
+  let nd='',lb='';
+  O.forEach(o=>{const b=NB[o.k],a=NA[o.k];
+    nd+=b.h?`<rect x="${xb}" y="${b.y}" width="${nw}" height="${b.h}" rx="3" fill="#8A90A2"/>`:`<line x1="${xb}" y1="${b.y}" x2="${xb+nw}" y2="${b.y}" stroke="#C9C6BC" stroke-width="2" stroke-dasharray="3 3"/>`;
+    nd+=a.h?`<rect x="${xa}" y="${a.y}" width="${nw}" height="${a.h}" rx="3" fill="#2F5BEA"/>`:`<line x1="${xa}" y1="${a.y}" x2="${xa+nw}" y2="${a.y}" stroke="#C9C6BC" stroke-width="2" stroke-dasharray="3 3"/>`;
+    lb+=`<line x1="${xb+nw+2}" y1="${b.y+b.h/2}" x2="${xb+nw+10}" y2="${LB[o.k]}" stroke="#C9C6BC" stroke-width="1.2"/>`+lab(o,xb+nw+12,LB[o.k],cB[o.k],1);
+    lb+=`<line x1="${xa-2}" y1="${a.y+a.h/2}" x2="${xa-10}" y2="${LA[o.k]}" stroke="#C9C6BC" stroke-width="1.2"/>`+lab(o,xa-12,LA[o.k],cA[o.k],-1)});
+  const hd=`<text x="${xb+nw/2+80}" y="18" text-anchor="middle" font-size="16" font-weight="700" font-family="Kufi,Plex Ar,sans-serif" fill="#3B4150">قبل</text><text x="${xa+nw/2-80}" y="18" text-anchor="middle" font-size="16" font-weight="700" font-family="Kufi,Plex Ar,sans-serif" fill="#3B4150">بعد</text>
+    <path d="M${xb-30} 13 L${xa+nw+30} 13" stroke="#C9C6BC" stroke-width="1.6" stroke-dasharray="5 6"/><path d="M${xa+nw+30} 13 l8 -5 M${xa+nw+30} 13 l8 5" stroke="#C9C6BC" stroke-width="1.6" fill="none"/>`;
+  const mv=f.moves.slice(0,3);
+  P.innerHTML=`<div class="flowp">
+    <div class="fside">
+      <div class="frow"><div class="fs sk" data-sk="note:s"><small>غيّر رأيه</small><b>${f.changed}</b></div><div class="fs sk" data-sk="box"><small>ثبت على رأيه</small><b>${f.stayed}</b></div></div>
+      <p class="fcap">من أصل ${f.paired} صوّتوا في المرتين${f.paired?` (غيّر <bdi dir="ltr">${L.pct(f.changed,f.paired)}%</bdi> منهم رأيه)`:''}</p>
+      <div class="fmv sk" data-sk="box"><small>أبرز التحوّلات</small>${mv.length?`<ul>${mv.map(m=>{const a=L.opt(m.a),b=L.opt(m.b);return `<li><span class="lt">${a.l}</span>${a.name}${L.ic('arrowL')}<span class="lt" style="background:#E4EEFF">${b.l}</span>${b.name}<em>${m.n}</em></li>`}).join('')}</ul>`:'<p>لم يغيّر أحد رأيه.</p>'}</div>
+      <p class="fnote">الشريط الأزرق لمن غيّر رأيه، والرمادي لمن ثبت عليه. ويُحسب التحوّل لمن صوّت في المرتين من الجهاز نفسه.</p>
+    </div>
+    <div class="sank" id="sank"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="حركة الآراء بين التصويتين: غيّر ${f.changed} من ${f.paired} رأيهم">${hd}${bands}${bandsTop}${nd}${lb}</svg></div>
+  </div>`;
+  L.draw(P);tips(P);
+  const sk=$('sank');sk.querySelectorAll('.band').forEach(b=>{b.onmouseenter=()=>{sk.classList.add('hov');b.classList.add('hl')};b.onmouseleave=()=>{sk.classList.remove('hov');b.classList.remove('hl')}});
+}
+function empty(t,s){return `<div class="pempty">${L.figSVG('scratch','puzzled')}<p>${t}</p><small>${s}</small></div>`}
+function tips(root){
+  root.querySelectorAll('[data-tip]').forEach(el=>{
+    el.addEventListener('mousemove',e=>{const r=stage.getBoundingClientRect();tip.textContent=el.dataset.tip;tip.style.left=(e.clientX-r.left)/sc+'px';tip.style.top=(e.clientY-r.top)/sc+'px';tip.classList.add('on')});
+    el.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+  });
+}
+
+/* ---------- التنقل بين العروض ---------- */
+function show(v){
+  view=v;store.set('view',v);
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));
+  ['pre','post','cmp'].forEach(k=>$('v-'+k).classList.toggle('on',k===v));
+  if(v==='cmp')paintCmp();else paintLive(v);
+  requestAnimationFrame(()=>L.draw($('v-'+v)));
+}
+function setSeg(s){seg=s;store.set('seg',s);document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-selected',b.dataset.s===s));$('p-dist').classList.toggle('on',s==='dist');$('p-flow').classList.toggle('on',s==='flow');tip.classList.remove('on')}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.v));
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>setSeg(b.dataset.s));
+
+/* ---------- التحكم في التصويت ---------- */
+function paintCtl(){
+  const r=live&&live.open?L.roundOf(live.act):null;
+  ['pre','post'].forEach(k=>{const b=$('b-'+k),on=r===k;b.className=on?'cur':'go';b.disabled=on||!S;b.innerHTML=on?`<i class="dot"></i>${k==='pre'?'الأول':'الثاني'} مفتوح`:L.ic('play')+(k==='pre'?'فتح الأول':'فتح الثاني')});
+  $('b-close').disabled=!r;
+  $('lv').classList.toggle('open',!!r);$('lv').lastChild.textContent=r?`مفتوح الآن: ${R[r].tab}`:'لا يوجد تصويت مفتوح';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('isopen',t.dataset.v===r));
+}
+function open(r){if(!S)return;S.setLive(R[r].id,true).then(()=>{show(r);toast(`فُتح ${R[r].tab}، وظهر السؤال على أجهزة المشاركين`)}).catch(()=>toast('تعذّر فتح التصويت'))}
+$('b-pre').onclick=()=>open('pre');
+$('b-post').onclick=()=>open('post');
+$('b-close').onclick=()=>{if(!S||!live)return;const r=L.roundOf(live.act);S.setLive(live.act,false).then(()=>toast(r==='post'?'أُغلق التصويت الثاني. اضغطي 3 لعرض المقارنة':'أُغلق التصويت')).catch(()=>toast('تعذّر الإغلاق'))};
+
+/* ---------- الرابط والأدوات ---------- */
+function menu(){
+  const m=$('menu'),demo=S&&S.mode==='demo';
+  m.innerHTML=`<button class="close" data-x aria-label="إغلاق">${L.ic('x')}</button><h4>${L.ic('link')} الرابط والأدوات${demo?' <span class="demo-tag">'+L.ic('flask')+' وضع التجربة</span>':''}</h4>
+   <div class="mgrid"><div class="mqr sk" data-sk="box">${L.qrSVG(partURL,240)}<em>${L.esc(partURL)}</em><button data-copy>${L.ic('copy')} نسخ رابط المشاركين</button></div>
+    <div class="mtools">
+     <div class="grp"><span>أرسلي رابط المشاركين في دردشة المحاضرة، ولا ترسلي رابط هذه اللوحة.</span></div>
+     <div class="grp"><span>قبل المحاضرة</span><div class="row">${demo?`<button data-demo>${L.ic('flask')} إضافة أصوات تجريبية</button>`:''}<button class="warn" data-clear>${L.ic('trash')} بدء جلسة جديدة</button></div></div>
+     <div class="grp"><span>الاختصارات</span><div class="keys"><kbd>1</kbd><span>التصويت الأول</span><kbd>2</kbd><span>التصويت الثاني</span><kbd>3</kbd><span>المقارنة، والسهمان للتبديل بين طريقتيها</span><kbd>Q</kbd><span>رمز الدخول بحجم كبير</span><kbd>F</kbd><span>ملء الشاشة</span><kbd>Esc</kbd><span>إغلاق هذه النافذة</span></div></div>
+    </div></div>`;
+  m.classList.add('on');L.draw(m);
+  m.querySelector('[data-x]').onclick=()=>m.classList.remove('on');
+  m.querySelector('[data-copy]').onclick=()=>{(navigator.clipboard?navigator.clipboard.writeText(partURL):Promise.reject()).then(()=>toast('نُسخ رابط المشاركين')).catch(()=>toast(partURL))};
+  const sd=m.querySelector('[data-demo]');if(sd)sd.onclick=()=>{S.seed();toast('أُضيفت أصوات تجريبية إلى التصويتين')};
+  const cl=m.querySelector('[data-clear]');cl.onclick=()=>{if(!cl.classList.contains('arm')){cl.classList.add('arm');cl.lastChild.textContent=' اضغطي مرة أخرى للتأكيد';setTimeout(()=>{if(cl.isConnected){cl.classList.remove('arm');cl.lastChild.textContent=' بدء جلسة جديدة'}},4000);return}
+    S.clear().then(()=>{drawn={pre:0,post:0};['pre','post'].forEach(r=>$('v-'+r).querySelector('[data-cr]').innerHTML='');toast('حُفظت الجلسة السابقة وبدأت جلسة جديدة');m.classList.remove('on')}).catch(()=>toast('تعذّر المسح'))};
+}
+function bigQR(){const b=$('bigqr');b.innerHTML=`<button class="close ov-x" data-x aria-label="إغلاق" style="position:absolute;top:26px;left:34px;width:44px;height:44px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px">${L.ic('x')}</button>
+  <div class="tx"><h3>شارك برأيك</h3><p>امسح الرمز بكاميرا جوالك،<br>أو افتح الرابط المرسل في الدردشة.</p></div>
+  <div class="card sk" data-sk="box">${L.qrSVG(partURL,330)}<em>${L.esc(shortURL)}</em></div>${L.figSVG('point','happy')}`;
+  b.classList.add('on');L.draw(b);b.querySelector('[data-x]').onclick=()=>b.classList.remove('on')}
+$('b-menu').onclick=menu;$('b-qr').onclick=bigQR;
+
+addEventListener('keydown',e=>{
+  if(e.target.closest('input,textarea'))return;
+  if(e.key==='Escape'){$('menu').classList.remove('on');$('bigqr').classList.remove('on');return}
+  if(e.key==='1')show('pre');else if(e.key==='2')show('post');else if(e.key==='3')show('cmp');
+  else if((e.key==='ArrowLeft'||e.key==='ArrowRight')&&view==='cmp')setSeg(seg==='dist'?'flow':'dist');
+  else if(e.key==='q'||e.key==='Q'||e.key==='ض'){$('bigqr').classList.contains('on')?$('bigqr').classList.remove('on'):bigQR()}
+  else if(e.key==='f'||e.key==='F'||e.key==='ب'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
+});
+
+/* ---------- البدء ---------- */
+buildLive('pre');buildLive('post');setSeg(seg);show(view);paintCtl();
+let raf=0;function repaint(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{if(view==='cmp')paintCmp();else paintLive(view);paintCtl()})}
+function start(){
+  S.onLive(v=>{live=v;repaint()});
+  S.onVotes(R.pre.id,v=>{votes.pre=v;repaint()},e=>toast('تعذّرت قراءة الأصوات'));
+  S.onVotes(R.post.id,v=>{votes.post=v;repaint()});
+  S.onHere(n=>{here=n;$('hn').textContent=n});
+  S.onConn&&S.onConn(ok=>{if(!ok)toast('انقطع الاتصال… يُعاد تلقائيًا')});
+  paintCtl();
+}
+L.connect().then(async s=>{
+  S=s;
+  if(S.mode==='demo'){document.querySelector('.stage').insertAdjacentHTML('beforeend',`<span class="demo-tag dtag" title="البيانات محفوظة في هذا المتصفح فقط">${L.ic('flask')} وضع التجربة</span>`);start();return}
+  if(await S.admin(false)){start();return}
+  const lg=$('login');lg.classList.add('on');L.draw(lg);
+  $('lform').onsubmit=async e=>{
+    e.preventDefault();$('lerr').textContent='';
+    const button=$('lform').querySelector('button');button.disabled=true;
+    try{
+      if(await S.admin(true)){lg.classList.remove('on');start();toast('مرحبًا بك في لوحة المقدّمة')}
+      else $('lerr').textContent='هذا الحساب غير مخوّل بإدارة التصويت. استخدم حساب Google المالك.';
+    }catch(error){$('lerr').textContent=error.code==='auth/unauthorized-domain'?'يلزم اعتماد نطاق الموقع في إعدادات Firebase.':'تعذّر تسجيل الدخول. أعد المحاولة واسمح بنافذة Google.'}
+    finally{button.disabled=false}
+  };
+}).catch(e=>{console.error(e);toast('تعذّر الاتصال بقاعدة البيانات. راجعي إعدادات config.js');
+  const lg=$('login');lg.classList.add('on');lg.querySelector('p').textContent='تعذّر الاتصال بقاعدة البيانات. تأكدي من إعدادات config.js، ومن تفعيل الدخول المجهول (Anonymous) في Firebase.';lg.querySelector('form').style.display='none';L.draw(lg)});
+if(document.fonts)document.fonts.ready.then(()=>L.draw(document));
+})();
+</script>
+</body>
+</html>
+
