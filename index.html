@@ -19,6 +19,7 @@ window.VOTE_CONFIG = {
 </script><script type="module">import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js';
 import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js';
 import { getDatabase, ref, onValue, runTransaction } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js';
+(async () => {
 const cfg = window.VOTE_CONFIG;
 const el = id => document.getElementById(id);
 const resultsOnly = new URLSearchParams(location.search).get('view') === 'results';
@@ -80,6 +81,7 @@ if (!cfg.firebase.apiKey || !cfg.firebase.databaseURL) {
     }, () => fail('تعذّر قراءة النتائج. تحقق من قواعد قاعدة البيانات.'));
   } catch { fail('تعذّر الاتصال. تحقق من إعدادات Firebase وتفعيل الدخول المجهول.'); }
 }
+})();
 </script>
 </body></html>
 
