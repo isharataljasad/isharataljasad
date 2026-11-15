@@ -10,28 +10,62 @@ L.C=C;L.NS=NS;
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 L.reduce=reduce;
 
-/* ---------- المحتوى: التصويت الأول (قبل المحطة الأولى وبعدها) ----------
-   الخيارات نفسها في المرتين، وبالحروف نفسها، حتى تصح المقارنة. */
-L.ACT={
-  id:'v1',
+/* ---------- المحتوى: الأنشطة ----------
+   كل نشاط يُطرح مرتين (قبل وبعد) بالخيارات نفسها وبالحروف نفسها، حتى تصح المقارنة.
+   لإضافة نشاط جديد: أضيفي عنصرًا إلى هذه القائمة بمعرّفات جديدة. */
+const B=s=>`<bdi dir="ltr">${s}</bdi>`;
+L.ACTS=[
+  {id:'v1',short:'علاقة LXD بالتصميم التعليمي',
+    back:'سنعود إلى السؤال نفسه في نهاية المحطة الأولى',
+    opts:[
+      {k:'a',l:'أ',name:'ترادف',ds:'اسمان مختلفان لشيء واحد',dg:'syn'},
+      {k:'b',l:'ب',name:'تطور',ds:'أحدهما قديم، والآخر مجال جديد يمتد منه',dg:'evo'},
+      {k:'c',l:'ج',name:'احتواء',ds:'أحدهما جزء من الآخر',dg:'con'},
+      {k:'d',l:'د',name:'تكامل',ds:'مجالان مختلفان يكمل أحدهما الآخر',dg:'int'},
+      {k:'e',l:'هـ',name:'استقلال',ds:'مجال جديد قائم بذاته',dg:'ind'}
+    ],
+    rounds:{
+      pre:{id:'v1-pre',n:1,tab:'التصويت الأول',when:'قبل المحطة الأولى',kick:'سؤال قبل أن نبدأ',
+        q:`ما علاقة تصميم تجربة التعلم (${B('LXD')}) بالتصميم التعليمي (${B('ID')}) في رأيك؟`,
+        lead:'اختر إجابة واحدة بناءً على ما تعرفه'},
+      post:{id:'v1-post',n:2,tab:'التصويت الثاني',when:'بعد المحطة الأولى',kick:'سؤال نعود إليه',
+        q:'عدنا إلى السؤال: هل تغيّر رأيك؟',
+        lead:'ما علاقة تصميم تجربة التعلم بالتصميم التعليمي في رأيك الآن؟'}
+    }},
+  {id:'v2',short:'الفرق في التمركز حول المتعلم',
+    back:'سنعود إلى السؤال نفسه في ختام هذه المحطة',
+    opts:[
+      {k:'a',l:'أ',name:'في المبدأ نفسه',ds:`${B('LXD')} يقدّم فهمًا جديدًا للتمركز حول المتعلم`,dg:'pri'},
+      {k:'b',l:'ب',name:'في الممارسة',ds:`المبدأ واحد، لكن ${B('LXD')} يطبّقه بأدوات وطرق مختلفة`,dg:'pra'},
+      {k:'c',l:'ج',name:'لا فرق جوهري',ds:`${B('LXD')} يعيد إبراز ما يقوم به ${B('ID')} أصلًا`,dg:'same'}
+    ],
+    rounds:{
+      pre:{id:'v2-pre',n:3,tab:'التصويت الثالث',when:'افتتاح محطة التمركز حول المتعلم',kick:'سؤال افتتاحي',
+        q:`في رأيك، أين يكمن الفرق، إن وُجد، بين تصميم تجربة التعلم (${B('LXD')}) والتصميم التعليمي (${B('ID')}) في التمركز حول المتعلم؟`,
+        lead:'اختر إجابة واحدة بناءً على ما تعرفه'},
+      post:{id:'v2-post',n:4,tab:'التصويت الرابع',when:'ختام محطة التمركز حول المتعلم',kick:'سؤال نعود إليه',
+        q:'عدنا إلى السؤال: هل تغيّر رأيك؟',
+        lead:`أين يكمن الفرق، إن وُجد، بين ${B('LXD')} و${B('ID')} في التمركز حول المتعلم في رأيك الآن؟`}
+    }}
+];
+/* سؤال ختامي: اختيار واحد، بلا مقارنة */
+L.ACTS.push({id:'v3',single:true,short:'ما ينفرد به LXD في الجانبين الوجداني والاجتماعي',
   opts:[
-    {k:'a',l:'أ',name:'ترادف',ds:'اسمان مختلفان لشيء واحد',dg:'syn'},
-    {k:'b',l:'ب',name:'تطور',ds:'الجديد امتداد طبيعي للقديم',dg:'evo'},
-    {k:'c',l:'ج',name:'احتواء',ds:'فلسفة تعمل داخل التصميم التعليمي',dg:'con'},
-    {k:'d',l:'د',name:'تكامل',ds:'مجالان مختلفان يكمل أحدهما الآخر',dg:'int'},
-    {k:'e',l:'هـ',name:'استقلال',ds:'مجال جديد قائم بذاته',dg:'ind'}
+    {k:'a',l:'أ',name:'استهداف تجربة ممتعة تبقى في الذاكرة',short:'تجربة ممتعة',dg:'fun'},
+    {k:'b',l:'ب',name:'دمج الجانب الاجتماعي صراحةً مع الجانبين التقني والتربوي',short:'دمج الاجتماعي',dg:'soc'},
+    {k:'c',l:'ج',name:'الأمران معًا (أ وب)',short:'الأمران معًا',dg:'both'},
+    {k:'d',l:'د',name:'لا ينفرد بشيء؛ فهذان الجانبان موجودان في التصميم التعليمي أيضًا',short:'لا ينفرد بشيء',dg:'none'}
   ],
   rounds:{
-    pre:{id:'v1-pre',n:1,tab:'التصويت الأول',when:'قبل المحطة الأولى',kick:'سؤال قبل أن نبدأ',
-      q:'ما علاقة تصميم تجربة التعلم (<bdi dir="ltr">LXD</bdi>) بالتصميم التعليمي (<bdi dir="ltr">ID</bdi>) في رأيك؟',
-      lead:'اختر إجابة واحدة بناءً على ما تعرفه'},
-    post:{id:'v1-post',n:2,tab:'التصويت الثاني',when:'بعد المحطة الأولى',kick:'سؤال نعود إليه',
-      q:'عدنا إلى السؤال: هل تغيّر رأيك؟',
-      lead:'ما علاقة تصميم تجربة التعلم بالتصميم التعليمي في رأيك الآن؟'}
-  }
-};
-L.opt=k=>L.ACT.opts.find(o=>o.k===k)||null;
-L.roundOf=act=>act===L.ACT.rounds.pre.id?'pre':act===L.ACT.rounds.post.id?'post':null;
+    one:{id:'v3-q',tab:'السؤال الختامي',when:'اختيار',kick:'سؤال ختامي',
+      q:'برأيك، ما الذي ينفرد به تصميم تجربة التعلم في الجانبين الوجداني والاجتماعي، إن وُجد؟',
+      lead:'اختاري إجابة واحدة',say:'أجيبي وأعطينا رأيك'}
+  }});
+L.ACT=L.ACTS[0];
+L.find=act=>{for(const A of L.ACTS)for(const r of Object.keys(A.rounds))if(A.rounds[r].id===act)return {A,r};return null};
+L.opt=(A,k)=>A.opts.find(o=>o.k===k)||null;
+L.plain=h=>String(h).replace(/<[^>]+>/g,'');
+L.votesAr=n=>n===0?'لا أصوات':n===1?'صوت واحد':n===2?'صوتان':n<=10?n+' أصوات':n+' صوتًا';
 
 /* ---------- أيقونات ---------- */
 const IC={
@@ -54,7 +88,11 @@ const IC={
   wifi:'<path d="M12 18l.01 0"/><path d="M9.172 15.172a4 4 0 0 1 5.656 0"/><path d="M6.343 12.343a8 8 0 0 1 11.314 0"/><path d="M3.515 9.515c4.686 -4.687 12.284 -4.687 17 0"/>',
   refresh:'<path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/>',
   link:'<path d="M9 15l6 -6"/><path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"/><path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463"/>',
-  arrowL:'<path d="M5 12l14 0"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/>'
+  arrowL:'<path d="M5 12l14 0"/><path d="M5 12l6 6"/><path d="M5 12l6 -6"/>',
+  up:'<path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/>',
+  down:'<path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/>',
+  equal:'<path d="M5 10h14"/><path d="M5 14h14"/>',
+  bulb:'<path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"/><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"/><path d="M9.7 17l4.6 0"/>'
 };
 L.ic=(n,cls)=>`<svg class="ic${cls?' '+cls:''}" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[n]||''}</svg>`;
 L.esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -75,6 +113,8 @@ const FACES={
  read:F('<path class="fln" d="M75 23.5 L81.5 23 M85.5 23 L92 24"/>',EYES(3,-1,4.6),'<ellipse class="ln fill mth" style="stroke-width:2.2" cx="83" cy="55" rx="3.3" ry="3.6"/>'),
  readc:F('<path class="fln" d="M75 23.5 L81.5 23 M85.5 23 L92 24"/>',EYES(3,-1,4.6),'<path class="fln" d="M77 55.5 Q83 57.5 89 55"/>'),
  puzzled:F('<path class="fln" d="M72 21.5 Q76 18 80.5 19 M84.5 25.5 L91 24"/>',EYES(0,0,4.8),'<path class="fln" d="M68 55 q3.5 -2.6 7 0 q3.5 2.6 7 0 q3 -2 6 -0.6"/>'),
+ ffume:F('<path class="fln" style="stroke-width:3.4" d="M53 22.5 L63.5 27.5 M87 22.5 L76.5 27.5"/>','<ellipse class="dotf" cx="62.5" cy="34" rx="3" ry="6"/><ellipse class="dotf" cx="77.5" cy="34" rx="3" ry="6"/>','<ellipse class="ln fill" style="stroke-width:2.6" cx="70" cy="55" rx="4.6" ry="5.6"/>','<path class="vein" d="M43 12 l1.5 8 M49 11 l-1 8 M41.5 15.5 l10 -1.5 M42 19.5 l10 -1.5"/>'),
+ fume:F('<path class="fln" style="stroke-width:3.6" d="M72 21.5 L80.5 27 M94 22 L86 27.5"/>',EYES(2.5,3,6),'<ellipse class="ln fill" style="stroke-width:2.6" cx="85" cy="57" rx="4.2" ry="5.4"/>','<path class="vein" d="M43 12 l1.5 8 M49 11 l-1 8 M41.5 15.5 l10 -1.5 M42 19.5 l10 -1.5"/>'),
  angry:F('<path class="fln" style="stroke-width:3.6" d="M71 23 L80 28.5 M93 23.5 L85 28.5"/>',EYES(0,1,3.4),'<path class="fln" d="M66 58 Q78 50 92 55"/>','<path class="vein" d="M99 8 l1.5 8 M105 7 l-1 8 M97.5 11.5 l10 -1.5 M98 15.5 l10 -1.5"/>'),
  shock:F('<path class="fln" d="M71 20 Q75 16 80 17 M83 17 Q88 16 92 20"/>',EYES(0,0,6.4),'<ellipse class="ln fill" style="stroke-width:2.8" cx="80" cy="56" rx="6" ry="7.5"/>','<path class="fln" d="M36 30 l-9 -4 M39 15 l-7 -7 M106 33 l9 -2 M104 17 l7 -7"/>'),
  scared:F('<path class="fln" d="M72 23 L80 20 M84 20 L92 23"/>','<ellipse class="ln fill" style="stroke-width:2.4" cx="76.5" cy="33" rx="4.4" ry="6.2"/><ellipse class="ln fill" style="stroke-width:2.4" cx="88" cy="33" rx="4.4" ry="6.2"/><circle class="dotf" cx="78" cy="34" r="2"/><circle class="dotf" cx="89.5" cy="34" r="2"/>','<path class="ln fill" style="stroke-width:2.4" d="M66 52 h24 v7 h-24 Z M72 52 v7 M78 52 v7 M84 52 v7"/>','<path class="fln" style="stroke-width:2.2" d="M33 40 q-5 4 0 8 M28 36 q-7 8 0 16 M107 40 q5 4 0 8"/>'),
@@ -94,7 +134,7 @@ function figMarkup(face){return `<g class="body">
  <g class="xmarks"><path class="fln" style="stroke-width:2.2" d="M36 126 q-5 5 0 10 M104 126 q5 5 0 10"/></g>
  <g class="clip"><g transform="rotate(-12 112 149)"><rect class="ln fill" x="94" y="126" width="36" height="46" rx="3"/><path class="fln" style="stroke-width:2" d="M100 137 h24 M100 145 h19 M100 153 h22 M100 161 h13"/><rect class="ln fill" style="stroke-width:2.2" x="106" y="122" width="12" height="6" rx="2"/></g></g>
  ${limb('aL',70,88,70,136,limb('fL',70,136,70,180,HAND(186)))}
- ${limb('aR',70,88,70,136,limb('fR',70,136,70,180,'<g class="pen2"><path d="M73.5 180 L64 204" stroke="#1F2430" stroke-width="7" stroke-linecap="round"/><path d="M73.5 180 L64.6 202.5" stroke="#FFD84D" stroke-width="3.6" stroke-linecap="round"/><circle cx="63.6" cy="205" r="2.2" fill="#1F2430"/></g>'+HAND(186)+'<line class="ln pen" x1="73" y1="190" x2="66" y2="206"/>'))}
+ ${limb('aR',70,88,70,136,limb('fR',70,136,70,180,'<g class="pen2"><path d="M73.5 180 L64 204" stroke="#1F2430" stroke-width="7" stroke-linecap="round"/><path d="M73.5 180 L64.6 202.5" stroke="#FFD84D" stroke-width="3.6" stroke-linecap="round"/><circle cx="63.6" cy="205" r="2.2" fill="#1F2430"/></g>'+'<g class="phone"><rect class="ln" style="fill:#1F2430" x="60" y="168" width="20" height="36" rx="4.5"/><rect x="63.5" y="172.5" width="13" height="25" rx="2" fill="#8FB9FF"/><path d="M66 178h8M66 183h6M66 188h7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></g>'+HAND(186)+'<line class="ln pen" x1="73" y1="190" x2="66" y2="206"/>'))}
  <g class="p hd" style="transform-origin:70px 70px"><circle class="ln fill" cx="70" cy="42" r="28"/>${HAIR}<g class="face">${FACES[face]||FACES.happy}</g>${QM}<g class="qx"><text x="100" y="18" font-size="26" font-family="Kufi,sans-serif" font-weight="700" fill="#1F2430">؟</text><text x="117" y="6" font-size="24" font-family="Kufi,sans-serif" font-weight="700" fill="#1F2430">!</text><text x="30" y="10" font-size="20" font-family="Kufi,sans-serif" font-weight="700" fill="#1F2430">؟</text></g></g>
  <g class="marks"><path class="fln" style="stroke-width:2.4" d="M28 150 q-7 7 0 14 M20 144 q-9 10 0 22"/></g>
 </g><g class="nprops"><g class="chair"><path class="ln" d="M36 116 q-6 30 6 56 M40 174 h56 M68 174 v42 M46 232 h46"/><circle class="ln fill" style="stroke-width:2.4" cx="48" cy="236" r="4"/><circle class="ln fill" style="stroke-width:2.4" cx="90" cy="236" r="4"/></g></g><g class="pdrop"><line class="ln" x1="186" y1="240" x2="210" y2="235"/></g><g class="speed"><path class="fln" style="stroke-width:2.4" d="M18 110 h-30 M10 140 h-38 M16 170 h-26 M8 205 h-34"/></g><g class="dust"><circle cx="112" cy="286" r="7"/><circle cx="128" cy="280" r="9"/><circle cx="146" cy="288" r="6"/><path class="fln" style="stroke-width:2.2" d="M30 297 h56 M40 301 h40"/></g>${PROPS}`}
@@ -107,9 +147,11 @@ function setFace(svg,face){const g=svg.querySelector('.face');if(g)g.innerHTML=F
 
 L.figSVG=(cls,face,w,h)=>`<svg class="fig ${cls||''}" data-face="${face||'happy'}" viewBox="0 0 140 300" ${w?`width="${w}" height="${h}"`:''} aria-hidden="true">${figMarkup(face||'happy')}</svg>`;
 L.setFace=setFace;
+/* وجه مقابل للشاشة: شعر من الأمام */
+L.front=svg=>{const h=svg&&svg.querySelector('.hair');if(h)h.outerHTML=HAIRF};
 L.setPose=(svg,pose,face)=>{if(!svg)return;svg.setAttribute('class','fig '+(pose||''));if(face&&svg.dataset.face!==face)setFace(svg,face)};
 /* الحضور الصغار: رأس وجسم بخطوط اليد */
-L.mini=(x,y,t,up)=>`<g transform="translate(${x} ${y})"><circle cx="0" cy="-26" r="7.5" fill="#fff" stroke="#1F2430" stroke-width="2.2" transform="rotate(${t} 0 -18)"/><path d="M0 -18 V6 M0 6 L-7 22 M0 6 L7 22 ${up?'M-9 -21 L0 -4 L9 -21':'M-9 -9 L0 -4 L9 -9'}" fill="none" stroke="#1F2430" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+L.mini=(x,y,t,up,s)=>`<g transform="translate(${x} ${y})${s?` scale(${s})`:''}"><circle cx="0" cy="-26" r="7.5" fill="#fff" stroke="#1F2430" stroke-width="2.2" transform="rotate(${t} 0 -18)"/><path d="M0 -18 V6 M0 6 L-7 22 M0 6 L7 22 ${up?'M-9 -21 L0 -4 L9 -21':'M-9 -9 L0 -4 L9 -9'}" fill="none" stroke="#1F2430" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>`;
 /* ارتعاش الخطوط كما في العرض */
 L.boil=function(){
   if(document.getElementById('boil'))return;
@@ -136,6 +178,8 @@ function sk(el){
   else if(kind==='mark')n=rc.rectangle(pad,pad+h*.5,w,h*.42,{...o,stroke:'none',fill:C[col],fillStyle:'hachure',hachureAngle:-12,hachureGap:3,fillWeight:6,roughness:1.6,bowing:.6});
   else if(kind==='pill')n=rc.rectangle(pad,pad,w,h,{...o,fill:C[col]||'#fff',fillStyle:'solid',strokeWidth:2,roughness:1.6});
   else if(kind==='dash')n=rc.rectangle(pad,pad,w,h,{...o,stroke:C.grey,strokeWidth:2,strokeLineDash:[9,9],roughness:1.1});
+  else if(kind==='bub'){n=document.createElementNS(NS,'g');n.appendChild(rc.rectangle(pad,pad,w,h,{...o,fill:'#fff',fillStyle:'solid'}));
+    const ty=pad+Math.min(h*.62,h-12);n.appendChild(rc.polygon([[pad+2,ty-9],[pad-16,ty+6],[pad+2,ty+5]],{...o,fill:'#fff',fillStyle:'solid'}));n.appendChild(rc.line(pad+2,ty-7,pad+2,ty+3,{...o,stroke:'#fff',strokeWidth:4,roughness:.3}))}
   else if(kind==='ink')n=rc.rectangle(pad,pad,w,h,{...o,fill:C.ink,fillStyle:'solid',roughness:1.1});
   else if(kind==='circle')n=rc.circle(pad+w/2,pad+h/2,w,{...o,fill:C[col]||'#fff',fillStyle:col?'hachure':'solid',hachureGap:4.5,fillWeight:2.6,strokeWidth:2.4});
   if(n)svg.appendChild(n);el.insertBefore(svg,el.firstChild);
@@ -157,6 +201,9 @@ function vdg(el){
   const add=n=>svg.appendChild(n);
   const t=(x,y,s,fs)=>{const e=document.createElementNS(NS,'text');e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('text-anchor','middle');e.setAttribute('font-size',fs||13);e.setAttribute('font-weight','600');e.setAttribute('font-family','Plex Ar, sans-serif');e.setAttribute('fill','#1F2430');e.setAttribute('direction','ltr');e.textContent=s;svg.appendChild(e)};
   const head=(x,y,dx,dy)=>{const L=Math.hypot(dx,dy);dx/=L;dy/=L;[26,-26].forEach(a=>{const r=a*Math.PI/180,bx=-dx*Math.cos(r)+dy*Math.sin(r),by=-dx*Math.sin(r)-dy*Math.cos(r);add(rc.line(x,y,x+bx*8,y+by*8,thin))})};
+  const kid=(x,y,s)=>{const g=document.createElementNS(NS,'g');g.setAttribute('transform',`translate(${x} ${y}) scale(${s})`);g.innerHTML='<circle cx="0" cy="-14" r="6.5" fill="#fff" stroke="#1F2430" stroke-width="2.2"/><path d="M0 -7.5V7M0 7l-5.5 10M0 7l5.5 10M-7 -1l7 3l7 -3" fill="none" stroke="#1F2430" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>';svg.appendChild(g)};
+  const heart=(x,y,s)=>add(rc.path(`M${x} ${y+7*s} C${x-11*s} ${y-1*s} ${x-7*s} ${y-11*s} ${x} ${y-5*s} C${x+7*s} ${y-11*s} ${x+11*s} ${y-1*s} ${x} ${y+7*s} Z`,{...o,fill:C.pink,fillStyle:'solid',strokeWidth:2}));
+  const spark=(x,y,r)=>{add(rc.line(x,y-r,x,y+r,thin));add(rc.line(x-r,y,x+r,y,thin));add(rc.line(x-r*.55,y-r*.55,x+r*.55,y+r*.55,{...thin,strokeWidth:1.6}));add(rc.line(x-r*.55,y+r*.55,x+r*.55,y-r*.55,{...thin,strokeWidth:1.6}))};
   const pill=(x,y,s,st)=>{const w=s.length*9+16;add(rc.rectangle(x-w/2,y-10,w,20,{...st,strokeWidth:1.8}));t(x,y+4.5,s,12)};
   switch(el.dataset.dg){
     case'syn': /* two names, one thing */
@@ -176,6 +223,31 @@ function vdg(el){
       add(rc.circle(114,40,68,{...o,fill:'rgba(120,160,255,.5)',fillStyle:'solid'}));
       add(rc.path('M90 15.9A34 34 0 0 1 90 64.1A34 34 0 0 1 90 15.9Z',{...o,stroke:'none',fill:'#F5C400',fillStyle:'hachure',hachureGap:3.6,fillWeight:2,hachureAngle:-35}));
       t(134,44.5,'ID');t(46,44.5,'LXD');break;
+    case'pri': /* a different principle: two centres that are not the same */
+      add(rc.circle(140,42,62,ID));t(140,24,'ID',11.5);kid(140,50,.8);
+      add(rc.circle(40,42,62,LX));t(40,24,'LXD',11.5);kid(40,50,.8);
+      add(rc.circle(40,50,30,{...o,stroke:'#C9A227',strokeWidth:1.6,roughness:1.4,strokeLineDash:[4,4]}));
+      t(90,48,'≠',24);break;
+    case'pra': /* one principle, different routes */
+      add(rc.circle(90,52,36,{...o,fill:C.yel,fillStyle:'hachure',hachureGap:3.6,fillWeight:2}));kid(90,58,.75);
+      pill(150,13,'ID',ID);pill(30,13,'LXD',LX);
+      add(rc.curve([[148,24],[140,44],[110,50]],thin));head(110,50,-1,.15);
+      add(rc.curve([[32,24],[22,52],[50,66],[71,56]],{...thin,strokeLineDash:[5,4]}));head(71,56,1,-.4);break;
+    case'same': /* the same thing, highlighted again */
+      add(rc.circle(104,44,64,ID));t(132,48,'ID',12);
+      add(rc.rectangle(76,34,48,22,{...o,stroke:'none',fill:C.yel,fillStyle:'hachure',hachureGap:3,fillWeight:5,hachureAngle:-12,roughness:1.5}));
+      kid(100,52,.8);pill(28,18,'LXD',LX);
+      add(rc.curve([[32,30],[44,46],[68,48]],thin));head(68,48,1,.05);break;
+    case'fun': /* an experience that is enjoyed and remembered */
+      kid(78,56,1);heart(118,26,1.25);spark(42,28,7);spark(140,54,5.5);break;
+    case'soc': /* people together, alongside the technical and the pedagogical */
+      kid(60,58,.85);kid(90,58,.85);kid(120,58,.85);
+      add(rc.curve([[64,58],[75,62],[86,58]],thin));add(rc.curve([[94,58],[105,62],[116,58]],thin));
+      break;
+    case'both': /* both together */
+      heart(42,40,1.2);t(78,47,'+',22);kid(108,56,.8);kid(136,56,.8);add(rc.curve([[112,56],[122,60],[132,56]],thin));break;
+    case'none': /* already inside instructional design */
+      add(rc.circle(90,42,74,ID));t(90,20,'ID',12);heart(76,46,.9);kid(106,58,.7);break;
     case'ind': /* two separate fields */
       add(rc.circle(146,40,54,ID));t(146,44.5,'ID');
       add(rc.circle(34,40,54,LX));t(34,44.5,'LXD');
@@ -193,17 +265,17 @@ L.qrSVG=function(text,size){
 };
 
 /* ---------- الحساب: التوزيع والتحوّل ---------- */
-L.tally=function(votes){
-  const c={};L.ACT.opts.forEach(o=>c[o.k]=0);let n=0;
+L.tally=function(A,votes){
+  const c={};A.opts.forEach(o=>c[o.k]=0);let n=0;
   Object.values(votes||{}).forEach(v=>{if(v&&c[v.o]!==undefined){c[v.o]++;n++}});
   return {c,n};
 };
-L.flows=function(pre,post){
-  const M={};L.ACT.opts.forEach(a=>{M[a.k]={};L.ACT.opts.forEach(b=>M[a.k][b.k]=0)});
+L.flows=function(A,pre,post){
+  const M={};A.opts.forEach(a=>{M[a.k]={};A.opts.forEach(b=>M[a.k][b.k]=0)});
   let paired=0,changed=0;
   Object.keys(pre||{}).forEach(u=>{const a=pre[u]&&pre[u].o,b=post&&post[u]&&post[u].o;
     if(M[a]&&b&&M[a][b]!==undefined){M[a][b]++;paired++;if(a!==b)changed++}});
-  const moves=[];L.ACT.opts.forEach(a=>L.ACT.opts.forEach(b=>{if(a.k!==b.k&&M[a.k][b.k])moves.push({a:a.k,b:b.k,n:M[a.k][b.k]})}));
+  const moves=[];A.opts.forEach(a=>A.opts.forEach(b=>{if(a.k!==b.k&&M[a.k][b.k])moves.push({a:a.k,b:b.k,n:M[a.k][b.k]})}));
   moves.sort((x,y)=>y.n-x.n);
   return {M,paired,changed,stayed:paired-changed,moves};
 };
@@ -250,12 +322,16 @@ function demo(){
     clear:async()=>{put('votes',{});put('live',{act:'none',open:false,at:Date.now()})},
     /* أصوات تجريبية لمعاينة المقارنة */
     seed(){
-      const R=L.ACT.rounds,ks=L.ACT.opts.map(o=>o.k);
-      const pick=w=>{let r=Math.random()*w.reduce((a,b)=>a+b,0);for(let i=0;i<w.length;i++){r-=w[i];if(r<=0)return ks[i]}return ks[ks.length-1]};
-      const v=get('votes',{}),pre=v[R.pre.id]=v[R.pre.id]||{},post=v[R.post.id]=v[R.post.id]||{};
-      const shift={a:[2,1,3,4,1],b:[0,4,3,3,1],c:[0,1,6,3,0],d:[0,0,1,8,1],e:[0,1,1,4,4]};
-      for(let i=0;i<18;i++){const u='s'+i+Math.random().toString(36).slice(2,6),a=pick([3,5,4,3,2]);
-        if(i<17)pre[u]={o:a,t:Date.now()};if(i>1)post[u]={o:i<17?pick(shift[a]):pick([1,1,2,3,1]),t:Date.now()}}
+      const pick=(ks,w)=>{let r=Math.random()*w.reduce((a,b)=>a+b,0);for(let i=0;i<w.length;i++){r-=w[i];if(r<=0)return ks[i]}return ks[ks.length-1]};
+      const v=get('votes',{});
+      const plans={v1:{pre:[3,5,4,3,2],shift:{a:[2,1,3,4,1],b:[0,4,3,3,1],c:[0,1,6,3,0],d:[0,0,1,8,1],e:[0,1,1,4,4]}},
+                   v2:{pre:[4,7,5],shift:{a:[5,3,1],b:[2,7,1],c:[1,5,3]}}};
+      L.ACTS.forEach(A=>{const ks=A.opts.map(o=>o.k);
+        if(A.single){const one=v[A.rounds.one.id]=v[A.rounds.one.id]||{};for(let i=0;i<9;i++)one['s'+i+Math.random().toString(36).slice(2,6)]={o:pick(ks,[2,3,4,1]),t:Date.now()+i};return}
+        const P=plans[A.id]||{pre:A.opts.map(()=>1),shift:{}};
+        const pre=v[A.rounds.pre.id]=v[A.rounds.pre.id]||{},post=v[A.rounds.post.id]=v[A.rounds.post.id]||{};
+        for(let i=0;i<10;i++){const u='s'+i+Math.random().toString(36).slice(2,6),a=pick(ks,P.pre);
+          if(i<9)pre[u]={o:a,t:Date.now()+i};if(i>0)post[u]={o:i<9?pick(ks,P.shift[a]||P.pre):pick(ks,P.pre),t:Date.now()+i}}});
       put('votes',v);
     }
   };
@@ -268,7 +344,7 @@ async function live(cfg){
   const auth=fb.getAuth(app),db=fb.getDatabase(app);
   await auth.authStateReady();
   const user=auth.currentUser||(await fb.signInAnonymously(auth)).user;
-  let uid=user.uid; const R=p=>fb.ref(db,p==='.info/connected'?p:'lxd/'+p);
+  let uid=user.uid; const R=p=>fb.ref(db,p==='.info/connected'?p:'lxd2/'+p);
   const sub=(p,cb,err)=>fb.onValue(R(p),s=>cb(s.val()),e=>{if(err)err(e);else console.warn(p,e)});
   return {
     mode:'live',get uid(){return uid},

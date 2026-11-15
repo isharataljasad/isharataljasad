@@ -25,6 +25,7 @@ body{margin:0;min-height:100vh;background-color:var(--paper);background-image:ra
 .qhead{display:flex;align-items:flex-end;gap:18px}
 .qhead .tx{flex:1;min-width:0}
 .h{font-family:var(--f-d);font-weight:700;font-size:clamp(23px,5.6vw,33px);line-height:1.6;margin:8px 0 0;text-wrap:balance}
+.h.long{font-size:clamp(21px,5vw,28px)}
 .lead{font-size:clamp(16px,4vw,19px);line-height:1.7;color:var(--ink2);margin:6px 0 0}
 .qfig{width:86px;height:184px;flex:none;margin-bottom:-6px}
 .qfig .fig{width:86px;height:184px}
@@ -69,6 +70,15 @@ body{margin:0;min-height:100vh;background-color:var(--paper);background-image:ra
 .mine{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:6px 16px 8px 8px;font-size:16px}
 .mine .lt{width:32px;height:32px;font-size:15px;background:var(--yel)}
 
+/* السؤال الختامي: الشخصية تتكلم */
+.host{display:flex;align-items:flex-end;gap:22px;margin:4px 0 14px}
+.host .bub{flex:1;min-width:0;padding:14px 20px 16px;margin-bottom:76px}
+.host .bub p{margin:0;font-family:var(--f-d);font-weight:700;font-size:clamp(18px,4.6vw,23px);line-height:1.6}
+.hfig{width:100px;height:214px;flex:none}
+.hfig .fig{width:100px;height:214px}
+.in.one .opt .tx b{font-size:17.5px;line-height:1.6}
+.in.one .mid{margin-top:4px}
+@media (max-width:560px){.hfig{width:78px;height:167px}.hfig .fig{width:78px;height:167px}.host{gap:16px}.host .bub{margin-bottom:56px;padding:12px 16px 14px}.in.one .opt .tx b{font-size:16px}}
 /* وضع التجربة */
 .demo{position:fixed;bottom:12px;right:12px;left:12px;max-width:740px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;background:#fff;border:2px dashed #C9A227;border-radius:14px;box-shadow:0 10px 30px rgba(40,36,24,.12);z-index:5;font-size:14px}
 .demo button,.demo a{height:34px;padding:0 12px;border:1.8px solid var(--ink);border-radius:10px;background:#fff;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
@@ -105,58 +115,84 @@ body{margin:0;min-height:100vh;background-color:var(--paper);background-image:ra
 <script src="app.js"></script>
 <script>
 (function(){
-const L=LXD,R=L.ACT.rounds,O=L.ACT.opts;
+const L=LXD;
 L.boil();
 const view=document.getElementById('view'),conn=document.getElementById('conn'),toastEl=document.getElementById('toast');
-let S=null,live=null,mine={pre:null,post:null},editing=false,sel=null,sending=false,key='',err=null,lastAct=null;
+let S=null,live=null,mine={},editing=false,sel=null,sending=false,key='',err=null,lastAct=null;
 
 function toast(t){toastEl.textContent=t;toastEl.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>toastEl.classList.remove('on'),3200)}
 const ground='<svg class="ground" viewBox="0 0 220 14" aria-hidden="true"><path d="M4 8 C 50 4, 90 11, 130 7 S 196 5, 216 8" fill="none" stroke="#1F2430" stroke-width="2.4" stroke-linecap="round"/></svg>';
-const optRow=(o,cls,spec)=>`<span class="lt">${o.l}</span><span class="tx"><b>${o.name}</b><span>${o.ds}</span></span><span class="dg" data-dg="${o.dg}"></span>`;
+const optRow=o=>`<span class="lt">${o.l}</span><span class="tx"><b>${o.name}</b>${o.ds?`<span>${o.ds}</span>`:''}</span><span class="dg" data-dg="${o.dg}"></span>`;
+/* الشخصية تتكلم: فقاعة كلام بجانبها */
+const host=(pose,face,text)=>`<div class="host"><div class="bub sk" data-sk="bub"><p data-say>${text}</p></div><div class="hfig">${L.figSVG(pose,face)}</div></div>`;
+let hostT=0;
+function say(pose,face,text){const f=view.querySelector('.hfig .fig'),p=view.querySelector('[data-say]');if(f)L.setPose(f,pose,face);if(p)p.textContent=text}
 
-function state(){
+/* ما الذي يُعرض الآن؟ يتحدد بالتصويت الذي فتحته المقدّمة */
+function where(){
+  const f=live&&live.act?L.find(live.act):null;
+  if(f)return f;
+  /* لا تصويت مفتوح: نعرض آخر نشاط شارك فيه، إن وُجد */
+  for(let i=L.ACTS.length-1;i>=0;i--){const A=L.ACTS[i];
+    if(A.single){if(mine[A.rounds.one.id])return {A,r:'one',idle:1};continue}
+    if(mine[A.rounds.post.id])return {A,r:'post',idle:1};if(mine[A.rounds.pre.id])return {A,r:'pre',idle:1}}
+  return null;
+}
+function state(f){
   if(err)return 'error';
   if(!S)return 'connecting';
-  const r=live&&live.act?L.roundOf(live.act):null;
-  if(r==='pre')return live.open?(mine.pre&&!editing?'voted':'ask'):'between';
-  if(r==='post')return live.open?(mine.post&&!editing?'reflect':'ask'):'thanks';
-  return mine.post?'thanks':mine.pre?'between':'welcome';
+  if(!f)return 'welcome';
+  const {A,r}=f,open=!f.idle&&live&&live.open;
+  if(r==='one')return open?(mine[A.rounds.one.id]&&!editing?'done1':'ask'):'closed1';
+  const mp=mine[A.rounds.pre.id],mq=mine[A.rounds.post.id];
+  if(r==='pre')return open?(mp&&!editing?'voted':'ask'):'between';
+  return open?(mq&&!editing?'reflect':'ask'):'thanks';
 }
-function round(){return live&&L.roundOf(live.act)}
 
 function render(){
-  const st=state(),r=round();
-  const k=[st,r,live&&live.open,mine.pre,mine.post,editing].join('|');
+  const f=where(),st=state(f),A=f&&f.A,r=f&&f.r;
+  const k=[st,A&&A.id,r,live&&live.open,JSON.stringify(mine),editing].join('|');
   if(k===key)return;key=k;
   let h='';
   if(st==='connecting')h=`<div class="mid in"><div class="mfig">${L.figSVG('think','think')}</div>${ground}<p class="waitp">جارٍ الاتصال…</p></div>`;
   else if(st==='error')h=`<div class="mid in"><div class="mfig">${L.figSVG('scratch','puzzled')}</div>${ground}<h1 class="h">تعذّر الاتصال</h1><p class="lead">${err}</p><button class="alt" id="retry">${L.ic('refresh')} حدّث الصفحة</button></div>`;
   else if(st==='welcome')h=`<div class="mid in"><div class="mfig">${L.figSVG('wave','happy')}</div>${ground}<h1 class="h">أهلًا بك</h1><p class="lead">سيظهر السؤال هنا حين يُفتح التصويت، فأبقِ هذه الصفحة مفتوحة.</p><p class="waitp">${L.ic('wifi')} بانتظار فتح التصويت</p></div>`;
   else if(st==='ask'){
-    const rd=R[r];
-    h=`<div class="in"><div class="qhead"><div class="tx"><p class="kick"><i></i>${rd.kick}</p><h1 class="h">${rd.q}</h1><p class="lead">${rd.lead}</p></div><div class="qfig">${L.figSVG('ponder','puzzled')}</div></div>
-      <div class="opts" role="radiogroup" aria-label="الخيارات">${O.map(o=>`<button type="button" class="opt sk" data-sk="${sel===o.k?'note:y':'box'}" role="radio" aria-checked="${sel===o.k}" data-k="${o.k}">${optRow(o)}</button>`).join('')}</div>
-      <button type="button" class="send sk" data-sk="ink" id="send" ${sel?'':'disabled'}>${editing?'أرسل إجابتي الجديدة':'أرسل إجابتي'}</button>
-      <p class="fine">لا نطلب اسمك، وتظهر الإجابات مجمّعة فقط.${editing?'':' ويمكنك تغيير إجابتك ما دام التصويت مفتوحًا.'}</p></div>`;
+    const rd=A.rounds[r];
+    h=`<div class="in${A.single?' one':''}">${A.single?host(sel?'think':'talk',sel?'think':'happy',sel?'أرسلي إجابتكِ حين تتأكدين':rd.say):''}<div class="qhead"><div class="tx"><p class="kick"><i></i>${rd.kick}</p><h1 class="h${L.plain(rd.q).length>70?' long':''}">${rd.q}</h1><p class="lead">${rd.lead}</p></div>${A.single?'':`<div class="qfig">${L.figSVG('ponder','puzzled')}</div>`}</div>
+      <div class="opts" role="radiogroup" aria-label="الخيارات">${A.opts.map(o=>`<button type="button" class="opt sk" data-sk="${sel===o.k?'note:y':'box'}" role="radio" aria-checked="${sel===o.k}" data-k="${o.k}">${optRow(o)}</button>`).join('')}</div>
+      <button type="button" class="send sk" data-sk="ink" id="send" ${sel?'':'disabled'}>${A.single?(editing?'أرسلي إجابتكِ الجديدة':'أرسلي إجابتكِ'):(editing?'أرسل إجابتي الجديدة':'أرسل إجابتي')}</button>
+      <p class="fine">${A.single?`لا نطلب اسمكِ، وتظهر الإجابات مجمّعة فقط.${editing?'':' ويمكنكِ تغيير إجابتكِ ما دام السؤال مفتوحًا.'}`:`لا نطلب اسمك، وتظهر الإجابات مجمّعة فقط.${editing?'':' ويمكنك تغيير إجابتك ما دام التصويت مفتوحًا.'}`}</p></div>`;
+  }
+  else if(st==='done1'){
+    const o=L.opt(A,mine[A.rounds.one.id]);
+    h=`<div class="in one">${host('raise','happy','وصل رأيكِ، شكرًا لكِ!')}
+      <div class="mid"><div class="pick sk" data-sk="note:y">${optRow(o)}</div>
+      <button class="alt" id="edit">غيّرتُ رأيي</button></div></div>`;
+  }
+  else if(st==='closed1'){
+    const o=L.opt(A,mine[A.rounds.one.id]);
+    h=`<div class="in one">${host('wave','happy',o?'شكرًا لمشاركتكِ، ونكمل معًا في النقاش':'أُغلق السؤال، ونكمل معًا في النقاش')}
+      ${o?`<div class="mid"><p class="kick" style="margin-top:6px"><i></i>إجابتكِ</p><div class="pick sk" data-sk="note:y">${optRow(o)}</div></div>`:''}</div>`;
   }
   else if(st==='voted'){
-    const o=L.opt(mine.pre);
+    const o=L.opt(A,mine[A.rounds.pre.id]);
     h=`<div class="mid in"><span class="ok sk" data-sk="pill:mint">${L.ic('check')} وصل صوتك</span><h1 class="h">شكرًا لك</h1>
       <div class="pick sk" data-sk="note:y">${optRow(o)}</div>
-      <p class="lead" style="margin-top:16px">لن تُعرض النتائج الآن؛ سنعود إلى السؤال نفسه في نهاية المحطة الأولى، ونقارن.</p>
+      <p class="lead" style="margin-top:16px">لن تُعرض النتائج الآن؛ ${A.back}، ونقارن.</p>
       <button class="alt" id="edit">غيّرت رأيي</button>
       <div class="mfig" style="margin-top:14px">${L.figSVG('raise','happy')}</div>${ground}</div>`;
   }
   else if(st==='between'){
-    const o=L.opt(mine.pre);
-    h=`<div class="mid in"><div class="mfig">${L.figSVG('think','think')}</div>${ground}<p class="kick" style="margin-top:14px"><i></i>أُغلق التصويت الأول</p>
+    const o=L.opt(A,mine[A.rounds.pre.id]);
+    h=`<div class="mid in"><div class="mfig">${L.figSVG('think','think')}</div>${ground}<p class="kick" style="margin-top:14px"><i></i>أُغلق التصويت</p>
       <h1 class="h">${o?'شكرًا لك':'سنعود إلى السؤال'}</h1>
-      <p class="lead">سنعود إلى السؤال نفسه في نهاية المحطة الأولى، فأبقِ هذه الصفحة مفتوحة.</p>
+      <p class="lead">${A.back}، فأبقِ هذه الصفحة مفتوحة.</p>
       ${o?`<span class="mine sk" data-sk="box"><span class="lt">${o.l}</span>صوتك: <b>${o.name}</b></span>`:''}
-      <p class="waitp">${L.ic('wifi')} بانتظار التصويت الثاني</p></div>`;
+      <p class="waitp">${L.ic('wifi')} بانتظار التصويت التالي</p></div>`;
   }
   else if(st==='reflect'||st==='thanks'){
-    const a=L.opt(mine.pre),b=L.opt(mine.post),open=st==='reflect';
+    const a=L.opt(A,mine[A.rounds.pre.id]),b=L.opt(A,mine[A.rounds.post.id]),open=st==='reflect';
     let title,body;
     if(b&&a){title=a.k===b.k?'ثبتّ على رأيك':'تغيّر رأيك';
       body=`<div class="pair"><div class="pc sk" data-sk="dash"><small>في المرة الأولى</small><span class="lt">${a.l}</span><b>${a.name}</b><span class="dg" data-dg="${a.dg}"></span></div>
@@ -164,21 +200,26 @@ function render(){
         <div class="pc sk" data-sk="note:y"><small>الآن</small><span class="lt" style="background:var(--yel)">${b.l}</span><b>${b.name}</b><span class="dg" data-dg="${b.dg}"></span></div></div>
         <div class="talk sk" data-sk="note:s">${L.ic('chat')}<p>${a.k===b.k?'ما الذي ثبّت رأيك؟':'ما الذي غيّر رأيك؟'} شاركنا في النقاش.</p></div>`}
     else if(b){title='شكرًا لك';body=`<div class="pick sk" data-sk="note:y">${optRow(b)}</div><div class="talk sk" data-sk="note:s">${L.ic('chat')}<p>ما الذي جعلك تختار هذه الإجابة؟ شاركنا في النقاش.</p></div>`}
-    else {title='شكرًا لمشاركتك';body=`<p class="lead">أُغلق التصويت الثاني. تابع معنا النقاش.</p>`}
-    h=`<div class="mid in">${b?`<span class="ok sk" data-sk="pill:mint">${L.ic('check')} وصل صوتك</span>`:`<p class="kick"><i></i>أُغلق التصويت الثاني</p>`}<h1 class="h">${title}</h1>${body}
-      ${open?'<button class="alt" id="edit">غيّرت رأيي</button>':''}</div>`;
+    else {title='شكرًا لمشاركتك';body=`<p class="lead">أُغلق التصويت. تابع معنا النقاش.</p>`}
+    h=`<div class="mid in">${b?`<span class="ok sk" data-sk="pill:mint">${L.ic('check')} وصل صوتك</span>`:`<p class="kick"><i></i>أُغلق التصويت</p>`}<h1 class="h">${title}</h1>${body}
+      ${open?'<button class="alt" id="edit">غيّرت رأيي</button>':''}
+      ${!open&&f.idle&&L.ACTS.indexOf(A)<L.ACTS.length-1?`<p class="waitp">${L.ic('wifi')} أبقِ الصفحة مفتوحة، فهناك تصويت قادم</p>`:''}</div>`;
   }
+  clearTimeout(hostT);
   view.innerHTML=h;
   L.draw(view);
   bind();
+  /* بعد وصول الإجابة: يحتفل ثم يلوّح */
+  if(st==='done1')hostT=setTimeout(()=>say('wave','happy','نكمل معًا في النقاش'),2600);
 }
 
 function bind(){
   const opts=[...view.querySelectorAll('.opt')];
   opts.forEach((b,ix)=>{
     b.onclick=()=>{sel=b.dataset.k;opts.forEach(x=>{const on=x===b;x.setAttribute('aria-checked',on);L.restyle(x,on?'note:y':'box')});
-      const s=document.getElementById('send');s.disabled=false;L.sk(s)};
-    b.onkeydown=e=>{const d=e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0;if(d){e.preventDefault();const n=opts[(ix+d+opts.length)%opts.length];n.focus()}};
+      const s=document.getElementById('send');s.disabled=false;L.sk(s);
+      if(view.querySelector('.host')){say('think','think','أرسلي إجابتكِ حين تتأكدين');const f=view.querySelector('.hfig .fig');if(f){f.classList.remove('nod');void f.offsetWidth;f.classList.add('nod')}}};
+    b.onkeydown=e=>{const d=e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0;if(d){e.preventDefault();opts[(ix+d+opts.length)%opts.length].focus()}};
   });
   const send=document.getElementById('send');
   if(send)send.onclick=()=>{
@@ -188,7 +229,8 @@ function bind(){
        toast(live&&live.open&&live.act===act?'تعذّر إرسال صوتك، حاول مرة أخرى':'أُغلق التصويت قبل وصول صوتك')});
   };
   const ed=document.getElementById('edit');
-  if(ed)ed.onclick=()=>{editing=true;const r=round();sel=mine[r]||null;render();window.scrollTo({top:0,behavior:'smooth'})};
+  if(ed)ed.onclick=()=>{editing=true;sel=live&&mine[live.act]||null;key='';render();window.scrollTo({top:0,behavior:'smooth'})};
+  if(send&&view.querySelector('.host'))send.addEventListener('click',()=>{if(sel)say('raise','happy','أُرسلت!')},{capture:true});
   const rt=document.getElementById('retry');if(rt)rt.onclick=()=>location.reload();
 }
 
@@ -202,8 +244,7 @@ L.connect().then(s=>{
     if(v&&!v.open)editing=false;
     live=v;render();
   },e=>{err='تعذّرت قراءة حالة التصويت. أخبر المقدّمة بذلك.';render()});
-  S.onMine(R.pre.id,o=>{mine.pre=o;render()});
-  S.onMine(R.post.id,o=>{mine.post=o;render()});
+  L.ACTS.forEach(A=>Object.keys(A.rounds).forEach(r=>{const id=A.rounds[r].id;S.onMine(id,o=>{mine[id]=o;render()})}));
   S.here();
   render();
 }).catch(e=>{console.error(e);conn.classList.add('off');conn.lastChild.textContent='غير متصل';err='تأكد من اتصالك بالإنترنت، ثم حدّث الصفحة.';render()});
@@ -212,10 +253,11 @@ if(document.fonts)document.fonts.ready.then(()=>L.draw(view));
 /* شريط وضع التجربة: لمعاينة الحالات دون لوحة المقدّمة */
 function demoBar(){
   const d=document.createElement('div');d.className='demo';
-  d.innerHTML=`<span class="demo-tag">${L.ic('flask')} وضع التجربة</span><button data-a="pre">افتح الأول</button><button data-a="post">افتح الثاني</button><button data-a="close">أغلق</button><a href="board.html" target="_blank" rel="noopener">${L.ic('link')} لوحة المقدّمة</a><button class="x" data-a="hide" aria-label="إخفاء">${L.ic('x')}</button>`;
+  const btns=L.ACTS.map(A=>Object.keys(A.rounds).map(r=>`<button data-a="${A.rounds[r].id}">${A.rounds[r].n?'افتح '+A.rounds[r].n:'افتح الختامي'}</button>`).join('')).join('');
+  d.innerHTML=`<span class="demo-tag">${L.ic('flask')} وضع التجربة</span>${btns}<button data-a="close">أغلق</button><a href="board.html" target="_blank" rel="noopener">${L.ic('link')} لوحة المقدّمة</a><button class="x" data-a="hide" aria-label="إخفاء">${L.ic('x')}</button>`;
   document.body.appendChild(d);
   d.onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
-    if(a==='hide')d.remove();else if(a==='close')S.setLive(live?live.act:'none',false);else S.setLive(R[a].id,true)};
+    if(a==='hide')d.remove();else if(a==='close')S.setLive(live?live.act:'none',false);else S.setLive(a,true)};
 }
 })();
 </script>

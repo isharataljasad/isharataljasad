@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>معاينة: صفحة التصويت ولوحة المقدّمة</title>
+<link rel="stylesheet" href="site/common.css">
+<style>
+html,body{margin:0;height:100%}
+body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;flex-direction:column;overflow:hidden}
+header{flex:none;display:flex;align-items:center;gap:14px;padding:12px 22px;border-bottom:1.5px solid #DCD9CF;background:var(--paper)}
+header b{font-family:var(--f-d);font-size:17px}
+header p{margin:0;font-size:14.5px;color:var(--mut);line-height:1.6}
+main{flex:1;min-height:0;display:flex;gap:22px;padding:18px 22px;align-items:flex-start;justify-content:center}
+.col{display:flex;flex-direction:column;gap:8px;align-items:center}
+.col small{font-size:14px;font-weight:600;color:var(--ink2)}
+#boardBox{position:relative;overflow:hidden;border-radius:6px;box-shadow:0 20px 50px rgba(40,36,24,.16)}
+#board{position:absolute;top:0;right:0;width:1280px;height:720px;border:0;transform-origin:top right}
+.phone{width:390px;height:780px;border:10px solid #1F2430;border-radius:38px;overflow:hidden;background:#FAF9F5;box-shadow:0 20px 50px rgba(40,36,24,.2);transform-origin:top center}
+.phone iframe{width:100%;height:100%;border:0;display:block}
+</style>
+</head>
+<body>
+<header><span class="demo-tag">تصويت مباشر</span><div><b>معاينة الصفحتين معًا</b><p>اختاري تبويب التصويت في اللوحة ثم اضغطي «فتح التصويت»، وصوّتي من الجوال وتابعي كيف يصل الصوت. تظهر المقارنتان في لوحة المقدّمة بعد التصويت. الأصوات مشتركة بين الأجهزة عبر الاتصال المباشر.</p></div></header>
+<main>
+  <div class="col"><small>لوحة المقدّمة (تعرضينها بمشاركة الشاشة)</small><div id="boardBox"><iframe id="board" src="site/board.html" title="لوحة المقدّمة"></iframe></div></div>
+  <div class="col"><small>صفحة المشاركين (على جوال الحاضرة)</small><div class="phone" id="phone"><iframe src="site/index.html" title="صفحة المشاركين"></iframe></div></div>
+</main>
+<script>
+(function(){
+const box=document.getElementById('boardBox'),bd=document.getElementById('board'),ph=document.getElementById('phone'),main=document.querySelector('main');
+function fit(){
+  const H=main.clientHeight-64,W=main.clientWidth-44;
+  let ps=Math.min(1,H/780);ph.style.transform='scale('+ps+')';ph.style.marginBottom=(-780*(1-ps))+'px';ph.style.marginLeft=ph.style.marginRight=(-390*(1-ps)/2)+'px';
+  const avail=W-390*ps-22;let s=Math.min(avail/1280,H/720,1);s=Math.max(s,.3);
+  bd.style.transform='scale('+s+')';box.style.width=1280*s+'px';box.style.height=720*s+'px';
+}
+addEventListener('resize',fit);fit();
+})();
+</script>
+</body>
+</html>

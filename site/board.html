@@ -18,11 +18,12 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .brand{font-family:var(--f-d);font-weight:700;font-size:16px;white-space:nowrap;display:flex;align-items:center;gap:10px}
 .brand svg{width:26px;height:30px}
 .tabs{flex:1;display:flex;justify-content:flex-end;gap:6px}
-.tab{position:relative;height:40px;padding:0 12px;border:0;background:none;font-size:15.5px;color:var(--mut);display:flex;align-items:center;gap:8px}
+.tab{position:relative;height:40px;padding:0 10px;border:0;background:none;font-size:15px;color:var(--mut);display:flex;align-items:center;gap:8px}
 .tab:hover{color:var(--ink)}
 .tab.on{color:var(--ink);font-weight:600;background:linear-gradient(transparent 58%,rgba(255,216,77,.85) 58%,rgba(255,216,77,.85) 88%,transparent 88%) no-repeat 50% 0/100% 100%}
 .tab .live{display:none;width:9px;height:9px;border-radius:50%;background:#0E8F74;box-shadow:0 0 0 3px rgba(14,143,116,.18);animation:blink 1.6s ease-in-out infinite}
 .tab.isopen .live{display:inline-block}
+.tsep{width:1.6px;height:22px;background:#D3D0C6;margin:0 6px;align-self:center;border-radius:1px}
 .tab kbd{font:600 11px var(--f-b);color:#A1A4AE;border:1.4px solid #D3D0C6;border-radius:5px;padding:0 4px;line-height:15px}
 @keyframes blink{50%{opacity:.35}}
 
@@ -54,6 +55,7 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .lhead{display:flex;align-items:flex-start;gap:30px}
 .lhead .tx{flex:1;min-width:0}
 .lq{font-family:var(--f-d);font-weight:700;font-size:31px;line-height:1.6;margin:8px 0 0;text-wrap:balance}
+.lq.long{font-size:26px;line-height:1.65}
 .llead{font-size:19px;color:var(--ink2);margin:4px 0 0}
 .qr2{display:flex;align-items:center;gap:16px;padding:12px 16px;width:330px;flex:none;margin-top:4px}
 .qr2 .qb{width:104px;height:104px;flex:none;display:flex;align-items:center;justify-content:center}
@@ -87,6 +89,9 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .empty{position:absolute;left:126px;right:0;top:110px;text-align:center;font-size:19px;color:var(--mut);margin:0}
 .bars{position:absolute;inset:0 0 0 0;display:none;flex-direction:column;justify-content:center;gap:12px;padding-left:126px}
 .arena.shown .bars{display:flex}
+.bars.few{gap:26px}
+.bars.few .br{grid-template-columns:40px 170px minmax(0,1fr) 120px;height:56px}
+.br b{white-space:nowrap}
 .arena.shown .crowd,.arena.shown .more,.arena.shown .empty{display:none}
 .br{display:grid;grid-template-columns:40px 110px minmax(0,1fr) 120px;align-items:center;gap:14px;height:48px}
 .br b{font-family:var(--f-d);font-weight:700;font-size:19px}
@@ -105,6 +110,23 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .seg kbd{font:600 11px var(--f-b);color:#8E9099;border:1.4px solid #C9C6BC;border-radius:5px;padding:0 4px;line-height:15px;background:#fff}
 .panel{position:absolute;top:256px;right:76px;left:76px;height:384px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
 .view.on .panel.on{opacity:1;visibility:visible;transition:opacity .45s var(--ease),visibility 0s}
+.take{display:flex;align-items:center;gap:12px;padding:9px 18px 11px;margin-bottom:12px}
+.take svg.ic{font-size:24px;color:#8A5A00;stroke-width:2}
+.take p{margin:0;font-size:18px;font-weight:600;line-height:1.6}
+.legend .sw{display:inline-block;width:22px;height:13px;border-radius:3px}
+.sw.b4{background:repeating-linear-gradient(-45deg,#C9C6BC 0 2px,transparent 2px 5px);border:1.6px solid #8A90A2}
+.sw.af{background:#2F5BEA;border:1.6px solid #1F2430}
+.brows{display:flex;flex-direction:column;margin-top:4px}
+.brow{display:grid;grid-template-columns:300px minmax(0,1fr) 92px;gap:20px;align-items:center;height:54px}
+.brows.few .brow{height:84px}
+.brows.few .dlab small{white-space:normal;font-size:14.5px;line-height:1.55}
+.bw{position:relative;height:100%}
+.bw svg{position:absolute;inset:0;overflow:visible}
+.bl{position:absolute;transform:translateY(-50%);font-size:15px;font-weight:600;color:var(--ink2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.bl.af{font-size:17px;font-weight:700;color:var(--ink)}
+.bl small{font-size:13px;font-weight:500;color:var(--mut)}
+.chg{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:4px 10px 6px;font-size:15px;font-weight:700;justify-self:start}
+.chg svg.ic{font-size:16px;stroke-width:2.4}
 .legend{display:flex;align-items:center;gap:22px;height:26px;font-size:15px;color:var(--ink2)}
 .legend span{display:inline-flex;align-items:center;gap:8px}
 .legend .note{margin-inline-start:auto;color:var(--mut);font-size:14px}
@@ -115,6 +137,7 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .dlab b{display:inline-block;font-family:var(--f-d);font-weight:700;font-size:20px;line-height:1.35}
 .dlab small{display:block;font-size:14px;line-height:1.5;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dtr{overflow:visible;display:block}
+.drow.tall .dlab small{white-space:normal;font-size:14.5px;line-height:1.55}
 .dtr .hit{cursor:default}
 .dnum{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .dv{display:flex;align-items:center;gap:8px;font-size:19px;font-variant-numeric:tabular-nums}
@@ -130,7 +153,7 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .pempty small{font-size:15px;color:var(--mut)}
 
 .flowp{display:flex;gap:28px;height:100%}
-.fside{width:300px;flex:none;display:flex;flex-direction:column;gap:12px}
+.fside{width:380px;flex:none;display:flex;flex-direction:column;gap:12px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .fs{padding:12px 16px 14px;display:flex;flex-direction:column;align-items:flex-start}
 .fs small{font-size:15px;font-weight:600;color:var(--ink2)}
@@ -139,7 +162,7 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .fmv{padding:12px 16px 14px}
 .fmv small{font-size:15px;font-weight:600;color:var(--ink2)}
 .fmv ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:9px}
-.fmv li{display:flex;align-items:center;gap:7px;font-size:16.5px;font-weight:600}
+.fmv li{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;white-space:nowrap}
 .fmv li .lt{width:28px;height:28px;font-size:13px;border-width:2px}
 .fmv li svg.ic{font-size:15px;color:var(--mut)}
 .fmv li em{margin-inline-start:auto;font-style:normal;font-family:var(--f-b);font-weight:700;font-size:17px;min-width:30px;text-align:center;padding:0 6px;border-radius:8px;background:#E4EEFF}
@@ -189,6 +212,22 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 .toast{position:absolute;top:70px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:12px;padding:10px 18px;font-size:16px;z-index:10;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.on{opacity:1}
 .dtag{position:absolute;top:18px;left:34px;z-index:5}
+/* شاشة المقارنة: أهدأ وأوضح */
+.stage.calm{background-image:radial-gradient(#ECE9E1 1px,transparent 1.3px)}
+.view.cmp .h{font-size:38px;line-height:1.45;margin-top:4px}
+.view.cmp .seg{margin-top:20px}
+.view.cmp .panel{top:222px;height:424px}
+.view.cmp .take{margin-bottom:10px}
+.brows{gap:8px}
+.brow{background:#FFFEFB;border:1.5px solid #E3E0D7;border-radius:12px 10px 13px 9px;padding:0 16px;height:54px}
+.brows.few{gap:14px}
+.brows.few .brow{height:90px}
+.vbub{position:absolute;left:150px;top:28px;padding:10px 20px 12px;font-family:var(--f-d);font-weight:700;font-size:24px;white-space:nowrap;transform-origin:0 70%;animation:vPop 3.6s ease-in-out infinite}
+.vbub.off,.boom.off{display:none}
+@keyframes vPop{0%,44%{transform:rotate(-2deg)}52%{transform:rotate(1deg) scale(1.06)}60%,100%{transform:rotate(-1deg)}}
+.boom{position:absolute;inset:0;width:112px;height:240px;overflow:visible;pointer-events:none}
+.boom path{fill:none;stroke:#1F2430;stroke-width:2.6;stroke-linecap:round;opacity:0;animation:vBoom 3.6s linear infinite}
+@keyframes vBoom{0%,64%{opacity:0}66%,70%{opacity:1}72%,80%{opacity:0}82%,86%{opacity:1}88%,100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01s!important;animation:none!important}}
 </style>
 </head>
@@ -196,27 +235,10 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 <div id="fit"><div class="stage" id="stage">
 <header class="top">
   <span class="brand"><svg viewBox="0 0 26 30" aria-hidden="true"><circle cx="13" cy="9" r="7" fill="#fff" stroke="#1F2430" stroke-width="2.4"/><path d="M13 16v8M13 24l-5 5M13 24l5 5M13 19l-6 3M13 19l6-3" stroke="#1F2430" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>تصميم تجربة التعلم</span>
-  <nav class="tabs" role="tablist" aria-label="عروض اللوحة">
-    <button class="tab" data-v="pre" role="tab"><i class="live"></i>التصويت الأول<kbd>1</kbd></button>
-    <button class="tab" data-v="post" role="tab"><i class="live"></i>التصويت الثاني<kbd>2</kbd></button>
-    <button class="tab" data-v="cmp" role="tab">المقارنة<kbd>3</kbd></button>
-  </nav>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="عروض اللوحة"></nav>
 </header>
 
-<section class="view live" id="v-pre" data-r="pre"></section>
-<section class="view live" id="v-post" data-r="post"></section>
-
-<section class="view cmp" id="v-cmp">
-  <div class="chead">
-    <div><p class="kick"><i></i>المقارنة</p><h2 class="h">هل تغيّرت آراؤنا؟</h2><p class="cstats" id="cstats"></p></div>
-    <div class="seg" role="tablist" aria-label="طريقة المقارنة">
-      <button role="tab" data-s="dist" aria-selected="true">كيف تغيّر التوزيع؟</button>
-      <button role="tab" data-s="flow" aria-selected="false">من أين إلى أين؟</button>
-    </div>
-  </div>
-  <div class="panel on" id="p-dist"></div>
-  <div class="panel" id="p-flow"></div>
-</section>
+<div id="views"></div>
 
 <div class="tip" id="tip" role="tooltip"></div>
 
@@ -226,16 +248,13 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
     <span class="hc" id="hc"></span>
   </div>
   <div class="ctl">
-    <button id="b-pre" title="فتح التصويت الأول للمشاركين"></button>
-    <button id="b-post" title="فتح التصويت الثاني للمشاركين"></button>
+    <button id="b-open" class="go" title="فتح هذا التصويت للمشاركين"></button>
     <button id="b-close" title="إغلاق التصويت المفتوح"></button>
-    <button id="b-qr" class="ico" aria-label="رمز الدخول بحجم كبير" title="رمز الدخول بحجم كبير (Q)"></button>
     <button id="b-menu" class="ico" aria-label="الرابط والأدوات" title="الرابط والأدوات"></button>
   </div>
 </footer>
 
 <div class="ov" id="menu" role="dialog" aria-label="الرابط والأدوات"></div>
-<div class="bigqr" id="bigqr" role="dialog" aria-label="رمز الدخول"></div>
 <div class="login" id="login" role="dialog" aria-label="الدخول إلى لوحة المقدّمة">
   <div class="lcard sk" data-sk="box">
     <h3 id="lt-h"></h3>
@@ -249,11 +268,10 @@ body{background:#EFEDE6;font-family:var(--f-b);color:var(--ink);display:flex;ali
 
 <script src="config.js"></script>
 <script src="lib/rough.js"></script>
-<script src="lib/qrcode.js"></script>
 <script src="app.js"></script>
 <script>
 (function(){
-const L=LXD,R=L.ACT.rounds,O=L.ACT.opts,NS=L.NS;
+const L=LXD,NS=L.NS;
 L.boil();
 const $=id=>document.getElementById(id);
 const stage=$('stage'),fit=$('fit'),tip=$('tip');
@@ -262,33 +280,50 @@ function rs(){sc=Math.min(innerWidth/1280,innerHeight/720)*.985;fit.style.transf
 addEventListener('resize',rs);rs();
 
 const store={get(k,d){try{const v=localStorage.getItem('lxd-board:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('lxd-board:'+k,JSON.stringify(v))}catch(e){}}};
-let S=null,live=null,votes={pre:{},post:{}},here=0,view=store.get('view','pre'),seg=store.get('seg','dist'),shown=store.get('shown',{pre:false,post:false}),drawn={pre:0,post:0};
+
+/* العروض: لكل نشاط تصويتان ومقارنة. المفاتيح 1–4 للتصويتات، و5 و6… للمقارنات */
+const V=[];
+const PAIRS=L.ACTS.filter(A=>!A.single),ONES=L.ACTS.filter(A=>A.single);
+PAIRS.forEach(A=>{['pre','post'].forEach(r=>V.push({id:A.rounds[r].id,A,r,n:A.rounds[r].n,key:String(A.rounds[r].n)}))});
+const maxN=Math.max(...V.map(v=>v.n));
+PAIRS.forEach((A,i)=>V.push({id:A.id+'-cmp',A,r:'cmp',key:String(maxN+i+1)}));
+/* أسئلة الاختيار الواحد (بلا مقارنة) تأتي بعد المقارنات */
+ONES.forEach((A,i)=>V.push({id:A.rounds.one.id,A,r:'one',single:true,key:String(maxN+PAIRS.length+i+1)}));
+const vName=v=>v.single?v.A.rounds.one.tab:`التصويت ${v.n}`;
+const vById=id=>V.find(v=>v.id===id);
+const cmpOf=A=>vById(A.id+'-cmp');
+
+let S=null,live=null,votes={},here=0,view=store.get('view2',V[0].id),seg=store.get('seg','dist'),shown=store.get('shown2',{}),drawn={};
+if(!vById(view))view=V[0].id;
 const partURL=new URL('./',location.href).href;
 const shortURL=partURL.replace(/^https?:\/\//,'').replace(/\/$/,'');
 
-function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3400)}
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3600)}
 
-/* ---------- الأزرار والقوائم ---------- */
-$('b-pre').innerHTML=L.ic('play')+'فتح الأول';
-$('b-post').innerHTML=L.ic('play')+'فتح الثاني';
+/* ---------- الشريط العلوي والأزرار ---------- */
+$('tabs').innerHTML=L.ACTS.map((A,i)=>(i?'<span class="tsep" aria-hidden="true"></span>':'')+(A.single?
+  `<button class="tab" role="tab" data-v="${A.rounds.one.id}"><i class="live"></i>${A.rounds.one.tab}</button>`:
+  ['pre','post'].map(r=>`<button class="tab" role="tab" data-v="${A.rounds[r].id}"><i class="live"></i>التصويت ${A.rounds[r].n}</button>`).join('')+
+  `<button class="tab" role="tab" data-v="${A.id}-cmp">مقارنة ${A.rounds.pre.n} و${A.rounds.post.n}</button>`)).join('');
 $('b-close').innerHTML=L.ic('stop')+'إغلاق';
-$('b-qr').innerHTML=L.ic('qr');
 $('b-menu').innerHTML=L.ic('dots');
 $('hc').innerHTML=L.ic('users')+'<span>في الصفحة الآن: <b id="hn">0</b></span>';
 $('lt-h').innerHTML=L.ic('lock')+'لوحة المقدّمة';
 
 /* ---------- عرض التصويت المباشر ---------- */
-function buildLive(r){
-  const rd=R[r],el=$('v-'+r);
-  el.innerHTML=`<div class="lhead"><div class="tx"><p class="kick"><i></i>${rd.tab} · ${rd.when}</p><h2 class="lq">${rd.q}</h2><p class="llead">${rd.lead}</p></div>
-    <div class="qr2 sk" data-sk="box"><div class="qb">${L.qrSVG(partURL,104)}</div><div><b>${L.ic('phone')} شارك برأيك</b><span>امسح الرمز، أو افتح الرابط المرسل في الدردشة</span><em>${L.esc(shortURL)}</em></div></div></div>
+function buildLive(v){
+  const rd=v.A.rounds[v.r],sec=document.createElement('section');
+  sec.className='view live';sec.id='v-'+v.id;
+  sec.innerHTML=`<div class="lhead"><div class="tx"><p class="kick"><i></i>${rd.tab} · ${rd.when}</p><h2 class="lq${L.plain(rd.q).length>70?' long':''}">${rd.q}</h2><p class="llead">${rd.lead}</p></div>
+
     <div class="lrow">
       <div style="position:relative;width:280px;flex:none">
         <div class="count sk" data-sk="box"><small>عدد الأصوات</small><b class="num" data-n>0</b><span class="stt sk" data-sk="dash" data-st><i></i><span>لم يُفتح بعد</span></span></div>
         <div class="reveal"><button type="button" data-rv></button><small data-rvn></small></div>
       </div>
       <div class="arena" data-ar>
-        <div class="lfig">${L.figSVG('ponder','puzzled')}</div>
+        <div class="lfig">${L.figSVG('voter','ffume')}<svg class="boom" viewBox="0 0 140 300" aria-hidden="true"><path d="M58 292 l-14 -5 M62 284 l-8 -12 M98 292 l14 -5 M94 284 l8 -12"/></svg></div>
+        <div class="vbub sk" data-sk="bub" data-vb>${v.single?'يلا جاوبوا!':'يلا صوّتوا!'}</div>
         <svg class="crowd" data-cr viewBox="0 0 700 260" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"></svg>
         <span class="more" data-more></span>
         <p class="empty" data-empty>ستظهر هنا شخصية صغيرة مع كل صوت يصل.</p>
@@ -296,34 +331,39 @@ function buildLive(r){
         <svg class="agl" viewBox="0 0 818 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 120 6, 260 15, 400 10 S 660 6, 814 11" fill="none" stroke="#1F2430" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       </div>
     </div>`;
-  el.querySelector('[data-rv]').onclick=()=>{shown[r]=!shown[r];store.set('shown',shown);paintLive(r)};
+  $('views').appendChild(sec);
+  sec.querySelector('[data-rv]').onclick=()=>{shown[v.id]=!shown[v.id];store.set('shown2',shown);paintLive(v)};
 }
-function paintLive(r){
-  const el=$('v-'+r),rd=R[r],v=votes[r],t=L.tally(v),isOpen=live&&live.act===rd.id&&live.open;
+function paintLive(v){
+  const el=$('v-'+v.id),A=v.A,t=L.tally(A,votes[v.id]),isOpen=live&&live.act===v.id&&live.open;
   const num=el.querySelector('[data-n]');if(num.textContent!==String(t.n)){num.textContent=t.n;num.classList.remove('bump');void num.offsetWidth;num.classList.add('bump')}
-  const st=el.querySelector('[data-st]');const stTxt=isOpen?'التصويت مفتوح':t.n?'أُغلق التصويت':'لم يُفتح بعد';
+  const st=el.querySelector('[data-st]');const noun=v.single?'السؤال':'التصويت';const stTxt=isOpen?`${noun} مفتوح`:t.n?`أُغلق ${noun}`:'لم يُفتح بعد';
   st.classList.toggle('open',isOpen);const spec=isOpen?'pill:mint':t.n?'box':'dash';if(st.dataset.sk!==spec)L.restyle(st,spec);st.lastChild.textContent=stTxt;
-  const ar=el.querySelector('[data-ar]');ar.classList.toggle('shown',!!shown[r]);
-  el.querySelector('[data-rv]').innerHTML=shown[r]?L.ic('eyeoff')+'إخفاء النتائج':L.ic('eye')+'إظهار النتائج';
-  el.querySelector('[data-rvn]').textContent=shown[r]?'النتائج ظاهرة الآن على الشاشة':'النتائج مخفية حتى المقارنة';
-  const fig=el.querySelector('.lfig .fig');if(fig){const pose=isOpen?(t.n?'think':'ponder'):t.n?'raise':'wave',face=isOpen?(t.n?'think':'puzzled'):'happy';if(!fig.classList.contains(pose))L.setPose(fig,pose,face)}
+  el.querySelector('[data-ar]').classList.toggle('shown',!!shown[v.id]);
+  el.querySelector('[data-rv]').innerHTML=shown[v.id]?L.ic('eyeoff')+'إخفاء النتائج':L.ic('eye')+'إظهار النتائج';
+  el.querySelector('[data-rvn]').textContent=shown[v.id]?'النتائج ظاهرة الآن على الشاشة':v.single?'النتائج مخفية، ويظهر العدد فقط':'النتائج مخفية حتى المقارنة';
+  /* قبل الفتح وأثناءه: الشخصية منفعلة تريد أن تصوّت. بعد الإغلاق: تهدأ وترفع يدها */
+  const done=!isOpen&&t.n>0,fig=el.querySelector('.lfig .fig');
+  if(fig){L.front(fig);const pose=done?'raise':'voter',face=done?'ftalk':'ffume';if(!fig.classList.contains(pose))L.setPose(fig,pose,face)}
+  el.querySelector('[data-vb]').classList.toggle('off',done);el.querySelector('.boom').classList.toggle('off',done);
   el.querySelector('[data-empty]').style.display=t.n?'none':'';
-  crowd(el,r,v);
-  if(shown[r])bars(el,t);
+  crowd(el,v.id,votes[v.id]);
+  if(shown[v.id])bars(el,A,t);
 }
-function crowd(el,r,v){
-  const svg=el.querySelector('[data-cr]'),list=Object.entries(v||{}).filter(([,x])=>x&&x.o).sort((a,b)=>(a[1].t||0)-(b[1].t||0));
-  const cols=20,rows=3,cap=cols*rows,n=Math.min(list.length,cap);
-  if(n<drawn[r]){svg.innerHTML='';drawn[r]=0}
+function crowd(el,id,vv){
+  const svg=el.querySelector('[data-cr]'),list=Object.entries(vv||{}).filter(([,x])=>x&&x.o).sort((a,b)=>(a[1].t||0)-(b[1].t||0));
+  const cols=14,rows=2,cap=cols*rows,n=Math.min(list.length,cap);let d=drawn[id]||0;
+  if(n<d){svg.innerHTML='';d=0}
   let h='';
-  for(let j=drawn[r];j<n;j++){const row=Math.floor(j/cols),col=j%cols,x=684-col*34-(row%2)*17,y=232-row*80,tt=((j*37)%9-4)*1.6,up=(j*7)%5===0;
-    h+=`<g class="mf pop" style="animation-delay:${Math.min(j-drawn[r],8)*.06}s"><g class="bob" style="--md:${(j%7)*.3}s">${L.mini(x,y,tt,up)}</g></g>`}
-  if(h)svg.insertAdjacentHTML('beforeend',h);drawn[r]=n;
+  for(let j=d;j<n;j++){const row=Math.floor(j/cols),col=j%cols,x=670-col*48-(row%2)*24,y=226-row*112,tt=((j*37)%9-4)*1.6,up=(j*7)%5===0;
+    h+=`<g class="mf pop" style="animation-delay:${Math.min(j-d,8)*.06}s"><g class="bob" style="--md:${(j%7)*.3}s">${L.mini(x,y,tt,up,1.45)}</g></g>`}
+  if(h)svg.insertAdjacentHTML('beforeend',h);drawn[id]=n;
   el.querySelector('[data-more]').textContent=list.length>cap?`و${list.length-cap} غيرهم`:'';
 }
-function bars(el,t){
-  const box=el.querySelector('[data-bars]'),mx=Math.max(...O.map(o=>L.pct(t.c[o.k],t.n)),1),dom=Math.min(100,Math.max(50,Math.ceil(mx/10)*10));
-  box.innerHTML=O.map(o=>{const p=L.pct(t.c[o.k],t.n);return `<div class="br"><span class="lt">${o.l}</span><b>${o.name}</b><span class="tk" data-p="${p}" data-dom="${dom}"></span><span class="vl"><b><bdi dir="ltr">${p}%</bdi></b> · ${t.c[o.k]}</span></div>`}).join('');
+function bars(el,A,t){
+  const box=el.querySelector('[data-bars]'),mx=Math.max(...A.opts.map(o=>L.pct(t.c[o.k],t.n)),1),dom=Math.min(100,Math.max(50,Math.ceil(mx/10)*10));
+  box.classList.toggle('few',A.opts.length<=4);
+  box.innerHTML=A.opts.map(o=>{const p=L.pct(t.c[o.k],t.n);return `<div class="br"><span class="lt">${o.l}</span><b>${o.short||o.name}</b><span class="tk" data-p="${p}" data-dom="${dom}"></span><span class="vl"><b><bdi dir="ltr">${p}%</bdi></b> · ${t.c[o.k]}</span></div>`}).join('');
   const rc=L.rough();if(!rc)return;
   box.querySelectorAll('.tk').forEach((tk,ix)=>{const w=tk.offsetWidth||400,p=+tk.dataset.p,dom=+tk.dataset.dom,bw=Math.max(p?6:0,w*p/dom);
     const s=document.createElementNS(NS,'svg');s.setAttribute('width',w+12);s.setAttribute('height',42);
@@ -333,55 +373,75 @@ function bars(el,t){
 }
 
 /* ---------- المقارنة ---------- */
+function buildCmp(v){
+  const A=v.A,sec=document.createElement('section');
+  sec.className='view cmp';sec.id='v-'+v.id;
+  sec.innerHTML=`<div class="chead">
+      <div><p class="kick"><i></i>المقارنة · ${A.rounds.pre.tab} و${A.rounds.post.tab.replace('التصويت ','')}</p><h2 class="h">هل تغيّرت آراؤنا؟</h2><p class="cstats" data-cs></p></div>
+      <div class="seg" role="tablist" aria-label="طريقة المقارنة"><button role="tab" data-s="dist">قبل وبعد</button><button role="tab" data-s="flow">من أين إلى أين؟</button></div>
+    </div>
+    <div class="panel" data-p="dist"></div><div class="panel" data-p="flow"></div>`;
+  $('views').appendChild(sec);
+  sec.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>setSeg(b.dataset.s));
+}
 const TW=588,TP=14;
-function paintCmp(){
-  const a=L.tally(votes.pre),b=L.tally(votes.post),f=L.flows(votes.pre,votes.post);
-  $('cstats').innerHTML=`صوّت قبل: <b>${a.n}</b> · صوّت بعد: <b>${b.n}</b> · صوّت في المرتين: <b>${f.paired}</b>`;
-  dist(a,b);flow(f);
+function paintCmp(v){
+  const A=v.A,sec=$('v-'+v.id),pre=votes[A.rounds.pre.id],post=votes[A.rounds.post.id];
+  const a=L.tally(A,pre),b=L.tally(A,post),f=L.flows(A,pre,post);
+  sec.querySelector('[data-cs]').innerHTML=`${L.esc(A.short)} · صوّت قبل: <b>${a.n}</b> · صوّت بعد: <b>${b.n}</b> · صوّت في المرتين: <b>${f.paired}</b>`;
+  dist(A,sec.querySelector('[data-p="dist"]'),a,b);flow(A,sec.querySelector('[data-p="flow"]'),f);
 }
-function dist(a,b){
-  const P=$('p-dist');
-  if(!a.n||!b.n){P.innerHTML=empty(!a.n&&!b.n?'لا توجد أصوات بعد':!a.n?'لا توجد أصوات في التصويت الأول':'لم يصل بعد أي صوت في التصويت الثاني','تظهر المقارنة حين تصل أصوات في المرتين.');L.draw(P);return}
-  const rows=O.map(o=>{const p1=L.pct(a.c[o.k],a.n),p2=L.pct(b.c[o.k],b.n);return {o,p1,p2,c1:a.c[o.k],c2:b.c[o.k],d:p2-p1}});
-  const mx=Math.max(...rows.map(r=>Math.max(r.p1,r.p2))),dom=Math.min(100,Math.max(50,Math.ceil((mx+4)/10)*10)),step=dom<=50?10:20;
-  const X=v=>TW-TP-(v/dom)*(TW-2*TP);
-  const big=rows.reduce((m,r)=>Math.abs(r.d)>Math.abs(m.d)?r:m,rows[0]);
-  let ax='';for(let v=0;v<=dom;v+=step)ax+=`<text x="${X(v)}" y="16" text-anchor="middle" font-size="13" fill="#6E7280" font-family="Plex Ar,sans-serif" direction="ltr">${v}%</text>`;
-  const grid=()=>{let g='';for(let v=0;v<=dom;v+=step)g+=`<line x1="${X(v)}" y1="4" x2="${X(v)}" y2="58" stroke="${v?'#E6E3DA':'#C9C6BC'}" stroke-width="1"/>`;return g};
-  P.innerHTML=`<div class="legend"><span><svg width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="#fff" stroke="#8A90A2" stroke-width="2.6"/></svg>التصويت الأول (قبل)</span>
-    <span><svg width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#2F5BEA"/></svg>التصويت الثاني (بعد)</span>
-    <span class="note">النسبة من عدد المصوّتين في كل مرة</span></div>
-    <div class="axis"><svg width="${TW}" height="24" aria-hidden="true">${ax}</svg></div>
-    ${rows.map(r=>{const x1=X(r.p1),x2=X(r.p2),dir=Math.sign(x2-x1),hi=r===big&&r.d!==0;
-      const xt=x2-dir*13,arrow=Math.abs(x2-x1)>26?`<path d="M${x1+dir*11} 31 L${xt} 31 M${xt} 31 l${-dir*8} -6 M${xt} 31 l${-dir*8} 6" stroke="#2F5BEA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`:'';
-      return `<div class="drow"><div class="dlab"><span class="lt">${r.o.l}</span><span style="min-width:0"><b class="${hi?'mk':''}" ${hi?'data-sk="mark:yel"':''}>${r.o.name}</b><small>${r.o.ds}</small></span></div>
-      <svg class="dtr" width="${TW}" height="62" viewBox="0 0 ${TW} 62" role="img" aria-label="${r.o.name}: قبل ${r.p1}٪، بعد ${r.p2}٪">${grid()}<line x1="${TP}" y1="31" x2="${TW-TP}" y2="31" stroke="#E6E3DA" stroke-width="1"/>${arrow}
-        <circle class="hit" cx="${x1}" cy="31" r="16" fill="transparent" data-tip="قبل: ${r.p1}% (${r.c1} من ${a.n})"/><circle cx="${x1}" cy="31" r="8" fill="#fff" stroke="#8A90A2" stroke-width="2.6" pointer-events="none"/>
-        <circle class="hit" cx="${x2}" cy="31" r="16" fill="transparent" data-tip="بعد: ${r.p2}% (${r.c2} من ${b.n})"/><circle cx="${x2}" cy="31" r="9" fill="#2F5BEA" stroke="#FAF9F5" stroke-width="2" pointer-events="none"/></svg>
-      <div class="dnum"><div class="dv"><span class="b4"><bdi dir="ltr">${r.p1}%</bdi></span>${L.ic('arrowL')}<b><bdi dir="ltr">${r.p2}%</bdi></b><span class="dd ${r.d>0?'up':r.d<0?'dn':''}">${r.d===0?'دون تغيير':`<bdi dir="ltr">${r.d>0?'+':'−'}${Math.abs(r.d)}</bdi>&nbsp;نقطة`}</span></div><div class="dc">الأصوات: ${r.c1} ${L.ic('arrowL')} ${r.c2}</div></div></div>`}).join('')}`;
-  L.draw(P);tips(P);
+function dist(A,P,a,b){
+  if(!a.n||!b.n){P.innerHTML=empty(!a.n&&!b.n?'لا توجد أصوات بعد':!a.n?`لا توجد أصوات في ${A.rounds.pre.tab}`:`لم يصل بعد أي صوت في ${A.rounds.post.tab}`,'تظهر المقارنة حين تصل أصوات في المرتين.');L.draw(P);return}
+  const rows=A.opts.map(o=>{const p1=L.pct(a.c[o.k],a.n),p2=L.pct(b.c[o.k],b.n);return {o,p1,p2,c1:a.c[o.k],c2:b.c[o.k],d:p2-p1}});
+  const mxd=Math.max(...rows.map(r=>r.d)),mnd=Math.min(...rows.map(r=>r.d));
+  const ups=mxd>0?rows.filter(r=>r.d===mxd).slice(0,2):[],dns=mnd<0?rows.filter(r=>r.d===mnd).slice(0,2):[];
+  const pp=v=>`<bdi dir="ltr">${v}%</bdi>`,ls=g=>g.length>1?g.map(r=>`«${r.o.name}»`).join(' و'):`«${g[0].o.name}» (من ${pp(g[0].p1)} إلى ${pp(g[0].p2)})`;
+  const part=(g,one,two)=>g.length?`${g.length>1?two:one}: ${ls(g)}`:'';
+  const msg=[part(ups,'أكثر خيار كسب مؤيدين','أكثر خيارين كسبا مؤيدين'),part(dns,'أكثر خيار خسر','أكثر خيارين خسرا')].filter(Boolean).join('، و')||'بقيت الآراء كما هي بين المرتين';
+  const few=A.opts.length<=3,mx=Math.max(...rows.map(r=>Math.max(r.p1,r.p2))),dom=Math.min(100,Math.max(50,Math.ceil(mx/10)*10));
+  P.innerHTML=`<div class="take sk" data-sk="note:y">${L.ic('bulb')}<p>${msg}</p></div>
+    <div class="legend"><span><i class="sw b4"></i>${A.rounds.pre.tab} (قبل)</span><span><i class="sw af"></i>${A.rounds.post.tab} (بعد)</span><span class="note">طول الشريط = النسبة من المصوّتين في كل مرة</span></div>
+    <div class="brows${few?' few':''}">${rows.map(r=>{const hi=ups.includes(r);
+      const ch=r.d>0?['note:s','up','زاد']:r.d<0?['box','down','قلّ']:['dash','equal','ثابت'];
+      return `<div class="brow"><div class="dlab"><span class="lt">${r.o.l}</span><span style="min-width:0"><b class="${hi?'mk':''}" ${hi?'data-sk="mark:yel"':''}>${r.o.name}</b><small>${r.o.ds}</small></span></div>
+        <div class="bw" data-p1="${r.p1}" data-p2="${r.p2}" data-c1="${r.c1}" data-c2="${r.c2}" data-dom="${dom}" role="img" aria-label="${r.o.name}: قبل ${r.p1}٪، بعد ${r.p2}٪"></div>
+        <span class="chg sk" data-sk="${ch[0]}">${L.ic(ch[1])}${ch[2]}</span></div>`}).join('')}</div>`;
+  L.draw(P);
+  const rc=L.rough();
+  P.querySelectorAll('.bw').forEach((bw,ix)=>{
+    const W=bw.offsetWidth,H=bw.offsetHeight,th=few?24:17,room=W-190,d=+bw.dataset.dom;
+    const s=document.createElementNS(NS,'svg');s.setAttribute('width',W);s.setAttribute('height',H);s.setAttribute('aria-hidden','true');
+    const g=rc&&rc.svg(s);let lab='';
+    [[+bw.dataset.p1,+bw.dataset.c1,H/2-th-3,{fill:'#C9C6BC',fillStyle:'hachure',hachureGap:3.2,fillWeight:2,stroke:'#8A90A2',strokeWidth:1.6}],
+     [+bw.dataset.p2,+bw.dataset.c2,H/2+3,{fill:'#2F5BEA',fillStyle:'solid',stroke:'#1F2430',strokeWidth:1.8}]].forEach(([p,c,y,st],j)=>{
+      const len=Math.max(4,room*p/d);
+      if(g)s.appendChild(g.rectangle(W-len-2,y,len,th,{...L.base,...st,roughness:1.1,seed:ix*7+j+3}));
+      lab+=`<span class="bl${j?' af':''}" style="right:${len+12}px;top:${y+th/2}px"><bdi dir="ltr">${p}%</bdi> <small>(${L.votesAr(c)})</small></span>`});
+    bw.appendChild(s);bw.insertAdjacentHTML('beforeend',lab);
+  });
 }
-function flow(f){
-  const P=$('p-flow');
+function flow(A,P,f){
+  const O=A.opts;
   if(!f.paired){P.innerHTML=empty('لا يوجد بعد من صوّت في المرتين','يظهر التحوّل لمن صوّت في التصويتين من الجهاز نفسه.');L.draw(P);return}
-  const W=800,H=384,top=40,bot=H-4,gap=14,nw=24,xb=596,xa=180;
+  const W=724,H=384,top=40,bot=H-4,gap=O.length<=3?22:14,nw=24,xb=W-204,xa=180;
   const cB={},cA={};O.forEach(o=>{cB[o.k]=0;cA[o.k]=0});
   O.forEach(a=>O.forEach(b=>{const n=f.M[a.k][b.k];cB[a.k]+=n;cA[b.k]+=n}));
   const u=(bot-top-gap*(O.length-1))/f.paired;
-  const nodes=(cnt)=>{let y=top;const m={};O.forEach(o=>{const h=cnt[o.k]*u;m[o.k]={y,h};y+=h+gap});return m};
+  const nodes=cnt=>{let y=top;const m={};O.forEach(o=>{const h=cnt[o.k]*u;m[o.k]={y,h};y+=h+gap});return m};
   const NB=nodes(cB),NA=nodes(cA);
   const offB={},offA={};O.forEach(o=>{offB[o.k]=NB[o.k].y;offA[o.k]=NA[o.k].y});
   let bands='',bandsTop='';
   O.forEach(a=>O.forEach(b=>{const n=f.M[a.k][b.k];if(!n)return;const t=n*u,y1=offB[a.k],y2=offA[b.k];offB[a.k]+=t;offA[b.k]+=t;
     const x1=xb,x2=xa+nw,xm=(x1+x2)/2,stay=a.k===b.k;
     const d=`M${x1} ${y1} C${xm} ${y1} ${xm} ${y2} ${x2} ${y2} L${x2} ${y2+t} C${xm} ${y2+t} ${xm} ${y1+t} ${x1} ${y1+t} Z`;
-    const tipT=stay?`ثبت على «${L.opt(a.k).name}»: ${n}`:`من «${L.opt(a.k).name}» إلى «${L.opt(b.k).name}»: ${n}`;
+    const tipT=stay?`ثبت على «${L.opt(A,a.k).name}»: ${n}`:`من «${L.opt(A,a.k).name}» إلى «${L.opt(A,b.k).name}»: ${n}`;
     const p=`<path class="band" d="${d}" fill="${stay?'#CFCBC0':'#2F5BEA'}" fill-opacity="${stay?.6:.42}" data-tip="${tipT}"/>`;
     if(stay)bands+=p;else bandsTop+=p}));
   /* أماكن الأسماء بلا تداخل */
-  const place=(N)=>{const ys=O.map(o=>({k:o.k,y:N[o.k].y+N[o.k].h/2}));for(let i=1;i<ys.length;i++)if(ys[i].y-ys[i-1].y<44)ys[i].y=ys[i-1].y+44;
+  const place=N=>{const ys=O.map(o=>({k:o.k,y:N[o.k].y+N[o.k].h/2}));for(let i=1;i<ys.length;i++)if(ys[i].y-ys[i-1].y<44)ys[i].y=ys[i-1].y+44;
     const over=ys[ys.length-1].y-(H-18);if(over>0)for(let i=ys.length-1;i>=0;i--){ys[i].y-=over;if(i&&ys[i].y-ys[i-1].y>=44)break}
-    for(let i=ys.length-2;i>=0;i--)if(ys[i+1].y-ys[i].y<44)ys[i].y=ys[i+1].y-44;const m={};ys.forEach(v=>m[v.k]=v.y);return m};
+    for(let i=ys.length-2;i>=0;i--)if(ys[i+1].y-ys[i].y<44)ys[i].y=ys[i+1].y-44;const m={};ys.forEach(q=>m[q.k]=q.y);return m};
   const LB=place(NB),LA=place(NA);
   const lab=(o,x,y,cnt,side)=>`<g transform="translate(${x} ${y})"><circle cx="${side>0?16:-16}" cy="0" r="15" fill="${cnt?'#fff':'#F2F0EA'}" stroke="#1F2430" stroke-width="2.2"/><text x="${side>0?16:-16}" y="5" text-anchor="middle" font-size="14" font-weight="700" font-family="Kufi,Plex Ar,sans-serif" fill="#1F2430">${o.l}</text>
      <text x="${side>0?40:-40}" y="6" text-anchor="${side>0?'end':'start'}" direction="rtl" font-size="17" font-weight="700" font-family="Kufi,Plex Ar,sans-serif" fill="${cnt?'#1F2430':'#9A9DA8'}">${o.name} <tspan font-family="Plex Ar,sans-serif" font-weight="600" fill="#6E7280">${cnt}</tspan></text></g>`;
@@ -397,14 +457,14 @@ function flow(f){
   P.innerHTML=`<div class="flowp">
     <div class="fside">
       <div class="frow"><div class="fs sk" data-sk="note:s"><small>غيّر رأيه</small><b>${f.changed}</b></div><div class="fs sk" data-sk="box"><small>ثبت على رأيه</small><b>${f.stayed}</b></div></div>
-      <p class="fcap">من أصل ${f.paired} صوّتوا في المرتين${f.paired?` (غيّر <bdi dir="ltr">${L.pct(f.changed,f.paired)}%</bdi> منهم رأيه)`:''}</p>
-      <div class="fmv sk" data-sk="box"><small>أبرز التحوّلات</small>${mv.length?`<ul>${mv.map(m=>{const a=L.opt(m.a),b=L.opt(m.b);return `<li><span class="lt">${a.l}</span>${a.name}${L.ic('arrowL')}<span class="lt" style="background:#E4EEFF">${b.l}</span>${b.name}<em>${m.n}</em></li>`}).join('')}</ul>`:'<p>لم يغيّر أحد رأيه.</p>'}</div>
-      <p class="fnote">الشريط الأزرق لمن غيّر رأيه، والرمادي لمن ثبت عليه. ويُحسب التحوّل لمن صوّت في المرتين من الجهاز نفسه.</p>
+      <p class="fcap">من أصل ${f.paired} صوّتوا في المرتين (غيّر <bdi dir="ltr">${L.pct(f.changed,f.paired)}%</bdi> منهم رأيه)</p>
+      <div class="fmv sk" data-sk="box"><small>أبرز التحوّلات</small>${mv.length?`<ul>${mv.map(m=>{const a=L.opt(A,m.a),b=L.opt(A,m.b);return `<li><span class="lt">${a.l}</span>${a.name}${L.ic('arrowL')}<span class="lt" style="background:#E4EEFF">${b.l}</span>${b.name}<em>${m.n}</em></li>`}).join('')}</ul>`:'<p>لم يغيّر أحد رأيه.</p>'}</div>
+      <p class="fnote">الأزرق لمن غيّر رأيه، والرمادي لمن ثبت عليه. ويُحسب لمن صوّت في المرتين من الجهاز نفسه.</p>
     </div>
-    <div class="sank" id="sank"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="حركة الآراء بين التصويتين: غيّر ${f.changed} من ${f.paired} رأيهم">${hd}${bands}${bandsTop}${nd}${lb}</svg></div>
+    <div class="sank"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="حركة الآراء بين التصويتين: غيّر ${f.changed} من ${f.paired} رأيهم">${hd}${bands}${bandsTop}${nd}${lb}</svg></div>
   </div>`;
   L.draw(P);tips(P);
-  const sk=$('sank');sk.querySelectorAll('.band').forEach(b=>{b.onmouseenter=()=>{sk.classList.add('hov');b.classList.add('hl')};b.onmouseleave=()=>{sk.classList.remove('hov');b.classList.remove('hl')}});
+  const sk=P.querySelector('.sank');sk.querySelectorAll('.band').forEach(b=>{b.onmouseenter=()=>{sk.classList.add('hov');b.classList.add('hl')};b.onmouseleave=()=>{sk.classList.remove('hov');b.classList.remove('hl')}});
 }
 function empty(t,s){return `<div class="pempty">${L.figSVG('scratch','puzzled')}<p>${t}</p><small>${s}</small></div>`}
 function tips(root){
@@ -415,77 +475,79 @@ function tips(root){
 }
 
 /* ---------- التنقل بين العروض ---------- */
-function show(v){
-  view=v;store.set('view',v);
-  document.querySelectorAll('.tab').forEach(t=>{const active=t.dataset.v===v;t.classList.toggle('on',active);t.setAttribute('aria-selected',String(active))});
-  ['pre','post','cmp'].forEach(k=>$('v-'+k).classList.toggle('on',k===v));
-  if(v==='cmp')paintCmp();else paintLive(v);
-  requestAnimationFrame(()=>L.draw($('v-'+v)));
+function paint(v){if(v.r==='cmp')paintCmp(v);else paintLive(v)}
+function show(id){
+  const v=vById(id);if(!v)return;view=id;store.set('view2',id);
+  document.querySelectorAll('.tab').forEach(t=>{const on=t.dataset.v===id;t.classList.toggle('on',on);t.setAttribute('aria-selected',String(on))});
+  V.forEach(x=>$('v-'+x.id).classList.toggle('on',x.id===id));
+  stage.classList.toggle('calm',v.r==='cmp');
+  tip.classList.remove('on');paint(v);paintCtl();
+  requestAnimationFrame(()=>L.draw($('v-'+id)));
 }
-function setSeg(s){seg=s;store.set('seg',s);document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-selected',b.dataset.s===s));$('p-dist').classList.toggle('on',s==='dist');$('p-flow').classList.toggle('on',s==='flow');tip.classList.remove('on')}
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.v));
-document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>setSeg(b.dataset.s));
+function setSeg(s){seg=s;store.set('seg',s);
+  document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-selected',b.dataset.s===s));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.dataset.p===s));tip.classList.remove('on')}
 
 /* ---------- التحكم في التصويت ---------- */
 function paintCtl(){
-  const r=live&&live.open?L.roundOf(live.act):null;
-  ['pre','post'].forEach(k=>{const b=$('b-'+k),on=r===k;b.className=on?'cur':'go';b.disabled=on||!S;b.innerHTML=on?`<i class="dot"></i>${k==='pre'?'الأول':'الثاني'} مفتوح`:L.ic('play')+(k==='pre'?'فتح الأول':'فتح الثاني')});
-  $('b-close').disabled=!r;
-  $('lv').classList.toggle('open',!!r);$('lv').lastChild.textContent=r?`مفتوح الآن: ${R[r].tab}`:'لا يوجد تصويت مفتوح';
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('isopen',t.dataset.v===r));
+  const f=live&&live.open?L.find(live.act):null,cur=vById(view),bo=$('b-open');
+  if(cur.r==='cmp')bo.style.display='none';
+  else{bo.style.display='';const on=!!f&&live.act===cur.id;bo.className=on?'cur':'go';bo.disabled=on||!S;
+    bo.innerHTML=on?`<i class="dot"></i>${vName(cur)} مفتوح`:L.ic('play')+`فتح ${vName(cur)}`}
+  $('b-close').disabled=!f;
+  $('lv').classList.toggle('open',!!f);$('lv').lastChild.textContent=f?`مفتوح الآن: ${vName(vById(live.act))}`:'لا يوجد تصويت مفتوح';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('isopen',!!f&&t.dataset.v===live.act));
 }
-function open(r){if(!S)return;S.setLive(R[r].id,true).then(()=>{show(r);toast(`فُتح ${R[r].tab}، وظهر السؤال على أجهزة المشاركين`)}).catch(()=>toast('تعذّر فتح التصويت'))}
-$('b-pre').onclick=()=>open('pre');
-$('b-post').onclick=()=>open('post');
-$('b-close').onclick=()=>{if(!S||!live)return;const r=L.roundOf(live.act);S.setLive(live.act,false).then(()=>toast(r==='post'?'أُغلق التصويت الثاني. اضغطي 3 لعرض المقارنة':'أُغلق التصويت')).catch(()=>toast('تعذّر الإغلاق'))};
+$('b-open').onclick=()=>{const v=vById(view);if(!S||!v||v.r==='cmp')return;
+  S.setLive(v.id,true).then(()=>{show(v.id);toast(`فُتح ${vName(v)}، وظهر السؤال على أجهزة المشاركين`)}).catch(()=>toast('تعذّر الفتح'))};
+$('b-close').onclick=()=>{if(!S||!live)return;const f=L.find(live.act);
+  S.setLive(live.act,false).then(()=>toast(f&&f.r==='post'?`أُغلق التصويت ${f.A.rounds.post.n}. اضغطي ${cmpOf(f.A).key} لعرض المقارنة`:'أُغلق التصويت')).catch(()=>toast('تعذّر الإغلاق'))};
 
 /* ---------- الرابط والأدوات ---------- */
 function menu(){
   const m=$('menu'),demo=S&&S.mode==='demo';
+  const voteKeys=V.filter(v=>v.r==='pre'||v.r==='post'),cmpKeys=V.filter(v=>v.r==='cmp'),oneKeys=V.filter(v=>v.single);
   m.innerHTML=`<button class="close" data-x aria-label="إغلاق">${L.ic('x')}</button><h4>${L.ic('link')} الرابط والأدوات${demo?' <span class="demo-tag">'+L.ic('flask')+' وضع التجربة</span>':''}</h4>
-   <div class="mgrid"><div class="mqr sk" data-sk="box">${L.qrSVG(partURL,240)}<em>${L.esc(partURL)}</em><button data-copy>${L.ic('copy')} نسخ رابط المشاركين</button></div>
+   <div class="mgrid"><div class="mqr sk" data-sk="box"><b style="font-size:16px">${L.ic('link')} رابط المشاركين</b><em>${L.esc(partURL)}</em><button data-copy>${L.ic('copy')} نسخ رابط المشاركين</button></div>
     <div class="mtools">
-     <div class="grp"><span>أرسلي رابط المشاركين في دردشة المحاضرة، ولا ترسلي رابط هذه اللوحة.</span></div>
+     <div class="grp"><span>أرسلي رابط المشاركين في دردشة المحاضرة، ولا ترسلي رابط هذه اللوحة. الرابط نفسه يخدم التصويتات كلها.</span></div>
      <div class="grp"><span>قبل المحاضرة</span><div class="row">${demo?`<button data-demo>${L.ic('flask')} إضافة أصوات تجريبية</button>`:''}<button class="warn" data-clear>${L.ic('trash')} بدء جلسة جديدة</button>${demo?'':'<button data-logout>تسجيل الخروج</button>'}</div></div>
-     <div class="grp"><span>الاختصارات</span><div class="keys"><kbd>1</kbd><span>التصويت الأول</span><kbd>2</kbd><span>التصويت الثاني</span><kbd>3</kbd><span>المقارنة، والسهمان للتبديل بين طريقتيها</span><kbd>Q</kbd><span>رمز الدخول بحجم كبير</span><kbd>F</kbd><span>ملء الشاشة</span><kbd>Esc</kbd><span>إغلاق هذه النافذة</span></div></div>
+     <div class="grp"><span>الاختصارات</span><div class="keys"><kbd>${voteKeys[0].key}–${voteKeys[voteKeys.length-1].key}</kbd><span>التصويتات</span>${cmpKeys.map(c=>`<kbd>${c.key}</kbd><span>مقارنة التصويتين ${c.A.rounds.pre.n} و${c.A.rounds.post.n}، والسهمان للتبديل بين طريقتيها</span>`).join('')}${oneKeys.map(o=>`<kbd>${o.key}</kbd><span>${vName(o)}</span>`).join('')}<kbd>F</kbd><span>ملء الشاشة</span><kbd>Esc</kbd><span>إغلاق هذه النافذة</span></div></div>
     </div></div>`;
   m.classList.add('on');L.draw(m);
   m.querySelector('[data-x]').onclick=()=>m.classList.remove('on');
   m.querySelector('[data-copy]').onclick=()=>{(navigator.clipboard?navigator.clipboard.writeText(partURL):Promise.reject()).then(()=>toast('نُسخ رابط المشاركين')).catch(()=>toast(partURL))};
-  const sd=m.querySelector('[data-demo]');if(sd)sd.onclick=()=>{S.seed();toast('أُضيفت أصوات تجريبية إلى التصويتين')};
+  const sd=m.querySelector('[data-demo]');if(sd)sd.onclick=()=>{S.seed();toast('أُضيفت أصوات تجريبية إلى التصويتات كلها')};
   const logout=m.querySelector('[data-logout]');if(logout)logout.onclick=()=>S.logout().catch(()=>toast('تعذّر تسجيل الخروج'));
   const cl=m.querySelector('[data-clear]');cl.onclick=()=>{if(!cl.classList.contains('arm')){cl.classList.add('arm');cl.lastChild.textContent=' اضغطي مرة أخرى للتأكيد';setTimeout(()=>{if(cl.isConnected){cl.classList.remove('arm');cl.lastChild.textContent=' بدء جلسة جديدة'}},4000);return}
-    S.clear().then(()=>{drawn={pre:0,post:0};['pre','post'].forEach(r=>$('v-'+r).querySelector('[data-cr]').innerHTML='');toast('حُفظت الجلسة السابقة وبدأت جلسة جديدة');m.classList.remove('on')}).catch(()=>toast('تعذّر المسح'))};
+    S.clear().then(()=>{drawn={};document.querySelectorAll('[data-cr]').forEach(s=>s.innerHTML='');toast('حُفظت الجلسة السابقة وبدأت جلسة جديدة');m.classList.remove('on')}).catch(()=>toast('تعذّر المسح'))};
 }
-function bigQR(){const b=$('bigqr');b.innerHTML=`<button class="close ov-x" data-x aria-label="إغلاق" style="position:absolute;top:26px;left:34px;width:44px;height:44px;border:2px solid var(--ink);border-radius:12px 10px 13px 9px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px">${L.ic('x')}</button>
-  <div class="tx"><h3>شارك برأيك</h3><p>امسح الرمز بكاميرا جوالك،<br>أو افتح الرابط المرسل في الدردشة.</p></div>
-  <div class="card sk" data-sk="box">${L.qrSVG(partURL,330)}<em>${L.esc(shortURL)}</em></div>${L.figSVG('point','happy')}`;
-  b.classList.add('on');L.draw(b);b.querySelector('[data-x]').onclick=()=>b.classList.remove('on')}
-$('b-menu').onclick=menu;$('b-qr').onclick=bigQR;
+$('b-menu').onclick=menu;
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>show(t.dataset.v));
 
 addEventListener('keydown',e=>{
   if(e.target.closest('input,textarea'))return;
-  if(e.key==='Escape'){$('menu').classList.remove('on');$('bigqr').classList.remove('on');return}
-  if(e.key==='1')show('pre');else if(e.key==='2')show('post');else if(e.key==='3')show('cmp');
-  else if((e.key==='ArrowLeft'||e.key==='ArrowRight')&&view==='cmp')setSeg(seg==='dist'?'flow':'dist');
-  else if(e.key==='q'||e.key==='Q'||e.key==='ض'){$('bigqr').classList.contains('on')?$('bigqr').classList.remove('on'):bigQR()}
-  else if(e.key==='f'||e.key==='F'||e.key==='ب'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
+  const k=e.key.replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  if(k==='Escape'){$('menu').classList.remove('on');return}
+  const hit=V.find(v=>v.key===k);if(hit){show(hit.id);return}
+  if((k==='ArrowLeft'||k==='ArrowRight')&&vById(view).r==='cmp')setSeg(seg==='dist'?'flow':'dist');
+  else if(k==='f'||k==='F'||k==='ب'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
 });
 
 /* ---------- البدء ---------- */
-buildLive('pre');buildLive('post');setSeg(seg);show(view);paintCtl();
-let raf=0;function repaint(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{if(view==='cmp')paintCmp();else paintLive(view);paintCtl()})}
+V.forEach(v=>v.r==='cmp'?buildCmp(v):buildLive(v));
+setSeg(seg);show(view);
+let raf=0;function repaint(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{paint(vById(view));paintCtl()})}
 function start(){
   S.onLive(v=>{live=v;repaint()});
-  S.onVotes(R.pre.id,v=>{votes.pre=v;repaint()},e=>toast('تعذّرت قراءة الأصوات'));
-  S.onVotes(R.post.id,v=>{votes.post=v;repaint()});
+  V.filter(v=>v.r!=='cmp').forEach(v=>S.onVotes(v.id,x=>{votes[v.id]=x;repaint()},()=>toast('تعذّرت قراءة الأصوات')));
   S.onHere(n=>{here=n;$('hn').textContent=n});
   S.onConn&&S.onConn(ok=>{if(!ok)toast('انقطع الاتصال… يُعاد تلقائيًا')});
   paintCtl();
 }
 L.connect().then(async s=>{
-  S=s;
-  if(S.mode==='demo'){document.querySelector('.stage').insertAdjacentHTML('beforeend',`<span class="demo-tag dtag" title="البيانات محفوظة في هذا المتصفح فقط">${L.ic('flask')} وضع التجربة</span>`);start();return}
+  S=s;paintCtl();
+  if(S.mode==='demo'){document.querySelector('.where').insertAdjacentHTML('afterbegin',`<span class="demo-tag" title="البيانات محفوظة في هذا المتصفح فقط">${L.ic('flask')} وضع التجربة</span>`);start();return}
   if(await S.admin(false)){start();return}
   const lg=$('login');lg.classList.add('on');L.draw(lg);
   $('lform').onsubmit=async e=>{
